@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Propulsion &mdash; Apollyon Dynamics Wiki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/wiki.css">
+</head>
+<body>
+
+<div class="rail">
+  <div class="rail-inner">
+    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
+    <nav class="rail-links">
+      <a href="../index.html#products">Products</a>
+      <a href="../index.html#subsystems" class="on">Subsystems</a>
+      <a href="../doctrine/new-arsenal.html">Doctrine</a>
+      <a href="../about/history.html">History</a>
+    </nav>
+  </div>
+</div>
+
+<div class="shell">
+<div class="layout">
+
+<aside class="aside">
+  <h4>This page</h4>
+  <ul>
+    <li><a href="#family">The family</a></li>
+    <li><a href="#derate">Governing physics</a></li>
+    <li><a href="#sovereign">Sovereignty</a></li>
+    <li><a href="#industrial">Industrial base</a></li>
+    <li><a href="#usedby">Used by</a></li>
+  </ul>
+  <h4>Subsystems</h4>
+  <ul>
+    <li><a href="near-envelope-control.html">Robust control for fast platforms</a></li>
+    <li><a href="gnss-denied-navigation.html">High-speed GNSS-denied nav</a></li>
+    <li><a href="onboard-compute.html">Edge compute &amp; inference</a></li>
+    <li><a href="flight-software.html">Flight software stack</a></li>
+    <li><a href="seekers.html">Seekers &amp; terminal guidance</a></li>
+    <li><a href="propulsion.html" class="here">Propulsion</a></li>
+    <li><a href="airframe-structures.html">Airframe &amp; structures</a></li>
+    <li><a href="launch-systems.html">Launch &amp; ground systems</a></li>
+  </ul>
+  <h4>Products</h4>
+  <ul>
+    <li><a href="../products/hacm-350.html">HACM-350</a></li>
+    <li><a href="../products/nightshade-adx1.html">Nightshade ADX-1</a></li>
+    <li><a href="../products/usv-strike.html">Kamikaze USV</a></li>
+    <li><a href="../products/ahuti.html">Ahuti Interceptor</a></li>
+    <li><a href="../products/mobile-drone-lab.html">Mobile Drone Lab</a></li>
+    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
+    <li><a href="../products/mdcc.html">MDCC</a></li>
+  </ul>
+  <h4>Doctrine</h4>
+  <ul>
+    <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
+    <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
+    <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
+  </ul>
+</aside>
+
+<main class="main">
+
+<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../index.html#subsystems">Subsystems</a><span>/</span>Propulsion / Turbojet family</div>
+<header class="masthead">
+  <div class="mast-meta">Propulsion · turbojet family and high-altitude derate <span>· core subsystem · HACM-350 · Nightshade</span></div>
+  <h1>Propulsion <span class="sub">and the thrust margin that buys manoeuvre</span></h1>
+  <p class="standfirst">Propulsion sets the ceiling on every other parameter. It decides how fast a vehicle ingresses, how far it goes, and — the part most often missed — how much energy remains for the terminal manoeuvre after a thousand kilometres of cruise at four and a half thousand metres.</p>
+</header>
+
+<section id="family">
+  <div class="sec-tag">01 · The family</div>
+  <h2>Engine register</h2>
+  <div class="tw">
+    <table>
+      <caption>Propulsion across the portfolio</caption>
+      <thead><tr><th>Class</th><th>Product</th><th>Characteristics</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>350 kgf expendable turbojet</td>
+          <td><a href="../products/hacm-350.html">HACM-350</a></td>
+          <td>GTRE 350 kgf single-spool. 3.43 kN static sea level. Uncooled cast Inconel 718 hot section, single-use rated. Fuel-cooled and lubricated with no oil pump. 120-minute life rating. 150–180 kg JP-10 or aviation kerosene</td>
+        </tr>
+        <tr>
+          <td>Small jet-class turbojet</td>
+          <td><a href="../products/nightshade-adx1.html">Nightshade ADX-1</a></td>
+          <td>Turbojet propulsion giving 300 km/h cruise and 380+ km/h terminal on the Mk I, 650+ km/h on the heavier marks. Internal fuel with centre-of-gravity management as it burns off</td>
+        </tr>
+        <tr>
+          <td>Solid rocket booster</td>
+          <td><a href="../products/hacm-350.html">HACM-350</a></td>
+          <td>~100–150 kg booster on a containerised zero-length rail, jettisoned after boost. Takes launch weight to 650–750 kg</td>
+        </tr>
+        <tr>
+          <td>Electric</td>
+          <td><a href="../products/ahuti.html">Ahuti</a>, <a href="../products/research-platforms.html">research platforms</a></td>
+          <td>High-output electric propulsion where the limiting parameter is the true power envelope measured at the cell, not the datasheet figure</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="derate">
+  <div class="sec-tag">02 · The governing physics</div>
+  <h2>High-altitude thrust derate</h2>
+  <p>Turbine mass airflow, and therefore thrust, declines in proportion to ambient air density. At 4,500 m — the operating floor across Eastern Ladakh and North Sikkim — standard atmospheric density is <strong>0.771 kg/m³</strong>, or <strong>62.9%</strong> of the sea-level 1.225 kg/m³. A turbine sized with minimal margin at sea level loses roughly <strong>38–40% of its static thrust</strong> at plateau altitude.</p>
+
+  <div class="tw">
+    <table class="spec">
+      <caption>GTRE 350 kgf thrust budget</caption>
+      <tbody>
+        <tr><td>Static sea-level thrust</td><td>3.43 kN · 350 kgf</td></tr>
+        <tr><td>Net thrust at 4,500 m, M 0.72</td><td>2.0–2.2 kN · 200–220 kgf</td></tr>
+        <tr><td>Level cruise drag at that condition</td><td>~60 kgf</td></tr>
+        <tr><td>Plateau margin</td><td>+150 kgf · +60% to +75%</td></tr>
+        <tr><td>What the margin buys</td><td>4.5 g manoeuvre · 80-degree terminal dive</td></tr>
+        <tr><td>Temperature band</td><td>−30 °C to +55 °C</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note key">
+    <div class="t">The design rule</div>
+    <p>Size the engine for the launch floor, not for sea level. A vehicle correctly engined at sea level is underpowered in the mountains, and the failure is not a slower cruise — it is an inability to climb over ridgelines, to reject mountain turbulence, or to pitch up for a terminal attack after the cruise has consumed its fuel.</p>
+  </div>
+  <p>Thin air at four to five thousand metres also reduces the lift a given wing produces, which shows up as larger wings, worse terminal manoeuvre margin and shorter effective range than a sea-level brochure figure would suggest. A cheap round designed for the plateau is a different vehicle from a cheap round designed for the western desert. That is a design input, not a footnote.</p>
+</section>
+
+<section id="sovereign">
+  <div class="sec-tag">03 · Sovereignty</div>
+  <h2>Why the engine is built here, and not salvaged</h2>
+  <p>The company explicitly rejects designing around decommissioned civilian business-jet or trainer engines. That approach produced the Ukrainian FP-5 Flamingo, and it was the correct decision <em>for Ukraine</em>: thousands of surplus Soviet AI-25 engines sat in storage, cheap and immediately available, and the requirement was to cross a continental landmass during an invasion.</p>
+  <p>It does not transfer. Constraint-first engineering has a signature failure mode — the thing that made the design possible eventually becomes the thing that caps it. By 2026 the same surplus stockpile was the binding constraint on Flamingo output, with production near three missiles a day against a target of seven, an in-house turbojet six months into development, and serial manufacture pushed into 2027.</p>
+  <p>For India specifically, foreign engine salvage provides no sustainable production pipeline, triggers MTCR Category I export exposure through excessive vehicle mass, and diverts investment away from domestic aerospace manufacturing. The whole point of the programme is to establish rate tooling for an Indian engine.</p>
+</section>
+
+<section id="industrial">
+  <div class="sec-tag">04 · Industrial base</div>
+  <h2>Who builds it</h2>
+  <ul>
+    <li><strong>GTRE → Azad Engineering.</strong> GTRE completed design and initial handover of the 350 kgf expendable turbojet to Azad Engineering on 22 July 2026. Azad holds the multi-axis CNC capacity and dynamic rotor-balancing rigs required for blisks and turbine casings.</li>
+    <li><strong>Godrej Aerospace.</strong> Precision modules.</li>
+    <li><strong>Bharat Forge and Aerolloy.</strong> Raw superalloy forgings.</li>
+  </ul>
+  <p>At rate, the engine is approximately <strong>28% of flyaway cost</strong> — ₹45–50 lakh of a ₹1.5–1.8 crore round. An indigenous 40–100 kgf turbojet family sits below it for the lighter classes.</p>
+</section>
+
+<section id="usedby">
+  <div class="sec-tag">05 · Used by</div>
+  <h2>Products carrying this subsystem</h2>
+  <div class="xref">
+    <div class="t">Deployed in</div>
+    <div class="items">
+      <a href="../products/hacm-350.html">HACM-350 — GTRE 350 kgf + solid booster</a>
+      <a href="../products/nightshade-adx1.html">Nightshade ADX-1 — jet-class turbojet</a>
+      <a href="../products/ahuti.html">Ahuti — electric</a>
+    </div>
+  </div>
+  <p>Constrains: <a href="airframe-structures.html">airframe and structures</a>, <a href="launch-systems.html">launch systems</a>.</p>
+</section>
+
+<footer>
+  <div>Propulsion &middot; Subsystem page &middot; Rev 1.0</div>
+  <div><a href="../index.html">Wiki root</a> &middot; <a href="../index.html#matrix">Commonality matrix</a></div>
+</footer>
+
+</main>
+</div>
+</div>
+</body>
+</html>

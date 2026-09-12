@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>High-Speed GNSS-Denied Navigation — Apollyon Dynamics Wiki</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/wiki.css">
+</head>
+<body>
+
+<div class="rail">
+  <div class="rail-inner">
+    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>· Engineering Wiki</em></a>
+    <nav class="rail-links">
+      <a href="../index.html#products">Products</a>
+      <a href="../index.html#subsystems" class="on">Subsystems</a>
+      <a href="../doctrine/new-arsenal.html">Doctrine</a>
+      <a href="../about/history.html">History</a>
+    </nav>
+  </div>
+</div>
+
+<div class="shell">
+<div class="layout">
+
+<aside class="aside">
+  <h4>This page</h4>
+  <ul>
+    <li><a href="#mach-regime">Mach 0.8 regime</a></li>
+    <li><a href="#crpa">Anti-jam CRPA nulling</a></li>
+    <li><a href="#dsmac">AI-DSMAC scene match</a></li>
+    <li><a href="#fusion">Kalman sensor fusion</a></li>
+    <li><a href="#platforms">Platform configs</a></li>
+    <li><a href="#usedby">Used by</a></li>
+  </ul>
+  <h4>Subsystems</h4>
+  <ul>
+    <li><a href="near-envelope-control.html">Robust control for fast platforms</a></li>
+    <li><a href="gnss-denied-navigation.html" class="here">High-speed GNSS-denied nav</a></li>
+    <li><a href="onboard-compute.html">Edge compute &amp; inference</a></li>
+    <li><a href="flight-software.html">Flight software stack</a></li>
+    <li><a href="seekers.html">Seekers &amp; terminal guidance</a></li>
+    <li><a href="propulsion.html">Propulsion</a></li>
+    <li><a href="airframe-structures.html">Airframe &amp; structures</a></li>
+    <li><a href="launch-systems.html">Launch &amp; ground systems</a></li>
+  </ul>
+  <h4>Products</h4>
+  <ul>
+    <li><a href="../products/hacm-350.html">HACM-350</a></li>
+    <li><a href="../products/nightshade-adx1.html">Nightshade ADX-1</a></li>
+    <li><a href="../products/usv-strike.html">Kamikaze USV</a></li>
+    <li><a href="../products/ahuti.html">Ahuti Interceptor</a></li>
+    <li><a href="../products/mobile-drone-lab.html">Mobile Drone Lab</a></li>
+    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
+    <li><a href="../products/mdcc.html">MDCC</a></li>
+  </ul>
+  <h4>Doctrine</h4>
+  <ul>
+    <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
+    <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
+    <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
+  </ul>
+</aside>
+
+<main class="main">
+
+<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../index.html#subsystems">Subsystems</a><span>/</span>Navigation / High-Speed GNSS-Denied Nav</div>
+<header class="masthead">
+  <div class="mast-meta">Navigation · anti-jam CRPA nulling and high-speed AI-DSMAC scene correlation <span>· core subsystem</span></div>
+  <h1>High-Speed <span class="sub">GNSS-Denied Navigation</span></h1>
+  <p class="standfirst">The satellite signal is the most vulnerable link in modern warfare. Engineered for Mach 0.8 cruise missiles traversing 250+ metres every second—a physics regime entirely beyond 200 km/h commercial drones or slow bomb-droppers—this subsystem integrates multi-element anti-jam CRPA nulling with real-time terrain contour referencing and AI-DSMAC scene correlation.</p>
+</header>
+
+<section id="mach-regime">
+  <div class="sec-tag">01 · High-speed regime</div>
+  <h2>Why Mach 0.8 at 250+ m/s breaks commercial drone navigation</h2>
+  <p class="lede">Low-speed commercial drones, ISR quadcopters, and 150–200 km/h bomb-droppers operate in benign kinematic envelopes. At 40–50 m/s, cameras can integrate light over relatively long exposure times, optical flow algorithms have dozens of frames to track gentle feature drift, and latency in a map-matching pipeline is largely inconsequential. In contrast, a standoff strike missile operating at <strong>Mach 0.7–0.8 (240–270 m/s)</strong> fundamentally alters the physics of navigational sensing.</p>
+
+  <div class="tw">
+    <table>
+      <caption>Kinematic constraints: 200 km/h drone versus Mach 0.8 cruise missile</caption>
+      <thead><tr><th>Engineering parameter</th><th>Commercial / ISR drone (55 m/s)</th><th>HACM-350 cruise missile (250+ m/s)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Velocity / traverse rate</strong></td><td>~55 m/s (~200 km/h)</td><td><strong>250–270 m/s (Mach 0.8)</strong></td></tr>
+        <tr><td><strong>Latency sensitivity</strong></td><td>100 ms compute latency = 5.5 m drift</td><td><strong>10 ms compute latency = 2.55 m unguided transit</strong></td></tr>
+        <tr><td><strong>Ground motion blur</strong></td><td>Standard 1/500s exposure acceptable</td><td>Requires &le;1/4000s global shutter + forward motion compensation</td></tr>
+        <tr><td><strong>Terrain swath coverage</strong></td><td>Slow, uniform nadir pass</td><td>High-rate swath: hundreds of square kilometres ingested per hour</td></tr>
+        <tr><td><strong>Altitude variations</strong></td><td>Nominal flat-ground AGL clearance</td><td>Himalayan valley contouring: thousands of metres relief in seconds</td></tr>
+        <tr><td><strong>Inertial drift rate</strong></td><td>Short 20–45 min sorties; &lt;100 m total drift</td><td>800–1,000 km transit (70+ min); tactical IMU drift exceeds 1.5 km</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>At 250+ m/s, there is no margin for delayed frame ingestion or non-deterministic compute pauses. If an optical correlator takes 50 milliseconds to evaluate a terrain match, the missile has flown 12.5 metres past the calculated fix point. Apollyon's navigation architecture is engineered from the silicon up to guarantee sub-millisecond tensor processing and deterministic position updates at high subsonic velocities.</p>
+
+  <figure>
+    <img src="../assets/slides/gnss-denied-1.jpg" alt="Position error growth over time comparing GPS-guided, unassisted inertial, and terrain-referenced fixes">
+    <figcaption><b>Fig. 01</b> Inertial drift compounds quadratically over long transit distances. Periodic terrain correlation fixes continuously collapse the uncertainty corridor back to zero.</figcaption>
+  </figure>
+</section>
+
+<section id="crpa">
+  <div class="sec-tag">02 · Electronic warfare defence</div>
+  <h2>7-Element Controlled Reception Pattern Antenna (CRPA)</h2>
+  <p>Satellite signals originating from 20,000 km orbital altitudes arrive at the earth's surface with extremely faint power levels (approx. -160 dBW). Ground-based electronic countermeasure complexes deploy vehicle-mounted multi-kilowatt broadband jammers designed to blanket battlefields across hundreds of kilometres.</p>
+
+  <div class="tw">
+    <table class="spec">
+      <caption>CRPA anti-jam baseline</caption>
+      <tbody>
+        <tr><td><strong>Array configuration</strong></td><td>7-element conformal circular microstrip array</td></tr>
+        <tr><td><strong>Frequency bands</strong></td><td>NavIC L5 / S-band · GPS L1 / L2 · GLONASS L1 / L2 · Galileo E1 / E5</td></tr>
+        <tr><td><strong>Spatial null depth</strong></td><td><strong>&gt; 45 dB</strong> attenuation toward ground emitters</td></tr>
+        <tr><td><strong>Degrees of freedom</strong></td><td>Up to 6 simultaneous independent jamming emitters suppressed</td></tr>
+        <tr><td><strong>Threat envelope</strong></td><td>Counters 200–250 km radius EW complexes (HQ IDS TPCR 2025 #33)</td></tr>
+        <tr><td><strong>Spoofing rejection</strong></td><td>Spatial coherence verification: isolates single-point false emitters</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Radio-frequency spatial null steering</h3>
+  <p>Rather than relying on passive RF filtering, the digital signal processor performs real-time adaptive beamforming. The processor continuously steers spatial nulls—zones of extreme radio insensitivity exceeding 45 dB—directly toward the elevation and azimuth of hostile ground jammers, while simultaneously preserving synthesized high-gain beams aimed at genuine orbital satellites overhead. Because ground jammers sit at negative or near-zero elevation angles while satellites orbit high in the sky, spatial geometry provides a massive discrimination advantage.</p>
+
+  <div class="note key">
+    <div class="t">Spoofing detection through spatial coherence</div>
+    <p>A sophisticated adversary attempts subtle clock drift injection or false constellation spoofing. A conventional single-element receiver cannot differentiate forged signals from valid satellite broadcasts. The 7-element array measures the angle-of-arrival of each incoming satellite signal: if all constellation channels arrive from the identical bearing (a ground transmitter truck), the system instantly flags spoofing and rejects the radio fix, seamlessly handing navigation over to passive optical scene correlation.</p>
+  </div>
+</section>
+
+<section id="dsmac">
+  <div class="sec-tag">03 · Passive terrain referencing</div>
+  <h2>High-speed AI-DSMAC scene correlation</h2>
+  <p class="lede">When jamming saturation exceeds even CRPA nulling capacity, the weapon transitions to completely silent, unjammable passive vision: matching the real-time visual appearance and elevation of the earth against stored pre-mission topological maps.</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="kicker">Modality 01</div>
+      <h3>TERCOM (Terrain Contour Matching)</h3>
+      <p>A high-rate radar or narrow-beam laser altimeter samples ground clearance directly beneath the airframe. The resulting 1D elevation profile trace is correlated against an onboard digital elevation model (DEM), yielding coarse horizontal coordinates independent of daylight or weather.</p>
+      <div class="foot"><span>Active / silent options</span><span>Elevation profile</span></div>
+    </div>
+    <div class="card">
+      <div class="kicker">Modality 02</div>
+      <h3>AI-DSMAC (Scene Area Correlator)</h3>
+      <p>A forward-canted high-speed CMOS camera captures 2D imagery of terrain ahead of the weapon. A neural embedding network extracts structural topological features, matching them against satellite reference maps in under 15 milliseconds.</p>
+      <div class="foot"><span>Passive optical</span><span>Sub-metre precision</span></div>
+    </div>
+  </div>
+
+  <h3>Invariant topological embeddings vs legacy brightness correlation</h3>
+  <p>First-generation DSMAC systems relied on raw pixel brightness correlation. They failed consistently when seasons changed, when snow dusted mountain passes, or when the sun cast long afternoon shadows across ridgelines. Apollyon's AI-DSMAC operates entirely in feature space:</p>
+  <ul>
+    <li><strong>Topological Priors:</strong> Neural networks are trained on multi-temporal satellite imagery, learning to detect permanent geographic structure—ravines, cliff lines, ridgelines, road junctions, riverbeds, and permanent civil infrastructure—while ignoring transient surface noise (snow cover, agricultural variations, cloud shadows).</li>
+    <li><strong>Multi-Sensor Cross-Matching:</strong> Daylight satellite imagery stored prior to launch matches reliably against live night-time thermal (LWIR) or forward-looking visible camera feeds during flight.</li>
+    <li><strong>Lightweight Storage:</strong> Entire 1,000 km flight corridors across the Himalayas occupy less than 150 MB of encrypted onboard solid-state memory, allowing rapid field loading via the <a href="../products/mobile-drone-lab.html">Mobile Drone Lab</a> in under 90 seconds.</li>
+  </ul>
+
+  <figure>
+    <img src="../assets/slides/gnss-denied-4.jpg" alt="Learned topological description versus legacy brightness correlation">
+    <figcaption><b>Fig. 02</b> Legacy brightness correlation fails under seasonal changes or shadows. Apollyon's learned topological descriptors remain stable across snow, darkness, and oblique viewing angles.</figcaption>
+  </figure>
+</section>
+
+<section id="fusion">
+  <div class="sec-tag">04 · Sensor fusion &amp; corridor</div>
+  <h2>Real-time Kalman filtering &amp; information-driven routing</h2>
+  <p>The weapon runs a high-rate tightly-coupled Unscented Kalman Filter (UKF) integrating high-frequency tactical IMU accelerometer/gyro rates (~1,000 Hz), barometric altimetry, CRPA satellite fixes, and intermittent optical scene correlations.</p>
+
+  <div class="tw">
+    <table>
+      <caption>Sensor characteristics in the navigation stack</caption>
+      <thead><tr><th>Sensor</th><th>Measurement</th><th>Update rate</th><th>Operational role</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Tactical IMU</strong></td><td>Body rates &amp; accelerations</td><td>1,000 Hz</td><td>High-rate short-term propagation; smooths between optical fixes.</td></tr>
+        <tr><td><strong>CRPA Array</strong></td><td>NavIC / GPS pseudorange</td><td>10–20 Hz</td><td>Primary absolute reference until electronic warfare saturation.</td></tr>
+        <tr><td><strong>Altimeter (Laser / Radar)</strong></td><td>Terrain clearance (AGL)</td><td>50 Hz</td><td>Altitude verification and coarse TERCOM elevation tracing.</td></tr>
+        <tr><td><strong>AI-DSMAC Camera</strong></td><td>Topological ground imagery</td><td>10–30 Hz</td><td>Absolute horizontal position and yaw heading reset; zero drift.</td></tr>
+        <tr><td><strong>Air Data Computer</strong></td><td>Indicated &amp; true airspeed</td><td>50 Hz</td><td>Wind vector estimation and aerodynamic dynamic pressure validation.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Information-density flight routing</h3>
+  <p>Because optical fixes occur against geographic landmarks, route planning is an active navigation discipline. Over featureless expanses—such as large lakes, wide deserts, or smooth plains—inertial drift grows steadily. Mission planners lay waypoints intentionally along mountain ridgelines, highway corridors, or distinct terrain contours. Every time the weapon traverses a prominent landmark, the Kalman error corridor pinches down to under 1.5 metres, guaranteeing surgical accuracy at terminal impact.</p>
+
+  <figure>
+    <img src="../assets/slides/gnss-denied-5.jpg" alt="Dynamic error corridor along a planned flight route">
+    <figcaption><b>Fig. 03</b> Navigational uncertainty corridor: error expands during featureless stretches and collapses to near-zero whenever the weapon matches a verified geographic checkpoint.</figcaption>
+  </figure>
+</section>
+
+<section id="platforms">
+  <div class="sec-tag">05 · Platform configurations</div>
+  <h2>Cross-platform deployment specifications</h2>
+  <div class="tw">
+    <table>
+      <caption>Subsystem implementation by platform</caption>
+      <thead><tr><th>Platform</th><th>Speed &amp; flight regime</th><th>Navigation configuration</th><th>Terminal CEP</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><a href="../products/hacm-350.html"><strong>HACM-350</strong></a></td>
+          <td>Mach 0.7–0.8 (250+ m/s) · 800–1,000 km</td>
+          <td>7-element CRPA (NavIC/GPS) + AI-DSMAC against 30 m DEM; under 150 MB route storage; terminal LWIR silhouette match.</td>
+          <td><strong>&lt; 1.5 m</strong></td>
+        </tr>
+        <tr>
+          <td><a href="../products/nightshade-adx1.html"><strong>Nightshade ADX-1</strong></a></td>
+          <td>650+ km/h · 300 km (Mk II)</td>
+          <td>Multi-constellation anti-jam receiver + continuous optical odometry; autonomous terminal EO/IR homing independent of GNSS.</td>
+          <td><strong>&lt; 1.0 m</strong></td>
+        </tr>
+        <tr>
+          <td><a href="../products/usv-strike.html"><strong>Kamikaze USV</strong></a></td>
+          <td>48+ knots · 800+ km sea transit</td>
+          <td>CRPA satellite receiver + coastline topological DSMAC matching + hydro-inertial dead reckoning.</td>
+          <td><strong>&lt; 2.0 m</strong></td>
+        </tr>
+        <tr>
+          <td><a href="../products/ahuti.html"><strong>Ahuti Interceptor</strong></a></td>
+          <td>337+ km/h · Short flyout</td>
+          <td>High-G tactical IMU coasting with ground-radar uplink correction; autonomous visual seeker terminal lock.</td>
+          <td>Direct collision</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="usedby">
+  <div class="sec-tag">06 · Used by</div>
+  <h2>Platforms carrying this subsystem</h2>
+  <div class="xref">
+    <div class="t">Integrated into</div>
+    <div class="items">
+      <a href="../products/hacm-350.html">HACM-350 — 7-element CRPA, AI-DSMAC, Mach 0.8 transit</a>
+      <a href="../products/nightshade-adx1.html">Nightshade ADX-1 — anti-jam multi-GNSS and optical scene matching</a>
+      <a href="../products/usv-strike.html">Kamikaze USV — coastline DSMAC and marine dead reckoning</a>
+      <a href="../products/ahuti.html">Ahuti Interceptor — tactical IMU flyout and terminal lock</a>
+      <a href="../products/mobile-drone-lab.html">Mobile Drone Lab — pre-flight DEM packet compilation</a>
+    </div>
+  </div>
+  <p>Supported by: <a href="onboard-compute.html">Edge Compute &amp; Custom Inference Engine</a>, <a href="seekers.html">Seekers &amp; Terminal Guidance</a>.</p>
+</section>
+
+<footer>
+  <div>High-Speed GNSS-Denied Navigation · Subsystem · Rev 2.0</div>
+  <div><a href="../index.html">Wiki root</a> · <a href="../index.html#matrix">Commonality matrix</a> · apollyondynamics.com</div>
+</footer>
+
+</main>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kamikaze USV · Standoff Maritime Strike — Apollyon Dynamics Wiki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/wiki.css">
+</head>
+<body>
+
+<div class="rail">
+  <div class="rail-inner">
+    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>· Engineering Wiki</em></a>
+    <nav class="rail-links">
+      <a href="../index.html#products" class="on">Products</a>
+      <a href="../index.html#subsystems">Subsystems</a>
+      <a href="../doctrine/new-arsenal.html">Doctrine</a>
+      <a href="../about/history.html">History</a>
+    </nav>
+  </div>
+</div>
+
+<div class="shell">
+<div class="layout">
+
+<aside class="aside">
+  <h4>This page</h4>
+  <ul>
+    <li><a href="#specs">Specifications</a></li>
+    <li><a href="#blueprint">CAD schematic</a></li>
+    <li><a href="#usecases">Operational usecases</a></li>
+    <li><a href="#specifics">Engineering specifics</a></li>
+    <li><a href="#marine-nav">Non-satellite nav</a></li>
+    <li><a href="#hydrodynamics">Sea-state control</a></li>
+    <li><a href="#warhead">Shaped-charge warhead</a></li>
+    <li><a href="#subsystems">Shared subsystems</a></li>
+  </ul>
+  <h4>Products</h4>
+  <ul>
+    <li><a href="hacm-350.html">HACM-350</a></li>
+    <li><a href="nightshade-adx1.html">Nightshade ADX-1</a></li>
+    <li><a href="usv-strike.html" class="here">Kamikaze USV</a></li>
+    <li><a href="ahuti.html">Ahuti Interceptor</a></li>
+    <li><a href="mobile-drone-lab.html">Mobile Drone Lab</a></li>
+    <li><a href="cortex.html">Apollyon Cortex</a></li>
+    <li><a href="mdcc.html">MDCC</a></li>
+  </ul>
+  <h4>Subsystems</h4>
+  <ul>
+    <li><a href="../subsystems/near-envelope-control.html">Robust control for fast platforms</a></li>
+    <li><a href="../subsystems/gnss-denied-navigation.html">High-speed GNSS-denied nav</a></li>
+    <li><a href="../subsystems/onboard-compute.html">Edge compute &amp; inference</a></li>
+    <li><a href="../subsystems/flight-software.html">Flight software stack</a></li>
+    <li><a href="../subsystems/seekers.html">Seekers &amp; terminal guidance</a></li>
+    <li><a href="../subsystems/propulsion.html">Propulsion</a></li>
+    <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
+    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground systems</a></li>
+  </ul>
+  <h4>Doctrine</h4>
+  <ul>
+    <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
+    <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
+    <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
+  </ul>
+</aside>
+
+<main class="main">
+
+<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../index.html#products">Products</a><span>/</span>Class A · Standoff strike<span>/</span>Kamikaze USV</div>
+
+<header class="masthead">
+  <div class="mast-meta">Maritime standoff strike · Unmanned Surface Vehicle <span>· Class A · development programme · rev 1.2</span></div>
+  <h1>Kamikaze USV <span class="sub">Maritime Strike Vessel</span></h1>
+  <p class="standfirst">An attritable, low-observable unmanned surface vessel designed for littoral standoff strike, maritime swarm saturation, and port/shipping denial. Delivers a heavy penetrating shaped-charge warhead over 800+ km with autonomous non-satellite sea-surface navigation and terminal optical homing.</p>
+</header>
+
+<section id="specs">
+  <div class="sec-tag">01 · Specification</div>
+  <h2>Primary engineering baseline</h2>
+
+  <div class="spec-card">
+    <div class="spec-topbar"><span>Kamikaze USV · at a glance</span><span class="right">Class A Standoff Strike · Littoral Interdiction · Sovereign Design</span></div>
+    <div class="spec-grid">
+      <div class="spec-col">
+        <div class="spec-col-title">Hull &amp; vessel</div>
+        <div class="row"><div class="lbl">Displacement (full load)</div><div class="val">1,150 kg</div></div>
+        <div class="row"><div class="lbl">Dry weight</div><div class="val">580 kg</div></div>
+        <div class="row"><div class="lbl">Length overall (LOA)</div><div class="val">5.80 m</div></div>
+        <div class="row"><div class="lbl">Beam overall (BOA)</div><div class="val">1.40 m</div></div>
+        <div class="row"><div class="lbl">Draft (static / planning)</div><div class="val">0.38 m / 0.18 m</div></div>
+        <div class="row"><div class="lbl">Radar cross section (X-band)</div><div class="val accent">&lt; 0.05 m² (stealth faceted)</div></div>
+      </div>
+      <div class="spec-col">
+        <div class="spec-col-title">Propulsion &amp; kinematics</div>
+        <div class="row"><div class="lbl">Engine type</div><div class="val">High-output marine turbo-diesel</div></div>
+        <div class="row"><div class="lbl">Power output</div><div class="val">260 hp (194 kW)</div></div>
+        <div class="row"><div class="lbl">Drive mechanism</div><div class="val">Twin steerable waterjets</div></div>
+        <div class="row"><div class="lbl">Sprint speed (calm sea)</div><div class="val accent">48+ knots (88+ km/h)</div></div>
+        <div class="row"><div class="lbl">Economical cruise speed</div><div class="val">28–32 knots</div></div>
+        <div class="row"><div class="lbl">Operational range</div><div class="val accent">800+ km (430+ nm)</div></div>
+      </div>
+      <div class="spec-col">
+        <div class="spec-col-title">Lethality &amp; payload</div>
+        <div class="row"><div class="lbl">Primary warhead</div><div class="val accent">250–300 kg HE shaped charge</div></div>
+        <div class="row"><div class="lbl">Penetration capability</div><div class="val">&gt; 80 mm naval steel RHA</div></div>
+        <div class="row"><div class="lbl">Fuse mechanism</div><div class="val">Tri-mode: impact, delayed, optical</div></div>
+        <div class="row"><div class="lbl">Target classes</div><div class="val">Corvettes, frigates, LSTs, piers</div></div>
+        <div class="row"><div class="lbl">Sea state rating</div><div class="val">Operates SS-4 · Survives SS-5</div></div>
+        <div class="row"><div class="lbl">Swarm coordination</div><div class="val">Apollyon Mesh P2P link</div></div>
+      </div>
+      <div class="spec-col">
+        <div class="spec-col-title">Guidance &amp; autonomy</div>
+        <div class="row"><div class="lbl">Anti-jam GNSS</div><div class="val">NavIC L5/S + GPS (CRPA nulling)</div></div>
+        <div class="row"><div class="lbl">GNSS-denied navigation</div><div class="val">Coastline DSMAC + visual INS</div></div>
+        <div class="row"><div class="lbl">Terminal seeker</div><div class="val">Stabilised dual EO/MWIR sensor</div></div>
+        <div class="row"><div class="lbl">Terminal guidance</div><div class="val">Waterline tracking AI correlator</div></div>
+        <div class="row"><div class="lbl">Unit production target</div><div class="val">₹45–65 Lakh per unit</div></div>
+        <div class="row"><div class="lbl">Build methodology</div><div class="val">Infused carbon-aramid composite</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <div class="t">Doctrine alignment</div>
+    <p>Naval surface combatants cost hundreds to thousands of crores and take half a decade to construct. The Kamikaze USV costs under a crore, can be built at rate by civilian boatbuilders using out-of-autoclave resin infusion, and forces hostile naval forces to expend multi-crore surface-to-air or anti-ship missiles to defend their hulls. At 800+ km range, it projects offensive sovereign power deep into littoral choke points.</p>
+  </div>
+</section>
+
+<section id="blueprint">
+  <div class="sec-tag">02 · Schematic</div>
+  <h2>Internal architecture &amp; CAD layout</h2>
+
+  <div class="blueprint-plate">
+    <div class="blueprint-head">
+      <div class="title">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        FIG. 01 &mdash; Kamikaze USV Planform &amp; Internal Equipment Packaging
+      </div>
+      <span class="scale">Scale: 1:30 · Length: 5,800 mm · Dimensions in Millimetres</span>
+    </div>
+    <div class="blueprint-body">
+      <svg viewBox="0 0 960 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CAD schematic of Kamikaze USV">
+        <defs>
+          <pattern id="cad_grid_usv" width="20" height="20" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="20" y2="0" stroke="rgba(56,189,248,0.06)" stroke-width="1"/>
+            <line x1="0" y1="0" x2="0" y2="20" stroke="rgba(56,189,248,0.06)" stroke-width="1"/>
+          </pattern>
+          <pattern id="hatch_wh_usv" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#f43f5e" stroke-width="1" opacity="0.4"/>
+          </pattern>
+          <pattern id="hatch_fuel_usv" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#38bdf8" stroke-width="1" opacity="0.3"/>
+          </pattern>
+        </defs>
+
+        <rect width="960" height="300" fill="#0d1117"/>
+        <rect width="960" height="300" fill="url(#cad_grid_usv)"/>
+
+        <!-- Centerline Datum -->
+        <line x1="40" y1="150" x2="920" y2="150" stroke="#38bdf8" stroke-width="0.8" stroke-dasharray="12,4,2,4" opacity="0.6"/>
+        <text x="45" y="142" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="8" opacity="0.7">DATUM £ / KEEL CENTERLINE</text>
+
+        <!-- Hull Contour (Stealth Faceted Wave-Piercing Monohull) -->
+        <path d="M 80 150 L 140 100 L 320 85 L 680 90 L 880 105 L 880 195 L 680 210 L 320 215 L 140 200 Z" fill="none" stroke="#f8fafc" stroke-width="1.8"/>
+
+        <!-- Internal Chine & Deck Facets -->
+        <path d="M 80 150 L 160 120 L 340 105 L 680 108 L 870 120" fill="none" stroke="#94a3b8" stroke-width="0.9" stroke-dasharray="3,2"/>
+        <path d="M 80 150 L 160 180 L 340 195 L 680 192 L 870 180" fill="none" stroke="#94a3b8" stroke-width="0.9" stroke-dasharray="3,2"/>
+
+        <!-- Transom Flat -->
+        <line x1="880" y1="105" x2="880" y2="195" stroke="#38bdf8" stroke-width="2"/>
+
+        <!-- Bulkhead Lines (Watertight Subdivisions) -->
+        <line x1="130" y1="102" x2="130" y2="198" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="2,2"/>
+        
+        <!-- Warhead Compartment: STA 0500-1800 (x=130 to x=320) -->
+        <rect x="135" y="105" width="180" height="90" fill="url(#hatch_wh_usv)" stroke="#f43f5e" stroke-width="1.2" rx="4"/>
+        <text x="225" y="146" fill="#f43f5e" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" text-anchor="middle">280 kg HE WARHEAD</text>
+        <text x="225" y="160" fill="#f43f5e" font-family="JetBrains Mono, monospace" font-size="7.5" text-anchor="middle">COPPER SHAPED-CHARGE LINER</text>
+
+        <!-- Midship Bulkhead: x=320 -->
+        <line x1="320" y1="85" x2="320" y2="215" stroke="#38bdf8" stroke-width="1.5"/>
+
+        <!-- Avionics, Compute & Optical Mast Bay: STA 1800-2800 (x=320 to x=460) -->
+        <rect x="325" y="100" width="130" height="100" fill="rgba(56,189,248,0.06)" stroke="#38bdf8" stroke-width="1"/>
+        <!-- EO/MWIR Mast -->
+        <circle cx="370" cy="150" r="14" fill="#0d1117" stroke="#38bdf8" stroke-width="1.5"/>
+        <circle cx="370" cy="150" r="8" fill="#38bdf8" opacity="0.4"/>
+        <text x="370" y="153" fill="#ffffff" font-family="JetBrains Mono, monospace" font-size="7" font-weight="700" text-anchor="middle">EO/IR</text>
+        <!-- Edge Compute Unit -->
+        <rect x="400" y="130" width="45" height="40" fill="none" stroke="#22c55e" stroke-width="1"/>
+        <text x="422" y="153" fill="#22c55e" font-family="JetBrains Mono, monospace" font-size="6.5" font-weight="700" text-anchor="middle">EDGE AI</text>
+
+        <!-- Fuel Bay (Baffled Self-Sealing Diesel Cells): STA 2800-4200 (x=460 to x=640) -->
+        <line x1="460" y1="88" x2="460" y2="212" stroke="#38bdf8" stroke-width="1.5"/>
+        <rect x="465" y="94" width="170" height="112" fill="url(#hatch_fuel_usv)" stroke="#38bdf8" stroke-width="1.2" rx="3"/>
+        <line x1="550" y1="94" x2="550" y2="206" stroke="#38bdf8" stroke-width="0.8" stroke-dasharray="4,2"/>
+        <text x="550" y="146" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" text-anchor="middle">DIESEL FUEL CELL (480 L)</text>
+        <text x="550" y="160" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="7.5" text-anchor="middle">RANGE &gt; 800 KM @ 30 KTS</text>
+
+        <!-- Engine Room Bulkhead: x=640 -->
+        <line x1="640" y1="90" x2="640" y2="210" stroke="#38bdf8" stroke-width="1.5"/>
+
+        <!-- Turbo-Diesel Engine: STA 4200-5200 (x=640 to x=790) -->
+        <rect x="650" y="115" width="135" height="70" fill="rgba(245,158,11,0.08)" stroke="#f59e0b" stroke-width="1.2" rx="2"/>
+        <text x="717" y="146" fill="#f59e0b" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" text-anchor="middle">260 HP TURBO-DIESEL</text>
+        <text x="717" y="160" fill="#f59e0b" font-family="JetBrains Mono, monospace" font-size="7.5" text-anchor="middle">ACOUSTIC DAMPED ENCLOSURE</text>
+
+        <!-- Driveshaft & Waterjet Bay: STA 5200-5800 (x=790 to x=880) -->
+        <line x1="790" y1="95" x2="790" y2="205" stroke="#38bdf8" stroke-width="1.2"/>
+        <!-- Waterjets -->
+        <rect x="840" y="118" width="50" height="26" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
+        <rect x="840" y="156" width="50" height="26" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
+        <path d="M 890 120 L 920 124 L 920 138 L 890 142 Z" fill="rgba(56,189,248,0.2)" stroke="#38bdf8" stroke-width="1"/>
+        <path d="M 890 158 L 920 162 L 920 176 L 890 180 Z" fill="rgba(56,189,248,0.2)" stroke="#38bdf8" stroke-width="1"/>
+        <text x="895" y="110" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="7.5">TWIN WATERJETS</text>
+
+        <!-- Station Lines & Callouts -->
+        <g stroke="#38bdf8" stroke-width="0.7" opacity="0.6">
+          <line x1="80" y1="40" x2="80" y2="85"/>
+          <line x1="130" y1="40" x2="130" y2="85"/>
+          <line x1="320" y1="40" x2="320" y2="85"/>
+          <line x1="460" y1="40" x2="460" y2="85"/>
+          <line x1="640" y1="40" x2="640" y2="85"/>
+          <line x1="880" y1="40" x2="880" y2="85"/>
+        </g>
+        <g fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="7.5" opacity="0.8">
+          <text x="80" y="35" text-anchor="middle">STA 0000</text>
+          <text x="130" y="35" text-anchor="middle">STA 0500</text>
+          <text x="320" y="35" text-anchor="middle">STA 1800</text>
+          <text x="460" y="35" text-anchor="middle">STA 2800</text>
+          <text x="640" y="35" text-anchor="middle">STA 4200</text>
+          <text x="880" y="35" text-anchor="middle">STA 5800</text>
+        </g>
+
+        <!-- Dimension arrows below -->
+        <g stroke="#94a3b8" stroke-width="0.8">
+          <line x1="80" y1="260" x2="880" y2="260"/>
+          <line x1="80" y1="255" x2="80" y2="265"/>
+          <line x1="880" y1="255" x2="880" y2="265"/>
+        </g>
+        <text x="480" y="275" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">OVERALL LENGTH: 5,800 MM · BEAM: 1,400 MM · DEPTH: 980 MM</text>
+      </svg>
+    </div>
+    <div class="blueprint-cap">
+      <b>CAD Station Reference</b> &mdash; Structural arrangement of the Kamikaze USV. From left: wave-piercing bow impact sensor (STA 0000–0500), 280 kg shaped-charge warhead cavity (STA 0500–1800), stabilised optical mast and isolated edge compute core (STA 1800–2800), baffled 480 L diesel tank (STA 2800–4200), turbocharged marine diesel (STA 4200–5200), and dual vectored waterjets with hydraulic trim tabs (STA 5200–5800).
+    </div>
+  </div>
+</section>
+
+<section id="usecases">
+  <div class="sec-tag">03 · Operational roles</div>
+  <h2>Primary usecases &amp; doctrine</h2>
+  <p class="lede">The Kamikaze USV is engineered to project lethal asymmetric power across disputed littoral zones, island chains, and hostile anchorages where conventional naval vessels cannot operate without excessive risk.</p>
+
+  <div class="tw">
+    <table>
+      <caption>Operational mission sets</caption>
+      <thead><tr><th>Mission</th><th>Operational problem</th><th>USV solution</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Littoral interdiction</strong></td>
+          <td>Hostile amphibious task forces and surface combatants operating within sovereign Exclusive Economic Zones (EEZ) and island territories.</td>
+          <td>Continuous semi-submerged patrol; radar cross-section under 0.05 m² delays radar detection until within 2–3 km, enabling high-speed 48-knot interception.</td>
+        </tr>
+        <tr>
+          <td><strong>Swarm saturation strike</strong></td>
+          <td>Modern multi-function naval radars and Close-In Weapon Systems (CIWS) engage isolated surface targets with high kill probability.</td>
+          <td>Salvos of 8–16 USVs coordinate arrival via mesh radio; multiple craft converge simultaneously from dispersed 360° bearings to overwhelm tracking channels.</td>
+        </tr>
+        <tr>
+          <td><strong>Port &amp; anchorage denial</strong></td>
+          <td>Heavily defended enemy naval bases, submarine pens, and ammunition loading jetties shielded by GPS jammers and surface booms.</td>
+          <td>Autonomous non-satellite navigation using shoreline DSMAC matching; sneaks through harbour mouths and strikes high-value moored combatants at the waterline.</td>
+        </tr>
+        <tr>
+          <td><strong>Choke point interdiction</strong></td>
+          <td>Strategic maritime straits where commercial and naval transit can be selectively blockaded or contested during heightened conflict.</td>
+          <td>Silent low-speed loitering (under 6 knots on auxiliary electric drive) for up to 36 hours before spooling main diesel for sprint attack.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="specifics">
+  <div class="sec-tag">04 · Engineering specifics</div>
+  <h2>Deep technical architecture</h2>
+
+  <h3 id="marine-nav">A · Non-satellite sea-surface navigation</h3>
+  <p>Satellite denial over open water presents unique challenges: unlike land terrain, the open sea has no static topographic features for elevation correlation. The Kamikaze USV employs a layered navigation stack built specifically for marine environments:</p>
+  <ul>
+    <li><strong>CRPA Anti-Jam GNSS:</strong> Indigenous multi-element antenna suppresses coastal jammers by &gt;45 dB, maintaining NavIC/GPS lock during initial transit.</li>
+    <li><strong>Hydro-Inertial Dead Reckoning:</strong> High-grade tactical IMUs fused with Doppler Velocity Logs (DVL) measuring acoustic speed over seabed, filtering out surface current drift.</li>
+    <li><strong>Coastline DSMAC:</strong> As the vessel nears target archipelagos, ports, or coastlines, high-resolution optical cameras match shoreline profiles, headlands, and navigation marks against pre-loaded commercial satellite maps.</li>
+    <li><strong>Optical Waterline Tracking:</strong> In the terminal 3 km run, dual daylight/MWIR stabilised cameras lock onto ship hull silhouettes, ignoring decoys, chaff, and smoke screens.</li>
+  </ul>
+
+  <h3 id="hydrodynamics">B · Sea-state 4 hydrodynamic stability &amp; waterjet control</h3>
+  <p>Transiting at 45+ knots in rough seas induces extreme wave-slamming forces, propeller cavitation, and hull broaching. Apollyon's robust control stack solves these dynamics in real time:</p>
+  <ul>
+    <li><strong>Wave-Piercing Faceted Monohull:</strong> Sharp knife-bow pierces oncoming waves rather than riding over them, significantly reducing vertical G-loads on internal components.</li>
+    <li><strong>Dynamic Waterjet Vectoring:</strong> Twin steerable waterjets eliminate exposed rudders and propellers, preventing damage from debris, nets, or shallow shoals.</li>
+    <li><strong>Active Trim Control:</strong> High-speed hydraulic interceptor tabs respond at 100 Hz via the onboard edge compute core, continuously trimming pitch and roll to prevent porpoising at sprint speeds.</li>
+  </ul>
+
+  <h3 id="warhead">C · Heavy shaped-charge penetrating warhead</h3>
+  <p>Unlike blast-only drone boats that produce superficial topside damage, the Kamikaze USV integrates a custom-engineered 250–300 kg shaped-charge warhead designed to compromise naval structural integrity:</p>
+  <ul>
+    <li><strong>Waterline &amp; Sub-Surface Impact:</strong> The vessel trims down immediately prior to impact, detonating against the target's hull right at or below the waterline.</li>
+    <li><strong>Copper Jet Penetration:</strong> The precision-machined conical copper liner generates a hyper-velocity metal jet capable of penetrating over 80 mm of hardened naval steel armor, flooding critical boiler rooms and magazine bays.</li>
+    <li><strong>Tri-Mode Fuse Architecture:</strong> Redundant piezoelectric bow contact switches, delayed penetrator inertia sensors, and an optical standoff trigger ensure lethal detonation even during glancing blows.</li>
+  </ul>
+</section>
+
+<section id="subsystems">
+  <div class="sec-tag">05 · Shared subsystems</div>
+  <h2>Subsystems powering this vessel</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="kicker">Guidance &amp; control</div>
+      <h3><a href="../subsystems/near-envelope-control.html">Robust Control for Fast Platforms</a></h3>
+      <p>Adapted from our flight dynamics core to manage high-speed hydrodynamic surface stability, wave-slamming rejection, and active waterjet trim.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Navigation</div>
+      <h3><a href="../subsystems/gnss-denied-navigation.html">High-Speed GNSS-Denied Navigation</a></h3>
+      <p>Fuses anti-jam CRPA NavIC/GPS with coastline DSMAC scene correlation and hydro-inertial odometry for long-range sea transit.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Compute</div>
+      <h3><a href="../subsystems/onboard-compute.html">Edge Compute &amp; Custom Inference Engine</a></h3>
+      <p>Runs sub-millisecond waterline tracking, obstacle avoidance, and peer-to-peer swarm mesh coordination on ruggedized isolated cores.</p>
+    </div>
+    <div class="card">
+      <div class="kicker">Software</div>
+      <h3><a href="../subsystems/flight-software.html">Flight Software Stack</a></h3>
+      <p>Deterministic runtime and telemetry logging engine adapted for mission-critical marine strike execution.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>Kamikaze USV · Standoff Maritime Strike · Class A · Rev 1.2</div>
+  <div><a href="../index.html">Wiki root</a> · <a href="../index.html#matrix">Commonality matrix</a> · apollyondynamics.com</div>
+</footer>
+
+</main>
+</div>
+</div>
+</body>
+</html>

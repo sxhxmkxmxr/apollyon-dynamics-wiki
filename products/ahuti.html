@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ahuti Interceptor UAV — Apollyon Dynamics Wiki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/wiki.css">
+</head>
+<body>
+
+<div class="rail">
+  <div class="rail-inner">
+    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>· Engineering Wiki</em></a>
+    <nav class="rail-links">
+      <a href="../index.html#products" class="on">Products</a>
+      <a href="../index.html#subsystems">Subsystems</a>
+      <a href="../doctrine/new-arsenal.html">Doctrine</a>
+      <a href="../about/history.html">History</a>
+    </nav>
+  </div>
+</div>
+
+<div class="shell">
+<div class="layout">
+
+<aside class="aside">
+  <h4>This page</h4>
+  <ul>
+    <li><a href="#specs">Specification</a></li>
+    <li><a href="#usecases">Use cases</a></li>
+    <li><a href="#engagement">Engagement sequence</a></li>
+    <li><a href="#aero">Aerodynamics &amp; structure</a></li>
+    <li><a href="#control">Control at the edge</a></li>
+    <li><a href="#economics">Cost exchange</a></li>
+    <li><a href="#subsystems">Subsystems used</a></li>
+  </ul>
+  <h4>Products</h4>
+  <ul>
+    <li><a href="hacm-350.html">HACM-350</a></li>
+    <li><a href="nightshade-adx1.html">Nightshade ADX-1</a></li>
+    <li><a href="usv-strike.html">Kamikaze USV</a></li>
+    <li><a href="ahuti.html" class="here">Ahuti Interceptor</a></li>
+    <li><a href="mobile-drone-lab.html">Mobile Drone Lab</a></li>
+    <li><a href="cortex.html">Apollyon Cortex</a></li>
+    <li><a href="mdcc.html">MDCC</a></li>
+  </ul>
+  <h4>Subsystems</h4>
+  <ul>
+    <li><a href="../subsystems/near-envelope-control.html">Robust control for fast platforms</a></li>
+    <li><a href="../subsystems/gnss-denied-navigation.html">High-speed GNSS-denied nav</a></li>
+    <li><a href="../subsystems/onboard-compute.html">Edge compute &amp; inference</a></li>
+    <li><a href="../subsystems/flight-software.html">Flight software stack</a></li>
+    <li><a href="../subsystems/seekers.html">Seekers &amp; terminal guidance</a></li>
+    <li><a href="../subsystems/propulsion.html">Propulsion</a></li>
+    <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
+    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground systems</a></li>
+  </ul>
+  <h4>Doctrine</h4>
+  <ul>
+    <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
+    <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
+    <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
+  </ul>
+</aside>
+
+<main class="main">
+
+<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../index.html#products">Products</a><span>/</span>Class B · Air defence<span>/</span>Ahuti</div>
+
+<header class="masthead">
+  <div class="mast-meta">High-speed interceptor UAV · counter-UAS <span>· Mk-I flying · provisional patent filed</span></div>
+  <h1>Ahuti <span class="sub">Interceptor UAV</span></h1>
+  <p class="standfirst">A high-speed, short-range interceptor built to take down a wide variety of aerial threats, including hostile reconnaissance drones and loitering munitions — at a cost that makes firing the round a rational decision rather than an accounting event.</p>
+</header>
+
+<section id="specs">
+  <div class="sec-tag">01 · Specification</div>
+  <h2>Ahuti Mk-I baseline</h2>
+
+  <div class="spec-card">
+    <div class="spec-topbar"><span>Ahuti Mk-I · at a glance</span><span class="right">Interceptor · counter-UAV · provisional patent filed</span></div>
+    <div class="spec-grid">
+      <div class="spec-col">
+        <div class="spec-col-title">Platform</div>
+        <div class="row"><div class="lbl">Class</div><div class="val">High-speed interceptor UAV</div></div>
+        <div class="row"><div class="lbl">Configuration</div><div class="val">Elliptical nose · parabolic tail</div></div>
+        <div class="row"><div class="lbl">Body material</div><div class="val">Carbon fibre throughout</div></div>
+        <div class="row"><div class="lbl">Internal structure</div><div class="val">Smart-infill · low mass, high rigidity</div></div>
+        <div class="row"><div class="lbl">Arms</div><div class="val">Aerodynamically profiled · NACA inlets</div></div>
+      </div>
+      <div class="spec-col">
+        <div class="spec-col-title">Performance</div>
+        <div class="row"><div class="lbl">Demonstrated speed</div><div class="val accent">337 km/h</div></div>
+        <div class="row"><div class="lbl">Speed trend</div><div class="val">Expected to climb</div></div>
+        <div class="row"><div class="lbl">Range class</div><div class="val">Short range · point defence</div></div>
+        <div class="row"><div class="lbl">Readiness</div><div class="val">Near-zero preparation</div></div>
+        <div class="row"><div class="lbl">Launch</div><div class="val">On detection, at a moment's notice</div></div>
+      </div>
+      <div class="spec-col">
+        <div class="spec-col-title">Guidance</div>
+        <div class="row"><div class="lbl">Guidance</div><div class="val">Autonomous terminal homing</div></div>
+        <div class="row"><div class="lbl">Navigation</div><div class="val">GPS + INS backup</div></div>
+        <div class="row"><div class="lbl">Intercept mode</div><div class="val">Visual / RF lock-on</div></div>
+        <div class="row"><div class="lbl">GNSS-denied</div><div class="val accent">Fully operational on INS</div></div>
+        <div class="row"><div class="lbl">Mid-course</div><div class="val">Ground-radar cued</div></div>
+      </div>
+      <div class="spec-col">
+        <div class="spec-col-title">Effect</div>
+        <div class="row"><div class="lbl">Kill options</div><div class="val">Kinetic strike · proximity blast</div></div>
+        <div class="row"><div class="lbl">Terminal sensor</div><div class="val">Onboard day/night seeker</div></div>
+        <div class="row"><div class="lbl">Target set</div><div class="val">Recce drones · loitering munitions</div></div>
+        <div class="row"><div class="lbl">Design intent</div><div class="val">Hard kill at viable cost</div></div>
+        <div class="row"><div class="lbl">Status</div><div class="val">Mk-I flying · Mk-II in design</div></div>
+      </div>
+    </div>
+  </div>
+
+  <figure class="dark">
+    <img src="../assets/ahuti-mk1.jpg" alt="Ahuti Mk-I three-quarter view showing elliptical nose and profiled arms">
+    <figcaption><b>Fig. 01</b> Ahuti Mk-I. Every curve earns its place: the elliptical nose flows into a parabolic tail, the arms are aerodynamic sections rather than tubes, and the NACA inlets cut drag and recover pressure simultaneously.</figcaption>
+  </figure>
+</section>
+
+<section id="usecases">
+  <div class="sec-tag">02 · Use cases</div>
+  <h2>What it intercepts</h2>
+  <p class="lede">Ahuti answers the defensive half of the same problem Nightshade poses offensively. If a fast, cheap, attritable strike vehicle is the threat, then the counter has to be fast, cheap and attritable too — or the exchange ratio does the defender's job for the attacker.</p>
+
+  <div class="tw">
+    <table>
+      <caption>Engagement set</caption>
+      <thead><tr><th>Target</th><th>Why Ahuti</th><th>Preferred kill mode</th></tr></thead>
+      <tbody>
+        <tr><td>Hostile reconnaissance UAV</td><td>Small, slow, persistent; not worth an interceptor missile but must not be allowed to loiter</td><td>Kinetic strike</td></tr>
+        <tr><td>Loitering munitions</td><td>Arrive in numbers; each one must be engaged, so per-round cost dominates</td><td>Proximity blast</td></tr>
+        <tr><td>Fixed-wing one-way attack drones</td><td>High closure speed requires an interceptor that can actually reach the intercept point</td><td>Kinetic or proximity</td></tr>
+        <tr><td>Small rotary threats</td><td>Erratic, low-altitude, often in clutter</td><td>Kinetic strike</td></tr>
+        <tr><td>Point defence of high-value assets</td><td>Command posts, logistics hubs, radar sites, forward airfields</td><td>Either, per rules of engagement</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>Deployment posture</h4>
+  <ul>
+    <li><strong>Operational readiness.</strong> Launches at a moment's notice with near-zero preparation time once a hostile target is detected.</li>
+    <li><strong>Radar integration.</strong> Cued onto the target by a ground-based radar during the midcourse phase, so the interceptor does not need to search.</li>
+    <li><strong>Terminal guidance.</strong> An onboard day/night seeker takes over in the terminal phase for a precise intercept.</li>
+    <li><strong>Kill options.</strong> Kinetic strike and proximity blast variants, so the same airframe can be used in environments where fragmentation is unacceptable.</li>
+  </ul>
+</section>
+
+<section id="engagement">
+  <div class="sec-tag">03 · Specifics</div>
+  <h2>Engagement sequence</h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-when">T−0 · Detection</div>
+      <div class="tl-what">Ground radar or <a href="cortex.html">Cortex</a> declares a track</div>
+      <div class="tl-note">The detection does not have to come from the interceptor. Where an MDCC or Cortex node is present, the track arrives already fused and deconflicted.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-when">T+seconds · Launch</div>
+      <div class="tl-what">Near-zero preparation launch</div>
+      <div class="tl-note">Nothing to assemble, fuel or align. The readiness figure is a design requirement, because an interceptor that needs ten minutes of preparation has already lost the engagement.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-when">Midcourse</div>
+      <div class="tl-what">Radar-cued flyout</div>
+      <div class="tl-note">The ground radar continues to refine the intercept geometry. Navigation is GPS + INS; under jamming the vehicle remains fully operational on INS alone, which is sufficient over the short flyout distances involved.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-when">Terminal</div>
+      <div class="tl-what">Onboard day/night seeker takes the lock</div>
+      <div class="tl-note">Visual or RF lock-on, then autonomous terminal homing. The vehicle is flying at the edge of its envelope here — see <a href="../subsystems/near-envelope-control.html">near-envelope control</a>.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-when">Impact</div>
+      <div class="tl-what">Kinetic strike or proximity blast</div>
+      <div class="tl-note">Selected before launch according to environment and rules of engagement.</div>
+    </div>
+  </div>
+</section>
+
+<section id="aero">
+  <div class="sec-tag">04 · Specifics</div>
+  <h2>Aerodynamics and structure</h2>
+  <p class="lede">Ahuti Mk-II was shaped by one question: what does a drone look like when speed is the only constraint that matters?</p>
+  <p>The answer is an elliptical nose that flows into a parabolic tail, aerodynamically profiled arms, and NACA inlets that cut drag and recover pressure at the same time. Nothing on the vehicle is a straight tube because a straight tube at 90 m/s is a drag budget nobody can afford. Every curve earns its place.</p>
+  <p>The body is <strong>carbon fibre throughout</strong>, with a smart-infill internal structure that keeps mass down and rigidity up. Rigidity matters more than it does on a slower airframe: structural vibration cross-talk is one of the terms the <a href="../subsystems/physics-backbone.html">physics backbone</a> has to carry, and a floppy airframe pollutes the inertial measurements that the control policy depends on.</p>
+  <p>A flying prototype has been clocked at <strong>337 km/h</strong>, and that number is expected to climb as the control policy recovers more of the physical envelope.</p>
+
+  <figure class="dark">
+    <img src="../assets/ahuti-front.jpg" alt="Ahuti interceptor front elevation">
+    <figcaption><b>Fig. 02</b> Front elevation. The frontal area is the design variable that the entire configuration is arranged around.</figcaption>
+  </figure>
+
+  <div class="blueprint-plate">
+  <div class="blueprint-head">
+    <div class="title">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      FIG. 02 &mdash; Ahuti High-Speed Interceptor UAV &middot; Tail-Sitter Station Diagram
+    </div>
+    <span class="scale">Scale: 1:10 &middot; Based on Engineering Prototype</span>
+  </div>
+  <div class="blueprint-body">
+    <svg viewBox="0 0 960 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CAD wireframe station diagram of Ahuti interceptor UAV">
+      <defs>
+        <pattern id="ahuti_grid" width="20" height="20" patternUnits="userSpaceOnUse">
+          <line x1="0" y1="0" x2="20" y2="0" stroke="rgba(56,189,248,0.06)" stroke-width="1"/>
+          <line x1="0" y1="0" x2="0" y2="20" stroke="rgba(56,189,248,0.06)" stroke-width="1"/>
+        </pattern>
+        <pattern id="hatch_warhead" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <line x1="0" y1="0" x2="0" y2="6" stroke="#f43f5e" stroke-width="1" opacity="0.4"/>
+        </pattern>
+        <pattern id="hatch_battery" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+          <line x1="0" y1="0" x2="0" y2="6" stroke="#38bdf8" stroke-width="1" opacity="0.3"/>
+        </pattern>
+      </defs>
+
+      <rect width="960" height="300" fill="#0d1117"/>
+      <rect width="960" height="300" fill="url(#ahuti_grid)"/>
+
+      <!-- Centerline Datum -->
+      <line x1="40" y1="150" x2="920" y2="150" stroke="#38bdf8" stroke-width="0.8" stroke-dasharray="12,4,2,4" opacity="0.6"/>
+      <text x="45" y="145" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="8" opacity="0.7">DATUM &pound;</text>
+
+      <!-- 1. CLEAR HEMISPHERICAL SEEKER DOME (Nose STA 080 - 140) -->
+      <path d="M 140 105 A 45 45 0 0 0 140 195 Z" fill="rgba(56,189,248,0.12)" stroke="#38bdf8" stroke-width="1.8"/>
+      <circle cx="120" cy="150" r="14" fill="#1e293b" stroke="#f8fafc" stroke-width="1.2"/>
+      <circle cx="120" cy="150" r="7" fill="#38bdf8"/>
+      <line x1="120" y1="136" x2="120" y2="164" stroke="#f8fafc" stroke-width="0.8" stroke-dasharray="2,2"/>
+      <line x1="106" y1="150" x2="134" y2="150" stroke="#f8fafc" stroke-width="0.8" stroke-dasharray="2,2"/>
+
+      <!-- 2. MAIN FUSELAGE CONTOUR (Bullet / Torpedo Profile STA 140 to 650) -->
+      <path d="M 140 105 Q 260 85, 420 85 L 560 85 Q 610 98, 670 150 Q 610 202, 560 215 L 420 215 Q 260 215, 140 195 Z" 
+            fill="rgba(15,23,42,0.9)" stroke="#f8fafc" stroke-width="2"/>
+
+      <!-- COMPARTMENT DIVIDERS -->
+      <line x1="250" y1="92" x2="250" y2="208" stroke="#64748b" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="390" y1="86" x2="390" y2="214" stroke="#64748b" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="530" y1="87" x2="530" y2="213" stroke="#64748b" stroke-width="1" stroke-dasharray="3,3"/>
+
+      <!-- 3. FORWARD AVIONICS & CORTEX EDGE COMPUTE (STA 140 - 250) -->
+      <rect x="155" y="112" width="85" height="76" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+      <circle cx="175" cy="130" r="4" fill="#38bdf8"/>
+      <rect x="190" y="122" width="40" height="16" fill="#0f172a" stroke="#64748b" stroke-width="0.8"/>
+      <text x="197" y="160" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="8" font-weight="700" text-anchor="middle">CORTEX COMPUTE</text>
+      <text x="197" y="172" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">200 Hz Optical &bull; IMU</text>
+
+      <!-- 4. DIRECTIONAL FRAGMENTATION WARHEAD BAY (STA 250 - 390) -->
+      <rect x="260" y="98" width="120" height="104" rx="3" fill="url(#hatch_warhead)" stroke="#f43f5e" stroke-width="1.2"/>
+      <rect x="370" y="88" width="12" height="124" fill="#1e293b" stroke="#f43f5e" stroke-width="1"/>
+      <circle cx="376" cy="100" r="2" fill="#f43f5e"/>
+      <circle cx="376" cy="150" r="2" fill="#f43f5e"/>
+      <circle cx="376" cy="200" r="2" fill="#f43f5e"/>
+      <text x="315" y="145" fill="#f43f5e" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" text-anchor="middle">5.5 kg WARHEAD</text>
+      <text x="315" y="158" fill="#fda4af" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">Focused Blast-Frag</text>
+
+      <!-- 5. BATTERY & CAPACITOR POWER CORE (STA 390 - 530) -->
+      <rect x="400" y="98" width="120" height="104" rx="3" fill="url(#hatch_battery)" stroke="#38bdf8" stroke-width="1"/>
+      <text x="460" y="145" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="600" text-anchor="middle">ENERGY CORE</text>
+      <text x="460" y="158" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">High-C Discharge &bull; Boost</text>
+
+      <!-- 6. NACA INLET CUTAWAYS ON BODY -->
+      <polygon points="320,86 350,96 350,86" fill="#0d1117" stroke="#38bdf8" stroke-width="0.8"/>
+      <polygon points="460,86 490,96 490,86" fill="#0d1117" stroke="#38bdf8" stroke-width="0.8"/>
+      <polygon points="320,214 350,204 350,214" fill="#0d1117" stroke="#38bdf8" stroke-width="0.8"/>
+      <polygon points="460,214 490,204 490,214" fill="#0d1117" stroke="#38bdf8" stroke-width="0.8"/>
+
+      <!-- 7. SWEPT COMPOSITE TAIL-SITTER FINS & LANDING LEGS -->
+      <path d="M 520 86 Q 590 55, 680 35 L 750 35 Q 670 75, 620 115 Z" fill="#1e293b" stroke="#f8fafc" stroke-width="1.5"/>
+      <path d="M 520 214 Q 590 245, 680 265 L 750 265 Q 670 225, 620 185 Z" fill="#1e293b" stroke="#f8fafc" stroke-width="1.5"/>
+      <path d="M 530 140 Q 600 120, 710 100 L 760 105 Q 660 135, 620 145 Z" fill="rgba(30,41,59,0.7)" stroke="#38bdf8" stroke-width="1"/>
+      <path d="M 530 160 Q 600 180, 710 200 L 760 195 Q 660 165, 620 155 Z" fill="rgba(30,41,59,0.7)" stroke="#38bdf8" stroke-width="1"/>
+
+      <!-- 8. MOTOR POD NACELLES AT FIN TIPS -->
+      <rect x="730" y="24" width="55" height="22" rx="11" fill="#1e293b" stroke="#38bdf8" stroke-width="1.4"/>
+      <polygon points="785,28 805,35 785,42" fill="#38bdf8"/>
+      <line x1="800" y1="10" x2="800" y2="60" stroke="#f8fafc" stroke-width="1.5"/>
+
+      <rect x="730" y="254" width="55" height="22" rx="11" fill="#1e293b" stroke="#38bdf8" stroke-width="1.4"/>
+      <polygon points="785,258 805,265 785,272" fill="#38bdf8"/>
+      <line x1="800" y1="240" x2="800" y2="290" stroke="#f8fafc" stroke-width="1.5"/>
+
+      <rect x="740" y="96" width="45" height="18" rx="9" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
+      <rect x="740" y="186" width="45" height="18" rx="9" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
+
+      <!-- Conical Parabolic Tail Stinger -->
+      <polygon points="610,135 670,150 610,165" fill="#334155" stroke="#f8fafc" stroke-width="1"/>
+
+      <!-- CALLOUT LABELS & ARROWS -->
+      <line x1="120" y1="130" x2="80" y2="70" stroke="#38bdf8" stroke-width="0.8"/>
+      <text x="80" y="60" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600" text-anchor="end">HEMISPHERICAL DOME</text>
+      <text x="80" y="70" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="end">Day/Night Optical Head</text>
+
+      <line x1="785" y1="35" x2="840" y2="20" stroke="#38bdf8" stroke-width="0.8"/>
+      <text x="845" y="20" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600">BRUSHLESS MOTOR POD</text>
+      <text x="845" y="30" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="7">High-RPM &bull; Folding Propfan</text>
+
+      <line x1="680" y1="265" x2="720" y2="285" stroke="#f8fafc" stroke-width="0.8"/>
+      <text x="725" y="288" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600">SWEPT LANDING STRUTS</text>
+      <text x="725" y="297" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="7">Tail-Sitter Launch/Recovery</text>
+
+      <line x1="95" y1="275" x2="805" y2="275" stroke="#94a3b8" stroke-width="1"/>
+      <line x1="95" y1="269" x2="95" y2="281" stroke="#94a3b8" stroke-width="1"/>
+      <line x1="805" y1="269" x2="805" y2="281" stroke="#94a3b8" stroke-width="1"/>
+      <text x="450" y="290" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="8.5" text-anchor="middle">Total Airframe Length: ~950 mm</text>
+    </svg>
+  </div>
+  <div class="blueprint-cap">
+    <b>FIG. 03</b> Engineering station layout of the Ahuti interceptor UAV, modeled directly from the flight-test prototype. Illustrates the hemispherical optical seeker dome, forward Cortex compute, directional warhead sleeve, and the 4 swept tail-sitter landing legs with tip-mounted brushless propfan nacelles.
+  </div>
+</div>
+</section>
+
+<section id="control">
+  <div class="sec-tag">05 · Specifics</div>
+  <h2>Control at the edge of the envelope</h2>
+  <p>Ahuti is the product that most directly consumes the company's learned control work, because interception happens in exactly the flight region where conventional autopilots stop being valid. Near the physical limits of the airframe, motors and electronics:</p>
+  <ul>
+    <li><strong>Thrust stops being proportional to rotor speed.</strong> The response goes non-linear well before the rail.</li>
+    <li><strong>Motor response becomes unpredictable.</strong> Beyond slew limits the behaviour is difficult to control near the steady state.</li>
+    <li><strong>Drag goes with the square of speed.</strong> From ~20 to 140 m/s that is fifty times the force, and it depends on wind, altitude, temperature and humidity.</li>
+    <li><strong>Roll, pitch and yaw stop being independent.</strong> Cross-axis coupling grows with rotational rate.</li>
+    <li><strong>Sensing clips.</strong> A 7 g pull plus vibration plus linear acceleration saturates a ±16 g accelerometer.</li>
+    <li><strong>Actuation saturates.</strong> All four motors sit on their limits, leaving no authority to reject a gust.</li>
+  </ul>
+  <p>A conventional cascade — position, attitude, rate, mixer — assumes each stage has motor authority left for the next. At full throttle it does not, and the mixer is forced to sacrifice an axis to keep flying. Ahuti instead flies a <strong>direct-actuator reinforcement-learning policy</strong> at roughly 500 Hz, paired with a <strong>learned world model</strong> that reads recent telemetry for wind gusts, motor lag and battery sag and feeds that context to the policy continuously. Saturation, actuator lag and model error sit inside the simulator the policy optimises against, which is what makes it robust to them. Full detail: <a href="../subsystems/near-envelope-control.html">Near-envelope control</a>.</p>
+</section>
+
+<section id="economics">
+  <div class="sec-tag">06 · Specifics</div>
+  <h2>The cost exchange</h2>
+  <p>Defenders currently spend upwards of $4M per interceptor missile against systems costing a fraction of that — a cost asymmetry of roughly <strong>36:1</strong> in the attacker's favour. Jet UAVs exploit that imbalance at scale, and the same arithmetic is what makes cheap mass attractive to an adversary.</p>
+  <p>Ahuti's design constraint is therefore economic as much as kinematic: it must remain economically viable while preserving the reliability of a hard kill. A soft-kill jammer is cheaper but does not work against an inertially guided threat; an interceptor missile works but cannot be fired at every quadcopter that crosses a fence line. The interceptor UAV is the layer between them.</p>
+  <div class="note key">
+    <div class="t">Why this product exists in the portfolio</div>
+    <p>Ahuti is also the fastest-iterating airframe the company flies, which makes it the primary vehicle for advancing the control stack. Capability earned here transfers directly into the terminal phase of <a href="nightshade-adx1.html">Nightshade</a> and into every subsequent airframe, because the identification rig and training loop generalise even though the network weights do not.</p>
+  </div>
+</section>
+
+<section id="subsystems">
+  <div class="sec-tag">07 · Commonality</div>
+  <h2>Subsystems used</h2>
+  <div class="xref">
+    <div class="t">This product is assembled from</div>
+    <div class="items">
+      <a href="../subsystems/near-envelope-control.html">Near-envelope control</a>
+      <a href="../subsystems/physics-backbone.html">Physics backbone</a>
+      <a href="../subsystems/flight-software.html">Flight software</a>
+      <a href="../subsystems/onboard-compute.html">Onboard compute</a>
+      <a href="../subsystems/seekers.html">Seekers · day/night</a>
+      <a href="../subsystems/gnss-denied-navigation.html">INS-only operation</a>
+      <a href="../subsystems/airframe-structures.html">Airframe · CF smart-infill</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>Ahuti Interceptor UAV · Product page · Rev 1.0</div>
+  <div><a href="nightshade-adx1.html">← Nightshade</a> · <a href="../index.html">Wiki root</a> · <a href="cortex.html">Cortex →</a></div>
+</footer>
+
+</main>
+</div>
+</div>
+</body>
+</html>

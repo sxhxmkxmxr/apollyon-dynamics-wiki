@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Robust Control for Fast Air Platforms — Apollyon Dynamics Wiki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/wiki.css">
+</head>
+<body>
+
+<div class="rail">
+  <div class="rail-inner">
+    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>· Engineering Wiki</em></a>
+    <nav class="rail-links">
+      <a href="../index.html#products">Products</a>
+      <a href="../index.html#subsystems" class="on">Subsystems</a>
+      <a href="../doctrine/new-arsenal.html">Doctrine</a>
+      <a href="../about/history.html">History</a>
+    </nav>
+  </div>
+</div>
+
+<div class="shell">
+<div class="layout">
+
+<aside class="aside">
+  <h4>This page</h4>
+  <ul>
+    <li><a href="#problem">Physical envelope</a></li>
+    <li><a href="#why">Limits of linear control</a></li>
+    <li><a href="#backbone">Physics backbone</a></li>
+    <li><a href="#architecture">Direct-actuator policy</a></li>
+    <li><a href="#generalisation">Fleet generalisation</a></li>
+    <li><a href="#usedby">Used by</a></li>
+  </ul>
+  <h4>Subsystems</h4>
+  <ul>
+    <li><a href="near-envelope-control.html" class="here">Robust control for fast platforms</a></li>
+    <li><a href="gnss-denied-navigation.html">High-speed GNSS-denied nav</a></li>
+    <li><a href="onboard-compute.html">Edge compute &amp; inference</a></li>
+    <li><a href="flight-software.html">Flight software stack</a></li>
+    <li><a href="seekers.html">Seekers &amp; terminal guidance</a></li>
+    <li><a href="propulsion.html">Propulsion</a></li>
+    <li><a href="airframe-structures.html">Airframe &amp; structures</a></li>
+    <li><a href="launch-systems.html">Launch &amp; ground systems</a></li>
+  </ul>
+  <h4>Products</h4>
+  <ul>
+    <li><a href="../products/hacm-350.html">HACM-350</a></li>
+    <li><a href="../products/nightshade-adx1.html">Nightshade ADX-1</a></li>
+    <li><a href="../products/usv-strike.html">Kamikaze USV</a></li>
+    <li><a href="../products/ahuti.html">Ahuti Interceptor</a></li>
+    <li><a href="../products/mobile-drone-lab.html">Mobile Drone Lab</a></li>
+    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
+    <li><a href="../products/mdcc.html">MDCC</a></li>
+  </ul>
+  <h4>Doctrine</h4>
+  <ul>
+    <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
+    <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
+    <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
+  </ul>
+</aside>
+
+<main class="main">
+
+<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../index.html#subsystems">Subsystems</a><span>/</span>Guidance &amp; control / Robust Control</div>
+<header class="masthead">
+  <div class="mast-meta">Guidance &amp; control · high-rate direct-actuator policy and sim-to-real physics backbone <span>· core subsystem</span></div>
+  <h1>Robust Control for <span class="sub">Fast Air Platforms</span></h1>
+  <p class="standfirst">High-rate closed-loop flight control and physics-grounded modeling engineered for extreme dynamic pressures, high-G transitions, and actuator saturation. Integrates our physics backbone and simulation-to-real workflow to guarantee aerodynamic stability where standard linear models fail.</p>
+</header>
+
+<section id="problem">
+  <div class="sec-tag">01 · Physical envelope</div>
+  <h2>Flying where nominal aerodynamic assumptions collapse</h2>
+  <p>Standard autopilots are tuned for benign flight regimes: low-speed cruise, gentle hover, and mild turns where aerodynamic forces are linear, control axes are decoupled, and actuators operate with comfortable margin. At speeds exceeding 300 to 650 km/h, during 7G terminal maneuvers, and in the trans-subsonic envelope, every nominal assumption breaks down simultaneously.</p>
+
+  <div class="tw">
+    <table>
+      <caption>Aerodynamic and actuator behavior at the limit</caption>
+      <thead><tr><th>Parameter</th><th>Nominal autopilot model</th><th>Observed high-speed reality</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Dynamic pressure (q)</strong></td><td>Assumed constant or slow-varying</td><td>Quadratically spikes by orders of magnitude, dramatically amplifying control surface effectiveness and aerodynamic loads.</td></tr>
+        <tr><td><strong>Thrust &amp; torque</strong></td><td>Linear relationship with RPM / throttle</td><td>Severe rotor slip, blade stall, and compressor backpressure non-linearities at high Mach/airspeeds.</td></tr>
+        <tr><td><strong>Cross-axis coupling</strong></td><td>Roll, pitch, and yaw are independent</td><td>Aerodynamic downwash and high angular rates produce strong, non-separable gyroscopic and aerodynamic cross-coupling.</td></tr>
+        <tr><td><strong>Actuator authority</strong></td><td>Proportional reserve margin available</td><td>Control surfaces and propulsion sit on 100% saturation rails; no margin remains for classical error rejection.</td></tr>
+        <tr><td><strong>Structural dynamics</strong></td><td>Rigid airframe assumption</td><td>High aeroelastic flex and airframe vibration inject high-frequency noise into inertial rate gyros.</td></tr>
+        <tr><td><strong>Sensor integrity</strong></td><td>Unbiased linear accelerometer signals</td><td>Multi-axis sustained high-G loads combined with airframe resonance risk sensor clipping and filter divergence.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure>
+    <img src="../assets/slides/near-envelope-1.jpg" alt="Charts showing what changes at the edge of physical performance">
+    <figcaption><b>Fig. 01</b> At low speeds, dynamics are decoupled and linear. Near the envelope boundary, control surfaces saturate and the vehicle enters coupled, non-linear aerodynamics.</figcaption>
+  </figure>
+</section>
+
+<section id="why">
+  <div class="sec-tag">02 · Limits of linear control</div>
+  <h2>Why classical cascades and online solvers break down</h2>
+
+  <h3>A · The cascaded PID architecture</h3>
+  <p>Standard open-source and commercial autopilots employ cascaded loops: position feeds attitude, attitude feeds angular rate, and angular rate feeds an actuator mixer. Each tier operates under the implicit assumption that the subsequent tier possesses sufficient actuation bandwidth and torque to fulfill its demand. When a high-speed interceptor or cruise missile executes a violent terminal dive at maximum dynamic pressure, control surfaces reach mechanical deflection limits. Under saturation, the cascaded integrator winds up, forcing the mixer to arbitrarily sacrifice control on one axis to preserve another—often culminating in catastrophic departure from controlled flight.</p>
+
+  <h3>B · Advanced model-predictive control (MPC)</h3>
+  <p>Online numerical optimization (MPC) represents a theoretical improvement by explicitly incorporating state and actuator constraints. However, online solvers require closed-form aerodynamic equations and consistent convergence times. Under aggressive transonic maneuvers and turbulent atmospheric shear, online optimization suffers from severe computational latency jitter, demanding excessive power-hungry compute that cannot reliably meet hard real-time deadlines.</p>
+
+  <figure>
+    <img src="../assets/slides/near-envelope-2.jpg" alt="Comparison of cascaded PID, model-based MPC, and direct-actuator learned control">
+    <figcaption><b>Fig. 02</b> Comparison of control architectures. Cascaded loops diverge under saturation; direct-actuator neural policies evaluate deterministically in sub-millisecond cycles.</figcaption>
+  </figure>
+</section>
+
+<section id="backbone">
+  <div class="sec-tag">03 · Physics backbone &amp; sim-to-real</div>
+  <h2>The physics-grounded simulation backbone</h2>
+  <p class="lede">A control policy is only ever as dependable as the fidelity of the physical environment in which it was formed. Rather than relying on generic synthetic simulators, Apollyon builds an uncompromising, flight-validated physics foundation.</p>
+
+  <p>The core methodology enforces rigorous calibration: every flight sortie is instrumented densely with high-rate black-box logging. Following recovery, the exact real-world command sequences are replayed through the simulator. Any divergence between the physical flight telemetry and simulated prediction is treated not as statistical noise, but as an unmodeled physical phenomenon that must be identified and explicitly incorporated into the aerodynamic and mechanical core.</p>
+
+  <div class="tw">
+    <table>
+      <caption>Physical phenomena captured in the simulation core</caption>
+      <thead><tr><th>Physical domain</th><th>Specific modeled phenomenon</th><th>Consequence if omitted</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Aerodynamics</strong></td><td>Boundary layer separation, shock-induced flow detachment, and non-linear downwash interactions between tandem lifting surfaces.</td><td>Unpredictable stall during high-angle-of-attack evasive pull-outs.</td></tr>
+        <tr><td><strong>Propulsion &amp; thermal</strong></td><td>Transient motor coil heating, ESC thermal throttling, back-EMF saturation, and battery cell internal resistance voltage drop under peak current.</td><td>Unmodeled thrust decay leading to altitude drop during sustained high-G terminal dives.</td></tr>
+        <tr><td><strong>Aeroelastics</strong></td><td>Fuselage flex, fin flutter, and structural harmonic vibration transmission into the IMU mounting plate.</td><td>High-frequency control surface oscillation and servo motor overheating.</td></tr>
+        <tr><td><strong>Actuation physics</strong></td><td>Servo gearbox backlash, rate limits under dynamic air loads, and deadband non-linearities.</td><td>Phase lag and pilot-induced-oscillation (PIO) during transonic transit.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note key">
+    <div class="t">One backbone, modular airframe packages</div>
+    <p>Apollyon maintains a single unified physics backbone. Each airframe—the Ahuti interceptor, the Nightshade jet munition, the HACM-350 cruise missile, or the Kamikaze USV—exists as a parameterized aerodynamic package residing on the identical simulation substrate. When a flight-test campaign improves our high-rate aerodynamic damping model, that fidelity immediately propagates to every program across the company.</p>
+  </div>
+
+  <figure>
+    <img src="../assets/slides/apollyon-eng-2.jpg" alt="Flight data comparison against simulator prediction">
+    <figcaption><b>Fig. 03</b> Telemetry replayed through the simulation backbone. Observed mismatches drive iterative refinement of physical terms, creating a hardened sim-to-real loop.</figcaption>
+  </figure>
+</section>
+
+<section id="architecture">
+  <div class="sec-tag">04 · Direct-actuator policy</div>
+  <h2>High-rate closed-loop neural execution</h2>
+  <p>The deployed flight policy evaluates at approximately <strong>500 Hz</strong> directly within the onboard compute core. The system bypasses intermediate PID stages entirely, mapping current aircraft state, measured dynamics, and target path coordinates straight to individual actuator commands.</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="kicker">Execution module 01</div>
+      <h3>Direct-actuator neural policy</h3>
+      <p>Computes direct surface deflections and motor throttle targets at 500 Hz. Because the policy was conditioned on non-linear aerodynamics and full actuator saturation inside the simulation backbone, it operates naturally at the mechanical limits of the vehicle without integrator windup.</p>
+      <div class="foot"><span>~500 Hz</span><span>Direct to actuators</span></div>
+    </div>
+    <div class="card">
+      <div class="kicker">Execution module 02</div>
+      <h3>High-rate adaptive state representation</h3>
+      <p>A fast online diagnostic representation continually analyzes recent flight history to infer changing flight conditions—including crosswinds, air density variations, asymmetric battle damage, or structural payload shifts—supplying instant contextual conditioning to the primary policy.</p>
+      <div class="foot"><span>Real-time</span><span>Contextual adaptation</span></div>
+    </div>
+  </div>
+
+  <p>The resulting controller demonstrates exceptional robustness against unmodeled turbulence, sudden control surface clipping, and extreme dynamic pressure shifts, maintaining razor-sharp trajectory adherence throughout the entire terminal engagement.</p>
+</section>
+
+<section id="generalisation">
+  <div class="sec-tag">05 · Fleet generalisation</div>
+  <h2>Cross-platform deployment &amp; compounding velocity</h2>
+  <p>While the specific policy weights are optimized for each individual vehicle geometry, the identification methodology, the high-fidelity physics core, and the simulation-to-real pipeline are completely shared. When developing a new platform, engineering teams do not write new flight control logic from scratch; they execute a parameterized training campaign within the proven pipeline.</p>
+
+  <div class="tw">
+    <table>
+      <caption>Cross-platform control deployment</caption>
+      <thead><tr><th>Platform</th><th>Speed regime</th><th>Primary control challenge</th><th>Execution rate</th></tr></thead>
+      <tbody>
+        <tr><td><a href="../products/ahuti.html">Ahuti Interceptor</a></td><td>337+ km/h</td><td>Tail-sitter vertical launch transition and high-speed terminal collision homing.</td><td>500 Hz direct actuator</td></tr>
+        <tr><td><a href="../products/nightshade-adx1.html">Nightshade ADX-1</a></td><td>650+ km/h</td><td>Turbojet loiter-to-dash transition and steep 380+ km/h terminal dive guidance.</td><td>400 Hz elevon / throttle</td></tr>
+        <tr><td><a href="../products/hacm-350.html">HACM-350</a></td><td>Mach 0.7–0.8</td><td>Trans-subsonic high dynamic pressure sea-skimming and 80° terminal dive onto fortified targets.</td><td>500 Hz fin actuation</td></tr>
+        <tr><td><a href="../products/usv-strike.html">Kamikaze USV</a></td><td>48+ knots</td><td>Rough sea-state hydrodynamic stability, wave-slamming mitigation, and dynamic waterjet trim.</td><td>100 Hz hydraulic trim</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure>
+    <img src="../assets/slides/near-envelope-3.jpg" alt="Data flywheel from instrumented flight to validated control policy">
+    <figcaption><b>Fig. 04</b> The hardware data flywheel: dense instrumented flight data reinforces the physics core, accelerating development for subsequent airframe programs.</figcaption>
+  </figure>
+</section>
+
+<section id="usedby">
+  <div class="sec-tag">06 · Used by</div>
+  <h2>Platforms carrying this subsystem</h2>
+  <div class="xref">
+    <div class="t">Integrated into</div>
+    <div class="items">
+      <a href="../products/ahuti.html">Ahuti Interceptor — primary consumer, high-speed interception</a>
+      <a href="../products/nightshade-adx1.html">Nightshade ADX-1 — terminal dive and loiter stability</a>
+      <a href="../products/hacm-350.html">HACM-350 — high-subsonic Mach 0.8 cruise and terminal dive</a>
+      <a href="../products/usv-strike.html">Kamikaze USV — sea-state hydrodynamic surface control</a>
+      <a href="../products/mobile-drone-lab.html">Mobile Drone Lab — pre-flight HIL rate-table validation</a>
+    </div>
+  </div>
+  <p>Depends on: <a href="onboard-compute.html">Edge Compute &amp; Custom Inference Engine</a>, <a href="flight-software.html">Flight Software Stack</a>.</p>
+</section>
+
+<footer>
+  <div>Robust Control for Fast Air Platforms · Subsystem · Rev 2.0</div>
+  <div><a href="../index.html">Wiki root</a> · <a href="../index.html#matrix">Commonality matrix</a> · apollyondynamics.com</div>
+</footer>
+
+</main>
+</div>
+</div>
+</body>
+</html>

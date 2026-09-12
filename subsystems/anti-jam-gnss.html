@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anti-Jam GNSS · CRPA &middot; Consolidated — Apollyon Dynamics Wiki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/wiki.css">
+</head>
+<body>
+
+<div class="rail">
+  <div class="rail-inner">
+    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>· Engineering Wiki</em></a>
+    <nav class="rail-links">
+      <a href="../index.html#products">Products</a>
+      <a href="../index.html#subsystems" class="on">Subsystems</a>
+      <a href="../doctrine/new-arsenal.html">Doctrine</a>
+      <a href="../about/history.html">History</a>
+    </nav>
+  </div>
+</div>
+
+<div class="shell">
+<div class="layout">
+
+<aside class="aside">
+  <h4>Subsystems</h4>
+  <ul>
+    <li><a href="near-envelope-control.html">Robust control for fast platforms</a></li>
+    <li><a href="gnss-denied-navigation.html" class="here">High-speed GNSS-denied nav</a></li>
+    <li><a href="onboard-compute.html">Edge compute &amp; inference</a></li>
+    <li><a href="flight-software.html">Flight software stack</a></li>
+    <li><a href="seekers.html">Seekers &amp; terminal guidance</a></li>
+    <li><a href="propulsion.html">Propulsion</a></li>
+    <li><a href="airframe-structures.html">Airframe &amp; structures</a></li>
+    <li><a href="launch-systems.html">Launch &amp; ground systems</a></li>
+  </ul>
+  <h4>Products</h4>
+  <ul>
+    <li><a href="../products/hacm-350.html">HACM-350</a></li>
+    <li><a href="../products/nightshade-adx1.html">Nightshade ADX-1</a></li>
+    <li><a href="../products/usv-strike.html">Kamikaze USV</a></li>
+    <li><a href="../products/ahuti.html">Ahuti Interceptor</a></li>
+    <li><a href="../products/mobile-drone-lab.html">Mobile Drone Lab</a></li>
+    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
+    <li><a href="../products/mdcc.html">MDCC</a></li>
+  </ul>
+</aside>
+
+<main class="main">
+
+<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../index.html#subsystems">Subsystems</a><span>/</span>Notice</div>
+
+<header class="masthead">
+  <div class="mast-meta">Architecture update · consolidated subsystem</div>
+  <h1>Anti-Jam GNSS <span class="sub">7-Element CRPA</span></h1>
+  <p class="standfirst">This technology has been consolidated into the primary navigation subsystem authority: <a href="gnss-denied-navigation.html"><strong>High-Speed GNSS-Denied Navigation</strong></a>.</p>
+</header>
+
+<section>
+  <div class="note key">
+    <div class="t">Subsystem Consolidation Notice</div>
+    <p>Multi-element <strong>Controlled Reception Pattern Antenna (CRPA)</strong> spatial nulling and <strong>AI-DSMAC</strong> terrain correlation operate as two stages of a single layered navigational defense. To provide a unified engineering reference, all documentation regarding anti-jam spatial nulling (&gt;45 dB), spoofing angle-of-arrival discrimination, and Mach 0.8 terrain matching now resides centrally on the <a href="gnss-denied-navigation.html"><strong>High-Speed GNSS-Denied Navigation</strong></a> specification page.</p>
+  </div>
+
+  <p>Key highlights of the unified stack:</p>
+  <ul>
+    <li><strong>7-Element indigenous array:</strong> Deep &gt;45 dB digital null steering against 200–250 km radius ground EW emitters across NavIC and GPS frequencies.</li>
+    <li><strong>Spatial spoofing discrimination:</strong> Detects false constellation single-point angle collapse.</li>
+    <li><strong>Seamless handoff:</strong> Immediate transition to passive AI-DSMAC optical terrain correlation under complete jamming saturation.</li>
+  </ul>
+
+  <div style="margin-top: 2rem;">
+    <a href="gnss-denied-navigation.html" class="btn" style="display:inline-block; padding: 0.6rem 1.2rem; background:#38bdf8; color:#0f172a; font-weight:600; text-decoration:none; border-radius:4px; font-family:'Inter', sans-serif;">Go to High-Speed GNSS-Denied Navigation &rarr;</a>
+  </div>
+</section>
+
+<footer>
+  <div>Anti-Jam GNSS · Consolidated · Rev 2.0</div>
+  <div><a href="../index.html">Wiki root</a> · <a href="../index.html#matrix">Commonality matrix</a></div>
+</footer>
+
+</main>
+</div>
+</div>
+</body>
+</html>

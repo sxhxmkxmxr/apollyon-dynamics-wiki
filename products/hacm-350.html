@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HACM-350 — Apollyon Dynamics Wiki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/wiki.css">
+</head>
+<body>
+
+<div class="rail">
+  <div class="rail-inner">
+    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>· Engineering Wiki</em></a>
+    <nav class="rail-links">
+      <a href="../index.html#products" class="on">Products</a>
+      <a href="../index.html#subsystems">Subsystems</a>
+      <a href="../doctrine/new-arsenal.html">Doctrine</a>
+      <a href="../about/history.html">History</a>
+    </nav>
+  </div>
+</div>
+
+<div class="shell">
+<div class="layout">
+
+<aside class="aside">
+  <h4>This page</h4>
+  <ul>
+    <li><a href="#specs">Specification</a></li>
+    <li><a href="#usecases">Use cases</a></li>
+    <li><a href="#altitude">High-altitude operation</a></li>
+    <li><a href="#nav">Navigation stack</a></li>
+    <li><a href="#terminal">Terminal geometry</a></li>
+    <li><a href="#structure">Structure &amp; warhead</a></li>
+    <li><a href="#industrial">Industrial base</a></li>
+    <li><a href="#procurement">Procurement alignment</a></li>
+    <li><a href="#subsystems">Subsystems used</a></li>
+  </ul>
+  <h4>Products</h4>
+  <ul>
+    <li><a href="hacm-350.html" class="here">HACM-350</a></li>
+    <li><a href="nightshade-adx1.html">Nightshade ADX-1</a></li>
+    <li><a href="usv-strike.html">Kamikaze USV</a></li>
+    <li><a href="ahuti.html">Ahuti Interceptor</a></li>
+    <li><a href="mobile-drone-lab.html">Mobile Drone Lab</a></li>
+    <li><a href="cortex.html">Apollyon Cortex</a></li>
+    <li><a href="mdcc.html">MDCC</a></li>
+  </ul>
+  <h4>Subsystems</h4>
+  <ul>
+    <li><a href="../subsystems/near-envelope-control.html">Robust control for fast platforms</a></li>
+    <li><a href="../subsystems/gnss-denied-navigation.html">High-speed GNSS-denied nav</a></li>
+    <li><a href="../subsystems/onboard-compute.html">Edge compute &amp; inference</a></li>
+    <li><a href="../subsystems/flight-software.html">Flight software stack</a></li>
+    <li><a href="../subsystems/seekers.html">Seekers &amp; terminal guidance</a></li>
+    <li><a href="../subsystems/propulsion.html">Propulsion</a></li>
+    <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
+    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground systems</a></li>
+  </ul>
+  <h4>Doctrine</h4>
+  <ul>
+    <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
+    <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
+    <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
+  </ul>
+</aside>
+
+<main class="main">
+
+<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../index.html#products">Products</a><span>/</span>Class A · Standoff strike<span>/</span>HACM-350</div>
+
+<header class="masthead">
+  <div class="mast-meta">Standoff cruise missile · GTRE 350 kgf anchor <span>· TRL 4–8 development programme · rev 2.1</span></div>
+  <h1>HACM-350 <span class="sub">Sovereign Strike</span></h1>
+  <p class="standfirst">A 500–600 kg all-up-weight, high-subsonic cruise missile built around the GTRE 350 kgf expendable turbojet. Designed for ground launch from 4,500 m Himalayan elevations, for electronic-warfare resilience, and for mass manufacture by Indian tier-1 precision foundries.</p>
+</header>
+
+<section id="specs">
+  <div class="sec-tag">01 · Specification</div>
+  <h2>Primary engineering baseline</h2>
+
+  <div class="spec-card">
+    <div class="spec-topbar"><span>HACM-350 · at a glance</span><span class="right">TRL 4–8 · ground-launched · non-ITAR intent</span></div>
+    <div class="spec-grid">
+      <div class="spec-col">
+        <div class="spec-col-title">Vehicle &amp; airframe</div>
+        <div class="row"><div class="lbl">All-up weight (cruise)</div><div class="val">500–600 kg</div></div>
+        <div class="row"><div class="lbl">Launch weight (with booster)</div><div class="val">650–750 kg</div></div>
+        <div class="row"><div class="lbl">Length (airframe / booster)</div><div class="val">4.5–5.0 m / 5.5–6.0 m</div></div>
+        <div class="row"><div class="lbl">Wingspan (deployed)</div><div class="val">2.4–2.8 m</div></div>
+        <div class="row"><div class="lbl">Fuselage diameter</div><div class="val">~0.4 m (350–400 mm)</div></div>
+        <div class="row"><div class="lbl">Frontal RCS (X-band)</div><div class="val">&lt; 0.03 m²</div></div>
+      </div>
+      <div class="spec-col">
+        <div class="spec-col-title">Propulsion &amp; envelope</div>
+        <div class="row"><div class="lbl">Engine</div><div class="val">GTRE 350 kgf turbojet</div></div>
+        <div class="row"><div class="lbl">Manufacturing partner</div><div class="val">Azad Engineering</div></div>
+        <div class="row"><div class="lbl">Static sea-level thrust</div><div class="val">3.43 kN (350 kgf)</div></div>
+        <div class="row"><div class="lbl">Thrust at 4,500 m (M 0.72)</div><div class="val accent">~2.0–2.2 kN</div></div>
+        <div class="row"><div class="lbl">Plateau thrust margin</div><div class="val">+60% to +75%</div></div>
+        <div class="row"><div class="lbl">Engine life rating</div><div class="val">120 min (single-use)</div></div>
+      </div>
+      <div class="spec-col">
+        <div class="spec-col-title">Kinematics &amp; warhead</div>
+        <div class="row"><div class="lbl">Operational range (hi-lo)</div><div class="val accent">800–1,000 km</div></div>
+        <div class="row"><div class="lbl">Low-level NOE range</div><div class="val">500–700 km</div></div>
+        <div class="row"><div class="lbl">Cruise speed</div><div class="val">Mach 0.7–0.8</div></div>
+        <div class="row"><div class="lbl">Ceiling / launch floor</div><div class="val">8–10 km / 4.0–5.5 km</div></div>
+        <div class="row"><div class="lbl">Primary warhead</div><div class="val">120–150 kg penetrator</div></div>
+        <div class="row"><div class="lbl">Terminal attack profile</div><div class="val">80° (±10°) dive</div></div>
+      </div>
+      <div class="spec-col">
+        <div class="spec-col-title">Guidance &amp; production</div>
+        <div class="row"><div class="lbl">Anti-jam GNSS array</div><div class="val">7-channel NavIC / GPS</div></div>
+        <div class="row"><div class="lbl">Jammer spatial nulling</div><div class="val">&gt; 45 dB</div></div>
+        <div class="row"><div class="lbl">Optical fallback</div><div class="val">Open AI-DSMAC (30 m DEM)</div></div>
+        <div class="row"><div class="lbl">Terminal accuracy</div><div class="val accent">CEP &lt; 1.5 m</div></div>
+        <div class="row"><div class="lbl">Unit cost at scale</div><div class="val">₹1.5–1.8 Cr</div></div>
+        <div class="row"><div class="lbl">Target production rate</div><div class="val">80–120 / month</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <div class="t">Reading the numbers</div>
+    <p>Every figure above is set by one of three constraints: the air at 4,500 m, the electronic-warfare environment along the northern frontier, or the requirement that Indian tier-1 industry can build the part at rate. Where a number looks conservative, it is usually buying margin in the first of those.</p>
+  </div>
+
+  <div class="blueprint-plate">
+  <div class="blueprint-head">
+    <div class="title">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      FIG. 02 &mdash; HACM-350 Structural Station Lines &amp; Internal Packaging
+    </div>
+    <span class="scale">Scale: 1:25 &middot; Dimensions in Millimetres</span>
+  </div>
+  <div class="blueprint-body">
+    <svg viewBox="0 0 960 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CAD schematic of HACM-350 cruise missile">
+      <defs>
+        <pattern id="cad_grid" width="20" height="20" patternUnits="userSpaceOnUse">
+          <line x1="0" y1="0" x2="20" y2="0" stroke="rgba(56,189,248,0.06)" stroke-width="1"/>
+          <line x1="0" y1="0" x2="0" y2="20" stroke="rgba(56,189,248,0.06)" stroke-width="1"/>
+        </pattern>
+        <pattern id="hatch_wh" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <line x1="0" y1="0" x2="0" y2="6" stroke="#f43f5e" stroke-width="1" opacity="0.4"/>
+        </pattern>
+        <pattern id="hatch_fuel" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+          <line x1="0" y1="0" x2="0" y2="6" stroke="#38bdf8" stroke-width="1" opacity="0.3"/>
+        </pattern>
+        <pattern id="hatch_booster" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <line x1="0" y1="0" x2="0" y2="6" stroke="#94a3b8" stroke-width="1" opacity="0.35"/>
+        </pattern>
+      </defs>
+
+      <rect width="960" height="260" fill="#0d1117"/>
+      <rect width="960" height="260" fill="url(#cad_grid)"/>
+
+      <!-- Centerline Datum -->
+      <line x1="30" y1="125" x2="930" y2="125" stroke="#38bdf8" stroke-width="0.8" stroke-dasharray="12,4,2,4" opacity="0.6"/>
+      <text x="35" y="120" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="8" opacity="0.7">DATUM &pound;</text>
+
+      <!-- JETTISONABLE SOLID ROCKET BOOSTER (STA 750 to 900) -->
+      <rect x="730" y="98" width="160" height="54" fill="url(#hatch_booster)" stroke="#cbd5e1" stroke-width="1.2"/>
+      <polygon points="890,92 925,78 925,98 890,108" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
+      <polygon points="890,158 925,172 925,152 890,142" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
+      <path d="M 890 112 L 915 106 L 915 144 L 890 138 Z" fill="#334155" stroke="#94a3b8" stroke-width="1"/>
+      <line x1="730" y1="88" x2="730" y2="162" stroke="#f43f5e" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="810" y="129" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="600" text-anchor="middle">SOLID BOOSTER (JETTISONABLE)</text>
+
+      <!-- MAIN AIRFRAME BODY (STA 80 to 730) -->
+      <path d="M 80 125 Q 140 98, 200 98 L 730 98 L 730 152 L 200 152 Q 140 152, 80 125 Z" fill="rgba(15,23,42,0.85)" stroke="#f8fafc" stroke-width="1.8"/>
+
+      <!-- COMPARTMENT BULKHEADS -->
+      <line x1="200" y1="98" x2="200" y2="152" stroke="#64748b" stroke-width="1.2"/>
+      <line x1="330" y1="98" x2="330" y2="152" stroke="#64748b" stroke-width="1.2"/>
+      <line x1="490" y1="98" x2="490" y2="152" stroke="#64748b" stroke-width="1.2"/>
+
+      <!-- 1. AVIONICS & CRPA BAY (STA 80 - 200) -->
+      <path d="M 88 125 Q 135 104, 185 104 L 185 146 Q 135 146, 88 125 Z" fill="rgba(56,189,248,0.08)" stroke="#38bdf8" stroke-width="0.8"/>
+      <rect x="130" y="93" width="45" height="5" fill="#38bdf8" stroke="#f8fafc" stroke-width="0.8"/>
+      <circle cx="138" cy="95.5" r="1.5" fill="#0d1117"/>
+      <circle cx="148" cy="95.5" r="1.5" fill="#0d1117"/>
+      <circle cx="158" cy="95.5" r="1.5" fill="#0d1117"/>
+      <circle cx="168" cy="95.5" r="1.5" fill="#0d1117"/>
+      <rect x="145" y="152" width="22" height="4" fill="#38bdf8" stroke="#38bdf8"/>
+      <text x="140" y="122" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="8" font-weight="700" text-anchor="middle">AVIONICS / CRPA</text>
+      <text x="140" y="133" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">AI-DSMAC Core</text>
+
+      <!-- 2. PENETRATING WARHEAD BAY (STA 200 - 330) -->
+      <rect x="205" y="103" width="120" height="44" fill="url(#hatch_wh)" stroke="#f43f5e" stroke-width="1.2"/>
+      <text x="265" y="122" fill="#f43f5e" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" text-anchor="middle">WARHEAD 120-150 kg</text>
+      <text x="265" y="133" fill="#fda4af" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">Forged Tungsten Penetr.</text>
+
+      <!-- 3. JP-10 FUEL BLADDER (STA 330 - 490) -->
+      <rect x="335" y="103" width="150" height="44" fill="url(#hatch_fuel)" stroke="#38bdf8" stroke-width="1"/>
+      <text x="410" y="122" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="600" text-anchor="middle">JP-10 FUEL CELL</text>
+      <text x="410" y="133" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">~160 kg &middot; CG Balanced</text>
+
+      <!-- 4. GTRE 350 TURBOJET BAY & S-DUCT (STA 490 - 730) -->
+      <path d="M 480 98 Q 515 84, 550 84 L 590 84 Q 565 98, 540 106 L 515 106 Z" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+      <rect x="520" y="104" width="195" height="42" fill="#1e293b" stroke="#f8fafc" stroke-width="1.2"/>
+      <line x1="535" y1="104" x2="535" y2="146" stroke="#38bdf8" stroke-width="1"/>
+      <line x1="550" y1="106" x2="550" y2="144" stroke="#64748b" stroke-width="1"/>
+      <line x1="565" y1="108" x2="565" y2="142" stroke="#64748b" stroke-width="1"/>
+      <rect x="580" y="109" width="60" height="32" fill="#0f172a" stroke="#f43f5e" stroke-width="0.8" stroke-dasharray="2,2"/>
+      <circle cx="610" cy="125" r="6" fill="none" stroke="#f43f5e" stroke-width="0.8"/>
+      <line x1="660" y1="106" x2="660" y2="144" stroke="#38bdf8" stroke-width="1.5"/>
+      <path d="M 700 110 L 730 114 L 730 136 L 700 140 Z" fill="#334155" stroke="#f8fafc" stroke-width="1"/>
+      <text x="620" y="123" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" text-anchor="middle">GTRE 350 kgf TURBOJET</text>
+      <text x="620" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">Azad Eng &middot; Single-Shaft</text>
+
+      <!-- FOLDED SCISSOR WINGS (STOWED) -->
+      <polygon points="310,98 560,98 550,88 330,88" fill="rgba(56,189,248,0.15)" stroke="#38bdf8" stroke-width="1.2"/>
+      <text x="435" y="81" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="7.5" font-weight="600" text-anchor="middle">FOLDED WINGS (Span: 2.6 m deployed)</text>
+
+      <!-- TAIL CONTROL FINS -->
+      <polygon points="680,98 722,62 730,62 724,98" fill="#1e293b" stroke="#f8fafc" stroke-width="1.2"/>
+      <polygon points="680,152 722,188 730,188 724,152" fill="#1e293b" stroke="#f8fafc" stroke-width="1.2"/>
+
+      <!-- DIMENSION RULES -->
+      <line x1="80" y1="210" x2="730" y2="210" stroke="#94a3b8" stroke-width="1"/>
+      <line x1="80" y1="204" x2="80" y2="216" stroke="#94a3b8" stroke-width="1"/>
+      <line x1="730" y1="204" x2="730" y2="216" stroke="#94a3b8" stroke-width="1"/>
+      <text x="405" y="222" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Fuselage Length: 4,500 &ndash; 5,000 mm</text>
+
+      <line x1="80" y1="238" x2="925" y2="238" stroke="#38bdf8" stroke-width="1"/>
+      <line x1="80" y1="232" x2="80" y2="244" stroke="#38bdf8" stroke-width="1"/>
+      <line x1="925" y1="232" x2="925" y2="244" stroke="#38bdf8" stroke-width="1"/>
+      <text x="502" y="250" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" text-anchor="middle">Total Launch Configuration with Booster: 5,500 &ndash; 6,000 mm</text>
+
+      <line x1="50" y1="98" x2="50" y2="152" stroke="#94a3b8" stroke-width="1"/>
+      <line x1="44" y1="98" x2="56" y2="98" stroke="#94a3b8" stroke-width="1"/>
+      <line x1="44" y1="152" x2="56" y2="152" stroke="#94a3b8" stroke-width="1"/>
+      <text x="40" y="128" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="end">&Oslash; 380 mm</text>
+    </svg>
+  </div>
+  <div class="blueprint-cap">
+    <b>FIG. 02</b> Internal packaging, station divisions, and dimensional envelope of the HACM-350 sovereign strike missile. Sized around the GTRE 350 kgf engine for high-altitude launch at 4,500 m AMSL.
+  </div>
+</div>
+</section>
+
+<section id="usecases">
+  <div class="sec-tag">02 · Use cases</div>
+  <h2>What it is fired at, and why</h2>
+  <p class="lede">The HACM-350 exists to let a commander launch salvos of thirty to fifty rounds against defended targets without depleting national strategic reserves. The target set is the one that sits between "too hard for a loitering munition" and "too cheap to be worth a BrahMos".</p>
+
+  <div class="tw">
+    <table>
+      <caption>Primary mission profiles</caption>
+      <thead><tr><th>Mission</th><th>Target set</th><th>Configuration</th></tr></thead>
+      <tbody>
+        <tr><td>Deep interdiction</td><td>Defended logistics nodes, fuel and ammunition points, railheads, bridge abutments</td><td>120–150 kg penetrator, hi-lo profile, 800–1,000 km</td></tr>
+        <tr><td>Counter-air infrastructure</td><td>Hardened aircraft shelters, revetments, runway complexes, mountain portals</td><td>Penetrator, 80° terminal dive, CEP &lt; 1.5 m</td></tr>
+        <tr><td>SEAD / counter-radar</td><td>Long- and medium-range SAM radars, EW emitters in an HQ-9B / HQ-16 belt</td><td>Low-level NOE ingress, 500–700 km, salvo</td></tr>
+        <tr><td>Area suppression</td><td>Dispersed vehicle parks, assembly areas, soft-skinned logistics</td><td>120–140 kg submunition / multi-EFP canister</td></tr>
+        <tr><td>Maritime interdiction</td><td>Surface combatants and shipping in the littoral</td><td>Anti-ship configuration, sea-skim profile</td></tr>
+        <tr><td>Air-launched standoff</td><td>Same target sets from Su-30MKI / Rafale carriage</td><td>Common powerplant and avionics, 250–350 km standoff</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Why not the tiers either side of it</h3>
+  <p>A tactical loitering munition cruises at 150 km/h with a 5–15 kg warhead. It is cheap and it is replenishable, and a SHORAD battery intercepts it routinely. At the other end, an exquisite round costs ₹25–35 crore and is produced at roughly eight a month; firing salvos of it exhausts a national war reserve. Neither tier can service a defended rear area repeatedly. The HACM-350 is specified to be the round you can afford to fire fifty of. See <a href="../doctrine/missing-middle.html">The missing middle</a> for the full argument.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="n">Mach 0.7–0.8</div><div class="d">Ingress speed — fast enough to compress the defender's detect-to-engage window</div></div>
+    <div class="stat"><div class="n accent">₹1.5–1.8 Cr</div><div class="d">Flyaway at rate, against ₹25–35 Cr for the exquisite tier</div></div>
+    <div class="stat"><div class="n">80–120 / mo</div><div class="d">Sustained output, against ~8 / mo for the tier above</div></div>
+    <div class="stat"><div class="n">120–150 kg</div><div class="d">Penetrating warhead mass — 1.5–2.0 m of reinforced concrete</div></div>
+  </div>
+</section>
+
+<section id="altitude">
+  <div class="sec-tag">03 · Specifics</div>
+  <h2>High-altitude engine operation</h2>
+  <p class="lede">This is the governing design constraint of the whole vehicle. Missiles developed for Western Europe or desert plains fail when deployed along India's northern frontier, and they fail first in the turbine.</p>
+
+  <h3>The physics</h3>
+  <p>Ground launch sites in Eastern Ladakh — Nyoma, Daulat Beg Oldie, Leh — and North Sikkim sit at base elevations between 4,000 m and 4,800 m AMSL. At 4,500 m, standard atmospheric density falls to approximately <strong>ρ = 0.771 kg/m³</strong>, which is <strong>62.9%</strong> of the sea-level value of 1.225 kg/m³.</p>
+  <p>Turbine mass airflow, and therefore thrust, declines in proportion to ambient density. A gas turbine sized with minimal thrust margin at sea level loses roughly <strong>38–40% of its static thrust</strong> at plateau altitudes. An underpowered vehicle in that condition cannot achieve the climb rates it needs, cannot overcome mountain wind turbulence, and has no thrust left for high-g evasive manoeuvre or for the terminal pitch-over.</p>
+
+  <div class="tw">
+    <table class="spec">
+      <caption>Thrust budget at the Ladakh floor</caption>
+      <tbody>
+        <tr><td>Static sea-level thrust</td><td>3.43 kN · 350 kgf</td></tr>
+        <tr><td>Net thrust at 4,500 m, M 0.72</td><td>~2.0–2.2 kN · 200–220 kgf</td></tr>
+        <tr><td>Level cruise drag at that condition</td><td>~60 kgf</td></tr>
+        <tr><td>Available margin</td><td>~+150 kgf · +60% to +75%</td></tr>
+        <tr><td>What the margin buys</td><td>4.5 g manoeuvre · 80° terminal dive</td></tr>
+        <tr><td>Certified temperature band</td><td>−30 °C to +55 °C</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Why the engine is sized with excess</h3>
+  <p>The vehicle is deliberately over-engined at sea level so that it is correctly engined at the launch floor. The 71% excess thrust reserve is not a performance boast — it is the energy required to pitch up vertically at the end of a thousand-kilometre transit, acquire the target silhouette, and plunge at 80° at high subsonic speed. Sizing for the sea-level case and accepting the derate would produce a vehicle that flies acceptably in the plains and cannot complete a terminal attack from Nyoma.</p>
+
+  <h3>Why not a salvaged engine</h3>
+  <p>The company explicitly rejects building the vehicle around decommissioned civilian business-jet engines. That approach produced the Ukrainian FP-5 Flamingo because Ukraine possessed hundreds of surplus Soviet AI-25 trainer engines in storage and needed to cross a continental landmass. In India, foreign engine salvage provides no sustainable production pipeline, triggers MTCR Category I export exposure through excessive vehicle mass, and diverts investment away from domestic aerospace manufacturing. See <a href="../subsystems/propulsion.html">Propulsion</a>.</p>
+
+  <div class="note key">
+    <div class="t">Documented requirement</div>
+    <p>The Indian Army Long-Range Loiter Munition Questionnaire (July 2026) §3 mandates certified performance at a 5,000 m AMSL service ceiling across −30 °C to +55 °C. HQ IDS TPCR 2025 Line Item #15 (ULPGMS) mandates a launch floor of "not less than 4,500 m AMSL", and Line Item #6 cites engine degradation in rarefied atmosphere as a primary operational challenge.</p>
+  </div>
+</section>
+
+<section id="nav">
+  <div class="sec-tag">04 · Specifics</div>
+  <h2>Navigation stack</h2>
+  <p class="lede">Along the northern border, ground-based countermeasure complexes deploy high-power broadband jammers and time-spoofing systems. Commercial satellite receivers do not survive this theatre. The navigation stack is built in layers that degrade in a known order.</p>
+
+  <h3>The threat, specifically</h3>
+  <p>HQ IDS TPCR 2025 (Joint Line Item #33) specifies enemy vehicle-mounted multi-GNSS jammers operating over a <strong>200–250 km radius</strong> across L1/L2 and B1/B2. Army Line Item #75 documents ground stations designed to inject subtle timing drift into satellite PNT signals, so that a coupled inertial filter accumulates position error without ever reporting a fault. Silent failure is the harder case: partial jamming and multipath can introduce errors of hundreds of metres while the link still indicates healthy.</p>
+
+  <div class="tw">
+    <table>
+      <caption>Navigation layers, in order of degradation</caption>
+      <thead><tr><th>Layer</th><th>Mechanism</th><th>Holds until</th></tr></thead>
+      <tbody>
+        <tr><td>1 · Anti-jam GNSS</td><td><a href="../subsystems/anti-jam-gnss.html">7-element CRPA</a>, NavIC L5/S + GPS L1/L2, spatial nulls &gt; 45 dB steered at the emitter azimuth</td><td>Jammer power saturates the RF front end entirely</td></tr>
+        <tr><td>2 · Inertial core</td><td>Tactical FOG in pitch/yaw + MEMS triad, &lt; 0.5 nm/hr</td><td>Drift approaches the mission error budget</td></tr>
+        <tr><td>3 · Optical checkpoint</td><td><a href="../subsystems/gnss-denied-navigation.html">AI-DSMAC</a> against open Copernicus 30 m DEM, CMOS edge correlator; INS drift zeroed at ~25 km intervals</td><td>Terrain offers nothing to match against</td></tr>
+        <tr><td>4 · Terminal lock</td><td>Dual uncooled LWIR / visible <a href="../subsystems/seekers.html">automatic scene matcher</a>, geometric silhouette match</td><td>Impact</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>The open-source AI-DSMAC pipeline</h3>
+  <p>Legacy cruise missiles require expensive military reconnaissance-satellite infrastructure for terrain matching. The HACM-350 uses an indigenous software pipeline running on publicly available planetary datasets and onboard edge neural processors. There is no classified imagery in the loop and no pre-mission reconnaissance sortie.</p>
+  <ol>
+    <li><strong>Open-source ingestion.</strong> Copernicus 30 m DEM and Sentinel-2 multispectral. Zero classified data requirement.</li>
+    <li><strong>Pre-flight compilation.</strong> Synthetic sun-angle shading and topological gradient hashing, compiled to under 150 MB of route storage.</li>
+    <li><strong>In-flight correlation.</strong> Downward CMOS camera into an embedded edge-AI engine; inertial drift zeroed at roughly 25 km intervals.</li>
+    <li><strong>Terminal lock.</strong> Forward LWIR/visible sensor, geometric silhouette match, CEP &lt; 1.5 m into an 80° dive.</li>
+  </ol>
+
+  <h3>Zero-emission optical odometry</h3>
+  <p>During terminal penetration through complete RF denial the missile operates in total radio silence. The downward-facing camera tracks optical flow and cross-references topographic ridges against stored hashes, arresting inertial drift without any active emission. Anything that transmits can be heard; the radar altimeter's duty cycle is therefore an operational risk decision rather than an engineering detail.</p>
+
+  <div class="note">
+    <div class="t">Route as a navigation decision</div>
+    <p>Because every optical fix is geographic, waypoint routing becomes an active navigation strategy rather than only a tactical one. Ridgelines and built-up areas offer both shape and appearance; open farmland offers appearance only, and weakly; water offers neither. The planner spends the drift budget deliberately — taking high-confidence fixes immediately before a featureless crossing, so the corridor entering the blind stretch is pinched to its minimum. See <a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a>.</p>
+  </div>
+</section>
+
+<section id="terminal">
+  <div class="sec-tag">05 · Specifics</div>
+  <h2>Valley ingress and terminal geometry</h2>
+  <p>Mountain terrain masks line-of-sight radar detection, but narrow Himalayan valleys demand rapid turn rates and high climb margin. A missile at high subsonic speed must follow valley contours to stay below the radar horizon, and that costs energy that only the thrust reserve can pay for.</p>
+  <p>Targets such as reinforced aircraft revetments, bridge piers and bunker portals cannot be destroyed by shallow-angle horizontal strikes. The Indian Army July 2026 questionnaire specifies a terminal attack dive angle of <strong>80° (±10°)</strong>. The sequence is: pitch up vertically at the terminal waypoint, identify the target silhouette against the stored geometric reference, and plunge at 80° at high subsonic speed with an electronic deceleration-sensing delayed impact fuze arming on entry.</p>
+</section>
+
+<section id="structure">
+  <div class="sec-tag">06 · Specifics</div>
+  <h2>Structure, propulsion and warhead</h2>
+
+  <div class="tw">
+    <table class="spec">
+      <caption>1 · Airframe, aerodynamics &amp; materials</caption>
+      <tbody>
+        <tr><td>Fuselage structure</td><td>Semi-monocoque · stamped aluminium bulkheads</td></tr>
+        <tr><td>Skin material</td><td>Filament-wound carbon / epoxy composite</td></tr>
+        <tr><td>Wing design</td><td>Folding · 2.4–2.8 m span deployed</td></tr>
+        <tr><td>Control actuation</td><td>4× high-torque automotive BLDC servos</td></tr>
+        <tr><td>Radar cross section</td><td>&lt; 0.05 m² frontal X-band · chined nose + S-duct</td></tr>
+        <tr><td>Air intake</td><td>Dorsal flush S-duct masking the engine face</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tw">
+    <table class="spec">
+      <caption>2 · Propulsion &amp; thermodynamics</caption>
+      <tbody>
+        <tr><td>Powerplant</td><td>GTRE 350 kgf expendable single-spool turbojet</td></tr>
+        <tr><td>Production source</td><td>Azad Engineering · Hyderabad line</td></tr>
+        <tr><td>Static thrust (SL)</td><td>~3.4 kN · 350 kgf class</td></tr>
+        <tr><td>Hot section alloy</td><td>Uncooled cast Inconel 718 · single-use rated</td></tr>
+        <tr><td>Bearings &amp; cooling</td><td>Fuel-cooled / lubricated · zero oil pump</td></tr>
+        <tr><td>Fuel capacity</td><td>150–180 kg JP-10 / aviation kerosene</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tw">
+    <table class="spec">
+      <caption>3 · Modular warhead &amp; lethality</caption>
+      <tbody>
+        <tr><td>Primary configuration</td><td>120–150 kg modular penetrator / blast</td></tr>
+        <tr><td>Explosive fill</td><td>~80 kg PBXN-109 or equivalent</td></tr>
+        <tr><td>Penetration capacity</td><td>1.5–2.0 m reinforced concrete · 5–6 m soil</td></tr>
+        <tr><td>Secondary option</td><td>120–140 kg submunition / multi-EFP canister</td></tr>
+        <tr><td>Fuze subsystem</td><td>Electronic deceleration-sensing delayed impact</td></tr>
+        <tr><td>Target sets</td><td>Bridge abutments · hardened shelters · command posts</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tw">
+    <table class="spec">
+      <caption>4 · Guidance, navigation &amp; launch interface</caption>
+      <tbody>
+        <tr><td>Anti-jam GNSS array</td><td>7-element CRPA · NavIC L5/S + GPS L1/L2</td></tr>
+        <tr><td>Inertial core</td><td>Tactical FOG (pitch/yaw) + MEMS triad · &lt; 0.5 nm/hr</td></tr>
+        <tr><td>Optical checkpoint</td><td>Open Copernicus 30 m DEM + CMOS edge correlator</td></tr>
+        <tr><td>Terminal sensor</td><td>Dual uncooled LWIR / visible scene matcher</td></tr>
+        <tr><td>Launch mechanism</td><td>Containerised zero-length rail + solid rocket booster</td></tr>
+        <tr><td>Carrier platform</td><td>Standard Indian Army 8×8 high-mobility vehicle</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>Station layout, nose to tail</h4>
+  <p>Avionics and CRPA forward; warhead bay at 120–150 kg; JP-10 tankage at ~150–180 kg amidships; GTRE turbojet aft with the dorsal S-duct above it; folded wings on the mid-fuselage; solid booster of ~100–150 kg on the launch rail, jettisoned after boost. Fuselage 4.5–5.0 m, total launch length 5.5–6.0 m with booster, diameter ~0.4 m.</p>
+</section>
+
+<section id="industrial">
+  <div class="sec-tag">07 · Industrial base</div>
+  <h2>Built by the supply base that already exists</h2>
+  <p>Missile programmes fail when they are designed around components that cannot be manufactured domestically at rate. The HACM-350 is deliberately drawn onto India's existing precision machining and automotive supply ecosystem.</p>
+  <ul>
+    <li><strong>Engine.</strong> GTRE completed design and initial handover of the 350 kgf expendable turbojet to <strong>Azad Engineering</strong> on 22 July 2026. Azad holds the multi-axis CNC capacity and dynamic rotor-balancing rigs needed for blisks and turbine casings. <strong>Godrej Aerospace</strong> provides precision modules; <strong>Bharat Forge</strong> and <strong>Aerolloy</strong> supply superalloy forgings.</li>
+    <li><strong>Actuation.</strong> Brushless DC servo actuators derived from commercial automotive steer-by-wire tier-1 suppliers, rated for the 120-minute operational life.</li>
+    <li><strong>Structure.</strong> Out-of-autoclave resin transfer moulding for skins, eliminating the aerospace autoclave bottleneck entirely.</li>
+  </ul>
+
+  <div class="tw">
+    <table class="spec">
+      <caption>Estimated bill of materials at rate (₹1.5–1.8 Cr)</caption>
+      <tbody>
+        <tr><td>GTRE 350 kgf turbojet</td><td>~28% · ₹45–50 lakh</td></tr>
+        <tr><td>Airframe &amp; structure</td><td>~22% · ₹35–40 lakh</td></tr>
+        <tr><td>Guidance, CRPA &amp; DSMAC</td><td>~24% · ₹35–45 lakh</td></tr>
+        <tr><td>Warhead, actuators &amp; assembly</td><td>~26% · ₹40–45 lakh</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="procurement">
+  <div class="sec-tag">08 · Procurement</div>
+  <h2>Alignment with published requirements</h2>
+  <div class="tw">
+    <table>
+      <caption>Tri-service mapping</caption>
+      <thead><tr><th>Authority / document</th><th>Requirement</th><th>Compliance</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Indian Army Questionnaire (Jul 2026)</td>
+          <td>Long-range loiter munition: 500–1,000 km, speed ≥ 400 km/h, 5,000 m ceiling, 80° steep dive, NavIC + DSMAC/TERCOM</td>
+          <td><strong>Full.</strong> 950 km, Mach 0.75 (880 km/h), 9,500 m ceiling, 80° dive, 7-ch CRPA + AI-DSMAC</td>
+        </tr>
+        <tr>
+          <td>IAF TPCR 2025 · Line Item #60</td>
+          <td>Smart loitering for BVLOS munitions: 500–1,000 km, 50 kg+ warhead, autonomous holding and terminal dive, 200–250 units. No DRDO tag</td>
+          <td><strong>Direct candidate.</strong> Ground-launched, 150 kg modular warhead, standoff holding and unjammable terminal dive. Open for Make-II private pitch</td>
+        </tr>
+        <tr>
+          <td>HQ IDS Joint TPCR 2025 · Line Item #81</td>
+          <td>Surface-to-surface missile: &lt; 1 tonne, range &gt; 150 km, land attack and maritime interdiction. Navy: 200 units</td>
+          <td><strong>Full.</strong> 560 kg AUW, 950 km range, modular penetrator / anti-ship configurations</td>
+        </tr>
+        <tr>
+          <td>IAF CATS Hunter synergy</td>
+          <td>Air-launched cruise missile: 3.2–3.5 kN turbojet, 250–350 km standoff, image-based navigation</td>
+          <td><strong>Common architecture.</strong> Identical GTRE 350 kgf powerplant and avionics stack for Su-30MKI / Rafale carriage</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>The RDI Scheme exists to finance deep-tech innovation at TRL 4 and above. Deploying the HACM-350 establishes rate tooling and flight trials for the GTRE 350 kgf engine, bridging the gap between single demonstrator handovers and volume serial production.</p>
+</section>
+
+<section id="subsystems">
+  <div class="sec-tag">09 · Commonality</div>
+  <h2>Subsystems used</h2>
+  <div class="xref">
+    <div class="t">This product is assembled from</div>
+    <div class="items">
+      <a href="../subsystems/propulsion.html">Propulsion · GTRE 350 kgf</a>
+      <a href="../subsystems/anti-jam-gnss.html">Anti-jam GNSS · 7-element CRPA</a>
+      <a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation · AI-DSMAC</a>
+      <a href="../subsystems/seekers.html">Seekers · LWIR / visible</a>
+      <a href="../subsystems/onboard-compute.html">Onboard compute · edge correlator</a>
+      <a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a>
+      <a href="../subsystems/launch-systems.html">Launch · rail + booster</a>
+    </div>
+  </div>
+  <p>The navigation and seeker stacks are shared with <a href="nightshade-adx1.html">Nightshade ADX-1</a>; the propulsion architecture is the top of the same turbojet family. Doctrinal context is in <a href="../doctrine/missing-middle.html">The missing middle</a>.</p>
+</section>
+
+<footer>
+  <div>HACM-350 · Technical specification · Rev 2.1 · September 2026</div>
+  <div><a href="../index.html">Wiki root</a> · <a href="nightshade-adx1.html">Nightshade ADX-1 →</a></div>
+</footer>
+
+</main>
+</div>
+</div>
+</body>
+</html>

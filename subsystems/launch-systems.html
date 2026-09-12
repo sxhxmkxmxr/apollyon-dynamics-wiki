@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Launch &amp; ground systems &mdash; Apollyon Dynamics Wiki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/wiki.css">
+</head>
+<body>
+
+<div class="rail">
+  <div class="rail-inner">
+    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
+    <nav class="rail-links">
+      <a href="../index.html#products">Products</a>
+      <a href="../index.html#subsystems" class="on">Subsystems</a>
+      <a href="../doctrine/new-arsenal.html">Doctrine</a>
+      <a href="../about/history.html">History</a>
+    </nav>
+  </div>
+</div>
+
+<div class="shell">
+<div class="layout">
+
+<aside class="aside">
+  <h4>This page</h4>
+  <ul>
+    <li><a href="#register">Register</a></li>
+    <li><a href="#principles">Principles</a></li>
+    <li><a href="#host">Host platforms</a></li>
+    <li><a href="#usedby">Used by</a></li>
+  </ul>
+  <h4>Subsystems</h4>
+  <ul>
+    <li><a href="near-envelope-control.html">Robust control for fast platforms</a></li>
+    <li><a href="gnss-denied-navigation.html">High-speed GNSS-denied nav</a></li>
+    <li><a href="onboard-compute.html">Edge compute &amp; inference</a></li>
+    <li><a href="flight-software.html">Flight software stack</a></li>
+    <li><a href="seekers.html">Seekers &amp; terminal guidance</a></li>
+    <li><a href="propulsion.html">Propulsion</a></li>
+    <li><a href="airframe-structures.html">Airframe &amp; structures</a></li>
+    <li><a href="launch-systems.html" class="here">Launch &amp; ground systems</a></li>
+  </ul>
+  <h4>Products</h4>
+  <ul>
+    <li><a href="../products/hacm-350.html">HACM-350</a></li>
+    <li><a href="../products/nightshade-adx1.html">Nightshade ADX-1</a></li>
+    <li><a href="../products/usv-strike.html">Kamikaze USV</a></li>
+    <li><a href="../products/ahuti.html">Ahuti Interceptor</a></li>
+    <li><a href="../products/mobile-drone-lab.html">Mobile Drone Lab</a></li>
+    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
+    <li><a href="../products/mdcc.html">MDCC</a></li>
+  </ul>
+  <h4>Doctrine</h4>
+  <ul>
+    <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
+    <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
+    <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
+  </ul>
+</aside>
+
+<main class="main">
+
+<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../index.html#subsystems">Subsystems</a><span>/</span>Ground segment / Launch systems</div>
+<header class="masthead">
+  <div class="mast-meta">Ground segment · launchers, canisters and readiness <span>· core subsystem · all strike and intercept systems</span></div>
+  <h1>Launch and <span class="sub">ground systems</span></h1>
+  <p class="standfirst">A weapon's readiness time is a specification, not a logistics detail. An interceptor that needs ten minutes of preparation has already lost the engagement, and a strike round that needs a prepared site cannot be dispersed.</p>
+</header>
+
+<section id="register">
+  <div class="sec-tag">01 · Register</div>
+  <h2>Launch methods by product</h2>
+  <div class="tw">
+    <table>
+      <caption>Launch register</caption>
+      <thead><tr><th>Product</th><th>Method</th><th>Readiness</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><a href="../products/hacm-350.html">HACM-350</a></td>
+          <td>Containerised zero-length rail with solid rocket booster, on a standard Indian Army 8×8 high-mobility vehicle</td>
+          <td>Road-mobile; launch floor 4,000–5,500 m AMSL</td>
+        </tr>
+        <tr>
+          <td><a href="../products/nightshade-adx1.html">Nightshade ADX-1</a></td>
+          <td>Ground-mobile launcher; Mk I additionally supports catapult, vehicular rail and hand launch</td>
+          <td>Under 30 minutes from arrival to launch-ready</td>
+        </tr>
+        <tr>
+          <td><a href="../products/ahuti.html">Ahuti</a></td>
+          <td>Ready-to-launch canister, cued by ground-based radar</td>
+          <td>Near-zero preparation; launches at a moment's notice on detection</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="principles">
+  <div class="sec-tag">02 · Principles</div>
+  <h2>Three requirements the ground segment has to meet</h2>
+
+  <h3>Zero-length rail and booster, for the heavy round</h3>
+  <p>A turbojet cannot start a 650–750 kg vehicle from rest. A solid rocket booster of roughly 100–150 kg takes the round off a containerised zero-length rail and up to turbojet operating speed, then separates. The rail is containerised so that the launch unit is a sealed round on a standard 8×8 chassis rather than a prepared installation — which is what makes dispersal, and therefore survivability, possible.</p>
+
+  <h3>Thirty minutes, all weather, wide temperature band</h3>
+  <p>Nightshade is specified at 30 minutes or less from arrival to launch-ready, in all-weather day and night conditions, across an ambient band of <strong>−15 °C to +50 °C</strong>. The HACM-350 adds the high-altitude case: a launch floor of 4,000–5,500 m AMSL under a certified −30 °C to +55 °C band, per HQ IDS TPCR 2025 Line Item #15.</p>
+
+  <h3>Near-zero preparation, for the interceptor</h3>
+  <p>Ahuti's readiness requirement is qualitatively different because the engagement timeline is set by the threat, not by the operator. There is nothing to assemble, fuel or align. The round sits ready, the ground radar declares a track, and the vehicle launches. Midcourse guidance is radar-cued, so the interceptor does not have to search.</p>
+</section>
+
+<section id="host">
+  <div class="sec-tag">03 · Host platforms</div>
+  <h2>Vehicles and command integration</h2>
+  <p>Launchers are mounted on standard Indian Army high-mobility vehicles wherever possible, so that the ground segment inherits an existing maintenance, spares and driver-training base rather than creating a new one.</p>
+  <p>Where an <a href="../products/mdcc.html">MDCC</a> is present in the sector, the air picture it holds is what cues the interceptors, and the assessments it produces are what nominate targets for the strike rounds. The ground segment is therefore not only a launch mechanism — it is the point where <a href="../products/cortex.html">Cortex</a> meets the effector.</p>
+  <div class="note key">
+    <div class="t">Boundary, restated</div>
+    <p>Cortex explicitly excludes autonomous engagement and weapon control. It nominates and disseminates; the launch decision stays with the chain of command. See <a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a>.</p>
+  </div>
+</section>
+
+<section id="usedby">
+  <div class="sec-tag">04 · Used by</div>
+  <h2>Products carrying this subsystem</h2>
+  <div class="xref">
+    <div class="t">Deployed in</div>
+    <div class="items">
+      <a href="../products/hacm-350.html">HACM-350</a>
+      <a href="../products/nightshade-adx1.html">Nightshade ADX-1</a>
+      <a href="../products/ahuti.html">Ahuti Interceptor</a>
+      <a href="../products/mdcc.html">MDCC — sector air picture and cueing</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>Launch &amp; ground systems &middot; Subsystem page &middot; Rev 1.0</div>
+  <div><a href="../index.html">Wiki root</a> &middot; <a href="../index.html#matrix">Commonality matrix</a></div>
+</footer>
+
+</main>
+</div>
+</div>
+</body>
+</html>
