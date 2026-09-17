@@ -4,30 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Flight Software Stack — Apollyon Dynamics Wiki</title>
+<meta name="description" content="Apollyon Dynamics engineering wiki — autonomous strike, interception and battlefield-intelligence systems, with the shared architecture they are built from.">
+<link rel="icon" type="image/png" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/wiki.css">
 </head>
 <body>
 
 <div class="rail">
   <div class="rail-inner">
-    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>· Engineering Wiki</em></a>
+    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
     <nav class="rail-links">
+      <a href="../index.html">Thesis</a>
       <a href="../index.html#products">Products</a>
-      <a href="../index.html#subsystems" class="on">Subsystems</a>
+      <a href="../strategy/trajectory.html">Strategy</a>
+      <a href="../architecture/index.html" class="on">Architecture</a>
+      <a href="../strategic-dependency/full-record.html">Dependencies</a>
       <a href="../doctrine/new-arsenal.html">Doctrine</a>
-      <a href="../about/history.html">History</a>
+      <a href="../about/history.html">Company</a>
     </nav>
   </div>
 </div>
-
 <div class="shell">
 <div class="layout">
 
 <aside class="aside">
-  <h4>This page</h4>
+  <h4>On this page</h4>
   <ul>
     <li><a href="#heritage">Open-source heritage</a></li>
     <li><a href="#limits">Why open stacks fail</a></li>
@@ -36,64 +40,82 @@
     <li><a href="#ownership">Owned layers</a></li>
     <li><a href="#usedby">Used by</a></li>
   </ul>
-  <h4>Subsystems</h4>
-  <ul>
-    <li><a href="near-envelope-control.html">Robust control for fast platforms</a></li>
-    <li><a href="gnss-denied-navigation.html">High-speed GNSS-denied nav</a></li>
-    <li><a href="onboard-compute.html">Edge compute &amp; inference</a></li>
-    <li><a href="flight-software.html" class="here">Flight software stack</a></li>
-    <li><a href="seekers.html">Seekers &amp; terminal guidance</a></li>
-    <li><a href="propulsion.html">Propulsion</a></li>
-    <li><a href="airframe-structures.html">Airframe &amp; structures</a></li>
-    <li><a href="launch-systems.html">Launch &amp; ground systems</a></li>
-  </ul>
   <h4>Products</h4>
   <ul>
-    <li><a href="../products/hacm-350.html">HACM-350</a></li>
-    <li><a href="../products/nightshade-adx1.html">Nightshade ADX-1</a></li>
-    <li><a href="../products/usv-strike.html">Kamikaze USV</a></li>
-    <li><a href="../products/ahuti.html">Ahuti Interceptor</a></li>
-    <li><a href="../products/mobile-drone-lab.html">Mobile Drone Lab</a></li>
+    <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
+    <li><a href="../products/hemlock.html">Hemlock family</a></li>
+    <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
+    <li><a href="../products/usv-strike.html">Piranha USV</a></li>
     <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
-    <li><a href="../products/mdcc.html">MDCC</a></li>
+    <li><a href="../products/mdcc.html">Mobile command centre</a></li>
+    <li><a href="../products/mobile-drone-lab.html">Mobile drone lab</a></li>
+  </ul>
+  <h4>Strategy</h4>
+  <ul>
+    <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
+    <li><a href="../strategy/competitive.html">The competitive field</a></li>
+    <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
+  </ul>
+  <h4>Architecture</h4>
+  <ul>
+    <li><a href="../architecture/index.html">The shared core</a></li>
+    <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
+    <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
+    <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
+    <li><a href="../subsystems/flight-software.html">Flight software</a></li>
+    <li><a href="../subsystems/seekers.html">Seekers</a></li>
+    <li><a href="../subsystems/propulsion.html">Propulsion</a></li>
+    <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
+    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground</a></li>
   </ul>
   <h4>Doctrine</h4>
   <ul>
     <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
     <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
     <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
+    <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
+  </ul>
+  <h4>Record</h4>
+  <ul>
+    <li><a href="../about/history.html">Company history</a></li>
+    <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
+    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
 </aside>
 
 <main class="main">
 
-<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../index.html#subsystems">Subsystems</a><span>/</span>Software / Flight Software Stack</div>
+<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../architecture/index.html#subsystems">Subsystems</a><span>/</span>Software / Flight Software Stack</div>
 <header class="masthead">
+    <div class="mast-brand-lockup">
+    <img src="../assets/logos/logo-ad-white.png" alt="Apollyon Dynamics Mark" class="brand-mark">
+    <div class="brand-sep"></div>
+    <img src="../assets/logos/logo-text-white.png" alt="Apollyon Dynamics" class="brand-text">
+  </div>
   <div class="mast-meta">Software · real-time execution core, high-rate logging &amp; HIL harness <span>· core subsystem</span></div>
   <h1>Flight Software <span class="sub">Stack</span></h1>
-  <p class="standfirst">Built upon nearly two decades of global open-source autopilot maturity (PX4, ArduPilot), re-engineered for natively autonomous, high-subsonic strike weapons requiring direct-actuator neural control, microsecond deterministic scheduling, and extreme flight envelopes.</p>
+  <p class="standfirst">Built on established open-source flight libraries (PX4, ArduPilot), re-engineered for natively autonomous strike weapons. The execution core provides direct-actuator neural control, microsecond deterministic scheduling, and continuous operation under high dynamic pressure.</p>
 </header>
 
 <section id="heritage">
   <div class="sec-tag">01 · Foundation</div>
-  <h2>Honouring two decades of open-source flight maturity</h2>
-  <p class="lede">The global open-source autopilot community—anchored by ArduPilot since 2009 and the PX4 Autopilot project since 2011—revolutionized unmanned aviation. Over nearly twenty years of relentless community engineering, these codebases accumulated millions of operational flight hours, establishing the foundational standards of the modern drone industry.</p>
+  <h2>Open-source baseline and peripheral abstraction</h2>
+  <p class="lede">Open-source autopilots—chiefly ArduPilot and PX4—have accumulated millions of operating hours over fifteen years. They established durable abstractions for peripheral buses, sensor drivers, and ground communication protocols.</p>
 
-  <p>The achievements of this ecosystem are monumental:</p>
+  <p>Apollyon preserves the mature lower-level components of this ecosystem:</p>
   <ul>
-    <li><strong>Universal Device Driver Abstraction:</strong> Robust, battle-tested communication drivers across I2C, SPI, CAN, and UART interfaces for hundreds of commercial sensors and peripheral chips.</li>
-    <li><strong>Standardized Telemetry:</strong> The MAVLink protocol, providing a universal lingua franca for command, control, and state broadcasting.</li>
-    <li><strong>Advanced State Estimation:</strong> Sophisticated Extended Kalman Filter implementations (EKF2 and EKF3) fusing multiconstellation GNSS, barometers, magnetometers, and optical flow for stable commercial flight.</li>
-    <li><strong>Democratization of Flight:</strong> Proving that autonomous robotic flight could be realized on low-cost microcontrollers, spawning entire commercial, agricultural, and academic industries.</li>
+    <li><strong>Device Driver Abstraction:</strong> Tested bus communication drivers across SPI, I2C, CAN FD, and UART for standard sensor peripherals.</li>
+    <li><strong>Standardized Telemetry:</strong> Compact binary telemetry framing based on established packet definitions for field diagnostics.</li>
+    <li><strong>Peripheral Bringup:</strong> Rapid hardware interface bringup across new avionics revisions without writing custom hardware register drivers from scratch.</li>
   </ul>
 
-  <p>Apollyon Dynamics acknowledges and builds upon this extraordinary heritage. We retain the community's robust low-level hardware communication drivers and bus abstractions. However, when transitioning from commercial utility quadcopters to natively autonomous, high-subsonic strike weapons, the fundamental architectural assumptions of open-source firmware break down completely.</p>
+  <p>We keep these communication drivers. However, standard open-source flight stacks assume low velocities (&lt;40 m/s), benign g-loads, and an active radio link to a human operator. In a high-subsonic strike weapon, those assumptions fail.</p>
 </section>
 
 <section id="limits">
   <div class="sec-tag">02 · Structural limitations</div>
-  <h2>Why open firmware cannot be used out-of-the-box for strike weapons</h2>
-  <p>Open-source flight stacks were architected around specific operational paradigms that directly conflict with the physics and operational realities of sovereign strike weapons:</p>
+  <h2>Why commercial drone firmware fails in strike weapons</h2>
+  <p>Standard open-source flight stacks were designed around operational rules that directly conflict with high-speed autonomous strike requirements:</p>
 
   <div class="tw">
     <table>
@@ -102,36 +124,36 @@
       <tbody>
         <tr>
           <td><strong>Operator presence</strong></td>
-          <td>Assumes an RC transmitter, ground control station, and safety pilot with manual override modes (Manual, Acro, AltHold, Loiter, RTL).</td>
-          <td><strong>Natively autonomous:</strong> Zero pilot in the loop, zero manual override, no RC link, and no return-to-launch logic from rail launch to target impact.</td>
+          <td>Assumes an RC transmitter, ground station, and human pilot with manual override modes (Manual, Acro, AltHold, RTL).</td>
+          <td><strong>Natively autonomous:</strong> Zero pilot in the loop, zero manual override, no RC link, and no return-to-launch logic from rail launch to impact.</td>
         </tr>
         <tr>
           <td><strong>Control architecture</strong></td>
-          <td>Decoupled cascaded PID loops (Position &rarr; Attitude &rarr; Angular Rate &rarr; Mixer) assuming linear dynamics at &lt;30 m/s.</td>
-          <td><strong>Coupled non-linear dynamics:</strong> At Mach 0.8 (250+ m/s) and high dynamic pressure, cross-coupling and surface reversal require direct-actuator neural control.</td>
+          <td>Decoupled cascaded PID loops (Position &rarr; Attitude &rarr; Angular Rate &rarr; Mixer) assuming linear dynamics below 40 m/s.</td>
+          <td><strong>Coupled non-linear dynamics:</strong> At Mach 0.8 (250+ m/s) and high dynamic pressure, cross-axis coupling requires direct-actuator neural control.</td>
         </tr>
         <tr>
           <td><strong>Actuator saturation</strong></td>
-          <td>Mixer sacrifices secondary axis authority when motor/servo channels hit 100% saturation rails.</td>
-          <td><strong>Hard saturation operation:</strong> Weapon spends substantial terminal dive time on actuator rails; requires direct coupled control allocation.</td>
+          <td>Mixer sacrifices secondary axis authority when servo channels hit maximum deflection limits.</td>
+          <td><strong>Hard saturation operation:</strong> Weapon spends substantial terminal dive time on actuator rails; requires direct coupled torque allocation.</td>
         </tr>
         <tr>
           <td><strong>Scheduling &amp; determinism</strong></td>
           <td>Cooperative workqueue threads subject to 5–15 ms latency jitter and dynamic OS scheduling overhead.</td>
-          <td><strong>Microsecond hard real-time:</strong> 500 Hz direct control policy and high-speed optical correlation demand deterministic sub-millisecond execution.</td>
+          <td><strong>Microsecond hard real-time:</strong> 500 Hz direct control policies demand deterministic sub-millisecond execution boundaries.</td>
         </tr>
         <tr>
           <td><strong>High-G dynamics &amp; shock</strong></td>
-          <td>EKF tuned for low-vibration commercial airframes; clips or resets under severe shock or sustained 7G turns.</td>
-          <td><strong>High-G resilient estimation:</strong> Must maintain uninterrupted state tracking under rocket booster launch and violent evasive maneuvers.</td>
+          <td>EKF tuned for low-vibration quadcopters; resets or diverges under severe motor vibration or sustained 7G turns.</td>
+          <td><strong>High-G resilient estimation:</strong> Maintains state tracking through rocket booster staging, catapult launch, and 7G evasive maneuvers.</td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <div class="note key">
-    <div class="t">The fallacy of the "simple" unmanned vehicle</div>
-    <p>Removing the human pilot does not simplify the flight software—it vastly increases the demands placed upon it. In an open-source drone, when an estimator drifts or a motor saturates, the software triggers a failsafe or prompts the human operator to take manual stick control. In an expendable cruise missile or high-speed interceptor traveling at hundreds of metres per second, no human intervention is possible. The software must resolve aerodynamic non-linearities autonomously and instantaneously.</p>
+    <div class="t">Autonomy increases flight software demands</div>
+    <p>Removing the human operator increases the burden on the onboard guidance computer. In a commercial drone, when an estimator drifts or a motor saturates, the software triggers a failsafe and prompts the human pilot to take manual control. In an expendable cruise missile or high-speed interceptor traveling at 250 m/s, no human intervention is possible. The software must resolve aerodynamic non-linearities autonomously and instantaneously.</p>
   </div>
 
   <figure>
@@ -143,20 +165,20 @@
 <section id="core">
   <div class="sec-tag">03 · The re-engineered stack</div>
   <h2>What was kept, what was rewritten, and what was added</h2>
-  <p class="lede">Apollyon preserves the battle-tested physical device drivers of the open-source community while completely replacing the control and scheduling layers with a hardened sovereign execution core.</p>
+  <p class="lede">Apollyon retains the peripheral device drivers from the open-source community while replacing the control laws, state estimation, and scheduling layers with a deterministic execution core.</p>
 
   <div class="tw">
     <table>
       <caption>Layer-by-layer architectural breakdown</caption>
       <thead><tr><th>Layer</th><th>Status</th><th>Engineering rationale</th></tr></thead>
       <tbody>
-        <tr><td><strong>Sensor device drivers</strong></td><td><span class="pill core">Kept &amp; hardened</span></td><td>Physical bus communication (SPI, I2C, CAN FD) was never the failure point; retained and vetted for memory safety.</td></tr>
-        <tr><td><strong>High-G state estimation</strong></td><td><span class="pill dev">Rewritten</span></td><td>Replaced with a tightly coupled UKF engineered to withstand high vibration, booster shock, and multi-axis 7G sustained turns without filter divergence.</td></tr>
-        <tr><td><strong>Guidance &amp; control core</strong></td><td><span class="pill dev">Rewritten</span></td><td>Discarded PID cascade; replaced with a 500 Hz direct-actuator neural policy conditioned on our flight-validated <a href="near-envelope-control.html">physics backbone</a>.</td></tr>
-        <tr><td><strong>Actuator allocation</strong></td><td><span class="pill dev">Rewritten</span></td><td>Direct multi-axis torque allocation that operates deterministically when elevons, rudders, or thrusters are fully saturated.</td></tr>
+        <tr><td><strong>Sensor device drivers</strong></td><td><span class="pill core">Kept &amp; hardened</span></td><td>Physical bus communication (SPI, I2C, CAN FD) operates reliably; retained and audited for memory safety.</td></tr>
+        <tr><td><strong>High-G state estimation</strong></td><td><span class="pill dev">Rewritten</span></td><td>Replaced with a tightly coupled UKF engineered to withstand booster shock, engine vibration, and sustained 7G turns without filter divergence.</td></tr>
+        <tr><td><strong>Guidance &amp; control core</strong></td><td><span class="pill dev">Rewritten</span></td><td>Replaced PID cascade with a 500 Hz direct-actuator neural policy conditioned on our flight-validated <a href="near-envelope-control.html">physics backbone</a>.</td></tr>
+        <tr><td><strong>Actuator allocation</strong></td><td><span class="pill dev">Rewritten</span></td><td>Direct multi-axis torque allocation that operates deterministically when elevons, rudders, or thrusters reach saturation boundaries.</td></tr>
         <tr><td><strong>Deterministic scheduler</strong></td><td><span class="pill dev">Rewritten</span></td><td>Hard real-time static schedule with zero dynamic heap allocation and isolated CPU core affinity—see <a href="onboard-compute.html">Edge Compute &amp; Custom Inference Engine</a>.</td></tr>
         <tr><td><strong>Microsecond black-box logging</strong></td><td><span class="pill core">Added</span></td><td>Lossless microsecond-stamped logging capturing raw register states, bus timings, and actuator current for post-sortie simulation mismatch analysis.</td></tr>
-        <tr><td><strong>Hardware-in-the-Loop (HIL) harness</strong></td><td><span class="pill core">Added</span></td><td>Integrated digital-analog testing harness executing the exact production flight binary against simulated real-time aerodynamics.</td></tr>
+        <tr><td><strong>Hardware-in-the-Loop (HIL) harness</strong></td><td><span class="pill core">Added</span></td><td>Integrated digital-analog test harness executing production flight binaries against real-time aerodynamics simulation models.</td></tr>
       </tbody>
     </table>
   </div>
@@ -165,34 +187,34 @@
 <section id="hil">
   <div class="sec-tag">04 · Verification harness</div>
   <h2>Hardware-in-the-Loop (HIL) testing pipeline</h2>
-  <p>Software is never qualified in the air. Every firmware build undergoes thousands of simulated sorties inside our Hardware-in-the-Loop testing harness before a weapon ever reaches the launch rail:</p>
+  <p>Software verification happens on the ground. Every firmware build undergoes thousands of simulated sorties inside our Hardware-in-the-Loop test bench before reaching the launch rail:</p>
   <ul>
-    <li><strong>Identical Production Binaries:</strong> The flight computer running on the HIL bench executes the exact, bit-for-bit compiled binary deployed to the field. No special "simulation flags" or altered timing paths are permitted.</li>
-    <li><strong>Full-Flight Sortie Emulation:</strong> The HIL bench injects synthetic high-rate IMU signals, barometric pressure profiles, radar altimeter returns, and optical scene feeds, verifying complete 800 km missions from booster ignition to terminal dive.</li>
-    <li><strong>Automated Fault Injection:</strong> The test harness programmatically introduces jammed control surfaces, motor failures, electronic warfare RF interference, and sensor dropouts, ensuring the flight software executes robust fail-operational contingencies.</li>
+    <li><strong>Production Binaries:</strong> The flight computer on the HIL test bench executes the exact, bit-for-bit compiled binary deployed to the field. No simulation flags or altered timing paths are permitted.</li>
+    <li><strong>Full Sortie Emulation:</strong> The HIL test bench injects synthetic IMU signals, barometric pressure profiles, radar altimeter returns, and optical scene frames, validating complete 800-kilometre missions from booster separation to terminal dive.</li>
+    <li><strong>Automated Fault Injection:</strong> The test harness injects jammed control surfaces, motor failures, electronic warfare RF interference, and sensor dropouts, ensuring the flight software executes robust fail-operational contingencies.</li>
   </ul>
 </section>
 
 <section id="ownership">
   <div class="sec-tag">05 · Ownership thesis</div>
-  <h2>Why owning the execution core compounds velocity</h2>
-  <p>Most of an airframe can be purchased from tier-1 suppliers, but vehicle performance cannot. Third-party commercial stacks arrive with foreign constraints: conservative safety throttles, non-deterministic latency jitter, and architectures designed around remote pilots.</p>
+  <h2>Why owning the execution core compounds development velocity</h2>
+  <p>Airframe structural components can be procured through domestic manufacturing partners, but flight control authority cannot. Third-party software stacks impose structural compromises: conservative flight limits, non-deterministic latency jitter, and architectures designed around human operators.</p>
   <div class="tw">
     <table>
       <caption>Bought limits versus owned layers</caption>
-      <thead><tr><th>System layer</th><th>Limit imposed by commercial / off-the-shelf software</th><th>What Apollyon builds &amp; owns</th></tr></thead>
+      <thead><tr><th>System layer</th><th>Limit imposed by commercial software</th><th>What Apollyon builds &amp; owns</th></tr></thead>
       <tbody>
-        <tr><td><strong>Mission autonomy</strong></td><td>Rigid waypoint state machines requiring manual GCS overrides.</td><td>End-to-end sovereign mission logic with autonomous target re-acquisition.</td></tr>
+        <tr><td><strong>Mission autonomy</strong></td><td>Rigid waypoint state machines requiring manual GCS overrides.</td><td>End-to-end autonomous mission logic with target re-acquisition capabilities.</td></tr>
         <tr><td><strong>Flight control</strong></td><td>Conservative PID gains unable to stabilize transonic transitions.</td><td>Direct-actuator neural policies operating up to dynamic physical boundaries.</td></tr>
         <tr><td><strong>Compute runtime</strong></td><td>Generic OS scheduling with unpredictable latency spikes.</td><td>Deterministic sub-millisecond execution with isolated core affinity.</td></tr>
-        <tr><td><strong>Test infrastructure</strong></td><td>Manual bench testing relying on post-crash guesswork.</td><td>Lossless microsecond logging feeding our closed-loop physics backbone.</td></tr>
+        <tr><td><strong>Test infrastructure</strong></td><td>Manual bench testing relying on post-crash telemetry reconstruction.</td><td>Lossless microsecond logging feeding our closed-loop physics backbone.</td></tr>
       </tbody>
     </table>
   </div>
 
   <figure>
     <img src="../assets/slides/apollyon-eng-1.jpg" alt="Layer diagram showing limits that come with purchased components versus Apollyon owned layers">
-    <figcaption><b>Fig. 02</b> Depth and speed are not a trade. Owning the performance-critical flight software layer allows Apollyon to iterate new vehicle configurations in days rather than quarters.</figcaption>
+    <figcaption><b>Fig. 02</b> Depth and speed compound together. Owning the performance-critical flight software layer allows Apollyon to iterate new vehicle configurations in days rather than quarters.</figcaption>
   </figure>
 </section>
 
@@ -205,7 +227,7 @@
       <a href="../products/hacm-350.html">HACM-350 — high-subsonic cruise missile guidance core</a>
       <a href="../products/nightshade-adx1.html">Nightshade ADX-1 — jet loitering munition autonomous flight stack</a>
       <a href="../products/ahuti.html">Ahuti Interceptor — direct-actuator high-speed intercept logic</a>
-      <a href="../products/usv-strike.html">Kamikaze USV — marine surface strike execution engine</a>
+      <a href="../products/usv-strike.html">Piranha USV — marine surface strike execution engine</a>
       <a href="../products/mobile-drone-lab.html">Mobile Drone Lab — forward pre-flight HIL diagnostic harness</a>
     </div>
   </div>
@@ -213,8 +235,8 @@
 </section>
 
 <footer>
-  <div>Flight Software Stack · Subsystem · Rev 2.0</div>
-  <div><a href="../index.html">Wiki root</a> · <a href="../index.html#matrix">Commonality matrix</a> · apollyondynamics.com</div>
+  <div>Apollyon Dynamics &middot; Neo-Prime Wiki &middot; Rev 3.0</div>
+  <div><a href="../doctrine/new-arsenal.html">The New Arsenal</a> &middot; <a href="../about/history.html">Company</a> &middot; <a href="../strategy/competitive.html">Competitive field</a> &middot; apollyondynamics.com</div>
 </footer>
 
 </main>

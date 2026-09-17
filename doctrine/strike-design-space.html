@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Strike Design Space — Apollyon Dynamics Wiki</title>
+<meta name="description" content="Apollyon Dynamics engineering wiki — technical analysis of the standoff strike design space, salvo arithmetic, and manufacturing models.">
+<link rel="icon" type="image/png" href="../assets/logos/favicon-red.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/wiki.css">
+</head>
+<body>
+
+<div class="rail">
+  <div class="rail-inner">
+    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
+    <nav class="rail-links">
+      <a href="../index.html">Thesis</a>
+      <a href="../index.html#products">Products</a>
+      <a href="../strategy/trajectory.html">Strategy</a>
+      <a href="../architecture/index.html">Architecture</a>
+      <a href="../strategic-dependency/full-record.html">Dependencies</a>
+      <a href="../doctrine/new-arsenal.html" class="on">Doctrine</a>
+      <a href="../about/history.html">Company</a>
+    </nav>
+  </div>
+</div>
+<div class="shell">
+<div class="layout">
+
+<aside class="aside">
+  <h4>On this page</h4>
+  <ul>
+    <li><a href="#space">The design space</a></li>
+    <li><a href="#tiers">Strike tiers</a></li>
+    <li><a href="#arithmetic">Salvo arithmetic</a></li>
+    <li><a href="#philosophies">Three philosophies</a></li>
+    <li><a href="#requirement">The requirement sheet</a></li>
+    <li><a href="#answer">Product mapping</a></li>
+  </ul>
+  <h4>Products</h4>
+  <ul>
+    <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
+    <li><a href="../products/hemlock.html">Hemlock family</a></li>
+    <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
+    <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
+    <li><a href="../products/mdcc.html">Mobile command centre</a></li>
+    <li><a href="../products/mobile-drone-lab.html">Mobile drone lab</a></li>
+  </ul>
+  <h4>Strategy</h4>
+  <ul>
+    <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
+    <li><a href="../strategy/competitive.html">The competitive field</a></li>
+    <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
+  </ul>
+  <h4>Architecture</h4>
+  <ul>
+    <li><a href="../architecture/index.html">The shared core</a></li>
+    <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
+    <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
+    <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
+    <li><a href="../subsystems/flight-software.html">Flight software</a></li>
+    <li><a href="../subsystems/seekers.html">Seekers</a></li>
+    <li><a href="../subsystems/propulsion.html">Propulsion</a></li>
+    <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
+    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground</a></li>
+  </ul>
+  <h4>Doctrine</h4>
+  <ul>
+    <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
+    <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
+    <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
+    <li><a href="../doctrine/strike-design-space.html" style="color:var(--red-2);font-weight:600;">Strike design space</a></li>
+  </ul>
+  <h4>Record</h4>
+  <ul>
+    <li><a href="../about/history.html">Company history</a></li>
+    <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
+    <li><a href="../products/research-platforms.html">Research platforms</a></li>
+  </ul>
+</aside>
+
+<main class="main">
+
+<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="missing-middle.html">Doctrine</a><span>/</span>Strike design space</div>
+
+<header class="masthead">
+  <div class="mast-brand-lockup">
+    <img src="../assets/logos/logo-ad-white.png" alt="Apollyon Dynamics Mark" class="brand-mark">
+    <div class="brand-sep"></div>
+    <img src="../assets/logos/logo-text-white.png" alt="Apollyon Dynamics" class="brand-text">
+  </div>
+  <div class="mast-meta">Technical Reference &middot; A worked application of <a href="missing-middle.html">The Missing Middle</a> doctrine</div>
+  <h1>The Standoff Strike <span class="sub">Design Space</span></h1>
+  <p class="standfirst">A technical evaluation of the operational layer between exquisite multi-crore cruise missiles and slow tactical loitering munitions: three-axis trade spaces, salvo dynamics against integrated air defences, and comparative manufacturing philosophies.</p>
+</header>
+
+<section id="space">
+  <div class="sec-tag">01 &middot; The design space</div>
+  <h2>Three independent operational axes</h2>
+  <p>Standard defence procurement ranks weapons along a single spending continuum: commercial drones, light loitering munitions, cruise missiles, and exquisite hypersonic glide vehicles. This single axis is fundamentally misleading. It treats heavy strike systems merely as scaled-up versions of small airframes, obscuring the physical and economic variables that govern theatre penetration. Three independent variables define the actual strike design space:</p>
+  <ul>
+    <li><strong>Terminal effect per impact:</strong> Physical target damage, determined primarily by warhead mass, penetration velocity, and terminal impact angle. Relocatable radars and launcher vehicles require 25&ndash;50 kg; hardened revetments require 100&ndash;150 kg; deep underground bunkers demand 500+ kg specialized penetrators.</li>
+    <li><strong>Subsystem survivability:</strong> Sensor sophistication, low radar cross-section, high-subsonic flight speed (Mach 0.65&ndash;0.85) to compress interception timelines, anti-jam NavIC/GPS links, and electronic counter-countermeasures.</li>
+    <li><strong>Manufacturing throughput:</strong> Sustained monthly production volume, tooling simplicity, and domestic supply chain depth. In sustained conflict, peacetime magazines empty in days; monthly replenishment rate governs operational tempo.</li>
+  </ul>
+  <p>Plotting these parameters reveals an empty quadrant in conventional inventories: strike systems with sufficient survivability to penetrate integrated air defences, sufficient payload to destroy operational infrastructure, and sustained production rates of hundreds per month.</p>
+  <p>This fundamentally alters the economics of military capability. As articulated in <a href="missing-middle.html">The Missing Middle</a>, the requirement is no longer to build the single most capable machine possible, but to build sufficient capability quickly, repeatedly, and at a scalable unit cost.</p>
+</section>
+
+<section id="tiers">
+  <div class="sec-tag">02 &middot; Indian strike tiers</div>
+  <h2>Two existing tiers and the missing standoff layer</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="kicker">Tier A &middot; Strategic deterrence</div>
+      <h3>Strategic cruise &amp; ballistic</h3>
+      <p>High-value, hardened, time-critical targets: strategic command centers, airbase infrastructure, hardened revetments, and capital ships. Low production rates and high unit costs remain justified by mission criticality. BrahMos, Pralay, Nirbhay / LRLACM, Agni series, and LRAShM.</p>
+      <div class="foot"><span>₹25–35 Cr / round</span><span>~8 / month</span></div>
+    </div>
+    <div class="card">
+      <div class="kicker">Tier B &middot; Tactical loitering</div>
+      <h3>Tactical UAVs &amp; FPVs</h3>
+      <p>Short-range loitering munitions operating at 50–150 km ranges with 5–10 kg warheads. Produced in volume for forward tactical infantry formations. However, slow flight speeds (120–180 km/h) leave them vulnerable to point air defences, and payloads cannot damage hardened installations.</p>
+      <div class="foot"><span>Under ₹40 lakh</span><span>100–150 / month</span></div>
+    </div>
+    <div class="card">
+      <div class="kicker">The gap &middot; Unfilled design space</div>
+      <h3>The missing middle</h3>
+      <p>400–1,200 km range, 50–150 kg warhead, Mach 0.7–0.8 high-subsonic cruise, under ₹2 crore per round, produced at hundreds per month. Sovereign, cost-constrained standoff effectors sharing flight computers, navigation units, and airframes to penetrate medium-range SAM envelopes.</p>
+      <div class="foot"><span class="pill core">Apollyon builds here</span></div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="n accent">~100 / yr</div><div class="d">LRLACM production baseline: suitable for exquisite stockpiles, but insufficient for sustained high-intensity campaigns</div></div>
+    <div class="stat"><div class="n">₹1.78 lakh Cr</div><div class="d">FY2025–26 Indian defence production, with private sector firms delivering roughly ₹42,000 crore</div></div>
+    <div class="stat"><div class="n">DAP 2026</div><div class="d">Draft framework ending public monopolies on tactical missiles, selecting private firms as development-cum-production partners</div></div>
+    <div class="stat"><div class="n">4,000–5,500 m</div><div class="d">Operating altitude floor across Ladakh and Sikkim, where low density reduces turbine thrust and aerodynamic lift by 35%</div></div>
+  </div>
+</section>
+
+<section id="arithmetic">
+  <div class="sec-tag">03 &middot; Salvo arithmetic</div>
+  <h2>The mathematical necessity of the middle tier</h2>
+  <p>The operational requirement for an attritable strike layer rests on salvo arithmetic. Consider an engagement against a defended theater command with a fixed procurement budget split between cheap attritable effectors and heavy cruise missiles. Target sets divide into two physical categories: relocatable assets (radars, launcher vehicles, fuel dumps, communication bridges) that succumb to 50–100 kg warheads, and hardened concrete installations (underground bunkers, aircraft shelters) that require heavy penetrators.</p>
+  <p>Three salvo outcomes emerge consistently across war games:</p>
+  <ol>
+    <li><strong>All-exquisite salvos leave the majority of targets untouched:</strong> Small peacetime inventories deplete within days, allowing hostile air defences to concentrate interceptors against a handful of inbound tracks.</li>
+    <li><strong>All-cheap salvos degrade soft targets but fail against hardened defences:</strong> Light tactical munitions lack the kinetic energy and penetrating mass to collapse reinforced concrete revetments.</li>
+    <li><strong>Mixed salvos outperform single-tier inventories:</strong> Inexpensive effectors overwhelm radar tracking channels, forcing defenders to deplete surface-to-air missile magazines before heavy penetrators arrive.</li>
+  </ol>
+  <p>Salvo firing sequences dictate campaign efficiency. Firing inexpensive rounds first forces hostile radar emitters to radiate and expend multi-crore interceptors. Heavy cruise missiles then navigate through depleted air defence envelopes. Reversing this sequence wastes multi-crore weapons against intact point defences.</p>
+  
+  <div class="callout eq">
+    <div class="k">Operational firing doctrine: cheap rounds first</div>
+    <div class="formula">Attrition wave (Nightshade / Hemlock Mk I) &rarr; SAM exhaustion &rarr; Heavy penetration (BrahMos / Hemlock Mk II)</div>
+    <div class="k" style="margin:14px 0 0;"><span style="color:var(--red-2)">Objective:</span> <span style="font-weight:400;letter-spacing:0;text-transform:none;color:var(--ink-3)">Force the defender into a 1:50–200 cost deficit per interception, exhausting radar channels and magazine depth.</span></div>
+  </div>
+
+  <p>Along the Line of Actual Control, adversary forces deploy dense, layered air defence networks (such as HQ-9, HQ-16, and point gun systems). Expending ₹30-crore missiles against tactical supply dumps or temporary radar masts exhausts national magazines prematurely. Sustainable deterrence requires weapons scaled to target values.</p>
+</section>
+
+<section id="philosophies">
+  <div class="sec-tag">04 &middot; Comparative</div>
+  <h2>Three manufacturing models and India's sovereign advantage</h2>
+  <div class="tw">
+    <table>
+      <caption>Constraint-first, manufacturing-first, ecosystem-first</caption>
+      <thead><tr><th>Philosophy</th><th>Method</th><th>Structural risk</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Constraint-first<br><span class="muted">Fire Point &middot; FP-5 Flamingo</span></td>
+          <td>Designs weapons around existing component stockpiles—such as surplus AI-25 aircraft engines. A 12.6-metre airframe and 1,150 kg warhead follow downstream from a single available 350 kg powerplant.</td>
+          <td>Stockpile exhaustion creates an insurmountable production ceiling. By 2026, dwindling engine reserves capped manufacturing at three units daily, forcing delayed redesigns of domestic replacements.</td>
+        </tr>
+        <tr>
+          <td>Manufacturing-first<br><span class="muted">Anduril &middot; Barracuda</span></td>
+          <td>Designs automated production lines first, deriving missile structures from commercial tooling. Incorporates 70% commodity parts and requires ten hand tools for assembly across four engine suppliers.</td>
+          <td>Relies on massive upfront procurement orders. Without sustained government procurement volume, tooling amortisation stalls and unit costs rise toward boutique defence levels.</td>
+        </tr>
+        <tr>
+          <td>Ecosystem-first<br><span class="muted">India &middot; Apollyon model</span></td>
+          <td>Leverages India's existing tier-1 automotive, casting, and precision-machining industrial base. Couples domestic aerospace engineering with commercial manufacturing scale and sovereign software stacks.</td>
+          <td>Requires disciplined engineering tradeoffs: sizing weapons to domestic manufacturing tooling, maintaining strict parts commonality, and designing around verified domestic suppliers.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Foreign approaches cannot be replicated directly. Surplus engines depend on legacy Soviet inventories, while Western manufacturing models rely on massive single-buyer contracts. Apollyon builds on the Indian industrial base that exists today.</p>
+</section>
+
+<section id="requirement">
+  <div class="sec-tag">05 &middot; The requirement sheet</div>
+  <h2>Aligning procurement metrics with wartime replenishment</h2>
+  <p>Peacetime procurement contracts specify range, velocity, payload mass, and circular error probable. They rarely evaluate monthly production throughput or supply chain independence. A weapon requiring imported components with two-year lead times receives the same evaluation as an airframe built entirely from domestic casting lines. Sustainable defence demands replenishment metrics on procurement balance sheets.</p>
+  <div class="tw">
+    <table>
+      <caption>What is specified today versus wartime requirements</caption>
+      <thead><tr><th>Specified today &middot; peacetime boutique procurement</th><th>Also required &middot; wartime replenishment and mass</th></tr></thead>
+      <tbody>
+        <tr><td>Range (km)</td><td>Unit cost at volume production (₹ / round)</td></tr>
+        <tr><td>Cruise speed (Mach)</td><td>Assembly labour hours per airframe</td></tr>
+        <tr><td>Circular error probable (m)</td><td>Unique custom part count</td></tr>
+        <tr><td>Warhead mass and chemistry (kg)</td><td>Qualified domestic suppliers per critical component (&ge; 2)</td></tr>
+        <tr><td>Launch platform interface compatibility</td><td>Sustained monthly manufacturing capacity (rounds / month)</td></tr>
+        <tr><td>Environmental qualification (MIL-STD)</td><td>Replenishment lead time (weeks) &middot; domestic content by value (%) &middot; depot storage life (years)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="answer">
+  <div class="sec-tag">06 &middot; Product mapping</div>
+  <h2>The unified middle-layer product family</h2>
+  <p>Apollyon addresses this gap with a cohesive system architecture rather than isolated airframes. Common subsystems span the entire product family:</p>
+  <ul>
+    <li><strong>Indigenous Turbojet Propulsion:</strong> Scalable turbojets spanning 40–100 kgf micro-turbines up to the GTRE 350 kgf powerplant—see <a href="../subsystems/propulsion.html">Propulsion</a>.</li>
+    <li><strong>Anti-Jam Multi-Constellation Navigation:</strong> NavIC and GPS protected by 7-element CRPA spatial nulling arrays—see <a href="../subsystems/gnss-denied-navigation.html#crpa">Anti-jam GNSS</a>.</li>
+    <li><strong>Passive Optical Terminal Tracking:</strong> Day and night imaging seekers operating without RF emissions—see <a href="../subsystems/seekers.html">Seekers</a>.</li>
+    <li><strong>Automotive Composite and Stamped Structures:</strong> Progressive die bulkheads and out-of-autoclave composite fuselages—see <a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a>.</li>
+    <li><strong>Unified Real-Time Autonomy:</strong> Identical deterministic flight software across all platforms—see the <a href="../architecture/index.html#sharing">subsystem commonality matrix</a>.</li>
+  </ul>
+  <p>In our product portfolio, the <a href="../products/hemlock.html">Hemlock family</a> fills the long-range attritable cruise role—Mk I at 1,000 km with a 75 kg warhead, Mk II at 1,500 km in the 1,000 kg class, engineered to reach production rates of hundreds per month at a target cost floor of ₹35 per kg·km. The <a href="../products/nightshade-adx1.html">Nightshade family</a> delivers jet-speed ingress from 300 to 500 km. Strategic costing models appear on <a href="../strategy/trajectory.html">the trajectory page</a>, and competitive philosophies are detailed on <a href="../strategy/competitive.html#philosophies">the competitive field page</a>.</p>
+  <p>For the underlying philosophical thesis governing this entire tier, consult the core doctrine in <a href="missing-middle.html">The Missing Middle &rarr;</a></p>
+</section>
+
+<div class="manifesto-seal">
+  <img src="../assets/logos/logo-ad-white.png" alt="Apollyon Dynamics">
+  <span>Apollyon Dynamics &middot; Doctrine Reference &middot; Strike Design Space</span>
+</div>
+
+<footer>
+  <div>Apollyon Dynamics &middot; Neo-Prime Wiki &middot; Rev 3.0</div>
+  <div><a href="../doctrine/new-arsenal.html">The New Arsenal</a> &middot; <a href="missing-middle.html">The Missing Middle</a> &middot; <a href="../about/history.html">Company</a> &middot; apollyondynamics.com</div>
+</footer>
+
+</main>
+</div>
+</div>
+</body>
+</html>

@@ -4,30 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Precision is Mercy — Apollyon Dynamics Wiki</title>
+<meta name="description" content="Apollyon Dynamics engineering wiki — autonomous strike, interception and battlefield-intelligence systems, with the shared architecture they are built from.">
+<link rel="icon" type="image/png" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/wiki.css">
 </head>
 <body>
 
 <div class="rail">
   <div class="rail-inner">
-    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>· Engineering Wiki</em></a>
+    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
     <nav class="rail-links">
+      <a href="../index.html">Thesis</a>
       <a href="../index.html#products">Products</a>
-      <a href="../index.html#subsystems">Subsystems</a>
-      <a href="new-arsenal.html" class="on">Doctrine</a>
-      <a href="../about/history.html">History</a>
+      <a href="../strategy/trajectory.html">Strategy</a>
+      <a href="../architecture/index.html">Architecture</a>
+      <a href="../strategic-dependency/full-record.html">Dependencies</a>
+      <a href="../doctrine/new-arsenal.html" class="on">Doctrine</a>
+      <a href="../about/history.html">Company</a>
     </nav>
   </div>
 </div>
-
 <div class="shell">
 <div class="layout">
 
 <aside class="aside">
-  <h4>This page</h4>
+  <h4>On this page</h4>
   <ul>
     <li><a href="#position">The position</a></li>
     <li><a href="#phrase">The phrase</a></li>
@@ -36,17 +40,46 @@
     <li><a href="#machine">The machine goes first</a></li>
     <li><a href="#engineering">What it requires of engineering</a></li>
   </ul>
+  <h4>Products</h4>
+  <ul>
+    <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
+    <li><a href="../products/hemlock.html">Hemlock family</a></li>
+    <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
+    <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
+    <li><a href="../products/mdcc.html">Mobile command centre</a></li>
+    <li><a href="../products/mobile-drone-lab.html">Mobile drone lab</a></li>
+  </ul>
+  <h4>Strategy</h4>
+  <ul>
+    <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
+    <li><a href="../strategy/competitive.html">The competitive field</a></li>
+    <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
+  </ul>
+  <h4>Architecture</h4>
+  <ul>
+    <li><a href="../architecture/index.html">The shared core</a></li>
+    <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
+    <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
+    <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
+    <li><a href="../subsystems/flight-software.html">Flight software</a></li>
+    <li><a href="../subsystems/seekers.html">Seekers</a></li>
+    <li><a href="../subsystems/propulsion.html">Propulsion</a></li>
+    <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
+    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground</a></li>
+  </ul>
   <h4>Doctrine</h4>
   <ul>
-    <li><a href="new-arsenal.html">The New Arsenal</a></li>
-    <li><a href="precision-is-mercy.html" class="here">Precision is Mercy</a></li>
-    <li><a href="missing-middle.html">The missing middle</a></li>
+    <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
+    <li><a href="../doctrine/precision-is-mercy.html" style="color:var(--red-2);font-weight:600;">Precision is Mercy</a></li>
+    <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
+    <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
   </ul>
-  <h4>Elsewhere</h4>
+  <h4>Record</h4>
   <ul>
-    <li><a href="../index.html">Wiki root</a></li>
-    <li><a href="../subsystems/seekers.html">Seekers</a></li>
-    <li><a href="../products/cortex.html">Cortex exclusions</a></li>
+    <li><a href="../about/history.html">Company history</a></li>
+    <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
+    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
 </aside>
 
@@ -55,23 +88,31 @@
 <div class="crumb"><a href="../index.html">Wiki</a><span>/</span>Doctrine<span>/</span>Precision is Mercy</div>
 
 <header class="masthead">
+    <div class="mast-brand-lockup">
+    <img src="../assets/logos/logo-ad-white.png" alt="Apollyon Dynamics Mark" class="brand-mark">
+    <div class="brand-sep"></div>
+    <img src="../assets/logos/logo-text-white.png" alt="Apollyon Dynamics" class="brand-text">
+  </div>
   <div class="mast-meta">Ethical doctrine · the governing phrase <span>· binds seeker selection, warhead sizing and system boundaries</span></div>
   <h1>Precision <span class="sub">is Mercy</span></h1>
-  <p class="standfirst">The company's answer to the question that begins after you accept that your products are weapons: how should destructive force be designed and employed by a state that claims restraint as a virtue?</p>
+  <p class="standfirst">How destructive force should be designed and employed by a state that claims restraint as a virtue. The answer is contained in one of the company's simplest governing phrases: <em>Precision is Mercy</em>.</p>
 </header>
 
 <section id="position">
   <div class="sec-tag">01 · The position</div>
-  <h2>Start by accepting the fact</h2>
-  <p>A defence company should be comfortable with the fact that its products are weapons. Apollyon is comfortable, and takes pride, that its products are weapons and are meant to be lethal. They are built to destroy military capability.</p>
-  <p>A system that cannot do that reliably is a weak instrument of deterrence. Lethality therefore matters in the most literal sense: a credible weapon must be capable of producing decisive effect against the military target it was designed for. There is sometimes a temptation to soften this language when speaking about modern defence technology. We do not. <strong>Apollyon intends to build highly lethal weapons, which make the prospect of waging war against India very expensive.</strong></p>
+  <h2>A defence company should be comfortable with the fact that its products are weapons</h2>
+  <p>A defence company should be comfortable with the fact that its products are weapons. They are built to destroy military capability. A system that cannot do this reliably is a weak instrument of deterrence. Lethality, therefore, matters in the most literal sense. A credible weapon must be capable of producing decisive effect against the military target for which it was designed.</p>
+  <p>There is sometimes a temptation to soften this language when speaking of modern defence technology. We do not. Apollyon intends to build highly lethal weapons, making it prohibitively costly to wage war against India.</p>
+  <p>Restraint has value only when a state possesses alternatives. A country that cannot impose costs upon the aggressor can maintain peace only as an act of mercy of the aggressor. Only a country with overwhelming military power can choose not to escalate. It can reply to provocation with strategic, lethal and precise measure, upholding deterrence and preventing an extended war.</p>
 </section>
 
 <section id="phrase">
   <div class="sec-tag">02 · The phrase</div>
   <h2>Precision in striking a legitimate military target is an act of mercy toward the civilian population</h2>
-  <p>Destructive capacity by itself is a poor measure of military quality. The higher standard is <strong>discriminate force</strong>: the ability to produce the required military effect against the intended target while minimising incidental harm, unnecessary destruction, and risk to those who are not direct parties to the conflict.</p>
-  <p>Lethality and precision belong together. Lethality provides certainty of military effect; precision confines that effect to where it is intended. The desired weapon is the one that maximises the probability of achieving the legitimate military objective while minimising consequences beyond it.</p>
+  <p>The ethical question begins after accepting that reality: how should destructive force be designed and employed by a state that claims restraint as a virtue? Our answer is contained in one of the company's simplest phrases:</p>
+  <p style="font-family:var(--serif);font-style:italic;font-size:1.35rem;line-height:1.4;margin:18px 0;color:var(--text-bright);">Precision is Mercy.</p>
+  <p>Precision in striking a legitimate military target is an act of mercy toward the civilian population. This distinction matters because destructive capacity by itself is a poor measure of military quality. The higher standard is <strong>discriminate force</strong>: the ability to produce the required military effect against the intended target while minimising incidental harm, unnecessary destruction and risk to those who are not direct part of the conflict.</p>
+  <p><strong>Lethality and precision therefore belong together.</strong> Lethality provides certainty of military effect; precision confines that effect to where it is intended. The desired weapon is one that maximises the probability of achieving the legitimate military objective while minimising consequences beyond it.</p>
   <figure class="dark">
     <img src="../assets/precision-is-mercy.jpg" alt="Precision is Mercy">
     <figcaption><b>Plate</b> The company's governing phrase.</figcaption>
@@ -81,31 +122,31 @@
 <section id="law">
   <div class="sec-tag">03 · Legal grounding</div>
   <h2>Distinction, proportionality, precaution</h2>
-  <p>This position tracks the basic logic of international humanitarian law. The law of armed conflict requires distinction between military objectives and civilian objects, and constrains incidental civilian harm through proportionality and precautions.</p>
-  <p>The engineering consequence is that discrimination cannot be an operator's afterthought bolted onto a coordinate-guided weapon. It has to be a property of the terminal guidance chain, which is why the portfolio's strike systems use <a href="../subsystems/seekers.html">passive imaging seekers that resolve the target itself</a> rather than relying on the target's position at launch. A weapon that arrives precisely at a stale coordinate is not a discriminate weapon.</p>
+  <p>This is close to the basic logic of international humanitarian law. The law of armed conflict requires distinction between military objectives and civilian objects, and constrains incidental civilian harm through proportionality and precautions.</p>
+  <p>Target discrimination cannot be treated as an operational afterthought bolted onto coordinate-guided munitions. Discrimination requires dedicated terminal sensing. Apollyon strike systems integrate <a href="../subsystems/seekers.html">passive imaging seekers that track targets visually</a> rather than navigating blindly to static launch coordinates. A munition that strikes empty ground or collateral structures because a target repositioned fails the test of discriminate force.</p>
 </section>
 
 <section id="deterrence">
   <div class="sec-tag">04 · Deterrence</div>
-  <h2>Certainty is what strengthens deterrence</h2>
-  <p>An adversary is less likely to gamble against a capability whose effectiveness has been demonstrated and whose consequences can be predicted with confidence. If deterrence nevertheless fails, military force should achieve its objective decisively rather than compensate for technological uncertainty through prolonged or indiscriminate destruction.</p>
-  <p>The effectiveness of a weapon is therefore independent of the sheer amount of energy it releases. An effective weapon is one whose effect is sufficiently understood, whose delivery is sufficiently reliable, and whose military consequence is sufficiently credible that the adversary must account for it before deciding to act.</p>
+  <h2>Certainty strengthens deterrence</h2>
+  <p>This certainty is what strengthens deterrence. An adversary is less likely to gamble against a capability whose effectiveness has been demonstrated and whose consequences can be predicted with confidence. If deterrence nevertheless fails, military force should achieve its objective decisively rather than compensate for technological uncertainty through prolonged or indiscriminate destruction.</p>
+  <p>The effectiveness of a weapon is therefore independent of the sheer amount of energy it releases. An effective weapon is one whose effect is sufficiently understood, whose delivery is sufficiently reliable and whose military consequence is sufficiently credible that the adversary must account for it before deciding to act.</p>
   <div class="note key">
-    <div class="t">Why this shows up in the specification sheets</div>
-    <p>It is the reason a CEP figure sits next to a warhead mass on every product page, and the reason the portfolio prefers a smaller warhead delivered accurately over a larger one delivered approximately. Predictability of effect is a deterrence parameter, not a marketing one.</p>
+    <div class="t">Engineering consequence: explicit accuracy budgets</div>
+    <p>Every product specification lists circular error probable alongside warhead mass. Our design architecture consistently prioritizes smaller, precision-guided warheads over massive unguided ordnance. Predictability of terminal effect serves as a core deterrent parameter.</p>
   </div>
 </section>
 
 <section id="machine">
   <div class="sec-tag">05 · The second commitment</div>
-  <h2>If something must be lost, it must not be a human life</h2>
-  <p>The first moments of contact are the most dangerous, and they should be borne by a machine rather than a soldier. <strong>The machine goes first, always.</strong></p>
-  <p>This is not a slogan appended after the fact; it is a design requirement with consequences throughout the portfolio. It is why the strike systems are attritable by design rather than protected at any cost. It is why <a href="../products/ahuti.html">Ahuti</a> must remain economically viable while preserving the reliability of a hard kill — an interceptor too expensive to fire protects nobody. And it is why <a href="../products/nightshade-adx1.html">Nightshade</a> exists at all: the vehicle that makes first contact with a defended target should be one whose loss is an accounting entry.</p>
+  <h2>The machine goes first, always</h2>
+  <p>In a democratic and plural state, the purpose of military power is neither conquest nor violence as an expression of national will. Its purpose is to make coercion unprofitable, to protect political independence, and to give the state enough freedom of action that diplomacy, restraint and peaceful settlement remain genuine choices rather than necessities imposed by weakness.</p>
+  <p>Initial contact with hostile defences carries the highest tactical risk. Unmanned systems must absorb this danger before soldiers enter contested space. <strong>The machine goes first, always.</strong> Strike systems are built as attritable units rather than exquisite platforms requiring costly protection. <a href="../products/ahuti.html">Ahuti</a> maintains strict cost boundaries to ensure interceptor salvos remain economically viable. Similarly, <a href="../products/nightshade-adx1.html">Nightshade</a> engages hostile air defences so human pilots avoid contested terminal zones.</p>
 </section>
 
 <section id="engineering">
   <div class="sec-tag">06 · Engineering consequences</div>
-  <h2>What the doctrine actually binds</h2>
+  <h2>Doctrinal commitments and design constraints</h2>
   <div class="tw">
     <table>
       <caption>Doctrine to design</caption>
@@ -113,32 +154,62 @@
       <tbody>
         <tr>
           <td>Discriminate force</td>
-          <td>Passive imaging terminal seekers that resolve the target rather than a coordinate; CEP specified alongside warhead mass on every strike system</td>
+          <td>Passive imaging terminal seekers that track physical targets; circular error probable specified alongside warhead mass on every strike system.</td>
         </tr>
         <tr>
           <td>Predictable effect</td>
-          <td>Modular warhead selection — penetrator, blast or submunition — matched to target class, and an electronic deceleration-sensing fuze so the effect occurs where it was intended</td>
+          <td>Modular warhead configurations (penetrator, blast-fragmentation, thermobaric) and electronic deceleration-sensing fuzes that ensure detonation at designated depths.</td>
         </tr>
         <tr>
-          <td>Human decision retained</td>
-          <td><a href="../products/cortex.html">Cortex</a> explicitly excludes autonomous engagement, weapon control, IFF and higher-HQ C2. It assesses and disseminates; the engagement decision stays with the chain of command</td>
+          <td>Human command retention</td>
+          <td><a href="../products/cortex.html">Cortex</a> excludes autonomous engagement and weapon release. The software correlates tracks and nominates targets; human commanders retain sole launch authority.</td>
         </tr>
         <tr>
           <td>Machine first</td>
-          <td>Attritable vehicles designed for replacement rather than protection; interceptor cost constrained so that firing it is a rational decision</td>
+          <td>Attritable airframes engineered for rapid replacement; interceptor costs constrained so firing salvos remains economically sustainable.</td>
         </tr>
         <tr>
           <td>Proportionality in practice</td>
-          <td>Kinetic and proximity-blast kill options on the interceptor, so the same airframe can be used where fragmentation would be unacceptable</td>
+          <td>Kinetic impact and proximity-burst options on interceptors, enabling neutralization in urban airspace where explosive fragmentation is prohibited.</td>
         </tr>
       </tbody>
     </table>
   </div>
+<section id="pillars">
+  <div class="sec-tag">Doctrine</div>
+  <h2>The three pillars of Apollyon doctrine</h2>
+  <p>The company's ethos, industrial model, and architecture are grounded in three interconnected doctrinal texts:</p>
+
+  <div class="cards">
+    <div class="card" style="border:1px solid var(--red-2);">
+      <div class="kicker" style="color:var(--red-2);">Ethical &middot; Operational</div>
+      <h3><a href="precision-is-mercy.html">Precision is Mercy</a></h3>
+      <p>Lethality and precision belong together. Force without precision is barbarism; restraint without lethality is impotence. True deterrence requires discriminate, highly lethal weapons that eliminate legitimate military targets while protecting non-combatants, making aggression prohibitively costly.</p>
+      <div class="foot"><span class="pill core">Current page</span><a href="#position">Top &uarr;</a></div>
+    </div>
+    <div class="card">
+      <div class="kicker">Civilizational &middot; Industrial</div>
+      <h3><a href="new-arsenal.html">The New Arsenal</a></h3>
+      <p>An arsenal is not a warehouse of stored weapons; it is the industrial capacity to build, replenish, and modify them continuously during war. Sovereign strategic autonomy rests on deep domestic tooling, software control, and the accumulation of institutional engineering mastery.</p>
+      <div class="foot"><span>Industrial depth &middot; Sovereignty</span><a href="new-arsenal.html">Read doctrine &rarr;</a></div>
+    </div>
+    <div class="card">
+      <div class="kicker">Arsenal Architecture &middot; Tempo</div>
+      <h3><a href="missing-middle.html">The Missing Middle</a></h3>
+      <p>India is not missing technology; it is missing an industrial tempo. Between exquisite strategic weapons and mature ordnance commodities sits the unbuilt layer: high-tech, software-defined, attritable mass iterated in weeks and produced at rate to win modern attrition arithmetic.</p>
+      <div class="foot"><span>Tempo &middot; Attritable mass</span><a href="missing-middle.html">Read doctrine &rarr;</a></div>
+    </div>
+  </div>
 </section>
 
+  <div class="manifesto-seal">
+    <img src="../assets/logos/logo-ad-white.png" alt="Apollyon Dynamics">
+    <span>Apollyon Dynamics &middot; Doctrine &middot; Precision is Mercy</span>
+  </div>
+
 <footer>
-  <div>Precision is Mercy · Ethical doctrine · Rev 1.0</div>
-  <div><a href="new-arsenal.html">← The New Arsenal</a> · <a href="../index.html">Wiki root</a> · <a href="missing-middle.html">The missing middle →</a></div>
+  <div>Apollyon Dynamics &middot; Neo-Prime Wiki &middot; Rev 3.0</div>
+  <div><a href="../doctrine/new-arsenal.html">The New Arsenal</a> &middot; <a href="../about/history.html">Company</a> &middot; <a href="../strategy/competitive.html">Competitive field</a> &middot; apollyondynamics.com</div>
 </footer>
 
 </main>

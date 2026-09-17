@@ -4,30 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Apollyon Cortex — Apollyon Dynamics Wiki</title>
+<meta name="description" content="Apollyon Dynamics engineering wiki — autonomous strike, interception and battlefield-intelligence systems, with the shared architecture they are built from.">
+<link rel="icon" type="image/png" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/wiki.css">
 </head>
 <body>
 
 <div class="rail">
   <div class="rail-inner">
-    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>· Engineering Wiki</em></a>
+    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
     <nav class="rail-links">
+      <a href="../index.html">Thesis</a>
       <a href="../index.html#products" class="on">Products</a>
-      <a href="../index.html#subsystems">Subsystems</a>
+      <a href="../strategy/trajectory.html">Strategy</a>
+      <a href="../architecture/index.html">Architecture</a>
+      <a href="../strategic-dependency/full-record.html">Dependencies</a>
       <a href="../doctrine/new-arsenal.html">Doctrine</a>
-      <a href="../about/history.html">History</a>
+      <a href="../about/history.html">Company</a>
     </nav>
   </div>
 </div>
-
 <div class="shell">
 <div class="layout">
 
 <aside class="aside">
-  <h4>This page</h4>
+  <h4>On this page</h4>
   <ul>
     <li><a href="#specs">Specification</a></li>
     <li><a href="#usecases">Use cases</a></li>
@@ -39,30 +43,44 @@
   </ul>
   <h4>Products</h4>
   <ul>
-    <li><a href="hacm-350.html">HACM-350</a></li>
-    <li><a href="nightshade-adx1.html">Nightshade ADX-1</a></li>
-    <li><a href="usv-strike.html">Kamikaze USV</a></li>
-    <li><a href="ahuti.html">Ahuti Interceptor</a></li>
-    <li><a href="mobile-drone-lab.html">Mobile Drone Lab</a></li>
-    <li><a href="cortex.html" class="here">Apollyon Cortex</a></li>
-    <li><a href="mdcc.html">MDCC</a></li>
+    <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
+    <li><a href="../products/hemlock.html">Hemlock family</a></li>
+    <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
+    <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
+    <li><a href="../products/mdcc.html">Mobile command centre</a></li>
+    <li><a href="../products/mobile-drone-lab.html">Mobile drone lab</a></li>
   </ul>
-  <h4>Subsystems</h4>
+  <h4>Strategy</h4>
   <ul>
-    <li><a href="../subsystems/near-envelope-control.html">Robust control for fast platforms</a></li>
-    <li><a href="../subsystems/gnss-denied-navigation.html">High-speed GNSS-denied nav</a></li>
-    <li><a href="../subsystems/onboard-compute.html">Edge compute &amp; inference</a></li>
-    <li><a href="../subsystems/flight-software.html">Flight software stack</a></li>
-    <li><a href="../subsystems/seekers.html">Seekers &amp; terminal guidance</a></li>
+    <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
+    <li><a href="../strategy/competitive.html">The competitive field</a></li>
+    <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
+  </ul>
+  <h4>Architecture</h4>
+  <ul>
+    <li><a href="../architecture/index.html">The shared core</a></li>
+    <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
+    <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
+    <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
+    <li><a href="../subsystems/flight-software.html">Flight software</a></li>
+    <li><a href="../subsystems/seekers.html">Seekers</a></li>
     <li><a href="../subsystems/propulsion.html">Propulsion</a></li>
     <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
-    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground systems</a></li>
+    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground</a></li>
   </ul>
   <h4>Doctrine</h4>
   <ul>
     <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
     <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
     <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
+    <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
+  </ul>
+  <h4>Record</h4>
+  <ul>
+    <li><a href="../about/history.html">Company history</a></li>
+    <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
+    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
 </aside>
 
@@ -71,9 +89,14 @@
 <div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../index.html#products">Products</a><span>/</span>Class C · Battlefield intelligence<span>/</span>Apollyon Cortex</div>
 
 <header class="masthead">
+    <div class="mast-brand-lockup">
+    <img src="../assets/logos/logo-ad-white.png" alt="Apollyon Dynamics Mark" class="brand-mark">
+    <div class="brand-sep"></div>
+    <img src="../assets/logos/logo-text-white.png" alt="Apollyon Dynamics" class="brand-text">
+  </div>
   <div class="mast-meta">Software platform · multi-ISR fusion and dissemination <span>· TRL 4–5 · development · GSQR reference CORTEX-MDCC-25-1042-03 · v1.0</span></div>
   <h1>Apollyon Cortex <span class="sub">the layer in between</span></h1>
-  <p class="standfirst">A tactical formation already receives ISR video, radar returns, vehicle telemetry, observation reports and higher-command feeds. Each arrives on its own network, in its own format, on its own clock. Cortex is the layer between them: it reads all of it as one picture, and decides who needs to know what.</p>
+  <p class="standfirst">Tactical formations receive uncoordinated feeds from ISR drones, ground radars, vehicle telemetry, and field reports across disparate networks. Cortex unifies these inputs into a common operational picture, executing edge change detection and role-adapted dissemination without external cloud dependencies.</p>
 </header>
 
 <section id="specs">
@@ -119,7 +142,7 @@
 <section id="usecases">
   <div class="sec-tag">02 · Use cases</div>
   <h2>What it is used for</h2>
-  <p class="lede">Modern operations do not want for sensors. What has never existed is the layer that fuses them into one current picture and pushes only the relevant part of it to the people who need it.</p>
+  <p class="lede">Modern battlefields generate overwhelming sensor volumes. The operational bottleneck is the absence of an edge-tier software engine that normalizes multi-sensor telemetry, maintains historical memory, and pushes role-tailored intelligence across bandwidth-constrained tactical bearers.</p>
 
   <div class="tw">
     <table>
@@ -172,11 +195,11 @@
 <section id="delivery">
   <div class="sec-tag">04 · Specifics</div>
   <h2>Delivery logic and precedence</h2>
-  <p>Fusing feeds is the easy half. The hard half is deciding what to send, to whom, and in what form — under a link budget that may be a satellite hop or may be a vehicle radio. Three gates are evaluated before anything is transmitted:</p>
+  <p>Sensor fusion solves only half the tactical problem. The greater challenge is formatting and routing actionable intelligence across contested communication bearers. Before transmitting any update, Cortex evaluates three deterministic gating criteria:</p>
   <ol>
-    <li><strong>Is the node allowed to see it?</strong> Access is governed by role and device trust.</li>
-    <li><strong>Is it relevant to their mission?</strong> Node profiles carry mission, location, status, authorisations and link capacity.</li>
-    <li><strong>Can the link deliver it before it goes stale?</strong> A full evidence package over a constrained bearer is worse than a symbol that arrives in time.</li>
+    <li><strong>Authorization:</strong> Role-based cryptographic access control confirms whether the recipient node is permitted to view the underlying classification tier.</li>
+    <li><strong>Mission relevance:</strong> The world-graph engine filters updates against the node's geographic sector, operational role, and immediate tactical tasking.</li>
+    <li><strong>Channel capacity:</strong> Cortex measures real-time link latency and bandwidth, automatically downsampling full evidence dossiers into lightweight vector alerts over VHF or tactical radio.</li>
   </ol>
 
   <div class="tw">
@@ -198,10 +221,10 @@
   <h2>One event, four products</h2>
   <p>One hazard on Route R-17 — a partial bridge collapse on the east span, detected by EO/ISR, assessed once — composed into the form each authorised user can act on:</p>
   <ul>
-    <li><strong>Analyst evidence package.</strong> Baseline and current imagery side by side, a written assessment, review state and reviewer.</li>
-    <li><strong>MDCC operator alert.</strong> Status, impact, impact detail, next action, valid-until time.</li>
-    <li><strong>Mounted-user route warning.</strong> Hazard, alternate route, detour cost in distance and minutes, issue time.</li>
-    <li><strong>Higher-headquarters report.</strong> Location, grid, time, impact, affected units, summary, recommendation, approval chain.</li>
+    <li><strong>Analyst evidence package:</strong> Baseline and current imagery side by side, a written assessment, review state and reviewer.</li>
+    <li><strong>MDCC operator alert:</strong> Status, impact, impact detail, next action, valid-until time.</li>
+    <li><strong>Mounted-user route warning:</strong> Hazard, alternate route, detour cost in distance and minutes, issue time.</li>
+    <li><strong>Higher-headquarters report:</strong> Location, grid, time, impact, affected units, summary, recommendation, approval chain.</li>
   </ul>
   <figure class="dark">
     <img src="../assets/cortex-products.jpg" alt="Four authorised products composed from one assessment">
@@ -212,12 +235,12 @@
 <section id="integrity">
   <div class="sec-tag">06 · Specifics</div>
   <h2>Processing, memory and integrity</h2>
-  <p>Processing is fully local at the tactical edge; nothing outside the platform is needed to run it. That is a survivability property, not a preference — a fusion layer that depends on reachback stops working exactly when it is most needed.</p>
+  <p>All neural inference, tracking, and graph compilation execute locally on edge compute. The system operates with zero reachback dependencies to external data centers or satellite cloud uplinks. This local survivability ensures continuous operations when adversaries sever long-haul communications.</p>
   <ul>
-    <li><strong>Memory.</strong> Geographic cells hold a persistent history of observations, so every new pass is read against what was seen there before. This is what converts a video feed into a change-detection system.</li>
-    <li><strong>Integrity.</strong> Everything is encrypted at rest and in transit, with access governed by role and device trust.</li>
-    <li><strong>Provenance.</strong> Every assessment carries its source, confidence and uncertainty. Position quality is explicitly marked as trusted, estimated, stale or conflicted rather than being silently averaged.</li>
-    <li><strong>Replay.</strong> The full record, from raw feed to operator action, replays on a synchronised timeline.</li>
+    <li><strong>Memory:</strong> Geographic spatial cells maintain persistent historical state across successive ISR passes, transforming raw video streams into automated change-detection networks.</li>
+    <li><strong>Integrity:</strong> End-to-end encryption secures data at rest and in transit, governed by hardware-rooted device credentials and role-based clearance.</li>
+    <li><strong>Provenance:</strong> Every track and assessed event carries origin metadata, statistical confidence bounds, and sensor modality tags. Position quality is explicitly marked as verified, estimated, stale, or conflicting rather than being silently averaged.</li>
+    <li><strong>Auditing:</strong> Every operator interaction and raw sensor frame records to a tamper-resistant timeline, enabling post-mission playback and evidence verification.</li>
   </ul>
   <figure class="dark">
     <img src="../assets/cortex-spec.jpg" alt="Cortex full specification sheet, GSQR reference">
@@ -236,9 +259,15 @@
   <p>Cortex is deployed on the <a href="mdcc.html">Mobile Distributed Command Centre</a> as its primary tactical host, and runs unchanged in an operations room, at a fixed command post, on a rugged edge server or at higher headquarters.</p>
 </section>
 
+<section id="architecture-link">
+  <div class="sec-tag">Architecture</div>
+  <h2>Where this sits in the stack</h2>
+  <p>Cortex is the portfolio's data layer, not a vehicle stack: it ingests sensors, builds a world graph, and compiles role-adapted outputs. The vehicle side of the architecture — hardware, software, the flight loop and navigation under denial — is on <a href="../architecture/index.html">the shared core</a>; the Cortex pipeline itself is Fig. 07 there.</p>
+</section>
+
 <footer>
-  <div>Apollyon Cortex · Product page · Rev 1.0</div>
-  <div><a href="ahuti.html">← Ahuti</a> · <a href="../index.html">Wiki root</a> · <a href="mdcc.html">MDCC →</a></div>
+  <div>Apollyon Dynamics &middot; Neo-Prime Wiki &middot; Rev 3.0</div>
+  <div><a href="../doctrine/new-arsenal.html">The New Arsenal</a> &middot; <a href="../about/history.html">Company</a> &middot; <a href="../strategy/competitive.html">Competitive field</a> &middot; apollyondynamics.com</div>
 </footer>
 
 </main>

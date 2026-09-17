@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trajectory &amp; Cost per kg·km — Apollyon Dynamics Wiki</title>
+<meta name="description" content="Apollyon's long-term strategy: capability per rupee, strike envelope, cost per kg·km, the shared core, and the salvo arithmetic that makes attritable mass necessary.">
+<link rel="icon" type="image/png" href="../assets/logos/favicon-red.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/wiki.css">
+</head>
+<body>
+
+<div class="rail">
+  <div class="rail-inner">
+    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
+    <nav class="rail-links">
+      <a href="../index.html">Thesis</a>
+      <a href="../index.html#products">Products</a>
+      <a href="../strategy/trajectory.html" class="on">Strategy</a>
+      <a href="../architecture/index.html">Architecture</a>
+      <a href="../strategic-dependency/full-record.html">Dependencies</a>
+      <a href="../doctrine/new-arsenal.html">Doctrine</a>
+      <a href="../about/history.html">Company</a>
+    </nav>
+  </div>
+</div>
+<div class="shell">
+<div class="layout">
+
+<aside class="aside">
+  <h4>On this page</h4>
+  <ul>
+    <li><a href="#objective">The objective function</a></li>
+    <li><a href="#envelope">Strike envelope</a></li>
+    <li><a href="#metric">The metric, measured</a></li>
+    <li><a href="#family">Family economics</a></li>
+    <li><a href="#decisions">Architecture decisions</a></li>
+    <li><a href="#requirement">The requirement sheet</a></li>
+    <li><a href="#salvo">Salvo arithmetic</a></li>
+    <li><a href="#risks">What has to be true</a></li>
+  </ul>
+  <h4>Products</h4>
+  <ul>
+    <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
+    <li><a href="../products/hemlock.html">Hemlock family</a></li>
+    <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
+    <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
+    <li><a href="../products/mdcc.html">Mobile command centre</a></li>
+    <li><a href="../products/mobile-drone-lab.html">Mobile drone lab</a></li>
+  </ul>
+  <h4>Strategy</h4>
+  <ul>
+    <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
+    <li><a href="../strategy/competitive.html">The competitive field</a></li>
+    <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
+  </ul>
+  <h4>Architecture</h4>
+  <ul>
+    <li><a href="../architecture/index.html">The shared core</a></li>
+    <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
+    <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
+    <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
+    <li><a href="../subsystems/flight-software.html">Flight software</a></li>
+    <li><a href="../subsystems/seekers.html">Seekers</a></li>
+    <li><a href="../subsystems/propulsion.html">Propulsion</a></li>
+    <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
+    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground</a></li>
+  </ul>
+  <h4>Doctrine</h4>
+  <ul>
+    <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
+    <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
+    <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
+    <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
+  </ul>
+  <h4>Record</h4>
+  <ul>
+    <li><a href="../about/history.html">Company history</a></li>
+    <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
+    <li><a href="../products/research-platforms.html">Research platforms</a></li>
+  </ul>
+</aside>
+
+<main class="main">
+
+<header class="masthead">
+    <div class="mast-brand-lockup">
+    <img src="../assets/logos/logo-ad-white.png" alt="Apollyon Dynamics Mark" class="brand-mark">
+    <div class="brand-sep"></div>
+    <img src="../assets/logos/logo-text-white.png" alt="Apollyon Dynamics" class="brand-text">
+  </div>
+  <div class="mast-meta">Apollyon Dynamics · Strategy</div>
+  <h1>The trajectory, <span class="sub">strike per rupee</span></h1>
+  <p class="standfirst">Apollyon sells machines, but the strategy underneath them is bigger: bring down what India pays for long-range strike, and build a family of jet-powered one-way effectors and cruise missiles that keeps bringing it down, generation after generation. This page is the arithmetic behind that claim.</p>
+</header>
+
+<!-- ═══════════ OBJECTIVE ═══════════ -->
+<section id="objective">
+  <div class="sec-tag">01 · Objective</div>
+  <h2>What we optimise</h2>
+  <p>For fifty years, defence primes were paid to maximise capability per airframe. Each generation added stealth, sensors and integration work; unit costs rose; the quantities bought fell. Recent wars have settled the argument: what decides who can keep fighting is how much can be produced, how fast it can be replaced, and what each round costs to lose.</p>
+  <p>Apollyon measures something else: <strong>strike effect per rupee spent</strong>. Over the next five years the company builds one family of jet-powered one-way effectors and cruise missiles, sharing a single flight core, with modular airframes around it.</p>
+  <p>Two definitions make that measurable, and the rest of this page follows from them.</p>
+</section>
+
+<!-- ═══════════ ENVELOPE ═══════════ -->
+<section id="envelope">
+  <div class="sec-tag">02 · Definition</div>
+  <h2>The unit we count in</h2>
+  <p>Comparing weapons by unit price or range alone obscures delivered effect. A commander buys warhead mass delivered across distance. Combining payload and range yields total delivered strike work:</p>
+  <div class="callout eq">
+    <div class="k">Governing Equations</div>
+    <div class="formula">Strike Envelope&nbsp;[kg·km] = Payload (kg) <b>×</b> Range (km)</div>
+    <div class="formula" style="margin-top:10px;">Cost per Effect&nbsp;[₹/kg·km] = Unit Cost (₹) <b>÷</b> Strike Envelope</div>
+    <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--ink-2);line-height:1.8;">
+      <div>• <strong>Nightshade Mk II:</strong> 15 kg <b>×</b> 300 km = 4,500 kg·km&nbsp;&nbsp;→&nbsp;&nbsp;₹1.2 Cr ÷ 4,500 ≈ <span style="color:var(--ink);font-weight:600;">₹2,600 / kg·km</span></div>
+      <div>• <strong>Hemlock Mk II:</strong> 1,000 kg <b>×</b> 1,500 km = 1,500,000 kg·km&nbsp;&nbsp;→&nbsp;&nbsp;₹5.2 Cr ÷ 1.5M ≈ <span style="color:var(--red-2);font-weight:700;">₹35 / kg·km</span></div>
+    </div>
+    <p style="margin:10px 0 0;font-size:12px;color:var(--ink-3);">Normalizes tactical loitering munitions and heavy cruise missiles onto a single capital-efficiency axis.</p>
+  </div>
+  <p>Two rules qualify this metric: the airframe must clear electronic-warfare and autonomous terminal accuracy gates, and survivability assumes subsonic terrain masking and route planning.</p>
+</section>
+
+<!-- ═══════════ METRIC ═══════════ -->
+<section id="metric">
+  <div class="sec-tag">03 · Measurement</div>
+  <h2>The metric, measured against the field</h2>
+  <p class="lede">Today's Apollyon systems sit at roughly ₹2,600–3,000 per kg·km. The Hemlock Mk II is specified toward ₹32–35 — an order of magnitude below the comparators, and lower than anything currently fielded at its range.</p>
+
+  <div class="blueprint-plate">
+    <div class="blueprint-head"><span class="title">Fig. 01</span><span class="scale">log–log · lower is better</span></div>
+    <div class="blueprint-body">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 570" role="img" aria-label="Cost per kilogram-kilometre by range: Apollyon family against in-service comparators"><rect width="1000" height="570" fill="#050505"/><line x1="92.0" y1="424.5" x2="96.0" y2="424.5" stroke="#334155" stroke-width="0.8"/><line x1="92.0" y1="402.5" x2="96.0" y2="402.5" stroke="#334155" stroke-width="0.8"/><line x1="92.0" y1="386.9" x2="96.0" y2="386.9" stroke="#334155" stroke-width="0.8"/><line x1="96.0" y1="374.9" x2="930.0" y2="374.9" stroke="#161f30" stroke-width="0.8" stroke-dasharray="3,4"/><line x1="92.0" y1="374.9" x2="96.0" y2="374.9" stroke="#334155" stroke-width="0.8"/><line x1="92.0" y1="365.0" x2="96.0" y2="365.0" stroke="#334155" stroke-width="0.8"/><line x1="92.0" y1="356.6" x2="96.0" y2="356.6" stroke="#334155" stroke-width="0.8"/><line x1="92.0" y1="349.4" x2="96.0" y2="349.4" stroke="#334155" stroke-width="0.8"/><line x1="92.0" y1="343.0" x2="96.0" y2="343.0" stroke="#334155" stroke-width="0.8"/><line x1="92.0" y1="299.8" x2="96.0" y2="299.8" stroke="#334155" stroke-width="0.8"/><line x1="92.0" y1="277.9" x2="96.0" y2="277.9" stroke="#334155" stroke-width="0.8"/><line x1="92.0" y1="262.3" x2="96.0" y2="262.3" stroke="#334155" stroke-width="0.8"/><line x1="96.0" y1="250.2" x2="930.0" y2="250.2" stroke="#161f30" stroke-width="0.8" stroke-dasharray="3,4"/><line x1="92.0" y1="250.2" x2="96.0" y2="250.2" stroke="#334155" stroke-width="0.8"/><line x1="92.0" y1="240.3" x2="96.0" y2="240.3" stroke="#334155" stroke-width="0.8"/><line x1="92.0" y1="232.0" x2="96.0" y2="232.0" stroke="#334155" stroke-width="0.8"/><line x1="92.0" y1="224.7" x2="96.0" y2="224.7" stroke="#334155" stroke-width="0.8"/><line x1="92.0" y1="218.4" x2="96.0" y2="218.4" stroke="#334155" stroke-width="0.8"/><line x1="92.0" y1="175.1" x2="96.0" y2="175.1" stroke="#334155" stroke-width="0.8"/><line x1="92.0" y1="153.2" x2="96.0" y2="153.2" stroke="#334155" stroke-width="0.8"/><line x1="92.0" y1="137.6" x2="96.0" y2="137.6" stroke="#334155" stroke-width="0.8"/><line x1="96.0" y1="125.5" x2="930.0" y2="125.5" stroke="#161f30" stroke-width="0.8" stroke-dasharray="3,4"/><line x1="92.0" y1="125.5" x2="96.0" y2="125.5" stroke="#334155" stroke-width="0.8"/><line x1="92.0" y1="115.7" x2="96.0" y2="115.7" stroke="#334155" stroke-width="0.8"/><line x1="92.0" y1="107.3" x2="96.0" y2="107.3" stroke="#334155" stroke-width="0.8"/><line x1="92.0" y1="100.1" x2="96.0" y2="100.1" stroke="#334155" stroke-width="0.8"/><line x1="92.0" y1="93.7" x2="96.0" y2="93.7" stroke="#334155" stroke-width="0.8"/><line x1="96.0" y1="462.0" x2="930.0" y2="462.0" stroke="#232d42" stroke-width="1"/><line x1="89.0" y1="462.0" x2="96.0" y2="462.0" stroke="#475569" stroke-width="1.2"/><text x="84.0" y="466.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#cbd5e1" text-anchor="end" font-weight="600">₹10</text><line x1="96.0" y1="337.3" x2="930.0" y2="337.3" stroke="#232d42" stroke-width="1"/><line x1="89.0" y1="337.3" x2="96.0" y2="337.3" stroke="#475569" stroke-width="1.2"/><text x="84.0" y="341.3" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#cbd5e1" text-anchor="end" font-weight="600">₹100</text><line x1="96.0" y1="212.7" x2="930.0" y2="212.7" stroke="#232d42" stroke-width="1"/><line x1="89.0" y1="212.7" x2="96.0" y2="212.7" stroke="#475569" stroke-width="1.2"/><text x="84.0" y="216.7" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#cbd5e1" text-anchor="end" font-weight="600">₹1,000</text><line x1="96.0" y1="88.0" x2="930.0" y2="88.0" stroke="#232d42" stroke-width="1"/><line x1="89.0" y1="88.0" x2="96.0" y2="88.0" stroke="#475569" stroke-width="1.2"/><text x="84.0" y="92.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#cbd5e1" text-anchor="end" font-weight="600">₹10,000</text><line x1="283.0" y1="462.0" x2="283.0" y2="466.0" stroke="#334155" stroke-width="0.8"/><line x1="470.0" y1="462.0" x2="470.0" y2="466.0" stroke="#334155" stroke-width="0.8"/><line x1="579.4" y1="462.0" x2="579.4" y2="466.0" stroke="#334155" stroke-width="0.8"/><line x1="621.0" y1="462.0" x2="621.0" y2="466.0" stroke="#334155" stroke-width="0.8"/><line x1="657.1" y1="462.0" x2="657.1" y2="466.0" stroke="#334155" stroke-width="0.8"/><line x1="766.5" y1="462.0" x2="766.5" y2="466.0" stroke="#334155" stroke-width="0.8"/><line x1="875.9" y1="462.0" x2="875.9" y2="466.0" stroke="#334155" stroke-width="0.8"/><line x1="205.4" y1="88.0" x2="205.4" y2="462.0" stroke="#1e293b" stroke-width="1"/><line x1="205.4" y1="462.0" x2="205.4" y2="468.0" stroke="#475569" stroke-width="1.2"/><text x="205.4" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#cbd5e1" text-anchor="middle" font-weight="600">150</text><line x1="392.4" y1="88.0" x2="392.4" y2="462.0" stroke="#1e293b" stroke-width="1"/><line x1="392.4" y1="462.0" x2="392.4" y2="468.0" stroke="#475569" stroke-width="1.2"/><text x="392.4" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#cbd5e1" text-anchor="middle" font-weight="600">300</text><line x1="530.2" y1="88.0" x2="530.2" y2="462.0" stroke="#1e293b" stroke-width="1"/><line x1="530.2" y1="462.0" x2="530.2" y2="468.0" stroke="#475569" stroke-width="1.2"/><text x="530.2" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#cbd5e1" text-anchor="middle" font-weight="600">500</text><line x1="717.3" y1="88.0" x2="717.3" y2="462.0" stroke="#1e293b" stroke-width="1"/><line x1="717.3" y1="462.0" x2="717.3" y2="468.0" stroke="#475569" stroke-width="1.2"/><text x="717.3" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#cbd5e1" text-anchor="middle" font-weight="600">1,000</text><line x1="826.7" y1="88.0" x2="826.7" y2="462.0" stroke="#1e293b" stroke-width="1"/><line x1="826.7" y1="462.0" x2="826.7" y2="468.0" stroke="#475569" stroke-width="1.2"/><text x="826.7" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#cbd5e1" text-anchor="middle" font-weight="600">1,500</text><line x1="904.3" y1="88.0" x2="904.3" y2="462.0" stroke="#1e293b" stroke-width="1"/><line x1="904.3" y1="462.0" x2="904.3" y2="468.0" stroke="#475569" stroke-width="1.2"/><text x="904.3" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#cbd5e1" text-anchor="middle" font-weight="600">2,000</text><line x1="96.0" y1="462.0" x2="930.0" y2="462.0" stroke="#475569" stroke-width="1.2"/><line x1="96.0" y1="88.0" x2="96.0" y2="462.0" stroke="#475569" stroke-width="1.2"/><text x="96.0" y="44.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#38bdf8" font-weight="700" letter-spacing="0.08em">LOWER IS BETTER ↓</text><text x="251.0" y="44.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#94a3b8" letter-spacing="0.08em">·   UNIT COST ÷ (PAYLOAD × RANGE)</text><text x="513.0" y="510.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#94a3b8" text-anchor="middle" font-weight="600" letter-spacing="0.12em">OPERATIONAL RANGE, KM (LOG SCALE)</text><text x="84.0" y="72.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#94a3b8" font-weight="600" letter-spacing="0.12em">COST PER KG·KM (INR)</text><polyline points="205.4,131.2 456.2,149.7 688.8,250.2 844.1,252.4" fill="none" stroke="#64748b" stroke-width="1.8" stroke-dasharray="6,4" stroke-linecap="round" stroke-linejoin="round"/><line x1="205.4" y1="123.2" x2="205.4" y2="125.7" stroke="#64748b" stroke-width="1"/><text x="205.4" y="107.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#e2e8f0" text-anchor="middle" font-weight="600">Berkut-BM</text><text x="205.4" y="120.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#94a3b8" text-anchor="middle">₹4,500</text><circle cx="205.4" cy="131.2" r="5.5" fill="#050505" stroke="#94a3b8" stroke-width="2"/><line x1="456.2" y1="141.7" x2="456.2" y2="144.2" stroke="#64748b" stroke-width="1"/><text x="456.2" y="125.7" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#e2e8f0" text-anchor="middle" font-weight="600">Barracuda-250</text><text x="456.2" y="138.7" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#94a3b8" text-anchor="middle">₹3,200</text><circle cx="456.2" cy="149.7" r="5.5" fill="#050505" stroke="#94a3b8" stroke-width="2"/><line x1="688.8" y1="242.2" x2="688.8" y2="244.7" stroke="#64748b" stroke-width="1"/><text x="688.8" y="226.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#e2e8f0" text-anchor="middle" font-weight="600">Barracuda-500</text><text x="688.8" y="239.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#94a3b8" text-anchor="middle">₹500</text><circle cx="688.8" cy="250.2" r="5.5" fill="#050505" stroke="#94a3b8" stroke-width="2"/><line x1="844.1" y1="244.4" x2="844.1" y2="246.9" stroke="#64748b" stroke-width="1"/><text x="844.1" y="228.4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#e2e8f0" text-anchor="middle" font-weight="600">Tomahawk</text><text x="844.1" y="241.4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#94a3b8" text-anchor="middle">₹480</text><circle cx="844.1" cy="252.4" r="5.5" fill="#050505" stroke="#94a3b8" stroke-width="2"/><polyline points="392.4,160.9 530.2,183.9 717.3,269.5 826.7,394.2" fill="none" stroke="rgba(255, 59, 48, 0.22)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><polyline points="392.4,160.9 530.2,183.9 717.3,269.5 826.7,394.2" fill="none" stroke="#ff3b30" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="379.0" y1="160.9" x2="386.6" y2="160.9" stroke="#f87171" stroke-width="1"/><text x="376.0" y="156.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#ffffff" text-anchor="end" font-weight="700">Nightshade Mk II</text><text x="376.0" y="171.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#fca5a5" text-anchor="end" font-weight="500">₹2,600 / kg·km</text><circle cx="392.4" cy="160.9" r="5.8" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/><line x1="518.0" y1="204.0" x2="525.0" y2="189.0" stroke="#f87171" stroke-width="1"/><text x="514.0" y="210.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#ffffff" text-anchor="end" font-weight="700">Nightshade Mk III</text><text x="514.0" y="225.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#fca5a5" text-anchor="end" font-weight="500">₹1,700 / kg·km</text><circle cx="530.2" cy="183.9" r="5.8" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/><line x1="723.1" y1="269.5" x2="728.0" y2="269.5" stroke="#f87171" stroke-width="1"/><text x="732.0" y="266.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#ffffff" font-weight="700">Hemlock Mk I</text><text x="732.0" y="280.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#fca5a5" font-weight="500">₹350 / kg·km</text><circle cx="717.3" cy="269.5" r="5.8" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/><line x1="814.0" y1="394.2" x2="820.9" y2="394.2" stroke="#f87171" stroke-width="1"/><text x="810.0" y="398.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#ffffff" text-anchor="end" font-weight="700">Hemlock Mk II</text><text x="810.0" y="413.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#fca5a5" text-anchor="end" font-weight="500">₹35 / kg·km</text><text x="810.0" y="430.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#ff453a" text-anchor="end" font-weight="700">about 14× below Tomahawk</text><circle cx="826.7" cy="394.2" r="5.8" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/><line x1="694.0" y1="44.0" x2="718.0" y2="44.0" stroke="#64748b" stroke-width="1.8" stroke-dasharray="4,3"/><circle cx="706" cy="44" r="5" fill="#050505" stroke="#94a3b8" stroke-width="1.8"/><text x="726.0" y="47.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#cbd5e1" font-weight="600">IN SERVICE</text><line x1="816.0" y1="44.0" x2="840.0" y2="44.0" stroke="#ff3b30" stroke-width="2.5"/><circle cx="828" cy="44" r="5.2" fill="#ff3b30" stroke="#ffffff" stroke-width="1.4"/><text x="848.0" y="47.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#ffffff" font-weight="700">APOLLYON</text><text x="96.0" y="524.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#64748b">USD 1 = INR 95 · Comparator prices from public sources · Berkut-BM unit cost estimated</text></svg>
+</div>
+    <div class="blueprint-cap"><b>Fig. 01</b> Unit cost ÷ (payload × range). In-service comparators in grey, the Apollyon family in red. The staircase descends because each generation inherits the guidance core and pays only its delta.</div>
+  </div>
+
+  <h3>The Ukrainian benchmark we are chasing</h3>
+  <p>Ukraine's FP-5 Flamingo is the honest benchmark for effect per rupee: a 1,150 kg penetrator, a claimed 3,000 km, estimated at $0.5–1M per round on salvaged engines. On this metric it is extraordinary — roughly ₹20/kg·km on the round, or about ₹60 per kg·km on the <em>arriving</em> round at its observed ~1-in-3 hit rate.</p>
+  <p>That distinction is the strategy. Flamingo buys effect with salvo mass and accepts the misses because its economics permit it; it is also capped by a finite stock of surplus engines, which is why Fire Point is building its own turbojet and why output sits near three rounds a day against a target of seven. Apollyon's route to the same economics is different: <strong>keep arrival probability high, remove the subsystems that make cruise missiles expensive, and let the shared core fall in cost with every generation.</strong></p>
+  <div class="tw">
+    <table>
+      <caption>Two routes to affordable effect <span class="prov claim">planning figures</span></caption>
+      <thead><tr><th>System</th><th>Payload</th><th>Range</th><th>Envelope</th><th>Cost / round</th><th>₹ / kg·km (round)</th><th>Arrival-adjusted</th></tr></thead>
+      <tbody>
+        <tr><td>FP-5 Flamingo <span class="prov obs">observed</span></td><td>1,150 kg</td><td>3,000 km</td><td>3.45M kg·km</td><td>$0.5–1M est.</td><td>≈ ₹20</td><td>≈ ₹60 at ~1-in-3</td></tr>
+        <tr><td><strong>Hemlock Mk II</strong></td><td>1,000 kg</td><td>1,500 km</td><td>1.5M kg·km</td><td>≈ $0.55M <span class="prov est">est</span></td><td class="red">≈ ₹35</td><td class="red">≈ ₹35–45</td></tr>
+        <tr><td>Tomahawk Block V</td><td>~450 kg</td><td>~1,600 km</td><td>0.72M kg·km</td><td>~$1.9M</td><td>≈ ₹480</td><td>≈ ₹480</td></tr>
+        <tr><td>Barracuda-500M</td><td>45 kg</td><td>926 km</td><td>41.7K kg·km</td><td>~$216k</td><td>≈ ₹500</td><td>≈ ₹500</td></tr>
+        <tr><td>Berkut-BM</td><td>10 kg</td><td>150–180 km</td><td>~1.6K kg·km</td><td>est.</td><td>≈ ₹4,500</td><td>≈ ₹4,500</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small">Flamingo, Tomahawk and Barracuda figures from public reporting and manufacturer disclosures; Apollyon costs are internal planning figures, not quotes. Arrival-adjusted cost divides by observed or specified hit probability and is indicative only.</p>
+</section>
+
+<!-- ═══════════ FAMILY ═══════════ -->
+<section id="family">
+  <div class="sec-tag">04 · Family</div>
+  <h2>The family, and what each generation costs to run</h2>
+  <div class="tw">
+    <table>
+      <caption>Generation economics <span class="prov est">planning figures</span></caption>
+      <thead><tr><th>System</th><th>Payload</th><th>Range</th><th>Envelope</th><th>Top speed</th><th>Round cost (est.)</th><th>₹ / kg·km</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Nightshade Mk I</td><td>—</td><td>20 km</td><td>PoC</td><td>650 km/h</td><td>—</td><td>—</td><td>Flown 2026</td></tr>
+        <tr><td>Nightshade Mk II</td><td>15 kg</td><td>300 km</td><td>4,500 kg·km</td><td>700 km/h</td><td>≈ $150k</td><td>≈ ₹3,000</td><td>Prototype Q4 2026</td></tr>
+        <tr><td>Nightshade Mk III</td><td>25 kg</td><td>500 km</td><td>12,500 kg·km</td><td>800 km/h</td><td>≈ $225k</td><td>≈ ₹1,700</td><td>2028</td></tr>
+        <tr><td>Hemlock Mk I</td><td>75 kg</td><td>1,000 km</td><td>75,000 kg·km</td><td>900 km/h</td><td>≈ $275k</td><td>≈ ₹350</td><td>2029</td></tr>
+        <tr><td>Hemlock Mk II</td><td>1,000 kg</td><td>1,500 km</td><td>1.5M kg·km</td><td>900 km/h</td><td>≈ $550k</td><td class="red">≈ ₹35</td><td>2030–31</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="blueprint-plate">
+    <div class="blueprint-head"><span class="title">Fig. 02</span><span class="scale">envelope per generation</span></div>
+    <div class="blueprint-body">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" role="img" aria-label="Strike envelope by generation: Nightshade Mk I to Hemlock Mk II"><text x="70.0" y="32.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#A19E97" letter-spacing="0.12em">STRIKE ENVELOPE — PAYLOAD × RANGE (KG·KM, LOG SCALE)</text><line x1="90.0" y1="320.0" x2="910.0" y2="320.0" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="324.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#7F7C76" text-anchor="end">10</text><line x1="90.0" y1="275.3" x2="910.0" y2="275.3" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="279.3" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#7F7C76" text-anchor="end">100</text><line x1="90.0" y1="230.5" x2="910.0" y2="230.5" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="234.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#7F7C76" text-anchor="end">1K</text><line x1="90.0" y1="185.8" x2="910.0" y2="185.8" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="189.8" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#7F7C76" text-anchor="end">10K</text><line x1="90.0" y1="141.1" x2="910.0" y2="141.1" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="145.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#7F7C76" text-anchor="end">100K</text><line x1="90.0" y1="96.3" x2="910.0" y2="96.3" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="100.3" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#7F7C76" text-anchor="end">1M</text><path d="M100.0,306.5 H300.0 V201.3" fill="none" stroke="#F04B4B" stroke-width="2.2"/><path d="M300.0,201.3 H500.0 V181.5" fill="none" stroke="#F04B4B" stroke-width="2.2"/><path d="M500.0,181.5 H700.0 V146.7" fill="none" stroke="#F04B4B" stroke-width="2.2"/><path d="M700.0,146.7 H900.0 V88.5" fill="none" stroke="#F04B4B" stroke-width="2.2"/><line x1="80.0" y1="320.0" x2="920.0" y2="320.0" stroke="#2B2B2B" stroke-width="1.2"/><circle cx="100.0" cy="306.5" r="6" fill="#D92323" stroke="#FFFFFF" stroke-width="1.6"/><text x="100.0" y="292.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="15.0" fill="#FFFFFF" text-anchor="middle" font-weight="800">20</text><text x="100.0" y="54.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.06em">NIGHTSHADE MK I</text><line x1="200.0" y1="330.0" x2="200.0" y2="505.0" stroke="#1C1C1C" stroke-width="1" stroke-dasharray="3,3"/><rect x="46.0" y="336" width="108" height="24" fill="#D92323" rx="3"/><text x="100.0" y="353.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" text-anchor="middle" font-weight="800" letter-spacing="0.08em">FLOWN 2026</text><text x="100.0" y="384.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">GNSS-Only</text><text x="100.0" y="402.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">Proof of Concept</text><text x="100.0" y="436.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5" fill="#E2DFD8" text-anchor="middle" font-weight="600">20 km range · No warhead</text><text x="100.0" y="456.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#A19E97" text-anchor="middle">650 km/h flight test</text><circle cx="300.0" cy="201.3" r="6" fill="#D92323" stroke="#FFFFFF" stroke-width="1.6"/><text x="300.0" y="187.3" font-family="JetBrains Mono, ui-monospace, monospace" font-size="15.0" fill="#FFFFFF" text-anchor="middle" font-weight="800">4,500</text><text x="300.0" y="54.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.06em">NIGHTSHADE MK II</text><line x1="400.0" y1="330.0" x2="400.0" y2="505.0" stroke="#1C1C1C" stroke-width="1" stroke-dasharray="3,3"/><rect x="254.0" y="336" width="92" height="24" fill="#161616" stroke="#333333" rx="3"/><text x="300.0" y="353.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.08em">2027</text><text x="300.0" y="384.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">One-Way Effector</text><text x="300.0" y="402.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">+ Target Drone</text><text x="300.0" y="436.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5" fill="#E2DFD8" text-anchor="middle" font-weight="600">15 kg warhead · 300 km</text><text x="300.0" y="456.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#A19E97" text-anchor="middle">700 km/h terminal dive</text><circle cx="500.0" cy="181.5" r="6" fill="#D92323" stroke="#FFFFFF" stroke-width="1.6"/><text x="500.0" y="167.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="15.0" fill="#FFFFFF" text-anchor="middle" font-weight="800">12,500</text><text x="500.0" y="54.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.06em">NIGHTSHADE MK III</text><line x1="600.0" y1="330.0" x2="600.0" y2="505.0" stroke="#1C1C1C" stroke-width="1" stroke-dasharray="3,3"/><rect x="454.0" y="336" width="92" height="24" fill="#161616" stroke="#333333" rx="3"/><text x="500.0" y="353.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.08em">2028</text><text x="500.0" y="384.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">Long-Range</text><text x="500.0" y="402.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">One-Way Effector</text><text x="500.0" y="436.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5" fill="#E2DFD8" text-anchor="middle" font-weight="600">25 kg warhead · 500 km</text><text x="500.0" y="456.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#A19E97" text-anchor="middle">800 km/h terminal dive</text><circle cx="700.0" cy="146.7" r="6" fill="#D92323" stroke="#FFFFFF" stroke-width="1.6"/><text x="700.0" y="132.7" font-family="JetBrains Mono, ui-monospace, monospace" font-size="15.0" fill="#FFFFFF" text-anchor="middle" font-weight="800">75,000</text><text x="700.0" y="54.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.06em">HEMLOCK MK I</text><line x1="800.0" y1="330.0" x2="800.0" y2="505.0" stroke="#1C1C1C" stroke-width="1" stroke-dasharray="3,3"/><rect x="654.0" y="336" width="92" height="24" fill="#161616" stroke="#333333" rx="3"/><text x="700.0" y="353.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.08em">2029</text><text x="700.0" y="384.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">Miniature</text><text x="700.0" y="402.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">Cruise Missile</text><text x="700.0" y="436.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5" fill="#E2DFD8" text-anchor="middle" font-weight="600">75 kg warhead · 1,000 km</text><text x="700.0" y="456.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#A19E97" text-anchor="middle">900 km/h high-subsonic</text><circle cx="900.0" cy="88.5" r="6" fill="#D92323" stroke="#FFFFFF" stroke-width="1.6"/><text x="900.0" y="74.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="15.0" fill="#FFFFFF" text-anchor="middle" font-weight="800">1,500,000</text><text x="900.0" y="54.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.06em">HEMLOCK MK II</text><rect x="854.0" y="336" width="92" height="24" fill="#161616" stroke="#333333" rx="3"/><text x="900.0" y="353.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.08em">2030–31</text><text x="900.0" y="384.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">Long-Range</text><text x="900.0" y="402.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">Cruise Missile</text><text x="900.0" y="436.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5" fill="#E2DFD8" text-anchor="middle" font-weight="600">1,000 kg · 1,500 km</text><text x="900.0" y="456.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#A19E97" text-anchor="middle">900 km/h high-subsonic</text><line x1="80.0" y1="475.0" x2="920.0" y2="475.0" stroke="#2B2B2B" stroke-width="1"/><text x="80.0" y="498.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13.0" fill="#A19E97">Mk I carries no payload and does not run the shared core; every system above it inherits it.</text></svg>
+</div>
+    <div class="blueprint-cap"><b>Fig. 02</b> The envelope staircase. Mk I is a GNSS-only proof of concept and carries no payload; from Mk II onward every system inherits the shared core, which is why the curve rises per unit of development money spent rather than only per round.</div>
+  </div>
+</section>
+
+<!-- ═══════════ DECISIONS ═══════════ -->
+<section id="decisions">
+  <div class="sec-tag">05 · Decisions</div>
+  <h2>The decisions that set the cost</h2>
+  <p>Three architectural principles dictate our development trajectory. Each represents an intentional departure from traditional defence contractor practices:</p>
+  <ol>
+    <li><strong>Preserve the common core architecture:</strong> One-way effectors and long-range cruise missiles share an identical guidance and software core: state estimation filters, neural control policies, real-time operating systems, and telemetry protocols. Apollyon refines this core continuously; new airframes integrate validated software rather than resolving fundamental guidance problems anew.</li>
+    <li><strong>Compress recurring research and development expenses:</strong> The initial flight demonstrator absorbed the capital cost of core development. Subsequent platforms inherit this baseline, directing engineering capital toward airframe tooling, engine integration, and warhead packaging. Capital expenditure yields expanding strike envelopes with each generation, documented through accumulated <a href="../architecture/index.html">qualification records</a>.</li>
+    <li><strong>Advance operational doctrine alongside hardware:</strong> Nightshade Mk II delivers precision tactical strikes. Hemlock Mk II operates as a strategic saturation weapon—designed to exhaust defensive interceptor stockpiles across wide theaters. A single shared architecture serves both operational roles without initiating bespoke development programs.</li>
+  </ol>
+  <p>Unit costs are controlled by eliminating expensive legacy subsystems. We avoid proprietary military-grade inertial gyro blocks, custom mechanical gyroscopes, and decade-long component qualifications that elevate legacy cruise missile prices. Instead, we combine progressive metal stamping, commercial automotive servos, out-of-autoclave composites, and hardened edge silicon.</p>
+  <div class="note">
+    <div class="t">Engineering boundary: capability preservation</div>
+    <p>Cost control does not mean stripping tactical capability. Every strike effector retains four-layer navigation, passive terminal thermal imaging via Tonbo, independent abort channels, and encrypted telemetry. We remove legacy aerospace over-engineering, not mission performance.</p>
+  </div>
+</section>
+
+<!-- ═══════════ REQUIREMENT ═══════════ -->
+<section id="requirement">
+  <div class="sec-tag">06 · Procurement</div>
+  <h2>What the requirement sheet has to ask for</h2>
+  <p>Exquisite strategic weapons deliver high precision at low manufacturing volumes—averaging roughly one hundred rounds annually. A sovereign attritable layer requires procurement frameworks that incentivize high-tempo manufacturing. Monthly production output, part counts, and domestic supplier depth must serve as formal evaluation criteria.</p>
+  <div class="tw">
+    <table>
+      <caption>Peacetime procurement metrics versus wartime production criteria</caption>
+      <thead><tr><th>Peacetime boutique procurement</th><th>Wartime replenishment procurement</th></tr></thead>
+      <tbody>
+        <tr><td>Maximum range — km</td><td>Unit cost at volume production — ₹ / round</td></tr>
+        <tr><td>Cruise speed — Mach</td><td>Assembly labour — hours / round</td></tr>
+        <tr><td>Circular error probable — m</td><td>Unique custom part count — count</td></tr>
+        <tr><td>Warhead mass and chemistry — kg</td><td>Qualified domestic suppliers per critical part — ≥ 2</td></tr>
+        <tr><td>Launch platform interface compatibility — interface</td><td>Sustained monthly manufacturing capacity — rounds / month</td></tr>
+        <tr><td>Environmental qualification — MIL-STD</td><td>Replenishment lead time — weeks; domestic content by value — %; depot storage life — years</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Apollyon structures Make-II and iDEX defence proposals around volume replenishment metrics. High-intensity modern combat depletes peacetime magazines in weeks. Deterrence requires manufacturing capacity capable of replacing tactical losses in continuous production runs.</p>
+</section>
+
+<!-- ═══════════ SALVO ═══════════ -->
+<section id="salvo">
+  <div class="sec-tag">07 · Arithmetic</div>
+  <h2>Why the mixture wins</h2>
+  <p>Attritable effectors do not eliminate heavy cruise missiles; they optimize their delivery. Standoff strike doctrine requires mixed salvo architectures fired against finite defensive interceptor magazines. In our baseline scenario, an attacker budget is split between attritable effectors and heavy cruise missiles against a defended sector of 120 soft targets and 15 hardened installations. The defending battery maintains 400 interceptor missiles firing two rounds per track with a 75% single-shot kill probability.</p>
+
+  <div class="blueprint-plate">
+    <div class="blueprint-head"><span class="title">Fig. 03</span><span class="scale">salvo model · all constants exposed</span></div>
+    <div class="blueprint-body">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" role="img" aria-label="Campaign objectives met against the share of budget spent on attritable rounds"><line x1="96.0" y1="340.0" x2="930.0" y2="340.0" stroke="#2B2B2B" stroke-width="1"/><text x="82.0" y="344.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#7F7C76" text-anchor="end">0%</text><line x1="96.0" y1="275.0" x2="930.0" y2="275.0" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="279.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#7F7C76" text-anchor="end">25%</text><line x1="96.0" y1="210.0" x2="930.0" y2="210.0" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="214.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#7F7C76" text-anchor="end">50%</text><line x1="96.0" y1="145.0" x2="930.0" y2="145.0" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="149.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#7F7C76" text-anchor="end">75%</text><line x1="96.0" y1="80.0" x2="930.0" y2="80.0" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="84.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#7F7C76" text-anchor="end">100%</text><line x1="96.0" y1="340.0" x2="96.0" y2="346.0" stroke="#2B2B2B" stroke-width="1"/><text x="96.0" y="364.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#7F7C76" text-anchor="middle">0%</text><line x1="304.5" y1="340.0" x2="304.5" y2="346.0" stroke="#2B2B2B" stroke-width="1"/><text x="304.5" y="364.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#7F7C76" text-anchor="middle">25%</text><line x1="513.0" y1="340.0" x2="513.0" y2="346.0" stroke="#2B2B2B" stroke-width="1"/><text x="513.0" y="364.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#7F7C76" text-anchor="middle">50%</text><line x1="721.5" y1="340.0" x2="721.5" y2="346.0" stroke="#2B2B2B" stroke-width="1"/><text x="721.5" y="364.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#7F7C76" text-anchor="middle">75%</text><line x1="930.0" y1="340.0" x2="930.0" y2="346.0" stroke="#2B2B2B" stroke-width="1"/><text x="930.0" y="364.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#7F7C76" text-anchor="middle">100%</text><polyline points="96.0,273.3 100.2,273.4 104.3,273.5 108.5,273.6 112.7,273.7 116.8,273.8 121.0,274.0 125.2,274.1 129.4,274.2 133.5,274.3 137.7,274.4 141.9,274.5 146.0,274.6 150.2,274.8 154.4,274.9 158.6,275.0 162.7,275.1 166.9,275.2 171.1,275.3 175.2,275.4 179.4,275.6 183.6,275.7 187.7,275.8 191.9,275.9 196.1,276.0 200.2,276.1 204.4,276.2 208.6,276.4 212.8,276.5 216.9,276.6 221.1,276.7 225.3,276.8 229.4,276.9 233.6,277.0 237.8,277.2 241.9,277.3 246.1,277.4 250.3,277.5 254.5,277.6 258.6,277.7 262.8,277.8 267.0,278.0 271.1,278.1 275.3,278.2 279.5,278.3 283.6,278.4 287.8,278.5 292.0,278.6 296.2,278.8 300.3,278.9 304.5,279.0 308.7,279.1 312.8,279.2 317.0,279.3 321.2,279.4 325.4,279.6 329.5,279.7 333.7,279.8 337.9,279.2 342.0,278.7 346.2,278.4 350.4,277.8 354.5,277.3 358.7,276.7 362.9,276.2 367.1,275.9 371.2,275.3 375.4,274.8 379.6,274.2 383.7,273.7 387.9,273.4 392.1,272.8 396.2,272.3 400.4,271.7 404.6,271.2 408.8,270.9 412.9,270.3 417.1,269.8 421.3,269.2 425.4,268.7 429.6,268.4 433.8,267.8 437.9,267.3 442.1,266.7 446.3,266.2 450.4,265.9 454.6,265.3 458.8,264.8 463.0,264.2 467.1,263.7 471.3,263.4 475.5,262.8 479.6,262.3 483.8,261.7 488.0,261.2 492.1,260.9 496.3,260.3 500.5,259.8 504.7,259.2 508.8,258.7 513.0,258.4 517.2,257.8 521.3,257.3 525.5,256.7 529.7,256.2 533.9,255.9 538.0,255.3 542.2,254.8 546.4,254.2 550.5,253.7 554.7,253.4 558.9,252.8 563.0,252.3 567.2,251.7 571.4,251.2 575.5,250.9 579.7,250.3 583.9,249.8 588.1,249.2 592.2,248.7 596.4,248.4 600.6,247.8 604.7,247.3 608.9,246.7 613.1,246.2 617.2,245.9 621.4,245.3 625.6,244.8 629.8,244.2 633.9,243.7 638.1,243.4 642.3,242.8 646.4,242.3 650.6,241.7 654.8,241.2 659.0,240.9 663.1,240.3 667.3,239.8 671.5,239.2 675.6,238.7 679.8,238.4 684.0,237.8 688.1,237.3 692.3,236.7 696.5,236.2 700.6,235.9 704.8,235.3 709.0,234.8 713.2,234.2 717.3,233.7 721.5,233.4 725.7,232.8 729.8,232.3 734.0,231.7 738.2,231.2 742.4,230.9 746.5,230.3 750.7,229.8 754.9,229.2 759.0,228.7 763.2,228.4 767.4,227.8 771.5,227.3 775.7,226.7 779.9,226.2 784.0,225.9 788.2,225.3 792.4,224.8 796.6,224.2 800.7,223.7 804.9,223.4 809.1,222.8 813.2,222.3 817.4,221.7 821.6,221.2 825.8,220.9 829.9,220.3 834.1,219.8 838.3,219.2 842.4,218.7 846.6,218.4 850.8,217.8 854.9,217.3 859.1,217.3 863.3,217.7 867.5,218.0 871.6,218.3 875.8,218.7 880.0,219.0 884.1,219.3 888.3,219.7 892.5,220.0 896.6,220.3 900.8,220.7 905.0,221.0 909.1,221.3 913.3,221.7 917.5,222.0 921.7,222.3 925.8,222.7 930.0,223.0" fill="none" stroke="#7F7C76" stroke-width="1.2" stroke-dasharray="5 4"/><polyline points="96.0,273.3 100.2,273.4 104.3,273.5 108.5,273.6 112.7,273.7 116.8,273.8 121.0,274.0 125.2,274.1 129.4,274.2 133.5,274.3 137.7,274.4 141.9,274.5 146.0,274.6 150.2,274.8 154.4,274.9 158.6,275.0 162.7,275.1 166.9,275.2 171.1,275.3 175.2,275.4 179.4,275.6 183.6,275.7 187.7,275.8 191.9,275.9 196.1,276.0 200.2,276.1 204.4,276.2 208.6,276.4 212.8,276.5 216.9,276.6 221.1,276.7 225.3,276.8 229.4,276.9 233.6,277.0 237.8,277.2 241.9,277.3 246.1,277.4 250.3,277.5 254.5,277.6 258.6,277.7 262.8,277.8 267.0,278.0 271.1,278.1 275.3,278.2 279.5,278.3 283.6,278.4 287.8,278.5 292.0,278.6 296.2,278.8 300.3,278.9 304.5,279.0 308.7,279.1 312.8,279.2 317.0,279.3 321.2,279.4 325.4,279.6 329.5,279.7 333.7,279.8 337.9,267.9 342.0,254.0 346.2,240.1 350.4,226.2 354.5,212.3 358.7,198.4 362.9,184.5 367.1,182.7 371.2,182.5 375.4,182.1 379.6,181.2 383.7,180.3 387.9,179.4 392.1,178.6 396.2,177.7 400.4,176.8 404.6,175.9 408.8,175.1 412.9,174.2 417.1,173.3 421.3,172.4 425.4,171.6 429.6,170.7 433.8,169.8 437.9,168.9 442.1,168.0 446.3,167.2 450.4,166.3 454.6,165.4 458.8,164.5 463.0,163.7 467.1,162.8 471.3,161.9 475.5,161.0 479.6,160.1 483.8,159.5 488.0,159.9 492.1,160.4 496.3,160.8 500.5,161.3 504.7,161.7 508.8,162.2 513.0,162.7 517.2,163.1 521.3,163.6 525.5,164.0 529.7,164.5 533.9,164.9 538.0,165.4 542.2,165.9 546.4,166.3 550.5,166.8 554.7,167.2 558.9,167.7 563.0,168.1 567.2,168.6 571.4,169.1 575.5,169.5 579.7,170.0 583.9,170.4 588.1,170.9 592.2,171.3 596.4,171.8 600.6,172.3 604.7,172.7 608.9,173.2 613.1,173.6 617.2,174.1 621.4,174.5 625.6,175.0 629.8,175.5 633.9,175.9 638.1,176.4 642.3,176.8 646.4,177.3 650.6,177.7 654.8,178.2 659.0,178.7 663.1,179.1 667.3,179.6 671.5,180.0 675.6,180.5 679.8,180.9 684.0,181.4 688.1,181.9 692.3,182.3 696.5,182.8 700.6,183.2 704.8,183.7 709.0,184.1 713.2,184.6 717.3,185.1 721.5,185.5 725.7,186.0 729.8,186.4 734.0,186.9 738.2,187.3 742.4,187.8 746.5,188.3 750.7,188.7 754.9,189.2 759.0,189.6 763.2,190.1 767.4,190.5 771.5,191.0 775.7,191.5 779.9,191.9 784.0,192.4 788.2,192.8 792.4,193.3 796.6,193.7 800.7,194.2 804.9,194.7 809.1,195.1 813.2,195.6 817.4,196.0 821.6,196.5 825.8,196.9 829.9,197.4 834.1,197.9 838.3,198.3 842.4,198.8 846.6,199.2 850.8,199.7 854.9,200.1 859.1,200.6 863.3,201.6 867.5,203.0 871.6,204.3 875.8,205.6 880.0,207.0 884.1,208.3 888.3,209.7 892.5,211.0 896.6,212.3 900.8,213.7 905.0,215.0 909.1,216.3 913.3,217.7 917.5,219.0 921.7,220.3 925.8,221.7 930.0,223.0" fill="none" stroke="#F04B4B" stroke-width="1.8"/><line x1="342.0" y1="88.0" x2="342.0" y2="340.0" stroke="#414141" stroke-width="1" stroke-dasharray="4 4"/><text x="352.0" y="100.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#A19E97" font-weight="700">MAGAZINE RUNS DRY</text><line x1="483.8" y1="88.0" x2="483.8" y2="340.0" stroke="#3A1212" stroke-width="1" stroke-dasharray="4 4"/><circle cx="483.8" cy="159.5" r="5" fill="#D92323"/><text x="483.8" y="143.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#F04B4B" text-anchor="middle" font-weight="700">BEST SPLIT 46%</text><text x="483.8" y="185.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#A19E97" text-anchor="middle">69% of objectives</text><text x="96.0" y="60.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" letter-spacing="0.12em">OBJECTIVES MET</text><text x="513.0" y="392.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle" letter-spacing="0.12em">SHARE OF BUDGET SPENT ON ATTRITABLE ROUNDS</text><line x1="96.0" y1="414.0" x2="122.0" y2="414.0" stroke="#F04B4B" stroke-width="1.8"/><text x="132.0" y="418.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#A19E97">ATTRITABLE FIRED FIRST</text><line x1="346.0" y1="414.0" x2="372.0" y2="414.0" stroke="#7F7C76" stroke-width="1.2" stroke-dasharray="5 4"/><text x="382.0" y="418.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#A19E97">EXQUISITE FIRED FIRST</text><text x="96.0" y="448.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#7F7C76">All-exquisite leaves most targets untouched; all-attritable clears the soft set and nothing hardened.</text><text x="96.0" y="466.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#7F7C76">The mixture beats both corners, and the firing order is worth as much as the mixture.</text>
+</div>
+    <div class="blueprint-cap"><b>Fig. 03</b> Objectives met against the share of budget spent on attritable rounds. All-exquisite leaves most targets untouched; all-attritable clears the soft set and nothing hardened. The mixture beats both corners, and the firing order — attritable first — is worth as much as the mixture.</div>
+  </div>
+
+  <p>Three results emerge consistently across salvo simulations: <strong>All-exquisite inventories deplete prematurely:</strong> a limited missile budget cannot service 135 aim points, allowing defensive batteries to engage all inbound tracks. <strong>All-attritable salvos neutralize soft targets only:</strong> hardened concrete revetments survive light warhead impacts. <strong>Mixed salvos deliver optimal campaign outcomes:</strong> inexpensive effectors fired first overwhelm radar tracking channels and deplete surface-to-air missiles, allowing follow-on cruise missiles to strike hardened installations through degraded defensive umbrellas.</p>
+  <p>Our product architecture reflects this operational firing order: Nightshade loitering effectors strip radar coverage and deplete magazines, while Hemlock heavy effectors neutralize hardened command points. Maintaining high terminal arrival probabilities remains essential—an effector with a 70% arrival rate achieves superior campaign economy compared to platforms landing one in three.</p>
+</section>
+
+<!-- ═══════════ RISKS ═══════════ -->
+<section id="risks">
+  <div class="sec-tag">08 · Diligence</div>
+  <h2>What has to be true</h2>
+  <p>Strategic roadmaps require concrete empirical validation. The following operational milestones define program progress across our product lines:</p>
+  <div class="tw">
+    <table>
+      <caption>Conditions, status, and what closes each one</caption>
+      <thead><tr><th>Condition</th><th>Status</th><th>Verification milestone</th></tr></thead>
+      <tbody>
+        <tr><td>Flight-validated core on jet airframes</td><td>Mk I demonstrated GNSS flight; Mk II integrates full deterministic guidance core</td><td>Nightshade Mk II prototype flight campaign, Q4 2026</td></tr>
+        <tr><td>Unit cost curve validation at rate</td><td>Internal engineering planning figures</td><td>Signed supply chain production contracts against initial rate orders</td></tr>
+        <tr><td>Propulsion supply depth</td><td>Three qualified engine sources for Nightshade; Hemlock class requires 350 kgf powerplant scaling</td><td>GTRE 350 kgf manufacturing transfer to Azad Engineering (completed 22 July 2026)</td></tr>
+        <tr><td>Seeker manufacturing volume</td><td>Tonbo Imaging strategic partnership finalized</td><td>Long-term volume procurement agreement supporting Mk II serial production</td></tr>
+        <tr><td>Integrated cUAS command software</td><td>Ahuti effectors deployable with external integrators</td><td>DKS consortium integration and indigenous Cortex battery command layer</td></tr>
+        <tr><td>Battery cell supply chain independence</td><td>Active qualification gap on interceptor line</td><td>Dual-sourced Indian and allied high-discharge lithium cells—see <a href="supply-chain.html">supply chain</a></td></tr>
+        <tr><td>Volume procurement authorization</td><td>Active Make-II and iDEX engagement</td><td>Formal tender releases specifying monthly delivery throughput and rate pricing</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Read in conjunction with <a href="competitive.html">the competitive field</a> and <a href="supply-chain.html">the supply chain</a>, these criteria provide clear, testable verification milestones for technical diligence.</p>
+</section>
+
+  <div class="manifesto-seal">
+    <img src="../assets/logos/logo-ad-white.png" alt="Apollyon Dynamics">
+    <span>Apollyon Dynamics &middot; Strategy &middot; Capability Per Rupee</span>
+  </div>
+
+<footer>
+  <div>Apollyon Dynamics &middot; Neo-Prime Wiki &middot; Rev 3.0</div>
+  <div><a href="../doctrine/new-arsenal.html">The New Arsenal</a> &middot; <a href="../about/history.html">Company</a> &middot; <a href="../strategy/competitive.html">Competitive field</a> &middot; apollyondynamics.com</div>
+</footer>
+
+</main>
+</div>
+</div>
+</body>
+</html>

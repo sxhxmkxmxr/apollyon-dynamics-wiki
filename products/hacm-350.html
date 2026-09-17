@@ -4,30 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>HACM-350 — Apollyon Dynamics Wiki</title>
+<meta name="description" content="Apollyon Dynamics engineering wiki — autonomous strike, interception and battlefield-intelligence systems, with the shared architecture they are built from.">
+<link rel="icon" type="image/png" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/wiki.css">
 </head>
 <body>
 
 <div class="rail">
   <div class="rail-inner">
-    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>· Engineering Wiki</em></a>
+    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
     <nav class="rail-links">
+      <a href="../index.html">Thesis</a>
       <a href="../index.html#products" class="on">Products</a>
-      <a href="../index.html#subsystems">Subsystems</a>
+      <a href="../strategy/trajectory.html">Strategy</a>
+      <a href="../architecture/index.html">Architecture</a>
+      <a href="../strategic-dependency/full-record.html">Dependencies</a>
       <a href="../doctrine/new-arsenal.html">Doctrine</a>
-      <a href="../about/history.html">History</a>
+      <a href="../about/history.html">Company</a>
     </nav>
   </div>
 </div>
-
 <div class="shell">
 <div class="layout">
 
 <aside class="aside">
-  <h4>This page</h4>
+  <h4>On this page</h4>
   <ul>
     <li><a href="#specs">Specification</a></li>
     <li><a href="#usecases">Use cases</a></li>
@@ -41,30 +45,44 @@
   </ul>
   <h4>Products</h4>
   <ul>
-    <li><a href="hacm-350.html" class="here">HACM-350</a></li>
-    <li><a href="nightshade-adx1.html">Nightshade ADX-1</a></li>
-    <li><a href="usv-strike.html">Kamikaze USV</a></li>
-    <li><a href="ahuti.html">Ahuti Interceptor</a></li>
-    <li><a href="mobile-drone-lab.html">Mobile Drone Lab</a></li>
-    <li><a href="cortex.html">Apollyon Cortex</a></li>
-    <li><a href="mdcc.html">MDCC</a></li>
+    <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
+    <li><a href="../products/hemlock.html">Hemlock family</a></li>
+    <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
+    <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
+    <li><a href="../products/mdcc.html">Mobile command centre</a></li>
+    <li><a href="../products/mobile-drone-lab.html">Mobile drone lab</a></li>
   </ul>
-  <h4>Subsystems</h4>
+  <h4>Strategy</h4>
   <ul>
-    <li><a href="../subsystems/near-envelope-control.html">Robust control for fast platforms</a></li>
-    <li><a href="../subsystems/gnss-denied-navigation.html">High-speed GNSS-denied nav</a></li>
-    <li><a href="../subsystems/onboard-compute.html">Edge compute &amp; inference</a></li>
-    <li><a href="../subsystems/flight-software.html">Flight software stack</a></li>
-    <li><a href="../subsystems/seekers.html">Seekers &amp; terminal guidance</a></li>
+    <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
+    <li><a href="../strategy/competitive.html">The competitive field</a></li>
+    <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
+  </ul>
+  <h4>Architecture</h4>
+  <ul>
+    <li><a href="../architecture/index.html">The shared core</a></li>
+    <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
+    <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
+    <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
+    <li><a href="../subsystems/flight-software.html">Flight software</a></li>
+    <li><a href="../subsystems/seekers.html">Seekers</a></li>
     <li><a href="../subsystems/propulsion.html">Propulsion</a></li>
     <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
-    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground systems</a></li>
+    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground</a></li>
   </ul>
   <h4>Doctrine</h4>
   <ul>
     <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
     <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
     <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
+    <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
+  </ul>
+  <h4>Record</h4>
+  <ul>
+    <li><a href="../about/history.html">Company history</a></li>
+    <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
+    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
 </aside>
 
@@ -73,6 +91,11 @@
 <div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../index.html#products">Products</a><span>/</span>Class A · Standoff strike<span>/</span>HACM-350</div>
 
 <header class="masthead">
+    <div class="mast-brand-lockup">
+    <img src="../assets/logos/logo-ad-white.png" alt="Apollyon Dynamics Mark" class="brand-mark">
+    <div class="brand-sep"></div>
+    <img src="../assets/logos/logo-text-white.png" alt="Apollyon Dynamics" class="brand-text">
+  </div>
   <div class="mast-meta">Standoff cruise missile · GTRE 350 kgf anchor <span>· TRL 4–8 development programme · rev 2.1</span></div>
   <h1>HACM-350 <span class="sub">Sovereign Strike</span></h1>
   <p class="standfirst">A 500–600 kg all-up-weight, high-subsonic cruise missile built around the GTRE 350 kgf expendable turbojet. Designed for ground launch from 4,500 m Himalayan elevations, for electronic-warfare resilience, and for mass manufacture by Indian tier-1 precision foundries.</p>
@@ -264,7 +287,7 @@
   </div>
 
   <h3>Why not the tiers either side of it</h3>
-  <p>A tactical loitering munition cruises at 150 km/h with a 5–15 kg warhead. It is cheap and it is replenishable, and a SHORAD battery intercepts it routinely. At the other end, an exquisite round costs ₹25–35 crore and is produced at roughly eight a month; firing salvos of it exhausts a national war reserve. Neither tier can service a defended rear area repeatedly. The HACM-350 is specified to be the round you can afford to fire fifty of. See <a href="../doctrine/missing-middle.html">The missing middle</a> for the full argument.</p>
+  <p>A tactical loitering munition cruises at 150 km/h carrying 5–15 kg of explosive. It is inexpensive and easily replaced, but modern short-range air defence intercepts it with routine efficiency. At the upper end, exquisite cruise missiles cost ₹25–35 crore each and leave assembly lines at roughly eight rounds per month. Expending exquisite missiles in high-volume salvos drains national stockpiles within days. The HACM-350 closes this operational void, providing the payload, velocity, and unit economics required to execute fifty-round saturation salvos against fortified rear areas. See <a href="../doctrine/missing-middle.html">The missing middle</a> for the full doctrine.</p>
 
   <div class="stats">
     <div class="stat"><div class="n">Mach 0.7–0.8</div><div class="d">Ingress speed — fast enough to compress the defender's detect-to-engage window</div></div>
@@ -277,11 +300,11 @@
 <section id="altitude">
   <div class="sec-tag">03 · Specifics</div>
   <h2>High-altitude engine operation</h2>
-  <p class="lede">This is the governing design constraint of the whole vehicle. Missiles developed for Western Europe or desert plains fail when deployed along India's northern frontier, and they fail first in the turbine.</p>
+  <p class="lede">Atmospheric density along the northern border dictates the propulsion geometry of the missile. Systems engineered for maritime plains or European valleys lose engine thrust and control response when operated across high Himalayan passes.</p>
 
   <h3>The physics</h3>
-  <p>Ground launch sites in Eastern Ladakh — Nyoma, Daulat Beg Oldie, Leh — and North Sikkim sit at base elevations between 4,000 m and 4,800 m AMSL. At 4,500 m, standard atmospheric density falls to approximately <strong>ρ = 0.771 kg/m³</strong>, which is <strong>62.9%</strong> of the sea-level value of 1.225 kg/m³.</p>
-  <p>Turbine mass airflow, and therefore thrust, declines in proportion to ambient density. A gas turbine sized with minimal thrust margin at sea level loses roughly <strong>38–40% of its static thrust</strong> at plateau altitudes. An underpowered vehicle in that condition cannot achieve the climb rates it needs, cannot overcome mountain wind turbulence, and has no thrust left for high-g evasive manoeuvre or for the terminal pitch-over.</p>
+  <p>Ground launch sites in Eastern Ladakh — including Nyoma, Daulat Beg Oldie, and Leh — and North Sikkim lie between 4,000 m and 4,800 m above mean sea level. At 4,500 m, ambient air density drops to approximately <strong>ρ = 0.771 kg/m³</strong>, representing only <strong>62.9%</strong> of the standard sea-level value (1.225 kg/m³).</p>
+  <p>Gas turbine mass flow falls in direct proportion to ambient air density. An expendable turbojet calibrated with minimal sea-level thrust margin loses roughly <strong>38–40% of its net thrust</strong> at plateau elevations. An underpowered missile launched into thin air cannot maintain steep climb gradients, stalls against turbulent valley shear winds, and lacks the control authority needed for high-G defensive maneuvers or vertical terminal dives.</p>
 
   <div class="tw">
     <table class="spec">
@@ -298,10 +321,10 @@
   </div>
 
   <h3>Why the engine is sized with excess</h3>
-  <p>The vehicle is deliberately over-engined at sea level so that it is correctly engined at the launch floor. The 71% excess thrust reserve is not a performance boast — it is the energy required to pitch up vertically at the end of a thousand-kilometre transit, acquire the target silhouette, and plunge at 80° at high subsonic speed. Sizing for the sea-level case and accepting the derate would produce a vehicle that flies acceptably in the plains and cannot complete a terminal attack from Nyoma.</p>
+  <p>The propulsion budget sizes the powerplant with significant sea-level excess so that the missile retains full control authority at Himalayan launch elevations. The 71% surplus thrust at sea level guarantees that after an 800-kilometre transit, the airframe retains enough kinetic energy to pitch vertically, identify the target silhouette, and execute an 80° terminal dive at high subsonic velocity. Sizing only for sea-level conditions would produce a missile that flies smoothly across plains but stalls during steep pull-ups out of Nyoma.</p>
 
   <h3>Why not a salvaged engine</h3>
-  <p>The company explicitly rejects building the vehicle around decommissioned civilian business-jet engines. That approach produced the Ukrainian FP-5 Flamingo because Ukraine possessed hundreds of surplus Soviet AI-25 trainer engines in storage and needed to cross a continental landmass. In India, foreign engine salvage provides no sustainable production pipeline, triggers MTCR Category I export exposure through excessive vehicle mass, and diverts investment away from domestic aerospace manufacturing. See <a href="../subsystems/propulsion.html">Propulsion</a>.</p>
+  <p>Apollyon rejects powering frontline cruise missiles with decommissioned civilian business-jet turbines. While Ukrainian programs adapted surplus Soviet AI-25 trainer engines to cross long distances quickly, that approach relies on dwindling stockpiles of legacy hardware. In India, foreign engine salvage provides no scalable manufacturing base, risks triggering MTCR Category I export constraints due to excessive dry weight, and bypasses indigenous precision aerospace foundries. See <a href="../subsystems/propulsion.html">Propulsion</a>.</p>
 
   <div class="note key">
     <div class="t">Documented requirement</div>
@@ -322,7 +345,7 @@
       <caption>Navigation layers, in order of degradation</caption>
       <thead><tr><th>Layer</th><th>Mechanism</th><th>Holds until</th></tr></thead>
       <tbody>
-        <tr><td>1 · Anti-jam GNSS</td><td><a href="../subsystems/anti-jam-gnss.html">7-element CRPA</a>, NavIC L5/S + GPS L1/L2, spatial nulls &gt; 45 dB steered at the emitter azimuth</td><td>Jammer power saturates the RF front end entirely</td></tr>
+        <tr><td>1 · Anti-jam GNSS</td><td><a href="../subsystems/gnss-denied-navigation.html#crpa">7-element CRPA</a>, NavIC L5/S + GPS L1/L2, spatial nulls &gt; 45 dB steered at the emitter azimuth</td><td>Jammer power saturates the RF front end entirely</td></tr>
         <tr><td>2 · Inertial core</td><td>Tactical FOG in pitch/yaw + MEMS triad, &lt; 0.5 nm/hr</td><td>Drift approaches the mission error budget</td></tr>
         <tr><td>3 · Optical checkpoint</td><td><a href="../subsystems/gnss-denied-navigation.html">AI-DSMAC</a> against open Copernicus 30 m DEM, CMOS edge correlator; INS drift zeroed at ~25 km intervals</td><td>Terrain offers nothing to match against</td></tr>
         <tr><td>4 · Terminal lock</td><td>Dual uncooled LWIR / visible <a href="../subsystems/seekers.html">automatic scene matcher</a>, geometric silhouette match</td><td>Impact</td></tr>
@@ -331,28 +354,28 @@
   </div>
 
   <h3>The open-source AI-DSMAC pipeline</h3>
-  <p>Legacy cruise missiles require expensive military reconnaissance-satellite infrastructure for terrain matching. The HACM-350 uses an indigenous software pipeline running on publicly available planetary datasets and onboard edge neural processors. There is no classified imagery in the loop and no pre-mission reconnaissance sortie.</p>
+  <p>Legacy cruise missiles require dedicated military reconnaissance satellites to pre-map terrain features. HACM-350 replaces this costly dependence with an onboard software pipeline executing across public planetary datasets and edge neural accelerators. The missile operates without classified imagery archives or pre-strike aerial reconnaissance:</p>
   <ol>
-    <li><strong>Open-source ingestion.</strong> Copernicus 30 m DEM and Sentinel-2 multispectral. Zero classified data requirement.</li>
-    <li><strong>Pre-flight compilation.</strong> Synthetic sun-angle shading and topological gradient hashing, compiled to under 150 MB of route storage.</li>
-    <li><strong>In-flight correlation.</strong> Downward CMOS camera into an embedded edge-AI engine; inertial drift zeroed at roughly 25 km intervals.</li>
-    <li><strong>Terminal lock.</strong> Forward LWIR/visible sensor, geometric silhouette match, CEP &lt; 1.5 m into an 80° dive.</li>
+    <li><strong>Open-source ingestion:</strong> Processes public Copernicus 30 m digital elevation models and Sentinel-2 multispectral imagery. Eliminates classified mapping dependencies entirely.</li>
+    <li><strong>Pre-flight compilation:</strong> Synthesizes solar illumination angles and topological gradient hashes, compressing mission corridor data to under 150 MB.</li>
+    <li><strong>In-flight correlation:</strong> A downward CMOS camera streams frames into an embedded neural engine, resetting accumulated inertial drift at 25 km intervals.</li>
+    <li><strong>Terminal lock:</strong> Dual-channel forward sensors lock onto structural contours, guiding an 80° dive with a circular error probable under 1.5 m.</li>
   </ol>
 
   <h3>Zero-emission optical odometry</h3>
-  <p>During terminal penetration through complete RF denial the missile operates in total radio silence. The downward-facing camera tracks optical flow and cross-references topographic ridges against stored hashes, arresting inertial drift without any active emission. Anything that transmits can be heard; the radar altimeter's duty cycle is therefore an operational risk decision rather than an engineering detail.</p>
+  <p>During terminal penetration through complete RF denial, the missile operates in total radio silence. The downward-facing camera tracks optical flow and cross-references topographic ridges against stored hashes, arresting inertial drift without transmitting radio energy. Because any active transmission reveals the missile's approach vector, radar altimeter pings are restricted to brief terrain-clearance checks.</p>
 
   <div class="note">
     <div class="t">Route as a navigation decision</div>
-    <p>Because every optical fix is geographic, waypoint routing becomes an active navigation strategy rather than only a tactical one. Ridgelines and built-up areas offer both shape and appearance; open farmland offers appearance only, and weakly; water offers neither. The planner spends the drift budget deliberately — taking high-confidence fixes immediately before a featureless crossing, so the corridor entering the blind stretch is pinched to its minimum. See <a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a>.</p>
+    <p>Because every optical fix is geographic, waypoint routing becomes an active navigation strategy rather than only a tactical one. Ridgelines and built-up areas offer sharp geometric edges; flat agricultural plains offer weaker contrast; open water offers none. The mission planner allocates the drift budget deliberately, taking high-confidence terrain fixes immediately before featureless sectors to minimize corridor uncertainty. See <a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a>.</p>
   </div>
 </section>
 
 <section id="terminal">
   <div class="sec-tag">05 · Specifics</div>
   <h2>Valley ingress and terminal geometry</h2>
-  <p>Mountain terrain masks line-of-sight radar detection, but narrow Himalayan valleys demand rapid turn rates and high climb margin. A missile at high subsonic speed must follow valley contours to stay below the radar horizon, and that costs energy that only the thrust reserve can pay for.</p>
-  <p>Targets such as reinforced aircraft revetments, bridge piers and bunker portals cannot be destroyed by shallow-angle horizontal strikes. The Indian Army July 2026 questionnaire specifies a terminal attack dive angle of <strong>80° (±10°)</strong>. The sequence is: pitch up vertically at the terminal waypoint, identify the target silhouette against the stored geometric reference, and plunge at 80° at high subsonic speed with an electronic deceleration-sensing delayed impact fuze arming on entry.</p>
+  <p>Mountain ridgelines shield ingress routes from line-of-sight radar, but narrow Himalayan valleys demand rapid bank-to-turn maneuvers and sustained climb margins. A missile traveling at Mach 0.75 must track winding contours below the radar horizon, consuming kinetic energy that only a surplus thrust reserve can replenish.</p>
+  <p>Hardened targets such as aircraft shelters, bridge piers, and mountain tunnel portals resist shallow-angle horizontal strikes. The Indian Army July 2026 loitering munition specifications mandate a terminal attack dive angle of <strong>80° (±10°)</strong>. At the final waypoint, the missile pitches up vertically, identifies the target footprint against stored geometric silhouettes, and plunges at 80° at high subsonic speed. A deceleration-sensing delayed impact fuze detonates the warhead inside the reinforced structure.</p>
 </section>
 
 <section id="structure">
@@ -458,7 +481,7 @@
         <tr>
           <td>IAF TPCR 2025 · Line Item #60</td>
           <td>Smart loitering for BVLOS munitions: 500–1,000 km, 50 kg+ warhead, autonomous holding and terminal dive, 200–250 units. No DRDO tag</td>
-          <td><strong>Direct candidate.</strong> Ground-launched, 150 kg modular warhead, standoff holding and unjammable terminal dive. Open for Make-II private pitch</td>
+          <td><strong>Direct candidate.</strong> Ground-launched, 150 kg modular warhead, standoff holding and unjammable terminal dive. Structured for Make-II private industry procurement</td>
         </tr>
         <tr>
           <td>HQ IDS Joint TPCR 2025 · Line Item #81</td>
@@ -466,7 +489,7 @@
           <td><strong>Full.</strong> 560 kg AUW, 950 km range, modular penetrator / anti-ship configurations</td>
         </tr>
         <tr>
-          <td>IAF CATS Hunter synergy</td>
+          <td>IAF CATS Hunter commonality</td>
           <td>Air-launched cruise missile: 3.2–3.5 kN turbojet, 250–350 km standoff, image-based navigation</td>
           <td><strong>Common architecture.</strong> Identical GTRE 350 kgf powerplant and avionics stack for Su-30MKI / Rafale carriage</td>
         </tr>
@@ -483,7 +506,7 @@
     <div class="t">This product is assembled from</div>
     <div class="items">
       <a href="../subsystems/propulsion.html">Propulsion · GTRE 350 kgf</a>
-      <a href="../subsystems/anti-jam-gnss.html">Anti-jam GNSS · 7-element CRPA</a>
+      <a href="../subsystems/gnss-denied-navigation.html#crpa">Anti-jam GNSS · 7-element CRPA</a>
       <a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation · AI-DSMAC</a>
       <a href="../subsystems/seekers.html">Seekers · LWIR / visible</a>
       <a href="../subsystems/onboard-compute.html">Onboard compute · edge correlator</a>
@@ -495,8 +518,8 @@
 </section>
 
 <footer>
-  <div>HACM-350 · Technical specification · Rev 2.1 · September 2026</div>
-  <div><a href="../index.html">Wiki root</a> · <a href="nightshade-adx1.html">Nightshade ADX-1 →</a></div>
+  <div>Apollyon Dynamics &middot; Neo-Prime Wiki &middot; Rev 3.0</div>
+  <div><a href="../doctrine/new-arsenal.html">The New Arsenal</a> &middot; <a href="../about/history.html">Company</a> &middot; <a href="../strategy/competitive.html">Competitive field</a> &middot; apollyondynamics.com</div>
 </footer>
 
 </main>

@@ -4,30 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Edge Compute &amp; Custom Inference Engine — Apollyon Dynamics Wiki</title>
+<meta name="description" content="Apollyon Dynamics engineering wiki — autonomous strike, interception and battlefield-intelligence systems, with the shared architecture they are built from.">
+<link rel="icon" type="image/png" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/wiki.css">
 </head>
 <body>
 
 <div class="rail">
   <div class="rail-inner">
-    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>· Engineering Wiki</em></a>
+    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
     <nav class="rail-links">
+      <a href="../index.html">Thesis</a>
       <a href="../index.html#products">Products</a>
-      <a href="../index.html#subsystems" class="on">Subsystems</a>
+      <a href="../strategy/trajectory.html">Strategy</a>
+      <a href="../architecture/index.html" class="on">Architecture</a>
+      <a href="../strategic-dependency/full-record.html">Dependencies</a>
       <a href="../doctrine/new-arsenal.html">Doctrine</a>
-      <a href="../about/history.html">History</a>
+      <a href="../about/history.html">Company</a>
     </nav>
   </div>
 </div>
-
 <div class="shell">
 <div class="layout">
 
 <aside class="aside">
-  <h4>This page</h4>
+  <h4>On this page</h4>
   <ul>
     <li><a href="#framing">Latency as distance</a></li>
     <li><a href="#why-custom">Limits of generic runtimes</a></li>
@@ -36,57 +40,76 @@
     <li><a href="#workloads">Fleet workloads</a></li>
     <li><a href="#usedby">Used by</a></li>
   </ul>
-  <h4>Subsystems</h4>
-  <ul>
-    <li><a href="near-envelope-control.html">Robust control for fast platforms</a></li>
-    <li><a href="gnss-denied-navigation.html">High-speed GNSS-denied nav</a></li>
-    <li><a href="onboard-compute.html" class="here">Edge compute &amp; inference</a></li>
-    <li><a href="flight-software.html">Flight software stack</a></li>
-    <li><a href="seekers.html">Seekers &amp; terminal guidance</a></li>
-    <li><a href="propulsion.html">Propulsion</a></li>
-    <li><a href="airframe-structures.html">Airframe &amp; structures</a></li>
-    <li><a href="launch-systems.html">Launch &amp; ground systems</a></li>
-  </ul>
   <h4>Products</h4>
   <ul>
-    <li><a href="../products/hacm-350.html">HACM-350</a></li>
-    <li><a href="../products/nightshade-adx1.html">Nightshade ADX-1</a></li>
-    <li><a href="../products/usv-strike.html">Kamikaze USV</a></li>
-    <li><a href="../products/ahuti.html">Ahuti Interceptor</a></li>
-    <li><a href="../products/mobile-drone-lab.html">Mobile Drone Lab</a></li>
+    <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
+    <li><a href="../products/hemlock.html">Hemlock family</a></li>
+    <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
+    <li><a href="../products/usv-strike.html">Piranha USV</a></li>
     <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
-    <li><a href="../products/mdcc.html">MDCC</a></li>
+    <li><a href="../products/mdcc.html">Mobile command centre</a></li>
+    <li><a href="../products/mobile-drone-lab.html">Mobile drone lab</a></li>
+  </ul>
+  <h4>Strategy</h4>
+  <ul>
+    <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
+    <li><a href="../strategy/competitive.html">The competitive field</a></li>
+    <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
+  </ul>
+  <h4>Architecture</h4>
+  <ul>
+    <li><a href="../architecture/index.html">The shared core</a></li>
+    <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
+    <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
+    <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
+    <li><a href="../subsystems/flight-software.html">Flight software</a></li>
+    <li><a href="../subsystems/seekers.html">Seekers</a></li>
+    <li><a href="../subsystems/propulsion.html">Propulsion</a></li>
+    <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
+    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground</a></li>
   </ul>
   <h4>Doctrine</h4>
   <ul>
     <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
     <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
     <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
+    <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
+  </ul>
+  <h4>Record</h4>
+  <ul>
+    <li><a href="../about/history.html">Company history</a></li>
+    <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
+    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
 </aside>
 
 <main class="main">
 
-<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../index.html#subsystems">Subsystems</a><span>/</span>Compute / Edge Compute &amp; Custom Inference</div>
+<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../architecture/index.html#subsystems">Subsystems</a><span>/</span>Compute / Edge Compute &amp; Custom Inference</div>
 <header class="masthead">
+    <div class="mast-brand-lockup">
+    <img src="../assets/logos/logo-ad-white.png" alt="Apollyon Dynamics Mark" class="brand-mark">
+    <div class="brand-sep"></div>
+    <img src="../assets/logos/logo-text-white.png" alt="Apollyon Dynamics" class="brand-text">
+  </div>
   <div class="mast-meta">Compute · hardware-software co-design &amp; custom inference runtime <span>· core subsystem</span></div>
   <h1>Edge Compute &amp; <span class="sub">Custom Inference Engine</span></h1>
-  <p class="standfirst">At 100 to 250 metres per second, latency is not an abstract benchmark—it is a physical distance committed to an outdated decision. This subsystem delivers deterministic sub-millisecond execution through hardware-software co-design, isolated CPU/GPU cores, custom hand-tuned CUDA kernels, and a proprietary custom-built edge inference engine tailored for extreme compute efficiency per watt.</p>
+  <p class="standfirst">At 100 to 270 metres per second, latency translates directly into flight distance committed on stale sensor data. This subsystem provides sub-millisecond execution through hardware-software co-design: isolated CPU cores, custom fused CUDA kernels, zero-copy direct memory access, and an embedded runtime optimized for tight power envelopes.</p>
 </header>
 
 <section id="framing">
   <div class="sec-tag">01 · Physical framing</div>
   <h2>Translating milliseconds into metres of unguided flight</h2>
-  <p class="lede">In high-speed autonomous systems, the only meaningful unit of computation latency is distance. A flight controller or vision processor running on generic software spends its cycle bouncing between user space, kernel context switches, dynamic memory allocations, and framework jitter.</p>
+  <p class="lede">In high-speed autonomous systems, computation latency acts as physical position uncertainty. Generic operating systems and frameworks waste milliseconds on user-to-kernel context switches, dynamic memory allocations, and thread scheduling jitter.</p>
 
   <div class="stats">
     <div class="stat"><div class="n">1.9 m</div><div class="d">Distance flown per cycle on a conventional stack (100 m/s with jitter)</div></div>
     <div class="stat"><div class="n accent">0.25 m</div><div class="d">Distance flown per cycle on Apollyon's co-designed execution core</div></div>
     <div class="stat"><div class="n">~7.6×</div><div class="d">Reduction in committed distance per control evaluation</div></div>
-    <div class="stat"><div class="n">&lt; 1 ms</div><div class="d">Hard deterministic execution ceiling across all operational cycles</div></div>
+    <div class="stat"><div class="n">&lt; 1 ms</div><div class="d">Deterministic execution boundary across flight-critical loops</div></div>
   </div>
 
-  <p>At Mach 0.8 (250+ m/s), the problem becomes extreme: a 15-millisecond delay represents nearly <strong>4 metres of blind flight</strong>. Everything saved in computation latency becomes physical aerodynamic margin—precious milliseconds spent actuating fins, adjusting thrust, or refining terminal lock rather than waiting for an inference runtime to return a tensor.</p>
+  <p>At Mach 0.8 (270 m/s), compute delays carry steep consequences: a 15-millisecond pipeline latency represents <strong>4.05 metres of unguided flight</strong>. Reducing software overhead preserves control authority, giving fin actuators and thrusters more time to correct trajectory deviations before terminal intercept.</p>
 
   <figure>
     <img src="../assets/slides/apollyon-eng-3.jpg" alt="Control cycle end to end: conventional stack versus Apollyon custom execution core">
@@ -97,7 +120,7 @@
 <section id="why-custom">
   <div class="sec-tag">02 · The limit of generic runtimes</div>
   <h2>Why off-the-shelf deep learning frameworks fail in flight</h2>
-  <p>Standard inference runtimes—including TensorRT, ONNX Runtime, and PyTorch Mobile—were engineered for enterprise servers, cloud clusters, or consumer devices. They prioritize batch throughput, broad operator compatibility, and automated model parsing over hard real-time determinism. In an expendable high-subsonic weapon, these assumptions become critical failure points:</p>
+  <p>Standard inference runtimes—including TensorRT, ONNX Runtime, and PyTorch Mobile—are designed for enterprise servers, cloud clusters, and mobile phones. They maximize batch throughput and model operator coverage rather than hard real-time determinism. Inside a high-subsonic weapon, dynamic runtime behaviors cause unacceptable latency spikes:</p>
 
   <div class="tw">
     <table>
@@ -117,40 +140,40 @@
 <section id="engine">
   <div class="sec-tag">03 · Architectural mechanism</div>
   <h2>The proprietary Apollyon execution core</h2>
-  <p class="lede">Apollyon builds a proprietary, custom-built inference runtime tightly co-designed with our onboard embedded silicon. Three core innovations provide deterministic sub-millisecond execution:</p>
+  <p class="lede">Apollyon deploys an in-house inference runtime designed alongside the onboard silicon. Three design choices ensure deterministic sub-millisecond execution:</p>
 
   <div class="cards">
     <div class="card">
       <div class="kicker">Innovation 01</div>
       <h3>Hand-tuned fused CUDA kernels</h3>
-      <p>Every neural network architecture in our guidance and navigation stack is compiled into hand-written CUDA and SIMD kernels. Operations such as LayerNorm, SiLU activation, matrix-vector multiplication, and sensor feature unpacking are merged into single monolithic kernel launches. Intermediate activations never leave fast GPU register and shared memory, eliminating high-latency VRAM round-trips.</p>
+      <p>Every guidance and perception model compiles into bespoke CUDA and SIMD kernels. Operations such as LayerNorm, SiLU activation, matrix-vector multiplication, and feature unpacking execute in single kernel launches. Intermediate activations stay inside high-speed GPU registers and shared memory, avoiding high-latency VRAM round trips.</p>
       <div class="foot"><span>Zero intermediate VRAM</span><span>Fused execution</span></div>
     </div>
     <div class="card">
       <div class="kicker">Innovation 02</div>
       <h3>Strict real-time core isolation</h3>
-      <p>The compute module partitions physical silicon. Flight-critical guidance and direct-actuator neural loops run on dedicated, isolated CPU cores configured with Linux PREEMPT_RT. Non-critical tasks (telemetry compression, health monitoring) run on separate cores. Interrupts are redirected, ensuring the control thread is never preempted.</p>
+      <p>The system partitions physical CPU cores. Flight-critical guidance and direct-actuator neural loops run on dedicated cores configured with Linux PREEMPT_RT. Non-critical tasks such as telemetry compression run on separate cores, preventing control loop preemption.</p>
       <div class="foot"><span>Isolated cores</span><span>No preemption</span></div>
     </div>
     <div class="card">
       <div class="kicker">Innovation 03</div>
       <h3>Zero-copy direct-to-GPU DMA</h3>
-      <p>High-rate sensors—including high-speed CMOS global-shutter cameras, tactical IMUs, and radar altimeters—stream data directly into pinned unified GPU memory via PCIe Direct Memory Access (DMA). The standard triple-copy penalty across Linux kernel buffers is eliminated entirely.</p>
+      <p>Sensors—including global-shutter CMOS cameras, tactical IMUs, and radar altimeters—stream frames directly into pinned unified GPU memory via PCIe Direct Memory Access. This bypasses the standard triple-copy overhead across Linux kernel buffers.</p>
       <div class="foot"><span>Sensor direct to GPU</span><span>Zero-copy bus</span></div>
     </div>
   </div>
 
   <div class="note key">
     <div class="t">Thermal and power efficiency at the edge</div>
-    <p>Expendable weapons and high-speed interceptors operate inside sealed composite airframes without heavy fans or liquid radiators. By eliminating redundant memory copies and optimizing kernel instruction pipelines, our custom engine reduces compute power consumption by over 40% compared to generic frameworks, keeping silicon junction temperatures well within operating limits during sustained high-speed sorties.</p>
+    <p>Expendable strike platforms and interceptors operate inside sealed composite airframes without active liquid cooling. By removing redundant memory copies and optimizing instruction scheduling, the engine lowers compute power draw by over 40% compared to generic frameworks. This preserves silicon junction temperatures within rated limits during sustained high-speed sorties.</p>
   </div>
 </section>
 
 <section id="design-rules">
   <div class="sec-tag">04 · Engineering discipline</div>
   <h2>Design against the worst case, not the average</h2>
-  <p>In aerospace software, average latency is a vanity metric. An inference stack that averages 2 milliseconds but suffers an 18-millisecond tail spike once every five hundred cycles is a system that will experience catastrophic failure during the exact high-G evasive maneuver or terminal intercept where compute load peaks.</p>
-  <p>Every kernel, DMA pipeline, and memory access in Apollyon's compute core is profiled against its theoretical worst-case execution time (WCET). Bus latency is monitored in real time during flight tests, and any detected latency spike is treated as a flight-critical defect requiring kernel optimization.</p>
+  <p>In aerospace flight control, average latency is deceptive. An inference pipeline that averages 2 milliseconds but spikes to 18 milliseconds once every five hundred cycles will fail during high-G evasive maneuvers or terminal guidance corrections when compute loads peak.</p>
+  <p>Every kernel, DMA pipeline, and memory transaction in the compute core is benchmarked against its worst-case execution time (WCET). Flight-test telemetry logs bus latencies at microsecond resolution, and any detected timing overrun triggers kernel-level re-profiling.</p>
 </section>
 
 <section id="workloads">
@@ -165,13 +188,13 @@
           <td><a href="../products/ahuti.html"><strong>Ahuti Interceptor</strong></a></td>
           <td>Direct-actuator flight control policy, adaptive world model, terminal optical target tracking.</td>
           <td>~500 Hz control / 60 Hz vision</td>
-          <td>Extreme low-latency loop (<1 ms); zero preemption tolerated.</td>
+          <td>Sub-millisecond loop requirement (&lt; 1 ms); zero preemption tolerated.</td>
         </tr>
         <tr>
           <td><a href="../products/nightshade-adx1.html"><strong>Nightshade ADX-1</strong></a></td>
           <td>Multi-spectral EO/IR object detection, visual odometry, autonomous terminal dive homing.</td>
           <td>400 Hz control / 30 Hz AI-vision</td>
-          <td>Passive conduction cooling inside sealed carbon-fiber fuselage.</td>
+          <td>Passive conduction cooling inside sealed carbon-fibre fuselage.</td>
         </tr>
         <tr>
           <td><a href="../products/hacm-350.html"><strong>HACM-350</strong></a></td>
@@ -180,7 +203,7 @@
           <td>Mach 0.8 shock-resistant embedded compute module; 150 MB DEM cache.</td>
         </tr>
         <tr>
-          <td><a href="../products/usv-strike.html"><strong>Kamikaze USV</strong></a></td>
+          <td><a href="../products/usv-strike.html"><strong>Piranha USV</strong></a></td>
           <td>Hydrodynamic active trim regulation, shoreline DSMAC correlation, optical waterline tracking, peer mesh.</td>
           <td>100 Hz trim / 30 Hz waterline AI</td>
           <td>Salt-mist sealed enclosure, high shock-load dampening.</td>
@@ -205,17 +228,17 @@
       <a href="../products/ahuti.html">Ahuti Interceptor — primary consumer, sub-millisecond control loop</a>
       <a href="../products/nightshade-adx1.html">Nightshade ADX-1 — EO/IR terminal homing and flight control</a>
       <a href="../products/hacm-350.html">HACM-350 — AI-DSMAC edge terrain correlator</a>
-      <a href="../products/usv-strike.html">Kamikaze USV — waterline tracking and waterjet vectoring</a>
+      <a href="../products/usv-strike.html">Piranha USV — waterline tracking and waterjet vectoring</a>
       <a href="../products/mobile-drone-lab.html">Mobile Drone Lab — forward mission compilation server</a>
       <a href="../products/cortex.html">Apollyon Cortex / MDCC — distributed tactical intelligence nodes</a>
     </div>
   </div>
-  <p>Enables: <a href="near-envelope-control.html">Robust Control for Fast Platforms</a>, <a href="gnss-denied-navigation.html">High-Speed GNSS-Denied Navigation</a>.</p>
+  <p>Supports: <a href="near-envelope-control.html">Robust Control for Fast Platforms</a>, <a href="gnss-denied-navigation.html">High-Speed GNSS-Denied Navigation</a>.</p>
 </section>
 
 <footer>
-  <div>Edge Compute &amp; Custom Inference Engine · Subsystem · Rev 2.0</div>
-  <div><a href="../index.html">Wiki root</a> · <a href="../index.html#matrix">Commonality matrix</a> · apollyondynamics.com</div>
+  <div>Apollyon Dynamics &middot; Neo-Prime Wiki &middot; Rev 3.0</div>
+  <div><a href="../doctrine/new-arsenal.html">The New Arsenal</a> &middot; <a href="../about/history.html">Company</a> &middot; <a href="../strategy/competitive.html">Competitive field</a> &middot; apollyondynamics.com</div>
 </footer>
 
 </main>

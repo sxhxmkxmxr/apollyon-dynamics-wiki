@@ -1,64 +1,85 @@
-# Apollyon Dynamics — Engineering Wiki
+# Apollyon Dynamics — Neo-Prime Wiki
 
-A static, dependency-free HTML wiki. Open `index.html` in a browser, or serve the
-directory (`python3 -m http.server` from inside `wiki/`).
+A static HTML reference for investors, evaluators and due-diligence readers.
+Open `index.html` in a browser, or serve the directory:
+
+```sh
+python3 -m http.server 8901     # from inside wiki/
+```
 
 ## Structure
 
 ```
-index.html              Landing page: overview, ethos, product classes,
-                        product register, subsystem register, commonality matrix
-products/               One page per system. Every page opens with a spec table,
-                        then use cases, then product-specific engineering detail,
-                        then the subsystems it is assembled from.
-subsystems/             One page per shared technology. The subsystem page is the
-                        authority; product pages state their configuration and link here.
-doctrine/               The New Arsenal (founding manifesto), Precision is Mercy
-                        (ethical doctrine), The missing middle (design-space argument)
-about/history.html      Founding, track record, deployments, market, testimonials
-css/wiki.css            Single shared stylesheet
-assets/                 Figures cropped from the source decks
-assets/slides/          Capability slides, exported as web figures
+index.html                    The narrative: origin → doctrine → the world →
+                              dependency history → the window → the plan →
+                              architecture → products → business → moats →
+                              record → engage
+architecture/index.html       The shared core: hardware, software, the flight
+                              loop, control at the envelope, latency, GNSS-denied
+                              navigation, and what is shared across the portfolio
+strategy/trajectory.html      Capability per rupee: strike envelope, cost per kg·km,
+                              generation economics, salvo arithmetic, open risks
+strategy/competitive.html     The comparison field: cUAS matrices, strike matrices,
+                              capital efficiency, the three reads
+strategy/supply-chain.html    Component posture, partners, and the open gaps
+products/                     nightshade-adx1 (family MKI–MKIII + target drone),
+                              hemlock (cruise missile family), ahuti (interceptor),
+                              usv-strike (Piranha), cortex, mdcc, mobile-drone-lab,
+                              research-platforms, hacm-350 (concept study)
+subsystems/                   One page per shared technology; the authority for it
+doctrine/                     The New Arsenal · Precision is Mercy · The missing middle
+about/history.html            Founding, chronology, deployments, market, testimonials
+strategic-dependency/         The full record — 70 denials, one by one
+css/wiki.css                  Single shared stylesheet (design system v3)
+assets/                       Generated SVG plates, photography, data files
+scripts/                      Build and verification tools (see below)
 ```
-
-## Page conventions
-
-- **Product pages** always run: `01 Specification` (an at-a-glance four-column
-  spec card) → `02 Use cases` → specifics → `Subsystems used` cross-reference strip.
-- **Subsystem pages** always end with a `Used by` strip listing the products that
-  carry them, so commonality is navigable in both directions.
-- The landing page `#matrix` table is the single place where subsystem × product
-  coverage is stated; update it when a product gains or drops a subsystem.
 
 ## Design system
 
-Inherited from the Sovereign Strike specification sheets in `../reference/`:
-bone paper (`--paper`), ink linework, mono draughtsman's caps for labels, and a
-single reserved oxblood accent (`--accent`) used only for the argument — never as
-decoration. Fonts are Newsreader (serif headings), Inter (sans body) and
-JetBrains Mono (labels and figures), loaded from Google Fonts with local fallbacks.
+Black ground (`#060606`), bone ink, one signal red (`#D92323` fills /
+`#F04B4B` small text). Hairline rules only; no gradients, shadows or rounded
+cards. Inter for text, JetBrains Mono for labels and figures, Newsreader for
+pull-quotes. Every block spans the same reading column; visuals are embedded
+inline so the page fonts and alignment hold.
+
+**Never regress these two hand-built components:** the war timeline with its
+hanging case files (`.war-*` in `css/wiki.css`, JS at the bottom of
+`index.html`) and the synthesis architecture grid (`.synthesis-*`).
+
+## Build tools (`scripts/`)
+
+| Script | Purpose |
+|---|---|
+| `site_shell.py` | Canonical rail / sidebar / footer on every page. Run after adding a page or nav entry. |
+| `gen_visuals.py` | Regenerates every chart and diagram in `assets/*.svg` + `assets/visuals.json`. |
+| `inline_visuals.py` | Refreshes inlined SVGs in pages: fills `<!-- VISUAL:name -->` placeholders and re-replaces embedded SVGs by aria-label. |
+| `gen_full_record.py` | Regenerates `strategic-dependency/full-record.html` from the corpus JSON. |
+| `verify_links.py` | Checks every link and anchor across all pages. Must report 0 errors. |
+| `legacy/` | Superseded scripts from earlier themes. Do **not** run — they overwrite live pages and the stylesheet with obsolete content. |
+
+Build order after editing content or generator:
+
+```sh
+python3 scripts/gen_visuals.py
+python3 scripts/inline_visuals.py
+python3 scripts/site_shell.py
+python3 scripts/verify_links.py
+```
 
 ## Sources
 
-Everything in this wiki traces to `../reference/`:
+Everything traces to `../reference/`:
 
 | Source | Used for |
 |---|---|
-| `The New Arsenal — A Manifesto for Apollyon Dynamics.txt` | `doctrine/new-arsenal.html`, ethos sections |
-| `hacm_350_sovereign_strike_spec.html` | `products/hacm-350.html`, propulsion, anti-jam GNSS |
-| `strike_systems_design_space.html` | `doctrine/missing-middle.html` |
-| `slides/near-envelope-control.pdf` | `subsystems/near-envelope-control.html` |
-| `slides/gnss-denied-navigation.pdf` | `subsystems/gnss-denied-navigation.html` |
-| `slides/apollyon-engineering-capability.pdf` | `subsystems/physics-backbone.html`, `onboard-compute.html`, `flight-software.html` |
-| `pitches/CFB v10_merged-1.pdf` | Nightshade, Ahuti, Cortex, MDCC, history |
-| `pitches/IAF pitch deck.pdf` | Nightshade marks, seekers, mission roles |
-| `pitches/ADB pitch deck.pdf` | Market sizing, track record, Nightshade Mk III |
-
-PDFs were rasterised page-by-page and read as images (they are visual documents);
-the rendered pages live in `../reference/slides_images/` and `../reference/pitches_images/`.
-
-## Adding a page
-
-Copy the nearest existing page in the same section, keep the rail, sidebar and
-footer blocks, and add the new entry to: the landing page register, the landing
-page `#matrix` row (if a subsystem), and the sidebar lists of its siblings.
+| `business_plan_v5_rdi.tex` | Cortex / MDCC product content, architecture, memory federation, GSQR specs |
+| `slides_images/near-envelope-*.png` | Control at the envelope: learned direct-actuator control, sim-to-real loop, convergence |
+| `slides_images/apollyon-eng-*.png` | Buy-vs-build layers, physics backbone, latency, flight software, the four-upgrade flight loop |
+| `slides_images/gnss-denied-*.png` | Navigation under denial: sensor suite, terrain/scene matching, mission planning by information density |
+| `sourya_docs/Ahuti_Interceptor_*.md` | Interceptor competitive matrices, three reads, funding table |
+| `sourya_docs/Nightshade_MkII_Competitive_Comparison_v7.0.csv` | Strike comparison table, Mk II specification |
+| `combined_deck_summary.json`, `texts/` | Strategy, shared core, generation economics, origin story, market |
+| `strike_systems_design_space.html` | Design-space philosophies, requirement sheet, Flamingo/Barracuda economics |
+| `The New Arsenal — A Manifesto…txt` | Doctrine pages |
+| `Nightshade_Hemlock_Roadmap.docx` | Family roadmap and timelines |

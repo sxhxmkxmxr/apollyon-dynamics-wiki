@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Seekers &amp; terminal guidance &mdash; Apollyon Dynamics Wiki</title>
+<meta name="description" content="Apollyon Dynamics engineering wiki — autonomous strike, interception and battlefield-intelligence systems, with the shared architecture they are built from.">
+<link rel="icon" type="image/png" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/wiki.css">
 </head>
 <body>
@@ -15,19 +17,21 @@
   <div class="rail-inner">
     <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
     <nav class="rail-links">
+      <a href="../index.html">Thesis</a>
       <a href="../index.html#products">Products</a>
-      <a href="../index.html#subsystems" class="on">Subsystems</a>
+      <a href="../strategy/trajectory.html">Strategy</a>
+      <a href="../architecture/index.html" class="on">Architecture</a>
+      <a href="../strategic-dependency/full-record.html">Dependencies</a>
       <a href="../doctrine/new-arsenal.html">Doctrine</a>
-      <a href="../about/history.html">History</a>
+      <a href="../about/history.html">Company</a>
     </nav>
   </div>
 </div>
-
 <div class="shell">
 <div class="layout">
 
 <aside class="aside">
-  <h4>This page</h4>
+  <h4>On this page</h4>
   <ul>
     <li><a href="#family">The family</a></li>
     <li><a href="#eoir">EO / IR</a></li>
@@ -35,47 +39,66 @@
     <li><a href="#scene">Scene matching</a></li>
     <li><a href="#fits">Fits</a></li>
   </ul>
-  <h4>Subsystems</h4>
-  <ul>
-    <li><a href="near-envelope-control.html">Robust control for fast platforms</a></li>
-    <li><a href="gnss-denied-navigation.html">High-speed GNSS-denied nav</a></li>
-    <li><a href="onboard-compute.html">Edge compute &amp; inference</a></li>
-    <li><a href="flight-software.html">Flight software stack</a></li>
-    <li><a href="seekers.html" class="here">Seekers &amp; terminal guidance</a></li>
-    <li><a href="propulsion.html">Propulsion</a></li>
-    <li><a href="airframe-structures.html">Airframe &amp; structures</a></li>
-    <li><a href="launch-systems.html">Launch &amp; ground systems</a></li>
-  </ul>
   <h4>Products</h4>
   <ul>
-    <li><a href="../products/hacm-350.html">HACM-350</a></li>
-    <li><a href="../products/nightshade-adx1.html">Nightshade ADX-1</a></li>
-    <li><a href="../products/usv-strike.html">Kamikaze USV</a></li>
-    <li><a href="../products/ahuti.html">Ahuti Interceptor</a></li>
-    <li><a href="../products/mobile-drone-lab.html">Mobile Drone Lab</a></li>
+    <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
+    <li><a href="../products/hemlock.html">Hemlock family</a></li>
+    <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
+    <li><a href="../products/usv-strike.html">Piranha USV</a></li>
     <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
-    <li><a href="../products/mdcc.html">MDCC</a></li>
+    <li><a href="../products/mdcc.html">Mobile command centre</a></li>
+    <li><a href="../products/mobile-drone-lab.html">Mobile drone lab</a></li>
+  </ul>
+  <h4>Strategy</h4>
+  <ul>
+    <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
+    <li><a href="../strategy/competitive.html">The competitive field</a></li>
+    <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
+  </ul>
+  <h4>Architecture</h4>
+  <ul>
+    <li><a href="../architecture/index.html">The shared core</a></li>
+    <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
+    <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
+    <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
+    <li><a href="../subsystems/flight-software.html">Flight software</a></li>
+    <li><a href="../subsystems/seekers.html">Seekers</a></li>
+    <li><a href="../subsystems/propulsion.html">Propulsion</a></li>
+    <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
+    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground</a></li>
   </ul>
   <h4>Doctrine</h4>
   <ul>
     <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
     <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
     <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
+    <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
+  </ul>
+  <h4>Record</h4>
+  <ul>
+    <li><a href="../about/history.html">Company history</a></li>
+    <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
+    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
 </aside>
 
 <main class="main">
 
-<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../index.html#subsystems">Subsystems</a><span>/</span>Terminal guidance / Seekers</div>
+<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../architecture/index.html#subsystems">Subsystems</a><span>/</span>Terminal guidance / Seekers</div>
 <header class="masthead">
+    <div class="mast-brand-lockup">
+    <img src="../assets/logos/logo-ad-white.png" alt="Apollyon Dynamics Mark" class="brand-mark">
+    <div class="brand-sep"></div>
+    <img src="../assets/logos/logo-text-white.png" alt="Apollyon Dynamics" class="brand-text">
+  </div>
   <div class="mast-meta">Terminal guidance · passive imaging and anti-radiation homing <span>· core subsystem · Nightshade · HACM-350 · Ahuti</span></div>
   <h1>Seekers and <span class="sub">terminal guidance</span></h1>
-  <p class="standfirst">One airframe, swappable seekers. The seeker is the component that decides whether a weapon hits a coordinate or hits a target, and it is the last place in the kill chain where satellite navigation can be removed from the dependency list entirely.</p>
+  <p class="standfirst">Modular seeker payloads separate airframe manufacturing from target engagement physics. The seeker determines whether an effector impacts a geographic coordinate or destroys a dynamic target, eliminating satellite navigation dependencies during the terminal engagement window.</p>
 </header>
 
 <section id="family">
   <div class="sec-tag">01 · The family</div>
-  <h2>Three terminal modes</h2>
+  <h2>Three terminal guidance modalities</h2>
   <div class="tw">
     <table>
       <caption>Seeker register</caption>
@@ -102,32 +125,32 @@
       </tbody>
     </table>
   </div>
-  <p>All three are <strong>passive</strong>. Using them does not announce the vehicle, which matters because anything that transmits can be heard — the same constraint that governs radar-altimeter duty cycle in <a href="gnss-denied-navigation.html">GNSS-denied navigation</a>.</p>
+  <p>All three seeker variants operate completely <strong>passively</strong>. They emit zero radio frequency energy, preventing hostile electronic support measures from detecting the inbound weapon. This passive operating requirement mirrors the low-duty-cycle altimeter constraint detailed in <a href="gnss-denied-navigation.html">GNSS-denied navigation</a>.</p>
 </section>
 
 <section id="eoir">
   <div class="sec-tag">02 · EO / IR</div>
-  <h2>The Tonbo Trap imaging seeker</h2>
-  <p>A passive EO/IR imaging seeker providing all-weather, day and night target acquisition and terminal lock, independent of satellite navigation and resistant to electronic warfare. This is the component that converts a fast airframe into a precision weapon: speed collapses the defender's engagement window, but without an imaging terminal phase the round arrives quickly at an approximate place.</p>
-  <p>Against small or relocatable targets, a baseline GNSS + INS guidance stack gives poor terminal precision even when it is not being jammed, because the target's coordinate at launch is not its coordinate at arrival. An imaging seeker resolves the target itself rather than a position.</p>
+  <h2>Tonbo TRAP-1 electro-optical and infrared seeker integration</h2>
+  <p>The Tonbo TRAP-1 imaging seeker provides day-and-night target acquisition and terminal tracking without external satellite signals. Fast airframes collapse defender reaction times, but terminal accuracy determines target neutralization. Without terminal visual tracking, a fast missile simply arrives rapidly at an approximate coordinate.</p>
+  <p>Against mobile or relocatable targets, satellite coordinates become obsolete during flight transit. Even without jamming, coordinate guidance delivers rounds to vacant positions. The TRAP-1 resolves target visual features directly, tracking vehicle hulls and structural components up to impact.</p>
   <div class="note key">
-    <div class="t">Why this is the pairing that matters</div>
-    <p>Speed buys survivability; precision buys effect. The company's design position is that a strike system must have both, because a fast weapon that misses and a precise weapon that is intercepted are the same weapon from the target's point of view.</p>
+    <div class="t">Kinematics and terminal sensing</div>
+    <p>Speed secures ingress survivability; terminal sensing guarantees target neutralization. Apollyon couples high subsonic airframes with terminal imaging seekers because an unguided fast weapon and an intercepted slow drone produce the same operational failure.</p>
   </div>
 </section>
 
 <section id="arh">
   <div class="sec-tag">03 · Anti-radiation</div>
   <h2>Passive anti-radiation homing</h2>
-  <p>A passive anti-radiation seeker homes on hostile radar emissions to hunt and neutralise air-defence radars and SAM systems. Its doctrinal purpose is corridor opening: forcing an integrated air-defence network either to radiate and be attacked, or to stay silent and stop defending.</p>
-  <p>This is the seeker that makes the cheap-rounds-first firing order work. Attritable rounds sent first do two jobs at once — they service soft targets and they force the defender to spend interceptors and radiate — so that heavier rounds arrive against a partly empty magazine. See <a href="../doctrine/missing-middle.html">The missing middle</a>.</p>
+  <p>The anti-radiation seeker tracks radio frequency emissions from hostile air defence radars and electronic countermeasure systems. Its operational role is air-defence suppression, compelling hostile surface-to-air missile batteries to deactivate their emitters or face terminal strikes.</p>
+  <p>This payload enables layered strike doctrine. Inexpensive attritable effectors fly ahead of heavy cruise missiles, forcing hostile batteries to illuminate and deplete missile magazines before main strike packages enter the sector. See <a href="../doctrine/missing-middle.html">The missing middle</a>.</p>
 </section>
 
 <section id="scene">
   <div class="sec-tag">04 · Scene matching</div>
   <h2>Terminal scene matching and silhouette lock</h2>
-  <p>On the heavy round the terminal sensor is a <strong>dual uncooled LWIR / visible automatic scene matcher</strong>. At the terminal waypoint the vehicle pitches up, resolves the target silhouette against a stored geometric reference, and plunges at 80 degrees. Accuracy is specified at <strong>CEP under 1.5 m</strong>.</p>
-  <p>Uncooled sensors are chosen deliberately: a cooled detector would give better sensitivity but brings a cryogenic cooler, its power draw, its warm-up time and its cost onto an expendable vehicle. The learned matching layer recovers the performance that a cheaper detector gives up — the model is asked to describe permanent structural geometry rather than to compare brightness, which is what makes an uncooled thermal frame matchable against public daylight imagery.</p>
+  <p>On heavy strike rounds like the HACM-350, terminal guidance uses a <strong>dual uncooled LWIR and visible automatic scene matcher</strong>. At the terminal waypoint, the weapon initiates an 80-degree dive, matching ground silhouettes against onboard geometric models to achieve a circular error probable under <strong>1.5 metres</strong>.</p>
+  <p>We select uncooled microbolometers deliberately. Cooled thermal detectors offer higher raw sensitivity but require cryogenic pumps, high electrical power, and lengthy cooldown cycles. Onboard neural models compensate for uncooled sensor noise by matching structural edge geometry rather than absolute thermal gradients, allowing nighttime infrared frames to align against pre-stored daylight satellite tiles.</p>
 </section>
 
 <section id="fits">
@@ -154,8 +177,8 @@
 </section>
 
 <footer>
-  <div>Seekers &amp; terminal guidance &middot; Subsystem page &middot; Rev 1.0</div>
-  <div><a href="../index.html">Wiki root</a> &middot; <a href="../index.html#matrix">Commonality matrix</a></div>
+  <div>Apollyon Dynamics &middot; Neo-Prime Wiki &middot; Rev 3.0</div>
+  <div><a href="../doctrine/new-arsenal.html">The New Arsenal</a> &middot; <a href="../about/history.html">Company</a> &middot; <a href="../strategy/competitive.html">Competitive field</a> &middot; apollyondynamics.com</div>
 </footer>
 
 </main>
