@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Robust Control for Fast Air Platforms — Apollyon Dynamics Wiki</title>
 <meta name="description" content="Apollyon Dynamics engineering wiki — autonomous strike, interception and battlefield-intelligence systems, with the shared architecture they are built from.">
-<link rel="icon" type="image/png" href="../assets/logos/favicon-red.png">
+<link rel="icon" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
@@ -47,9 +47,6 @@
     <li><a href="../products/hemlock.html">Hemlock family</a></li>
     <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
     <li><a href="../products/usv-strike.html">Piranha USV</a></li>
-    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
-    <li><a href="../products/mdcc.html">Mobile command centre</a></li>
-    <li><a href="../products/mobile-drone-lab.html">Mobile drone lab</a></li>
   </ul>
   <h4>Strategy</h4>
   <ul>
@@ -162,7 +159,7 @@
 
   <div class="note key">
     <div class="t">One backbone, modular airframe packages</div>
-    <p>Apollyon maintains a single shared physics backbone. Each airframe—the Ahuti interceptor, the Nightshade jet munition, the HACM-350 cruise missile, or the Piranha strike USV—exists as a parameterized aerodynamic package residing on the identical simulation substrate. When a flight-test campaign improves our high-rate aerodynamic damping model, that fidelity immediately propagates to every program across the company.</p>
+    <p>Apollyon maintains a single shared physics backbone. Each airframe—the Ahuti interceptor, the Nightshade jet munition, the Hemlock cruise missile, or the Piranha strike USV—exists as a parameterized aerodynamic package residing on the identical simulation substrate. When a flight-test campaign improves our high-rate aerodynamic damping model, that fidelity immediately propagates to every program across the company.</p>
   </div>
 
   <figure>
@@ -245,7 +242,7 @@
       <tbody>
         <tr><td><a href="../products/ahuti.html">Ahuti Interceptor</a></td><td>498 km/h (cert.)</td><td>Tail-sitter vertical launch transition and high-speed terminal collision homing.</td><td>500 Hz direct actuator</td></tr>
         <tr><td><a href="../products/nightshade-adx1.html">Nightshade ADX-1</a></td><td>700 km/h</td><td>Turbojet loiter-to-dash transition and steep high-speed terminal dive guidance.</td><td>400 Hz elevon / throttle</td></tr>
-        <tr><td><a href="../products/hacm-350.html">HACM-350</a></td><td>Mach 0.7–0.8</td><td>Trans-subsonic high dynamic pressure sea-skimming and 80° terminal dive onto fortified targets.</td><td>500 Hz fin actuation</td></tr>
+        <tr><td><a href="../products/hemlock.html">Hemlock family</a></td><td>Mach 0.7–0.8</td><td>Trans-subsonic high dynamic pressure sea-skimming and 80° terminal dive onto fortified targets.</td><td>500 Hz fin actuation</td></tr>
         <tr><td><a href="../products/usv-strike.html">Piranha USV</a></td><td>48+ knots</td><td>Rough sea-state hydrodynamic stability, wave-slamming mitigation, and dynamic waterjet trim.</td><td>100 Hz hydraulic trim</td></tr>
       </tbody>
     </table>
@@ -265,9 +262,8 @@
     <div class="items">
       <a href="../products/ahuti.html">Ahuti Interceptor — primary consumer, high-speed interception</a>
       <a href="../products/nightshade-adx1.html">Nightshade ADX-1 — terminal dive and loiter stability</a>
-      <a href="../products/hacm-350.html">HACM-350 — high-subsonic Mach 0.8 cruise and terminal dive</a>
+      <a href="../products/hemlock.html">Hemlock family — high-subsonic Mach 0.8 cruise and terminal dive</a>
       <a href="../products/usv-strike.html">Piranha USV — sea-state hydrodynamic surface control</a>
-      <a href="../products/mobile-drone-lab.html">Mobile Drone Lab — pre-flight HIL rate-table validation</a>
     </div>
   </div>
   <p>Depends on: <a href="onboard-compute.html">Edge Compute &amp; Custom Inference Engine</a>, <a href="flight-software.html">Flight Software Stack</a>.</p>

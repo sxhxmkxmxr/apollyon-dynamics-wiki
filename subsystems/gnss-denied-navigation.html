@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>High-Speed GNSS-Denied Navigation — Apollyon Dynamics Wiki</title>
 <meta name="description" content="Apollyon Dynamics engineering wiki — autonomous strike, interception and battlefield-intelligence systems, with the shared architecture they are built from.">
-<link rel="icon" type="image/png" href="../assets/logos/favicon-red.png">
+<link rel="icon" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
@@ -46,9 +46,6 @@
     <li><a href="../products/hemlock.html">Hemlock family</a></li>
     <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
     <li><a href="../products/usv-strike.html">Piranha USV</a></li>
-    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
-    <li><a href="../products/mdcc.html">Mobile command centre</a></li>
-    <li><a href="../products/mobile-drone-lab.html">Mobile drone lab</a></li>
   </ul>
   <h4>Strategy</h4>
   <ul>
@@ -105,7 +102,7 @@
   <div class="tw">
     <table>
       <caption>Kinematic constraints: 200 km/h drone versus Mach 0.8 cruise missile</caption>
-      <thead><tr><th>Engineering parameter</th><th>Commercial / ISR drone (55 m/s)</th><th>HACM-350 cruise missile (250+ m/s)</th></tr></thead>
+      <thead><tr><th>Engineering parameter</th><th>Commercial / ISR drone (55 m/s)</th><th>Hemlock cruise missile (250+ m/s)</th></tr></thead>
       <tbody>
         <tr><td><strong>Velocity / traverse rate</strong></td><td>~55 m/s (~200 km/h)</td><td><strong>250–270 m/s (Mach 0.8)</strong></td></tr>
         <tr><td><strong>Latency sensitivity</strong></td><td>100 ms compute latency = 5.5 m drift</td><td><strong>10 ms compute latency = 2.55 m unguided transit</strong></td></tr>
@@ -178,7 +175,7 @@
   <ul>
     <li><strong>Topological Priors:</strong> Neural networks learn structural geomorphology—ravines, cliff edges, ridgelines, road intersections, and permanent civil structures—while discarding transient variations such as snow dusting, crop cycles, and cloud shadows.</li>
     <li><strong>Cross-Spectral Matching:</strong> Daylight satellite imagery loaded prior to flight matches directly against live night-time long-wave infrared (LWIR) or low-light visible camera streams.</li>
-    <li><strong>Lightweight Footprint:</strong> A complete 1,000-kilometre transit corridor across the Himalayas occupies under 150 MB of encrypted flash storage, transferring to the missile in 90 seconds via the <a href="../products/mobile-drone-lab.html">Mobile Drone Lab</a>.</li>
+    <li><strong>Lightweight Footprint:</strong> A complete 1,000-kilometre transit corridor across the Himalayas occupies under 150 MB of encrypted flash storage, transferring to the missile in 90 seconds over secure field data links.</li>
   </ul>
 
   <figure>
@@ -224,7 +221,7 @@
       <thead><tr><th>Platform</th><th>Speed &amp; flight regime</th><th>Navigation configuration</th><th>Terminal CEP</th></tr></thead>
       <tbody>
         <tr>
-          <td><a href="../products/hacm-350.html"><strong>HACM-350</strong></a></td>
+          <td><a href="../products/hemlock.html"><strong>Hemlock family</strong></a></td>
           <td>Mach 0.7–0.8 (250+ m/s) · 800–1,000 km</td>
           <td>7-element CRPA (NavIC/GPS) + AI-DSMAC against 30 m DEM; under 150 MB route storage; terminal LWIR silhouette match.</td>
           <td><strong>&lt; 1.5 m</strong></td>
@@ -258,11 +255,10 @@
   <div class="xref">
     <div class="t">Integrated into</div>
     <div class="items">
-      <a href="../products/hacm-350.html">HACM-350 — 7-element CRPA, AI-DSMAC, Mach 0.8 transit</a>
+      <a href="../products/hemlock.html">Hemlock family — 7-element CRPA, AI-DSMAC, high-subsonic transit</a>
       <a href="../products/nightshade-adx1.html">Nightshade ADX-1 — anti-jam multi-GNSS and optical scene matching</a>
       <a href="../products/usv-strike.html">Piranha USV — coastline DSMAC and marine dead reckoning</a>
       <a href="../products/ahuti.html">Ahuti Interceptor — tactical IMU flyout and terminal lock</a>
-      <a href="../products/mobile-drone-lab.html">Mobile Drone Lab — pre-flight DEM packet compilation</a>
     </div>
   </div>
   <p>Supported by: <a href="onboard-compute.html">Edge Compute &amp; Custom Inference Engine</a>, <a href="seekers.html">Seekers &amp; Terminal Guidance</a>.</p>

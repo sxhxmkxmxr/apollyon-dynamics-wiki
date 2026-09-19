@@ -38,9 +38,6 @@ SIDEBAR_GROUPS = [
         ("Hemlock family", "products/hemlock.html"),
         ("Ahuti interceptor", "products/ahuti.html"),
         ("Piranha USV", "products/usv-strike.html"),
-        ("Apollyon Cortex", "products/cortex.html"),
-        ("Mobile command centre", "products/mdcc.html"),
-        ("Mobile drone lab", "products/mobile-drone-lab.html"),
     ]),
     ("Strategy", [
         ("Trajectory &amp; cost per kg&middot;km", "strategy/trajectory.html"),
@@ -188,7 +185,7 @@ def head_html(path, html):
         '<meta name="viewport" content="width=device-width,initial-scale=1">\n'
         f'<title>{title}</title>\n'
         f'<meta name="description" content="{desc}">\n'
-        f'<link rel="icon" href="{FAVICON}">\n'
+        f'<link rel="icon" href="{prefix(path)}{FAVICON}">\n'
         '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
         f'<link href="{FONTS}" rel="stylesheet">\n'

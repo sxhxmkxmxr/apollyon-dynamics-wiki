@@ -311,7 +311,7 @@ def cost_curve():
 
     # Apollyon long-range strike family
     fam = [
-        ("Nightshade Mk II", 300, 2600),
+        ("Nightshade Mk II", 300, 3333),
         ("Nightshade Mk III", 500, 1700),
         ("Hemlock Mk I", 1000, 350),
         ("Hemlock Mk II", 1500, 35),
@@ -322,10 +322,10 @@ def cost_curve():
     o.append(f'<polyline points="{pts_str}" fill="none" stroke="#ff3b30" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>')
 
     # Mk II: left
-    x2, y2 = X(300), Y(2600)
-    o.append(line(379, 160.9, 386.6, 160.9, "#f87171", 1))
-    o.append(txt(376, 156, "Nightshade Mk II", 12, "#ffffff", MONO, anchor="end", weight=700))
-    o.append(txt(376, 171, "₹2,600 / kg·km", 10.5, "#fca5a5", MONO, anchor="end", weight=500))
+    x2, y2 = X(300), Y(3333)
+    o.append(line(x2 - 13.4, y2, x2 - 5.8, y2, "#f87171", 1))
+    o.append(txt(x2 - 16.4, y2 - 5, "Nightshade Mk II", 12, "#ffffff", MONO, anchor="end", weight=700))
+    o.append(txt(x2 - 16.4, y2 + 10, "₹3,333 / kg·km", 10.5, "#fca5a5", MONO, anchor="end", weight=500))
     o.append(f'<circle cx="{x2:.1f}" cy="{y2:.1f}" r="{5.8}" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/>')
 
     # Mk III: left-below
@@ -878,10 +878,10 @@ def eng_system():
 
     # 4 Subsystems
     cards_a = [
-        ("NAVIGATION & SENSING", False),
-        ("FLIGHT CONTROL", True),
-        ("PROPULSION", False),
-        ("ACTUATION", False),
+        ("SENSORS & SEEKERS", False),
+        ("STATE ESTIMATION & NAV", True),
+        ("FLIGHT CONTROL KERNEL", True),
+        ("PROPULSION & ACTUATION", False),
     ]
     for i, (name, is_core) in enumerate(cards_a):
         x = 40 + i * 235
@@ -907,7 +907,7 @@ def eng_system():
 
     # Left column: x = 56 to 524 (w = 468). Center = 290.
     o.append(panel_box(56, 306, 468, 46, "FLY AT THE EDGE",
-                       sub="INSTRUMENTED FOR CURRENT · BUS LATENCY · ACCELERATION",
+                       sub="HIGH-RATE TELEMETRY · BUS METRICS · INERTIAL MEASUREMENTS",
                        stroke=RED, fill=RED_W, sw=1.3, tcol="#ffffff", scol="#cbd5e1", size=10.5, sub_size=7.8))
 
     o.append(arrow(290, 352, 290, 370, ns, "ink"))
@@ -939,8 +939,8 @@ def eng_system():
     o.append(arrow(290, 506, 290, 520, ns, "ink"))
 
     o.append(panel_box(56, 520, 468, 46, "THE NEXT AIRCRAFT",
-                       sub="SOONER · FASTER · MORE MARGIN",
-                       stroke=RED, fill=RED_W, sw=1.3, tcol="#ffffff", scol="#cbd5e1", size=10.5, sub_size=8.0))
+                       sub="EXPANDED ENVELOPE · HIGHER CONTROL BANDWIDTH · REDUCED LATENCY",
+                       stroke=RED, fill=RED_W, sw=1.3, tcol="#ffffff", scol="#cbd5e1", size=10.5, sub_size=7.4))
 
     # Loopback wire: exits left of NEXT AIRCRAFT at (56, 543), runs along x=34, enters FLY AT THE EDGE at (56, 329)
     o.append(line(56, 543, 34, 543, LINE2, 1.2))
@@ -954,20 +954,20 @@ def eng_system():
 
     o.append(arrow(800, 358, 800, 372, ns, "ink"))
 
-    o.append(panel_box(640, 372, 320, 44, "TRAINING",
-                       sub="RL + DOMAIN RANDOMISATION · BEHAVIOUR CLONING · WORLD MODEL",
+    o.append(panel_box(640, 372, 320, 44, "STATE & CONTROL ESTIMATION",
+                       sub="CLASSICAL ESTIMATION + LEARNING-BASED CONTROL LAWS",
                        stroke=LINE2, fill="#090d14", size=9.6, sub_size=7.2, scol=INK3))
 
     o.append(arrow(800, 416, 800, 434, ns, "ink"))
 
     o.append(panel_box(640, 434, 320, 44, "HIL VALIDATION",
-                       sub="THE FIRST FLIGHT HAPPENS IN THE LAB",
+                       sub="CLOSED-LOOP AVIONICS HARNESS & REAL-TIME EMULATION",
                        stroke=LINE2, fill="#090d14", size=9.6, sub_size=7.2, scol=INK3))
 
     o.append(arrow(800, 478, 800, 496, ns, "ink"))
 
     o.append(panel_box(640, 496, 320, 44, "FLEET FLYWHEEL",
-                       sub="RACES & FLEET FLIGHTS → LIMIT-FLIGHT DATA",
+                       sub="FLIGHT SORTIES & HIGH-RATE TESTING → ENVELOPE TELEMETRY",
                        stroke=LINE2, fill="#090d14", size=9.6, sub_size=7.2, scol=INK3))
 
     # Flywheel loopback to training
@@ -1023,48 +1023,48 @@ def eng_twin():
          f'aria-label="The flight vehicle and its simulation twin: measured flight data identifies the physics, the twin trains the policies, the hardware-in-the-loop harness clears them for flight">',
          defs_arrow(ns, {"ink": INK2, "red": RED2, "grey": LINE3})]
 
-    def chip(x, y, w, h, label, size=7, tcol=INK2, stroke=LINE3):
-        return panel_box(x, y, w, h, label, size=size, tcol=tcol, stroke=stroke)
+    def chip(x, y, w, h, label, size=7, tcol=INK2, stroke=LINE3, fill=BG):
+        return panel_box(x, y, w, h, label, size=size, tcol=tcol, stroke=stroke, fill=fill)
 
     # vehicle
     o.append(txt(40, 40, "THE FLIGHT VEHICLE", 9.5, INK4, MONO, ls="0.13em"))
     o.append(rect(40, 56, 430, 400, stroke=LINE3, dash="4 4"))
     o.append(txt(56, 78, "ONE SHARED CORE, ONE PER-PLATFORM PACKAGE", 8.5, RED2, MONO, weight=700, ls="0.1em"))
-    o.append(chip(56, 94, 398, 40, "NAVIGATION & SENSING", size=8.4, tcol=INK))
-    for i, c in enumerate(["CRPA + GNSS", "INERTIAL", "SEEKER", "SCENE MATCH"]):
+    o.append(chip(56, 94, 398, 40, "MISSION SENSORS & SEEKERS", size=8.4, tcol=INK2))
+    for i, c in enumerate(["CRPA GNSS", "EO/IR SEEKER", "SCENE MATCH", "AIR DATA"]):
         o.append(chip(56 + i * 100, 140, 94, 34, c, size=6.8))
-    o.append(chip(56, 186, 398, 40, "FLIGHT CONTROL", size=8.4, tcol=INK))
-    for i, c in enumerate(["ESTIMATOR", "GUIDANCE", "CONTROL LAW", "ENVELOPE"]):
-        o.append(chip(56 + i * 100, 232, 94, 34, c, size=6.8))
-    o.append(chip(56, 278, 398, 40, "PROPULSION", size=8.4, tcol=INK))
+    o.append(chip(56, 186, 398, 40, "STATE ESTIMATION & FLIGHT CONTROL", size=8.4, tcol="#ffffff", stroke=RED, fill=RED_W))
+    for i, c in enumerate(["INERTIAL (IMU)", "EKF OBSERVERS", "CONTROL LAW", "ENVELOPE"]):
+        o.append(chip(56 + i * 100, 232, 94, 34, c, size=6.8, tcol="#ffffff", stroke=RED, fill=RED_W))
+    o.append(chip(56, 278, 398, 40, "PROPULSION", size=8.4, tcol=INK2))
     o.append(chip(56, 324, 190, 34, "ECU → TURBOJET", size=6.8))
     o.append(chip(264, 324, 190, 34, "FUEL → PUMP", size=6.8))
-    o.append(chip(56, 366, 398, 40, "ACTUATION", size=8.4, tcol=INK))
-    o.append(chip(56, 412, 398, 30, "POWER RAIL — ONE RAIL TO HARDEN", size=7.4, tcol=INK3))
+    o.append(chip(56, 366, 398, 40, "ACTUATION & POWER", size=8.4, tcol=INK2))
+    o.append(chip(56, 412, 398, 30, "REGULATED POWER RAIL — HARDENED BUS", size=7.4, tcol=INK3))
 
     # twin
     o.append(txt(530, 40, "THE SIMULATION TWIN", 9.5, INK4, MONO, ls="0.13em"))
     o.append(rect(530, 56, 430, 400, stroke=LINE3, dash="4 4"))
-    o.append(txt(546, 78, "IDENTIFIED FROM FLIGHT, NOT WRITTEN FROM A TEXTBOOK", 8.5, RED2, MONO, weight=700, ls="0.1em"))
-    o.append(panel_box(546, 94, 398, 62, "IDENTIFICATION",
-                       sub="FLIGHT LOGS → AERODYNAMICS · ACTUATOR CURVE · INERTIA", size=8.4, sub_size=6.8))
+    o.append(txt(546, 78, "PARAMETERISED 6-DOF FLIGHT DYNAMICS & COMPONENT PHYSICS", 8.5, RED2, MONO, weight=700, ls="0.1em"))
+    o.append(panel_box(546, 94, 398, 62, "SYSTEM IDENTIFICATION",
+                       sub="EMPIRICAL FLIGHT LOGS → AERO POLARS · ACTUATOR DYNAMICS · INERTIA", size=8.4, sub_size=6.8))
     o.append(panel_box(546, 168, 398, 76, "SHARED PHYSICS BACKBONE",
-                       sub="ONE PACKAGE PER AIRFRAME · BOUNDARY LAYER · ROTOR WASH · THERMAL · VOLTAGE SAG · VIBRATION",
-                       stroke=RED, fill=RED_W, sw=1.3, tcol=INK, size=9.4, sub_size=6.6))
-    o.append(panel_box(546, 256, 398, 62, "TRAINING",
-                       sub="RL + DOMAIN RANDOMISATION · BEHAVIOUR CLONING · WORLD MODEL", size=8.4, sub_size=6.8))
-    o.append(panel_box(546, 330, 398, 58, "HIL VALIDATION",
-                       sub="THE FIRST FLIGHT OF EVERY VERSION HAPPENS IN THE LAB", size=8.4, sub_size=6.8))
+                       sub="UNIFIED MULTI-BODY SOLVER · BOUNDARY LAYER · PROPULSION & THERMAL DYNAMICS",
+                       stroke=RED, fill=RED_W, sw=1.3, tcol="#ffffff", scol="#cbd5e1", size=9.4, sub_size=6.6))
+    o.append(panel_box(546, 256, 398, 62, "ESTIMATION & CONTROL SYNTHESIS",
+                       sub="OPTIMAL OBSERVERS & GAIN SCHEDULES · ADAPTIVE & LEARNED CONTROL", size=8.4, sub_size=6.8))
+    o.append(panel_box(546, 330, 398, 58, "HARDWARE-IN-THE-LOOP (HIL)",
+                       sub="REAL-TIME DETERMINISTIC SENSOR & ACTUATOR BUS EMULATION", size=8.4, sub_size=6.8))
     o.append(panel_box(546, 400, 398, 42, "QUALIFICATION EVIDENCE",
-                       sub="EVERY CAMPAIGN RETURNS EVIDENCE THAT TRAVELS", size=8, sub_size=6.6))
+                       sub="CROSS-TIER VERIFICATION METRICS TRANSFERABLE TO NEXT AIRFRAME", size=8, sub_size=6.6))
 
     o.append(arrow(470, 120, 530, 120, ns, "ink"))
     o.append(txt(500, 112, "FLIGHT LOGS", 8, INK3, MONO, anchor="middle", ls="0.08em"))
     o.append(arrow(530, 454, 470, 454, ns, "red"))
     o.append(txt(500, 446, "POLICIES", 8, RED2, MONO, anchor="middle", ls="0.08em"))
 
-    o.append(txt(40, 500, "A CONTROL POLICY IS ONLY EVER AS GOOD AS THE PHYSICS IT GREW UP IN.", 12, INK, SANS, weight=600))
-    o.append(txt(40, 522, "The twin is earned one real flight at a time. A new airframe is a new package on the same simulation architecture — not a new simulator.", 11, INK3, SANS))
+    o.append(txt(40, 500, "HIGH-INCIDENCE FLIGHT REGIMES DEMAND RIGOROUS SYSTEM IDENTIFICATION FROM SORTIE DATA.", 11.5, INK, SANS, weight=600))
+    o.append(txt(40, 522, "Airframe configurations parameterise a unified multi-body solver; validated estimation filters and actuator dynamics compound across platforms.", 10.5, INK3, SANS))
     o.append("</svg>")
     return "".join(o)
 

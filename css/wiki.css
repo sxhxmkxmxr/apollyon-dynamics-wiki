@@ -284,6 +284,101 @@ hr { border: none; border-top: 1px solid var(--line); margin: 36px 0; }
   font-family: var(--mono); font-size: 10.5px; color: var(--ink-3);
 }
 
+/* ── Product class stack (Horizontal cards & group boxes) ─────────── */
+.product-stack {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.product-class-box {
+  border: 1px solid var(--line-2);
+  background: var(--bg);
+}
+.product-class-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 18px;
+  background: #0c0c0c;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.product-class-head .tag {
+  color: var(--red-2);
+  font-weight: 700;
+  margin-right: 8px;
+}
+.product-class-head .title {
+  color: var(--ink-2);
+  font-weight: 600;
+}
+.product-class-head .meta {
+  color: var(--ink-4);
+  margin-left: auto;
+}
+.product-card-horizontal {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+  padding: 20px 18px;
+  background: var(--bg);
+  align-items: start;
+}
+.product-card-horizontal:not(:last-child) {
+  border-bottom: 1px solid var(--line);
+}
+.product-card-horizontal:hover {
+  background: #090909;
+}
+.pch-kicker {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--red-2);
+  margin-bottom: 4px;
+}
+.pch-title {
+  font-size: 17px;
+  margin: 0 0 8px;
+  letter-spacing: -0.012em;
+  line-height: 1.25;
+}
+.pch-title a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.pch-title a:hover {
+  color: var(--red-2);
+}
+.pch-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--ink-3);
+}
+.pch-desc {
+  font-size: 13.5px;
+  line-height: 1.62;
+  color: var(--ink-2);
+}
+.pch-desc p {
+  margin: 0;
+}
+@media (max-width: 700px) {
+  .product-card-horizontal {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
 /* ── Status pills ───────────────────────────────────────────────────── */
 .pill {
   display: inline-block; padding: 2px 8px; font-family: var(--mono); font-size: 9.5px;
@@ -415,7 +510,7 @@ figcaption a, .blueprint-cap a { color: var(--ink); }
 .blueprint-head .title .glyph { display: none; }
 .blueprint-head .scale { color: var(--ink-4); white-space: nowrap; }
 .blueprint-body { background: #050505; }
-.blueprint-body svg { display: block; width: 100%; height: auto; }
+.blueprint-body svg, .blueprint-body img { display: block; width: 100%; height: auto; }
 .blueprint-body.pad { padding: 24px 20px; }
 figure.dark { background: #000; }
 
