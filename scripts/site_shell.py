@@ -23,7 +23,7 @@ FONTS = ('https://fonts.googleapis.com/css2?'
 FAVICON = "assets/logos/favicon-red.png"
 
 RAIL = [
-    ("thesis", "Thesis", "index.html"),
+    ("thesis", "Thesis", "index.html#thesis"),
     ("products", "Products", "index.html#products"),
     ("strategy", "Strategy", "strategy/trajectory.html"),
     ("architecture", "Architecture", "architecture/index.html"),
@@ -38,6 +38,13 @@ SIDEBAR_GROUPS = [
         ("Hemlock family", "products/hemlock.html"),
         ("Ahuti interceptor", "products/ahuti.html"),
         ("Piranha USV", "products/usv-strike.html"),
+        ("HACM-350", "products/hacm-350.html"),
+    ]),
+    ("Supporting systems", [
+        ("Apollyon Cortex", "products/cortex.html"),
+        ("Mobile command centre", "products/mdcc.html"),
+        ("Mobile drone lab", "products/mobile-drone-lab.html"),
+        ("Research platforms", "products/research-platforms.html"),
     ]),
     ("Strategy", [
         ("Trajectory &amp; cost per kg&middot;km", "strategy/trajectory.html"),
@@ -63,8 +70,8 @@ SIDEBAR_GROUPS = [
     ]),
     ("Record", [
         ("Company history", "about/history.html"),
+        ("Team &amp; advisors", "about/team.html"),
         ("The full record &middot; 70 episodes", "strategic-dependency/full-record.html"),
-        ("Research platforms", "products/research-platforms.html"),
     ]),
 ]
 

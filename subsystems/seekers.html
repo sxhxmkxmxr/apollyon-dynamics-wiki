@@ -17,7 +17,7 @@
   <div class="rail-inner">
     <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
     <nav class="rail-links">
-      <a href="../index.html">Thesis</a>
+      <a href="../index.html#thesis">Thesis</a>
       <a href="../index.html#products">Products</a>
       <a href="../strategy/trajectory.html">Strategy</a>
       <a href="../architecture/index.html" class="on">Architecture</a>
@@ -45,6 +45,14 @@
     <li><a href="../products/hemlock.html">Hemlock family</a></li>
     <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
     <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+    <li><a href="../products/hacm-350.html">HACM-350</a></li>
+  </ul>
+  <h4>Supporting systems</h4>
+  <ul>
+    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
+    <li><a href="../products/mdcc.html">Mobile command centre</a></li>
+    <li><a href="../products/mobile-drone-lab.html">Mobile drone lab</a></li>
+    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
   <h4>Strategy</h4>
   <ul>
@@ -74,8 +82,8 @@
   <h4>Record</h4>
   <ul>
     <li><a href="../about/history.html">Company history</a></li>
+    <li><a href="../about/team.html">Team &amp; advisors</a></li>
     <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
-    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
 </aside>
 
@@ -146,8 +154,8 @@
 <section id="scene">
   <div class="sec-tag">04 · Scene matching</div>
   <h3>Terminal scene matching and silhouette lock</h3>
-  <p>On heavy strike rounds like the Hemlock family, terminal guidance uses a <strong>dual uncooled LWIR and visible automatic scene matcher</strong>. At the terminal waypoint, the weapon initiates an 80-degree dive, matching ground silhouettes against onboard geometric models to achieve a circular error probable under <strong>1.5 metres</strong>.</p>
-  <p>We select uncooled microbolometers deliberately. Cooled thermal detectors offer higher raw sensitivity but require cryogenic pumps, high electrical power, and lengthy cooldown cycles. Onboard neural models compensate for uncooled sensor noise by matching structural edge geometry rather than absolute thermal gradients, allowing nighttime infrared frames to align against pre-stored daylight satellite tiles.</p>
+  <p>On heavy strike rounds like the Hemlock family, terminal guidance uses a <strong>dual uncooled LWIR and visible automatic scene matcher</strong>. At the terminal waypoint, the weapon transitions into a <strong>steep high-angle terminal dive profile</strong>, matching ground silhouettes against onboard geometric models to achieve a circular error probable under <strong>1.5 metres</strong>.</p>
+  <p>We select uncooled microbolometers deliberately. Cooled thermal detectors offer higher raw sensitivity but require cryogenic pumps, high electrical power, and lengthy cooldown cycles. Onboard neural models match structural edge geometry rather than absolute thermal gradients, so night-time infrared frames align against pre-stored daylight satellite tiles.</p>
 </section>
 
 <section id="fits">
@@ -159,7 +167,7 @@
       <thead><tr><th>Product</th><th>Fit</th></tr></thead>
       <tbody>
         <tr><td><a href="../products/nightshade-adx1.html">Nightshade ADX-1</a></td><td>EO/IR · anti-radiation · GNSS impact. Swappable on one airframe, selected per mission profile. Mk II and Mk III add day/night vision-based terminal homing</td></tr>
-        <tr><td><a href="../products/hemlock.html">Hemlock family</a></td><td>Dual uncooled LWIR / visible scene matcher for the 80-degree terminal dive; CEP under 1.5 m</td></tr>
+        <tr><td><a href="../products/hemlock.html">Hemlock family</a></td><td>Dual uncooled LWIR / visible scene matcher for steep terminal dive; CEP under 1.5 m</td></tr>
         <tr><td><a href="../products/ahuti.html">Ahuti</a></td><td>Onboard day/night seeker taking over from ground-radar cueing in the terminal phase; visual or RF lock-on</td></tr>
       </tbody>
     </table>

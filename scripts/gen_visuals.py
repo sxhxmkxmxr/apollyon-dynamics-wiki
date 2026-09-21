@@ -202,7 +202,7 @@ def war_inversions():
          "Contested and denied. Navigation falls back on inertial, terrain and optical references."),
         ("04", "EXCHANGE",
          "The defender fires an ₹18–35 crore interceptor at whatever arrives.",
-         "A ₹15–35 lakh strike round arrives instead. The exchange now bankrupts the defence."),
+         "A strike round under ₹2 crore arrives instead. The exchange now bankrupts the defence."),
     ]
     y = 74
     for no, label, then, now in rows:
@@ -259,37 +259,37 @@ def cost_curve():
     for gv in [20, 30, 40, 50, 60, 70, 80, 90, 200, 300, 400, 500, 600, 700, 800, 900, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000]:
         y = Y(gv)
         if gv in (50, 500, 5000):
-            o.append(line(L, y, R, y, "#161f30", 0.8, "3,4"))
-        o.append(line(L - 4, y, L, y, "#334155", 0.8))
+            o.append(line(L, y, R, y, "#1D1D1D", 0.8, "3,4"))
+        o.append(line(L - 4, y, L, y, "#2B2B2B", 0.8))
 
     # Major horizontal gridlines and Y tick labels
     for gv, lbl in [(10, "₹10"), (100, "₹100"), (1000, "₹1,000"), (10000, "₹10,000")]:
         y = Y(gv)
-        o.append(line(L, y, R, y, "#232d42", 1))
-        o.append(line(L - 7, y, L, y, "#475569", 1.2))
-        o.append(txt(L - 12, y + 4, lbl, 10.5, "#cbd5e1", MONO, anchor="end", weight=600))
+        o.append(line(L, y, R, y, "#232323", 1))
+        o.append(line(L - 7, y, L, y, "#414141", 1.2))
+        o.append(txt(L - 12, y + 4, lbl, 10.5, "#C7C4BD", MONO, anchor="end", weight=600))
 
     # Minor X ticks
     for gv in [200, 400, 600, 700, 800, 1200, 1800]:
         x = X(gv)
-        o.append(line(x, B, x, B + 4, "#334155", 0.8))
+        o.append(line(x, B, x, B + 4, "#2B2B2B", 0.8))
 
     # Major vertical gridlines and X tick labels
     for gv, lbl in [(150, "150"), (300, "300"), (500, "500"), (1000, "1,000"), (1500, "1,500"), (2000, "2,000")]:
         x = X(gv)
-        o.append(line(x, T, x, B, "#1e293b", 1))
-        o.append(line(x, B, x, B + 6, "#475569", 1.2))
-        o.append(txt(x, B + 22, lbl, 10.5, "#cbd5e1", MONO, anchor="middle", weight=600))
+        o.append(line(x, T, x, B, "#141414", 1))
+        o.append(line(x, B, x, B + 6, "#414141", 1.2))
+        o.append(txt(x, B + 22, lbl, 10.5, "#C7C4BD", MONO, anchor="middle", weight=600))
 
     # Axis spines
-    o.append(line(L, B, R, B, "#475569", 1.2))
-    o.append(line(L, T, L, B, "#475569", 1.2))
+    o.append(line(L, B, R, B, "#414141", 1.2))
+    o.append(line(L, T, L, B, "#414141", 1.2))
 
     # Header directives
-    o.append(txt(L, 44, "LOWER IS BETTER ↓", 10.5, "#38bdf8", MONO, weight=700, ls="0.08em"))
-    o.append(txt(L + 155, 44, "·   UNIT COST ÷ (PAYLOAD × RANGE)", 10, "#94a3b8", MONO, ls="0.08em"))
-    o.append(txt((L + R) / 2, B + 48, "OPERATIONAL RANGE, KM (LOG SCALE)", 9.5, "#94a3b8", MONO, anchor="middle", ls="0.12em", weight=600))
-    o.append(txt(L - 12, T - 16, "COST PER KG·KM (INR)", 9.5, "#94a3b8", MONO, ls="0.12em", weight=600))
+    o.append(txt(L, 44, "LOWER IS BETTER ↓", 10.5, "#F04B4B", MONO, weight=700, ls="0.08em"))
+    o.append(txt(L + 155, 44, "·   UNIT COST ÷ (PAYLOAD × RANGE)", 10, "#A19E97", MONO, ls="0.08em"))
+    o.append(txt((L + R) / 2, B + 48, "OPERATIONAL RANGE, KM (LOG SCALE)", 9.5, "#A19E97", MONO, anchor="middle", ls="0.12em", weight=600))
+    o.append(txt(L - 12, T - 16, "COST PER KG·KM (INR)", 9.5, "#A19E97", MONO, ls="0.12em", weight=600))
 
     # Comparators in service
     comps = [
@@ -300,14 +300,14 @@ def cost_curve():
     ]
     c_pts = [(X(r), Y(c)) for _, r, c in comps]
     pts_str = " ".join(f"{x:.1f},{y:.1f}" for x, y in c_pts)
-    o.append(f'<polyline points="{pts_str}" fill="none" stroke="#64748b" stroke-width="1.8" stroke-dasharray="6,4" stroke-linecap="round" stroke-linejoin="round"/>')
+    o.append(f'<polyline points="{pts_str}" fill="none" stroke="#414141" stroke-width="1.8" stroke-dasharray="6,4" stroke-linecap="round" stroke-linejoin="round"/>')
 
     for name, r, c in comps:
         x, y = X(r), Y(c)
-        o.append(line(x, y - 8, x, y - 5.5, "#64748b", 1))
-        o.append(txt(x, y - 24, name, 11.5, "#e2e8f0", MONO, anchor="middle", weight=600))
-        o.append(txt(x, y - 11, f"₹{c:,}", 10.5, "#94a3b8", MONO, anchor="middle"))
-        o.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="5.5" fill="{BG}" stroke="#94a3b8" stroke-width="2"/>')
+        o.append(line(x, y - 8, x, y - 5.5, "#414141", 1))
+        o.append(txt(x, y - 24, name, 11.5, "#C7C4BD", MONO, anchor="middle", weight=600))
+        o.append(txt(x, y - 11, f"₹{c:,}", 10.5, "#A19E97", MONO, anchor="middle"))
+        o.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="5.5" fill="{BG}" stroke="#A19E97" stroke-width="2"/>')
 
     # Apollyon long-range strike family
     fam = [
@@ -351,16 +351,16 @@ def cost_curve():
     o.append(f'<circle cx="{xh2:.1f}" cy="{yh2:.1f}" r="{5.8}" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/>')
 
     # Legend
-    o.append(line(694, 44, 718, 44, "#64748b", 1.8, "4,3"))
-    o.append(f'<circle cx="706" cy="44" r="5" fill="{BG}" stroke="#94a3b8" stroke-width="1.8"/>')
-    o.append(txt(726, 47.5, "IN SERVICE", 9.5, "#cbd5e1", MONO, weight=600))
+    o.append(line(694, 44, 718, 44, "#414141", 1.8, "4,3"))
+    o.append(f'<circle cx="706" cy="44" r="5" fill="{BG}" stroke="#A19E97" stroke-width="1.8"/>')
+    o.append(txt(726, 47.5, "IN SERVICE", 9.5, "#C7C4BD", MONO, weight=600))
 
     o.append(line(816, 44, 840, 44, "#ff3b30", 2.5))
     o.append('<circle cx="828" cy="44" r="5.2" fill="#ff3b30" stroke="#ffffff" stroke-width="1.4"/>')
     o.append(txt(848, 47.5, "APOLLYON", 9.5, "#ffffff", MONO, weight=700))
 
     # Footnote
-    o.append(txt(L, 524, "USD 1 = INR 95 · Comparator prices from public sources · Berkut-BM unit cost estimated", 9.5, "#64748b", MONO))
+    o.append(txt(L, 524, "USD 1 = INR 95 · Comparator prices from public sources · Berkut-BM unit cost estimated", 9.5, "#414141", MONO))
     o.append("</svg>")
     return "".join(o)
 
@@ -867,7 +867,7 @@ def eng_system():
 
     o.append(panel_box(40, 64, 650, 54, "SHARED CORE",
                        sub="NAVIGATION & SENSING · ESTIMATION · CONTROL · FLIGHT SOFTWARE · TELEMETRY",
-                       stroke=RED, fill=RED_W, sw=1.4, tcol="#ffffff", scol="#cbd5e1", size=11, sub_size=8.0))
+                       stroke=RED, fill=RED_W, sw=1.4, tcol="#ffffff", scol="#C7C4BD", size=11, sub_size=8.0))
 
     o.append(panel_box(710, 64, 250, 54, "PER-PLATFORM DELTA",
                        sub="ENGINE CLASS · STRUCTURE · LAUNCH MODE",
@@ -908,7 +908,7 @@ def eng_system():
     # Left column: x = 56 to 524 (w = 468). Center = 290.
     o.append(panel_box(56, 306, 468, 46, "FLY AT THE EDGE",
                        sub="HIGH-RATE TELEMETRY · BUS METRICS · INERTIAL MEASUREMENTS",
-                       stroke=RED, fill=RED_W, sw=1.3, tcol="#ffffff", scol="#cbd5e1", size=10.5, sub_size=7.8))
+                       stroke=RED, fill=RED_W, sw=1.3, tcol="#ffffff", scol="#C7C4BD", size=10.5, sub_size=7.8))
 
     o.append(arrow(290, 352, 290, 370, ns, "ink"))
 
@@ -940,7 +940,7 @@ def eng_system():
 
     o.append(panel_box(56, 520, 468, 46, "THE NEXT AIRCRAFT",
                        sub="EXPANDED ENVELOPE · HIGHER CONTROL BANDWIDTH · REDUCED LATENCY",
-                       stroke=RED, fill=RED_W, sw=1.3, tcol="#ffffff", scol="#cbd5e1", size=10.5, sub_size=7.4))
+                       stroke=RED, fill=RED_W, sw=1.3, tcol="#ffffff", scol="#C7C4BD", size=10.5, sub_size=7.4))
 
     # Loopback wire: exits left of NEXT AIRCRAFT at (56, 543), runs along x=34, enters FLY AT THE EDGE at (56, 329)
     o.append(line(56, 543, 34, 543, LINE2, 1.2))
@@ -950,7 +950,7 @@ def eng_system():
     # Right column (twin stack): x = 640 to 960 (w = 320). Center = 800.
     o.append(panel_box(640, 306, 320, 52, "PHYSICS BACKBONE",
                        sub="ONE PACKAGE PER AIRFRAME — THE SAME TWIN ARCHITECTURE FOR EVERY VEHICLE",
-                       stroke=RED, fill=RED_W, sw=1.3, tcol="#ffffff", scol="#cbd5e1", size=10, sub_size=7.4))
+                       stroke=RED, fill=RED_W, sw=1.3, tcol="#ffffff", scol="#C7C4BD", size=10, sub_size=7.4))
 
     o.append(arrow(800, 358, 800, 372, ns, "ink"))
 
@@ -1050,7 +1050,7 @@ def eng_twin():
                        sub="EMPIRICAL FLIGHT LOGS → AERO POLARS · ACTUATOR DYNAMICS · INERTIA", size=8.4, sub_size=6.8))
     o.append(panel_box(546, 168, 398, 76, "SHARED PHYSICS BACKBONE",
                        sub="UNIFIED MULTI-BODY SOLVER · BOUNDARY LAYER · PROPULSION & THERMAL DYNAMICS",
-                       stroke=RED, fill=RED_W, sw=1.3, tcol="#ffffff", scol="#cbd5e1", size=9.4, sub_size=6.6))
+                       stroke=RED, fill=RED_W, sw=1.3, tcol="#ffffff", scol="#C7C4BD", size=9.4, sub_size=6.6))
     o.append(panel_box(546, 256, 398, 62, "ESTIMATION & CONTROL SYNTHESIS",
                        sub="OPTIMAL OBSERVERS & GAIN SCHEDULES · ADAPTIVE & LEARNED CONTROL", size=8.4, sub_size=6.8))
     o.append(panel_box(546, 330, 398, 58, "HARDWARE-IN-THE-LOOP (HIL)",
@@ -1110,7 +1110,7 @@ def eng_latency():
     o.append(line(60, 400, 960, 400, LINE2))
     for i, (k, v) in enumerate([
         ("FUSED KERNELS", "no allocation, no launch overhead"),
-        ("REAL-TIME KERNEL", "isolated cores, nothing preempts the loop"),
+        ("REAL-TIME KERNEL", "isolated cores, hard real-time cycle"),
         ("ZERO-COPY PATH", "sensors write straight into GPU memory"),
     ]):
         x = 60 + i * 306
@@ -1239,10 +1239,11 @@ def position_map():
     o.append(txt(midx, B + 52, "UNIT COST", 9.5, INK4, MONO, anchor="middle", ls="0.16em"))
 
     bubbles = [
-        (300, 190, 46, "APOLLYON", "high cadence · expendable", True),
-        (710, 210, 56, "WESTERN NEO-PRIMES", None, False),
-        (300, 420, 44, "MASS PRODUCTION", "Geran · Peklo class", False),
-        (710, 415, 66, "MBDA · KONGSBERG", None, False),
+        (300, 175, 46, "APOLLYON", "non-ITAR · India cost base", True),
+        (710, 210, 56, "ANDURIL · ITAR", "Western neo-primes", False),
+        (280, 415, 40, "EXPORT-BLOCKED BUILDERS", "Ukrainian · Geran · Peklo", False),
+        (530, 430, 32, "SOLAR · ADANI · TATA", "Indian conglomerates", False),
+        (740, 400, 54, "MBDA · KONGSBERG", "Incumbent primes", False),
     ]
     for cx, cy, r, name, sub, hot in bubbles:
         if hot:

@@ -269,7 +269,7 @@ p1_text = [
     "   - Startups relying solely on capital tenders burn venture equity on binary risks.",
     "",
     "• Delegated Revenue Expenditure (DFPDS):",
-    "   - Tactical effectors (Ahuti) priced under ₹15L utilize delegated spending up to ₹5 Cr.",
+    "   - Tactical effectors (Ahuti) priced under ₹15L utilize delegated spending (Corps up to ₹25–50 Cr, Commands up to ₹100–500 Cr).",
     "   - Field corps and air-defence directorates procure on 6–12 month timelines.",
     "",
     "• Frontline Consumption Scale:",

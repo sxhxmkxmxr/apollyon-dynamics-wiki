@@ -17,7 +17,7 @@
   <div class="rail-inner">
     <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
     <nav class="rail-links">
-      <a href="../index.html">Thesis</a>
+      <a href="../index.html#thesis">Thesis</a>
       <a href="../index.html#products" class="on">Products</a>
       <a href="../strategy/trajectory.html">Strategy</a>
       <a href="../architecture/index.html">Architecture</a>
@@ -45,6 +45,14 @@
     <li><a href="../products/hemlock.html">Hemlock family</a></li>
     <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
     <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+    <li><a href="../products/hacm-350.html">HACM-350</a></li>
+  </ul>
+  <h4>Supporting systems</h4>
+  <ul>
+    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
+    <li><a href="../products/mdcc.html">Mobile command centre</a></li>
+    <li><a href="../products/mobile-drone-lab.html">Mobile drone lab</a></li>
+    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
   <h4>Strategy</h4>
   <ul>
@@ -74,8 +82,8 @@
   <h4>Record</h4>
   <ul>
     <li><a href="../about/history.html">Company history</a></li>
+    <li><a href="../about/team.html">Team &amp; advisors</a></li>
     <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
-    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
 </aside>
 
@@ -140,7 +148,7 @@
   <ul>
     <li><strong>System identification:</strong> Flight computers execute aggressive step responses and frequency sweeps while logging telemetry at 1,000 Hz. Engineers replay raw actuator commands through physics simulators, isolating unmodeled propeller downwash, airframe flexing, and voltage sag at the specific physical term rather than masking errors with PID gain tuning.</li>
     <li><strong>Direct-actuator policy synthesis:</strong> Reinforcement learning agents train in simulation against refined dynamical models, directly predicting motor pulse-width-modulation commands rather than intermediate angular rates. Real flights test whether learned policies track the agile trajectories flown by human champion pilots.</li>
-    <li><strong>Hardware stress qualification:</strong> Boundary sorties uncover transient failures invisible on test benches: asymmetric motor heating, bus jitter during high current draws, aerodynamic servo stall under high dynamic pressure, and sensor saturation during terminal pitch-over maneuvers.</li>
+    <li><strong>Hardware stress qualification:</strong> Boundary sorties capture behaviour invisible on test benches: asymmetric motor heating, bus jitter under high current draws, servo loading at full dynamic pressure, and inertial sensor behaviour during aggressive pitch-over manoeuvres.</li>
     <li><strong>Envelope expansion:</strong> Each flight campaign closes the sim-to-real gap, systematically expanding the flight envelope until autonomous software commands the full physical capability of the airframe.</li>
   </ul>
 

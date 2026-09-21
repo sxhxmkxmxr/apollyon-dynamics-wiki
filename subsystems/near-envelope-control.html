@@ -17,7 +17,7 @@
   <div class="rail-inner">
     <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
     <nav class="rail-links">
-      <a href="../index.html">Thesis</a>
+      <a href="../index.html#thesis">Thesis</a>
       <a href="../index.html#products">Products</a>
       <a href="../strategy/trajectory.html">Strategy</a>
       <a href="../architecture/index.html" class="on">Architecture</a>
@@ -47,6 +47,14 @@
     <li><a href="../products/hemlock.html">Hemlock family</a></li>
     <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
     <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+    <li><a href="../products/hacm-350.html">HACM-350</a></li>
+  </ul>
+  <h4>Supporting systems</h4>
+  <ul>
+    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
+    <li><a href="../products/mdcc.html">Mobile command centre</a></li>
+    <li><a href="../products/mobile-drone-lab.html">Mobile drone lab</a></li>
+    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
   <h4>Strategy</h4>
   <ul>
@@ -76,8 +84,8 @@
   <h4>Record</h4>
   <ul>
     <li><a href="../about/history.html">Company history</a></li>
+    <li><a href="../about/team.html">Team &amp; advisors</a></li>
     <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
-    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
 </aside>
 
@@ -108,9 +116,9 @@
         <tr><td><strong>Dynamic pressure (q)</strong></td><td>Assumed constant or slow-varying</td><td>Quadratically spikes by orders of magnitude, dramatically amplifying control surface effectiveness and aerodynamic loads.</td></tr>
         <tr><td><strong>Thrust &amp; torque</strong></td><td>Linear relationship with RPM / throttle</td><td>Severe rotor slip, blade stall, and compressor backpressure non-linearities at high Mach/airspeeds.</td></tr>
         <tr><td><strong>Cross-axis coupling</strong></td><td>Roll, pitch, and yaw are independent</td><td>Aerodynamic downwash and high angular rates produce strong, non-separable gyroscopic and aerodynamic cross-coupling.</td></tr>
-        <tr><td><strong>Actuator authority</strong></td><td>Proportional reserve margin available</td><td>Control surfaces and propulsion sit on 100% saturation rails; no margin remains for classical error rejection.</td></tr>
+        <tr><td><strong>Actuator authority</strong></td><td>Proportional reserve margin available</td><td>Control surfaces and propulsion operate on the saturation rails; little margin remains for classical error rejection.</td></tr>
         <tr><td><strong>Structural dynamics</strong></td><td>Rigid airframe assumption</td><td>High aeroelastic flex and airframe vibration inject high-frequency noise into inertial rate gyros.</td></tr>
-        <tr><td><strong>Sensor integrity</strong></td><td>Unbiased linear accelerometer signals</td><td>Multi-axis sustained high-G loads combined with airframe resonance risk sensor clipping and filter divergence.</td></tr>
+        <tr><td><strong>Sensor integrity</strong></td><td>Unbiased linear accelerometer signals</td><td>Sustained high-G dynamic transients demand high-dynamic-range sensing and structural notch isolation to prevent saturation and maintain continuous state tracking.</td></tr>
       </tbody>
     </table>
   </div>
@@ -227,7 +235,7 @@
     </div>
   </div>
 
-  <p>The resulting controller demonstrates exceptional robustness against unmodeled turbulence, sudden control surface clipping, and extreme dynamic pressure shifts, maintaining razor-sharp trajectory adherence throughout the entire terminal engagement.</p>
+  <p>The resulting controller demonstrates exceptional robustness against unmodeled turbulence, abrupt changes in control effectiveness, and extreme dynamic pressure shifts, maintaining trajectory adherence throughout the terminal engagement.</p>
 </section>
 
 <section id="generalisation">
@@ -242,7 +250,7 @@
       <tbody>
         <tr><td><a href="../products/ahuti.html">Ahuti Interceptor</a></td><td>498 km/h (cert.)</td><td>Tail-sitter vertical launch transition and high-speed terminal collision homing.</td><td>500 Hz direct actuator</td></tr>
         <tr><td><a href="../products/nightshade-adx1.html">Nightshade ADX-1</a></td><td>700 km/h</td><td>Turbojet loiter-to-dash transition and steep high-speed terminal dive guidance.</td><td>400 Hz elevon / throttle</td></tr>
-        <tr><td><a href="../products/hemlock.html">Hemlock family</a></td><td>Mach 0.7–0.8</td><td>Trans-subsonic high dynamic pressure sea-skimming and 80° terminal dive onto fortified targets.</td><td>500 Hz fin actuation</td></tr>
+        <tr><td><a href="../products/hemlock.html">Hemlock family</a></td><td>Mach 0.7–0.8</td><td>Trans-subsonic high dynamic pressure sea-skimming and steep terminal dive onto fortified targets.</td><td>500 Hz fin actuation</td></tr>
         <tr><td><a href="../products/usv-strike.html">Piranha USV</a></td><td>48+ knots</td><td>Rough sea-state hydrodynamic stability, wave-slamming mitigation, and dynamic waterjet trim.</td><td>100 Hz hydraulic trim</td></tr>
       </tbody>
     </table>

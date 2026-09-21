@@ -17,7 +17,7 @@
   <div class="rail-inner">
     <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
     <nav class="rail-links">
-      <a href="../index.html">Thesis</a>
+      <a href="../index.html#thesis">Thesis</a>
       <a href="../index.html#products">Products</a>
       <a href="../strategy/trajectory.html" class="on">Strategy</a>
       <a href="../architecture/index.html">Architecture</a>
@@ -48,6 +48,14 @@
     <li><a href="../products/hemlock.html">Hemlock family</a></li>
     <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
     <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+    <li><a href="../products/hacm-350.html">HACM-350</a></li>
+  </ul>
+  <h4>Supporting systems</h4>
+  <ul>
+    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
+    <li><a href="../products/mdcc.html">Mobile command centre</a></li>
+    <li><a href="../products/mobile-drone-lab.html">Mobile drone lab</a></li>
+    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
   <h4>Strategy</h4>
   <ul>
@@ -77,8 +85,8 @@
   <h4>Record</h4>
   <ul>
     <li><a href="../about/history.html">Company history</a></li>
+    <li><a href="../about/team.html">Team &amp; advisors</a></li>
     <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
-    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
 </aside>
 
@@ -106,7 +114,7 @@
       <caption>Performance, by archetype · September 2026 <span class="prov">n/d = not disclosed</span></caption>
       <thead><tr><th>Platform</th><th>Origin</th><th>Class</th><th>Mass</th><th>Top speed</th><th>Range</th><th>Guidance</th><th>Defeat mechanism</th></tr></thead>
       <tbody>
-        <tr><td class="red"><strong>AHUTI Mk II</strong></td><td class="red">India</td><td class="red">Quad, electric</td><td class="red">3 kg</td><td class="red">498 km/h demonstrated · 400 service</td><td class="red">~10 km</td><td class="red">Radar-cued midcourse into autonomous EO/IR seeker; operator authorises, does not fly</td><td class="red">Kinetic impact</td></tr>
+        <tr><td class="red"><strong>AHUTI Mk II</strong></td><td class="red">India</td><td class="red">Quad, electric</td><td class="red">3 kg</td><td class="red">400 km/h operational band (498 km/h sprint record)</td><td class="red">~10 km</td><td class="red">Radar-cued midcourse into autonomous EO/IR seeker; operator authorises, does not fly</td><td class="red">Kinetic impact</td></tr>
         <tr><td colspan="8" style="color:var(--ink-4);font-family:var(--mono);font-size:11px;letter-spacing:.08em;">ARCHETYPE 1 — EXPENDABLE QUAD, MASS EMPLOYMENT</td></tr>
         <tr><td>Osiris UEB-1</td><td>Ukraine / Poland</td><td>Quad, electric</td><td>3.1 kg</td><td>315 km/h</td><td>18 km LOS</td><td>Analog 5.8 GHz video, AI predictive tracking</td><td>Direct impact, 0.5 kg warhead</td></tr>
         <tr><td>Sting</td><td>Ukraine</td><td>Quad, electric</td><td>n/d</td><td>315–343 km/h</td><td>40 km</td><td>Thermal imaging, operator via VR / GCS</td><td>Warhead; returns to base if no target</td></tr>
@@ -127,8 +135,8 @@
   </div>
 
   <div class="note key">
-    <div class="t">Threat reference: jet-powered loitering targets</div>
-    <p>Ukrainian Air Force radar tracking indicates jet-powered Geran loitering munitions cruise at approximately 400 km/h. Roughly 15% to 20% of the Shahed family now uses turbojet propulsion. A 400 km/h service speed matches this threat head-on, while Ahuti's certified 498 km/h sprint speed secures positive closure across crossing angles. <span class="prov obs">observed</span></p>
+    <div class="t">Threat reference: fast loitering munitions in the 400 km/h envelope</div>
+    <p>Ukrainian Air Force radar tracking indicates turbojet-powered Geran/Shahed-class loitering munitions cruise at approximately 350–400 km/h. Operating in the 400 km/h band enables interceptors to match this threat envelope, with sprint reserve to secure positive closure across crossing angles. <span class="prov obs">observed</span></p>
   </div>
 </section>
 
@@ -142,7 +150,7 @@
       <caption>Commercial position · the final column highlights software integration requirements</caption>
       <thead><tr><th>Platform</th><th>Unit cost</th><th>Production</th><th>Combat / field record</th><th>Named C2 layer</th></tr></thead>
       <tbody>
-        <tr><td class="red"><strong>AHUTI Mk II</strong></td><td class="red">₹10–15 lakh</td><td class="red">Pre-production; 498 km/h IBR-validated national record; four design revisions in eight months</td><td class="red">Field trials at Babina and Gopalpur with Indian Army; active BSF evaluation</td><td class="red">DKS consortium / in-house increment</td></tr>
+        <tr><td class="red"><strong>AHUTI Mk II</strong></td><td class="red">₹10–15 lakh</td><td class="red">Flying; 400 km/h operational band (498 km/h IBR sprint record testbed); five flight standards in eight months; fastest platform at the AADC Gopalpur trials</td><td class="red">Field trials at Babina and Gopalpur with Indian Army; active BSF evaluation; Raphe mPhibr pilot order</td><td class="red">DKS consortium / in-house increment</td></tr>
         <tr><td>Osiris UEB-1</td><td>n/d</td><td>Lines in Ukraine and Poland</td><td>Combat-tested in eastern Ukraine; totals unaudited</td><td>DroneOS</td></tr>
         <tr><td>Sting</td><td>$2,100–2,500</td><td>&gt;10,000 / month</td><td>~9,000 Shahed / Gerbera kills by Jun 2026, incl. a jet Geran-3; first USV-launched intercept</td><td>—</td></tr>
         <tr><td>SkyFall P1-SUN</td><td>~$1,000</td><td>Claimed 50,000 / month ceiling</td><td>Thousands of kills claimed; limited independent verification</td><td>—</td></tr>
@@ -167,7 +175,7 @@
       <caption>Capital efficiency against the peer set</caption>
       <thead><tr><th>Company</th><th>Disclosed funding</th><th>What that capital bought</th></tr></thead>
       <tbody>
-        <tr><td class="red"><strong>Apollyon Dynamics</strong></td><td class="red">₹4 cr pre-seed (~$0.5M)</td><td class="red">Certified national speed record (498 km/h), Army and BSF proving ground evaluations across five stations, core kinetic product portfolio</td></tr>
+        <tr><td class="red"><strong>Apollyon Dynamics</strong></td><td class="red">₹4 cr pre-seed (~$0.5M)</td><td class="red">Certified national speed record (498 km/h sprint testbed; 400 km/h operational band), Army and BSF proving ground evaluations across five stations, core kinetic product portfolio</td></tr>
         <tr><td>Origin Robotics</td><td>~$2.6M</td><td>Deliveries to three NATO states plus competitive selection by France</td></tr>
         <tr><td>Frankenburg</td><td>€40M</td><td>Live-fire intercept 13 months from concept; two-site factory ramp</td></tr>
         <tr><td>TYTAN</td><td>€46M</td><td>1,000+ unit German government contract; Bundeswehr relationship</td></tr>
@@ -176,6 +184,21 @@
         <tr><td>Anduril</td><td>~$11B (company-wide)</td><td>Roadrunner, Lattice, Barracuda and the rest of the portfolio</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="capbars">
+    <div class="cb-row self"><span class="cb-n">Apollyon Dynamics</span><span class="cb-t"><i style="width:1.5%"></i></span><span class="cb-v">$0.5M</span></div>
+    <div class="cb-row"><span class="cb-n">Origin Robotics</span><span class="cb-t"><i style="width:17%"></i></span><span class="cb-v">$2.6M</span></div>
+    <div class="cb-row"><span class="cb-n">Frankenburg</span><span class="cb-t"><i style="width:45%"></i></span><span class="cb-v">€40M</span></div>
+    <div class="cb-row"><span class="cb-n">TYTAN</span><span class="cb-t"><i style="width:46%"></i></span><span class="cb-v">€46M</span></div>
+    <div class="cb-row"><span class="cb-n">Fortem</span><span class="cb-t"><i style="width:51%"></i></span><span class="cb-v">$80M</span></div>
+    <div class="cb-row"><span class="cb-n">Quantum Systems</span><span class="cb-t"><i style="width:82%"></i></span><span class="cb-v">$1.8B</span></div>
+    <div class="cb-row"><span class="cb-n">Anduril</span><span class="cb-t"><i style="width:100%"></i></span><span class="cb-v">$11B</span></div>
+  </div>
+  <p class="small">Log scale; funding from public disclosures as of September 2026, with euro figures shown as disclosed.</p>
+  <div class="note key">
+    <div class="t">What $0.5M bought</div>
+    <p>National speed record · Army and BSF trials · drone-lab units at eight stations · two product families in the line.</p>
   </div>
 </section>
 
@@ -187,7 +210,7 @@
     <div class="card">
       <div class="kicker">Read 01 · head to head</div>
       <h3>Osiris UEB-1 defines the direct product comparison</h3>
-      <p>Both platforms share a 3 kg multirotor form factor. Ahuti leads in dash velocity at 498 km/h versus 315 km/h. Osiris leads in line-of-sight range (18 km versus 10 km) and flight endurance (10 minutes versus sub-2-minute sprint). Apollyon publishes separate transit and terminal dash metrics to clearly articulate this operational tradeoff.</p>
+      <p>Both platforms share a 3 kg multirotor form factor. Ahuti targets the 400 km/h operational intercept band (demonstrating up to 498 km/h in sprint record trials) versus Osiris at 315 km/h. Osiris leads in line-of-sight range (18 km versus 10 km) and flight endurance (10 minutes versus sub-2-minute sprint). Apollyon publishes separate transit and terminal dash metrics to clearly articulate this operational tradeoff.</p>
     </div>
     <div class="card">
       <div class="kicker">Read 02 · pricing anchor</div>
@@ -214,6 +237,7 @@
       <thead><tr><th>Parameter</th><th class="red">NIGHTSHADE Mk II</th><th>Barracuda-250</th><th>Berkut-BM</th><th>Peklo</th><th>Geran-4</th><th>Nyan</th></tr></thead>
       <tbody>
         <tr><td>Origin / OEM</td><td class="red">India · Apollyon</td><td>USA · Anduril</td><td>Belarus · Indela</td><td>Ukraine · UDI</td><td>Russia · Alabuga</td><td>UK · Callen-Lenz / BAE</td></tr>
+        <tr><td>Platform Class</td><td class="red">One-Way Effector / Target Drone / Decoy</td><td>Autonomous air vehicle / decoy</td><td>One-Way Attack Drone (SEAD)</td><td>Missile-drone</td><td>One-Way Attack Drone</td><td>One-Way Effector</td></tr>
         <tr><td>Cruise speed</td><td class="red">550 km/h</td><td>926 km/h</td><td>~410 km/h</td><td>700 km/h</td><td>300–400 km/h</td><td>~222 km/h</td></tr>
         <tr><td>Terminal speed</td><td class="red">700 km/h</td><td>n/d</td><td>450–500 km/h</td><td>n/d</td><td>~500 km/h</td><td>n/d</td></tr>
         <tr><td>Time to target at 300 km</td><td class="red">32.7 min</td><td>19.4 min (air-launched; ground max 277 km)</td><td>Beyond range</td><td>25.7 min</td><td>45–60 min</td><td>Beyond range</td></tr>
@@ -234,18 +258,31 @@
 <!-- ═══════════ MEASURED AGAINST ═══════════ -->
 <section id="measured">
   <div class="sec-tag">06 · Self-assessment</div>
-  <h2>Institutional positioning against three industry peer sets</h2>
+  <h2>Institutional positioning: The Indian defence quadrant and ecosystem archetypes</h2>
+  <p class="lede">Markets frequently treat Indian defence companies as a monolithic asset class. In reality, the domestic defence industrial base divides into four distinct structural archetypes with fundamentally different capital intensities, technological moats, and iteration cadences.</p>
+
+  <div class="blueprint-plate">
+    <div class="blueprint-head"><span class="title">Fig. 04</span><span class="scale">development cadence &middot; unit cost &middot; ecosystem archetypes</span></div>
+    <div class="blueprint-body">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" role="img" aria-label="Position map: development cadence against unit cost, bubble size showing system sophistication, with Apollyon in the high-cadence expendable quadrant"><rect x="120" y="80" width="400.0" height="220.0" fill="#3A1212" fill-opacity="0.5"/><line x1="120.0" y1="80.0" x2="120.0" y2="520.0" stroke="#2B2B2B" stroke-width="1.2"/><line x1="120.0" y1="520.0" x2="920.0" y2="520.0" stroke="#2B2B2B" stroke-width="1.2"/><line x1="520.0" y1="80.0" x2="520.0" y2="520.0" stroke="#1D1D1D" stroke-width="1" stroke-dasharray="4 4"/><line x1="120.0" y1="300.0" x2="920.0" y2="300.0" stroke="#1D1D1D" stroke-width="1" stroke-dasharray="4 4"/><text transform="translate(62,300.0) rotate(-90)" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle" letter-spacing="0.14em">DEVELOPMENT &amp; UPDATE CADENCE</text><text x="120.0" y="550.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.0" fill="#7F7C76" letter-spacing="0.1em">LOW UNIT COST · EXPENDABLE</text><text x="920.0" y="550.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.0" fill="#7F7C76" text-anchor="end" letter-spacing="0.1em">HIGH UNIT COST · EXQUISITE</text><text x="520.0" y="572.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle" letter-spacing="0.16em">UNIT COST</text><circle cx="300" cy="175" r="46" fill="#3A1212" stroke="#D92323" stroke-width="1.6"/><text x="300.0" y="245.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#F04B4B" text-anchor="middle" font-weight="700" letter-spacing="0.1em">APOLLYON</text><text x="300.0" y="259.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.5" fill="#7F7C76" text-anchor="middle">non-ITAR · India cost base</text><circle cx="710" cy="210" r="56" fill="#050505" stroke="#414141" stroke-width="1.3"/><text x="710.0" y="288.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle">ANDURIL · ITAR</text><text x="710.0" y="304.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.5" fill="#7F7C76" text-anchor="middle">Western neo-primes</text><circle cx="280" cy="415" r="40" fill="#050505" stroke="#414141" stroke-width="1.3"/><text x="280.0" y="477.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle">EXPORT-BLOCKED BUILDERS</text><text x="280.0" y="493.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.5" fill="#7F7C76" text-anchor="middle">Ukrainian · Geran · Peklo</text><circle cx="530" cy="430" r="32" fill="#050505" stroke="#414141" stroke-width="1.3"/><text x="530.0" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle">SOLAR · ADANI · TATA</text><text x="530.0" y="500.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.5" fill="#7F7C76" text-anchor="middle">Indian conglomerates</text><circle cx="740" cy="400" r="54" fill="#050505" stroke="#414141" stroke-width="1.3"/><text x="740.0" y="476.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle">MBDA · KONGSBERG</text><text x="740.0" y="492.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.5" fill="#7F7C76" text-anchor="middle">Incumbent primes</text><text x="120.0" y="600.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.0" fill="#7F7C76" letter-spacing="0.08em">BUBBLE SIZE = SYSTEM SOPHISTICATION · AXES ARE QUALITATIVE</text></svg>
+</div>
+    <div class="blueprint-cap"><b>Fig. 04</b> Two axes govern competitive positioning: development/update cadence and unit cost/capital intensity. Apollyon sits in the shaded top-left quadrant (high cadence, low unit cost), combining deep-tech academic IP with scaled domestic MSME manufacturing.</div>
+  </div>
+
   <div class="tw">
     <table>
-      <caption>Three comparison sets, three distinct value propositions</caption>
-      <thead><tr><th>Comparison set</th><th>Named peers</th><th>The tested variable</th><th>Apollyon competitive advantage</th></tr></thead>
+      <caption>The Four Archetypes of the Indian Defence Ecosystem</caption>
+      <thead><tr><th>Archetype</th><th>Representative Players</th><th>Primary Moat</th><th>Capital Structure &amp; Valuation</th><th>Apollyon Strategic Interaction</th></tr></thead>
       <tbody>
-        <tr><td><strong>Indian incumbents</strong></td><td>Solar, Adani, Tata, NewSpace</td><td>Development tempo</td><td>Two clean-sheet jet platforms designed, flown, and iterated in eighteen months. Legacy conglomerates operate on multi-year program cycles.</td></tr>
-        <tr><td><strong>Foreign attritable builders</strong></td><td>Anduril, Ukrainian manufacturers</td><td>Cost structure and technology transfer</td><td>Sovereign engineering with an Indian manufacturing cost denominator. Airframe fabrication licenses available to domestic industrial partners.</td></tr>
-        <tr><td><strong>Foreign defence primes</strong></td><td>MBDA, Kongsberg</td><td>Capability per rupee</td><td>Traditional primes maximize individual round complexity; Apollyon optimizes kinetic effect per rupee spent across sustained salvo campaigns.</td></tr>
+        <tr><td><strong>1. Lab Spin-offs</strong><br><small>(Deep-Tech &amp; Universities)</small></td><td><strong>Apollyon Dynamics</strong> (BITS Pilani), Pixxel, ideaForge, Bellatrix, Inspecity</td><td>Proprietary, ground-up IP (turbines, edge vision, flight controllers); built first as deep tech, later co-opted by MoD</td><td>High venture risk-reward; highest IP defensibility; 3–5 years from mainboard IPOs</td><td><strong>Apollyon's Native DNA:</strong> Sits in the high-cadence, low-cost quadrant, executing with extreme speed and frugal engineering.</td></tr>
+        <tr><td><strong>2. DRDO Alumni</strong><br><small>(Procurement Literacy)</small></td><td>Astra Microwave Products (Malla Reddy), NabhaDrishti Aerospace</td><td>Procurement literacy: deep fluency with military GSQRs, bureaucratic tendering, and compliance audits</td><td>High operational stability; lower asymmetric valuation multiples; predictable government revenue</td><td><strong>Collaborative Interface:</strong> Apollyon benchmarks its GSQR submissions and trial protocols against ex-DRDO compliance standards.</td></tr>
+        <tr><td><strong>3. MSME Upgraders</strong><br><small>(The Production Engine)</small></td><td>Solar Industries (Nagastra), Paras Defence &amp; Space Technologies</td><td>Scaled manufacturing infrastructure, audited balance sheets, CNC precision capacity, and proven export channels</td><td>Public market alpha; expanding operating leverage; immediate conversion of capex into serial deliveries</td><td><strong>Manufacturing Scaling:</strong> Apollyon partners with Tier-1 MSMEs for airframe casting, precision turbine milling, and warhead filling.</td></tr>
+        <tr><td><strong>4. Conglomerates</strong><br><small>(The Heavy Capex Play)</small></td><td>Tata Advanced Systems, Adani Defence, Larsen &amp; Toubro (L&T), Mahindra</td><td>Massive capital expenditure, large land banks, foreign prime JVs, and top-tier heavy platform programs (fighter lines, submarines)</td><td>Safest structural balance sheets; valuation upside largely priced into parent entities; slower 7–10 year cycles</td><td><strong>Non-Competitive Coexistence:</strong> Conglomerates avoid the expendable sub-₹1.5 Cr tier; Apollyon dominates the high-volume middle layer they cannot service frugally.</td></tr>
       </tbody>
     </table>
   </div>
+
+  <p>By operating as an <strong>Archetype 1 deep-tech creator</strong> that licenses and subcontracts physical manufacturing to <strong>Archetype 3 MSMEs</strong>, Apollyon sidesteps the multi-billion-rupee capex trap of legacy conglomerates while sustaining an agile 18-month product iteration loop.</p>
 </section>
 
 <!-- ═══════════ PHILOSOPHIES ═══════════ -->

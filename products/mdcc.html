@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Mobile Distributed Command Centre — Apollyon Dynamics Wiki</title>
 <meta name="description" content="Apollyon Dynamics engineering wiki — autonomous strike, interception and battlefield-intelligence systems, with the shared architecture they are built from.">
-<link rel="icon" type="image/png" href="../assets/logos/favicon-red.png">
+<link rel="icon" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
   <div class="rail-inner">
     <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
     <nav class="rail-links">
-      <a href="../index.html">Thesis</a>
+      <a href="../index.html#thesis">Thesis</a>
       <a href="../index.html#products" class="on">Products</a>
       <a href="../strategy/trajectory.html">Strategy</a>
       <a href="../architecture/index.html">Architecture</a>
@@ -45,9 +45,14 @@
     <li><a href="../products/hemlock.html">Hemlock family</a></li>
     <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
     <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+    <li><a href="../products/hacm-350.html">HACM-350</a></li>
+  </ul>
+  <h4>Supporting systems</h4>
+  <ul>
     <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
     <li><a href="../products/mdcc.html">Mobile command centre</a></li>
     <li><a href="../products/mobile-drone-lab.html">Mobile drone lab</a></li>
+    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
   <h4>Strategy</h4>
   <ul>
@@ -77,8 +82,8 @@
   <h4>Record</h4>
   <ul>
     <li><a href="../about/history.html">Company history</a></li>
+    <li><a href="../about/team.html">Team &amp; advisors</a></li>
     <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
-    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
 </aside>
 
@@ -94,7 +99,7 @@
   </div>
   <div class="mast-meta">Mobile Distributed Command Centre · MDCC <span>· TRL 4–5 · development · Cortex primary tactical host</span></div>
   <h1>Mobile Distributed <span class="sub">Command Centre</span></h1>
-  <p class="standfirst">A ruggedized mobile command shelter engineered to deploy edge intelligence directly into tactical sectors. Integrating high-density edge compute, secure storage, and resilient tactical networking, the MDCC runs the Apollyon Cortex intelligence engine locally with zero cloud dependencies.</p>
+  <p class="standfirst">A ruggedized mobile command shelter engineered to deploy edge intelligence directly into tactical sectors. Integrating high-density edge compute, secure storage, and resilient tactical networking, the MDCC runs the Apollyon Cortex intelligence engine locally without cloud dependencies.</p>
 </header>
 
 <section id="specs">
@@ -110,13 +115,16 @@
         <div class="row"><div class="lbl">Carriage</div><div class="val">High-mobility 8×8 chassis</div></div>
         <div class="row"><div class="lbl">Payload</div><div class="val">Compute · storage · networking</div></div>
         <div class="row"><div class="lbl">Software</div><div class="val"><a href="cortex.html">Apollyon Cortex</a></div></div>
+        <!-- Unit cost — held in reserve. Uncomment to publish the planning band.
+        <div class="row"><div class="lbl">Unit cost target</div><div class="val accent">₹4.4–4.5 Cr per shelter</div></div>
+        -->
       </div>
       <div class="spec-col">
         <div class="spec-col-title">Capacity</div>
         <div class="row"><div class="lbl">ISR aircraft per operator</div><div class="val accent">6–20</div></div>
         <div class="row"><div class="lbl">Primary mission roles</div><div class="val">06</div></div>
         <div class="row"><div class="lbl">Deployment hosts (family)</div><div class="val">05</div></div>
-        <div class="row"><div class="lbl">External dependency</div><div class="val accent">Zero</div></div>
+        <div class="row"><div class="lbl">External dependency</div><div class="val accent">None in operation</div></div>
       </div>
       <div class="spec-col">
         <div class="spec-col-title">Connectivity</div>
@@ -127,7 +135,7 @@
       </div>
       <div class="spec-col">
         <div class="spec-col-title">Assurance</div>
-        <div class="row"><div class="lbl">Processing</div><div class="val">100% local at the tactical edge</div></div>
+        <div class="row"><div class="lbl">Processing</div><div class="val">Local at the tactical edge</div></div>
         <div class="row"><div class="lbl">Encryption</div><div class="val">At rest and in transit</div></div>
         <div class="row"><div class="lbl">Access</div><div class="val">Role and device trust</div></div>
         <div class="row"><div class="lbl">Exclusions</div><div class="val">No weapon control · no autonomous engagement</div></div>
@@ -164,7 +172,7 @@
   <div class="sec-tag">03 · Specifics</div>
   <h2>What the platform carries</h2>
   <p>Compute, storage, networking and the Cortex software, with every stage of processing running locally. One operator supervises six to twenty ISR aircraft while the vision layer watches every feed, remembers what each patch of ground looked like on the last pass, and escalates only what has actually changed.</p>
-  <p>The decisive engineering requirement is zero reachback dependency. The MDCC houses onboard neural inference clusters, persistent spatial vector databases, and multi-network routing hardware. No assessment stage relies on remote cloud infrastructure or satellite uplinks. When hostile electronic warfare degrades long-range bearers, dissemination range narrows, but local processing and sector awareness remain uninterrupted.</p>
+  <p>The decisive engineering requirement is no reachback dependency. The MDCC houses onboard neural inference clusters, persistent spatial vector databases, and multi-network routing hardware. No assessment stage relies on remote cloud infrastructure or satellite uplinks. When hostile electronic warfare degrades long-range bearers, dissemination range narrows, but local processing and sector awareness remain uninterrupted.</p>
   <div class="note">
     <div class="t">Same software, five hosts</div>
     <p>The MDCC is the tactical-vehicle host of a family. The same Cortex software runs in an operations room, at a fixed command post, on a rugged edge server, or at higher headquarters. A formation therefore trains once and deploys the same behaviour at every echelon.</p>

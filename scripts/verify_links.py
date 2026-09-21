@@ -2,7 +2,7 @@ import os
 import re
 from urllib.parse import urlparse
 
-WIKI_DIR = "/home/soham-kumar/soham/apollyon/deck/wiki"
+WIKI_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 html_files = []
 for root, dirs, files in os.walk(WIKI_DIR):
     for f in files:

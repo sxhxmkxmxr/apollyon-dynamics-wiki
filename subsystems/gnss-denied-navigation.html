@@ -17,7 +17,7 @@
   <div class="rail-inner">
     <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
     <nav class="rail-links">
-      <a href="../index.html">Thesis</a>
+      <a href="../index.html#thesis">Thesis</a>
       <a href="../index.html#products">Products</a>
       <a href="../strategy/trajectory.html">Strategy</a>
       <a href="../architecture/index.html" class="on">Architecture</a>
@@ -46,6 +46,14 @@
     <li><a href="../products/hemlock.html">Hemlock family</a></li>
     <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
     <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+    <li><a href="../products/hacm-350.html">HACM-350</a></li>
+  </ul>
+  <h4>Supporting systems</h4>
+  <ul>
+    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
+    <li><a href="../products/mdcc.html">Mobile command centre</a></li>
+    <li><a href="../products/mobile-drone-lab.html">Mobile drone lab</a></li>
+    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
   <h4>Strategy</h4>
   <ul>
@@ -75,8 +83,8 @@
   <h4>Record</h4>
   <ul>
     <li><a href="../about/history.html">Company history</a></li>
+    <li><a href="../about/team.html">Team &amp; advisors</a></li>
     <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
-    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
 </aside>
 
@@ -109,7 +117,7 @@
         <tr><td><strong>Ground motion blur</strong></td><td>Standard 1/500s exposure acceptable</td><td>Requires &le;1/4000s global shutter + forward motion compensation</td></tr>
         <tr><td><strong>Terrain swath coverage</strong></td><td>Slow, uniform nadir pass</td><td>High-rate swath: hundreds of square kilometres ingested per hour</td></tr>
         <tr><td><strong>Altitude variations</strong></td><td>Nominal flat-ground AGL clearance</td><td>Himalayan valley contouring: thousands of metres relief in seconds</td></tr>
-        <tr><td><strong>Inertial drift rate</strong></td><td>Short 20–45 min sorties; &lt;100 m total drift</td><td>800–1,000 km transit (70+ min); tactical IMU drift exceeds 1.5 km</td></tr>
+        <tr><td><strong>Inertial drift rate</strong></td><td>Short 20–45 min sorties; bounded drift</td><td>800–1,000 km transit (70+ min); tactical IMU drift accumulates to kilometres</td></tr>
       </tbody>
     </table>
   </div>
@@ -134,19 +142,19 @@
         <tr><td><strong>Array configuration</strong></td><td>7-element conformal circular microstrip array</td></tr>
         <tr><td><strong>Frequency bands</strong></td><td>NavIC L5 / S-band · GPS L1 / L2 · GLONASS L1 / L2 · Galileo E1 / E5</td></tr>
         <tr><td><strong>Spatial null depth</strong></td><td><strong>&gt; 45 dB</strong> attenuation toward ground emitters</td></tr>
-        <tr><td><strong>Degrees of freedom</strong></td><td>Suppresses up to 6 simultaneous independent jamming emitters</td></tr>
+        <tr><td><strong>Suppression capacity</strong></td><td>Suppresses multiple high-power independent jamming emitters simultaneously</td></tr>
         <tr><td><strong>Threat envelope</strong></td><td>Counters 200–250 km radius EW complexes (HQ IDS TPCR 2025 #33)</td></tr>
-        <tr><td><strong>Spoofing rejection</strong></td><td>Spatial coherence verification isolates single-point false emitters</td></tr>
+        <tr><td><strong>Spoofing rejection</strong></td><td>Spatial coherence verification isolates false and non-orbital emitters</td></tr>
       </tbody>
     </table>
   </div>
 
   <h3>Radio-frequency spatial null steering</h3>
-  <p>Rather than relying on analog radio filters, the digital signal processor performs real-time adaptive beamforming. The processor calculates complex phase weights at 20 Hz, steering steep spatial nulls—exceeding 45 dB attenuation—directly toward the azimuth and elevation of hostile ground emitters. Simultaneously, synthesized high-gain lobes track genuine satellites overhead. Because hostile jammers radiate from ground level while navigation satellites orbit at high elevation angles, spatial geometry allows robust signal extraction.</p>
+  <p>Rather than relying on analog radio filters, the digital signal processor performs real-time adaptive beamforming. The processor continuously recalculates complex phase weights, steering steep spatial nulls—exceeding 45 dB attenuation—directly toward the azimuth and elevation of hostile ground emitters. Simultaneously, synthesized high-gain lobes track genuine satellites overhead. Because hostile jammers radiate from ground level while navigation satellites orbit at high elevation angles, spatial geometry allows robust signal extraction.</p>
 
   <div class="note key">
     <div class="t">Spoofing detection through spatial coherence</div>
-    <p>Adversaries often attempt false-constellation spoofing by injecting synthetic satellite clocks. A single-element receiver cannot isolate false signals from authentic broadcasts. The seven-element array measures the angle-of-arrival for every incoming satellite channel. If all constellation channels arrive along an identical bearing—characteristic of a ground transmitter—the flight computer rejects the radio fix within 50 milliseconds and hands navigation over to passive optical scene correlation.</p>
+    <p>Adversaries often attempt false-constellation spoofing by injecting synthetic satellite clocks. A single-element receiver cannot isolate false signals from authentic broadcasts. The multi-element array measures the angle-of-arrival and wavefront phase consistency across incoming channels. Multi-baseline spatial coherence checks continuously verify orbital elevation consistency against broadcast ephemeris. When anomalous phase correlations or ground-level emitter signatures are detected, the flight estimator autonomously rejects corrupted radio fixes and transitions navigation authority to passive optical scene correlation and inertial propagation.</p>
   </div>
 </section>
 
@@ -165,7 +173,7 @@
     <div class="card">
       <div class="kicker">Modality 02</div>
       <h3>AI-DSMAC (Scene Area Correlator)</h3>
-      <p>A forward-canted high-speed CMOS camera captures two-dimensional terrain imagery ahead of the weapon. A lightweight convolutional neural network extracts structural topological features, matching them against satellite reference tiles in under 15 milliseconds.</p>
+      <p>A forward-canted high-speed CMOS camera captures two-dimensional terrain imagery ahead of the weapon. A lightweight convolutional neural network extracts structural topological features, matching them against satellite reference tiles within a single deterministic processing cycle.</p>
       <div class="foot"><span>Passive optical</span><span>Sub-metre precision</span></div>
     </div>
   </div>
@@ -175,7 +183,7 @@
   <ul>
     <li><strong>Topological Priors:</strong> Neural networks learn structural geomorphology—ravines, cliff edges, ridgelines, road intersections, and permanent civil structures—while discarding transient variations such as snow dusting, crop cycles, and cloud shadows.</li>
     <li><strong>Cross-Spectral Matching:</strong> Daylight satellite imagery loaded prior to flight matches directly against live night-time long-wave infrared (LWIR) or low-light visible camera streams.</li>
-    <li><strong>Lightweight Footprint:</strong> A complete 1,000-kilometre transit corridor across the Himalayas occupies under 150 MB of encrypted flash storage, transferring to the missile in 90 seconds over secure field data links.</li>
+    <li><strong>Lightweight Footprint:</strong> Compact multi-scale topographic descriptors allow full 1,000-kilometre transit corridors across rugged Himalayan terrain to be securely stored on encrypted edge solid-state media and rapidly updated over field tactical data links prior to sortie execution.</li>
   </ul>
 
   <figure>
@@ -197,7 +205,7 @@
         <tr><td><strong>Tactical IMU</strong></td><td>Body rates &amp; accelerations</td><td>1,000 Hz</td><td>High-rate short-term propagation; smooths state between optical fixes.</td></tr>
         <tr><td><strong>CRPA Array</strong></td><td>NavIC / GPS pseudorange</td><td>10–20 Hz</td><td>Primary absolute position reference during non-saturated flight legs.</td></tr>
         <tr><td><strong>Altimeter (Laser / Radar)</strong></td><td>Terrain clearance (AGL)</td><td>50 Hz</td><td>Altitude validation and coarse TERCOM elevation profile matching.</td></tr>
-        <tr><td><strong>AI-DSMAC Camera</strong></td><td>Topological ground imagery</td><td>10–30 Hz</td><td>Absolute horizontal position and yaw heading reset; zero drift.</td></tr>
+        <tr><td><strong>AI-DSMAC Camera</strong></td><td>Topological ground imagery</td><td>10–30 Hz</td><td>Absolute horizontal position and yaw heading reset; collapses accumulated inertial drift.</td></tr>
         <tr><td><strong>Air Data Computer</strong></td><td>Indicated &amp; true airspeed</td><td>50 Hz</td><td>Wind vector estimation and aerodynamic dynamic pressure validation.</td></tr>
       </tbody>
     </table>
@@ -223,7 +231,7 @@
         <tr>
           <td><a href="../products/hemlock.html"><strong>Hemlock family</strong></a></td>
           <td>Mach 0.7–0.8 (250+ m/s) · 800–1,000 km</td>
-          <td>7-element CRPA (NavIC/GPS) + AI-DSMAC against 30 m DEM; under 150 MB route storage; terminal LWIR silhouette match.</td>
+          <td>7-element CRPA (NavIC/GPS) + AI-DSMAC against 30 m DEM; compact encrypted route descriptors; terminal LWIR silhouette match.</td>
           <td><strong>&lt; 1.5 m</strong></td>
         </tr>
         <tr>

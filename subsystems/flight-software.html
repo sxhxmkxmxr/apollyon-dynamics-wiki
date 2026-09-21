@@ -17,7 +17,7 @@
   <div class="rail-inner">
     <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
     <nav class="rail-links">
-      <a href="../index.html">Thesis</a>
+      <a href="../index.html#thesis">Thesis</a>
       <a href="../index.html#products">Products</a>
       <a href="../strategy/trajectory.html">Strategy</a>
       <a href="../architecture/index.html" class="on">Architecture</a>
@@ -46,6 +46,14 @@
     <li><a href="../products/hemlock.html">Hemlock family</a></li>
     <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
     <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+    <li><a href="../products/hacm-350.html">HACM-350</a></li>
+  </ul>
+  <h4>Supporting systems</h4>
+  <ul>
+    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
+    <li><a href="../products/mdcc.html">Mobile command centre</a></li>
+    <li><a href="../products/mobile-drone-lab.html">Mobile drone lab</a></li>
+    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
   <h4>Strategy</h4>
   <ul>
@@ -75,8 +83,8 @@
   <h4>Record</h4>
   <ul>
     <li><a href="../about/history.html">Company history</a></li>
+    <li><a href="../about/team.html">Team &amp; advisors</a></li>
     <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
-    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
 </aside>
 
@@ -173,7 +181,7 @@
         <tr><td><strong>High-G state estimation</strong></td><td><span class="pill dev">Rewritten</span></td><td>Replaced with a tightly coupled UKF engineered to withstand booster shock, engine vibration, and sustained 7G turns without filter divergence.</td></tr>
         <tr><td><strong>Guidance &amp; control core</strong></td><td><span class="pill dev">Rewritten</span></td><td>Replaced PID cascade with a 500 Hz direct-actuator neural policy conditioned on our flight-validated <a href="near-envelope-control.html">physics backbone</a>.</td></tr>
         <tr><td><strong>Actuator allocation</strong></td><td><span class="pill dev">Rewritten</span></td><td>Direct multi-axis torque allocation that operates deterministically when elevons, rudders, or thrusters reach saturation boundaries.</td></tr>
-        <tr><td><strong>Deterministic scheduler</strong></td><td><span class="pill dev">Rewritten</span></td><td>Hard real-time static schedule with zero dynamic heap allocation and isolated CPU core affinity—see <a href="onboard-compute.html">Edge Compute &amp; Custom Inference Engine</a>.</td></tr>
+        <tr><td><strong>Deterministic scheduler</strong></td><td><span class="pill dev">Rewritten</span></td><td>Hard real-time static schedule with fixed, pre-allocated memory and isolated CPU core affinity—see <a href="onboard-compute.html">Edge Compute &amp; Custom Inference Engine</a>.</td></tr>
         <tr><td><strong>Microsecond black-box logging</strong></td><td><span class="pill core">Added</span></td><td>Lossless microsecond-stamped logging capturing raw register states, bus timings, and actuator current for post-sortie simulation mismatch analysis.</td></tr>
         <tr><td><strong>Hardware-in-the-Loop (HIL) harness</strong></td><td><span class="pill core">Added</span></td><td>Integrated digital-analog test harness executing production flight binaries against real-time aerodynamics simulation models.</td></tr>
       </tbody>
