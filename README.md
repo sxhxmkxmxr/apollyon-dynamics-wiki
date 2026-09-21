@@ -66,20 +66,3 @@ python3 scripts/inline_visuals.py
 python3 scripts/site_shell.py
 python3 scripts/verify_links.py
 ```
-
-## Sources
-
-Everything traces to `../reference/`:
-
-| Source | Used for |
-|---|---|
-| `business_plan_v5_rdi.tex` | Cortex / MDCC product content, architecture, memory federation, GSQR specs |
-| `slides_images/near-envelope-*.png` | Control at the envelope: learned direct-actuator control, sim-to-real loop, convergence |
-| `slides_images/apollyon-eng-*.png` | Buy-vs-build layers, physics backbone, latency, flight software, the four-upgrade flight loop |
-| `slides_images/gnss-denied-*.png` | Navigation under denial: sensor suite, terrain/scene matching, mission planning by information density |
-| `sourya_docs/Ahuti_Interceptor_*.md` | Interceptor competitive matrices, three reads, funding table |
-| `sourya_docs/Nightshade_MkII_Competitive_Comparison_v7.0.csv` | Strike comparison table, Mk II specification |
-| `combined_deck_summary.json`, `texts/` | Strategy, shared core, generation economics, origin story, market |
-| `strike_systems_design_space.html` | Design-space philosophies, requirement sheet, Flamingo/Barracuda economics |
-| `The New Arsenal — A Manifesto…txt` | Doctrine pages |
-| `Nightshade_Hemlock_Roadmap.docx` | Family roadmap and timelines |
