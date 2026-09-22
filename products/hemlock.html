@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hemlock family — Apollyon Dynamics Wiki</title>
-<meta name="description" content="The Hemlock family: miniature and long-range cruise missiles that take the Apollyon cost curve to its floor — 1,000 km and 1,500 km reach on the shared core.">
+<title>Hemlock — Apollyon Dynamics Wiki</title>
+<meta name="description" content="Hemlock: a 1,500 kg-class sovereign land-attack cruise missile on the GTRE Manik 450 kgf expendable turbofan — 1,000–1,500 km, 450–500 kg warhead, ₹3–5 crore at rate.">
 <link rel="icon" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,28 +33,24 @@
 <aside class="aside">
   <h4>On this page</h4>
   <ul>
-    <li><a href="#definition">Definition and position</a></li>
-    <li><a href="#family">The two marks</a></li>
-    <li><a href="#economics">Economics</a></li>
-    <li><a href="#roles">Roles and doctrine</a></li>
-    <li><a href="#navigation">Navigation</a></li>
+    <li><a href="#imperative">Strategic imperative</a></li>
+    <li><a href="#family">The system</a></li>
+    <li><a href="#pnt">Tiered PNT stack</a></li>
+    <li><a href="#terrain">Terrain localisation</a></li>
+    <li><a href="#dsmac">Scene matching</a></li>
+    <li><a href="#sourcing">Sovereign sourcing</a></li>
+    <li><a href="#industrial">Industrial base</a></li>
+    <li><a href="#procurement">Procurement</a></li>
+    <li><a href="#economics">Cost logic</a></li>
     <li><a href="#plan">Development plan</a></li>
     <li><a href="#related">Related</a></li>
   </ul>
   <h4>Products</h4>
   <ul>
     <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
-    <li><a href="../products/hemlock.html">Hemlock family</a></li>
+    <li><a href="../products/hemlock.html">Hemlock</a></li>
     <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
     <li><a href="../products/usv-strike.html">Piranha USV</a></li>
-    <li><a href="../products/hacm-350.html">HACM-350</a></li>
-  </ul>
-  <h4>Supporting systems</h4>
-  <ul>
-    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
-    <li><a href="../products/mdcc.html">Mobile command centre</a></li>
-    <li><a href="../products/mobile-drone-lab.html">Mobile drone lab</a></li>
-    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
   <h4>Strategy</h4>
   <ul>
@@ -91,139 +87,591 @@
 
 <main class="main">
 
+<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../index.html#products">Products</a><span>/</span>Class A · Hemlock</div>
+
 <header class="masthead">
-  <div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../index.html#products">Products</a><span>/</span>Class A · Hemlock family</div>
     <div class="mast-brand-lockup">
     <img src="../assets/logos/logo-ad-white.png" alt="Apollyon Dynamics Mark" class="brand-mark">
     <div class="brand-sep"></div>
     <img src="../assets/logos/logo-text-white.png" alt="Apollyon Dynamics" class="brand-text">
   </div>
-  <div class="mast-meta">Class A · Long-range strike</div>
-  <h1>Hemlock family, <span class="sub">the cruise missile generation</span></h1>
-  <p class="standfirst">Deep-strike cruise missiles engineered to deliver multi-hundred-kilogram payloads across 1,000 km to 1,500 km standoff ranges. Built on the shared guidance architecture, Hemlock delivers cruise-missile kinematics at salvo unit economics.</p>
+  <div class="mast-meta">Class A · Long-range strike <span>· Sovereign land-attack cruise missile · rev 5.0</span></div>
+  <h1>Hemlock, <span class="sub">the long-range strike missile</span></h1>
+  <p class="standfirst">A 1,500 kg high-subsonic cruise missile built around the GTRE Manik 450 kgf expendable turbofan. It carries a 450–500 kg warhead 1,000–1,500 km, launches from 4,500 m plateau sites, and targets ₹3–5 crore at 20–40 rounds a month. Instead of costly custom TERCOM/DSMAC hardware, navigation runs in software on standard compute, using open terrain data and well-understood scene matching — which removes the biggest cost in a cruise missile.</p>
 </header>
 
-<div class="hero-plate">
-  <img src="../assets/hemlock-render.jpg" alt="Hemlock-class cruise missile in flight, development render" loading="lazy">
-  <div class="hero-strip">
-    <div class="hs"><div class="v">1,000–1,500<span class="u">km</span></div><span class="k">Range band</span></div>
-    <div class="hs"><div class="v">75–1,000<span class="u">kg</span></div><span class="k">Warhead class</span></div>
-    <div class="hs"><div class="v">900<span class="u">km/h</span></div><span class="k">Cruise speed</span></div>
-    <div class="hs"><div class="v">₹35<span class="u">/kg·km</span></div><span class="k">Cost floor</span></div>
-    <div class="hs"><div class="v">2029</div><span class="k">Mk I prototype</span></div>
-  </div>
-</div>
+<!-- ═══════════ 01 · STRATEGIC IMPERATIVE ═══════════ -->
+<section id="imperative">
+  <div class="sec-tag">01 · Strategic imperative</div>
+  <h2>Why this missile is needed</h2>
+  <p>India's long-range strike today comes in small numbers. BrahMos and Pralay can hit hardened bunkers and carrier groups at supersonic speed, but only dozens are built each year. There is nothing below them that can be used in quantity and replaced. The <a href="../doctrine/missing-middle.html">missing-middle doctrine</a> describes this gap: India needs cruise missiles cheap enough to fire in salvos that wear down air defences, clearing the way for crewed aircraft and heavier weapons.</p>
+  <p>Hemlock is built for that gap. It carries a 450–500 kg warhead 1,000–1,500 km at ₹3–5 crore, with a target rate of 20–40 rounds a month — similar reach and payload to a Tomahawk at a far lower unit cost. <a href="nightshade-adx1.html">Nightshade</a> set up the way of working: the test routine and the Indian supplier base. Hemlock uses all of that in a weapon built for long range from the start, with its own airframe, its own guidance and navigation, and room for a 450–500 kg warhead.</p>
 
-<!-- ═══════════ DEFINITION ═══════════ -->
-<section id="definition">
-  <div class="sec-tag">01 · Definition</div>
-  <h2>What Hemlock is, and why it exists</h2>
-  <p>While Nightshade establishes the flight core and industrial tooling, Hemlock scales the architecture into dedicated standoff cruise missiles. Rather than enlarging lightweight composite airframes, Hemlock integrates purpose-built air-breathing propulsion, hardened structural bulkheads, and heavy warhead bays capable of striking deep rear-echelon assets.</p>
-  <p>The family realizes the operational requirement articulated in the <a href="../doctrine/missing-middle.html">missing-middle doctrine</a>: replenishable standoff weapons that penetrate modern integrated air defence networks without consuming irreplaceable strategic stockpiles. Sovereign defence requires two tiers. Exquisite platforms like BrahMos, Pralay, and LRLACM provide high-supersonic penetration against carrier groups and hardened command bunkers, but annual production rates remain constrained to dozens of rounds. Hemlock operates beneath this tier, delivering sustained monthly production rates of 80 to 120 missiles designed to saturate enemy air defences in forty-round salvos.</p>
+  <div class="quotebar">
+    <p>"Guidance and navigation is the most expensive part of a cruise missile. Roughly a quarter of a Tomahawk's unit cost goes on bespoke TERCOM and DSMAC hardware, plus the decade of qualification around it. Hemlock does the same job with commodity edge compute, open terrain data, a mid-cost CRPA and classical scene matching — and a standing production order turns that design into a price."</p>
+  </div>
 </section>
 
-<!-- ═══════════ FAMILY ═══════════ -->
+<!-- ═══════════ 02 · THE SYSTEM ═══════════ -->
 <section id="family">
-  <div class="sec-tag">02 · Family</div>
-  <h2>The two marks</h2>
-  <div class="card">
-    <div class="kicker">Hemlock Mk I · miniature cruise missile</div>
-    <h3>A 1,000 km round light enough to matter</h3>
-    <p>Carries a 75 kg modular penetrating or blast warhead over 1,000 km at 900 km/h (Mach 0.74). Deployed via solid-rocket-assisted zero-length canister launch, Mk I targets air defence radar emitters, forward supply dumps, and mountain tunnel portals. Sized to match the cost of thirty rounds to a single legacy cruise missile, Mk I drives the strike cost curve down to ₹350 per kg·km.</p>
-    <div class="row" style="display:flex;gap:26px;flex-wrap:wrap;margin-top:6px;">
-      <span class="pill dev">Prototype Q2 2029</span>
-      <span class="pill dev">Production Q4 2029</span>
-      <span>75 kg · 1,000 km · 900 km/h</span>
-    </div>
-  </div>
-  <div class="card" style="margin-top:-1px;">
-    <div class="kicker">Hemlock Mk II · long-range cruise missile</div>
-    <h3>The heavy round: 1,500 km, 1,000 kg, terrain-following</h3>
-    <p>The heavy long-range generation integrates a 1,000 kg payload class across a 1,500 km radius. An active terrain-following flight layer augments the core navigation stack, allowing the missile to hug valley contours below radar detection horizons. Priced at approximately ₹35 per kg·km, Mk II establishes the lowest cost per kinetic unit in the portfolio, delivering strategic deterrence at operational expenditure economics.</p>
-    <div class="row" style="display:flex;gap:26px;flex-wrap:wrap;margin-top:6px;">
-      <span class="pill dev">Prototype Q2 2030</span>
-      <span class="pill dev">Production Q1 2031</span>
-      <span>1,000 kg · 1,500 km · 900 km/h</span>
-    </div>
-  </div>
-  <div class="tw">
-    <table>
-      <caption>Family register <span class="prov est">internal roadmap</span></caption>
-      <thead><tr><th>Variant</th><th>Role</th><th>Payload</th><th>Range</th><th>Top speed</th><th>Navigation</th><th>Launch</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Hemlock Mk I</strong></td><td>Miniature cruise missile</td><td>75 kg</td><td>1,000 km</td><td>900 km/h</td><td>Shared core · seeker terminal</td><td>Rocket-assisted take-off</td></tr>
-        <tr><td><strong>Hemlock Mk II</strong></td><td>Long-range cruise missile · force multiplier</td><td>1,000 kg class</td><td>1,500 km</td><td>900 km/h</td><td>Shared core + terrain following</td><td>Rocket-assisted take-off</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
+  <div class="sec-tag">02 · The system</div>
+  <h2>The missile</h2>
 
-<!-- ═══════════ ECONOMICS ═══════════ -->
-<section id="economics">
-  <div class="sec-tag">03 · Economics</div>
-  <h2>Why Hemlock wins the cost curve</h2>
-  <p>Legacy cruise missiles remain prohibitively expensive because their airframes house bespoke subsystems: radar terrain-contour matching (TERCOM) units, militarized inertial navigation platforms, and low-yield proprietary avionics requiring decade-long qualification programs. Hemlock replaces specialized hardware with deterministic software. The shared guidance core executes optical scene correlation across high-throughput commercial compute, using open satellite elevation baselines for midcourse drift correction and passive imaging seekers for terminal intercept.</p>
-  <p>Combined with resin-transfer-molded composite bodies and automotive steer-by-wire servo actuators, Hemlock bypasses the aerospace autoclave queue. Production scales within domestic automotive and precision foundry supply chains, lowering unit cost with every manufacturing iteration.</p>
+  <p>The missile is one airframe, one engine, and one navigation stack: a composite body with a dorsal S-duct, folding wings, and a booster that launches it from a container. Everything is sized around the GTRE Manik 450 kgf expendable turbofan, for 1,000–1,500 km of low-level flight.</p>
+
+  <div class="spec-card">
+    <div class="spec-topbar"><span>Hemlock · at a glance</span><span class="right">ground-launched · Manik 450 kgf · ₹3–5 Cr target</span></div>
+    <div class="spec-grid cols-2">
+      <div class="spec-col">
+        <div class="spec-col-title">Vehicle &amp; airframe</div>
+        <div class="row"><div class="lbl">Launch mass (with booster)</div><div class="val">~1,500 kg</div></div>
+        <div class="row"><div class="lbl">Warhead</div><div class="val">450–500 kg modular</div></div>
+        <div class="row"><div class="lbl">Length</div><div class="val">5.8–6.2 m</div></div>
+        <div class="row"><div class="lbl">Fuselage diameter</div><div class="val">0.52 m</div></div>
+        <div class="row"><div class="lbl">Wingspan (deployed)</div><div class="val">2.7 m · folding</div></div>
+        <div class="row"><div class="lbl">Signature</div><div class="val">low frontal signature</div></div>
+      </div>
+      <div class="spec-col">
+        <div class="spec-col-title">Propulsion &amp; envelope</div>
+        <div class="row"><div class="lbl">Engine</div><div class="val">GTRE Manik 450 kgf twin-spool turbofan</div></div>
+        <div class="row"><div class="lbl">Production partner</div><div class="val">BrahMos Aerospace (BATL)</div></div>
+        <div class="row"><div class="lbl">Static thrust</div><div class="val">4.25–4.5 kN (430–460 kgf)</div></div>
+        <div class="row"><div class="lbl">Cruise SFC</div><div class="val">0.95 kg/kgf·h</div></div>
+        <div class="row"><div class="lbl">Plateau thrust margin</div><div class="val accent">+20% to +35%</div></div>
+        <div class="row"><div class="lbl">Booster</div><div class="val">solid rocket · jettisoned</div></div>
+      </div>
+      <div class="spec-col">
+        <div class="spec-col-title">Kinematics &amp; payload</div>
+        <div class="row"><div class="lbl">Operational range (hi-lo)</div><div class="val accent">1,000–1,500 km</div></div>
+        <div class="row"><div class="lbl">Cruise speed</div><div class="val">Mach 0.7–0.8</div></div>
+        <div class="row"><div class="lbl">Terrain-following altitude</div><div class="val">50–150 m AGL</div></div>
+        <div class="row"><div class="lbl">Launch floor / ceiling</div><div class="val">4,500 m AMSL / 5,000 m+</div></div>
+        <div class="row"><div class="lbl">Primary payload</div><div class="val">450–500 kg penetrator / blast</div></div>
+        <div class="row"><div class="lbl">Terminal profile</div><div class="val">steep dive · sea-skim option</div></div>
+      </div>
+      <div class="spec-col">
+        <div class="spec-col-title">Guidance &amp; production</div>
+        <div class="row"><div class="lbl">Anti-jam GNSS array</div><div class="val">7-element CRPA · NavIC + GNSS</div></div>
+        <div class="row"><div class="lbl">Inertial core</div><div class="val">RLG + MEMS</div></div>
+        <div class="row"><div class="lbl">Optical checkpoint</div><div class="val">open DEM + edge correlator</div></div>
+        <div class="row"><div class="lbl">Terminal seeker</div><div class="val">dual-band EO/IR ATR</div></div>
+        <div class="row"><div class="lbl">Unit cost at rate</div><div class="val accent">₹3–5 Cr</div></div>
+        <div class="row"><div class="lbl">Target production rate</div><div class="val">20–40 / month</div></div>
+      </div>
+    </div>
+  </div>
+
   <div class="blueprint-plate">
-    <div class="blueprint-head"><span class="title">Fig. 01</span><span class="scale">log–log · lower is better</span></div>
+    <div class="blueprint-head"><span class="title">Fig. 01 — Station lines</span><span class="scale">Hemlock · dimensions in millimetres</span></div>
     <div class="blueprint-body">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 570" role="img" aria-label="Cost per kilogram-kilometre by range: Apollyon family against in-service comparators"><rect width="1000" height="570" fill="#050505"/><line x1="92.0" y1="424.5" x2="96.0" y2="424.5" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="402.5" x2="96.0" y2="402.5" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="386.9" x2="96.0" y2="386.9" stroke="#2B2B2B" stroke-width="0.8"/><line x1="96.0" y1="374.9" x2="930.0" y2="374.9" stroke="#1D1D1D" stroke-width="0.8" stroke-dasharray="3,4"/><line x1="92.0" y1="374.9" x2="96.0" y2="374.9" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="365.0" x2="96.0" y2="365.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="356.6" x2="96.0" y2="356.6" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="349.4" x2="96.0" y2="349.4" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="343.0" x2="96.0" y2="343.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="299.8" x2="96.0" y2="299.8" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="277.9" x2="96.0" y2="277.9" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="262.3" x2="96.0" y2="262.3" stroke="#2B2B2B" stroke-width="0.8"/><line x1="96.0" y1="250.2" x2="930.0" y2="250.2" stroke="#1D1D1D" stroke-width="0.8" stroke-dasharray="3,4"/><line x1="92.0" y1="250.2" x2="96.0" y2="250.2" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="240.3" x2="96.0" y2="240.3" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="232.0" x2="96.0" y2="232.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="224.7" x2="96.0" y2="224.7" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="218.4" x2="96.0" y2="218.4" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="175.1" x2="96.0" y2="175.1" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="153.2" x2="96.0" y2="153.2" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="137.6" x2="96.0" y2="137.6" stroke="#2B2B2B" stroke-width="0.8"/><line x1="96.0" y1="125.5" x2="930.0" y2="125.5" stroke="#1D1D1D" stroke-width="0.8" stroke-dasharray="3,4"/><line x1="92.0" y1="125.5" x2="96.0" y2="125.5" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="115.7" x2="96.0" y2="115.7" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="107.3" x2="96.0" y2="107.3" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="100.1" x2="96.0" y2="100.1" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="93.7" x2="96.0" y2="93.7" stroke="#2B2B2B" stroke-width="0.8"/><line x1="96.0" y1="462.0" x2="930.0" y2="462.0" stroke="#232323" stroke-width="1"/><line x1="89.0" y1="462.0" x2="96.0" y2="462.0" stroke="#414141" stroke-width="1.2"/><text x="84.0" y="466.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="end" font-weight="600">₹10</text><line x1="96.0" y1="337.3" x2="930.0" y2="337.3" stroke="#232323" stroke-width="1"/><line x1="89.0" y1="337.3" x2="96.0" y2="337.3" stroke="#414141" stroke-width="1.2"/><text x="84.0" y="341.3" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="end" font-weight="600">₹100</text><line x1="96.0" y1="212.7" x2="930.0" y2="212.7" stroke="#232323" stroke-width="1"/><line x1="89.0" y1="212.7" x2="96.0" y2="212.7" stroke="#414141" stroke-width="1.2"/><text x="84.0" y="216.7" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="end" font-weight="600">₹1,000</text><line x1="96.0" y1="88.0" x2="930.0" y2="88.0" stroke="#232323" stroke-width="1"/><line x1="89.0" y1="88.0" x2="96.0" y2="88.0" stroke="#414141" stroke-width="1.2"/><text x="84.0" y="92.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="end" font-weight="600">₹10,000</text><line x1="283.0" y1="462.0" x2="283.0" y2="466.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="470.0" y1="462.0" x2="470.0" y2="466.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="579.4" y1="462.0" x2="579.4" y2="466.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="621.0" y1="462.0" x2="621.0" y2="466.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="657.1" y1="462.0" x2="657.1" y2="466.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="766.5" y1="462.0" x2="766.5" y2="466.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="875.9" y1="462.0" x2="875.9" y2="466.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="205.4" y1="88.0" x2="205.4" y2="462.0" stroke="#141414" stroke-width="1"/><line x1="205.4" y1="462.0" x2="205.4" y2="468.0" stroke="#414141" stroke-width="1.2"/><text x="205.4" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">150</text><line x1="392.4" y1="88.0" x2="392.4" y2="462.0" stroke="#141414" stroke-width="1"/><line x1="392.4" y1="462.0" x2="392.4" y2="468.0" stroke="#414141" stroke-width="1.2"/><text x="392.4" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">300</text><line x1="530.2" y1="88.0" x2="530.2" y2="462.0" stroke="#141414" stroke-width="1"/><line x1="530.2" y1="462.0" x2="530.2" y2="468.0" stroke="#414141" stroke-width="1.2"/><text x="530.2" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">500</text><line x1="717.3" y1="88.0" x2="717.3" y2="462.0" stroke="#141414" stroke-width="1"/><line x1="717.3" y1="462.0" x2="717.3" y2="468.0" stroke="#414141" stroke-width="1.2"/><text x="717.3" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">1,000</text><line x1="826.7" y1="88.0" x2="826.7" y2="462.0" stroke="#141414" stroke-width="1"/><line x1="826.7" y1="462.0" x2="826.7" y2="468.0" stroke="#414141" stroke-width="1.2"/><text x="826.7" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">1,500</text><line x1="904.3" y1="88.0" x2="904.3" y2="462.0" stroke="#141414" stroke-width="1"/><line x1="904.3" y1="462.0" x2="904.3" y2="468.0" stroke="#414141" stroke-width="1.2"/><text x="904.3" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">2,000</text><line x1="96.0" y1="462.0" x2="930.0" y2="462.0" stroke="#414141" stroke-width="1.2"/><line x1="96.0" y1="88.0" x2="96.0" y2="462.0" stroke="#414141" stroke-width="1.2"/><text x="96.0" y="44.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#F04B4B" font-weight="700" letter-spacing="0.08em">LOWER IS BETTER ↓</text><text x="251.0" y="44.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#A19E97" letter-spacing="0.08em">·   UNIT COST ÷ (PAYLOAD × RANGE)</text><text x="513.0" y="510.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#A19E97" text-anchor="middle" font-weight="600" letter-spacing="0.12em">OPERATIONAL RANGE, KM (LOG SCALE)</text><text x="84.0" y="72.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#A19E97" font-weight="600" letter-spacing="0.12em">COST PER KG·KM (INR)</text><polyline points="205.4,131.2 456.2,149.7 688.8,250.2 844.1,252.4" fill="none" stroke="#414141" stroke-width="1.8" stroke-dasharray="6,4" stroke-linecap="round" stroke-linejoin="round"/><line x1="205.4" y1="123.2" x2="205.4" y2="125.7" stroke="#414141" stroke-width="1"/><text x="205.4" y="107.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">Berkut-BM</text><text x="205.4" y="120.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#A19E97" text-anchor="middle">₹4,500</text><circle cx="205.4" cy="131.2" r="5.5" fill="#050505" stroke="#A19E97" stroke-width="2"/><line x1="456.2" y1="141.7" x2="456.2" y2="144.2" stroke="#414141" stroke-width="1"/><text x="456.2" y="125.7" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">Barracuda-250</text><text x="456.2" y="138.7" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#A19E97" text-anchor="middle">₹3,200</text><circle cx="456.2" cy="149.7" r="5.5" fill="#050505" stroke="#A19E97" stroke-width="2"/><line x1="688.8" y1="242.2" x2="688.8" y2="244.7" stroke="#414141" stroke-width="1"/><text x="688.8" y="226.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">Barracuda-500</text><text x="688.8" y="239.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#A19E97" text-anchor="middle">₹500</text><circle cx="688.8" cy="250.2" r="5.5" fill="#050505" stroke="#A19E97" stroke-width="2"/><line x1="844.1" y1="244.4" x2="844.1" y2="246.9" stroke="#414141" stroke-width="1"/><text x="844.1" y="228.4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">Tomahawk</text><text x="844.1" y="241.4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#A19E97" text-anchor="middle">₹480</text><circle cx="844.1" cy="252.4" r="5.5" fill="#050505" stroke="#A19E97" stroke-width="2"/><polyline points="392.4,147.5 530.2,183.9 717.3,269.5 826.7,394.2" fill="none" stroke="rgba(255, 59, 48, 0.22)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><polyline points="392.4,147.5 530.2,183.9 717.3,269.5 826.7,394.2" fill="none" stroke="#ff3b30" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="379.0" y1="147.5" x2="386.6" y2="147.5" stroke="#f87171" stroke-width="1"/><text x="376.0" y="142.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#ffffff" text-anchor="end" font-weight="700">Nightshade Mk II</text><text x="376.0" y="157.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#fca5a5" text-anchor="end" font-weight="500">₹3,333 / kg·km</text><circle cx="392.4" cy="147.5" r="5.8" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/><line x1="518.0" y1="204.0" x2="525.0" y2="189.0" stroke="#f87171" stroke-width="1"/><text x="514.0" y="210.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#ffffff" text-anchor="end" font-weight="700">Nightshade Mk III</text><text x="514.0" y="225.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#fca5a5" text-anchor="end" font-weight="500">₹1,700 / kg·km</text><circle cx="530.2" cy="183.9" r="5.8" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/><line x1="723.1" y1="269.5" x2="728.0" y2="269.5" stroke="#f87171" stroke-width="1"/><text x="732.0" y="266.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#ffffff" font-weight="700">Hemlock Mk I</text><text x="732.0" y="280.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#fca5a5" font-weight="500">₹350 / kg·km</text><circle cx="717.3" cy="269.5" r="5.8" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/><line x1="814.0" y1="394.2" x2="820.9" y2="394.2" stroke="#f87171" stroke-width="1"/><text x="810.0" y="398.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#ffffff" text-anchor="end" font-weight="700">Hemlock Mk II</text><text x="810.0" y="413.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#fca5a5" text-anchor="end" font-weight="500">₹35 / kg·km</text><text x="810.0" y="430.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#ff453a" text-anchor="end" font-weight="700">about 14× below Tomahawk</text><circle cx="826.7" cy="394.2" r="5.8" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/><line x1="694.0" y1="44.0" x2="718.0" y2="44.0" stroke="#414141" stroke-width="1.8" stroke-dasharray="4,3"/><circle cx="706" cy="44" r="5" fill="#050505" stroke="#A19E97" stroke-width="1.8"/><text x="726.0" y="47.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#C7C4BD" font-weight="600">IN SERVICE</text><line x1="816.0" y1="44.0" x2="840.0" y2="44.0" stroke="#ff3b30" stroke-width="2.5"/><circle cx="828" cy="44" r="5.2" fill="#ff3b30" stroke="#ffffff" stroke-width="1.4"/><text x="848.0" y="47.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#ffffff" font-weight="700">APOLLYON</text><text x="96.0" y="524.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#414141">USD 1 = INR 95 · Comparator prices from public sources · Berkut-BM unit cost estimated</text></svg>
-</div>
-    <div class="blueprint-cap"><b>Fig. 01</b> Cost per kg·km by range. Hemlock Mk I crosses below every in-service comparator; Hemlock Mk II reaches ≈ ₹35 per kg·km — the floor of the family. <a href="../strategy/trajectory.html#metric">The metric, explained →</a></div>
+      <svg viewBox="0 0 960 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CAD schematic of the Hemlock cruise missile">
+        <defs>
+          <pattern id="cad_grid" width="20" height="20" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="20" y2="0" stroke="rgba(199,196,189,0.05)" stroke-width="1"/>
+            <line x1="0" y1="0" x2="0" y2="20" stroke="rgba(199,196,189,0.05)" stroke-width="1"/>
+          </pattern>
+          <pattern id="hatch_wh" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#D92323" stroke-width="1" opacity="0.4"/>
+          </pattern>
+          <pattern id="hatch_fuel" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#C7C4BD" stroke-width="1" opacity="0.3"/>
+          </pattern>
+          <pattern id="hatch_booster" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#7F7C76" stroke-width="1" opacity="0.35"/>
+          </pattern>
+        </defs>
+
+        <rect width="960" height="260" fill="#0A0A0A"/>
+        <rect width="960" height="260" fill="url(#cad_grid)"/>
+
+        <!-- Centerline Datum -->
+        <line x1="30" y1="125" x2="930" y2="125" stroke="#C7C4BD" stroke-width="0.8" stroke-dasharray="12,4,2,4" opacity="0.6"/>
+        <text x="35" y="120" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="8" opacity="0.7">DATUM CL</text>
+
+        <!-- JETTISONABLE SOLID ROCKET BOOSTER (STA 750 to 900) -->
+        <rect x="730" y="98" width="160" height="54" fill="url(#hatch_booster)" stroke="#C7C4BD" stroke-width="1.2"/>
+        <polygon points="890,92 925,78 925,98 890,108" fill="#141414" stroke="#C7C4BD" stroke-width="1.2"/>
+        <polygon points="890,158 925,172 925,152 890,142" fill="#141414" stroke="#C7C4BD" stroke-width="1.2"/>
+        <path d="M 890 112 L 915 106 L 915 144 L 890 138 Z" fill="#1D1D1D" stroke="#7F7C76" stroke-width="1"/>
+        <line x1="730" y1="88" x2="730" y2="162" stroke="#D92323" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="810" y="129" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="600" text-anchor="middle">SOLID BOOSTER (JETTISONABLE)</text>
+
+        <!-- MAIN AIRFRAME BODY (STA 80 to 730) -->
+        <path d="M 80 125 Q 140 98, 200 98 L 730 98 L 730 152 L 200 152 Q 140 152, 80 125 Z" fill="rgba(16,16,16,0.9)" stroke="#F2EFE9" stroke-width="1.8"/>
+
+        <!-- COMPARTMENT BULKHEADS -->
+        <line x1="200" y1="98" x2="200" y2="152" stroke="#414141" stroke-width="1.2"/>
+        <line x1="330" y1="98" x2="330" y2="152" stroke="#414141" stroke-width="1.2"/>
+        <line x1="490" y1="98" x2="490" y2="152" stroke="#414141" stroke-width="1.2"/>
+
+        <!-- 1. AVIONICS & CRPA BAY (STA 80 - 200) -->
+        <path d="M 88 125 Q 135 104, 185 104 L 185 146 Q 135 146, 88 125 Z" fill="rgba(199,196,189,0.06)" stroke="#C7C4BD" stroke-width="0.8"/>
+        <rect x="130" y="93" width="45" height="5" fill="#C7C4BD" stroke="#F2EFE9" stroke-width="0.8"/>
+        <circle cx="138" cy="95.5" r="1.5" fill="#0A0A0A"/>
+        <circle cx="148" cy="95.5" r="1.5" fill="#0A0A0A"/>
+        <circle cx="158" cy="95.5" r="1.5" fill="#0A0A0A"/>
+        <circle cx="168" cy="95.5" r="1.5" fill="#0A0A0A"/>
+        <rect x="145" y="152" width="22" height="4" fill="#C7C4BD" stroke="#C7C4BD"/>
+        <text x="140" y="122" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="8" font-weight="700" text-anchor="middle">AVIONICS / CRPA</text>
+        <text x="140" y="133" fill="#7F7C76" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">Scene-match Core</text>
+
+        <!-- 2. PENETRATING WARHEAD BAY (STA 200 - 330) -->
+        <rect x="205" y="103" width="120" height="44" fill="url(#hatch_wh)" stroke="#D92323" stroke-width="1.2"/>
+        <text x="265" y="122" fill="#D92323" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" text-anchor="middle">WARHEAD 450–500 kg</text>
+        <text x="265" y="133" fill="#F04B4B" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">Modular Penetrator</text>
+
+        <!-- 3. JP-10 FUEL BLADDER (STA 330 - 490) -->
+        <rect x="335" y="103" width="150" height="44" fill="url(#hatch_fuel)" stroke="#C7C4BD" stroke-width="1"/>
+        <text x="410" y="122" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="600" text-anchor="middle">JP-10 FUEL CELL</text>
+        <text x="410" y="133" fill="#7F7C76" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">~450–500 kg &middot; CG Balanced</text>
+
+        <!-- 4. MANIK 450 TURBOFAN BAY & S-DUCT (STA 490 - 730) -->
+        <path d="M 480 98 Q 515 84, 550 84 L 590 84 Q 565 98, 540 106 L 515 106 Z" fill="#141414" stroke="#C7C4BD" stroke-width="1"/>
+        <rect x="520" y="104" width="195" height="42" fill="#141414" stroke="#F2EFE9" stroke-width="1.2"/>
+        <line x1="535" y1="104" x2="535" y2="146" stroke="#C7C4BD" stroke-width="1"/>
+        <line x1="550" y1="106" x2="550" y2="144" stroke="#414141" stroke-width="1"/>
+        <line x1="565" y1="108" x2="565" y2="142" stroke="#414141" stroke-width="1"/>
+        <rect x="580" y="109" width="60" height="32" fill="#0A0A0A" stroke="#D92323" stroke-width="0.8" stroke-dasharray="2,2"/>
+        <circle cx="610" cy="125" r="6" fill="none" stroke="#D92323" stroke-width="0.8"/>
+        <line x1="660" y1="106" x2="660" y2="144" stroke="#C7C4BD" stroke-width="1.5"/>
+        <path d="M 700 110 L 730 114 L 730 136 L 700 140 Z" fill="#1D1D1D" stroke="#F2EFE9" stroke-width="1"/>
+        <text x="620" y="123" fill="#F2EFE9" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" text-anchor="middle">MANIK 450 kgf TURBOFAN</text>
+        <text x="620" y="134" fill="#7F7C76" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">BATL &middot; Twin-Spool</text>
+
+        <!-- FOLDED SCISSOR WINGS (STOWED) -->
+        <polygon points="310,98 560,98 550,88 330,88" fill="rgba(199,196,189,0.10)" stroke="#C7C4BD" stroke-width="1.2"/>
+        <text x="435" y="81" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="7.5" font-weight="600" text-anchor="middle">FOLDED WINGS (Span: 2.7 m deployed)</text>
+
+        <!-- TAIL CONTROL FINS -->
+        <polygon points="680,98 722,62 730,62 724,98" fill="#141414" stroke="#F2EFE9" stroke-width="1.2"/>
+        <polygon points="680,152 722,188 730,188 724,152" fill="#141414" stroke="#F2EFE9" stroke-width="1.2"/>
+
+        <!-- DIMENSION RULES -->
+        <line x1="80" y1="210" x2="730" y2="210" stroke="#7F7C76" stroke-width="1"/>
+        <line x1="80" y1="204" x2="80" y2="216" stroke="#7F7C76" stroke-width="1"/>
+        <line x1="730" y1="204" x2="730" y2="216" stroke="#7F7C76" stroke-width="1"/>
+        <text x="405" y="222" fill="#F2EFE9" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Fuselage Length: 5,800 &ndash; 6,200 mm</text>
+
+        <line x1="80" y1="238" x2="925" y2="238" stroke="#C7C4BD" stroke-width="1"/>
+        <line x1="80" y1="232" x2="80" y2="244" stroke="#C7C4BD" stroke-width="1"/>
+        <line x1="925" y1="232" x2="925" y2="244" stroke="#C7C4BD" stroke-width="1"/>
+        <text x="502" y="250" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" text-anchor="middle">Total Launch Configuration with Booster: 7,000 &ndash; 7,500 mm</text>
+
+        <line x1="50" y1="98" x2="50" y2="152" stroke="#7F7C76" stroke-width="1"/>
+        <line x1="44" y1="98" x2="56" y2="98" stroke="#7F7C76" stroke-width="1"/>
+        <line x1="44" y1="152" x2="56" y2="152" stroke="#7F7C76" stroke-width="1"/>
+        <text x="40" y="128" fill="#7F7C76" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="end">&#216; 520 mm</text>
+      </svg>
+    </div>
+    <div class="blueprint-cap"><b>Fig. 01</b> How the inside of the missile is laid out, with station breaks and dimensions. Everything is sized around the Manik 450 kgf turbofan for launch from 4,500 m.</div>
   </div>
-</section>
 
-<!-- ═══════════ ROLES ═══════════ -->
-<section id="roles">
-  <div class="sec-tag">04 · Doctrine</div>
-  <h2>Roles and the salvo argument</h2>
-  <ul>
-    <li><strong>Deep interdiction against fortified targets:</strong> Strikes hardened aircraft shelters, command centers, runway intersections, and railhead bridges that lightweight loitering munitions cannot breach.</li>
-    <li><strong>Force multiplier for strategic stockpiles:</strong> High-volume salvo employment against defended sectors forces enemy batteries to expend interceptor missiles and activate tracking radars. Crewed strike aircraft and exquisite hypersonic rounds penetrate through the depleted corridors.</li>
-    <li><strong>Structured salvo synchronization:</strong> Pre-programmed arrival times saturate target engagement channels simultaneously, ensuring warhead delivery regardless of local interceptor density. <a href="../strategy/trajectory.html#salvo">The salvo arithmetic →</a></li>
-  </ul>
-</section>
+  <div class="note">
+    <div class="t">Doctrine</div>
+    <p><strong>Strike in quantity.</strong> A 450–500 kg warhead against command posts, logistics hubs, radar sites, and ships at 1,000–1,500 km, cheap enough to fire and replace. Missiles timed to arrive together overload air defences. <a href="../strategy/trajectory.html#salvo">The salvo arithmetic →</a></p>
+  </div>
 
-<!-- ═══════════ NAVIGATION ═══════════ -->
-<section id="navigation">
-  <div class="sec-tag">05 · Navigation</div>
-  <h2>The shared core, plus terrain</h2>
-  <p>Mk I inherits the complete four-layer navigation architecture: spatial-nulling CRPA antennas, multi-constellation GNSS receivers, tactical MEMS inertial bridging, and passive terminal imaging seekers. Midcourse drift is arrested via optical scene matching against stored elevation profiles. Mk II extends this architecture with a digital terrain-following guidance layer, commanding low-altitude valley penetration below ground-based radar lines of sight.</p>
-  <p>Because navigation fixes correlate directly with terrain geometry, mission planning treats waypoint routing as a navigation strategy. Planners route ingress tracks across distinct topographic ridges, forcing optical updates immediately prior to crossing featureless desert or maritime sectors. <a href="../architecture/index.html#navigation">Navigation under denial →</a></p>
-  <p>For technical rationale on why Hemlock's contour matching is an order of magnitude cheaper than legacy TERCOM, how topological feature embeddings solve seasonal scene matching, and why continuous VIO fails at 900 km/h, see the engineering exploration: <a href="../architecture/hemlock-navigation-exploration.md">Hemlock Mk II Navigation Exploration &rarr;</a></p>
-</section>
-
-<!-- ═══════════ PLAN ═══════════ -->
-<section id="plan">
-  <div class="sec-tag">06 · Plan</div>
-  <h2>Development plan and gates</h2>
   <div class="tw">
     <table>
-      <caption>Sequence</caption>
-      <thead><tr><th>Stage</th><th>Timing</th><th>Gate to clear</th></tr></thead>
+      <caption>Payload and mission menu</caption>
+      <thead><tr><th>Payload module</th><th>Target set</th><th>Notes</th></tr></thead>
       <tbody>
-        <tr><td>Mk I design and bench qualification</td><td>2027–2028</td><td>Engine family qualified at rate; structures demonstrated on the production base.</td></tr>
-        <tr><td>Mk I prototype</td><td>Q2 2029</td><td>Full-envelope flight with seeker terminal; envelope re-verified in the flight loop.</td></tr>
-        <tr><td>Mk I production</td><td>Q4 2029</td><td>Rate tooling proven; unit cost at rate held to plan.</td></tr>
-        <tr><td>Mk II prototype</td><td>Q2 2030</td><td>Terrain-following layer demonstrated at low level with the heavy airframe.</td></tr>
-        <tr><td>Mk II production</td><td>Q1 2031</td><td>Heavy warhead qualification and booster launch at full launch mass.</td></tr>
+        <tr><td>Penetrator</td><td>Hardened buildings, command centres, aircraft shelters</td><td>450–500 kg; small starter charge plus main charge</td></tr>
+        <tr><td>Blast / fragmentation</td><td>Radar sites, logistics hubs, staging areas</td><td>450–500 kg general-purpose fill</td></tr>
+        <tr><td>Submunition dispenser</td><td>Airbases, dispersed vehicle parks</td><td>~450 kg canister</td></tr>
+        <tr><td>Anti-ship</td><td>Surface combatants and shipping</td><td>Sea-skimming terminal profile · RF/IIR seeker</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="small">Dependencies tracked openly: the Hemlock engine family and seeker volumes at rate are the two conditions that matter most. Both are on the <a href="../strategy/supply-chain.html#gaps">supply-chain gap list</a>.</p>
+
+  <h3>High-altitude engine operation</h3>
+  <p>Launching from high plateaus decides the engine size. At 4,500 m the air is only about 63% as dense as at sea level, so the engine breathes that much less. The Manik 450 is sized with room to spare: about 2.6–2.9 kN at 4,500 m and Mach 0.75, against roughly 220 kgf of cruise drag — leaving 20–35% extra for climbing, turning, and holding a steep final dive.</p>
+
+  <div class="tw">
+    <table>
+      <caption>Thrust budget for a 4,500 m launch</caption>
+      <thead><tr><th>Quantity</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Static sea-level thrust</td><td>4.25–4.5 kN · 430–460 kgf</td></tr>
+        <tr><td>Net thrust at 4,500 m, M 0.75</td><td>~2.6–2.9 kN · 265–295 kgf</td></tr>
+        <tr><td>Cruise drag at ~1,300 kg, L/D ≈ 6</td><td>~220 kgf</td></tr>
+        <tr><td>Available margin</td><td>+20% to +35%</td></tr>
+        <tr><td>What the extra thrust is for</td><td>launch from plateaus · turning · steep final dive</td></tr>
+        <tr><td>Cruise SFC</td><td>0.95 kg/kgf·h</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="small">This comes from published requirements: launch from at least 4,500 m (HQ IDS TPCR 2025, item 15), a 5,000 m ceiling, and −30 °C to +55 °C (Army questionnaire, Jul 2026 §3). See <a href="#procurement">procurement alignment</a>.</p>
+
+  <h3>Flying valleys, then diving on the target</h3>
+  <p>Himalayan valleys are narrow, so the missile has to bank hard to follow them, and hardened targets need a steep hit rather than a shallow one. It follows the valley shape below the radar horizon, then pitches into a steep dive, matches the target against stored images, and detonates inside on a delayed fuze.</p>
 </section>
 
-<!-- ═══════════ RELATED ═══════════ -->
+<!-- ═══════════ 03 · TIERED PNT STACK ═══════════ -->
+<section id="pnt">
+  <div class="sec-tag">03 · PNT architecture</div>
+  <h2>Five-layer navigation stack</h2>
+  <p>Five layers of navigation. Each one takes over when the layer above it fails, and none is asked to do more than it can.</p>
+
+  <!-- PNT Stack Ladder SVG -->
+  <div class="blueprint-plate">
+    <div class="blueprint-head"><span class="title">Fig. 02 — Tiered PNT stack</span><span class="scale">Degradation ladder · top to bottom</span></div>
+    <div class="blueprint-body">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" role="img" aria-label="Five-layer PNT stack from CRPA to terminal guidance">
+<rect width="1000" height="420" fill="#050505"/>
+<!-- Layer boxes -->
+<rect x="60" y="24" width="880" height="60" rx="0" fill="none" stroke="#D92323" stroke-width="1.5"/>
+<rect x="60" y="100" width="880" height="60" rx="0" fill="none" stroke="#414141" stroke-width="1"/>
+<rect x="60" y="176" width="880" height="60" rx="0" fill="none" stroke="#414141" stroke-width="1"/>
+<rect x="60" y="252" width="880" height="60" rx="0" fill="none" stroke="#414141" stroke-width="1"/>
+<rect x="60" y="328" width="880" height="60" rx="0" fill="none" stroke="#414141" stroke-width="1"/>
+<!-- Tier numbers -->
+<text x="80" y="60" font-family="JetBrains Mono, monospace" font-size="13" fill="#D92323" font-weight="700">01</text>
+<text x="80" y="136" font-family="JetBrains Mono, monospace" font-size="13" fill="#A19E97" font-weight="700">02</text>
+<text x="80" y="212" font-family="JetBrains Mono, monospace" font-size="13" fill="#A19E97" font-weight="700">03</text>
+<text x="80" y="288" font-family="JetBrains Mono, monospace" font-size="13" fill="#A19E97" font-weight="700">04</text>
+<text x="80" y="364" font-family="JetBrains Mono, monospace" font-size="13" fill="#A19E97" font-weight="700">05</text>
+<!-- Layer names -->
+<text x="120" y="48" font-family="Inter, sans-serif" font-size="13" fill="#ffffff" font-weight="700">HARDWARE RF DEFENCE</text>
+<text x="120" y="65" font-family="Inter, sans-serif" font-size="11" fill="#C7C4BD">CRPA array (4–7 elements) · spatial nulls toward ground jammers · 30–45 dB typical</text>
+<text x="120" y="124" font-family="Inter, sans-serif" font-size="13" fill="#C7C4BD" font-weight="700">DAMPED INERTIAL BACKBONE</text>
+<text x="120" y="141" font-family="Inter, sans-serif" font-size="11" fill="#A19E97">FOG + MEMS + barometric · continuous high-rate attitude/velocity · bridges between fixes</text>
+<text x="120" y="200" font-family="Inter, sans-serif" font-size="13" fill="#C7C4BD" font-weight="700">DISCRETE TERRAIN FIXES</text>
+<text x="120" y="217" font-family="Inter, sans-serif" font-size="11" fill="#A19E97">Burst FMCW/LPI altimetry at gates · profile matched to cached DEM strips · sub-second bursts</text>
+<text x="120" y="276" font-family="Inter, sans-serif" font-size="13" fill="#C7C4BD" font-weight="700">ABSOLUTE SCENE REGISTRATION</text>
+<text x="120" y="293" font-family="Inter, sans-serif" font-size="11" fill="#A19E97">Classical DSMAC (optical / LWIR) · snapshot registered against stored reference · total RF silence</text>
+<text x="120" y="352" font-family="Inter, sans-serif" font-size="13" fill="#C7C4BD" font-weight="700">TERMINAL GUIDANCE</text>
+<text x="120" y="369" font-family="Inter, sans-serif" font-size="11" fill="#A19E97">EO/IR seeker + ATR · target silhouette acquisition · aimpoint selection · final dive</text>
+<!-- Fail-as labels -->
+<text x="920" y="48" font-family="JetBrains Mono, monospace" font-size="9" fill="#F04B4B" text-anchor="end" letter-spacing="0.06em">CONDITION-DEPENDENT</text>
+<text x="920" y="124" font-family="JetBrains Mono, monospace" font-size="9" fill="#616161" text-anchor="end" letter-spacing="0.06em">DRIFTS BETWEEN FIXES</text>
+<text x="920" y="200" font-family="JetBrains Mono, monospace" font-size="9" fill="#616161" text-anchor="end" letter-spacing="0.06em">MAP ERROR / LOW ENTROPY</text>
+<text x="920" y="276" font-family="JetBrains Mono, monospace" font-size="9" fill="#616161" text-anchor="end" letter-spacing="0.06em">APPEARANCE CHANGE</text>
+<text x="920" y="352" font-family="JetBrains Mono, monospace" font-size="9" fill="#616161" text-anchor="end" letter-spacing="0.06em">FALSE-POSITIVE TARGET ID</text>
+<!-- Arrows -->
+<line x1="500" y1="84" x2="500" y2="100" stroke="#2B2B2B" stroke-width="1" marker-end="url(#arrowDown)"/>
+<line x1="500" y1="160" x2="500" y2="176" stroke="#2B2B2B" stroke-width="1"/>
+<line x1="500" y1="236" x2="500" y2="252" stroke="#2B2B2B" stroke-width="1"/>
+<line x1="500" y1="312" x2="500" y2="328" stroke="#2B2B2B" stroke-width="1"/>
+<!-- Caption -->
+<text x="500" y="408" font-family="JetBrains Mono, monospace" font-size="9" fill="#616161" text-anchor="middle" letter-spacing="0.1em">DEGRADATION: EACH LAYER CATCHES THE FAILURE OF THE ONE ABOVE</text>
+</svg>
+    </div>
+    <div class="blueprint-cap"><b>Fig. 02</b> The five navigation layers. The CRPA antenna handles jamming first; terrain and scene matching give position fixes when satellite navigation is denied; the seeker guides the final kilometres. No layer is asked to do more than it can.</div>
+  </div>
+
+  <p><strong>How a mission runs:</strong> open map data (Copernicus GLO-30, Sentinel-2) → pre-flight preparation (sun-angle shading, terrain hashing, route storage) → in-flight matching (downward camera, onboard compute, position fixes every 20–60 km) → terminal lock. It needs no classified data and no spy satellites.</p>
+</section>
+
+<!-- ═══════════ 04 · TERRAIN LOCALISATION ═══════════ -->
+<section id="terrain">
+  <div class="sec-tag">04 · Terrain localisation</div>
+  <h2>Terrain-referenced fixes</h2>
+
+  <p>The maps are public. NASA's SRTM flight collected the elevation data behind DTED Levels 1 and 2, so mapping secrecy is no longer the issue. What matters now is what the data actually means, how accurate it is, and how much texture the terrain has — not getting hold of it.</p>
+
+  <!-- DSM vs DTM Physics SVG -->
+  <div class="blueprint-plate">
+    <div class="blueprint-head"><span class="title">Fig. 03 — DEM reality</span><span class="scale">What each dataset actually measures</span></div>
+    <div class="blueprint-body">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 280" role="img" aria-label="DSM versus DTM physics and accuracy table">
+<rect width="1000" height="280" fill="#050505"/>
+<!-- Header -->
+<text x="60" y="30" font-family="JetBrains Mono, monospace" font-size="10" fill="#F04B4B" font-weight="700" letter-spacing="0.12em">PUBLIC DEM ACCURACY — WHAT THE NUMBERS ACTUALLY MEAN</text>
+<!-- Table header line -->
+<line x1="60" y1="46" x2="940" y2="46" stroke="#2B2B2B" stroke-width="1"/>
+<text x="60" y="64" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#C7C4BD" font-weight="600">DATASET</text>
+<text x="260" y="64" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#C7C4BD" font-weight="600">GRID</text>
+<text x="370" y="64" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#C7C4BD" font-weight="600">VERT. ACCURACY</text>
+<text x="560" y="64" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#C7C4BD" font-weight="600">HORIZ. ACCURACY</text>
+<text x="740" y="64" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#C7C4BD" font-weight="600">TYPE</text>
+<text x="830" y="64" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#C7C4BD" font-weight="600">EPOCH</text>
+<line x1="60" y1="74" x2="940" y2="74" stroke="#2B2B2B" stroke-width="1"/>
+<!-- SRTM -->
+<text x="60" y="96" font-family="JetBrains Mono, monospace" font-size="10" fill="#ffffff" font-weight="600">SRTM / DTED</text>
+<text x="260" y="96" font-family="JetBrains Mono, monospace" font-size="10" fill="#A19E97">~30 m</text>
+<text x="370" y="96" font-family="JetBrains Mono, monospace" font-size="10" fill="#A19E97">16 m abs / 10 m rel (LE90)</text>
+<text x="560" y="96" font-family="JetBrains Mono, monospace" font-size="10" fill="#A19E97">20 m CE90</text>
+<text x="740" y="96" font-family="JetBrains Mono, monospace" font-size="10" fill="#A19E97">DSM</text>
+<text x="830" y="96" font-family="JetBrains Mono, monospace" font-size="10" fill="#A19E97">Feb 2000</text>
+<!-- NASADEM -->
+<text x="60" y="122" font-family="JetBrains Mono, monospace" font-size="10" fill="#ffffff" font-weight="600">NASADEM</text>
+<text x="260" y="122" font-family="JetBrains Mono, monospace" font-size="10" fill="#A19E97">~30 m</text>
+<text x="370" y="122" font-family="JetBrains Mono, monospace" font-size="10" fill="#A19E97">0.9 m mean / 12.6 m RMSE</text>
+<text x="560" y="122" font-family="JetBrains Mono, monospace" font-size="10" fill="#A19E97">~20 m CE90</text>
+<text x="740" y="122" font-family="JetBrains Mono, monospace" font-size="10" fill="#A19E97">DSM</text>
+<text x="830" y="122" font-family="JetBrains Mono, monospace" font-size="10" fill="#A19E97">Feb 2000+</text>
+<!-- Copernicus -->
+<text x="60" y="148" font-family="JetBrains Mono, monospace" font-size="10" fill="#ffffff" font-weight="600">Copernicus GLO-30</text>
+<text x="260" y="148" font-family="JetBrains Mono, monospace" font-size="10" fill="#F04B4B" font-weight="600">&lt;30 m</text>
+<text x="370" y="148" font-family="JetBrains Mono, monospace" font-size="10" fill="#F04B4B" font-weight="600">&lt;4 m LE90</text>
+<text x="560" y="148" font-family="JetBrains Mono, monospace" font-size="10" fill="#F04B4B" font-weight="600">&lt;6 m CE90</text>
+<text x="740" y="148" font-family="JetBrains Mono, monospace" font-size="10" fill="#A19E97">DSM</text>
+<text x="830" y="148" font-family="JetBrains Mono, monospace" font-size="10" fill="#A19E97">2011–15</text>
+<line x1="60" y1="162" x2="940" y2="162" stroke="#2B2B2B" stroke-width="1"/>
+<!-- Key insight -->
+<text x="60" y="186" font-family="Inter, sans-serif" font-size="11" fill="#C7C4BD" font-weight="600">Key insight: SRTM/DTED models the reflective surface (canopy, roofs) — a DSM. A radar altimeter also</text>
+<text x="60" y="202" font-family="Inter, sans-serif" font-size="11" fill="#C7C4BD" font-weight="600">measures the first returned surface. Pairing a radar altimeter with an SRTM/DSM reference is therefore</text>
+<text x="60" y="218" font-family="Inter, sans-serif" font-size="11" fill="#F04B4B" font-weight="700">more self-consistent than pairing it with a bare-earth DTM.</text>
+<!-- TERCOM note -->
+<text x="60" y="248" font-family="Inter, sans-serif" font-size="11" fill="#A19E97">TERCOM consumes relative profile shape, so relative accuracy (10 m class) is the number that matters.</text>
+<text x="60" y="266" font-family="Inter, sans-serif" font-size="11" fill="#A19E97">Urban DSMs: no open product reached NMAD &lt;2 m or LE90 &lt;10 m — expect largest errors where targets concentrate.</text>
+</svg>
+    </div>
+    <div class="blueprint-cap"><b>Fig. 03</b> Accuracy of public elevation maps. Copernicus GLO-30 measures height to better than 4 m on a 30 m grid, which is good enough for burst TERCOM matching. For SRTM, the relative figure of 10 m is the one that counts in practice.</div>
+  </div>
+
+  <ul>
+    <li><strong>Short-burst TERCOM.</strong> The altimeter stays off most of the way and only switches on briefly at planned points: a burst of under a second against stored terrain strips, then back to silence.</li>
+    <li><strong>Beam-width limit.</strong> A normal altimeter reads the nearest point in its beam, not straight down. Accurate terrain navigation needs a narrow or interferometric beam, which is why the altimeter arrives in phases (Section 06).</li>
+  </ul>
+
+  <h3>Fielded precedents</h3>
+  <div class="tw">
+    <table>
+      <caption>Terrain navigation systems already flown</caption>
+      <thead><tr><th>System</th><th>Year</th><th>Accuracy</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Sandia SITAN</strong></td><td>1986–87</td><td>~75 m CEP</td><td>Kalman-filtered radar altimeter vs DTED L1; AFTI/F-16</td></tr>
+        <tr><td><strong>Honeywell PTAN</strong></td><td>2001</td><td>~3 m</td><td>Interferometric altimeter vs DTED L4 (3 m cell); Sabreliner flight</td></tr>
+        <tr><td><strong>Korean AP-TAN</strong></td><td>2020</td><td>3.1–8.4 m CEP</td><td>IRA + federated INS/GNSS/TRN; captive flight, GNSS denied ~2 hrs</td></tr>
+        <tr><td><strong>Taurus KEPD 350</strong></td><td>2004</td><td>Classified</td><td>TRN + IBN; navigated &gt;100 km exclusively on terrain/image, GPS-free</td></tr>
+        <tr><td><strong>Research on public DEMs</strong></td><td>2010–26</td><td>34–317 m</td><td>TERCOM against SRTM at 1,000 km/h; Tibetan-plateau layered study</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════ 05 · SCENE MATCHING ═══════════ -->
+<section id="dsmac">
+  <div class="sec-tag">05 · Scene matching</div>
+  <h2>Scene matching</h2>
+
+  <p>Midcourse and final fixes use classic DSMAC: a camera image is matched against a stored reference to get an exact position, without emitting anything. The reference has to match the conditions of the strike — same season, same time of day — and flat, bare terrain is the hardest case.</p>
+
+  <div class="tw">
+    <table>
+      <caption>Scene matching systems already in service</caption>
+      <thead><tr><th>System</th><th>Method</th><th>Accuracy</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Tomahawk DSMAC</strong> (AN/DXQ-1)</td><td>Single-bit scene correlation; Block IIA shift-and-sum</td><td>~10 m CEP</td></tr>
+        <tr><td><strong>JASSM</strong></td><td>GPS-aided INS + anti-jam CRPA; terminal IIR seeker with ATR</td><td>3 m CEP</td></tr>
+        <tr><td><strong>Taurus KEPD 350</strong></td><td>Thermographic image-based navigation</td><td>Classified; GPS-free demonstrated</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════ 06 · SOVEREIGN SOURCING ═══════════ -->
+<section id="sourcing">
+  <div class="sec-tag">06 · Sovereign sourcing</div>
+  <h2>Altimeter supply chain and the phased plan</h2>
+
+  <p>Altimeters fall under MTCR export controls, and Western suppliers cannot be counted on for a cruise missile. So the plan has three steps: a commercial off-the-shelf sensor for development work, an Indian FMCW/LPI altimeter for production, and a licensed second source as backup.</p>
+
+  <!-- Sourcing Matrix SVG -->
+  <div class="blueprint-plate">
+    <div class="blueprint-head"><span class="title">Fig. 04 — Altimeter sourcing pathways</span><span class="scale">Three phases · fly now, own later</span></div>
+    <div class="blueprint-body">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" role="img" aria-label="Three-phase altimeter sourcing plan">
+<rect width="1000" height="300" fill="#050505"/>
+<!-- Phase boxes -->
+<rect x="60" y="30" width="270" height="240" rx="0" fill="none" stroke="#D92323" stroke-width="1.5"/>
+<rect x="365" y="30" width="270" height="240" rx="0" fill="none" stroke="#414141" stroke-width="1"/>
+<rect x="670" y="30" width="270" height="240" rx="0" fill="none" stroke="#414141" stroke-width="1"/>
+<!-- Phase headers -->
+<text x="195" y="56" font-family="JetBrains Mono, monospace" font-size="11" fill="#D92323" font-weight="700" text-anchor="middle" letter-spacing="0.1em">PHASE A · BRIDGE</text>
+<text x="195" y="72" font-family="JetBrains Mono, monospace" font-size="9" fill="#F04B4B" text-anchor="middle">NOW → FIRST FLIGHTS</text>
+<text x="500" y="56" font-family="JetBrains Mono, monospace" font-size="11" fill="#C7C4BD" font-weight="700" text-anchor="middle" letter-spacing="0.1em">PHASE B · SOVEREIGN</text>
+<text x="500" y="72" font-family="JetBrains Mono, monospace" font-size="9" fill="#A19E97" text-anchor="middle">PARALLEL DEV · PRODUCTION TARGET</text>
+<text x="805" y="56" font-family="JetBrains Mono, monospace" font-size="11" fill="#C7C4BD" font-weight="700" text-anchor="middle" letter-spacing="0.1em">PHASE C · DUAL SOURCE</text>
+<text x="805" y="72" font-family="JetBrains Mono, monospace" font-size="9" fill="#A19E97" text-anchor="middle">ALTERNATE / BACKUP</text>
+<!-- Phase A content -->
+<text x="80" y="100" font-family="Inter, sans-serif" font-size="10.5" fill="#C7C4BD" font-weight="600">Ainstein LR-D1 class</text>
+<text x="80" y="116" font-family="Inter, sans-serif" font-size="10" fill="#A19E97">24 GHz FMCW · EAR99</text>
+<text x="80" y="132" font-family="Inter, sans-serif" font-size="10" fill="#A19E97">ITAR-free · No licence req'd</text>
+<text x="80" y="148" font-family="Inter, sans-serif" font-size="10" fill="#A19E97">0.7–500 m · 40 Hz · ~$1k</text>
+<text x="80" y="172" font-family="Inter, sans-serif" font-size="10" fill="#616161">⚠ UAV-class only — 500 m</text>
+<text x="80" y="188" font-family="Inter, sans-serif" font-size="10" fill="#616161">ceiling, wide FOV, 5g vib.</text>
+<text x="80" y="204" font-family="Inter, sans-serif" font-size="10" fill="#616161">Not the flight article.</text>
+<text x="80" y="228" font-family="JetBrains Mono, monospace" font-size="9" fill="#F04B4B" font-weight="600">DEVELOPMENT / DE-RISK ONLY</text>
+<text x="80" y="248" font-family="Inter, sans-serif" font-size="10" fill="#A19E97">Buys schedule + integration</text>
+<text x="80" y="262" font-family="Inter, sans-serif" font-size="10" fill="#A19E97">knowledge at near-zero cost.</text>
+<!-- Phase B content -->
+<text x="385" y="100" font-family="Inter, sans-serif" font-size="10.5" fill="#C7C4BD" font-weight="600">BEL + Astra + DRDO LRDE</text>
+<text x="385" y="116" font-family="Inter, sans-serif" font-size="10" fill="#A19E97">Indigenous FMCW/LPI burst</text>
+<text x="385" y="132" font-family="Inter, sans-serif" font-size="10" fill="#A19E97">≥100 Hz burst · 50–1500 m</text>
+<text x="385" y="148" font-family="Inter, sans-serif" font-size="10" fill="#A19E97">LPI + freq. hopping waveform</text>
+<text x="385" y="164" font-family="Inter, sans-serif" font-size="10" fill="#A19E97">IRA or narrow-beam look angle</text>
+<text x="385" y="180" font-family="Inter, sans-serif" font-size="10" fill="#A19E97">±30° attitude tolerance</text>
+<text x="385" y="196" font-family="Inter, sans-serif" font-size="10" fill="#A19E97">Mil-Std-1553 interface</text>
+<text x="385" y="220" font-family="JetBrains Mono, monospace" font-size="9" fill="#C7C4BD" font-weight="600">THE FIELDED ARTICLE</text>
+<text x="385" y="240" font-family="Inter, sans-serif" font-size="10" fill="#A19E97">BEL has FMCW/LPI competence</text>
+<text x="385" y="256" font-family="Inter, sans-serif" font-size="10" fill="#A19E97">(drone detection radar).</text>
+<!-- Phase C content -->
+<text x="690" y="100" font-family="Inter, sans-serif" font-size="10.5" fill="#C7C4BD" font-weight="600">HENSOLDT LiDAR ToT</text>
+<text x="690" y="116" font-family="Inter, sans-serif" font-size="10" fill="#A19E97">Design + mfg IPR + export</text>
+<text x="690" y="132" font-family="Inter, sans-serif" font-size="10" fill="#A19E97">rights (HAL precedent, 2025)</text>
+<text x="690" y="156" font-family="Inter, sans-serif" font-size="10.5" fill="#C7C4BD" font-weight="600">Israeli altimeter ToT</text>
+<text x="690" y="172" font-family="Inter, sans-serif" font-size="10" fill="#A19E97">IAI/ELTA or Elbit</text>
+<text x="690" y="188" font-family="Inter, sans-serif" font-size="10" fill="#A19E97">EL/M-2052 ToT to HAL</text>
+<text x="690" y="204" font-family="Inter, sans-serif" font-size="10" fill="#A19E97">LORA mfg by BEL</text>
+<text x="690" y="228" font-family="JetBrains Mono, monospace" font-size="9" fill="#C7C4BD" font-weight="600">DE-RISKED SECOND SOURCE</text>
+<text x="690" y="248" font-family="Inter, sans-serif" font-size="10" fill="#A19E97">Proven India–Israel and</text>
+<text x="690" y="262" font-family="Inter, sans-serif" font-size="10" fill="#A19E97">India–Germany ToT patterns.</text>
+</svg>
+    </div>
+    <div class="blueprint-cap"><b>Fig. 04</b> Altimeter sourcing in three phases. Phase A hardware never flies in a production missile — it moves to the test bench once Phase B is qualified. The fielded weapon carries the Indian-built sensor.</div>
+  </div>
+
+  <div class="tw">
+    <table>
+      <caption>Who can build what in India</caption>
+      <thead><tr><th>Source</th><th>Competence</th><th>India track record</th></tr></thead>
+      <tbody>
+        <tr><td><strong>BEL</strong></td><td>Indigenous FMCW LPI radar; MRSAM lead integrator; 600+ products</td><td>Deep &middot; mountain radars, ECM</td></tr>
+        <tr><td><strong>Astra Microwave</strong></td><td>T/R modules, phased-array seeker subsystems; scaling to 36 AESA/yr</td><td>Deep DRDO partner; AS-9100D</td></tr>
+        <tr><td><strong>Data Patterns</strong></td><td>Radar receivers/exciters, T/R modules (UHF–X band)</td><td>DRDO/ISRO supplier</td></tr>
+        <tr><td><strong>IAI/ELTA</strong></td><td>Full radar/EW portfolio; EL/M-2052 ToT to HAL</td><td>Strongest outside option</td></tr>
+        <tr><td><strong>HENSOLDT</strong></td><td>SferiSense LiDAR OAS; ToT to HAL incl. IPR + export rights</td><td>Agreement signed Nov 2025</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════ 07 · INDUSTRIAL BASE ═══════════ -->
+<section id="industrial">
+  <div class="sec-tag">07 · Industrial base</div>
+  <h2>Built by the supply base that already exists</h2>
+  <p>The missile is designed around suppliers that already exist: a government-designed engine built by private precision firms, shared avionics and navigation electronics, and structures made with India's car-industry and precision-machining base instead of scarce aerospace autoclaves.</p>
+
+  <ul>
+    <li><strong>Engines.</strong> Hemlock flies the GTRE Manik 450 kgf twin-spool turbofan, built by <strong>BrahMos Aerospace Thiruvananthapuram (BATL)</strong>. Eight of the first 25 engines are delivered and the line makes about 12 a year; the Kerala plant and its private suppliers are being scaled up toward what the LRLACM and Hemlock programmes need together.</li>
+    <li><strong>Actuation.</strong> Brushless DC servo actuators adapted from car-industry steer-by-wire suppliers, rated for one flight.</li>
+    <li><strong>Structure.</strong> Skins made by resin transfer moulding (no autoclave needed), with thicker composite and 7075-T6 aluminium ring frames around the payload and engine bays.</li>
+  </ul>
+
+  <div class="tw">
+    <table>
+      <caption>Cost breakup at rate (planned around ₹4 Cr)</caption>
+      <thead><tr><th>Subsystem</th><th>Share</th><th>What decides the cost</th></tr></thead>
+      <tbody>
+        <tr><td>Manik 450 kgf turbofan</td><td>~30% · ₹1.1–1.4 Cr</td><td>Order size, not design — only a firm engine order brings this down.</td></tr>
+        <tr><td>Airframe &amp; structure</td><td>~22% · ₹0.8–1.0 Cr</td><td>Composite skins, machined frames, mould tooling.</td></tr>
+        <tr><td>Guidance, CRPA &amp; scene matching</td><td>~18% · ₹0.6–0.8 Cr</td><td>Standard compute, open maps, mid-cost CRPA, classic DSMAC.</td></tr>
+        <tr><td>Warhead &amp; fuzing</td><td>~18% · ₹0.6–0.8 Cr</td><td>450–500 kg casing and standard explosive fill.</td></tr>
+        <tr><td>Booster, actuators, assembly &amp; test</td><td>~12% · ₹0.4–0.6 Cr</td><td>Assembly and testing get cheaper at rate.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note key">
+    <div class="t">Engines set the pace</div>
+    <p>BATL makes about 12 Manik engines a year today. A line building 20–40 missiles a month needs 240–480. The firm engine order is what gates everything — not the airframe.</p>
+  </div>
+</section>
+
+<!-- ═══════════ 08 · PROCUREMENT ═══════════ -->
+<section id="procurement">
+  <div class="sec-tag">08 · Procurement</div>
+  <h2>Alignment with published requirements</h2>
+  <p>Hemlock fits the tri-service LRLACM requirement:</p>
+
+  <div class="tw">
+    <table>
+      <caption>Tri-service mapping</caption>
+      <thead><tr><th>Authority / document</th><th>Requirement</th><th>Compliance</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Tri-service LRLACM (Make-I)</td>
+          <td>Long-range land-attack cruise missile: 1,000–1,500 km, 300–450 kg warhead, RLG-INS + NavIC + DSMAC/TERCOM, 450 kgf turbofan class</td>
+          <td><strong>Fits directly:</strong> 1,000–1,500 km, 450–500 kg payload, GTRE Manik 450 kgf engine, RLG-INS + NavIC + scene-referenced navigation</td>
+        </tr>
+        <tr>
+          <td>Indian Army Questionnaire (Jul 2026)</td>
+          <td>Long-range loiter munition: 500–1,000 km, speed ≥ 400 km/h, 5,000 m ceiling, steep terminal dive, NavIC + DSMAC/TERCOM</td>
+          <td><strong>Goes beyond it:</strong> 1,000–1,500 km, Mach 0.75, launch from 4,500 m plateaus, steep final dive, 7-element CRPA with terrain- and scene-based navigation</td>
+        </tr>
+        <tr>
+          <td>Emerging deep-strike requirement</td>
+          <td>Indigenous response to low-cost, long-range salvo strike effectors entering the region; strategic depth, heavy target effect, producible at rate</td>
+          <td><strong>Built for it:</strong> 450–500 kg payload at long range, ₹3–5 Cr target, Indian engine</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <div class="t">Funding alignment</div>
+    <p>Make-II allows suo-moto proposals, and Make-I can fund up to 70% of prototype development. One navigation codebase and one production line take the programme from prototype to rate.</p>
+  </div>
+</section>
+
+<!-- ═══════════ 09 · COST LOGIC ═══════════ -->
+<section id="economics">
+  <div class="sec-tag">09 · Cost logic</div>
+  <h2>Why it costs what it costs</h2>
+
+  <ul>
+    <li><strong>Target:</strong> ₹3–5 Cr at 20–40 rounds a month.</li>
+    <li><strong>Most of the saving comes from navigation, not the airframe.</strong> Older cruise missiles spend about a quarter of their cost on custom TERCOM/DSMAC hardware; Hemlock replaces that with standard compute, open maps, a mid-cost CRPA, and classic DSMAC.</li>
+    <li><strong>The engine decides the price:</strong> the Manik 450 has to come down from prototype pricing to ₹1.1–1.4 Cr per unit at rate.</li>
+    <li><strong>For reference:</strong> ₹4 Cr is about $450k — between Ukraine's Flamingo (under $600k) and the US FAMM average of $450k, and roughly a fifth of a Tomahawk. Early low-rate builds will cost clearly more than the at-rate target; volume, not redesign, is what brings cost down.</li>
+  </ul>
+
+  <p class="small">Salvo maths and the cost-per-kg·km comparison with missiles in service are on <a href="../strategy/trajectory.html#metric">the trajectory page</a>.</p>
+</section>
+
+<!-- ═══════════ 10 · DEVELOPMENT PLAN ═══════════ -->
+<section id="plan">
+  <div class="sec-tag">10 · Plan</div>
+  <h2>Development plan and test qualification</h2>
+
+  <div class="tw">
+    <table>
+      <caption>Programme sequence</caption>
+      <thead><tr><th>Stage</th><th>Timing</th><th>Gate</th></tr></thead>
+      <tbody>
+        <tr><td>Design and bench qualification</td><td>2027–2028</td><td>Manik fitted; engine order agreed; structures proven on production tooling.</td></tr>
+        <tr><td>Prototype</td><td>2029</td><td>Full flight envelope, low-level ingress, seeker-guided finish.</td></tr>
+        <tr><td>Production</td><td>2030–31</td><td>Rate tooling proven; unit cost on plan.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Testing on a budget</h3>
+  <p>Flight hours cost the most, so each part is proven in the cheapest place that can still prove it wrong, and only flown after that — cheapest lesson first.</p>
+  <div class="tw">
+    <table>
+      <caption>Five-stage qualification ladder</caption>
+      <thead><tr><th>Stage</th><th>Cost tier</th><th>What it closes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1. Simulation</strong></td><td>Lowest</td><td>Full guidance loop over Himalayan maps, with jamming and spoofing thrown in. Fixes gate spacing and the first error budget.</td></tr>
+        <tr><td><strong>2. Laboratory</strong></td><td>Low</td><td>Shake and sound testing for the IMU; shielded-room testing for the CRPA; altimeter checked on the bench under vibration.</td></tr>
+        <tr><td><strong>3. Hardware-in-the-loop</strong></td><td>Moderate</td><td>Real processor and sensor timing, recorded vibration, fake terrain and radio signals — this is where assembly problems show up.</td></tr>
+        <tr><td><strong>4. Captive carry / drops</strong></td><td>High</td><td>Real air, sound, vibration, and heat, without spending a full missile.</td></tr>
+        <tr><td><strong>5. Live fire</strong></td><td>Highest · minimised</td><td>Confirms the whole flight end to end, with as much as possible already proven on the ground.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="small">Still open: Manik engine rate — BATL makes about 12 a year today against 240–480 a year needed at full speed. Tracked on the <a href="../strategy/supply-chain.html#gaps">supply-chain gap list</a>.</p>
+</section>
+
+<!-- ═══════════ 11 · RELATED ═══════════ -->
 <section id="related">
-  <div class="sec-tag">07 · Related</div>
+  <div class="sec-tag">11 · Related</div>
   <h2>Where to go next</h2>
   <div class="xref">
     <div class="t">Related pages</div>
     <div class="items">
       <a href="nightshade-adx1.html">Nightshade family — the first machine on the core <span>→</span></a>
       <a href="../strategy/trajectory.html">Trajectory &amp; cost per kg·km — the strategy Hemlock executes <span>→</span></a>
-      <a href="../strategy/competitive.html#philosophies">The competitive field — Flamingo, Barracuda, and India's ecosystem-first answer <span>→</span></a>
+      <a href="../strategy/competitive.html#philosophies">The competitive field — Flamingo, Barracuda, and India's answer <span>→</span></a>
       <a href="../architecture/index.html">The shared core — hardware, software, and the flight loop <span>→</span></a>
+      <a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation — the architecture behind the stack <span>→</span></a>
+      <a href="../subsystems/propulsion.html">Propulsion — the Manik 450 class <span>→</span></a>
       <a href="../doctrine/missing-middle.html">The missing middle — why this layer has to exist <span>→</span></a>
     </div>
   </div>

@@ -37,24 +37,15 @@
     <li><a href="#why">Limits of linear control</a></li>
     <li><a href="#backbone">Physics backbone</a></li>
     <li><a href="#loop">Sim-to-real flight loop</a></li>
-    <li><a href="#architecture">Direct-actuator policy</a></li>
-    <li><a href="#generalisation">Fleet generalisation</a></li>
+    <li><a href="#generalisation">Across airframes</a></li>
     <li><a href="#usedby">Used by</a></li>
   </ul>
   <h4>Products</h4>
   <ul>
     <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
-    <li><a href="../products/hemlock.html">Hemlock family</a></li>
+    <li><a href="../products/hemlock.html">Hemlock</a></li>
     <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
     <li><a href="../products/usv-strike.html">Piranha USV</a></li>
-    <li><a href="../products/hacm-350.html">HACM-350</a></li>
-  </ul>
-  <h4>Supporting systems</h4>
-  <ul>
-    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
-    <li><a href="../products/mdcc.html">Mobile command centre</a></li>
-    <li><a href="../products/mobile-drone-lab.html">Mobile drone lab</a></li>
-    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
   <h4>Strategy</h4>
   <ul>
@@ -98,183 +89,431 @@
     <div class="brand-sep"></div>
     <img src="../assets/logos/logo-text-white.png" alt="Apollyon Dynamics" class="brand-text">
   </div>
-  <div class="mast-meta">Guidance &amp; control · high-rate direct-actuator policy and sim-to-real physics backbone <span>· core subsystem</span></div>
+  <div class="mast-meta">Guidance &amp; control · flight control settings and the simulation behind them <span>· core subsystem</span></div>
   <h1>Robust Control for <span class="sub">Fast Air Platforms</span></h1>
-  <p class="standfirst">High-rate closed-loop flight control engineered for extreme dynamic pressures, high-G transitions, and actuator saturation. By coupling physics-grounded simulation with dense flight instrumentation, this subsystem maintains aerodynamic stability where classical linear autopilots diverge.</p>
+  <p class="standfirst">Flight control for fast aircraft that fly hard: high dynamic pressure, sharp high-G turns, and actuators at their limits. It pairs a simulation built from real flight data with dense onboard recording, so the aircraft stays stable where standard linear autopilots lose control.</p>
 </header>
 
 <section id="problem">
   <div class="sec-tag">01 · Physical envelope</div>
-  <h2>Flying where nominal aerodynamic assumptions collapse</h2>
-  <p>Standard autopilot architectures operate reliably only in benign flight regimes: level cruise, steady hover, and shallow banked turns where control axes remain decoupled and control surfaces retain ample deflection margin. At speeds exceeding 500 to 900 km/h, during 7G pull-ups, and in high-subsonic dives, nominal aerodynamic assumptions break down simultaneously.</p>
+  <h2>Flying where the usual assumptions stop working</h2>
+  <p>Standard autopilot designs work well where flight stays gentle: steady cruise, hover, and shallow turns. Near the edge of what the aircraft can do, that changes. Behaviour turns uncertain and non-linear, small inputs produce large and uneven responses, and much of it is hard to write down in a model beforehand.</p>
 
-  <div class="tw">
-    <table>
-      <caption>Aerodynamic and actuator behavior at the limit</caption>
-      <thead><tr><th>Parameter</th><th>Nominal autopilot model</th><th>Observed high-speed reality</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Dynamic pressure (q)</strong></td><td>Assumed constant or slow-varying</td><td>Quadratically spikes by orders of magnitude, dramatically amplifying control surface effectiveness and aerodynamic loads.</td></tr>
-        <tr><td><strong>Thrust &amp; torque</strong></td><td>Linear relationship with RPM / throttle</td><td>Severe rotor slip, blade stall, and compressor backpressure non-linearities at high Mach/airspeeds.</td></tr>
-        <tr><td><strong>Cross-axis coupling</strong></td><td>Roll, pitch, and yaw are independent</td><td>Aerodynamic downwash and high angular rates produce strong, non-separable gyroscopic and aerodynamic cross-coupling.</td></tr>
-        <tr><td><strong>Actuator authority</strong></td><td>Proportional reserve margin available</td><td>Control surfaces and propulsion operate on the saturation rails; little margin remains for classical error rejection.</td></tr>
-        <tr><td><strong>Structural dynamics</strong></td><td>Rigid airframe assumption</td><td>High aeroelastic flex and airframe vibration inject high-frequency noise into inertial rate gyros.</td></tr>
-        <tr><td><strong>Sensor integrity</strong></td><td>Unbiased linear accelerometer signals</td><td>Sustained high-G dynamic transients demand high-dynamic-range sensing and structural notch isolation to prevent saturation and maintain continuous state tracking.</td></tr>
-      </tbody>
-    </table>
+  <div class="blueprint-plate">
+    <div class="blueprint-head"><span class="title">Fig. 01</span><span class="scale">steady cruise · near the limits</span></div>
+    <div class="blueprint-body">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" role="img" aria-label="Six charts showing how thrust, motor response, drag, rotation, sensing and actuation change near the physical limits">
+<rect width="1000" height="680" fill="#050505"/>
+<defs>
+<marker id="f1-ink" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#C7C4BD"/></marker>
+</defs>
+<text x="35" y="34" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#F04B4B" font-weight="700" letter-spacing="0.14em">HOW THE AIRCRAFT BEHAVES AT LOW SPEED AND NEAR ITS LIMITS</text>
+<line x1="35" y1="46" x2="965" y2="46" stroke="#2B2B2B" stroke-width="1"/>
+<line x1="400" y1="59" x2="505" y2="59" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f1-ink)"/>
+<text x="512" y="62" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#A19E97">faster</text>
+<rect x="35" y="68" width="425" height="48" fill="#0B1119" stroke="#414141" stroke-width="1"/>
+<text x="50" y="90" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#FFFFFF" font-weight="700" letter-spacing="0.06em">STEADY CRUISE AND HOVER</text>
+<text x="50" y="106" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8" fill="#A19E97">motion is smooth and each axis moves on its own</text>
+<rect x="460" y="68" width="505" height="48" fill="#2A0E0E" stroke="#D92323" stroke-width="1.2"/>
+<text x="475" y="90" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#FFFFFF" font-weight="700" letter-spacing="0.06em">FAST FLIGHT NEAR THE LIMITS</text>
+<text x="475" y="106" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8" fill="#E8B4B4">motion is coupled and the margins run out</text>
+<line x1="35" y1="138" x2="65" y2="138" stroke="#7F7C76" stroke-width="1.4" stroke-dasharray="5 4"/>
+<text x="72" y="141" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.5" fill="#A19E97">expected by a simple model</text>
+<line x1="300" y1="138" x2="330" y2="138" stroke="#F2EFE9" stroke-width="1.8"/>
+<text x="337" y="141" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.5" fill="#A19E97">what the flight shows</text>
+<line x1="540" y1="138" x2="570" y2="138" stroke="#D92323" stroke-width="1.4" stroke-dasharray="5 4"/>
+<text x="577" y="141" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.5" fill="#A19E97">physical limit</text>
+<g>
+<rect x="35" y="156" width="300" height="224" fill="none" stroke="#2B2B2B" stroke-width="1"/>
+<text x="49" y="178" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#FFFFFF" font-weight="700" letter-spacing="0.08em">THRUST</text>
+<line x1="63" y1="200" x2="63" y2="306" stroke="#2B2B2B" stroke-width="1"/>
+<line x1="63" y1="306" x2="311" y2="306" stroke="#2B2B2B" stroke-width="1"/>
+<text x="63" y="192" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#7F7C76">thrust</text>
+<text x="311" y="320" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#7F7C76" text-anchor="end">rotor speed</text>
+<path d="M63,300 Q180,282 311,206" fill="none" stroke="#7F7C76" stroke-width="1.2" stroke-dasharray="5 4"/>
+<path d="M63,304 Q170,296 311,262" fill="none" stroke="#F2EFE9" stroke-width="1.8"/>
+<text x="49" y="348" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8" fill="#A19E97">Thrust rises steadily at first.</text>
+<text x="49" y="361" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8" fill="#A19E97">Near full speed it flattens and</text>
+<text x="49" y="374" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8" fill="#A19E97">leaves the straight line.</text>
+</g>
+<g>
+<rect x="350" y="156" width="300" height="224" fill="none" stroke="#2B2B2B" stroke-width="1"/>
+<text x="364" y="178" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#FFFFFF" font-weight="700" letter-spacing="0.08em">MOTOR RESPONSE</text>
+<line x1="378" y1="200" x2="378" y2="306" stroke="#2B2B2B" stroke-width="1"/>
+<line x1="378" y1="306" x2="626" y2="306" stroke="#2B2B2B" stroke-width="1"/>
+<text x="378" y="192" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#7F7C76">rotor speed</text>
+<text x="626" y="320" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#7F7C76" text-anchor="end">time</text>
+<path d="M378,270 H432 V226 H626" fill="none" stroke="#7F7C76" stroke-width="1.2" stroke-dasharray="5 4"/>
+<path d="M378,270 H432 C452,269 464,252 486,240 C496,234 506,229 516,228 L526,222 L536,231 L548,223 L560,230 L574,222 L588,230 L602,224 L626,226" fill="none" stroke="#F2EFE9" stroke-width="1.8"/>
+<text x="450" y="288" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#F04B4B">slow to rise,</text>
+<text x="450" y="299" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#F04B4B">unsteady at the top</text>
+<text x="364" y="348" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8" fill="#A19E97">The motor is slow to answer,</text>
+<text x="364" y="361" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8" fill="#A19E97">then unsteady near full power.</text>
+</g>
+<g>
+<rect x="665" y="156" width="300" height="224" fill="none" stroke="#2B2B2B" stroke-width="1"/>
+<text x="679" y="178" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#FFFFFF" font-weight="700" letter-spacing="0.08em">AERODYNAMICS</text>
+<line x1="693" y1="200" x2="693" y2="306" stroke="#2B2B2B" stroke-width="1"/>
+<line x1="693" y1="306" x2="941" y2="306" stroke="#2B2B2B" stroke-width="1"/>
+<text x="693" y="192" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#7F7C76">drag</text>
+<text x="941" y="320" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#7F7C76" text-anchor="end">speed</text>
+<path d="M693,300 L941,252" fill="none" stroke="#7F7C76" stroke-width="1.2" stroke-dasharray="5 4"/>
+<path d="M693,300 Q810,290 941,206" fill="none" stroke="#F2EFE9" stroke-width="1.8"/>
+<text x="679" y="348" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8" fill="#A19E97">Drag grows with the square of speed</text>
+<text x="679" y="361" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8" fill="#A19E97">— about fifty times from 20</text>
+<text x="679" y="374" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8" fill="#A19E97">to 140 m/s.</text>
+</g>
+<g>
+<rect x="35" y="400" width="300" height="224" fill="none" stroke="#2B2B2B" stroke-width="1"/>
+<text x="49" y="422" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#FFFFFF" font-weight="700" letter-spacing="0.08em">ROTATION</text>
+<text x="150" y="446" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#7F7C76" text-anchor="middle">LOW RATES</text>
+<text x="248" y="446" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#7F7C76" text-anchor="middle">HIGH RATES</text>
+<text x="248" y="458" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#F04B4B" text-anchor="middle">others join in</text>
+<rect x="113" y="464" width="24" height="80" fill="#C7C4BD"/>
+<rect x="143" y="536" width="24" height="8" fill="#D92323"/>
+<rect x="173" y="538" width="24" height="6" fill="#D92323"/>
+<rect x="211" y="464" width="24" height="80" fill="#C7C4BD"/>
+<rect x="241" y="504" width="24" height="40" fill="#D92323"/>
+<rect x="271" y="512" width="24" height="32" fill="#D92323"/>
+<line x1="63" y1="544" x2="311" y2="544" stroke="#2B2B2B" stroke-width="1"/>
+<text x="125" y="556" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7" fill="#7F7C76" text-anchor="middle">R</text>
+<text x="155" y="556" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7" fill="#7F7C76" text-anchor="middle">P</text>
+<text x="185" y="556" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7" fill="#7F7C76" text-anchor="middle">Y</text>
+<text x="223" y="556" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7" fill="#7F7C76" text-anchor="middle">R</text>
+<text x="253" y="556" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7" fill="#7F7C76" text-anchor="middle">P</text>
+<text x="283" y="556" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7" fill="#7F7C76" text-anchor="middle">Y</text>
+<text x="49" y="592" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8" fill="#A19E97">Turns stay separate at low rates.</text>
+<text x="49" y="605" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8" fill="#A19E97">At high rates each turn drags the</text>
+<text x="49" y="618" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8" fill="#A19E97">other axes with it.</text>
+</g>
+<g>
+<rect x="350" y="400" width="300" height="224" fill="none" stroke="#2B2B2B" stroke-width="1"/>
+<text x="364" y="422" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#FFFFFF" font-weight="700" letter-spacing="0.08em">SENSING</text>
+<text x="378" y="436" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#7F7C76">measured pull</text>
+<text x="626" y="564" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#7F7C76" text-anchor="end">time</text>
+<line x1="378" y1="478" x2="626" y2="478" stroke="#D92323" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="620" y="470" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#F04B4B" text-anchor="end">±16 g limit</text>
+<path d="M378,536 L452,492 L518,424 L584,492 L626,528" fill="none" stroke="#7F7C76" stroke-width="1.2" stroke-dasharray="5 4"/>
+<path d="M378,536 L440,504 L470,478 H532 L562,520 L600,529 L626,532" fill="none" stroke="#F2EFE9" stroke-width="1.8"/>
+<text x="364" y="592" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8" fill="#A19E97">A hard pull plus shaking can push</text>
+<text x="364" y="605" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8" fill="#A19E97">past what the sensor can read.</text>
+</g>
+<g>
+<rect x="665" y="400" width="300" height="224" fill="none" stroke="#2B2B2B" stroke-width="1"/>
+<text x="679" y="422" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#FFFFFF" font-weight="700" letter-spacing="0.08em">ACTUATION</text>
+<line x1="693" y1="470" x2="941" y2="470" stroke="#D92323" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="935" y="462" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#F04B4B" text-anchor="end">full power</text>
+<rect x="710" y="520" width="18" height="30" fill="#1E1E1E" stroke="#414141" stroke-width="1"/>
+<rect x="738" y="508" width="18" height="42" fill="#1E1E1E" stroke="#414141" stroke-width="1"/>
+<rect x="766" y="516" width="18" height="34" fill="#1E1E1E" stroke="#414141" stroke-width="1"/>
+<rect x="794" y="510" width="18" height="40" fill="#1E1E1E" stroke="#414141" stroke-width="1"/>
+<rect x="836" y="476" width="18" height="74" fill="#962020" stroke="#D92323" stroke-width="1"/>
+<rect x="864" y="470" width="18" height="80" fill="#962020" stroke="#D92323" stroke-width="1"/>
+<rect x="892" y="478" width="18" height="72" fill="#962020" stroke="#D92323" stroke-width="1"/>
+<rect x="920" y="472" width="18" height="78" fill="#962020" stroke="#D92323" stroke-width="1"/>
+<line x1="693" y1="550" x2="941" y2="550" stroke="#2B2B2B" stroke-width="1"/>
+<text x="761" y="565" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#7F7C76" text-anchor="middle">cruise</text>
+<text x="888" y="565" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#F04B4B" text-anchor="middle">near the limit</text>
+<text x="679" y="592" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8" fill="#A19E97">All motors sit near full power,</text>
+<text x="679" y="605" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8" fill="#A19E97">with little room left for a gust.</text>
+</g>
+<text x="35" y="656" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#7F7C76">At low speed the motion is smooth and easy to predict. Near the limits it turns coupled and non-linear.</text>
+</svg>
+    </div>
+    <div class="blueprint-cap"><b>Fig. 01</b> At low speed the motion is smooth and each axis moves on its own. Near the limits the actuators run out of room and the motion becomes coupled and non-linear.</div>
   </div>
-
-  <figure>
-    <img src="../assets/slides/near-envelope-1.jpg" alt="Charts showing what changes at the edge of physical performance">
-    <figcaption><b>Fig. 01</b> At low speeds, dynamics are decoupled and linear. Near the envelope boundary, control surfaces saturate and the vehicle enters coupled, non-linear aerodynamics.</figcaption>
-  </figure>
 </section>
 
 <section id="why">
   <div class="sec-tag">02 · Limits of linear control</div>
-  <h2>Why classical cascades and online solvers break down</h2>
+  <h2>Where the usual controllers run out of room</h2>
+  <p class="lede">Most controllers assume there is spare actuator power and that the airflow matches the model. Near the limits, both assumptions fail. The figure below walks through the two standard approaches and the alternative used here: control settings taken from flight tests, with limits that keep demand inside what the aircraft can actually do.</p>
 
-  <h3>A · The cascaded PID architecture</h3>
-  <p>Standard open-source and commercial autopilots employ cascaded loops: position feeds attitude, attitude feeds angular rate, and angular rate feeds an actuator mixer. Each tier operates under the implicit assumption that the subsequent tier possesses sufficient actuation bandwidth and torque to fulfill its demand. When a high-speed interceptor or cruise missile executes a violent terminal dive at maximum dynamic pressure, control surfaces reach mechanical deflection limits. Under saturation, the cascaded integrator winds up, forcing the mixer to arbitrarily sacrifice control on one axis to preserve another—often culminating in catastrophic departure from controlled flight.</p>
-
-  <h3>B · Advanced model-predictive control (MPC)</h3>
-  <p>Online numerical optimization (MPC) represents a theoretical improvement by explicitly incorporating state and actuator constraints. However, online solvers require closed-form aerodynamic equations and consistent convergence times. Under aggressive transonic maneuvers and turbulent atmospheric shear, online optimization suffers from severe computational latency jitter, demanding excessive power-hungry compute that cannot reliably meet hard real-time deadlines.</p>
-
-  <figure>
-    <img src="../assets/slides/near-envelope-2.jpg" alt="Comparison of cascaded PID, model-based MPC, and direct-actuator learned control">
-    <figcaption><b>Fig. 02</b> Comparison of control architectures. Cascaded loops diverge under saturation; direct-actuator neural policies evaluate deterministically in sub-millisecond cycles.</figcaption>
-  </figure>
+  <div class="blueprint-plate">
+    <div class="blueprint-head"><span class="title">Fig. 02</span><span class="scale">fixed loops · online solver · scheduled law</span></div>
+    <div class="blueprint-body">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" role="img" aria-label="Three control arrangements: a fixed cascade, an online optimiser, and a scheduled law with limits as used here">
+<rect width="1000" height="440" fill="#050505"/>
+<defs>
+<marker id="f2-ink" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#C7C4BD"/></marker>
+<marker id="f2-grey" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#7F7C76"/></marker>
+</defs>
+<text x="35" y="34" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#F04B4B" font-weight="700" letter-spacing="0.14em">WHY FIXED CONTROL SETTINGS RUN OUT OF ROOM</text>
+<line x1="35" y1="46" x2="965" y2="46" stroke="#2B2B2B" stroke-width="1"/>
+<text x="35" y="78" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#FFFFFF" font-weight="700" letter-spacing="0.08em">A · FIXED CASCADE</text>
+<rect x="35" y="90" width="90" height="54" fill="#0B1119" stroke="#414141" stroke-width="1"/>
+<text x="80" y="112" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#FFFFFF" text-anchor="middle" font-weight="700">TARGET</text>
+<text x="80" y="126" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#A19E97" text-anchor="middle">PATH</text>
+<rect x="137" y="90" width="90" height="54" fill="#0B1119" stroke="#414141" stroke-width="1"/>
+<text x="182" y="112" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#FFFFFF" text-anchor="middle" font-weight="700">POSITION</text>
+<rect x="239" y="90" width="90" height="54" fill="#0B1119" stroke="#414141" stroke-width="1"/>
+<text x="284" y="112" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#FFFFFF" text-anchor="middle" font-weight="700">ATTITUDE</text>
+<rect x="341" y="90" width="90" height="54" fill="#0B1119" stroke="#414141" stroke-width="1"/>
+<text x="386" y="112" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#FFFFFF" text-anchor="middle" font-weight="700">RATE</text>
+<rect x="443" y="90" width="90" height="54" fill="none" stroke="#D92323" stroke-width="1.3"/>
+<text x="488" y="112" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#F04B4B" text-anchor="middle" font-weight="700">MIXER</text>
+<text x="488" y="126" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#F04B4B" text-anchor="middle">fills up first</text>
+<rect x="545" y="90" width="90" height="54" fill="#161616" stroke="#414141" stroke-width="1"/>
+<text x="590" y="112" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#FFFFFF" text-anchor="middle" font-weight="700">MOTORS</text>
+<line x1="125" y1="117" x2="135" y2="117" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f2-ink)"/>
+<line x1="227" y1="117" x2="237" y2="117" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f2-ink)"/>
+<line x1="329" y1="117" x2="339" y2="117" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f2-ink)"/>
+<line x1="431" y1="117" x2="441" y2="117" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f2-ink)"/>
+<line x1="533" y1="117" x2="543" y2="117" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f2-ink)"/>
+<path d="M590,144 V168 H80 V144" fill="none" stroke="#7F7C76" stroke-width="1.1" marker-end="url(#f2-grey)"/>
+<text x="675" y="107" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#A19E97">Control in steps. Each step</text>
+<text x="675" y="121" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#A19E97">needs spare power.</text>
+<text x="35" y="212" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#FFFFFF" font-weight="700" letter-spacing="0.08em">B · ONLINE OPTIMISATION</text>
+<rect x="35" y="224" width="240" height="54" fill="#0B1119" stroke="#414141" stroke-width="1"/>
+<text x="155" y="247" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#FFFFFF" text-anchor="middle" font-weight="700">MODEL + STATE + GOAL</text>
+<text x="155" y="262" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#A19E97" text-anchor="middle">equations of the aircraft</text>
+<rect x="290" y="224" width="240" height="54" fill="#0B1119" stroke="#414141" stroke-width="1"/>
+<text x="410" y="247" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#FFFFFF" text-anchor="middle" font-weight="700">ONLINE SOLVER</text>
+<text x="410" y="262" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#A19E97" text-anchor="middle">answer computed in flight</text>
+<rect x="545" y="224" width="90" height="54" fill="#161616" stroke="#414141" stroke-width="1"/>
+<text x="590" y="247" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#FFFFFF" text-anchor="middle" font-weight="700">MOTORS</text>
+<line x1="275" y1="251" x2="288" y2="251" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f2-ink)"/>
+<line x1="530" y1="251" x2="543" y2="251" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f2-ink)"/>
+<text x="675" y="241" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#A19E97">Plans ahead, live.</text>
+<text x="675" y="255" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#A19E97">Needs exact models.</text>
+<text x="35" y="330" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#F04B4B" font-weight="700" letter-spacing="0.08em">C · SCHEDULED CONTROL WITH LIMITS — USED HERE</text>
+<rect x="35" y="342" width="230" height="64" fill="#0B1119" stroke="#414141" stroke-width="1"/>
+<text x="150" y="366" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#FFFFFF" text-anchor="middle" font-weight="700">STATE + AIR DATA + LIMITS</text>
+<text x="150" y="382" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#A19E97" text-anchor="middle">what is known, what is allowed</text>
+<rect x="280" y="342" width="260" height="64" fill="#3A1212" stroke="#D92323" stroke-width="1.4"/>
+<text x="410" y="366" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#FFFFFF" text-anchor="middle" font-weight="700">SCHEDULED LAW + PROTECTION</text>
+<text x="410" y="382" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#E8B4B4" text-anchor="middle">gains, bounds and distribution</text>
+<rect x="555" y="342" width="80" height="64" fill="#161616" stroke="#414141" stroke-width="1"/>
+<text x="595" y="370" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#FFFFFF" text-anchor="middle" font-weight="700">FINS +</text>
+<text x="595" y="384" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#FFFFFF" text-anchor="middle" font-weight="700">MOTORS</text>
+<line x1="265" y1="374" x2="278" y2="374" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f2-ink)"/>
+<line x1="540" y1="374" x2="553" y2="374" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f2-ink)"/>
+<text x="675" y="366" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#A19E97">Settings from flight tests.</text>
+<text x="675" y="380" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#A19E97">Demand stays within limits.</text>
+</svg>
+    </div>
+    <div class="blueprint-cap"><b>Fig. 02</b> Fixed cascades need spare power at each step, and live planners need exact models. Neither is guaranteed near the limits, so the settings used here are taken from flight tests and bounded to stay within what the aircraft can do.</div>
+  </div>
 </section>
 
 <section id="backbone">
   <div class="sec-tag">03 · Physics backbone</div>
-  <h2>The flight-grounded simulation backbone</h2>
-  <p class="lede">A learned policy mirrors the fidelity of the simulation environment in which it was trained. Conventional flight simulators are optimized for visual rendering or linearized low-speed dynamics. A sovereign control policy requires an exact physical twin that replicates vehicle dynamics at mechanical and thermal limits. That fidelity is built empirically, sortie by sortie.</p>
+  <h2>The simulation backbone, built from real flights</h2>
+  <p class="lede">Control settings are only as good as the simulation behind them. Standard simulators cover cruise and gentle flight well. Ours is extended toward harder conditions flight by flight, alongside work that stays specific to each airframe.</p>
 
-  <p>The engineering workflow enforces continuous empirical calibration: every flight sortie records microsecond-level telemetry across all sensor and actuator buses. Following recovery, identical actuator inputs are replayed through the dynamics engine. Any divergence between physical flight data and simulation predictions is traced to an explicit physical parameter—aeroelastic flexing, ground effect downwash, or battery voltage droop. <strong>Errors are never masked as generalized process noise.</strong></p>
+  <p>Each sortie records dense telemetry across the sensor and actuator buses. Afterwards the same inputs are replayed through the model, and where the two disagree the gap is traced to something physical — airframe flex, motor heat, voltage drop — before falling back on generic noise terms.</p>
 
   <div class="tw">
     <table>
-      <caption>Physical phenomena captured in the simulation core</caption>
-      <thead><tr><th>Physical domain</th><th>Specific modeled phenomenon</th><th>Consequence if omitted</th></tr></thead>
+      <caption>What the simulation has to get right</caption>
+      <thead><tr><th>Area</th><th>What is modelled</th><th>What goes wrong without it</th></tr></thead>
       <tbody>
-        <tr><td><strong>Aerodynamics</strong></td><td>Boundary layer separation, shock-induced flow detachment, and non-linear downwash interactions between tandem lifting surfaces.</td><td>Unpredictable stall during high-angle-of-attack evasive pull-outs.</td></tr>
-        <tr><td><strong>Propulsion &amp; thermal</strong></td><td>Transient motor coil heating, ESC thermal throttling, back-EMF saturation, and battery cell internal resistance voltage drop under peak current.</td><td>Unmodeled thrust decay leading to altitude drop during sustained high-G terminal dives.</td></tr>
-        <tr><td><strong>Aeroelastics</strong></td><td>Fuselage flex, fin flutter, and structural harmonic vibration transmission into the IMU mounting plate.</td><td>High-frequency control surface oscillation and servo motor overheating.</td></tr>
-        <tr><td><strong>Actuation physics</strong></td><td>Servo gearbox backlash, rate limits under dynamic air loads, and deadband non-linearities.</td><td>Phase lag and pilot-induced-oscillation (PIO) during transonic transit.</td></tr>
+        <tr><td><strong>Aerodynamics</strong></td><td>Airflow separating from the surface, shock-driven separation, and uneven downwash between front and rear lifting surfaces.</td><td>The aircraft can stall without warning in a hard pull-up.</td></tr>
+        <tr><td><strong>Propulsion &amp; thermal</strong></td><td>Motor coils heating up, speed controllers cutting back with heat, back-EMF saturation, and battery voltage sagging under peak current.</td><td>Thrust fades in a long high-G dive and the aircraft loses height.</td></tr>
+        <tr><td><strong>Aeroelastics</strong></td><td>Fuselage flex, fin flutter, and structural vibration reaching the IMU mount.</td><td>Control surfaces buzz and servo motors overheat.</td></tr>
+        <tr><td><strong>Actuation physics</strong></td><td>Play in servo gearboxes, slower response under air load, and deadband around centre.</td><td>Response lag that can feed oscillation in transonic flight.</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="note key">
-    <div class="t">One backbone, modular airframe packages</div>
-    <p>Apollyon maintains a single shared physics backbone. Each airframe—the Ahuti interceptor, the Nightshade jet munition, the Hemlock cruise missile, or the Piranha strike USV—exists as a parameterized aerodynamic package residing on the identical simulation substrate. When a flight-test campaign improves our high-rate aerodynamic damping model, that fidelity immediately propagates to every program across the company.</p>
+    <div class="t">A shared baseline, plus work per airframe</div>
+    <p>Fixes that are not tied to one project are carried over to other projects too. Each airframe still needs its own flight hours and its own settings, but the baseline simulation keeps getting better, making the work on each next airframe less tedious.</p>
   </div>
 
-  <figure>
-    <img src="../assets/slides/apollyon-eng-2.jpg" alt="Flight data comparison against simulator prediction">
-    <figcaption><b>Fig. 03</b> Telemetry replayed through the simulation backbone. Observed mismatches drive iterative refinement of physical terms, creating a hardened sim-to-real loop.</figcaption>
-  </figure>
+  <div class="blueprint-plate">
+    <div class="blueprint-head"><span class="title">Fig. 03</span><span class="scale">train · fly · compare · correct</span></div>
+    <div class="blueprint-body">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" role="img" aria-label="Loop from an expert flight through the simulator, training, control settings, a real flight, log comparison and simulator correction">
+<rect width="1000" height="500" fill="#050505"/>
+<defs>
+<marker id="f6-ink" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#C7C4BD"/></marker>
+</defs>
+<text x="35" y="34" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#F04B4B" font-weight="700" letter-spacing="0.14em">HOW THE SIMULATOR CATCHES UP, ONE REAL FLIGHT AT A TIME</text>
+<text x="35" y="50" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#7F7C76" letter-spacing="0.06em">a pilot sets the target · each pass leaves the simulator closer to the aircraft</text>
+<line x1="35" y1="60" x2="965" y2="60" stroke="#2B2B2B" stroke-width="1"/>
+<rect x="35" y="92" width="215" height="84" fill="#0B1119" stroke="#414141" stroke-width="1.2"/>
+<text x="142" y="118" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#FFFFFF" text-anchor="middle" font-weight="700">EXPERT FLIGHT</text>
+<text x="142" y="136" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">a pilot shows</text>
+<text x="142" y="149" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">what is possible</text>
+<rect x="270" y="92" width="215" height="84" fill="#0B1119" stroke="#414141" stroke-width="1.2"/>
+<text x="377" y="118" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#FFFFFF" text-anchor="middle" font-weight="700">CURRENT SIMULATOR</text>
+<text x="377" y="136" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">built from earlier</text>
+<text x="377" y="149" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">flight data</text>
+<rect x="505" y="92" width="215" height="84" fill="#0B1119" stroke="#414141" stroke-width="1.2"/>
+<text x="612" y="118" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#FFFFFF" text-anchor="middle" font-weight="700">TRAINING IN SIMULATION</text>
+<text x="612" y="136" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">settings tried across</text>
+<text x="612" y="149" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">many cases</text>
+<rect x="740" y="92" width="225" height="84" fill="#3A1212" stroke="#D92323" stroke-width="1.3"/>
+<text x="852" y="118" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#FFFFFF" text-anchor="middle" font-weight="700">CONTROL SETTINGS</text>
+<text x="852" y="136" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#E8B4B4" text-anchor="middle">loaded onto</text>
+<text x="852" y="149" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#E8B4B4" text-anchor="middle">the aircraft</text>
+<line x1="250" y1="134" x2="268" y2="134" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f6-ink)"/>
+<line x1="485" y1="134" x2="503" y2="134" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f6-ink)"/>
+<line x1="720" y1="134" x2="738" y2="134" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f6-ink)"/>
+<rect x="740" y="272" width="225" height="84" fill="#0B1119" stroke="#414141" stroke-width="1.2"/>
+<text x="852" y="298" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#FFFFFF" text-anchor="middle" font-weight="700">FLY IT FOR REAL</text>
+<text x="852" y="316" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">the aircraft tries</text>
+<text x="852" y="329" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">the same flight</text>
+<rect x="505" y="272" width="215" height="84" fill="none" stroke="#D92323" stroke-width="1.3"/>
+<text x="612" y="298" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#F04B4B" text-anchor="middle" font-weight="700">LOGS AGAINST SIMULATION</text>
+<text x="612" y="316" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">same inputs replayed,</text>
+<text x="612" y="329" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">gaps noted</text>
+<rect x="270" y="272" width="215" height="84" fill="#0B1119" stroke="#414141" stroke-width="1.2"/>
+<text x="377" y="298" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#FFFFFF" text-anchor="middle" font-weight="700">CORRECT THE SIMULATOR</text>
+<text x="377" y="316" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">motor curves and</text>
+<text x="377" y="329" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">airflow fixed</text>
+<line x1="852" y1="176" x2="852" y2="270" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f6-ink)"/>
+<line x1="740" y1="314" x2="722" y2="314" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f6-ink)"/>
+<line x1="505" y1="314" x2="487" y2="314" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f6-ink)"/>
+<line x1="377" y1="272" x2="377" y2="178" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f6-ink)"/>
+<text x="392" y="232" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#A19E97">repeat</text>
+<text x="500" y="232" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#7F7C76" text-anchor="middle">one round = train, fly, compare, correct</text>
+<line x1="35" y1="392" x2="965" y2="392" stroke="#2B2B2B" stroke-width="1"/>
+<text x="35" y="418" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#FFFFFF" font-weight="700" letter-spacing="0.06em">THE LOOP ENDS WHEN THE AIRCRAFT MATCHES THE PILOT AND THE SIMULATOR PREDICTS THE FLIGHT.</text>
+<text x="35" y="440" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#7F7C76">Each pass leaves the simulator closer to the aircraft, so the next airframe starts from a better base.</text>
+<text x="35" y="472" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#7F7C76">Tuning sets stay specific to each airframe. What carries over is the method, the simulator core and the test pipeline.</text>
+</svg>
+    </div>
+    <div class="blueprint-cap"><b>Fig. 03</b> Each pass trains the settings, flies them, compares the logs and corrects the simulator. The loop ends when the aircraft matches the pilot and the simulator predicts the flight.</div>
+  </div>
 </section>
 
 <section id="loop">
   <div class="sec-tag">04 · Sim-to-real flight loop</div>
-  <h2>What one instrumented sortie returns</h2>
-  <p class="lede">Flights are flown at the structural boundary, logged densely, and analyzed within hours. What comes out of a campaign is not a slide deck. It is four concrete system upgrades, and then the next airframe.</p>
+  <h2>What one test flight gives back</h2>
+  <p class="lede">Test flights push the airframe to its structural edge, record everything, and the data is worked through within hours. Each campaign comes back with four concrete updates — one each for the simulator, the control settings, the onboard software, and the hardware — and the next airframe starts from there.</p>
 
   <div class="tw">
     <table>
-      <caption>One sortie, four systems upgraded</caption>
-      <thead><tr><th>Flight observation</th><th>System changed</th><th>Engineering change made</th></tr></thead>
+      <caption>What one flight updates</caption>
+      <thead><tr><th>What the flight showed</th><th>System updated</th><th>What was changed</th></tr></thead>
       <tbody>
-        <tr><td>An unexpected actuator slew rate limit under dynamic load</td><td><strong>Simulator physics</strong></td><td>Aerodynamic torque and actuator back-EMF models updated against observed telemetry.</td></tr>
-        <tr><td>Rotational acceleration mismatch during high-G pitch-up</td><td><strong>Control policy</strong></td><td>Neural policy retrained on newly mapped boundary dynamics.</td></tr>
-        <tr><td>A latency jitter spike on the onboard sensor bus</td><td><strong>Onboard runtime</strong></td><td>Kernel scheduling and DMA pipeline timing audited against cycle traces.</td></tr>
-        <tr><td>Battery internal resistance rising faster than predicted</td><td><strong>Hardware specification</strong></td><td>Avionics power bus, cell thermal sinking, and wiring harnesses revised.</td></tr>
+        <tr><td>The actuator moved slower than expected under air load</td><td><strong>Simulator physics</strong></td><td>The torque and back-EMF models were corrected to match the recording.</td></tr>
+        <tr><td>The pitch-up did not rotate the way the model predicted</td><td><strong>Control configuration</strong></td><td>Gain tables and envelope limits were reset at the newly measured edge.</td></tr>
+        <tr><td>A timing spike on the sensor bus</td><td><strong>Onboard runtime</strong></td><td>Kernel scheduling and DMA timing were checked against the recorded traces.</td></tr>
+        <tr><td>The battery ran hotter than modelled and its resistance rose early</td><td><strong>Hardware specification</strong></td><td>The power bus, cell cooling, and wiring were revised.</td></tr>
       </tbody>
     </table>
   </div>
 
-  <h3>High-rate flight instrumentation suite</h3>
-  <div class="tw">
-    <table class="spec">
-      <caption>Telemetry and instrumentation channels</caption>
-      <tbody>
-        <tr><td><strong>Electrical</strong></td><td>Per-channel current draw, bus voltage drop, cell impedance</td></tr>
-        <tr><td><strong>Thermal</strong></td><td>Motor windings, ESC heatsinks, battery cells, compute junction temps</td></tr>
-        <tr><td><strong>Compute</strong></td><td>Microsecond bus latency, execution time histograms, cycle traces</td></tr>
-        <tr><td><strong>Structural</strong></td><td>Multi-axis accelerations, fuselage harmonic frequency response</td></tr>
-        <tr><td><strong>Logging fidelity</strong></td><td>Lossless microsecond black-box logger; every sensor tick preserved</td></tr>
-        <tr><td><strong>Analysis turnaround</strong></td><td>Ingested and replayed against simulation predictions within hours</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <figure>
-    <img src="../assets/slides/apollyon-eng-5.jpg" alt="Flight at the edge, mismatch analysis, and the four systems it upgrades">
-    <figcaption><b>Fig. 04</b> The iteration cadence: instrumented flight at the envelope edge feeds direct updates into physics, control, compute, and hardware.</figcaption>
-  </figure>
-</section>
-
-<section id="architecture">
-  <div class="sec-tag">05 · Direct-actuator policy</div>
-  <h2>High-rate closed-loop neural execution</h2>
-  <p>The deployed flight policy evaluates at approximately <strong>500 Hz</strong> directly within the onboard compute core. The system bypasses intermediate PID stages entirely, mapping current aircraft state, measured dynamics, and target path coordinates straight to individual actuator commands.</p>
-
-  <div class="cards">
-    <div class="card">
-      <div class="kicker">Execution module 01</div>
-      <h3>Direct-actuator neural policy</h3>
-      <p>Computes direct surface deflections and motor throttle targets at 500 Hz. Because the policy was conditioned on non-linear aerodynamics and full actuator saturation inside the simulation backbone, it operates naturally at the mechanical limits of the vehicle without integrator windup.</p>
-      <div class="foot"><span>~500 Hz</span><span>Direct to actuators</span></div>
+  <div class="blueprint-plate">
+    <div class="blueprint-head"><span class="title">Fig. 04</span><span class="scale">fly · compare · update · repeat</span></div>
+    <div class="blueprint-body">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 660" role="img" aria-label="Loop from a test flight near the limits through comparison with simulation to four updates and the next airframe">
+<rect width="1000" height="660" fill="#050505"/>
+<defs>
+<marker id="f4-ink" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#C7C4BD"/></marker>
+</defs>
+<text x="35" y="34" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#F04B4B" font-weight="700" letter-spacing="0.14em">WHAT ONE TEST FLIGHT GIVES BACK</text>
+<text x="35" y="50" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#7F7C76" letter-spacing="0.06em">flown near the limits, recorded in full, reviewed within hours</text>
+<line x1="35" y1="60" x2="965" y2="60" stroke="#2B2B2B" stroke-width="1"/>
+<rect x="340" y="78" width="320" height="62" fill="#0B1119" stroke="#414141" stroke-width="1.2"/>
+<text x="500" y="102" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">FLIGHT NEAR THE LIMITS</text>
+<text x="500" y="120" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">current, heat, timing and vibration recorded</text>
+<rect x="300" y="162" width="400" height="62" fill="#0B1119" stroke="#414141" stroke-width="1.2"/>
+<text x="500" y="186" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">COMPARISON WITH THE SIMULATION</text>
+<text x="500" y="204" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">flight data laid against the prediction, within hours</text>
+<line x1="500" y1="140" x2="500" y2="160" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f4-ink)"/>
+<line x1="500" y1="224" x2="500" y2="244" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f4-ink)"/>
+<line x1="150" y1="244" x2="850" y2="244" stroke="#414141" stroke-width="1.2"/>
+<line x1="150" y1="244" x2="150" y2="262" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f4-ink)"/>
+<line x1="383" y1="244" x2="383" y2="262" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f4-ink)"/>
+<line x1="617" y1="244" x2="617" y2="262" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f4-ink)"/>
+<line x1="850" y1="244" x2="850" y2="262" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f4-ink)"/>
+<rect x="35" y="264" width="230" height="96" fill="#0B1119" stroke="#414141" stroke-width="1"/>
+<text x="150" y="290" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#FFFFFF" text-anchor="middle" font-weight="700">SIMULATOR</text>
+<text x="150" y="308" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">air and motor models</text>
+<text x="150" y="321" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">fixed to match the flight</text>
+<text x="150" y="344" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#F04B4B" text-anchor="middle">→ simulator</text>
+<rect x="268" y="264" width="230" height="96" fill="#0B1119" stroke="#414141" stroke-width="1"/>
+<text x="383" y="290" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#FFFFFF" text-anchor="middle" font-weight="700">CONTROL SETTINGS</text>
+<text x="383" y="308" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">gain tables and limits</text>
+<text x="383" y="321" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">reset at the new edge</text>
+<text x="383" y="344" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#F04B4B" text-anchor="middle">→ control law</text>
+<rect x="502" y="264" width="230" height="96" fill="#0B1119" stroke="#414141" stroke-width="1"/>
+<text x="617" y="290" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#FFFFFF" text-anchor="middle" font-weight="700">ONBOARD SOFTWARE</text>
+<text x="617" y="308" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">scheduling and timing</text>
+<text x="617" y="321" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">checked on the recording</text>
+<text x="617" y="344" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#F04B4B" text-anchor="middle">→ onboard runtime</text>
+<rect x="735" y="264" width="230" height="96" fill="#0B1119" stroke="#414141" stroke-width="1"/>
+<text x="850" y="290" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#FFFFFF" text-anchor="middle" font-weight="700">HARDWARE</text>
+<text x="850" y="308" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">power and cooling fixed</text>
+<text x="850" y="321" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">for the next build</text>
+<text x="850" y="344" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#F04B4B" text-anchor="middle">→ hardware revision</text>
+<line x1="150" y1="360" x2="150" y2="392" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f4-ink)"/>
+<line x1="383" y1="360" x2="383" y2="392" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f4-ink)"/>
+<line x1="617" y1="360" x2="617" y2="392" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f4-ink)"/>
+<line x1="850" y1="360" x2="850" y2="392" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f4-ink)"/>
+<line x1="150" y1="392" x2="850" y2="392" stroke="#414141" stroke-width="1.2"/>
+<line x1="500" y1="392" x2="500" y2="412" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#f4-ink)"/>
+<rect x="300" y="414" width="400" height="62" fill="#161616" stroke="#414141" stroke-width="1.2"/>
+<text x="500" y="438" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">THE NEXT AIRFRAME</text>
+<text x="500" y="456" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#A19E97" text-anchor="middle">starts from the updated base</text>
+<path d="M300,445 H20 V109 H338" fill="none" stroke="#7F7C76" stroke-width="1.1" marker-end="url(#f4-ink)"/>
+<text x="20" y="494" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8" fill="#7F7C76">one round trip takes days</text>
+<line x1="35" y1="508" x2="965" y2="508" stroke="#2B2B2B" stroke-width="1"/>
+<text x="35" y="530" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#F04B4B" font-weight="700" letter-spacing="0.1em">WHAT ONE FLIGHT OFTEN SHOWS</text>
+<rect x="35" y="540" width="10" height="10" fill="#414141"/>
+<text x="52" y="549" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#A19E97">a motor slower than expected → simulator</text>
+<rect x="35" y="558" width="10" height="10" fill="#414141"/>
+<text x="52" y="567" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#A19E97">a turn missing the command → control settings</text>
+<rect x="35" y="576" width="10" height="10" fill="#414141"/>
+<text x="52" y="585" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#A19E97">a timing spike on the bus → onboard software</text>
+<rect x="35" y="594" width="10" height="10" fill="#414141"/>
+<text x="52" y="603" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#A19E97">a battery hotter than modelled → hardware</text>
+<text x="560" y="530" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#F04B4B" font-weight="700" letter-spacing="0.1em">WHY EACH ROUND GETS CHEAPER</text>
+<text x="560" y="550" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#A19E97">The rigs and pipelines are built once. Each</text>
+<text x="560" y="564" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#A19E97">later round costs less and returns more.</text>
+<line x1="560" y1="578" x2="560" y2="624" stroke="#2B2B2B" stroke-width="1"/>
+<line x1="560" y1="624" x2="940" y2="624" stroke="#2B2B2B" stroke-width="1"/>
+<polyline points="560,620 640,610 720,600 800,594 870,590 940,588" fill="none" stroke="#C7C4BD" stroke-width="1.6"/>
+<rect x="556" y="616" width="8" height="8" fill="#C7C4BD"/>
+<rect x="636" y="606" width="8" height="8" fill="#C7C4BD"/>
+<rect x="716" y="596" width="8" height="8" fill="#C7C4BD"/>
+<rect x="796" y="590" width="8" height="8" fill="#C7C4BD"/>
+<rect x="866" y="586" width="8" height="8" fill="#C7C4BD"/>
+<rect x="936" y="584" width="8" height="8" fill="#C7C4BD"/>
+<text x="560" y="572" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#7F7C76">shared base kept by the company</text>
+<text x="560" y="640" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#7F7C76">flight rounds →</text>
+</svg>
     </div>
-    <div class="card">
-      <div class="kicker">Execution module 02</div>
-      <h3>High-rate adaptive state representation</h3>
-      <p>A fast online diagnostic representation continually analyzes recent flight history to infer changing flight conditions—including crosswinds, air density variations, asymmetric battle damage, or structural payload shifts—supplying instant contextual conditioning to the primary policy.</p>
-      <div class="foot"><span>Real-time</span><span>Contextual adaptation</span></div>
-    </div>
+    <div class="blueprint-cap"><b>Fig. 04</b> One flight near the limits updates four places at once: the simulator, the control settings, the onboard software and the hardware. The next airframe starts from that updated base.</div>
   </div>
-
-  <p>The resulting controller demonstrates exceptional robustness against unmodeled turbulence, abrupt changes in control effectiveness, and extreme dynamic pressure shifts, maintaining trajectory adherence throughout the terminal engagement.</p>
 </section>
 
 <section id="generalisation">
-  <div class="sec-tag">06 · Fleet generalisation</div>
-  <h2>Cross-platform deployment &amp; compounding velocity</h2>
-  <p>While the specific policy weights are optimized for each individual vehicle geometry, the identification methodology, the high-fidelity physics core, and the simulation-to-real pipeline are completely shared. When developing a new platform, engineering teams do not write new flight control logic from scratch; they execute a parameterized training campaign within the proven pipeline.</p>
+  <div class="sec-tag">05 · Across airframes</div>
+  <h2>One method, many airframes</h2>
+  <p>Each airframe needs its own control settings, worked out in its own flight tests. What carries over is the method: how flights are instrumented, how the simulation is corrected, and how settings are cleared for flight. A new platform goes through the same pipeline instead of starting from nothing.</p>
 
   <div class="tw">
     <table>
-      <caption>Cross-platform control deployment</caption>
-      <thead><tr><th>Platform</th><th>Speed regime</th><th>Primary control challenge</th><th>Execution rate</th></tr></thead>
+      <caption>How each platform uses it</caption>
+      <thead><tr><th>Platform</th><th>Speed</th><th>Hardest control problem</th><th>Controller</th></tr></thead>
       <tbody>
-        <tr><td><a href="../products/ahuti.html">Ahuti Interceptor</a></td><td>498 km/h (cert.)</td><td>Tail-sitter vertical launch transition and high-speed terminal collision homing.</td><td>500 Hz direct actuator</td></tr>
-        <tr><td><a href="../products/nightshade-adx1.html">Nightshade ADX-1</a></td><td>700 km/h</td><td>Turbojet loiter-to-dash transition and steep high-speed terminal dive guidance.</td><td>400 Hz elevon / throttle</td></tr>
-        <tr><td><a href="../products/hemlock.html">Hemlock family</a></td><td>Mach 0.7–0.8</td><td>Trans-subsonic high dynamic pressure sea-skimming and steep terminal dive onto fortified targets.</td><td>500 Hz fin actuation</td></tr>
-        <tr><td><a href="../products/usv-strike.html">Piranha USV</a></td><td>48+ knots</td><td>Rough sea-state hydrodynamic stability, wave-slamming mitigation, and dynamic waterjet trim.</td><td>100 Hz hydraulic trim</td></tr>
+        <tr><td><a href="../products/ahuti.html">Ahuti Interceptor</a></td><td>498 km/h <br>(350km/h operational)</td><td>Switching from vertical launch to fast forward flight, then steering into the intercept.</td><td>Own rotorcraft controller · same method</td></tr>
+        <tr><td><a href="../products/nightshade-adx1.html">Nightshade ADX-1</a></td><td>700 km/h</td><td>Moving from slow loiter to a fast dash, then holding a steep high-speed dive.</td><td>Veronte 1x · strike package</td></tr>
+        <tr><td><a href="../products/hemlock.html">Hemlock</a></td><td>Mach 0.7–0.8</td><td>Low flight over the sea at high subsonic speed, then a steep dive onto the target.</td><td>Own implementation · same method</td></tr>
+        <tr><td><a href="../products/usv-strike.html">Piranha USV</a></td><td>48+ knots</td><td>Staying steady in rough seas, riding out wave impacts, and trimming the waterjets as conditions change.</td><td>Own marine controller · same method</td></tr>
       </tbody>
     </table>
   </div>
-
-  <figure>
-    <img src="../assets/slides/near-envelope-3.jpg" alt="Data flywheel from instrumented flight to validated control policy">
-    <figcaption><b>Fig. 05</b> The hardware data flywheel: dense instrumented flight data reinforces the physics core, accelerating development for subsequent airframe programs.</figcaption>
-  </figure>
 </section>
 
 <section id="usedby">
-  <div class="sec-tag">07 · Used by</div>
-  <h2>Platforms carrying this subsystem</h2>
+  <div class="sec-tag">06 · Used by</div>
+  <h2>Platforms that use this subsystem</h2>
   <div class="xref">
     <div class="t">Integrated into</div>
     <div class="items">
-      <a href="../products/ahuti.html">Ahuti Interceptor — primary consumer, high-speed interception</a>
+      <a href="../products/ahuti.html">Ahuti Interceptor — high-speed interception (main user)</a>
       <a href="../products/nightshade-adx1.html">Nightshade ADX-1 — terminal dive and loiter stability</a>
-      <a href="../products/hemlock.html">Hemlock family — high-subsonic Mach 0.8 cruise and terminal dive</a>
+      <a href="../products/hemlock.html">Hemlock — high-subsonic Mach 0.8 cruise and terminal dive</a>
       <a href="../products/usv-strike.html">Piranha USV — sea-state hydrodynamic surface control</a>
     </div>
   </div>
-  <p>Depends on: <a href="onboard-compute.html">Edge Compute &amp; Custom Inference Engine</a>, <a href="flight-software.html">Flight Software Stack</a>.</p>
+  <p>Depends on: <a href="onboard-compute.html">Edge Compute &amp; Mission Perception</a>, <a href="flight-software.html">Flight Software Stack</a>.</p>
 </section>
 
 <footer>
