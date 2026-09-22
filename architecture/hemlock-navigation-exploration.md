@@ -1,4 +1,4 @@
-# Hemlock Mk II Navigation & Terrain-Following Exploration
+# Hemlock Navigation & Terrain-Following Exploration
 **Working Architecture Document · Apollyon Dynamics Engineering Wiki**
 *Status: Engineering Discussion & Architectural Exploration Draft (Rev 1.0)*
 
@@ -6,14 +6,14 @@
 
 ## 1. Executive Context & The High-Subsonic Problem Statement
 
-The **Hemlock Mk II** represents Apollyon Dynamics' long-range strategic strike effector:
+The **Hemlock** represents Apollyon Dynamics' long-range strategic strike effector:
 - **Envelope:** 1,000–1,500 km operational range, high-subsonic cruise (900 km/h / Mach 0.73–0.75), 1,000 kg warhead class.
 - **Flight Profile:** Low-altitude terrain-hugging ingress below radar horizons through multi-tiered Integrated Air Defence Systems (IADS) along contested Himalayan frontiers and littoral corridors.
 - **Threat Environment:** Comprehensive electronic warfare, wide-area GNSS denial (pseudorange spoofing, high-power barrage and sweep jamming), and dense passive Electronic Support Measures (ESM) tracking RF emissions.
 
 Achieving sub-3-metre terminal precision over a 1,500 km flight envelope under total electromagnetic contestation requires re-evaluating traditional cruise missile guidance paradigms. Historical solutions (e.g., Tomahawk, Storm Shadow, Kalibr) rely on exquisite, export-restricted hardware architectures developed in the 1980s–1990s. 
 
-This document explores and details four foundational pillars of the Hemlock Mk II navigation architecture:
+This document explores and details four foundational pillars of the Hemlock navigation architecture:
 1. **Terrain-Following & Contour Matching:** Why modern edge-computed correlation against public/commercial DEMs is vastly cheaper and less detectable than legacy TERCOM.
 2. **Deep Scene Matching:** Moving from fragile pixel-level cross-correlation (classical DSMAC) to invariant topological semantic embeddings.
 3. **Controlled Reception Pattern Array (CRPA):** The indispensable hardware-level bulwark against multi-axis GNSS denial.
@@ -31,11 +31,11 @@ Classical TERCOM (Terrain Contour Matching), pioneered on the BGM-109 Tomahawk a
 3. **Active Emission Signatures:** Traditional radar altimeters emit continuous RF energy directly beneath and ahead of the missile. Ground-based or airborne ESM (Electronic Support Measures) systems readily intercept these emissions, triangulating the missile's approach axis long before visual acquisition.
 4. **Mapping Dependency:** Sourcing classified high-resolution elevation matrices across foreign sovereign territory historically required dedicated orbital reconnaissance assets and national-level mapping agencies.
 
-### 2.2 The Hemlock Mk II Approach: Edge-Compute Terrain Correlation
+### 2.2 The Hemlock Approach: Edge-Compute Terrain Correlation
 
-Hemlock Mk II inverts this economics by taking advantage of contemporary automotive sensor industrialisation, open/commercial planetary elevation models, and high-density edge neural compute:
+Hemlock inverts this economics by taking advantage of contemporary automotive sensor industrialisation, open/commercial planetary elevation models, and high-density edge neural compute:
 
-| Metric / Attribute | Legacy TERCOM (1980s–2000s) | Hemlock Mk II Approach |
+| Metric / Attribute | Legacy TERCOM (1980s–2000s) | Hemlock Approach |
 | :--- | :--- | :--- |
 | **Altimetry Hardware** | Custom militarised C-band radar altimeter ($100k+) | Automotive-class solid-state micro-radar (<₹3–5 lakh) |
 | **Mapping Pipeline** | Classified military DTED Level 3/4 via national agencies | Processed global elevation sets (Copernicus, Cartosat, SRTM GL1) |
@@ -47,7 +47,7 @@ Hemlock Mk II inverts this economics by taking advantage of contemporary automot
 ### 2.3 Algorithmic Mechanics: Low-Duty-Cycle Matrix Correlation
 
 Rather than continuously firing RF altimeter pulses:
-1. **Inertial-Barometric Dead-Reckoning:** Hemlock Mk II flies primarily on a tightly coupled baro-inertial channel. Altitude above sea level is tracked through static pressure fused with the inertial vertical state.
+1. **Inertial-Barometric Dead-Reckoning:** Hemlock flies primarily on a tightly coupled baro-inertial channel. Altitude above sea level is tracked through static pressure fused with the inertial vertical state.
 2. **Terrain Gate Triggers:** Flight mission planning identifies high-gradient terrain features ("navigational gates" such as distinct ridgelines, steep river valleys, or escarpments) along the ingress route.
 3. **Short Sampling Windows:** Upon arriving at an expected gate window, the altimeter samples ground clearance briefly before returning to electromagnetic silence.
 4. **Bayesian Elevation Profile Matching:** The sampled elevation profile is compared against pre-cached gradient strips from the DEM. A sequential estimator computes the position correction, collapsing the inertial uncertainty ellipse.
@@ -68,7 +68,7 @@ In operational practice across the subcontinent, this breaks down under predicta
 
 ### 3.2 Deep Topological Feature Embeddings
 
-Hemlock Mk II replaces raw pixel intensity matching with **deep structural representations** pre-trained on multi-spectral satellite imagery:
+Hemlock replaces raw pixel intensity matching with **deep structural representations** pre-trained on multi-spectral satellite imagery:
 
 ```
 [ Commercial Satellite Imagery ] ──> [ Contrastive Structural Encoder ] ──> [ Compact Vector Hash (Latent Map) ]
@@ -171,7 +171,7 @@ Instead, the architecture couples:
 
 ## 6. Synthesis: The Hemlock Navigation Stack
 
-The integrated navigation architecture for Hemlock Mk II forms a resilient, tiered defense against complete A2/AD denial:
+The integrated navigation architecture for Hemlock forms a resilient, tiered defense against complete A2/AD denial:
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────────────┐

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Edge Compute &amp; Custom Inference Engine — Apollyon Dynamics Wiki</title>
-<meta name="description" content="Apollyon Dynamics engineering wiki — autonomous strike, interception and battlefield-intelligence systems, with the shared architecture they are built from.">
+<title>Edge Compute &amp; Mission Perception — Apollyon Dynamics Wiki</title>
+<meta name="description" content="Apollyon Dynamics engineering wiki — mission and perception compute that runs alongside the proprietary flight-critical autopilot, feeding it scene matches, tracks and routes.">
 <link rel="icon" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,26 +34,23 @@
   <h4>On this page</h4>
   <ul>
     <li><a href="#framing">Latency as distance</a></li>
-    <li><a href="#why-custom">Limits of generic runtimes</a></li>
-    <li><a href="#engine">Proprietary inference core</a></li>
+    <li><a href="#why-custom">Two compute domains</a></li>
+    <li><a href="#engine">What the domain carries</a></li>
     <li><a href="#design-rules">Worst-case engineering</a></li>
     <li><a href="#workloads">Fleet workloads</a></li>
     <li><a href="#usedby">Used by</a></li>
   </ul>
+  <nav class="atlas" aria-label="Wiki map">
+    <h4>Wiki map</h4>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232 650"><line class="spine" x1="16" y1="52" x2="16" y2="488"/><line class="spine" x1="16" y1="488" x2="16" y2="642"/><a href="../index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="10" width="220" height="42"/><text class="hub-t" x="18" y="27">INDEX</text><text class="hub-s" x="18" y="40">the argument · every path starts here</text><text class="hub-n" x="216" y="27" text-anchor="end">01</text></a><line class="spine" x1="16" y1="69" x2="28" y2="69"/><text class="cl" x="30" y="72">PRODUCTS</text><line class="rule" x1="30" y1="77" x2="222" y2="77"/><a href="../products/nightshade-adx1.html" class="atlas-node"><rect class="mk" x="30" y="84.5" width="5" height="5"/><text class="lb" x="41" y="92.5">Nightshade family</text></a><a href="../products/hemlock.html" class="atlas-node"><rect class="mk" x="30" y="101.5" width="5" height="5"/><text class="lb" x="41" y="109.5">Hemlock</text></a><a href="../products/ahuti.html" class="atlas-node"><rect class="mk" x="30" y="118.5" width="5" height="5"/><text class="lb" x="41" y="126.5">Ahuti interceptor</text></a><a href="../products/usv-strike.html" class="atlas-node"><rect class="mk" x="30" y="135.5" width="5" height="5"/><text class="lb" x="41" y="143.5">Piranha USV</text></a><text class="bridge" x="41" y="159">each machine configures the core ↓</text><line class="spine" x1="16" y1="180" x2="28" y2="180"/><text class="cl" x="30" y="183">STRATEGY</text><line class="rule" x1="30" y1="188" x2="222" y2="188"/><a href="../strategy/trajectory.html" class="atlas-node"><rect class="mk" x="30" y="195.5" width="5" height="5"/><text class="lb" x="41" y="203.5">Trajectory &amp; cost per kg·km</text></a><a href="../strategy/competitive.html" class="atlas-node"><rect class="mk" x="30" y="212.5" width="5" height="5"/><text class="lb" x="41" y="220.5">The competitive field</text></a><a href="../strategy/supply-chain.html" class="atlas-node"><rect class="mk" x="30" y="229.5" width="5" height="5"/><text class="lb" x="41" y="237.5">Supply chain</text></a><line class="spine" x1="16" y1="258" x2="28" y2="258"/><text class="cl" x="30" y="261">DOCTRINE</text><line class="rule" x1="30" y1="266" x2="222" y2="266"/><a href="../doctrine/new-arsenal.html" class="atlas-node"><rect class="mk" x="30" y="273.5" width="5" height="5"/><text class="lb" x="41" y="281.5">The New Arsenal</text></a><a href="../doctrine/precision-is-mercy.html" class="atlas-node"><rect class="mk" x="30" y="290.5" width="5" height="5"/><text class="lb" x="41" y="298.5">Precision is Mercy</text></a><a href="../doctrine/missing-middle.html" class="atlas-node"><rect class="mk" x="30" y="307.5" width="5" height="5"/><text class="lb" x="41" y="315.5">The missing middle</text></a><a href="../doctrine/strike-design-space.html" class="atlas-node"><rect class="mk" x="30" y="324.5" width="5" height="5"/><text class="lb" x="41" y="332.5">Strike design space</text></a><line class="spine" x1="16" y1="353" x2="28" y2="353"/><text class="cl" x="30" y="356">RECORD</text><line class="rule" x1="30" y1="361" x2="222" y2="361"/><a href="../about/history.html" class="atlas-node"><rect class="mk" x="30" y="368.5" width="5" height="5"/><text class="lb" x="41" y="376.5">Company history</text></a><a href="../about/team.html" class="atlas-node"><rect class="mk" x="30" y="385.5" width="5" height="5"/><text class="lb" x="41" y="393.5">Team &amp; advisors</text></a><a href="../strategic-dependency/full-record.html" class="atlas-node"><rect class="mk" x="30" y="402.5" width="5" height="5"/><text class="lb" x="41" y="410.5">The full record · 70 episodes</text></a><a href="../architecture/index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="440" width="220" height="42"/><text class="hub-t" x="18" y="457">ARCHITECTURE</text><text class="hub-s" x="18" y="470">the core · method, machine, loop</text><text class="hub-n" x="216" y="457" text-anchor="end">02</text></a><line class="spine" x1="16" y1="499" x2="28" y2="499"/><text class="cl on" x="30" y="502">SUBSYSTEMS</text><line class="rule" x1="30" y1="507" x2="222" y2="507"/><a href="../subsystems/near-envelope-control.html" class="atlas-node"><rect class="mk" x="30" y="514.5" width="5" height="5"/><text class="lb" x="41" y="522.5">Robust flight control</text></a><a href="../subsystems/gnss-denied-navigation.html" class="atlas-node"><rect class="mk" x="30" y="531.5" width="5" height="5"/><text class="lb" x="41" y="539.5">GNSS-denied navigation</text></a><a href="../subsystems/onboard-compute.html" class="atlas-node here"><rect class="mk" x="30" y="548.5" width="5" height="5"/><text class="lb" x="41" y="556.5">Edge compute</text></a><a href="../subsystems/flight-software.html" class="atlas-node"><rect class="mk" x="30" y="565.5" width="5" height="5"/><text class="lb" x="41" y="573.5">Flight software</text></a><a href="../subsystems/seekers.html" class="atlas-node"><rect class="mk" x="30" y="582.5" width="5" height="5"/><text class="lb" x="41" y="590.5">Seekers</text></a><a href="../subsystems/airframe-structures.html" class="atlas-node"><rect class="mk" x="30" y="599.5" width="5" height="5"/><text class="lb" x="41" y="607.5">Airframe &amp; structures</text></a><a href="../subsystems/launch-systems.html" class="atlas-node"><rect class="mk" x="30" y="616.5" width="5" height="5"/><text class="lb" x="41" y="624.5">Launch &amp; ground</text></a></svg>
+  </nav>
+  <div class="groups">
   <h4>Products</h4>
   <ul>
     <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
-    <li><a href="../products/hemlock.html">Hemlock family</a></li>
+    <li><a href="../products/hemlock.html">Hemlock</a></li>
     <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
     <li><a href="../products/usv-strike.html">Piranha USV</a></li>
-    <li><a href="../products/hacm-350.html">HACM-350</a></li>
-  </ul>
-  <h4>Supporting systems</h4>
-  <ul>
-    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
-    <li><a href="../products/mdcc.html">Mobile command centre</a></li>
-    <li><a href="../products/mobile-drone-lab.html">Mobile drone lab</a></li>
-    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
   <h4>Strategy</h4>
   <ul>
@@ -66,10 +63,9 @@
     <li><a href="../architecture/index.html">The shared core</a></li>
     <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
     <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
-    <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
+    <li><a href="../subsystems/onboard-compute.html" class="here">Edge compute</a></li>
     <li><a href="../subsystems/flight-software.html">Flight software</a></li>
     <li><a href="../subsystems/seekers.html">Seekers</a></li>
-    <li><a href="../subsystems/propulsion.html">Propulsion</a></li>
     <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
     <li><a href="../subsystems/launch-systems.html">Launch &amp; ground</a></li>
   </ul>
@@ -86,134 +82,139 @@
     <li><a href="../about/team.html">Team &amp; advisors</a></li>
     <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
   </ul>
+  </div>
 </aside>
 
 <main class="main">
 
-<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../architecture/index.html#subsystems">Subsystems</a><span>/</span>Compute / Edge Compute &amp; Custom Inference</div>
+<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../architecture/index.html#subsystems">Subsystems</a><span>/</span>Compute / Edge Compute &amp; Mission Perception</div>
 <header class="masthead">
     <div class="mast-brand-lockup">
     <img src="../assets/logos/logo-ad-white.png" alt="Apollyon Dynamics Mark" class="brand-mark">
     <div class="brand-sep"></div>
     <img src="../assets/logos/logo-text-white.png" alt="Apollyon Dynamics" class="brand-text">
   </div>
-  <div class="mast-meta">Compute · hardware-software co-design &amp; custom inference runtime <span>· core subsystem</span></div>
-  <h1>Edge Compute &amp; <span class="sub">Custom Inference Engine</span></h1>
-  <p class="standfirst">At 100 to 270 metres per second, latency translates directly into flight distance committed on stale sensor data. This subsystem provides sub-millisecond execution through hardware-software co-design: isolated CPU cores, custom fused inference kernels, zero-copy direct memory access, and an embedded runtime built for tight power envelopes.</p>
+  <div class="mast-meta">Compute · mission and perception applications on a second compute domain <span>· core subsystem</span></div>
+  <h1>Edge Compute &amp; <span class="sub">Mission Perception</span></h1>
+  <p class="standfirst">The flight-critical loop runs on the autopilot. Everything the aircraft needs to understand the world — terrain matching, target tracking, route generation — runs on a second computer alongside it. This subsystem is that computer and the software on it. It feeds the autopilot; it never replaces it.</p>
 </header>
+
+<div class="note">
+  <div class="t">Scope: mission and perception, not the flight-critical loop</div>
+  <p>The flight-critical guidance, navigation and control loop runs on the proprietary <a href="flight-software.html">Veronte Autopilot 1x</a> at its own fixed rate. This subsystem is the second compute domain: the mission and perception workloads that feed the core — scene matching, target tracking, route generation — and never replace it.</p>
+</div>
 
 <section id="framing">
   <div class="sec-tag">01 · Physical framing</div>
-  <h2>Translating milliseconds into metres of unguided flight</h2>
-  <p class="lede">In high-speed autonomous systems, computation latency acts as physical position uncertainty. Generic operating systems and frameworks waste milliseconds on user-to-kernel context switches, dynamic memory allocations, and thread scheduling jitter.</p>
+  <h2>Latency is a distance, not a benchmark</h2>
+  <p class="lede">At 100 to 270 metres per second, every millisecond a computer spends thinking moves the aircraft forward. A late answer is an old answer, and an old answer points at where the target used to be.</p>
 
   <div class="stats">
-    <div class="stat"><div class="n">1.9 m</div><div class="d">Distance flown per cycle on a conventional stack (100 m/s with jitter)</div></div>
-    <div class="stat"><div class="n accent">0.25 m</div><div class="d">Distance flown per cycle on Apollyon's co-designed execution core</div></div>
-    <div class="stat"><div class="n">~7.6×</div><div class="d">Reduction in committed distance per control evaluation</div></div>
-    <div class="stat"><div class="n">&lt; 1 ms</div><div class="d">Deterministic execution boundary across flight-critical loops</div></div>
+    <div class="stat"><div class="n">4.05 m</div><div class="d">Distance covered during a 15 ms delay at Mach 0.8</div></div>
+    <div class="stat"><div class="n accent">4.5&ndash;13.5 m</div><div class="d">Distance between perception updates at 60 to 20 Hz</div></div>
+    <div class="stat"><div class="n">20&ndash;60 Hz</div><div class="d">Perception update rates across the fleet</div></div>
   </div>
 
-  <p>At Mach 0.8 (270 m/s), compute delays carry steep consequences: a 15-millisecond pipeline latency represents <strong>4.05 metres of unguided flight</strong>. Reducing software overhead preserves control authority, giving fin actuators and thrusters more time to correct trajectory deviations before terminal intercept.</p>
+  <p>The autopilot does not stop flying while perception works. It holds the aircraft on its own estimate and takes each fix, track or waypoint when it arrives. That is why this path is engineered for a worst case and not an average: a late update costs accuracy, and only accuracy.</p>
 
   <div class="blueprint-plate">
-    <div class="blueprint-head"><span class="title">Fig. 01 · Control Cycle Timing</span><span class="scale">worst case, not average</span></div>
+    <div class="blueprint-head"><span class="title">Fig. 01 · Perception Update Rates</span><span class="scale">distance, not milliseconds</span></div>
     <div class="blueprint-body">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" role="img" aria-label="Distance flown while one control cycle runs: a conventional stack against the Apollyon stack"><text x="190.0" y="34.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" letter-spacing="0.12em">DISTANCE FLOWN WHILE ONE CONTROL CYCLE RUNS</text><line x1="190.0" y1="52.0" x2="190.0" y2="342.0" stroke="#1D1D1D" stroke-width="1"/><text x="190.0" y="364.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">0.0 m</text><line x1="377.5" y1="52.0" x2="377.5" y2="342.0" stroke="#1D1D1D" stroke-width="1"/><text x="377.5" y="364.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">0.5 m</text><line x1="565.0" y1="52.0" x2="565.0" y2="342.0" stroke="#1D1D1D" stroke-width="1"/><text x="565.0" y="364.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">1.0 m</text><line x1="752.5" y1="52.0" x2="752.5" y2="342.0" stroke="#1D1D1D" stroke-width="1"/><text x="752.5" y="364.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">1.5 m</text><line x1="940.0" y1="52.0" x2="940.0" y2="342.0" stroke="#1D1D1D" stroke-width="1"/><text x="940.0" y="364.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">2.0 m</text><text x="180.0" y="96.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#A19E97" text-anchor="end" font-weight="700">A CONVENTIONAL STACK</text><rect x="190.0" y="76.0" width="180.0" height="44.0" fill="#161616" stroke="#2B2B2B" stroke-width="1"/><rect x="370.0" y="76.0" width="142.5" height="44.0" fill="#1E1E1E" stroke="#2B2B2B" stroke-width="1"/><rect x="512.5" y="76.0" width="180.0" height="44.0" fill="#282828" stroke="#2B2B2B" stroke-width="1"/><rect x="692.5" y="76.0" width="97.5" height="44.0" fill="#333333" stroke="#2B2B2B" stroke-width="1"/><rect x="790.0" y="76.0" width="112.5" height="44.0" fill="none" stroke="#3A1212" stroke-width="1" stroke-dasharray="4 3"/><text x="280.0" y="140.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">copies through user space</text><text x="441.2" y="140.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">runtime overhead</text><text x="602.5" y="140.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">inference</text><text x="741.2" y="140.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">actuate</text><text x="846.2" y="140.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#F04B4B" text-anchor="middle">jitter — the cycle</text><text x="846.2" y="154.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#F04B4B" text-anchor="middle">that misses</text><text x="896.5" y="68.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#F04B4B" text-anchor="end" font-weight="700">1.9 m of flight</text><text x="180.0" y="240.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#F2EFE9" text-anchor="end" font-weight="700">OURS</text><rect x="190.0" y="220.0" width="93.8" height="44.0" fill="#3A1212" stroke="#F2EFE9" stroke-width="1"/><text x="236.9" y="292.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#F2EFE9" text-anchor="middle" font-weight="700">0.25 m</text><rect x="287.8" y="220.0" width="652.2" height="44.0" fill="none" stroke="#2B2B2B" stroke-width="1" stroke-dasharray="4 4"/><text x="303.8" y="238.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="11.0" fill="#A19E97">everything after this point is margin — time to react rather than time to compute</text><line x1="60.0" y1="400.0" x2="960.0" y2="400.0" stroke="#2B2B2B" stroke-width="1"/><rect x="60.0" y="409.0" width="8.0" height="8.0" fill="#3A1212" stroke="#D92323" stroke-width="1"/><text x="76.0" y="420.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#C7C4BD" font-weight="700">FUSED KERNELS</text><text x="76.0" y="438.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76">no allocation, no launch overhead</text><rect x="366.0" y="409.0" width="8.0" height="8.0" fill="#3A1212" stroke="#D92323" stroke-width="1"/><text x="382.0" y="420.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#C7C4BD" font-weight="700">REAL-TIME KERNEL</text><text x="382.0" y="438.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76">isolated cores, hard real-time cycle</text><rect x="672.0" y="409.0" width="8.0" height="8.0" fill="#3A1212" stroke="#D92323" stroke-width="1"/><text x="688.0" y="420.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#C7C4BD" font-weight="700">ZERO-COPY PATH</text><text x="688.0" y="438.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76">sensors write straight into GPU memory</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" role="img" aria-label="Distance travelled between perception updates at 20, 30 and 60 hertz on a vehicle flying at Mach 0.8"><text x="60.0" y="34.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" letter-spacing="0.12em">DISTANCE TRAVELLED BETWEEN PERCEPTION UPDATES</text><text x="60.0" y="54.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#A19E97" letter-spacing="0.08em">AT MACH 0.8 · 270 M/S</text><line x1="320.0" y1="80.0" x2="320.0" y2="340.0" stroke="#1D1D1D" stroke-width="1"/><text x="320.0" y="362.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">0 m</text><line x1="534.8" y1="80.0" x2="534.8" y2="340.0" stroke="#1D1D1D" stroke-width="1"/><text x="534.8" y="362.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">5 m</text><line x1="749.6" y1="80.0" x2="749.6" y2="340.0" stroke="#1D1D1D" stroke-width="1"/><text x="749.6" y="362.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">10 m</text><line x1="900.0" y1="80.0" x2="900.0" y2="340.0" stroke="#1D1D1D" stroke-width="1"/><text x="900.0" y="362.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">13.5 m</text><text x="302.0" y="137.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#A19E97" text-anchor="end" font-weight="700">20 HZ · TERRAIN MATCHING</text><rect x="320.0" y="104.0" width="580.0" height="56.0" fill="#3A1212" stroke="#D92323" stroke-width="1"/><text x="912.0" y="138.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#F2EFE9" font-weight="700">13.5 m</text><text x="302.0" y="215.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#A19E97" text-anchor="end" font-weight="700">30 HZ · EO/IR DETECTION</text><rect x="320.0" y="182.0" width="386.7" height="56.0" fill="#3A1212" stroke="#D92323" stroke-width="1"/><text x="718.7" y="216.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#F2EFE9" font-weight="700">9.0 m</text><text x="302.0" y="293.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#A19E97" text-anchor="end" font-weight="700">60 HZ · TERMINAL TRACKING</text><rect x="320.0" y="260.0" width="193.3" height="56.0" fill="#3A1212" stroke="#D92323" stroke-width="1"/><text x="525.3" y="294.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#F2EFE9" font-weight="700">4.5 m</text><line x1="60.0" y1="400.0" x2="960.0" y2="400.0" stroke="#2B2B2B" stroke-width="1"/><text x="60.0" y="424.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="10.0" fill="#A19E97">The flight-critical loop runs on its own schedule and never waits for these updates.</text><text x="60.0" y="442.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="10.0" fill="#7F7C76">Perception feeds it; in between, the core keeps flying on its own estimate.</text></svg>
 </div>
-    <div class="blueprint-cap"><b>Fig. 01</b> Distance flown while one control cycle runs. The conventional stack spends 1.9 m in copies through user space, runtime overhead, inference, actuate and jitter; Apollyon's execution path completes within 0.25 m, converting saved compute time into reaction margin.</div>
+    <div class="blueprint-cap"><b>Fig. 01</b> Distance covered between perception updates at three rates, at Mach 0.8. The flight-critical loop runs on its own schedule and never waits for these updates; in between, it flies on its own estimate.</div>
   </div>
 </section>
 
 <section id="why-custom">
-  <div class="sec-tag">02 · The limit of generic runtimes</div>
-  <h2>Why off-the-shelf deep learning frameworks fail in flight</h2>
-  <p>Standard inference runtimes—including TensorRT, ONNX Runtime, and PyTorch Mobile—are designed for enterprise servers, cloud clusters, and mobile phones. They maximize batch throughput and model operator coverage rather than hard real-time determinism. Inside a high-subsonic weapon, dynamic runtime behaviors cause unacceptable latency spikes:</p>
+  <div class="sec-tag">02 · Two compute domains</div>
+  <h2>One computer flies the aircraft. The other reads the world.</h2>
+  <p class="lede">The split is deliberate. The autopilot baseline owns everything that keeps the aircraft in the air; the mission computer owns everything that tells it where to go and what is there.</p>
 
   <div class="tw">
     <table>
-      <caption>Generic runtimes versus Apollyon custom inference engine</caption>
-      <thead><tr><th>System attribute</th><th>Generic runtime (TensorRT / ONNX)</th><th>Apollyon custom inference engine</th></tr></thead>
+      <caption>What runs where</caption>
+      <thead><tr><th>Domain</th><th>Owner</th><th>What it carries</th></tr></thead>
       <tbody>
-        <tr><td><strong>Memory management</strong></td><td>Dynamic heap allocation (<code>malloc</code>/<code>free</code>); risks heap fragmentation and page faults.</td><td><strong>Static allocation</strong>; tensor buffers are pre-allocated and pinned before flight.</td></tr>
-        <tr><td><strong>Kernel launch overhead</strong></td><td>Generic driver queueing; separate launches for activations, normalization, and bias.</td><td><strong>Fused acceleration kernels</strong>; single-kernel unrolled execution per neural block.</td></tr>
-        <tr><td><strong>Operating system scheduling</strong></td><td>Cooperative multithreading subject to OS context switches and thread interrupts.</td><td><strong>Deterministic core isolation</strong>; dedicated real-time cores running with fixed cycle bounds.</td></tr>
-        <tr><td><strong>Sensor-to-memory transfer</strong></td><td>Camera/IMU data copies through OS kernel space into host RAM, then to GPU VRAM.</td><td><strong>Zero-copy direct DMA</strong>; sensors write directly into unified GPU address space.</td></tr>
-        <tr><td><strong>Latency profile</strong></td><td>Low average latency, but high tail jitter (99.9th percentile exceeds 25 ms).</td><td><strong>Bounded tail latency</strong>; worst-case execution time is budgeted and verified, not observed.</td></tr>
+        <tr><td><strong>Flight-critical core</strong></td><td>Embention Veronte</td><td>State estimation, guidance modes, control execution, actuation and a deterministic schedule.</td></tr>
+        <tr><td><strong>Mission &amp; perception</strong></td><td class="red">Apollyon</td><td>Terrain and scene matching, target detection and tracking, route generation.</td></tr>
+        <tr><td><strong>Interface</strong></td><td>Narrow by design</td><td>Navigation fixes, track coordinates and waypoints. The core never waits on this path.</td></tr>
       </tbody>
     </table>
   </div>
+
+  <p>Keeping perception off the flight-critical core buys two things. A fault in perception cannot destabilise the aircraft, and a change to a perception model does not touch the flight-control loop.</p>
 </section>
 
 <section id="engine">
-  <div class="sec-tag">03 · Architectural mechanism</div>
-  <h2>The proprietary Apollyon execution core</h2>
-  <p class="lede">Apollyon deploys an in-house inference runtime designed alongside the onboard silicon. Three design choices ensure deterministic sub-millisecond execution:</p>
+  <div class="sec-tag">03 · What the domain carries</div>
+  <h2>Know where you are, know what you see, know where to go</h2>
+  <p class="lede">The mission computer carries three families of workload.</p>
 
   <div class="cards">
     <div class="card">
-      <div class="kicker">Innovation 01</div>
-      <h3>Hand-tuned fused acceleration kernels</h3>
-      <p>Every guidance and perception model compiles into bespoke fused kernels. Operations execute in unified passes without dynamic memory allocations. Intermediate activations stay inside high-speed registers and on-chip caches, eliminating external memory bus bottlenecks.</p>
-      <div class="foot"><span>On-chip intermediates</span><span>Fused execution</span></div>
+      <div class="kicker">Job 01</div>
+      <h3>Terrain and scene matching</h3>
+      <p>A camera frame is correlated against stored reference imagery to give an absolute position fix. No RF emission and no satellite signal. Midcourse and terminal fixes for Hemlock and the Piranha USV use this path.</p>
+      <div class="foot"><span>DSMAC correlation</span><span>RF silent</span></div>
     </div>
     <div class="card">
-      <div class="kicker">Innovation 02</div>
-      <h3>Deterministic core isolation</h3>
-      <p>Physical CPU cores are partitioned into isolated execution domains. High-rate guidance, sensor fusion, and direct-actuator neural policies execute on dedicated real-time cores running a deterministic microkernel schedule with hardware timer interrupts. Non-critical telemetry and diagnostics run asynchronously on separate cores, eliminating control latency spikes.</p>
-      <div class="foot"><span>Isolated cores</span><span>Deterministic timing</span></div>
+      <div class="kicker">Job 02</div>
+      <h3>Target detection and tracking</h3>
+      <p>Optical and thermal frames are searched for targets. Detection, classification and track coordinates are handed to the autopilot's tracking mode, which flies the terminal phase.</p>
+      <div class="foot"><span>EO/IR</span><span>Track handoff</span></div>
     </div>
     <div class="card">
-      <div class="kicker">Innovation 03</div>
-      <h3>Zero-copy direct memory access</h3>
-      <p>Sensors—including global-shutter optical imagers, tactical IMUs, and altimeters—stream telemetry and frames directly into pinned unified memory via Direct Memory Access (DMA). This bypasses intermediate operating system buffer copies and eliminates bus contention.</p>
-      <div class="foot"><span>Sensor direct to GPU</span><span>Zero-copy bus</span></div>
+      <div class="kicker">Job 03</div>
+      <h3>Route generation</h3>
+      <p>Terrain-following routes and waypoints are computed from open terrain data before launch and updated in flight. The route reaches the autopilot as a mission plan, not as control commands.</p>
+      <div class="foot"><span>Open terrain data</span><span>Waypoints</span></div>
     </div>
   </div>
 
   <div class="note key">
-    <div class="t">Thermal and power efficiency at the edge</div>
-    <p>Expendable strike platforms and interceptors operate inside sealed composite airframes without active liquid cooling. By removing redundant memory copies and optimizing instruction scheduling, the engine draws materially less compute power than generic frameworks. That headroom keeps silicon junction temperatures within rated limits during sustained high-speed sorties.</p>
+    <div class="t">Thermal and power limits at the edge</div>
+    <p>The mission computer sits inside a sealed composite airframe with no liquid cooling. Power draw and heat are first-order constraints on what can run, so every workload is sized to the airframe's thermal budget before it is sized to its accuracy target.</p>
   </div>
 </section>
 
 <section id="design-rules">
   <div class="sec-tag">04 · Engineering discipline</div>
   <h2>Design against the worst case, not the average</h2>
-  <p>In aerospace flight control, average latency is deceptive. An inference pipeline that averages 2 milliseconds but spikes to 18 milliseconds once every five hundred cycles cannot be trusted in high-G evasive maneuvers or terminal guidance corrections, when compute loads peak.</p>
-  <p>Every kernel, DMA pipeline, and memory transaction in the compute core is benchmarked against its worst-case execution time (WCET). Flight-test telemetry logs bus latencies at microsecond resolution, and timing budgets are re-derived from measured worst cases rather than nominal averages.</p>
+  <p>A pipeline that averages 2 milliseconds but spikes to 18 milliseconds once every five hundred cycles cannot be trusted to feed a terminal dive. Averages hide the cases that matter.</p>
+  <p>Every workload that feeds the core carries a timing budget measured against its worst case. Flight telemetry logs the latencies at microsecond resolution, and the budgets are re-derived from measured flights, not from bench averages. When a budget is exceeded, the autopilot simply continues on its own estimate.</p>
 </section>
 
 <section id="workloads">
   <div class="sec-tag">05 · Fleet workloads</div>
-  <h2>What runs on the edge inference engine</h2>
+  <h2>What runs on the mission computer</h2>
   <div class="tw">
     <table>
-      <caption>Onboard workloads across the fleet</caption>
-      <thead><tr><th>Platform</th><th>Workload pipeline</th><th>Execution rate</th><th>Compute constraint</th></tr></thead>
+      <caption>Onboard mission &amp; perception workloads across the fleet</caption>
+      <thead><tr><th>Platform</th><th>Workload pipeline</th><th>Perception rate</th><th>Compute constraint</th></tr></thead>
       <tbody>
         <tr>
           <td><a href="../products/ahuti.html"><strong>Ahuti Interceptor</strong></a></td>
-          <td>Direct-actuator flight control policy, adaptive world model, terminal optical target tracking.</td>
-          <td>~500 Hz control / 60 Hz vision</td>
-          <td>Sub-millisecond deterministic loop requirement (&lt; 1 ms) for high-rate terminal interception.</td>
+          <td>Adaptive world model, terminal optical target tracking, effector-guidance support.</td>
+          <td>60 Hz vision · high-rate tracking</td>
+          <td>High-rate terminal tracking for fast interception.</td>
         </tr>
         <tr>
           <td><a href="../products/nightshade-adx1.html"><strong>Nightshade ADX-1</strong></a></td>
           <td>Multi-spectral EO/IR object detection, visual scene tracking, autonomous terminal dive homing.</td>
-          <td>400 Hz control / 30 Hz AI-vision</td>
+          <td>30 Hz vision</td>
           <td>Conduction-cooled embedded compute module rated for sealed composite airframes.</td>
         </tr>
         <tr>
-          <td><a href="../products/hemlock.html"><strong>Hemlock family</strong></a></td>
-          <td>High-speed AI-DSMAC terrain scene matching, optical horizon reference, terminal LWIR silhouette correlation.</td>
-          <td>500 Hz fin control / 20 Hz DSMAC</td>
-          <td>High-subsonic shock-resistant embedded compute module with hardware-accelerated terrain correlation.</td>
+          <td><a href="../products/hemlock.html"><strong>Hemlock</strong></a></td>
+          <td>DSMAC terrain scene matching, optical horizon reference, terminal LWIR silhouette correlation.</td>
+          <td>20 Hz correlation</td>
+          <td>Shock-resistant embedded compute module with terrain correlation for high-subsonic flight.</td>
         </tr>
         <tr>
           <td><a href="../products/usv-strike.html"><strong>Piranha USV</strong></a></td>
-          <td>Hydrodynamic active trim regulation, shoreline DSMAC correlation, optical waterline tracking, peer mesh.</td>
-          <td>100 Hz trim / 30 Hz waterline AI</td>
+          <td>Shoreline DSMAC correlation, optical waterline tracking, hydrodynamic trim support, peer mesh.</td>
+          <td>30 Hz waterline tracking</td>
           <td>Salt-mist sealed enclosure, high shock-load dampening.</td>
         </tr>
       </tbody>
@@ -227,9 +228,9 @@
   <div class="xref">
     <div class="t">Integrated into</div>
     <div class="items">
-      <a href="../products/ahuti.html">Ahuti Interceptor — primary consumer, sub-millisecond control loop</a>
-      <a href="../products/nightshade-adx1.html">Nightshade ADX-1 — EO/IR terminal homing and flight control</a>
-      <a href="../products/hemlock.html">Hemlock family — AI-DSMAC edge terrain correlator</a>
+      <a href="../products/ahuti.html">Ahuti Interceptor — terminal optical tracking and adaptive world model</a>
+      <a href="../products/nightshade-adx1.html">Nightshade ADX-1 — EO/IR detection and terminal homing support</a>
+      <a href="../products/hemlock.html">Hemlock — DSMAC terrain correlator</a>
       <a href="../products/usv-strike.html">Piranha USV — waterline tracking and waterjet vectoring</a>
     </div>
   </div>

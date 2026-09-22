@@ -12,6 +12,7 @@ Usage:
 import os
 import re
 import sys
+import html as html_mod
 
 WIKI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -35,16 +36,9 @@ RAIL = [
 SIDEBAR_GROUPS = [
     ("Products", [
         ("Nightshade family", "products/nightshade-adx1.html"),
-        ("Hemlock family", "products/hemlock.html"),
+        ("Hemlock", "products/hemlock.html"),
         ("Ahuti interceptor", "products/ahuti.html"),
         ("Piranha USV", "products/usv-strike.html"),
-        ("HACM-350", "products/hacm-350.html"),
-    ]),
-    ("Supporting systems", [
-        ("Apollyon Cortex", "products/cortex.html"),
-        ("Mobile command centre", "products/mdcc.html"),
-        ("Mobile drone lab", "products/mobile-drone-lab.html"),
-        ("Research platforms", "products/research-platforms.html"),
     ]),
     ("Strategy", [
         ("Trajectory &amp; cost per kg&middot;km", "strategy/trajectory.html"),
@@ -58,7 +52,6 @@ SIDEBAR_GROUPS = [
         ("Edge compute", "subsystems/onboard-compute.html"),
         ("Flight software", "subsystems/flight-software.html"),
         ("Seekers", "subsystems/seekers.html"),
-        ("Propulsion", "subsystems/propulsion.html"),
         ("Airframe &amp; structures", "subsystems/airframe-structures.html"),
         ("Launch &amp; ground", "subsystems/launch-systems.html"),
     ]),
@@ -74,6 +67,125 @@ SIDEBAR_GROUPS = [
         ("The full record &middot; 70 episodes", "strategic-dependency/full-record.html"),
     ]),
 ]
+
+# The atlas is the wiki's structure as a drawing: two hubs (the index argument
+# and the architecture core), four reading clusters hanging off the index, and
+# the subsystem tier under the core. Pages are links; the current page is red.
+ATLAS_CLUSTERS = [
+    ("PRODUCTS", [
+        ("Nightshade family", "products/nightshade-adx1.html"),
+        ("Hemlock", "products/hemlock.html"),
+        ("Ahuti interceptor", "products/ahuti.html"),
+        ("Piranha USV", "products/usv-strike.html"),
+    ]),
+    ("STRATEGY", [
+        ("Trajectory & cost per kg\u00b7km", "strategy/trajectory.html"),
+        ("The competitive field", "strategy/competitive.html"),
+        ("Supply chain", "strategy/supply-chain.html"),
+    ]),
+    ("DOCTRINE", [
+        ("The New Arsenal", "doctrine/new-arsenal.html"),
+        ("Precision is Mercy", "doctrine/precision-is-mercy.html"),
+        ("The missing middle", "doctrine/missing-middle.html"),
+        ("Strike design space", "doctrine/strike-design-space.html"),
+    ]),
+    ("RECORD", [
+        ("Company history", "about/history.html"),
+        ("Team & advisors", "about/team.html"),
+        ("The full record \u00b7 70 episodes", "strategic-dependency/full-record.html"),
+    ]),
+]
+
+ATLAS_SUBSYSTEMS = [
+    ("Robust flight control", "subsystems/near-envelope-control.html"),
+    ("GNSS-denied navigation", "subsystems/gnss-denied-navigation.html"),
+    ("Edge compute", "subsystems/onboard-compute.html"),
+    ("Flight software", "subsystems/flight-software.html"),
+    ("Seekers", "subsystems/seekers.html"),
+    ("Airframe & structures", "subsystems/airframe-structures.html"),
+    ("Launch & ground", "subsystems/launch-systems.html"),
+]
+
+
+def esc(s):
+    return html_mod.escape(str(s), quote=False)
+
+
+def atlas_svg(path):
+    """Layered map of the wiki, generated per page with the current node lit."""
+    own = path.replace("\\", "/")
+    pf = prefix(path)
+    W, L, R = 232, 16, 222
+
+    def is_here(href):
+        return resolve(path, href) == own
+
+    def hub(label, sub, num, href, y):
+        cls = "atlas-hub here" if is_here(href) else "atlas-hub"
+        return (
+            f'<a href="{pf}{href}" class="{cls}">'
+            f'<rect class="hub-plate" x="6" y="{y}" width="220" height="42"/>'
+            f'<text class="hub-t" x="18" y="{y + 17}">{esc(label)}</text>'
+            f'<text class="hub-s" x="18" y="{y + 30}">{esc(sub)}</text>'
+            f'<text class="hub-n" x="216" y="{y + 17}" text-anchor="end">{num}</text>'
+            '</a>'
+        )
+
+    body = []
+    y = 10
+    body.append(hub("INDEX", "the argument \u00b7 every path starts here", "01", "index.html", y))
+    top = y + 42
+    y = top + 20
+
+    for ci, (label, pages) in enumerate(ATLAS_CLUSTERS):
+        on = " on" if any(is_here(h) for _, h in pages) else ""
+        body.append(f'<line class="spine" x1="{L}" y1="{y - 3}" x2="28" y2="{y - 3}"/>')
+        body.append(f'<text class="cl{on}" x="30" y="{y}">{esc(label)}</text>')
+        body.append(f'<line class="rule" x1="30" y1="{y + 5}" x2="{R}" y2="{y + 5}"/>')
+        y += 17
+        for name, href in pages:
+            here = " here" if is_here(href) else ""
+            body.append(
+                f'<a href="{pf}{href}" class="atlas-node{here}">'
+                f'<rect class="mk" x="30" y="{y - 4.5}" width="5" height="5"/>'
+                f'<text class="lb" x="41" y="{y + 3.5}">{esc(name)}</text>'
+                '</a>'
+            )
+            y += 17
+        if ci == 0:
+            body.append(f'<text class="bridge" x="41" y="{y + 2}">each machine configures the core \u2193</text>')
+            y += 16
+        y += 10
+
+    y += 6
+    body.append(hub("ARCHITECTURE", "the core \u00b7 method, machine, loop", "02", "architecture/index.html", y))
+    mid = y + 42
+    y = mid + 20
+
+    on = " on" if any(is_here(h) for _, h in ATLAS_SUBSYSTEMS) else ""
+    body.append(f'<line class="spine" x1="{L}" y1="{y - 3}" x2="28" y2="{y - 3}"/>')
+    body.append(f'<text class="cl{on}" x="30" y="{y}">SUBSYSTEMS</text>')
+    body.append(f'<line class="rule" x1="30" y1="{y + 5}" x2="{R}" y2="{y + 5}"/>')
+    y += 17
+    for name, href in ATLAS_SUBSYSTEMS:
+        here = " here" if is_here(href) else ""
+        body.append(
+            f'<a href="{pf}{href}" class="atlas-node{here}">'
+            f'<rect class="mk" x="30" y="{y - 4.5}" width="5" height="5"/>'
+            f'<text class="lb" x="41" y="{y + 3.5}">{esc(name)}</text>'
+            '</a>'
+        )
+        y += 17
+
+    bottom = y + 4
+    H = int(bottom + 8)
+    spine = (
+        f'<line class="spine" x1="{L}" y1="{top}" x2="{L}" y2="{mid + 6}"/>'
+        f'<line class="spine" x1="{L}" y1="{mid + 6}" x2="{L}" y2="{bottom}"/>'
+    )
+    return (
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}">' + spine + "".join(body) + '</svg>'
+    )
 
 
 def depth(path):
@@ -104,7 +216,10 @@ def page_key(path):
 
 
 def resolve(path, href):
-    return os.path.normpath(os.path.join(prefix(path), href)).replace("\\", "/")
+    # hrefs in the shell are wiki-root-relative; normalise for comparison with
+    # the current page key. (The old join-with-prefix version never matched on
+    # depth-1 pages, so "here" highlighting silently failed outside the root.)
+    return os.path.normpath(href).replace("\\", "/")
 
 
 def rail_html(path):
@@ -153,12 +268,17 @@ def aside_html(path, toc):
         for href, label in toc:
             parts.append(f'    <li><a href="{href}">{label}</a></li>\n')
         parts.append('  </ul>\n')
+    parts.append('  <nav class="atlas" aria-label="Wiki map">\n    <h4>Wiki map</h4>\n')
+    parts.append(atlas_svg(path))
+    parts.append('\n  </nav>\n')
+    parts.append('  <div class="groups">\n')
     for group, links in SIDEBAR_GROUPS:
         parts.append(f'  <h4>{group}</h4>\n  <ul>\n')
         for label, href in links:
             here = ' class="here"' if resolve(path, href) == own else ""
             parts.append(f'    <li><a href="{pf}{href}"{here}>{label}</a></li>\n')
         parts.append('  </ul>\n')
+    parts.append('  </div>\n')
     parts.append('</aside>\n')
     return "".join(parts)
 

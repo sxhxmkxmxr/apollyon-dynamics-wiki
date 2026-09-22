@@ -313,8 +313,7 @@ def cost_curve():
     fam = [
         ("Nightshade Mk II", 300, 3333),
         ("Nightshade Mk III", 500, 1700),
-        ("Hemlock Mk I", 1000, 350),
-        ("Hemlock Mk II", 1500, 35),
+        ("Hemlock", 1500, 59),
     ]
     f_pts = [(X(r), Y(c)) for _, r, c in fam]
     pts_str = " ".join(f"{x:.1f},{y:.1f}" for x, y in f_pts)
@@ -335,19 +334,12 @@ def cost_curve():
     o.append(txt(514, 225, "₹1,700 / kg·km", 10.5, "#fca5a5", MONO, anchor="end", weight=500))
     o.append(f'<circle cx="{x3:.1f}" cy="{y3:.1f}" r="{5.8}" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/>')
 
-    # Hemlock Mk I: right
-    x1, y1 = X(1000), Y(350)
-    o.append(line(723.1, 269.5, 728, 269.5, "#f87171", 1))
-    o.append(txt(732, 266, "Hemlock Mk I", 12, "#ffffff", MONO, anchor="start", weight=700))
-    o.append(txt(732, 280, "₹350 / kg·km", 10.5, "#fca5a5", MONO, anchor="start", weight=500))
-    o.append(f'<circle cx="{x1:.1f}" cy="{y1:.1f}" r="{5.8}" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/>')
-
-    # Hemlock Mk II: left
-    xh2, yh2 = X(1500), Y(35)
-    o.append(line(814, 394.2, 820.9, 394.2, "#f87171", 1))
-    o.append(txt(810, 398, "Hemlock Mk II", 12, "#ffffff", MONO, anchor="end", weight=700))
-    o.append(txt(810, 413, "₹35 / kg·km", 10.5, "#fca5a5", MONO, anchor="end", weight=500))
-    o.append(txt(810, 430, "about 14× below Tomahawk", 11, "#ff453a", MONO, anchor="end", weight=700))
+    # Hemlock: left
+    xh2, yh2 = X(1500), Y(59)
+    o.append(line(814, 365.9, 820.9, 365.9, "#f87171", 1))
+    o.append(txt(810, 369, "Hemlock", 12, "#ffffff", MONO, anchor="end", weight=700))
+    o.append(txt(810, 384, "₹59 / kg·km", 10.5, "#fca5a5", MONO, anchor="end", weight=500))
+    o.append(txt(810, 401, "about 8× below Tomahawk", 11, "#ff453a", MONO, anchor="end", weight=700))
     o.append(f'<circle cx="{xh2:.1f}" cy="{yh2:.1f}" r="{5.8}" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/>')
 
     # Legend
@@ -373,7 +365,7 @@ def strike_family():
     L, R, T, B = 100, 900, 75, 320
 
     def X(i):
-        return L + i * (R - L) / 4
+        return L + i * (R - L) / 3
 
     def Y(v):
         return B - lg(v, 10, 3000000) * (B - T)
@@ -382,13 +374,12 @@ def strike_family():
         ("NIGHTSHADE MK I", 20, ["GNSS-Only", "Proof of Concept"], "20 km range · No warhead", "650 km/h flight test"),
         ("NIGHTSHADE MK II", 4500, ["One-Way Effector", "+ Target Drone"], "15 kg warhead · 300 km", "700 km/h terminal dive"),
         ("NIGHTSHADE MK III", 12500, ["Long-Range", "One-Way Effector"], "25 kg warhead · 500 km", "800 km/h terminal dive"),
-        ("HEMLOCK MK I", 75000, ["Miniature", "Cruise Missile"], "75 kg warhead · 1,000 km", "900 km/h high-subsonic"),
-        ("HEMLOCK MK II", 1500000, ["Long-Range", "Cruise Missile"], "1,000 kg · 1,500 km", "900 km/h high-subsonic"),
+        ("HEMLOCK", 675000, ["Long-Range", "Cruise Missile"], "450–500 kg · 1,000–1,500 km", "860–980 km/h"),
     ]
-    years = ["FLOWN 2026", "2027", "2028", "2029", "2030–31"]
+    years = ["FLOWN 2026", "2027", "2028", "2030–31"]
 
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="img" '
-         f'aria-label="Strike envelope by generation: Nightshade Mk I to Hemlock Mk II">']
+         f'aria-label="Strike envelope by generation: Nightshade Mk I to Hemlock">']
     o.append(txt(L - 30, 32, "STRIKE ENVELOPE — PAYLOAD × RANGE (KG·KM, LOG SCALE)", 11, INK3, MONO, ls="0.12em"))
 
     for gv in (10, 100, 1000, 10000, 100000, 1000000):
@@ -421,11 +412,12 @@ def strike_family():
         for r_idx, r_line in enumerate(role_lines):
             o.append(txt(x, B + 64 + r_idx * 18, r_line, 14, "#FFFFFF", SANS, anchor="middle", weight=700))
 
-        o.append(txt(x, B + 116, spec_pld, 12.5, "#E2DFD8", MONO, anchor="middle", weight=600))
-        o.append(txt(x, B + 136, spec_spd, 12, INK3, MONO, anchor="middle"))
+        anchor = "end" if i == len(fam) - 1 else "middle"
+        o.append(txt(x, B + 116, spec_pld, 12.5, "#E2DFD8", MONO, anchor=anchor, weight=600))
+        o.append(txt(x, B + 136, spec_spd, 12, INK3, MONO, anchor=anchor))
 
     o.append(line(L - 20, B + 155, R + 20, B + 155, LINE2))
-    o.append(txt(L - 20, B + 178, "Mk I carries no payload and does not run the shared core; every system above it inherits it.", 13, INK3, MONO))
+    o.append(txt(L - 20, B + 178, "Mk I carries no payload and flies a minimal guidance fit; every system above it inherits the same engineering base.", 13, INK3, MONO))
     o.append("</svg>")
     return "".join(o)
 
@@ -593,7 +585,7 @@ def arch_vehicle():
     o.append(arrow(210, 200, 250, 200, ns, "ink"))
     o.append(panel_box(80, 238, 290, 36, "INS — INERTIAL NAVIGATION", size=9))
     o.append(panel_box(80, 294, 290, 44, "TONBO EO/IR SEEKER", sub="TERMINAL GUIDANCE, NO RF", size=9, sub_size=7.6))
-    o.append(panel_box(80, 358, 290, 52, "AI-DSMAC SCENE MATCHING", sub="GNSS-DENIED NAVIGATION BRIDGE", size=9, sub_size=7.6))
+    o.append(panel_box(80, 358, 290, 52, "SCENE MATCHING (DSMAC)", sub="GNSS-DENIED NAVIGATION BRIDGE", size=9, sub_size=7.6))
 
     o.append(rect(410, 86, 250, 336, stroke=RED, dash="4 4"))
     o.append(txt(424, 108, "FLIGHT CONTROL", 9.5, RED2, MONO, weight=700, ls="0.14em"))
@@ -648,7 +640,7 @@ def arch_software():
          f'aria-label="Core vehicle software architecture: sensor drivers, estimation and control, mission autonomy, platform services and foundation">',
          defs_arrow(ns, {"ink": INK2, "red": RED2, "grey": LINE3})]
 
-    o.append(txt(50, 40, "ONE CODEBASE · DIFFERENCES ARE CONFIGURATION, NOT BRANCHES", 10, INK3, MONO, ls="0.12em"))
+    o.append(txt(50, 40, "ONE BASELINE · DIFFERENCES ARE CONFIGURATION, NOT BRANCHES", 10, INK3, MONO, ls="0.12em"))
 
     o.append(rect(50, 60, 210, 390, stroke=LINE3, dash="4 4"))
     o.append(txt(64, 82, "SENSOR DRIVERS", 9.5, RED2, MONO, weight=700, ls="0.13em"))
@@ -685,7 +677,7 @@ def arch_software():
 
     o.append(rect(50, 596, 900, 62, stroke=LINE3, fill="#0A0A0A"))
     o.append(txt(64, 618, "FOUNDATION", 9.5, RED2, MONO, weight=700, ls="0.13em"))
-    for i, s in enumerate(["REAL-TIME RUNTIME · IN-HOUSE FORK", "HAL + PER-PLATFORM CONFIG", "HIL / SIL VALIDATION BENCH"]):
+    for i, s in enumerate(["REAL-TIME RUNTIME · VENDOR BASELINE", "HAL + PER-PLATFORM CONFIG", "HIL / SIL VALIDATION BENCH"]):
         o.append(txt(210 + i * 246, 626, s, 9.3, INK3, MONO))
     o.append(arrow(250, 572, 250, 596, ns, "ink"))
 
@@ -863,14 +855,14 @@ def eng_system():
         return "".join(parts)
 
     # ── A · the machine ───────────────────────────────────────────────
-    o.append(band(36, "A", "THE MACHINE — WHAT FLIES", "ONE CODEBASE · ONE NAVIGATION STACK · ONE RUNTIME"))
+    o.append(band(36, "A", "THE MACHINE — WHAT FLIES", "ONE ENGINEERING METHOD · PER-AIRFRAME PACKAGES"))
 
-    o.append(panel_box(40, 64, 650, 54, "SHARED CORE",
-                       sub="NAVIGATION & SENSING · ESTIMATION · CONTROL · FLIGHT SOFTWARE · TELEMETRY",
+    o.append(panel_box(40, 64, 650, 54, "ENGINEERING METHOD",
+                       sub="PROVEN MODELS · TEST RIGS · QUALIFICATION EVIDENCE",
                        stroke=RED, fill=RED_W, sw=1.4, tcol="#ffffff", scol="#C7C4BD", size=11, sub_size=8.0))
 
     o.append(panel_box(710, 64, 250, 54, "PER-PLATFORM DELTA",
-                       sub="ENGINE CLASS · STRUCTURE · LAUNCH MODE",
+                       sub="AIRFRAME · ENGINE · GUIDANCE · LAUNCH MODE",
                        stroke=LINE2, fill="#090d14", sw=1.1, tcol=INK2, scol=INK3, size=10, sub_size=7.8))
 
     o.append(line(40, 140, 960, 140, LINE3, 1.2))
@@ -966,7 +958,7 @@ def eng_system():
 
     o.append(arrow(800, 478, 800, 496, ns, "ink"))
 
-    o.append(panel_box(640, 496, 320, 44, "FLEET FLYWHEEL",
+    o.append(panel_box(640, 496, 320, 44, "PROGRAMME FLYWHEEL",
                        sub="FLIGHT SORTIES & HIGH-RATE TESTING → ENVELOPE TELEMETRY",
                        stroke=LINE2, fill="#090d14", size=9.6, sub_size=7.2, scol=INK3))
 
@@ -986,26 +978,25 @@ def eng_system():
     # ── C · the compounding asset ─────────────────────────────────────
     o.append(band(608, "C", "THE COMPOUNDING ASSET — WHY THE SPEED REPEATS"))
 
-    assets = ["ONE CODEBASE", "PHYSICS PACKAGE", "TRAINED POLICIES", "QUALIFICATION EVIDENCE", "TEST RIGS & PIPELINE"]
+    assets = ["ENGINEERING METHOD", "PHYSICS PACKAGE", "TRAINING PIPELINE", "QUALIFICATION EVIDENCE", "TEST RIGS & PIPELINE"]
     for i, a in enumerate(assets):
         x = 40 + i * 187
         o.append(panel_box(x, 634, 172, 36, a, stroke=LINE2, fill="#090d14", size=8.0, tcol=INK2))
 
     gens = [
-        ("NIGHTSHADE MK I", "PAYS FOR THE CORE", True),
+        ("NIGHTSHADE MK I", "PAYS FOR THE METHOD", True),
         ("NIGHTSHADE MK II", "PAYS THE DELTA", False),
         ("NIGHTSHADE MK III", "+ EVIDENCE REUSED", False),
-        ("HEMLOCK MK I", "PAYS THE DELTA", False),
-        ("HEMLOCK MK II", "+ TERRAIN LAYER", False),
+        ("HEMLOCK", "NEW AIRFRAME · INHERITED METHOD", False),
     ]
     for i, (g, sub, core) in enumerate(gens):
-        x = 40 + i * 187
+        x = 40 + i * 235
         stroke = RED if core else LINE2
         fill = RED_W if core else "#090d14"
         tcol = "#ffffff" if core else INK2
         scol = "#fca5a5" if core else INK3
-        o.append(line(x + 86, 670, x + 86, 680, LINE2, 1))
-        o.append(panel_box(x, 680, 172, 48, g, sub=sub, stroke=stroke, fill=fill, sw=1.3 if core else 1.0,
+        o.append(line(x + 107, 670, x + 107, 680, LINE2, 1))
+        o.append(panel_box(x, 680, 215, 48, g, sub=sub, stroke=stroke, fill=fill, sw=1.3 if core else 1.0,
                            tcol=tcol, scol=scol, size=8.2, sub_size=7.2))
 
     o.append(txt(960, 764, "EACH PASS COSTS LESS · EACH GENERATION PAYS LESS · THE FRONTIER RISES", 9.2, INK2, MONO, anchor="end", ls="0.08em", weight=600))
@@ -1029,7 +1020,7 @@ def eng_twin():
     # vehicle
     o.append(txt(40, 40, "THE FLIGHT VEHICLE", 9.5, INK4, MONO, ls="0.13em"))
     o.append(rect(40, 56, 430, 400, stroke=LINE3, dash="4 4"))
-    o.append(txt(56, 78, "ONE SHARED CORE, ONE PER-PLATFORM PACKAGE", 8.5, RED2, MONO, weight=700, ls="0.1em"))
+    o.append(txt(56, 78, "ONE ENGINEERING METHOD, ONE PER-AIRFRAME PACKAGE", 8.5, RED2, MONO, weight=700, ls="0.1em"))
     o.append(chip(56, 94, 398, 40, "MISSION SENSORS & SEEKERS", size=8.4, tcol=INK2))
     for i, c in enumerate(["CRPA GNSS", "EO/IR SEEKER", "SCENE MATCH", "AIR DATA"]):
         o.append(chip(56 + i * 100, 140, 94, 34, c, size=6.8))
@@ -1070,53 +1061,40 @@ def eng_twin():
 
 
 # ══════════════════════════════════════════════════════════════════════
-# 14 · LATENCY IS A DISTANCE
+# 14 · PERCEPTION RATES — distance between updates
 # ══════════════════════════════════════════════════════════════════════
 def eng_latency():
     W, H = 1000, 460
-    ns = "lt"
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="img" '
-         f'aria-label="Distance flown while one control cycle runs: a conventional stack against the Apollyon stack">']
+         f'aria-label="Distance travelled between perception updates at 20, 30 and 60 hertz on a vehicle flying at Mach 0.8">']
 
-    L, R = 190, 940
+    L, R = 320, 900
+    VMAX = 13.5
 
     def X(m):
-        return L + (m / 2.0) * (R - L)
+        return L + (m / VMAX) * (R - L)
 
-    o.append(txt(L, 34, "DISTANCE FLOWN WHILE ONE CONTROL CYCLE RUNS", 9.5, INK4, MONO, ls="0.12em"))
-    for v in (0, 0.5, 1.0, 1.5, 2.0):
+    o.append(txt(60, 34, "DISTANCE TRAVELLED BETWEEN PERCEPTION UPDATES", 9.5, INK4, MONO, ls="0.12em"))
+    o.append(txt(60, 54, "AT MACH 0.8 · 270 M/S", 9.5, INK3, MONO, ls="0.08em"))
+    for v in (0, 5, 10, 13.5):
         x = X(v)
-        o.append(line(x, 52, x, 342, LINE))
-        o.append(txt(x, 364, f"{v:.1f} m", 9.5, INK4, MONO, anchor="middle"))
+        o.append(line(x, 80, x, 340, LINE))
+        lbl = "13.5 m" if v == 13.5 else f"{v} m"
+        o.append(txt(x, 362, lbl, 9.5, INK4, MONO, anchor="middle"))
 
-    o.append(txt(180, 96, "A CONVENTIONAL STACK", 10, INK3, MONO, anchor="end", weight=700))
-    segs = [(0, 0.48, "#161616"), (0.48, 0.86, "#1E1E1E"), (0.86, 1.34, "#282828"), (1.34, 1.60, "#333333")]
-    for a, b, col in segs:
-        o.append(rect(X(a), 76, X(b) - X(a), 44, stroke=LINE2, fill=col))
-    o.append(rect(X(1.60), 76, X(1.90) - X(1.60), 44, stroke=RED_W, fill="none", dash="4 3"))
-    for lbl, x in [("copies through user space", 0.24), ("runtime overhead", 0.67), ("inference", 1.10), ("actuate", 1.47)]:
-        o.append(txt(X(x), 140, lbl, 9.5, INK4, MONO, anchor="middle"))
-    o.append(txt(X(1.75), 140, "jitter — the cycle", 9.5, RED2, MONO, anchor="middle"))
-    o.append(txt(X(1.75), 154, "that misses", 9.5, RED2, MONO, anchor="middle"))
-    o.append(txt(X(1.90) - 6, 68, "1.9 m of flight", 11.5, RED2, MONO, anchor="end", weight=700))
-
-    o.append(txt(180, 240, "OURS", 11, INK, MONO, anchor="end", weight=700))
-    o.append(rect(X(0), 220, X(0.25) - X(0), 44, stroke=INK, fill=RED_W))
-    o.append(txt(X(0.125), 292, "0.25 m", 11.5, INK, MONO, anchor="middle", weight=700))
-    o.append(rect(X(0.25) + 4, 220, X(2.0) - X(0.25) - 4, 44, stroke=LINE2, fill="none", dash="4 4"))
-    o.append(wrap(X(0.25) + 20, 238, "everything after this point is margin — time to react rather than time to compute",
-                  X(2.0) - X(0.25) - 60, 11, INK3, SANS, lh=16))
+    for i, (lbl, m) in enumerate([
+        ("20 HZ · TERRAIN MATCHING", 13.5),
+        ("30 HZ · EO/IR DETECTION", 9.0),
+        ("60 HZ · TERMINAL TRACKING", 4.5),
+    ]):
+        y = 104 + i * 78
+        o.append(txt(L - 18, y + 33, lbl, 9.5, INK3, MONO, anchor="end", weight=700))
+        o.append(rect(X(0), y, X(m) - X(0), 56, stroke=RED, fill=RED_W))
+        o.append(txt(X(m) + 12, y + 34, f"{m:.1f} m", 11.5, INK, MONO, weight=700))
 
     o.append(line(60, 400, 960, 400, LINE2))
-    for i, (k, v) in enumerate([
-        ("FUSED KERNELS", "no allocation, no launch overhead"),
-        ("REAL-TIME KERNEL", "isolated cores, hard real-time cycle"),
-        ("ZERO-COPY PATH", "sensors write straight into GPU memory"),
-    ]):
-        x = 60 + i * 306
-        o.append(rect(x, 416 - 7, 8, 8, stroke=RED, fill=RED_W))
-        o.append(txt(x + 16, 420, k, 9.5, INK2, MONO, weight=700))
-        o.append(txt(x + 16, 438, v, 9.5, INK4, MONO))
+    o.append(txt(60, 424, "The flight-critical loop runs on its own schedule and never waits for these updates.", 10, INK3, SANS))
+    o.append(txt(60, 442, "Perception feeds it; in between, the core keeps flying on its own estimate.", 10, INK4, SANS))
     o.append("</svg>")
     return "".join(o)
 
@@ -1193,7 +1171,7 @@ def compound_loops():
     o.append(arrow(500, 88, 500, 124, ns, "ink"))
 
     loops = [
-        (124, "ENGINEERING LOOP", "faster iteration · better models", "reusable autonomy · qualification"),
+        (124, "ENGINEERING LOOP", "faster iteration · better models", "reusable models · qualification"),
         (252, "INDUSTRIAL LOOP", "seekers · propulsion · suppliers", "tooling · production · integration"),
         (380, "DISTRIBUTION LOOP", "export approvals · customers", "partners · field deployments"),
     ]

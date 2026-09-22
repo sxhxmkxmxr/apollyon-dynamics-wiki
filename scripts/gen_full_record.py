@@ -142,7 +142,7 @@ page = f"""<!DOCTYPE html>
 <section id="what-this-means">
   <div class="sec-tag">13 · What Apollyon takes from this</div>
   <h2>Build where the embargo cannot reach</h2>
-  <div class="note key"><div class="t">Sovereign answer</div><p>Seventy episodes share one shape: the critical layer was foreign, and foreign means permissioned. Apollyon therefore owns the performance-determining layers first — aerodynamic modelling, flight runtime, GNSS-denied navigation, inference silicon integration — and manufactures on India's domestic industrial base at automotive cadence. No single foreign vote, file, or factory can pause a programme.</p></div>
+  <div class="note key"><div class="t">Sovereign answer</div><p>Seventy episodes share one shape: the critical layer was foreign, and foreign means permissioned. Apollyon therefore owns the layers it can hold outright — aerodynamic modelling, control and guidance packages, GNSS-denied navigation, mission compute — and manufactures on India's domestic industrial base at automotive cadence. Where a certified foreign baseline is the right call, it is a named, accountable vendor with a compliance trail, not an anonymous black box. Every critical layer has a named owner.</p></div>
 </section>
 
 <footer>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Flight Software Stack — Apollyon Dynamics Wiki</title>
-<meta name="description" content="Apollyon Dynamics engineering wiki — autonomous strike, interception and battlefield-intelligence systems, with the shared architecture they are built from.">
+<meta name="description" content="Apollyon Dynamics engineering wiki — a proprietary, certification-oriented autopilot baseline from Embention Veronte, with Apollyon-authored control laws, guidance and mission logic.">
 <link rel="icon" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,27 +33,24 @@
 <aside class="aside">
   <h4>On this page</h4>
   <ul>
-    <li><a href="#heritage">Open-source heritage</a></li>
-    <li><a href="#limits">Why open stacks fail</a></li>
-    <li><a href="#core">Re-engineered core</a></li>
-    <li><a href="#hil">HIL verification harness</a></li>
-    <li><a href="#ownership">Owned layers</a></li>
+    <li><a href="#baseline">A proprietary baseline</a></li>
+    <li><a href="#toolchain">The toolchain</a></li>
+    <li><a href="#authored">What Apollyon authors</a></li>
+    <li><a href="#verification">HIL verification</a></li>
+    <li><a href="#governance">Configuration governance</a></li>
     <li><a href="#usedby">Used by</a></li>
   </ul>
+  <nav class="atlas" aria-label="Wiki map">
+    <h4>Wiki map</h4>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232 650"><line class="spine" x1="16" y1="52" x2="16" y2="488"/><line class="spine" x1="16" y1="488" x2="16" y2="642"/><a href="../index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="10" width="220" height="42"/><text class="hub-t" x="18" y="27">INDEX</text><text class="hub-s" x="18" y="40">the argument · every path starts here</text><text class="hub-n" x="216" y="27" text-anchor="end">01</text></a><line class="spine" x1="16" y1="69" x2="28" y2="69"/><text class="cl" x="30" y="72">PRODUCTS</text><line class="rule" x1="30" y1="77" x2="222" y2="77"/><a href="../products/nightshade-adx1.html" class="atlas-node"><rect class="mk" x="30" y="84.5" width="5" height="5"/><text class="lb" x="41" y="92.5">Nightshade family</text></a><a href="../products/hemlock.html" class="atlas-node"><rect class="mk" x="30" y="101.5" width="5" height="5"/><text class="lb" x="41" y="109.5">Hemlock</text></a><a href="../products/ahuti.html" class="atlas-node"><rect class="mk" x="30" y="118.5" width="5" height="5"/><text class="lb" x="41" y="126.5">Ahuti interceptor</text></a><a href="../products/usv-strike.html" class="atlas-node"><rect class="mk" x="30" y="135.5" width="5" height="5"/><text class="lb" x="41" y="143.5">Piranha USV</text></a><text class="bridge" x="41" y="159">each machine configures the core ↓</text><line class="spine" x1="16" y1="180" x2="28" y2="180"/><text class="cl" x="30" y="183">STRATEGY</text><line class="rule" x1="30" y1="188" x2="222" y2="188"/><a href="../strategy/trajectory.html" class="atlas-node"><rect class="mk" x="30" y="195.5" width="5" height="5"/><text class="lb" x="41" y="203.5">Trajectory &amp; cost per kg·km</text></a><a href="../strategy/competitive.html" class="atlas-node"><rect class="mk" x="30" y="212.5" width="5" height="5"/><text class="lb" x="41" y="220.5">The competitive field</text></a><a href="../strategy/supply-chain.html" class="atlas-node"><rect class="mk" x="30" y="229.5" width="5" height="5"/><text class="lb" x="41" y="237.5">Supply chain</text></a><line class="spine" x1="16" y1="258" x2="28" y2="258"/><text class="cl" x="30" y="261">DOCTRINE</text><line class="rule" x1="30" y1="266" x2="222" y2="266"/><a href="../doctrine/new-arsenal.html" class="atlas-node"><rect class="mk" x="30" y="273.5" width="5" height="5"/><text class="lb" x="41" y="281.5">The New Arsenal</text></a><a href="../doctrine/precision-is-mercy.html" class="atlas-node"><rect class="mk" x="30" y="290.5" width="5" height="5"/><text class="lb" x="41" y="298.5">Precision is Mercy</text></a><a href="../doctrine/missing-middle.html" class="atlas-node"><rect class="mk" x="30" y="307.5" width="5" height="5"/><text class="lb" x="41" y="315.5">The missing middle</text></a><a href="../doctrine/strike-design-space.html" class="atlas-node"><rect class="mk" x="30" y="324.5" width="5" height="5"/><text class="lb" x="41" y="332.5">Strike design space</text></a><line class="spine" x1="16" y1="353" x2="28" y2="353"/><text class="cl" x="30" y="356">RECORD</text><line class="rule" x1="30" y1="361" x2="222" y2="361"/><a href="../about/history.html" class="atlas-node"><rect class="mk" x="30" y="368.5" width="5" height="5"/><text class="lb" x="41" y="376.5">Company history</text></a><a href="../about/team.html" class="atlas-node"><rect class="mk" x="30" y="385.5" width="5" height="5"/><text class="lb" x="41" y="393.5">Team &amp; advisors</text></a><a href="../strategic-dependency/full-record.html" class="atlas-node"><rect class="mk" x="30" y="402.5" width="5" height="5"/><text class="lb" x="41" y="410.5">The full record · 70 episodes</text></a><a href="../architecture/index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="440" width="220" height="42"/><text class="hub-t" x="18" y="457">ARCHITECTURE</text><text class="hub-s" x="18" y="470">the core · method, machine, loop</text><text class="hub-n" x="216" y="457" text-anchor="end">02</text></a><line class="spine" x1="16" y1="499" x2="28" y2="499"/><text class="cl on" x="30" y="502">SUBSYSTEMS</text><line class="rule" x1="30" y1="507" x2="222" y2="507"/><a href="../subsystems/near-envelope-control.html" class="atlas-node"><rect class="mk" x="30" y="514.5" width="5" height="5"/><text class="lb" x="41" y="522.5">Robust flight control</text></a><a href="../subsystems/gnss-denied-navigation.html" class="atlas-node"><rect class="mk" x="30" y="531.5" width="5" height="5"/><text class="lb" x="41" y="539.5">GNSS-denied navigation</text></a><a href="../subsystems/onboard-compute.html" class="atlas-node"><rect class="mk" x="30" y="548.5" width="5" height="5"/><text class="lb" x="41" y="556.5">Edge compute</text></a><a href="../subsystems/flight-software.html" class="atlas-node here"><rect class="mk" x="30" y="565.5" width="5" height="5"/><text class="lb" x="41" y="573.5">Flight software</text></a><a href="../subsystems/seekers.html" class="atlas-node"><rect class="mk" x="30" y="582.5" width="5" height="5"/><text class="lb" x="41" y="590.5">Seekers</text></a><a href="../subsystems/airframe-structures.html" class="atlas-node"><rect class="mk" x="30" y="599.5" width="5" height="5"/><text class="lb" x="41" y="607.5">Airframe &amp; structures</text></a><a href="../subsystems/launch-systems.html" class="atlas-node"><rect class="mk" x="30" y="616.5" width="5" height="5"/><text class="lb" x="41" y="624.5">Launch &amp; ground</text></a></svg>
+  </nav>
+  <div class="groups">
   <h4>Products</h4>
   <ul>
     <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
-    <li><a href="../products/hemlock.html">Hemlock family</a></li>
+    <li><a href="../products/hemlock.html">Hemlock</a></li>
     <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
     <li><a href="../products/usv-strike.html">Piranha USV</a></li>
-    <li><a href="../products/hacm-350.html">HACM-350</a></li>
-  </ul>
-  <h4>Supporting systems</h4>
-  <ul>
-    <li><a href="../products/cortex.html">Apollyon Cortex</a></li>
-    <li><a href="../products/mdcc.html">Mobile command centre</a></li>
-    <li><a href="../products/mobile-drone-lab.html">Mobile drone lab</a></li>
-    <li><a href="../products/research-platforms.html">Research platforms</a></li>
   </ul>
   <h4>Strategy</h4>
   <ul>
@@ -67,9 +64,8 @@
     <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
     <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
     <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
-    <li><a href="../subsystems/flight-software.html">Flight software</a></li>
+    <li><a href="../subsystems/flight-software.html" class="here">Flight software</a></li>
     <li><a href="../subsystems/seekers.html">Seekers</a></li>
-    <li><a href="../subsystems/propulsion.html">Propulsion</a></li>
     <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
     <li><a href="../subsystems/launch-systems.html">Launch &amp; ground</a></li>
   </ul>
@@ -86,6 +82,7 @@
     <li><a href="../about/team.html">Team &amp; advisors</a></li>
     <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
   </ul>
+  </div>
 </aside>
 
 <main class="main">
@@ -97,130 +94,189 @@
     <div class="brand-sep"></div>
     <img src="../assets/logos/logo-text-white.png" alt="Apollyon Dynamics" class="brand-text">
   </div>
-  <div class="mast-meta">Software · real-time execution core, high-rate logging &amp; HIL harness <span>· core subsystem</span></div>
+  <div class="mast-meta">Software · proprietary autopilot baseline, authored control laws &amp; HIL verification <span>· core subsystem</span></div>
   <h1>Flight Software <span class="sub">Stack</span></h1>
-  <p class="standfirst">Built on established open-source flight libraries (PX4, ArduPilot), re-engineered for natively autonomous strike weapons. The execution core provides direct-actuator neural control, microsecond deterministic scheduling, and continuous operation under high dynamic pressure.</p>
+  <p class="standfirst">The flight-critical loop runs on a proprietary autopilot that is set up through configuration — Embention's Veronte Autopilot 1x. Apollyon writes the control laws, guidance, envelope protection and mission logic that sit on top, and tests each build on hardware-in-the-loop before it flies.</p>
 </header>
 
-<section id="heritage">
+<section id="baseline">
   <div class="sec-tag">01 · Foundation</div>
-  <h2>Open-source baseline and peripheral abstraction</h2>
-  <p class="lede">Open-source autopilots—chiefly ArduPilot and PX4—have accumulated millions of operating hours over fifteen years. They established durable abstractions for peripheral buses, sensor drivers, and ground communication protocols.</p>
+  <h2>A proprietary flight-control baseline</h2>
+  <p class="lede">Defence certification in India rules out a community open-source autopilot. The flight-critical core needs a named owner, a clear record of where it came from, and a vendor responsible for it through its life.</p>
 
-  <p>Apollyon preserves the mature lower-level components of this ecosystem:</p>
-  <ul>
-    <li><strong>Device Driver Abstraction:</strong> Tested bus communication drivers across SPI, I2C, CAN FD, and UART for standard sensor peripherals.</li>
-    <li><strong>Standardized Telemetry:</strong> Compact binary telemetry framing based on established packet definitions for field diagnostics.</li>
-    <li><strong>Peripheral Bringup:</strong> Rapid hardware interface bringup across new avionics revisions without writing custom hardware register drivers from scratch.</li>
-  </ul>
+  <p>Apollyon therefore builds on Embention's <strong>Veronte Autopilot 1x</strong>, a proprietary flight controller that is set up through configuration rather than code changes. It is already used across uncrewed aircraft. We chose a commercial baseline over an open-source stack for three reasons: the software has a named owner and a documented history, its changes are controlled, and the vendor supports it across its lifecycle.</p>
 
-  <p>We keep these communication drivers. However, standard open-source flight stacks assume low velocities (&lt;40 m/s), benign g-loads, and an active radio link to a human operator. In a high-subsonic strike weapon, those assumptions fail.</p>
+  <div class="note key">
+    <div class="t">The baseline is not modified at source</div>
+    <p>Apollyon does not change the autopilot firmware itself. The engineering work lives in a versioned <strong>configuration package</strong>—control laws, guidance phases, envelope limits, allocation matrices and safety logic—written in the vendor's engineering environment and uploaded to the flight controller. One baseline, one package per airframe.</p>
+  </div>
+
+  <div class="blueprint-plate">
+    <div class="blueprint-head"><span class="title">Fig. 01</span><span class="scale">one baseline · authored layer</span></div>
+    <div class="blueprint-body">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" role="img" aria-label="Flight software stack: the Veronte Embention proprietary baseline beneath an Apollyon-authored configuration layer">
+<rect width="1000" height="620" fill="#050505"/>
+<text x="48" y="38" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#F04B4B" font-weight="700" letter-spacing="0.14em">APOLLYON-AUTHORED LAYER OVER A PROPRIETARY BASELINE</text>
+<text x="952" y="38" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#C7C4BD" text-anchor="end" letter-spacing="0.08em">ONE CONFIGURATION SET PER PLATFORM</text>
+<line x1="48" y1="50" x2="952" y2="50" stroke="#2B2B2B" stroke-width="1"/>
+<text x="48" y="78" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#F04B4B" font-weight="700" letter-spacing="0.12em">APOLLYON-AUTHORED — CONFIGURATION PACKAGES</text>
+<rect x="48" y="90" width="904" height="58" fill="#3A1212" stroke="#D92323" stroke-width="1.4"/>
+<text x="66" y="116" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" font-weight="700" letter-spacing="0.04em">MISSION &amp; AUTONOMY</text>
+<text x="66" y="134" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#E8B4B4">route &amp; terrain following · terminal-phase logic · abort and failsafe triggers</text>
+<rect x="48" y="158" width="904" height="58" fill="#2A0E0E" stroke="#D92323" stroke-width="1.2"/>
+<text x="66" y="184" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" font-weight="700" letter-spacing="0.04em">CONTROL &amp; GUIDANCE LAWS</text>
+<text x="66" y="202" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#E8B4B4">gain-scheduled loops · envelope limits · allocation matrices · per-airframe tuning sets</text>
+<text x="48" y="244" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#A19E97" font-weight="700" letter-spacing="0.12em">VERONTE EMBENTION BASELINE — PRIMARY PROPRIETARY</text>
+<rect x="48" y="256" width="904" height="58" fill="#0B1119" stroke="#414141" stroke-width="1.2"/>
+<text x="66" y="282" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" font-weight="700" letter-spacing="0.04em">GUIDANCE–NAVIGATION–CONTROL CORE</text>
+<text x="66" y="300" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#A19E97">EKF state estimation · guidance modes · control loops · mixing &amp; actuation</text>
+<rect x="48" y="324" width="904" height="58" fill="#090D14" stroke="#2B2B2B" stroke-width="1.2"/>
+<text x="66" y="350" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" font-weight="700" letter-spacing="0.04em">SENSOR DRIVERS &amp; I/O</text>
+<text x="66" y="368" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#A19E97">SPI · I²C · CAN-FD · UART · serial · PWM · ADS-B</text>
+<rect x="48" y="392" width="904" height="58" fill="#090D14" stroke="#2B2B2B" stroke-width="1.2"/>
+<text x="66" y="418" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" font-weight="700" letter-spacing="0.04em">REAL-TIME EXECUTION &amp; TELEMETRY</text>
+<text x="66" y="436" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#A19E97">deterministic GNC schedule · onboard logging · datalink framing</text>
+<text x="48" y="478" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#7F7C76" font-weight="700" letter-spacing="0.12em">HARDWARE</text>
+<rect x="48" y="490" width="904" height="58" fill="#050505" stroke="#414141" stroke-width="1.2"/>
+<text x="66" y="516" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" font-weight="700" letter-spacing="0.04em">VERONTE AUTOPILOT 1x</text>
+<text x="66" y="534" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#A19E97">triple-IMU sensing · single, quadruple and DRx redundant configurations</text>
+<text x="48" y="592" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#7F7C76">The baseline is identical across the fleet; only the Apollyon configuration package changes.</text>
+</svg>
+    </div>
+    <div class="blueprint-cap"><b>Fig. 01</b> The proprietary baseline carries the flight-critical functions; Apollyon owns the configuration layer above it. New airframes change the package, not the core.</div>
+  </div>
 </section>
 
-<section id="limits">
-  <div class="sec-tag">02 · Structural limitations</div>
-  <h2>Why commercial drone firmware fails in strike weapons</h2>
-  <p>Standard open-source flight stacks were designed around operational rules that directly conflict with high-speed autonomous strike requirements:</p>
+<section id="toolchain">
+  <div class="sec-tag">02 · Toolchain</div>
+  <h2>Authored, executed, operated, verified</h2>
+  <p class="lede">The toolchain has four stages and one configuration. The package we write on the bench is the package that flies and the package that is verified. Nothing is rewritten between engineering and the airframe.</p>
 
   <div class="tw">
     <table>
-      <caption>Core architectural divergences</caption>
-      <thead><tr><th>Domain</th><th>Open-source firmware assumption (PX4 / ArduPilot)</th><th>Autonomous high-speed strike weapon reality</th></tr></thead>
+      <caption>The four stages</caption>
+      <thead><tr><th>Stage</th><th>Tool</th><th>Role</th></tr></thead>
       <tbody>
-        <tr>
-          <td><strong>Operator presence</strong></td>
-          <td>Assumes an RC transmitter, ground station, and human pilot with manual override modes (Manual, Acro, AltHold, RTL).</td>
-          <td><strong>Natively autonomous:</strong> Zero pilot in the loop, zero manual override, no RC link, and no return-to-launch logic from rail launch to impact.</td>
-        </tr>
-        <tr>
-          <td><strong>Control architecture</strong></td>
-          <td>Decoupled cascaded PID loops (Position &rarr; Attitude &rarr; Angular Rate &rarr; Mixer) assuming linear dynamics below 40 m/s.</td>
-          <td><strong>Coupled non-linear dynamics:</strong> At Mach 0.8 (250+ m/s) and high dynamic pressure, cross-axis coupling requires direct-actuator neural control.</td>
-        </tr>
-        <tr>
-          <td><strong>Actuator saturation</strong></td>
-          <td>Mixer sacrifices secondary axis authority when servo channels hit maximum deflection limits.</td>
-          <td><strong>Hard saturation operation:</strong> Weapon spends substantial terminal dive time on actuator rails; requires direct coupled torque allocation.</td>
-        </tr>
-        <tr>
-          <td><strong>Scheduling &amp; determinism</strong></td>
-          <td>Cooperative workqueue threads subject to 5–15 ms latency jitter and dynamic OS scheduling overhead.</td>
-          <td><strong>Microsecond hard real-time:</strong> 500 Hz direct control policies demand deterministic sub-millisecond execution boundaries.</td>
-        </tr>
-        <tr>
-          <td><strong>High-G dynamics &amp; shock</strong></td>
-          <td>EKF tuned for low-vibration quadcopters; resets or diverges under severe motor vibration or sustained 7G turns.</td>
-          <td><strong>High-G resilient estimation:</strong> Maintains state tracking through rocket booster staging, catapult launch, and 7G evasive maneuvers.</td>
-        </tr>
+        <tr><td><strong>Author</strong></td><td>1x PDI Builder</td><td>Control laws, guidance phases, envelope limits, actuation allocation and safety logic assembled as block programs.</td></tr>
+        <tr><td><strong>Execute</strong></td><td>Veronte Autopilot 1x</td><td>Flight-critical guidance, navigation and control, state estimation and actuator commands.</td></tr>
+        <tr><td><strong>Operate</strong></td><td>Veronte Ops</td><td>Mission planning, telemetry, commanded actions, flight termination and alerts.</td></tr>
+        <tr><td><strong>Verify</strong></td><td>HIL Simulator</td><td>The production autopilot flown against a simulated vehicle before any real sortie.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="blueprint-plate">
+    <div class="blueprint-head"><span class="title">Fig. 02</span><span class="scale">author · execute · operate · verify</span></div>
+    <div class="blueprint-body">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" role="img" aria-label="Flight-control toolchain: authoring in 1x PDI Builder, execution on the Veronte Autopilot 1x, operation in Veronte Ops and verification in the HIL Simulator">
+<rect width="1000" height="540" fill="#050505"/>
+<defs>
+<marker id="fsm-ink" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#C7C4BD"/></marker>
+<marker id="fsm-red" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#F04B4B"/></marker>
+</defs>
+<text x="48" y="38" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#F04B4B" font-weight="700" letter-spacing="0.14em">THE FLIGHT-CONTROL TOOLCHAIN</text>
+<text x="952" y="38" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#C7C4BD" text-anchor="end" letter-spacing="0.08em">ONE CONFIGURATION · FOUR STAGES</text>
+<line x1="48" y1="50" x2="952" y2="50" stroke="#2B2B2B" stroke-width="1"/>
+
+<rect x="380" y="200" width="240" height="108" fill="#3A1212" stroke="#D92323" stroke-width="1.6"/>
+<text x="500" y="236" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.04em">VERONTE AUTOPILOT 1x</text>
+<text x="500" y="258" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#E8B4B4" text-anchor="middle">flight-critical execution</text>
+<text x="500" y="278" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#E8B4B4" text-anchor="middle">GNC · estimation · control · actuation</text>
+
+<rect x="60" y="92" width="252" height="88" fill="#0B1119" stroke="#414141" stroke-width="1.1"/>
+<text x="186" y="122" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" text-anchor="middle" font-weight="700">1x PDI BUILDER</text>
+<text x="186" y="142" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#A19E97" text-anchor="middle">authoring</text>
+<text x="186" y="160" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#7F7C76" text-anchor="middle">control laws · guidance · envelopes · safety</text>
+<path d="M312,150 C356,150 352,232 378,240" fill="none" stroke="#F04B4B" stroke-width="1.5" marker-end="url(#fsm-red)"/>
+<text x="322" y="196" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#F04B4B">upload</text>
+
+<rect x="60" y="326" width="252" height="88" fill="#0B1119" stroke="#414141" stroke-width="1.1"/>
+<text x="186" y="356" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" text-anchor="middle" font-weight="700">HIL SIMULATOR</text>
+<text x="186" y="376" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#A19E97" text-anchor="middle">verification</text>
+<text x="186" y="394" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#7F7C76" text-anchor="middle">X-Plane · MSFS · Simulink</text>
+<path d="M314,346 C354,336 350,300 378,292" fill="none" stroke="#C7C4BD" stroke-width="1.3" marker-end="url(#fsm-ink)"/>
+<path d="M378,270 C350,262 354,346 314,356" fill="none" stroke="#C7C4BD" stroke-width="1.3" marker-end="url(#fsm-ink)"/>
+<text x="322" y="316" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#A19E97">fly</text>
+
+<rect x="690" y="200" width="250" height="108" fill="#090D14" stroke="#414141" stroke-width="1.1"/>
+<text x="815" y="230" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" text-anchor="middle" font-weight="700">VERONTE OPS</text>
+<text x="815" y="250" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#A19E97" text-anchor="middle">operations</text>
+<text x="815" y="270" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#7F7C76" text-anchor="middle">mission · telemetry · FTS · alerts</text>
+<path d="M688,236 H622" fill="none" stroke="#F04B4B" stroke-width="1.4" marker-end="url(#fsm-red)"/>
+<path d="M620,268 H690" fill="none" stroke="#C7C4BD" stroke-width="1.3" marker-end="url(#fsm-ink)"/>
+<text x="655" y="226" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#F04B4B" text-anchor="middle">command</text>
+<text x="655" y="288" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#A19E97" text-anchor="middle">state</text>
+
+<rect x="380" y="424" width="240" height="56" fill="#090D14" stroke="#2B2B2B" stroke-width="1.1"/>
+<text x="500" y="448" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">VERONTE LINK</text>
+<text x="500" y="466" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#A19E97" text-anchor="middle">PC ↔ autopilot transport</text>
+<path d="M500,424 V308" fill="none" stroke="#414141" stroke-width="1.3" marker-end="url(#fsm-ink)"/>
+
+<text x="48" y="516" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#7F7C76">HIL flies the production autopilot, not a model—bench results transfer to the airframe.</text>
+</svg>
+    </div>
+    <div class="blueprint-cap"><b>Fig. 02</b> The configuration authored in 1x PDI Builder is uploaded to the autopilot, operated through Veronte Ops, and verified on the HIL bench against a simulated vehicle.</div>
+  </div>
+</section>
+
+<section id="authored">
+  <div class="sec-tag">03 · The authored layer</div>
+  <h2>What Apollyon authors</h2>
+  <p class="lede">The baseline provides the framework. The capability comes from what Apollyon configures on it: the control and mission logic that adapts a general-purpose controller to each vehicle.</p>
+
+  <div class="tw">
+    <table>
+      <caption>Ownership across the stack</caption>
+      <thead><tr><th>Layer</th><th>Owner</th><th>Content</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Mission &amp; autonomy</strong></td><td class="red">Apollyon</td><td>Route and terrain following, terminal-phase sequencing, target re-acquisition, abort and failsafe triggers.</td></tr>
+        <tr><td><strong>Control &amp; guidance laws</strong></td><td class="red">Apollyon</td><td>Gain schedules, envelope limits, control-loop tuning and actuation allocation matrices per airframe.</td></tr>
+        <tr><td><strong>Safety configuration</strong></td><td class="red">Apollyon</td><td>Flight-termination logic, safety-bit conditions, phase checklists and configuration locks.</td></tr>
+        <tr><td><strong>Guidance–navigation–control core</strong></td><td>Embention Veronte</td><td>State estimation, guidance modes, control execution, mixing and real-time scheduling.</td></tr>
+        <tr><td><strong>Drivers, I/O &amp; hardware</strong></td><td>Embention Veronte</td><td>Sensor drivers, bus and protocol support, the autopilot hardware itself.</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="note key">
-    <div class="t">Autonomy increases flight software demands</div>
-    <p>Removing the human operator increases the burden on the onboard guidance computer. In a commercial drone, when an estimator drifts or a motor saturates, the software triggers a failsafe and prompts the human pilot to take manual control. In an expendable cruise missile or high-speed interceptor traveling at 250 m/s, no human intervention is possible. The software must resolve aerodynamic non-linearities autonomously and instantaneously.</p>
-  </div>
-
-  <figure>
-    <img src="../assets/slides/apollyon-eng-4.jpg" alt="Apollyon flight stack architecture showing kept, rewritten, and added layers">
-    <figcaption><b>Fig. 01</b> Architecture of the Apollyon flight software stack. Low-level sensor drivers are retained; the control laws, scheduling core, and state estimator are entirely re-engineered for high-speed autonomy.</figcaption>
-  </figure>
-</section>
-
-<section id="core">
-  <div class="sec-tag">03 · The re-engineered stack</div>
-  <h2>What was kept, what was rewritten, and what was added</h2>
-  <p class="lede">Apollyon retains the peripheral device drivers from the open-source community while replacing the control laws, state estimation, and scheduling layers with a deterministic execution core.</p>
-
-  <div class="tw">
-    <table>
-      <caption>Layer-by-layer architectural breakdown</caption>
-      <thead><tr><th>Layer</th><th>Status</th><th>Engineering rationale</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Sensor device drivers</strong></td><td><span class="pill core">Kept &amp; hardened</span></td><td>Physical bus communication (SPI, I2C, CAN FD) operates reliably; retained and audited for memory safety.</td></tr>
-        <tr><td><strong>High-G state estimation</strong></td><td><span class="pill dev">Rewritten</span></td><td>Replaced with a tightly coupled UKF engineered to withstand booster shock, engine vibration, and sustained 7G turns without filter divergence.</td></tr>
-        <tr><td><strong>Guidance &amp; control core</strong></td><td><span class="pill dev">Rewritten</span></td><td>Replaced PID cascade with a 500 Hz direct-actuator neural policy conditioned on our flight-validated <a href="near-envelope-control.html">physics backbone</a>.</td></tr>
-        <tr><td><strong>Actuator allocation</strong></td><td><span class="pill dev">Rewritten</span></td><td>Direct multi-axis torque allocation that operates deterministically when elevons, rudders, or thrusters reach saturation boundaries.</td></tr>
-        <tr><td><strong>Deterministic scheduler</strong></td><td><span class="pill dev">Rewritten</span></td><td>Hard real-time static schedule with fixed, pre-allocated memory and isolated CPU core affinity—see <a href="onboard-compute.html">Edge Compute &amp; Custom Inference Engine</a>.</td></tr>
-        <tr><td><strong>Microsecond black-box logging</strong></td><td><span class="pill core">Added</span></td><td>Lossless microsecond-stamped logging capturing raw register states, bus timings, and actuator current for post-sortie simulation mismatch analysis.</td></tr>
-        <tr><td><strong>Hardware-in-the-Loop (HIL) harness</strong></td><td><span class="pill core">Added</span></td><td>Integrated digital-analog test harness executing production flight binaries against real-time aerodynamics simulation models.</td></tr>
-      </tbody>
-    </table>
+    <div class="t">Why the configuration layer matters</div>
+    <p>An airframe is defined by its configuration package, so it does not need a separate build. Any improvement to the baseline can be applied to every platform that shares it. Building a new vehicle then costs only the difference in its package, which is measured against the <a href="../subsystems/near-envelope-control.html">shared physics backbone</a>.</p>
   </div>
 </section>
 
-<section id="hil">
-  <div class="sec-tag">04 · Verification harness</div>
-  <h2>Hardware-in-the-Loop (HIL) testing pipeline</h2>
-  <p>Software verification happens on the ground. Every firmware build undergoes thousands of simulated sorties inside our Hardware-in-the-Loop test bench before reaching the launch rail:</p>
-  <ul>
-    <li><strong>Production Binaries:</strong> The flight computer on the HIL test bench executes the exact, bit-for-bit compiled binary deployed to the field. No simulation flags or altered timing paths are permitted.</li>
-    <li><strong>Full Sortie Emulation:</strong> The HIL test bench injects synthetic IMU signals, barometric pressure profiles, radar altimeter returns, and optical scene frames, validating complete 800-kilometre missions from booster separation to terminal dive.</li>
-    <li><strong>Automated Fault Injection:</strong> The test harness injects jammed control surfaces, motor failures, electronic warfare RF interference, and sensor dropouts, ensuring the flight software executes robust fail-operational contingencies.</li>
-  </ul>
-</section>
+<section id="verification">
+  <div class="sec-tag">04 · Verification</div>
+  <h2>Hardware-in-the-loop before the rail</h2>
+  <p class="lede">No configuration flies until it has passed on the bench. The Veronte HIL Simulator runs the production autopilot against a simulated vehicle, so the flight controller under test is the same unit that will fly.</p>
 
-<section id="ownership">
-  <div class="sec-tag">05 · Ownership thesis</div>
-  <h2>Why owning the execution core compounds development velocity</h2>
-  <p>Airframe structural components can be procured through domestic manufacturing partners, but flight control authority cannot. Third-party software stacks impose structural compromises: conservative flight limits, non-deterministic latency jitter, and architectures designed around human operators.</p>
+  <p>The autopilot receives simulated navigation and sensor data and returns real actuator commands. Control laws, guidance logic and failsafes therefore run exactly as they will in flight.</p>
+
   <div class="tw">
     <table>
-      <caption>Bought limits versus owned layers</caption>
-      <thead><tr><th>System layer</th><th>Limit imposed by commercial software</th><th>What Apollyon builds &amp; owns</th></tr></thead>
+      <caption>Simulation back-ends</caption>
+      <thead><tr><th>Back-end</th><th>What it tests</th></tr></thead>
       <tbody>
-        <tr><td><strong>Mission autonomy</strong></td><td>Rigid waypoint state machines requiring manual GCS overrides.</td><td>End-to-end autonomous mission logic with target re-acquisition capabilities.</td></tr>
-        <tr><td><strong>Flight control</strong></td><td>Conservative PID gains unable to stabilize transonic transitions.</td><td>Direct-actuator neural policies operating up to dynamic physical boundaries.</td></tr>
-        <tr><td><strong>Compute runtime</strong></td><td>Generic OS scheduling with unpredictable latency spikes.</td><td>Deterministic sub-millisecond execution with isolated core affinity.</td></tr>
-        <tr><td><strong>Test infrastructure</strong></td><td>Manual bench testing relying on post-crash telemetry reconstruction.</td><td>Lossless microsecond logging feeding our closed-loop physics backbone.</td></tr>
+        <tr><td><strong>X-Plane 11 / 12</strong></td><td>Flight dynamics and control performance for fixed-wing, multirotor and VTOL models.</td></tr>
+        <tr><td><strong>Microsoft Flight Simulator</strong></td><td>Extra flight-dynamics coverage and operator training.</td></tr>
+        <tr><td><strong>Simulink</strong></td><td>Custom plant models and engineering tests connected directly to the autopilot.</td></tr>
       </tbody>
     </table>
   </div>
 
-  <figure>
-    <img src="../assets/slides/apollyon-eng-1.jpg" alt="Layer diagram showing limits that come with purchased components versus Apollyon owned layers">
-    <figcaption><b>Fig. 02</b> Depth and speed compound together. Owning the performance-critical flight software layer allows Apollyon to iterate new vehicle configurations in days rather than quarters.</figcaption>
-  </figure>
+  <p>Faults and degraded conditions—jammed surfaces, sensor dropouts, loss of navigation, electronic-warfare interference—are injected on the bench against the same software that will fly. Each sortie then returns high-rate telemetry that feeds the physics backbone and the next tuning cycle. <a href="../subsystems/near-envelope-control.html">The sim-to-real flight loop &rarr;</a></p>
+</section>
+
+<section id="governance">
+  <div class="sec-tag">05 · Governance</div>
+  <h2>Configuration control and certification</h2>
+  <p class="lede">A proprietary baseline supports certification as well as engineering. It gives the flight-critical core a vendor-maintained history and a configuration process that can be audited.</p>
+
+  <p>Every Apollyon configuration package is versioned, reviewed and released under change control. The autopilot supports locked configurations and per-phase checklists, so a released package cannot be changed in the field without the matching control action. This leaves a clear record from the authored block program to the uploaded configuration and the flight log.</p>
+
+  <div class="note">
+    <div class="t">Certification basis</div>
+    <p>The flight-control baseline is supplied with vendor compliance and lifecycle documentation, which Apollyon keeps as part of the platform's certification evidence. Qualification and airworthiness claims are made only against that documentation, not derived from the engineering tools.</p>
+  </div>
 </section>
 
 <section id="usedby">
@@ -229,13 +285,13 @@
   <div class="xref">
     <div class="t">Integrated into</div>
     <div class="items">
-      <a href="../products/hemlock.html">Hemlock family — long-range deep-strike guidance core</a>
+      <a href="../products/hemlock.html">Hemlock — long-range strike guidance</a>
       <a href="../products/nightshade-adx1.html">Nightshade family — jet loitering munition autonomous flight stack</a>
-      <a href="../products/ahuti.html">Ahuti Interceptor — direct-actuator high-speed intercept logic</a>
+      <a href="../products/ahuti.html">Ahuti Interceptor — high-speed intercept logic</a>
       <a href="../products/usv-strike.html">Piranha USV — marine surface strike execution engine</a>
     </div>
   </div>
-  <p>Interfaces with: <a href="near-envelope-control.html">Robust Control for Fast Platforms</a>, <a href="onboard-compute.html">Edge Compute &amp; Custom Inference Engine</a>, <a href="gnss-denied-navigation.html">High-Speed GNSS-Denied Navigation</a>.</p>
+  <p>Interfaces with: <a href="near-envelope-control.html">Robust Control for Fast Platforms</a>, <a href="onboard-compute.html">Edge Compute &amp; Mission Perception</a>, <a href="gnss-denied-navigation.html">High-Speed GNSS-Denied Navigation</a>.</p>
 </section>
 
 <footer>

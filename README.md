@@ -23,9 +23,8 @@ strategy/competitive.html     The comparison field: cUAS matrices, strike matric
                               capital efficiency, the three reads
 strategy/supply-chain.html    Component posture, partners, and the open gaps
 products/                     nightshade-adx1 (family MKI–MKIII + target drone),
-                              hemlock (cruise missile family), ahuti (interceptor),
-                              usv-strike (Piranha), cortex, mdcc, mobile-drone-lab,
-                              research-platforms, hacm-350 (concept study)
+                              hemlock (Hemlock cruise missile), ahuti (interceptor),
+                              usv-strike (Piranha)
 subsystems/                   One page per shared technology; the authority for it
 doctrine/                     The New Arsenal · Precision is Mercy · The missing middle
 about/history.html            Founding, chronology, deployments, market, testimonials

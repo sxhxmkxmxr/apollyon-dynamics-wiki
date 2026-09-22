@@ -142,6 +142,36 @@ img, svg, video, table { max-width: 100%; }
 }
 .aside a:hover { color: var(--ink); border-left-color: var(--line-3); }
 .aside a.here { color: var(--ink); font-weight: 600; border-left-color: var(--red); }
+
+/* ── Wiki atlas: the layered map of the site ────────────────────────── */
+.atlas { display: block; margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
+.atlas svg { display: block; width: 100%; height: auto; }
+.atlas text { font-family: var(--mono); }
+.atlas a { text-decoration: none; }
+.atlas .spine { stroke: var(--line-2); stroke-width: 1; }
+.atlas .rule { stroke: var(--line); stroke-width: 1; }
+.atlas .mk { fill: var(--line-3); transition: fill .15s ease; }
+.atlas .lb { fill: var(--ink-3); font-size: 9px; transition: fill .15s ease; }
+.atlas .cl { fill: var(--ink-4); font-size: 8.5px; font-weight: 700; letter-spacing: .12em; }
+.atlas .cl.on { fill: var(--red-2); }
+.atlas .bridge { fill: var(--ink-4); font-size: 7.5px; }
+.atlas a:hover .mk { fill: var(--ink); }
+.atlas a:hover .lb { fill: var(--ink); }
+.atlas a:focus-visible .mk { fill: var(--ink); }
+.atlas a:focus-visible .lb { fill: var(--ink); }
+.atlas a.here .mk { fill: var(--red); }
+.atlas a.here .lb { fill: var(--ink); font-weight: 600; }
+.atlas .hub-plate { fill: #0a0a0a; stroke: var(--line-3); stroke-width: 1; transition: stroke .15s ease; }
+.atlas .hub-t { fill: var(--ink); font-size: 10px; font-weight: 700; letter-spacing: .1em; }
+.atlas .hub-s { fill: var(--ink-4); font-size: 7.5px; }
+.atlas .hub-n { fill: var(--red-2); font-size: 9px; font-weight: 700; }
+.atlas a:hover .hub-plate { stroke: var(--ink-3); }
+.atlas a.here .hub-plate { stroke: var(--red); }
+.groups { display: none; }
+@media (max-width: 1020px) {
+  .atlas { display: none; }
+  .groups { display: block; }
+}
 @media (max-width: 1020px) {
   .aside {
     position: static; max-height: none; padding: 18px 0 4px;
@@ -479,6 +509,8 @@ caption + thead th { border-top: none; }
   display: grid; grid-template-columns: repeat(auto-fit, minmax(212px, 1fr));
   gap: 1px; background: var(--line);
 }
+.spec-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 560px) { .spec-grid.cols-2 { grid-template-columns: minmax(0, 1fr); } }
 .spec-col { background: var(--bg); padding: 18px; }
 .spec-col-title {
   font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: .09em;
