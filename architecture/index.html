@@ -3,89 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Shared Core — Apollyon Dynamics Wiki</title>
+<title>The shared core — Apollyon Dynamics Wiki</title>
 <meta name="description" content="Apollyon's shared vehicle architecture: hardware, software, the flight loop that upgrades four systems per sortie, near-envelope control, worst-case latency, and navigation under GNSS denial.">
 <link rel="icon" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/wiki.css">
+<script src="../js/wiki.js" defer></script>
 </head>
-<body>
+<body id="top" data-section="architecture">
 
 <div class="rail">
   <div class="rail-inner">
+    <button class="rail-menu" type="button" aria-controls="site-nav" aria-expanded="false"><span class="bars" aria-hidden="true"></span><span class="lbl">Menu</span></button>
     <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
-    <nav class="rail-links">
-      <a href="../index.html#thesis">Thesis</a>
-      <a href="../index.html#products">Products</a>
-      <a href="../strategy/trajectory.html">Strategy</a>
-      <a href="../architecture/index.html" class="on">Architecture</a>
-      <a href="../strategic-dependency/full-record.html">Dependencies</a>
-      <a href="../doctrine/new-arsenal.html">Doctrine</a>
-      <a href="../about/history.html">Company</a>
+    <nav class="rail-links" aria-label="Sections">
+      <a id="rail-thesis" href="../index.html#thesis">Thesis</a>
+      <a id="rail-products" href="../index.html#products">Products</a>
+      <a id="rail-architecture" href="../architecture/index.html" class="on">Architecture</a>
+      <a id="rail-strategy" href="../strategy/trajectory.html">Strategy</a>
+      <a id="rail-doctrine" href="../doctrine/new-arsenal.html">Doctrine</a>
+      <a id="rail-company" href="../about/history.html">Company</a>
     </nav>
   </div>
+  <div class="rail-progress" aria-hidden="true"><i></i></div>
 </div>
 <div class="shell">
 <div class="layout">
 
-<aside class="aside">
-  <h4>On this page</h4>
-  <ul>
-    <li><a href="#limits">Where the limit comes from</a></li>
-    <li><a href="#hardware">Hardware architecture</a></li>
-    <li><a href="#software">Software architecture</a></li>
-    <li><a href="#method">The machine, its twin, the loop</a></li>
-    <li><a href="#control">Control at the envelope</a></li>
-    <li><a href="#latency">Latency is distance</a></li>
-    <li><a href="#flight-software">Flight software</a></li>
-    <li><a href="#navigation">Navigation under denial</a></li>
-    <li><a href="#sharing">What is shared</a></li>
-    <li><a href="#subsystems">Subsystem register</a></li>
-  </ul>
-  <nav class="atlas" aria-label="Wiki map">
-    <h4>Wiki map</h4>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232 650"><line class="spine" x1="16" y1="52" x2="16" y2="488"/><line class="spine" x1="16" y1="488" x2="16" y2="642"/><a href="../index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="10" width="220" height="42"/><text class="hub-t" x="18" y="27">INDEX</text><text class="hub-s" x="18" y="40">the argument · every path starts here</text><text class="hub-n" x="216" y="27" text-anchor="end">01</text></a><line class="spine" x1="16" y1="69" x2="28" y2="69"/><text class="cl" x="30" y="72">PRODUCTS</text><line class="rule" x1="30" y1="77" x2="222" y2="77"/><a href="../products/nightshade-adx1.html" class="atlas-node"><rect class="mk" x="30" y="84.5" width="5" height="5"/><text class="lb" x="41" y="92.5">Nightshade family</text></a><a href="../products/hemlock.html" class="atlas-node"><rect class="mk" x="30" y="101.5" width="5" height="5"/><text class="lb" x="41" y="109.5">Hemlock</text></a><a href="../products/ahuti.html" class="atlas-node"><rect class="mk" x="30" y="118.5" width="5" height="5"/><text class="lb" x="41" y="126.5">Ahuti interceptor</text></a><a href="../products/usv-strike.html" class="atlas-node"><rect class="mk" x="30" y="135.5" width="5" height="5"/><text class="lb" x="41" y="143.5">Piranha USV</text></a><text class="bridge" x="41" y="159">each machine configures the core ↓</text><line class="spine" x1="16" y1="180" x2="28" y2="180"/><text class="cl" x="30" y="183">STRATEGY</text><line class="rule" x1="30" y1="188" x2="222" y2="188"/><a href="../strategy/trajectory.html" class="atlas-node"><rect class="mk" x="30" y="195.5" width="5" height="5"/><text class="lb" x="41" y="203.5">Trajectory &amp; cost per kg·km</text></a><a href="../strategy/competitive.html" class="atlas-node"><rect class="mk" x="30" y="212.5" width="5" height="5"/><text class="lb" x="41" y="220.5">The competitive field</text></a><a href="../strategy/supply-chain.html" class="atlas-node"><rect class="mk" x="30" y="229.5" width="5" height="5"/><text class="lb" x="41" y="237.5">Supply chain</text></a><line class="spine" x1="16" y1="258" x2="28" y2="258"/><text class="cl" x="30" y="261">DOCTRINE</text><line class="rule" x1="30" y1="266" x2="222" y2="266"/><a href="../doctrine/new-arsenal.html" class="atlas-node"><rect class="mk" x="30" y="273.5" width="5" height="5"/><text class="lb" x="41" y="281.5">The New Arsenal</text></a><a href="../doctrine/precision-is-mercy.html" class="atlas-node"><rect class="mk" x="30" y="290.5" width="5" height="5"/><text class="lb" x="41" y="298.5">Precision is Mercy</text></a><a href="../doctrine/missing-middle.html" class="atlas-node"><rect class="mk" x="30" y="307.5" width="5" height="5"/><text class="lb" x="41" y="315.5">The missing middle</text></a><a href="../doctrine/strike-design-space.html" class="atlas-node"><rect class="mk" x="30" y="324.5" width="5" height="5"/><text class="lb" x="41" y="332.5">Strike design space</text></a><line class="spine" x1="16" y1="353" x2="28" y2="353"/><text class="cl" x="30" y="356">RECORD</text><line class="rule" x1="30" y1="361" x2="222" y2="361"/><a href="../about/history.html" class="atlas-node"><rect class="mk" x="30" y="368.5" width="5" height="5"/><text class="lb" x="41" y="376.5">Company history</text></a><a href="../about/team.html" class="atlas-node"><rect class="mk" x="30" y="385.5" width="5" height="5"/><text class="lb" x="41" y="393.5">Team &amp; advisors</text></a><a href="../strategic-dependency/full-record.html" class="atlas-node"><rect class="mk" x="30" y="402.5" width="5" height="5"/><text class="lb" x="41" y="410.5">The full record · 70 episodes</text></a><a href="../architecture/index.html" class="atlas-hub here"><rect class="hub-plate" x="6" y="440" width="220" height="42"/><text class="hub-t" x="18" y="457">ARCHITECTURE</text><text class="hub-s" x="18" y="470">the core · method, machine, loop</text><text class="hub-n" x="216" y="457" text-anchor="end">02</text></a><line class="spine" x1="16" y1="499" x2="28" y2="499"/><text class="cl" x="30" y="502">SUBSYSTEMS</text><line class="rule" x1="30" y1="507" x2="222" y2="507"/><a href="../subsystems/near-envelope-control.html" class="atlas-node"><rect class="mk" x="30" y="514.5" width="5" height="5"/><text class="lb" x="41" y="522.5">Robust flight control</text></a><a href="../subsystems/gnss-denied-navigation.html" class="atlas-node"><rect class="mk" x="30" y="531.5" width="5" height="5"/><text class="lb" x="41" y="539.5">GNSS-denied navigation</text></a><a href="../subsystems/onboard-compute.html" class="atlas-node"><rect class="mk" x="30" y="548.5" width="5" height="5"/><text class="lb" x="41" y="556.5">Edge compute</text></a><a href="../subsystems/flight-software.html" class="atlas-node"><rect class="mk" x="30" y="565.5" width="5" height="5"/><text class="lb" x="41" y="573.5">Flight software</text></a><a href="../subsystems/seekers.html" class="atlas-node"><rect class="mk" x="30" y="582.5" width="5" height="5"/><text class="lb" x="41" y="590.5">Seekers</text></a><a href="../subsystems/airframe-structures.html" class="atlas-node"><rect class="mk" x="30" y="599.5" width="5" height="5"/><text class="lb" x="41" y="607.5">Airframe &amp; structures</text></a><a href="../subsystems/launch-systems.html" class="atlas-node"><rect class="mk" x="30" y="616.5" width="5" height="5"/><text class="lb" x="41" y="624.5">Launch &amp; ground</text></a></svg>
-  </nav>
-  <div class="groups">
-  <h4>Products</h4>
-  <ul>
-    <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
-    <li><a href="../products/hemlock.html">Hemlock</a></li>
-    <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
-    <li><a href="../products/usv-strike.html">Piranha USV</a></li>
-  </ul>
-  <h4>Strategy</h4>
-  <ul>
-    <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
-    <li><a href="../strategy/competitive.html">The competitive field</a></li>
-    <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
-  </ul>
-  <h4>Architecture</h4>
-  <ul>
-    <li><a href="../architecture/index.html" class="here">The shared core</a></li>
-    <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
-    <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
-    <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
-    <li><a href="../subsystems/flight-software.html">Flight software</a></li>
-    <li><a href="../subsystems/seekers.html">Seekers</a></li>
-    <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
-    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground</a></li>
-  </ul>
-  <h4>Doctrine</h4>
-  <ul>
-    <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
-    <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
-    <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
-    <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
-  </ul>
-  <h4>Record</h4>
-  <ul>
-    <li><a href="../about/history.html">Company history</a></li>
-    <li><a href="../about/team.html">Team &amp; advisors</a></li>
-    <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
-  </ul>
+<aside class="aside" id="site-nav" aria-label="Wiki navigation">
+  <div class="nav-group">
+    <h4><span class="n">01</span>Overview</h4>
+    <ul>
+      <li><a href="../index.html">The argument</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">02</span>Products</h4>
+    <ul>
+      <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
+      <li><a href="../products/hemlock.html">Hemlock</a></li>
+      <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
+      <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+    </ul>
+  </div>
+  <div class="nav-group on">
+    <h4><span class="n">03</span>Architecture</h4>
+    <ul>
+      <li class="here"><a href="../architecture/index.html" aria-current="page">The shared core</a>
+        <ul class="nav-toc">
+          <li><a href="#limits">Where the limit comes from</a></li>
+          <li><a href="#hardware">Hardware architecture</a></li>
+          <li><a href="#software">Software architecture</a></li>
+          <li><a href="#method">The machine, its twin, the loop</a></li>
+          <li><a href="#subsystems">Subsystem register</a></li>
+          <li><a href="#sharing">What is shared</a></li>
+        </ul>
+      </li>
+      <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
+      <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
+      <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
+      <li><a href="../subsystems/flight-software.html">Flight software</a></li>
+      <li><a href="../subsystems/seekers.html">Seekers</a></li>
+      <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
+      <li><a href="../subsystems/launch-systems.html">Launch &amp; ground systems</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">04</span>Strategy</h4>
+    <ul>
+      <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
+      <li><a href="../strategy/market.html">The market</a></li>
+      <li><a href="../strategy/competitive.html">The competitive field</a></li>
+      <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">05</span>Doctrine</h4>
+    <ul>
+      <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
+      <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
+      <li><a href="../doctrine/missing-middle.html">The Missing Middle</a></li>
+      <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">06</span>Record</h4>
+    <ul>
+      <li><a href="../about/history.html">Company history</a></li>
+      <li><a href="../about/team.html">Team &amp; advisors</a></li>
+      <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
+    </ul>
   </div>
 </aside>
 
@@ -213,236 +222,40 @@
   <p>Consequently, each production standard achieves expanded flight envelopes with greater control authority. Because data ingestion, hardware-in-the-loop test benches, and simulator physics are permanent engineering assets, subsequent vehicle programs achieve validation faster and at lower unit cost.</p>
 </section>
 
-<!-- ═══════════ 05 · CONTROL ═══════════ -->
-<section id="control">
-  <div class="sec-tag">05 · Control</div>
-  <h2>Control at the edge of the envelope</h2>
-  <p class="lede">High-speed tactical flight forces vehicles into non-linear, cross-coupled aerodynamic regimes where classical control theory fails.</p>
-
-  <p>At velocities exceeding 80 metres per second, aerodynamic interactions introduce six critical operational boundaries:</p>
-  <ol>
-    <li><strong>Dynamic pressure non-linearities:</strong> Aerodynamic drag scales quadratically with velocity, increasing forty-nine-fold between 20 m/s and 140 m/s while varying substantially with ambient air density and altitude.</li>
-    <li><strong>Cross-axis kinematic coupling:</strong> Yaw, pitch, and roll axes become strongly coupled through gyroscopic moments and asymmetrical vortex shedding over control surfaces.</li>
-    <li><strong>Propulsive efficiency loss:</strong> Propeller and turbine efficiency drops sharply as tip speeds approach sonic regimes or when incoming airflow exceeds optimal intake design velocity.</li>
-    <li><strong>Sensor saturation:</strong> High-g maneuvers combined with high-frequency structural vibration saturate standard ±16 g inertial measurement units.</li>
-    <li><strong>Actuator bandwidth limits:</strong> Control servos and speed controllers exhibit non-linear response lag under maximum aerodynamic load.</li>
-    <li><strong>Control authority exhaustion:</strong> When actuators operate near maximum deflection or full electrical throttle, no control headroom remains to reject sudden crosswind gusts.</li>
-  </ol>
-  <p>Traditional cascaded PID loops (outer position loop, inner attitude loop, rate loop, and actuator allocation mixer) presume linear control reserves at each stage. When actuators saturate at maximum velocity, cascaded controllers suffer windup and cross-axis instability. Similarly, classical model-predictive control relies on simplified aerodynamic equations that become inaccurate during flow separation.</p>
-  <p>Apollyon meets this with <strong>control configuration grounded in the vehicle's physics</strong>. The control core runs scheduled loops whose gains, envelope limits and actuator allocation come from an identified vehicle model, so stability holds as dynamic pressure rises. Envelope protection limits the demand before the surfaces saturate, which avoids the wind-up a fixed cascade would suffer.</p>
-  <p>A secondary diagnostic model runs concurrently on the in-house compute as an observer. By monitoring deviations between expected and observed inertial telemetry, it isolates motor degradation, control-surface icing or severe wind shear, and feeds corrected parameters back to the scheduled control law before boundary limits are violated.</p>
-
-  <div class="blueprint-plate">
-    <div class="blueprint-head"><span class="title">Fig. 05</span><span class="scale">convergence · transfer</span></div>
-    <div class="blueprint-body">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" role="img" aria-label="Envelope expansion: identification converging on the flight-proven limit, and the transfer chain that packages the next airframe"><defs><marker id="ec-ink" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#C7C4BD"/></marker><marker id="ec-red" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#F04B4B"/></marker><marker id="ec-grey" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#414141"/></marker></defs><text x="70.0" y="40.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" letter-spacing="0.13em">THE LOOP CLOSES</text><text x="70.0" y="58.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.5" fill="#7F7C76" letter-spacing="0.08em">FRACTION OF THE PHYSICAL ENVELOPE RECOVERED</text><line x1="70.0" y1="104.0" x2="70.0" y2="330.0" stroke="#2B2B2B" stroke-width="1"/><line x1="70.0" y1="330.0" x2="540.0" y2="330.0" stroke="#2B2B2B" stroke-width="1"/><text x="305.0" y="372.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle" letter-spacing="0.12em">FLIGHT CAMPAIGNS</text><line x1="70.0" y1="132.0" x2="540.0" y2="132.0" stroke="#F04B4B" stroke-width="1.4" stroke-dasharray="7 5"/><text x="540.0" y="122.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#F04B4B" text-anchor="end">expert envelope — what the aircraft can actually do</text><line x1="80.0" y1="310.0" x2="260.0" y2="310.0" stroke="#7F7C76" stroke-width="1.4" stroke-dasharray="4 4"/><text x="270.0" y="314.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#7F7C76">conventional autonomy</text><polyline points="70.0,310.0 150.0,262.0 230.0,224.0 310.0,194.0 390.0,172.0 470.0,156.0 540.0,146.0" fill="none" stroke="#C7C4BD" stroke-width="2"/><circle cx="70.0" cy="310.0" r="3.6" fill="#D92323"/><circle cx="150.0" cy="262.0" r="3.6" fill="#D92323"/><circle cx="230.0" cy="224.0" r="3.6" fill="#D92323"/><circle cx="310.0" cy="194.0" r="3.6" fill="#D92323"/><circle cx="390.0" cy="172.0" r="3.6" fill="#D92323"/><circle cx="470.0" cy="156.0" r="3.6" fill="#D92323"/><circle cx="540.0" cy="146.0" r="3.6" fill="#D92323"/><text x="548.0" y="158.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="end" font-weight="700">identified control</text><text x="70.0" y="372.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#7F7C76">Each mark is one flight campaign: one identification pass, one simulator correction, one retune. The loop</text><text x="70.0" y="388.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#7F7C76">closes when the tuned law matches the expert in reality and the twin predicts the flight.</text><line x1="620.0" y1="30.0" x2="620.0" y2="430.0" stroke="#1D1D1D" stroke-width="1"/><text x="650.0" y="40.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" letter-spacing="0.12em">WHAT TRAVELS TO THE NEXT AIRFRAME</text><rect x="650.0" y="58.0" width="310.0" height="62.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="805.0" y="87.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.8" fill="#C7C4BD" text-anchor="middle" font-weight="600">RESEARCH QUAD</text><text x="805.0" y="97.8" font-family="JetBrains Mono, ui-monospace, monospace" font-size="6.8" fill="#A19E97" text-anchor="middle">instrumented, cheap to fly, cheap to crash — where the loop is proven</text><line x1="805.0" y1="120.0" x2="805.0" y2="142.0" stroke="#C7C4BD" stroke-width="1.1" marker-end="url(#ec-ink)"/><rect x="650.0" y="142.0" width="310.0" height="62.0" fill="#3A1212" stroke="#D92323" stroke-width="1.3"/><text x="805.0" y="166.9" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.8" fill="#F2EFE9" text-anchor="middle" font-weight="600">HIGH-SPEED PLATFORM</text><text x="805.0" y="177.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="6.8" fill="#A19E97" text-anchor="middle">a 500</text><text x="805.0" y="186.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="6.8" fill="#A19E97" text-anchor="middle">km/h airframe flown autonomously at 300 km/h — new package, same loop</text><line x1="805.0" y1="204.0" x2="805.0" y2="226.0" stroke="#C7C4BD" stroke-width="1.1" marker-end="url(#ec-ink)"/><rect x="650.0" y="226.0" width="310.0" height="62.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="805.0" y="255.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.8" fill="#C7C4BD" text-anchor="middle" font-weight="600">PRODUCTION AIRCRAFT</text><text x="805.0" y="265.8" font-family="JetBrains Mono, ui-monospace, monospace" font-size="6.8" fill="#A19E97" text-anchor="middle">the same twin, tuning and evidence, commissioned for the customer</text><text x="650.0" y="336.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.5" fill="#F04B4B" font-weight="700" letter-spacing="0.1em">WHAT TRAVELS WITH IT</text><rect x="650.0" y="350.0" width="150.0" height="28.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="725.0" y="366.4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="6.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">IDENTIFICATION RIG</text><rect x="808.0" y="350.0" width="150.0" height="28.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="883.0" y="366.4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="6.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">TWIN ARCHITECTURE</text><rect x="650.0" y="384.0" width="150.0" height="28.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="725.0" y="400.4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="6.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">TRAINING PIPELINE</text><rect x="808.0" y="384.0" width="150.0" height="28.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="883.0" y="400.4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="6.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">EVIDENCE PACKAGES</text><rect x="650.0" y="418.0" width="150.0" height="28.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="725.0" y="434.4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="6.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">TEAM KNOWLEDGE</text><text x="650.0" y="462.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="10.5" fill="#A19E97">The tuning sets are per-airframe. The pipeline is permanent.</text></svg>
-</div>
-    <div class="blueprint-cap"><b>Fig. 05</b> The simulator is earned one real flight at a time. A human expert defines the performance ceiling; every autonomous flight iteratively refines the physics until the tuned law matches or exceeds the expert and the simulator predicts the real flight. The tuning sets are specific to one airframe; the identification, simulation and tuning pipeline generalises to every airframe.</div>
-  </div>
-
-  <div class="note key">
-    <div class="t">The optimization loop, in sequence</div>
-    <p>Operational flight envelopes are bounded through instrumented flight trials → flight dynamics models are identified directly from recorded sensor logs → physics identification tunes control laws across approximately 10<sup>9</sup> domain-randomized simulated time-steps → tuned control packages execute on hardware-in-the-loop test benches → validated packages deploy to the aircraft for envelope expansion flights → telemetry is replayed in simulation to correct residual discrepancies. Fleet operational hours continuously populate empirical limit datasets, providing training distributions that synthetic modeling cannot replicate.</p>
-  </div>
-</section>
-
-<!-- ═══════════ 06 · LATENCY ═══════════ -->
-<section id="latency">
-  <div class="sec-tag">06 · Compute</div>
-  <h2>At a hundred metres per second, latency is a distance</h2>
-  <p class="lede">At 100 metres per second, a 15-millisecond delay moves the aircraft 1.5 metres before a control surface responds. At Mach 0.8, the same delay costs 4 metres. Timing is a physical quantity, not a software metric.</p>
-
-  <div class="blueprint-plate">
-    <div class="blueprint-head"><span class="title">Fig. 06</span><span class="scale">perception rates &middot; distance</span></div>
-    <div class="blueprint-body">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" role="img" aria-label="Distance travelled between perception updates at 20, 30 and 60 hertz on a vehicle flying at Mach 0.8"><text x="60.0" y="34.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" letter-spacing="0.12em">DISTANCE TRAVELLED BETWEEN PERCEPTION UPDATES</text><text x="60.0" y="54.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#A19E97" letter-spacing="0.08em">AT MACH 0.8 · 270 M/S</text><line x1="320.0" y1="80.0" x2="320.0" y2="340.0" stroke="#1D1D1D" stroke-width="1"/><text x="320.0" y="362.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">0 m</text><line x1="534.8" y1="80.0" x2="534.8" y2="340.0" stroke="#1D1D1D" stroke-width="1"/><text x="534.8" y="362.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">5 m</text><line x1="749.6" y1="80.0" x2="749.6" y2="340.0" stroke="#1D1D1D" stroke-width="1"/><text x="749.6" y="362.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">10 m</text><line x1="900.0" y1="80.0" x2="900.0" y2="340.0" stroke="#1D1D1D" stroke-width="1"/><text x="900.0" y="362.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">13.5 m</text><text x="302.0" y="137.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#A19E97" text-anchor="end" font-weight="700">20 HZ · TERRAIN MATCHING</text><rect x="320.0" y="104.0" width="580.0" height="56.0" fill="#3A1212" stroke="#D92323" stroke-width="1"/><text x="912.0" y="138.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#F2EFE9" font-weight="700">13.5 m</text><text x="302.0" y="215.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#A19E97" text-anchor="end" font-weight="700">30 HZ · EO/IR DETECTION</text><rect x="320.0" y="182.0" width="386.7" height="56.0" fill="#3A1212" stroke="#D92323" stroke-width="1"/><text x="718.7" y="216.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#F2EFE9" font-weight="700">9.0 m</text><text x="302.0" y="293.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#A19E97" text-anchor="end" font-weight="700">60 HZ · TERMINAL TRACKING</text><rect x="320.0" y="260.0" width="193.3" height="56.0" fill="#3A1212" stroke="#D92323" stroke-width="1"/><text x="525.3" y="294.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#F2EFE9" font-weight="700">4.5 m</text><line x1="60.0" y1="400.0" x2="960.0" y2="400.0" stroke="#2B2B2B" stroke-width="1"/><text x="60.0" y="424.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="10.0" fill="#A19E97">The flight-critical loop runs on its own schedule and never waits for these updates.</text><text x="60.0" y="442.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="10.0" fill="#7F7C76">Perception feeds it; in between, the core keeps flying on its own estimate.</text></svg>
-</div>
-    <div class="blueprint-cap"><b>Fig. 06</b> Distance covered between perception updates at three rates, at Mach 0.8. The flight-critical loop runs on the vendor's deterministic schedule and never waits on this path; perception feeds it and the core keeps flying on its own estimate in between.</div>
-  </div>
-
-  <p>The proprietary autopilot baseline owns the flight-critical cycle: state estimation, guidance modes, control execution and a deterministic schedule, all maintained by the vendor.</p>
-  <p>Apollyon's mission computer carries the workloads that sit outside that core: terrain and scene matching, target detection and tracking, and route generation. It is a separate computer with its own timing budget, and its results reach the autopilot as navigation fixes, track coordinates or waypoints over a narrow interface.</p>
-  <p>If the perception path is late, the aircraft does not wait. The core continues on its own estimate and takes the update when it arrives. <a href="../subsystems/onboard-compute.html">Read the edge compute subsystem specification &rarr;</a></p>
-</section>
-
-<!-- ═══════════ 07 · FLIGHT SOFTWARE ═══════════ -->
-<section id="flight-software">
-  <div class="sec-tag">07 · Flight software</div>
-  <h2>A proprietary core with an authored control layer</h2>
-  <p class="lede">Certification rules out a community open-source autopilot. The flight-critical loop runs on a proprietary baseline that is set up through configuration, and Apollyon builds the capability on top of it.</p>
-
-  <div class="tw">
-    <table>
-      <caption>What is vendor baseline, and what Apollyon authors</caption>
-      <thead><tr><th>Stage</th><th>Owner</th><th>Why</th></tr></thead>
-      <tbody>
-        <tr><td>Flight-critical core — estimation, guidance, control, actuation</td><td><strong>Vendor</strong></td><td>A named owner, a documented history and accountable maintenance.</td></tr>
-        <tr><td>Drivers, I/O and hardware</td><td><strong>Vendor</strong></td><td>Never the differentiator; retained as a maintained baseline.</td></tr>
-        <tr><td>Control &amp; guidance laws</td><td><strong>Apollyon</strong></td><td>Gain schedules, envelope limits and tuning pushed into each airframe's regime.</td></tr>
-        <tr><td>Mission autonomy</td><td><strong>Apollyon</strong></td><td>Route and terrain following, terminal sequencing, re-acquisition, abort.</td></tr>
-        <tr><td>Actuation allocation</td><td><strong>Apollyon</strong></td><td>Matrices configured to respect saturation and cross-axis coupling.</td></tr>
-        <tr><td>Safety configuration</td><td><strong>Apollyon</strong></td><td>Flight termination, phase checklists and configuration locks.</td></tr>
-        <tr><td>Verification</td><td><strong>Apollyon</strong></td><td>Hardware-in-the-loop against the production autopilot before every release.</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="blueprint-plate">
-    <div class="blueprint-head"><span class="title">Fig. 07</span><span class="scale">two compute domains</span></div>
-    <div class="blueprint-body">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" role="img" aria-label="Two compute domains: the certified Veronte Autopilot 1x flight-control core and the in-house Apollyon mission and perception compute">
-<rect width="1000" height="440" fill="#050505"/>
-<defs>
-<marker id="ar-ink" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#C7C4BD"/></marker>
-<marker id="ar-red" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#F04B4B"/></marker>
-</defs>
-<text x="48" y="34" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#F04B4B" font-weight="700" letter-spacing="0.14em">TWO COMPUTE DOMAINS, ONE AIRFRAME</text>
-<text x="952" y="34" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#C7C4BD" text-anchor="end" letter-spacing="0.08em">SENSORS IN · ACTUATORS OUT</text>
-<line x1="48" y1="46" x2="952" y2="46" stroke="#2B2B2B" stroke-width="1"/>
-
-<rect x="48" y="72" width="416" height="278" fill="#3A1212" stroke="#D92323" stroke-width="1.4"/>
-<text x="68" y="104" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#F04B4B" font-weight="700" letter-spacing="0.1em">FLIGHT-CRITICAL CORE</text>
-<text x="68" y="130" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13" fill="#FFFFFF" font-weight="700">Veronte Autopilot 1x</text>
-<text x="68" y="150" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#E8B4B4">Veronte Embention · proprietary baseline</text>
-<line x1="68" y1="166" x2="444" y2="166" stroke="#5A2020" stroke-width="1"/>
-<text x="68" y="196" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.2" fill="#F2EFE9">EKF state estimation</text>
-<text x="68" y="222" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.2" fill="#F2EFE9">Guidance modes</text>
-<text x="68" y="248" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.2" fill="#F2EFE9">Control loops · deterministic schedule</text>
-<text x="68" y="274" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.2" fill="#F2EFE9">Actuation allocation</text>
-<text x="68" y="300" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.2" fill="#F2EFE9">Flight termination &amp; safety bits</text>
-<text x="68" y="332" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#D98C8C">stability guaranteed by the vendor core</text>
-
-<rect x="536" y="72" width="416" height="278" fill="#0B1119" stroke="#414141" stroke-width="1.1"/>
-<text x="556" y="104" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#C7C4BD" font-weight="700" letter-spacing="0.1em">MISSION &amp; PERCEPTION</text>
-<text x="556" y="130" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13" fill="#FFFFFF" font-weight="700">Apollyon edge compute</text>
-<text x="556" y="150" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#A19E97">in-house · not flight-critical</text>
-<line x1="556" y1="166" x2="932" y2="166" stroke="#2B2B2B" stroke-width="1"/>
-<text x="556" y="196" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.2" fill="#F2EFE9">Terrain &amp; scene matching</text>
-<text x="556" y="222" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.2" fill="#F2EFE9">Terminal target tracking</text>
-<text x="556" y="248" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.2" fill="#F2EFE9">Mission planning &amp; route generation</text>
-<text x="556" y="274" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.2" fill="#F2EFE9">Physics-model updates</text>
-<text x="556" y="300" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.2" fill="#F2EFE9">High-rate inference pipelines</text>
-<text x="556" y="332" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#7F7C76">feeds the core, never replaces it</text>
-
-<path d="M536,182 H470" fill="none" stroke="#F04B4B" stroke-width="1.4" marker-end="url(#ar-red)"/>
-<text x="503" y="174" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.2" fill="#F04B4B" text-anchor="middle">targets</text>
-<path d="M464,262 H530" fill="none" stroke="#C7C4BD" stroke-width="1.3" marker-end="url(#ar-ink)"/>
-<text x="497" y="254" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.2" fill="#A19E97" text-anchor="middle">state</text>
-
-<rect x="48" y="374" width="416" height="40" fill="#050505" stroke="#414141" stroke-width="1"/>
-<text x="256" y="399" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#A19E97" text-anchor="middle">SENSOR SUITE — IMU · GNSS · air data · EO/IR · altimetry</text>
-<rect x="536" y="374" width="416" height="40" fill="#050505" stroke="#414141" stroke-width="1"/>
-<text x="744" y="399" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#A19E97" text-anchor="middle">ACTUATORS — elevons · fins · throttle · waterjet</text>
-</svg>
-    </div>
-    <div class="blueprint-cap"><b>Fig. 07</b> The proprietary core owns the flight-critical loop; Apollyon's in-house compute owns mission and perception. The two domains exchange only what they need.</div>
-  </div>
-
-  <p>Every airframe is defined by its configuration package, so a validated change can move across the fleet without touching the flight-critical core. That is why the next capability takes days instead of months. <a href="../subsystems/flight-software.html">Flight software subsystem →</a></p>
-</section>
-
-<!-- ═══════════ 08 · NAVIGATION ═══════════ -->
-<section id="navigation">
-  <div class="sec-tag">08 · Navigation</div>
-  <h2>The satellite signal is the most unreliable signal in defence</h2>
-  <p class="lede">It arrives weak from a 20,000 km orbit, and an inexpensive ground jammer drowns it across tens of kilometres. Spoofers broadcast forged constellations and standard receivers cannot tell they are being deceived. Degradation arrives before denial: multipath and partial jamming introduce errors of hundreds of metres while the receiver still reports a healthy link.</p>
-
-  <h3>Every remaining reference is sensed by the aircraft</h3>
-  <p>Onboard sensors do not measure absolute coordinates — they measure immediate surroundings, and a true position emerges only when those measurements are matched against maps stored before flight. The stack degrades gracefully across five references:</p>
-  <ol>
-    <li><strong>CRPA antenna</strong> — spatial null-steering that suppresses ground jammers across bands.</li>
-    <li><strong>Multi-band, multi-constellation GNSS</strong> — GPS, GLONASS, Galileo and NavIC in parallel, the primary position source when it is available.</li>
-    <li><strong>Inertial bridge</strong> — tactical MEMS/FOG inertial navigation that carries attitude and position through dropouts. Grade buys time, not a bound: better inertial sensors drift more slowly, never less. Spending delays drift, it never stops it.</li>
-    <li><strong>Terrain-referenced and scene-matched position</strong> — the shape of the ground (ranging, matched against stored elevation) and the look of the ground (a camera frame, matched against stored imagery). Both are carried onboard, sized to the mission; nothing is transmitted while flying, so there is nothing to jam and nothing to spoof.</li>
-    <li><strong>Terminal seeker</strong> — EO/IR lock for the last kilometres, independent of every satellite and of RF.</li>
-  </ol>
-
-  <div class="tw">
-    <table>
-      <caption>The sensor suite, and where it looks</caption>
-      <thead><tr><th>Sensor</th><th>What it measures</th><th>Rate</th><th>What it costs you</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Inertial unit</strong></td><td>Rotation rate and acceleration of the airframe itself</td><td>~1 kHz</td><td>Drifts; the grade you buy decides how quickly.</td></tr>
-        <tr><td>Radar altimeter</td><td>Height above whatever is directly beneath</td><td>tens of Hz</td><td>Penetrates cloud and darkness, but it transmits — it can be heard.</td></tr>
-        <tr><td>Laser altimeter</td><td>The same height, narrower beam, far sharper</td><td>tens of Hz</td><td>Quiet and precise; stopped by cloud, dust and smoke.</td></tr>
-        <tr><td>Camera, visible</td><td>The appearance of the ground below and ahead</td><td>10–60 Hz</td><td>Passive and silent; needs daylight and clear air.</td></tr>
-        <tr><td>Camera, thermal</td><td>The same scene by its heat</td><td>10–60 Hz</td><td>Flies at night; cannot be matched against daylight imagery directly.</td></tr>
-        <tr><td>Air data, magnetic</td><td>Pressure height, airspeed, magnetic heading</td><td>tens of Hz</td><td>Cheap and continuous; biased and needing correction.</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="small"><em>Platform allocation note:</em> <strong>Nightshade Mk I–III deliberately omit all active altimeters (radar and laser).</strong> This enforces total electromagnetic silence against adversary ESM sensors and protects the platform's attritable cost target (~₹1.5 crore). Nightshade controls height via fused barometric pressure and IMU vertical channel, paired with passive downward optical/IR scene matching. Active radar/laser altimetry is reserved for heavy cruise platforms such as Hemlock, where short-burst terrain matching needs it.</p>
-
-  <h3>References must fit the mission</h3>
-  <p>Scene matching is classical: a camera frame is registered against a stored reference tile, and the match returns a position fix. Its weakness is the gap between the reference and the live view. A reference captured in winter will not match a summer scene, low sun changes the shadows, and a thermal camera does not see what a daylight satellite saw. The system handles this by choosing references that fit the mission — same season, same time of day — and by planning routes across ground with texture. Public elevation and imagery products such as Copernicus GLO-30 and Sentinel-2 are accurate enough for the job; no classified imagery of a particular target is required.</p>
-
-  <div class="note">
-    <div class="t">Route planning becomes a navigation decision</div>
-    <p>Because fixes are geographic, the flight planner plans toward information. Waypoints are selected for navigational contrast; adding a one-minute detour over distinct ridgelines does more to eliminate drift than a million-dollar sensor upgrade. Before crossing featureless expanses the planner forces high-confidence fixes at the boundary, pinning uncertainty to its minimum before the blind stretch — and if accumulated drift approaches mission limits, the aircraft acts on its own: expanding sensor search radii, banking toward verified ground features, or aborting. <a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation subsystem →</a></p>
-  </div>
-</section>
-
-<!-- ═══════════ 09 · SHARING ═══════════ -->
-<section id="sharing">
-  <div class="sec-tag">09 · Portfolio</div>
-  <h2>What is shared, and what is not</h2>
-  <p>The architecture claim is deliberately scoped. Nightshade Mk II and Mk III share the full core; Hemlock, the interceptor and the surface vessel are tailored architectures that inherit the estimation methods, guidance laws and hardware validation rather than the identical flight core.</p>
-  <div class="tw">
-    <table>
-      <caption>Core reuse across the portfolio</caption>
-      <thead><tr><th>Platform</th><th>Navigation core</th><th>Flight software</th><th>Physics backbone</th><th>What it adds</th></tr></thead>
-      <tbody>
-        <tr><td><a href="../products/nightshade-adx1.html">Nightshade Mk II / Mk III</a></td><td><strong>Shared — full</strong></td><td><strong>Shared — full</strong></td><td><strong>Shared — package</strong></td><td>Airframe, launch system, seeker configuration, target-drone &amp; decoy variants</td></tr>
-        <tr><td><a href="../products/hemlock.html">Hemlock</a></td><td>Shared methods · own implementation</td><td>Shared methods · own implementation</td><td>Shared — package</td><td>Manik 450 kgf turbofan, long-range airframe, booster launch, 450–500 kg warhead</td></tr>
-        <tr><td><a href="../products/ahuti.html">Ahuti family</a></td><td>Separate rotorcraft architecture</td><td>Separate (common method)</td><td>Shared method, separate package</td><td>High-RPM electric propulsion, rotorcraft control package</td></tr>
-        <tr><td><a href="../products/usv-strike.html">Piranha USV</a></td><td>Same navigation philosophy</td><td>Maritime stack</td><td>Separate</td><td>Sea-state control, hull and waterjet propulsion</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="blueprint-plate">
-    <div class="blueprint-head"><span class="title">Fig. 08</span><span class="scale">edge fusion · data layer</span></div>
-    <div class="blueprint-body">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 770" role="img" aria-label="Edge sensor fusion architecture: sensors to world graph to role-adapted outputs, memory federation and dissemination"><defs><marker id="cs-ink" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#C7C4BD"/></marker><marker id="cs-red" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#F04B4B"/></marker><marker id="cs-grey" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#414141"/></marker></defs><text x="40.0" y="34.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" letter-spacing="0.13em">WHAT ENTERS THE FORMATION</text><rect x="40.0" y="48.0" width="168.0" height="46.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="124.0" y="74.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">UAV VIDEO</text><line x1="124.0" y1="94.0" x2="124.0" y2="124.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><rect x="226.0" y="48.0" width="168.0" height="46.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="310.0" y="74.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">CCTV / THERMAL</text><line x1="310.0" y1="94.0" x2="310.0" y2="124.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><rect x="412.0" y="48.0" width="168.0" height="46.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="496.0" y="74.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">RADAR PLOTS</text><line x1="496.0" y1="94.0" x2="496.0" y2="124.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><rect x="598.0" y="48.0" width="168.0" height="46.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="682.0" y="74.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">PATROL REPORTS</text><line x1="682.0" y1="94.0" x2="682.0" y2="124.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><rect x="784.0" y="48.0" width="168.0" height="46.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="868.0" y="74.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">REGISTRIES</text><line x1="868.0" y1="94.0" x2="868.0" y2="124.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><rect x="40.0" y="124.0" width="920.0" height="46.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="500.0" y="145.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">NORMALISATION &amp; REGISTRATION</text><text x="500.0" y="156.8" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.2" fill="#A19E97" text-anchor="middle">TIME SYNC · PLATFORM POSE · RAY-TO-GROUND PROJECTION · CALIBRATION</text><line x1="250.0" y1="170.0" x2="250.0" y2="200.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><line x1="500.0" y1="170.0" x2="500.0" y2="200.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><line x1="750.0" y1="170.0" x2="750.0" y2="200.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><rect x="40.0" y="200.0" width="440.0" height="110.0" fill="none" stroke="#414141" stroke-width="1" stroke-dasharray="4 4"/><text x="54.0" y="222.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#F04B4B" font-weight="700" letter-spacing="0.12em">LEARNED VISUAL PIPELINE</text><text x="54.0" y="242.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.0" fill="#A19E97">SPATIAL-VIDEO FOUNDATION MODEL</text><rect x="56.0" y="256.0" width="130.0" height="40.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="121.0" y="278.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.2" fill="#C7C4BD" text-anchor="middle" font-weight="600">INSTANCE MASKS</text><rect x="196.0" y="256.0" width="130.0" height="40.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="261.0" y="278.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.2" fill="#C7C4BD" text-anchor="middle" font-weight="600">OBJECT TUBES</text><rect x="336.0" y="256.0" width="130.0" height="40.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="401.0" y="278.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.2" fill="#C7C4BD" text-anchor="middle" font-weight="600">OPEN-VOCAB QUERY</text><rect x="520.0" y="200.0" width="440.0" height="110.0" fill="none" stroke="#414141" stroke-width="1" stroke-dasharray="4 4"/><text x="534.0" y="222.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#F04B4B" font-weight="700" letter-spacing="0.12em">CLASSICAL KINEMATIC PIPELINE</text><text x="534.0" y="242.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.0" fill="#A19E97">KALMAN FILTER · IMM ESTIMATION</text><rect x="536.0" y="256.0" width="130.0" height="40.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="601.0" y="278.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.2" fill="#C7C4BD" text-anchor="middle" font-weight="600">TRACK ASSOCIATION</text><rect x="676.0" y="256.0" width="130.0" height="40.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="741.0" y="278.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.2" fill="#C7C4BD" text-anchor="middle" font-weight="600">ERROR ELLIPSES</text><rect x="816.0" y="256.0" width="130.0" height="40.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="881.0" y="278.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.2" fill="#C7C4BD" text-anchor="middle" font-weight="600">VELOCITY / HEADING</text><line x1="260.0" y1="310.0" x2="260.0" y2="340.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><line x1="740.0" y1="310.0" x2="740.0" y2="340.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><rect x="180.0" y="340.0" width="640.0" height="70.0" fill="#3A1212" stroke="#D92323" stroke-width="1.5"/><text x="500.0" y="374.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#F2EFE9" text-anchor="middle" font-weight="600">TOPOLOGICAL WORLD GRAPH</text><text x="500.0" y="385.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.0" fill="#A19E97" text-anchor="middle">PERSISTENT ENTITIES · RELATIONS · EVENTS · AUTHORITY TAGS · CONFIDENCE</text><line x1="500.0" y1="410.0" x2="500.0" y2="440.0" stroke="#F04B4B" stroke-width="1.1" marker-end="url(#cs-red)"/><rect x="330.0" y="440.0" width="340.0" height="50.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="500.0" y="463.4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">ASSESSED EVENT</text><text x="500.0" y="474.7" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.8" fill="#A19E97" text-anchor="middle">ANOMALY AGAINST BASELINE MEMORY</text><line x1="140.0" y1="490.0" x2="140.0" y2="520.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><line x1="380.0" y1="490.0" x2="380.0" y2="520.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><line x1="620.0" y1="490.0" x2="620.0" y2="520.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><line x1="860.0" y1="490.0" x2="860.0" y2="520.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><rect x="40.0" y="520.0" width="200.0" height="56.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="140.0" y="546.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.8" fill="#C7C4BD" text-anchor="middle" font-weight="600">HQ DOSSIER</text><text x="140.0" y="557.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#A19E97" text-anchor="middle">FULL EVIDENCE</text><rect x="280.0" y="520.0" width="200.0" height="56.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="380.0" y="546.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.8" fill="#C7C4BD" text-anchor="middle" font-weight="600">ENGINEER TASK</text><text x="380.0" y="557.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#A19E97" text-anchor="middle">INSPECTION ORDERS</text><rect x="520.0" y="520.0" width="200.0" height="56.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="620.0" y="546.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.8" fill="#C7C4BD" text-anchor="middle" font-weight="600">VEHICLE ALERT</text><text x="620.0" y="557.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#A19E97" text-anchor="middle">MAP VECTOR + DETOUR</text><rect x="760.0" y="520.0" width="200.0" height="56.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="860.0" y="546.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.8" fill="#C7C4BD" text-anchor="middle" font-weight="600">PATROL TEXT</text><text x="860.0" y="557.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#A19E97" text-anchor="middle">50-BYTE RADIO ALERT</text><rect x="40.0" y="608.0" width="920.0" height="74.0" fill="none" stroke="#414141" stroke-width="1" stroke-dasharray="4 4"/><text x="54.0" y="630.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#F04B4B" font-weight="700" letter-spacing="0.12em">FOUR-TIER MEMORY FEDERATION</text><rect x="54.0" y="638.0" width="212.0" height="38.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="160.0" y="654.9" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.0" fill="#C7C4BD" text-anchor="middle" font-weight="600">RAW EVIDENCE</text><text x="160.0" y="665.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.2" fill="#A19E97" text-anchor="middle">CHAIN OF CUSTODY</text><rect x="280.0" y="638.0" width="212.0" height="38.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="386.0" y="654.9" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.0" fill="#C7C4BD" text-anchor="middle" font-weight="600">LATENT FEATURES</text><text x="386.0" y="665.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.2" fill="#A19E97" text-anchor="middle">RETROSPECTIVE SEARCH</text><rect x="506.0" y="638.0" width="212.0" height="38.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="612.0" y="654.9" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.0" fill="#C7C4BD" text-anchor="middle" font-weight="600">WORLD GRAPH</text><text x="612.0" y="665.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.2" fill="#A19E97" text-anchor="middle">AUTHORITATIVE STATE</text><rect x="732.0" y="638.0" width="212.0" height="38.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="838.0" y="654.9" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.0" fill="#C7C4BD" text-anchor="middle" font-weight="600">DERIVED SUMMARIES</text><text x="838.0" y="665.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.2" fill="#A19E97" text-anchor="middle">BRIEFINGS</text><rect x="40.0" y="698.0" width="920.0" height="56.0" fill="none" stroke="#414141" stroke-width="1"/><text x="54.0" y="718.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.0" fill="#F04B4B" font-weight="700" letter-spacing="0.12em">DISSEMINATION</text><text x="54.0" y="738.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#A19E97">SEMANTIC COMPRESSION: FIBRE / MANET / VHF ≤ 200 BYTES PER UPDATE · DISCONNECTED STORE-FORWARD</text><text x="946.0" y="718.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.0" fill="#7F7C76" text-anchor="end">OBJECT-LEVEL CLASSIFICATION · PKI ZERO TRUST · CRYPTOGRAPHIC WIPE</text></svg>
-</div>
-    <div class="blueprint-cap"><b>Fig. 08</b> Forward-edge sensor fusion architecture: multi-sensor telemetry normalised and processed through learned visual and classical kinematic pipelines, fused into a topological world graph, and compiled into role-adapted outputs over contested low-bandwidth tactical datalinks.</div>
-  </div>
-</section>
-
-<!-- ═══════════ 10 · SUBSYSTEMS ═══════════ -->
+<!-- ═══════════ 05 · SUBSYSTEMS ═══════════ -->
 <section id="subsystems">
-  <div class="sec-tag">10 · Register</div>
+  <div class="sec-tag">05 · Register</div>
   <h2>The subsystem register</h2>
-  <p>Each subsystem below is the authority for that technology. Product pages state their configuration of it and link here rather than restating it.</p>
+  <p>The method above runs through seven subsystems. Each has its own page, and that page is the authority for it: product pages state their configuration of a subsystem and link to it rather than restating it.</p>
   <div class="cards">
-    <div class="card">
+    <div class="card" id="control">
       <div class="kicker">Guidance &amp; control</div>
-      <h3><a href="../subsystems/near-envelope-control.html">Robust control for fast air platforms</a></h3>
-      <p>Closed-loop flight control and physics-grounded modelling engineered for extreme dynamic pressures, high-G transitions and actuator saturation.</p>
+      <h3><a href="../subsystems/near-envelope-control.html">Robust flight control</a></h3>
+      <p>Near the edge of the envelope, airflow turns non-linear, the axes couple and the actuators run out of travel, which is where fixed PID cascades wind up and diverge. Control gains, envelope limits and actuator allocation come from a vehicle model identified from real flights, and envelope protection keeps demand inside what the surfaces can deliver.</p>
       <div class="foot"><span class="pill core">Core</span><span>All vehicles</span></div>
     </div>
-    <div class="card">
+    <div class="card" id="navigation">
       <div class="kicker">Navigation</div>
-      <h3><a href="../subsystems/gnss-denied-navigation.html">High-speed GNSS-denied navigation</a></h3>
-      <p>CRPA spatial nulling, inertial bridging, terrain-referenced and scene-matched navigation for airframes moving at a hundred metres per second.</p>
+      <h3><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></h3>
+      <p>Satellite signals degrade before they disappear, so the stack falls back in layers: a CRPA antenna that nulls jammers, multi-constellation GNSS, an inertial bridge through dropouts, terrain and scene matching against maps stored before flight, and a terminal seeker. Routes are planned over ground with texture, so the aircraft gets fixes where it needs them.</p>
       <div class="foot"><span class="pill core">Core</span><span>Strike family</span></div>
     </div>
-    <div class="card">
+    <div class="card" id="latency">
       <div class="kicker">Compute</div>
-      <h3><a href="../subsystems/onboard-compute.html">Edge compute &amp; mission perception</a></h3>
-      <p>Mission and perception workloads on a second compute domain: scene matching, target tracking and route generation, feeding the flight-critical core.</p>
+      <h3><a href="../subsystems/onboard-compute.html">Edge compute</a></h3>
+      <p>At 100 m/s a 15 ms delay moves the aircraft 1.5 metres; at Mach 0.8 it is 4 metres. Scene matching, target tracking and route generation therefore run on a second computer with its own timing budget. If that path is late, the autopilot keeps flying on its own estimate and takes the update when it arrives.</p>
       <div class="foot"><span class="pill core">Core</span><span>Feeds the core</span></div>
     </div>
-    <div class="card">
+    <div class="card" id="flight-software">
       <div class="kicker">Software</div>
-      <h3><a href="../subsystems/flight-software.html">Flight software stack</a></h3>
-      <p>A proprietary autopilot baseline from Veronte Embention with an Apollyon-authored control and mission layer, cleared on hardware-in-the-loop.</p>
+      <h3><a href="../subsystems/flight-software.html">Flight software</a></h3>
+      <p>Certification rules out a community open-source autopilot, so the flight-critical loop runs on the Veronte Autopilot 1x baseline. Apollyon writes the control laws, mission logic, actuation allocation and safety configuration on top of it, and clears every package on hardware-in-the-loop before it flies.</p>
       <div class="foot"><span class="pill core">Core</span><span>All flying systems</span></div>
     </div>
     <div class="card">
       <div class="kicker">Terminal guidance</div>
-      <h3><a href="../subsystems/seekers.html">Seekers &amp; terminal guidance</a></h3>
-      <p>Passive EO/IR imaging through the Tonbo partnership, anti-radiation homing for SEAD, and scene matching for the terminal dive.</p>
+      <h3><a href="../subsystems/seekers.html">Seekers</a></h3>
+      <p>Passive EO/IR imaging through the Tonbo partnership, anti-radiation homing for SEAD, and scene matching for the terminal dive. None of them transmit, so none of them give the weapon away.</p>
       <div class="foot"><span class="pill core">Core</span><span>Nightshade · Hemlock</span></div>
     </div>
     <div class="card">
@@ -453,10 +266,37 @@
     </div>
     <div class="card">
       <div class="kicker">Ground segment</div>
-      <h3><a href="../subsystems/launch-systems.html">Launch &amp; ground systems</a></h3>
-      <p>Mobile launchers with ≤30-minute readiness, catapult and rail launch for the small vehicles, containerised booster launch for the heavy rounds.</p>
-      <div class="foot"><span class="pill core">Core</span><span>≤30 min ready</span></div>
+      <h3><a href="../subsystems/launch-systems.html">Launch &amp; ground</a></h3>
+      <p>Mobile launchers with ≤25-minute readiness, catapult and rail launch for the small vehicles, containerised booster launch for the heavy rounds.</p>
+      <div class="foot"><span class="pill core">Core</span><span>≤25 min ready</span></div>
     </div>
+  </div>
+</section>
+
+<!-- ═══════════ 06 · SHARING ═══════════ -->
+<section id="sharing">
+  <div class="sec-tag">06 · Portfolio</div>
+  <h2>What is shared, and what is not</h2>
+  <p>The architecture claim is deliberately scoped. The three Nightshade configurations share the full core; Hemlock, the interceptor and the surface vessel are tailored architectures that inherit the estimation methods, guidance laws and hardware validation rather than the identical flight core.</p>
+  <div class="tw">
+    <table>
+      <caption>Core reuse across the portfolio</caption>
+      <thead><tr><th>Platform</th><th>Navigation core</th><th>Flight software</th><th>Physics backbone</th><th>What it adds</th></tr></thead>
+      <tbody>
+        <tr><td><a href="../products/nightshade-adx1.html">Nightshade family</a></td><td><strong>Shared — full</strong></td><td><strong>Shared — full</strong></td><td><strong>Shared — package</strong></td><td>Airframe, launch system, seeker fit, target-drone and loitering-munition configurations</td></tr>
+        <tr><td><a href="../products/hemlock.html">Hemlock</a></td><td>Shared methods · own implementation</td><td>Shared methods · own implementation</td><td>Shared — package</td><td>Manik 450 kgf turbofan, long-range airframe, booster launch, 450–500 kg warhead</td></tr>
+        <tr><td><a href="../products/ahuti.html">Ahuti family</a></td><td>Separate rotorcraft architecture</td><td>Separate (common method)</td><td>Shared method, separate package</td><td>High-RPM electric propulsion, rotorcraft control package</td></tr>
+        <tr><td><a href="../products/usv-strike.html">Piranha USV</a></td><td>Same navigation philosophy · marine sensors</td><td>Own marine autopilot</td><td>Shared method, separate package</td><td>Hull, twin waterjets, sea-state control, collision avoidance</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="blueprint-plate">
+    <div class="blueprint-head"><span class="title">Fig. 05</span><span class="scale">edge fusion · data layer</span></div>
+    <div class="blueprint-body">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 770" role="img" aria-label="Edge sensor fusion architecture: sensors to world graph to role-adapted outputs, memory federation and dissemination"><defs><marker id="cs-ink" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#C7C4BD"/></marker><marker id="cs-red" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#F04B4B"/></marker><marker id="cs-grey" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#414141"/></marker></defs><text x="40.0" y="34.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" letter-spacing="0.13em">WHAT ENTERS THE FORMATION</text><rect x="40.0" y="48.0" width="168.0" height="46.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="124.0" y="74.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">UAV VIDEO</text><line x1="124.0" y1="94.0" x2="124.0" y2="124.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><rect x="226.0" y="48.0" width="168.0" height="46.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="310.0" y="74.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">CCTV / THERMAL</text><line x1="310.0" y1="94.0" x2="310.0" y2="124.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><rect x="412.0" y="48.0" width="168.0" height="46.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="496.0" y="74.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">RADAR PLOTS</text><line x1="496.0" y1="94.0" x2="496.0" y2="124.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><rect x="598.0" y="48.0" width="168.0" height="46.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="682.0" y="74.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">PATROL REPORTS</text><line x1="682.0" y1="94.0" x2="682.0" y2="124.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><rect x="784.0" y="48.0" width="168.0" height="46.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="868.0" y="74.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">REGISTRIES</text><line x1="868.0" y1="94.0" x2="868.0" y2="124.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><rect x="40.0" y="124.0" width="920.0" height="46.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="500.0" y="145.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">NORMALISATION &amp; REGISTRATION</text><text x="500.0" y="156.8" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.2" fill="#A19E97" text-anchor="middle">TIME SYNC · PLATFORM POSE · RAY-TO-GROUND PROJECTION · CALIBRATION</text><line x1="250.0" y1="170.0" x2="250.0" y2="200.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><line x1="500.0" y1="170.0" x2="500.0" y2="200.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><line x1="750.0" y1="170.0" x2="750.0" y2="200.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><rect x="40.0" y="200.0" width="440.0" height="110.0" fill="none" stroke="#414141" stroke-width="1" stroke-dasharray="4 4"/><text x="54.0" y="222.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#F04B4B" font-weight="700" letter-spacing="0.12em">LEARNED VISUAL PIPELINE</text><text x="54.0" y="242.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.0" fill="#A19E97">SPATIAL-VIDEO FOUNDATION MODEL</text><rect x="56.0" y="256.0" width="130.0" height="40.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="121.0" y="278.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.2" fill="#C7C4BD" text-anchor="middle" font-weight="600">INSTANCE MASKS</text><rect x="196.0" y="256.0" width="130.0" height="40.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="261.0" y="278.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.2" fill="#C7C4BD" text-anchor="middle" font-weight="600">OBJECT TUBES</text><rect x="336.0" y="256.0" width="130.0" height="40.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="401.0" y="278.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.2" fill="#C7C4BD" text-anchor="middle" font-weight="600">OPEN-VOCAB QUERY</text><rect x="520.0" y="200.0" width="440.0" height="110.0" fill="none" stroke="#414141" stroke-width="1" stroke-dasharray="4 4"/><text x="534.0" y="222.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#F04B4B" font-weight="700" letter-spacing="0.12em">CLASSICAL KINEMATIC PIPELINE</text><text x="534.0" y="242.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.0" fill="#A19E97">KALMAN FILTER · IMM ESTIMATION</text><rect x="536.0" y="256.0" width="130.0" height="40.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="601.0" y="278.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.2" fill="#C7C4BD" text-anchor="middle" font-weight="600">TRACK ASSOCIATION</text><rect x="676.0" y="256.0" width="130.0" height="40.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="741.0" y="278.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.2" fill="#C7C4BD" text-anchor="middle" font-weight="600">ERROR ELLIPSES</text><rect x="816.0" y="256.0" width="130.0" height="40.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="881.0" y="278.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.2" fill="#C7C4BD" text-anchor="middle" font-weight="600">VELOCITY / HEADING</text><line x1="260.0" y1="310.0" x2="260.0" y2="340.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><line x1="740.0" y1="310.0" x2="740.0" y2="340.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><rect x="180.0" y="340.0" width="640.0" height="70.0" fill="#3A1212" stroke="#D92323" stroke-width="1.5"/><text x="500.0" y="374.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#F2EFE9" text-anchor="middle" font-weight="600">TOPOLOGICAL WORLD GRAPH</text><text x="500.0" y="385.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.0" fill="#A19E97" text-anchor="middle">PERSISTENT ENTITIES · RELATIONS · EVENTS · AUTHORITY TAGS · CONFIDENCE</text><line x1="500.0" y1="410.0" x2="500.0" y2="440.0" stroke="#F04B4B" stroke-width="1.1" marker-end="url(#cs-red)"/><rect x="330.0" y="440.0" width="340.0" height="50.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="500.0" y="463.4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">ASSESSED EVENT</text><text x="500.0" y="474.7" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.8" fill="#A19E97" text-anchor="middle">ANOMALY AGAINST BASELINE MEMORY</text><line x1="140.0" y1="490.0" x2="140.0" y2="520.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><line x1="380.0" y1="490.0" x2="380.0" y2="520.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><line x1="620.0" y1="490.0" x2="620.0" y2="520.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><line x1="860.0" y1="490.0" x2="860.0" y2="520.0" stroke="#414141" stroke-width="1.1" marker-end="url(#cs-grey)"/><rect x="40.0" y="520.0" width="200.0" height="56.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="140.0" y="546.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.8" fill="#C7C4BD" text-anchor="middle" font-weight="600">HQ DOSSIER</text><text x="140.0" y="557.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#A19E97" text-anchor="middle">FULL EVIDENCE</text><rect x="280.0" y="520.0" width="200.0" height="56.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="380.0" y="546.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.8" fill="#C7C4BD" text-anchor="middle" font-weight="600">ENGINEER TASK</text><text x="380.0" y="557.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#A19E97" text-anchor="middle">INSPECTION ORDERS</text><rect x="520.0" y="520.0" width="200.0" height="56.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="620.0" y="546.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.8" fill="#C7C4BD" text-anchor="middle" font-weight="600">VEHICLE ALERT</text><text x="620.0" y="557.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#A19E97" text-anchor="middle">MAP VECTOR + DETOUR</text><rect x="760.0" y="520.0" width="200.0" height="56.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="860.0" y="546.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.8" fill="#C7C4BD" text-anchor="middle" font-weight="600">PATROL TEXT</text><text x="860.0" y="557.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#A19E97" text-anchor="middle">50-BYTE RADIO ALERT</text><rect x="40.0" y="608.0" width="920.0" height="74.0" fill="none" stroke="#414141" stroke-width="1" stroke-dasharray="4 4"/><text x="54.0" y="630.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#F04B4B" font-weight="700" letter-spacing="0.12em">FOUR-TIER MEMORY FEDERATION</text><rect x="54.0" y="638.0" width="212.0" height="38.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="160.0" y="654.9" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.0" fill="#C7C4BD" text-anchor="middle" font-weight="600">RAW EVIDENCE</text><text x="160.0" y="665.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.2" fill="#A19E97" text-anchor="middle">CHAIN OF CUSTODY</text><rect x="280.0" y="638.0" width="212.0" height="38.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="386.0" y="654.9" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.0" fill="#C7C4BD" text-anchor="middle" font-weight="600">LATENT FEATURES</text><text x="386.0" y="665.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.2" fill="#A19E97" text-anchor="middle">RETROSPECTIVE SEARCH</text><rect x="506.0" y="638.0" width="212.0" height="38.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="612.0" y="654.9" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.0" fill="#C7C4BD" text-anchor="middle" font-weight="600">WORLD GRAPH</text><text x="612.0" y="665.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.2" fill="#A19E97" text-anchor="middle">AUTHORITATIVE STATE</text><rect x="732.0" y="638.0" width="212.0" height="38.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="838.0" y="654.9" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.0" fill="#C7C4BD" text-anchor="middle" font-weight="600">DERIVED SUMMARIES</text><text x="838.0" y="665.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.2" fill="#A19E97" text-anchor="middle">BRIEFINGS</text><rect x="40.0" y="698.0" width="920.0" height="56.0" fill="none" stroke="#414141" stroke-width="1"/><text x="54.0" y="718.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.0" fill="#F04B4B" font-weight="700" letter-spacing="0.12em">DISSEMINATION</text><text x="54.0" y="738.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#A19E97">SEMANTIC COMPRESSION: FIBRE / MANET / VHF ≤ 200 BYTES PER UPDATE · DISCONNECTED STORE-FORWARD</text><text x="946.0" y="718.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.0" fill="#7F7C76" text-anchor="end">OBJECT-LEVEL CLASSIFICATION · PKI ZERO TRUST · CRYPTOGRAPHIC WIPE</text></svg>
+</div>
+    <div class="blueprint-cap"><b>Fig. 05</b> Forward-edge sensor fusion architecture: multi-sensor telemetry normalised and processed through learned visual and classical kinematic pipelines, fused into a topological world graph, and compiled into role-adapted outputs over contested low-bandwidth tactical datalinks.</div>
   </div>
 </section>
 
@@ -465,12 +305,28 @@
     <span>Apollyon Dynamics &middot; System Architecture &middot; Common Core</span>
   </div>
 
+<nav class="pager" aria-label="Reading order">
+  <a class="prev" href="../products/usv-strike.html"><span class="k">&larr; Previous &middot; Products</span><span class="t">Piranha USV</span></a>
+  <a class="next" href="../subsystems/near-envelope-control.html"><span class="k">Next &middot; Architecture &rarr;</span><span class="t">Robust flight control</span></a>
+</nav>
 <footer>
   <div>Apollyon Dynamics &middot; Neo-Prime Wiki &middot; Rev 3.0</div>
   <div><a href="../doctrine/new-arsenal.html">The New Arsenal</a> &middot; <a href="../about/history.html">Company</a> &middot; <a href="../strategy/competitive.html">Competitive field</a> &middot; apollyondynamics.com</div>
 </footer>
 
 </main>
+<nav class="toc" aria-label="On this page">
+  <h4>On this page</h4>
+  <ul>
+    <li><a href="#limits">Where the limit comes from</a></li>
+    <li><a href="#hardware">Hardware architecture</a></li>
+    <li><a href="#software">Software architecture</a></li>
+    <li><a href="#method">The machine, its twin, the loop</a></li>
+    <li><a href="#subsystems">Subsystem register</a></li>
+    <li><a href="#sharing">What is shared</a></li>
+  </ul>
+  <a class="toc-top" href="#top">Back to top &uarr;</a>
+</nav>
 </div>
 </div>
 </body>

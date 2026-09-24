@@ -3,87 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Competitive Field — Apollyon Dynamics Wiki</title>
+<title>The competitive field — Apollyon Dynamics Wiki</title>
 <meta name="description" content="Apollyon benchmarked: the cUAS interceptor field, the jet-powered loitering munition field, capital efficiency, and the three philosophies of affordable strike.">
 <link rel="icon" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/wiki.css">
+<script src="../js/wiki.js" defer></script>
 </head>
-<body>
+<body id="top" data-section="strategy">
 
 <div class="rail">
   <div class="rail-inner">
+    <button class="rail-menu" type="button" aria-controls="site-nav" aria-expanded="false"><span class="bars" aria-hidden="true"></span><span class="lbl">Menu</span></button>
     <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
-    <nav class="rail-links">
-      <a href="../index.html#thesis">Thesis</a>
-      <a href="../index.html#products">Products</a>
-      <a href="../strategy/trajectory.html" class="on">Strategy</a>
-      <a href="../architecture/index.html">Architecture</a>
-      <a href="../strategic-dependency/full-record.html">Dependencies</a>
-      <a href="../doctrine/new-arsenal.html">Doctrine</a>
-      <a href="../about/history.html">Company</a>
+    <nav class="rail-links" aria-label="Sections">
+      <a id="rail-thesis" href="../index.html#thesis">Thesis</a>
+      <a id="rail-products" href="../index.html#products">Products</a>
+      <a id="rail-architecture" href="../architecture/index.html">Architecture</a>
+      <a id="rail-strategy" href="../strategy/trajectory.html" class="on">Strategy</a>
+      <a id="rail-doctrine" href="../doctrine/new-arsenal.html">Doctrine</a>
+      <a id="rail-company" href="../about/history.html">Company</a>
     </nav>
   </div>
+  <div class="rail-progress" aria-hidden="true"><i></i></div>
 </div>
 <div class="shell">
 <div class="layout">
 
-<aside class="aside">
-  <h4>On this page</h4>
-  <ul>
-    <li><a href="#interceptors">The interceptor field</a></li>
-    <li><a href="#interceptor-commercial">Interceptor economics</a></li>
-    <li><a href="#capital">Capital efficiency</a></li>
-    <li><a href="#reads">Three reads to run</a></li>
-    <li><a href="#strike">The strike field</a></li>
-    <li><a href="#measured">Who we are measured against</a></li>
-    <li><a href="#philosophies">Three philosophies</a></li>
-    <li><a href="#fixes">What we must fix ourselves</a></li>
-  </ul>
-  <nav class="atlas" aria-label="Wiki map">
-    <h4>Wiki map</h4>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232 650"><line class="spine" x1="16" y1="52" x2="16" y2="488"/><line class="spine" x1="16" y1="488" x2="16" y2="642"/><a href="../index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="10" width="220" height="42"/><text class="hub-t" x="18" y="27">INDEX</text><text class="hub-s" x="18" y="40">the argument · every path starts here</text><text class="hub-n" x="216" y="27" text-anchor="end">01</text></a><line class="spine" x1="16" y1="69" x2="28" y2="69"/><text class="cl" x="30" y="72">PRODUCTS</text><line class="rule" x1="30" y1="77" x2="222" y2="77"/><a href="../products/nightshade-adx1.html" class="atlas-node"><rect class="mk" x="30" y="84.5" width="5" height="5"/><text class="lb" x="41" y="92.5">Nightshade family</text></a><a href="../products/hemlock.html" class="atlas-node"><rect class="mk" x="30" y="101.5" width="5" height="5"/><text class="lb" x="41" y="109.5">Hemlock</text></a><a href="../products/ahuti.html" class="atlas-node"><rect class="mk" x="30" y="118.5" width="5" height="5"/><text class="lb" x="41" y="126.5">Ahuti interceptor</text></a><a href="../products/usv-strike.html" class="atlas-node"><rect class="mk" x="30" y="135.5" width="5" height="5"/><text class="lb" x="41" y="143.5">Piranha USV</text></a><text class="bridge" x="41" y="159">each machine configures the core ↓</text><line class="spine" x1="16" y1="180" x2="28" y2="180"/><text class="cl on" x="30" y="183">STRATEGY</text><line class="rule" x1="30" y1="188" x2="222" y2="188"/><a href="../strategy/trajectory.html" class="atlas-node"><rect class="mk" x="30" y="195.5" width="5" height="5"/><text class="lb" x="41" y="203.5">Trajectory &amp; cost per kg·km</text></a><a href="../strategy/competitive.html" class="atlas-node here"><rect class="mk" x="30" y="212.5" width="5" height="5"/><text class="lb" x="41" y="220.5">The competitive field</text></a><a href="../strategy/supply-chain.html" class="atlas-node"><rect class="mk" x="30" y="229.5" width="5" height="5"/><text class="lb" x="41" y="237.5">Supply chain</text></a><line class="spine" x1="16" y1="258" x2="28" y2="258"/><text class="cl" x="30" y="261">DOCTRINE</text><line class="rule" x1="30" y1="266" x2="222" y2="266"/><a href="../doctrine/new-arsenal.html" class="atlas-node"><rect class="mk" x="30" y="273.5" width="5" height="5"/><text class="lb" x="41" y="281.5">The New Arsenal</text></a><a href="../doctrine/precision-is-mercy.html" class="atlas-node"><rect class="mk" x="30" y="290.5" width="5" height="5"/><text class="lb" x="41" y="298.5">Precision is Mercy</text></a><a href="../doctrine/missing-middle.html" class="atlas-node"><rect class="mk" x="30" y="307.5" width="5" height="5"/><text class="lb" x="41" y="315.5">The missing middle</text></a><a href="../doctrine/strike-design-space.html" class="atlas-node"><rect class="mk" x="30" y="324.5" width="5" height="5"/><text class="lb" x="41" y="332.5">Strike design space</text></a><line class="spine" x1="16" y1="353" x2="28" y2="353"/><text class="cl" x="30" y="356">RECORD</text><line class="rule" x1="30" y1="361" x2="222" y2="361"/><a href="../about/history.html" class="atlas-node"><rect class="mk" x="30" y="368.5" width="5" height="5"/><text class="lb" x="41" y="376.5">Company history</text></a><a href="../about/team.html" class="atlas-node"><rect class="mk" x="30" y="385.5" width="5" height="5"/><text class="lb" x="41" y="393.5">Team &amp; advisors</text></a><a href="../strategic-dependency/full-record.html" class="atlas-node"><rect class="mk" x="30" y="402.5" width="5" height="5"/><text class="lb" x="41" y="410.5">The full record · 70 episodes</text></a><a href="../architecture/index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="440" width="220" height="42"/><text class="hub-t" x="18" y="457">ARCHITECTURE</text><text class="hub-s" x="18" y="470">the core · method, machine, loop</text><text class="hub-n" x="216" y="457" text-anchor="end">02</text></a><line class="spine" x1="16" y1="499" x2="28" y2="499"/><text class="cl" x="30" y="502">SUBSYSTEMS</text><line class="rule" x1="30" y1="507" x2="222" y2="507"/><a href="../subsystems/near-envelope-control.html" class="atlas-node"><rect class="mk" x="30" y="514.5" width="5" height="5"/><text class="lb" x="41" y="522.5">Robust flight control</text></a><a href="../subsystems/gnss-denied-navigation.html" class="atlas-node"><rect class="mk" x="30" y="531.5" width="5" height="5"/><text class="lb" x="41" y="539.5">GNSS-denied navigation</text></a><a href="../subsystems/onboard-compute.html" class="atlas-node"><rect class="mk" x="30" y="548.5" width="5" height="5"/><text class="lb" x="41" y="556.5">Edge compute</text></a><a href="../subsystems/flight-software.html" class="atlas-node"><rect class="mk" x="30" y="565.5" width="5" height="5"/><text class="lb" x="41" y="573.5">Flight software</text></a><a href="../subsystems/seekers.html" class="atlas-node"><rect class="mk" x="30" y="582.5" width="5" height="5"/><text class="lb" x="41" y="590.5">Seekers</text></a><a href="../subsystems/airframe-structures.html" class="atlas-node"><rect class="mk" x="30" y="599.5" width="5" height="5"/><text class="lb" x="41" y="607.5">Airframe &amp; structures</text></a><a href="../subsystems/launch-systems.html" class="atlas-node"><rect class="mk" x="30" y="616.5" width="5" height="5"/><text class="lb" x="41" y="624.5">Launch &amp; ground</text></a></svg>
-  </nav>
-  <div class="groups">
-  <h4>Products</h4>
-  <ul>
-    <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
-    <li><a href="../products/hemlock.html">Hemlock</a></li>
-    <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
-    <li><a href="../products/usv-strike.html">Piranha USV</a></li>
-  </ul>
-  <h4>Strategy</h4>
-  <ul>
-    <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
-    <li><a href="../strategy/competitive.html" class="here">The competitive field</a></li>
-    <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
-  </ul>
-  <h4>Architecture</h4>
-  <ul>
-    <li><a href="../architecture/index.html">The shared core</a></li>
-    <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
-    <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
-    <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
-    <li><a href="../subsystems/flight-software.html">Flight software</a></li>
-    <li><a href="../subsystems/seekers.html">Seekers</a></li>
-    <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
-    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground</a></li>
-  </ul>
-  <h4>Doctrine</h4>
-  <ul>
-    <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
-    <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
-    <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
-    <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
-  </ul>
-  <h4>Record</h4>
-  <ul>
-    <li><a href="../about/history.html">Company history</a></li>
-    <li><a href="../about/team.html">Team &amp; advisors</a></li>
-    <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
-  </ul>
+<aside class="aside" id="site-nav" aria-label="Wiki navigation">
+  <div class="nav-group">
+    <h4><span class="n">01</span>Overview</h4>
+    <ul>
+      <li><a href="../index.html">The argument</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">02</span>Products</h4>
+    <ul>
+      <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
+      <li><a href="../products/hemlock.html">Hemlock</a></li>
+      <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
+      <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">03</span>Architecture</h4>
+    <ul>
+      <li><a href="../architecture/index.html">The shared core</a></li>
+      <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
+      <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
+      <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
+      <li><a href="../subsystems/flight-software.html">Flight software</a></li>
+      <li><a href="../subsystems/seekers.html">Seekers</a></li>
+      <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
+      <li><a href="../subsystems/launch-systems.html">Launch &amp; ground systems</a></li>
+    </ul>
+  </div>
+  <div class="nav-group on">
+    <h4><span class="n">04</span>Strategy</h4>
+    <ul>
+      <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
+      <li><a href="../strategy/market.html">The market</a></li>
+      <li class="here"><a href="../strategy/competitive.html" aria-current="page">The competitive field</a>
+        <ul class="nav-toc">
+          <li><a href="#interceptors">The interceptor field</a></li>
+          <li><a href="#interceptor-commercial">Interceptor economics</a></li>
+          <li><a href="#capital">Capital efficiency</a></li>
+          <li><a href="#reads">Three reads to run</a></li>
+          <li><a href="#strike">The Nightshade field</a></li>
+          <li><a href="#measured">Who we are measured against</a></li>
+          <li><a href="#philosophies">Three philosophies</a></li>
+          <li><a href="#fixes">What we must fix ourselves</a></li>
+        </ul>
+      </li>
+      <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">05</span>Doctrine</h4>
+    <ul>
+      <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
+      <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
+      <li><a href="../doctrine/missing-middle.html">The Missing Middle</a></li>
+      <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">06</span>Record</h4>
+    <ul>
+      <li><a href="../about/history.html">Company history</a></li>
+      <li><a href="../about/team.html">Team &amp; advisors</a></li>
+      <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
+    </ul>
   </div>
 </aside>
 
@@ -104,7 +117,7 @@
 <section id="interceptors">
   <div class="sec-tag">01 · cUAS interceptors</div>
   <h2>Archetype classification and technical differentiation</h2>
-  <p class="lede">Defence evaluators select an operational archetype before evaluating specific platforms. Ahuti combines archetype-2 procurement-grade guidance with archetype-1 electric quadcopter production economics.</p>
+  <p class="lede">Evaluators pick the kind of interceptor they want before they compare platforms. Ahuti combines archetype-2 procurement-grade guidance with archetype-1 electric quadcopter production economics.</p>
 
   <div class="tw">
     <table>
@@ -133,7 +146,7 @@
 
   <div class="note key">
     <div class="t">Threat reference: fast loitering munitions in the 400 km/h envelope</div>
-    <p>Ukrainian Air Force radar tracking indicates turbojet-powered Geran/Shahed-class loitering munitions cruise at approximately 350–400 km/h. Operating in the 400 km/h band enables interceptors to match this threat envelope, with sprint reserve to secure positive closure across crossing angles. <span class="prov obs">observed</span></p>
+    <p>Ukrainian Air Force radar tracking indicates turbojet-powered Geran/Shahed-class loitering munitions cruise at approximately 350–400 km/h. An interceptor in the 400 km/h band can match that, with sprint speed in reserve to close on crossing targets. <span class="prov obs">observed</span></p>
   </div>
 </section>
 
@@ -166,7 +179,7 @@
 <section id="capital">
   <div class="sec-tag">03 · Capital</div>
   <h2>Capital efficiency and milestone delivery</h2>
-  <p>Comparative analysis of disclosed venture funding against deployed hardware milestones demonstrates capital efficiency:</p>
+  <p>Disclosed venture funding, set against the hardware each company has actually delivered:</p>
   <div class="tw">
     <table>
       <caption>Capital efficiency against the peer set</caption>
@@ -195,7 +208,7 @@
   <p class="small">Log scale; funding from public disclosures as of September 2026, with euro figures shown as disclosed.</p>
   <div class="note key">
     <div class="t">What $0.5M bought</div>
-    <p>National speed record · Army and BSF trials · drone-lab units at eight stations · two product families in the line.</p>
+    <p>National speed record · Army and BSF trials · a mobile drone lab with the Army · two product families flying.</p>
   </div>
 </section>
 
@@ -207,56 +220,127 @@
     <div class="card">
       <div class="kicker">Read 01 · head to head</div>
       <h3>Osiris UEB-1 defines the direct product comparison</h3>
-      <p>Both platforms share a 3 kg multirotor form factor. Ahuti targets the 400 km/h operational intercept band (demonstrating up to 498 km/h in sprint record trials) versus Osiris at 315 km/h. Osiris leads in line-of-sight range (18 km versus 10 km) and flight endurance (10 minutes versus sub-2-minute sprint). Apollyon publishes separate transit and terminal dash metrics to clearly articulate this operational tradeoff.</p>
+      <p>Both platforms share a 3 kg multirotor form factor. Ahuti targets the 400 km/h operational intercept band (demonstrating up to 498 km/h in sprint record trials) versus Osiris at 315 km/h. Osiris leads in line-of-sight range (18 km versus 10 km) and flight endurance (10 minutes versus sub-2-minute sprint). Apollyon publishes transit and dash figures separately so the tradeoff is plain.</p>
     </div>
     <div class="card">
       <div class="kicker">Read 02 · pricing anchor</div>
       <h3>MARSS provides the institutional pricing reference</h3>
-      <p>MARSS prices its 8 kg interceptor at $30,000–$40,000 for 288 km/h dash speeds. Ahuti delivers higher terminal velocity on one-third the mass. Anchoring against MARSS positions a ₹10–15 lakh (≈$11–16k) Ahuti as exceptional value, whereas comparing against $2,100 Ukrainian wartime quadcopters distorts the guidance value proposition.</p>
+      <p>MARSS prices its 8 kg interceptor at $30,000–$40,000 for 288 km/h dash speeds. Ahuti delivers higher terminal velocity on one-third the mass. Against MARSS, a ₹10–15 lakh (≈$11–16k) Ahuti is strong value; comparing it with $2,100 Ukrainian wartime quadcopters ignores what the guidance is worth.</p>
     </div>
     <div class="card">
       <div class="kicker">Read 03 · command layer</div>
       <h3>Integrated software command layers win contracts</h3>
-      <p>Leading competitors—NiDAR, Lattice, Sentinel-OS, SkyDome—package interceptors with proprietary command software. The Indian Air Force and Army DIS tender requires sensors, control stations, and interceptors delivered as an integrated battery. Apollyon addresses this requirement by delivering open C2 integration interfaces alongside indigenous mission planning software.</p>
+      <p>Leading competitors—NiDAR, Lattice, Sentinel-OS, SkyDome—package interceptors with proprietary command software. The Indian Air Force and Army DIS tender requires sensors, control stations, and interceptors delivered as an integrated battery. Apollyon meets this with open C2 interfaces and its own mission-planning software.</p>
     </div>
   </div>
 </section>
 
 <!-- ═══════════ STRIKE ═══════════ -->
 <section id="strike">
-  <div class="sec-tag">05 · Long-range strike</div>
-  <h2>The jet-powered loitering munition field</h2>
-  <p class="lede">Six international systems define the peer group for Nightshade Mk II. Key operational differentiators include navigation depth in electronic warfare environments, terminal seeker autonomy, and export licensing freedom.</p>
+  <div class="sec-tag">05 · Nightshade</div>
+  <h2>The Nightshade field, configuration by configuration</h2>
+  <p class="lede">Nightshade is one airframe in three configurations, and each competes in a different field. The economical and premium target drones are measured against aerial targets; the Mk II loitering munition against one-way attack drones and loitering munitions, in a lower-cost band and a high-end band. Apollyon figures are internal engineering estimates; competitor figures come from manufacturer literature, defence-press reporting and disclosed procurement data, September 2026.</p>
 
+  <h3 id="target-drones">Target drone, Economical</h3>
   <div class="tw">
     <table>
-      <caption>Jet-powered one-way effectors · key parameters</caption>
-      <thead><tr><th>Parameter</th><th class="red">NIGHTSHADE Mk II</th><th>Barracuda-250</th><th>Berkut-BM</th><th>Peklo</th><th>Geran-4</th><th>Nyan</th></tr></thead>
+      <caption>Economical configuration against named rivals <span class="prov">n/d = not disclosed</span></caption>
+      <thead><tr><th>Parameter</th><th class="red">Nightshade Economical</th><th>DRDO Abhyas</th><th>QinetiQ Banshee Whirlwind</th></tr></thead>
       <tbody>
-        <tr><td>Origin / OEM</td><td class="red">India · Apollyon</td><td>USA · Anduril</td><td>Belarus · Indela</td><td>Ukraine · UDI</td><td>Russia · Alabuga</td><td>UK · Callen-Lenz / BAE</td></tr>
-        <tr><td>Platform Class</td><td class="red">One-Way Effector / Target Drone / Decoy</td><td>Autonomous air vehicle / decoy</td><td>One-Way Attack Drone (SEAD)</td><td>Missile-drone</td><td>One-Way Attack Drone</td><td>One-Way Effector</td></tr>
-        <tr><td>Cruise speed</td><td class="red">550 km/h</td><td>926 km/h</td><td>~410 km/h</td><td>700 km/h</td><td>300–400 km/h</td><td>~222 km/h</td></tr>
-        <tr><td>Terminal speed</td><td class="red">700 km/h</td><td>n/d</td><td>450–500 km/h</td><td>n/d</td><td>~500 km/h</td><td>n/d</td></tr>
-        <tr><td>Time to target at 300 km</td><td class="red">32.7 min</td><td>19.4 min (air-launched; ground max 277 km)</td><td>Beyond range</td><td>25.7 min</td><td>45–60 min</td><td>Beyond range</td></tr>
-        <tr><td>Range</td><td class="red">300 km</td><td>370 air / 277 ground</td><td>150–180 km</td><td>700 km</td><td>450 km</td><td>250+ km</td></tr>
-        <tr><td>Warhead</td><td class="red">15 kg modular</td><td>15.9 kg</td><td>10 kg</td><td>23 kg (30–50 est.)</td><td>50 kg, 90 kg enlarged</td><td>Under 20 kg</td></tr>
-        <tr><td>MTOW</td><td class="red">86 kg</td><td>~113 kg class</td><td>46 kg</td><td>n/d</td><td>450 kg</td><td>n/d</td></tr>
-        <tr><td>Navigation layers</td><td class="red">4 — CRPA, multiband GNSS, MEMS INS, terminal seeker</td><td>Undetermined publicly</td><td>2 — GNSS + INS (sub-5 m CEP in jammed trials)</td><td>2 — GPS correction + INS</td><td>2 — 16-element CRPA + GNSS</td><td>Undetermined</td></tr>
-        <tr><td>Terminal seeker</td><td class="red">Tonbo TRAP-1 dual-band EO/IR</td><td>EO/IR/laser shown in renders; unconfirmed</td><td>Type not specified</td><td>None documented</td><td>None documented</td><td>None (pre-programmed)</td></tr>
-        <tr><td>Export posture</td><td class="red">Non-ITAR · global</td><td>ITAR · US-allied only</td><td>Sanctioned supply chain</td><td>Ukrainian export controls</td><td>Sanctions-blocked</td><td>UK export controls</td></tr>
-        <tr><td>Unit flyaway</td><td class="red">$150k tentative</td><td>Under $216k</td><td>n/d</td><td>n/d</td><td>Likely above Geran-2 (~$20–50k)</td><td>~$130k</td></tr>
+        <tr><td>Country · status</td><td class="red">India · in development (2026)</td><td>India · fielded ~2012</td><td>UK · in service</td></tr>
+        <tr><td>Engine</td><td class="red">Turbojet, 40 kgf class</td><td>Small gas turbine</td><td>Rotary (Wankel), 40 bhp</td></tr>
+        <tr><td>Terminal speed</td><td class="red">650 km/h</td><td>~648 km/h</td><td>up to ~343 km/h</td></tr>
+        <tr><td>Operational range</td><td class="red">300 km</td><td>n/d</td><td>n/d</td></tr>
+        <tr><td>Endurance</td><td class="red">40 min</td><td>~30–45 min</td><td>~90 min</td></tr>
+        <tr><td>Recovery</td><td class="red">Parachute</td><td>None · expendable</td><td>Parachute</td></tr>
+        <tr><td>Navigation</td><td class="red">Multiband GNSS · anti-jam / anti-spoof</td><td>GPS + NavIC, MEMS INS</td><td>GPS-aided autopilot</td></tr>
+        <tr><td>Indigenous content</td><td class="red">~45–50%</td><td>75%+</td><td>Imported (UK)</td></tr>
+        <tr><td>Unit price</td><td class="red">$90,000</td><td>~$42–52K</td><td>n/d</td></tr>
       </tbody>
     </table>
   </div>
+  <p>The only turbojet target in this comparison at its price with parachute recovery, at roughly twice the terminal speed of Banshee Whirlwind. It costs about twice Abhyas; the case rests on recovery and jet speed, not unit price. Endurance is shorter than Whirlwind's.</p>
 
-  <p>Nightshade Mk II pairs high subsonic cruise (550 km/h) with a four-layer anti-jam navigation architecture and non-ITAR export qualification. Its flight software core transfers directly to the Hemlock cruise-missile family. <span class="prov claim">manufacturer claims</span> <span class="prov obs">observed</span></p>
+  <h3>Target drone, Premium (ADX-1 Premium)</h3>
+  <div class="tw">
+    <table>
+      <caption>Premium configuration against named rivals</caption>
+      <thead><tr><th>Parameter</th><th class="red">ADX-1 Premium</th><th>QinetiQ Banshee Jet 80+</th><th>Kratos BQM-167 Skeeter</th><th>DRDO Lakshya</th></tr></thead>
+      <tbody>
+        <tr><td>Country · status</td><td class="red">India · in development</td><td>UK · in service since 2021</td><td>USA · in service since 2008</td><td>India · fielded since 2000</td></tr>
+        <tr><td>Engine</td><td class="red">Turbojet, 40 kgf class</td><td>Twin gas turbine (2×40 kgf)</td><td>Single turbojet, 4.4 kN</td><td>Turbojet</td></tr>
+        <tr><td>Maximum speed</td><td class="red">650 km/h terminal</td><td>720 km/h cruise</td><td>1,100 km/h</td><td>858 km/h</td></tr>
+        <tr><td>Operational range</td><td class="red">300 km</td><td>100+ km</td><td>n/d</td><td>150 km</td></tr>
+        <tr><td>Control link</td><td class="red">~300 km-class LOS · satcom BVLOS</td><td>n/d</td><td>n/d</td><td>n/d</td></tr>
+        <tr><td>Recovery</td><td class="red">Parachute</td><td>Parachute</td><td>Parachute, refurbished and reused</td><td>Two-stage parachute</td></tr>
+        <tr><td>Navigation</td><td class="red">Dual-antenna primary / backup GNSS</td><td>GPS + 3-axis IMU</td><td>GS-111 INS + GPS</td><td>Autopilot + MEMS INS</td></tr>
+        <tr><td>Unit price</td><td class="red">~$150,000</td><td>n/d</td><td>~$570,000</td><td>~$308,000</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>No named rival discloses a control-link range near 300 km, and the operational range exceeds every named rival, at roughly half Lakshya's price and a quarter of Skeeter's. The bill of materials is deliberately non-Chinese. Realising the full link needs ground infrastructure (an azimuth/elevation tracker and elevated antenna siting), and the rivals are faster.</p>
+
+  <h3 id="lm-lower">Loitering munition Mk II, lower-cost band</h3>
+  <div class="tw">
+    <table>
+      <caption>Mk II against lower-cost one-way attack drones</caption>
+      <thead><tr><th>Parameter</th><th class="red">Nightshade Mk II</th><th>Nagastra-2</th><th>Shahed-136</th><th>LUCAS FLM-136</th><th>Geran-4</th></tr></thead>
+      <tbody>
+        <tr><td>Country · status</td><td class="red">India · 2026 (development)</td><td>India · 2024–25 (development)</td><td>Iran · fielded 2019</td><td>USA · combat 2026</td><td>Russia · combat since May 2026</td></tr>
+        <tr><td>Propulsion</td><td class="red">Turbojet, 40 kgf class</td><td>Electric</td><td>Piston</td><td>Piston</td><td>Turbojet</td></tr>
+        <tr><td>Cruise / terminal</td><td class="red">550 / 650 km/h</td><td>~120 / ~150 km/h (est.)</td><td>185 / 185 km/h</td><td>~102 / 185 km/h</td><td>300–400 / ~500 km/h</td></tr>
+        <tr><td>Range</td><td class="red">300 km</td><td>25+ km</td><td>2,000+ km</td><td>648 km</td><td>450 km</td></tr>
+        <tr><td>Endurance</td><td class="red">40 min</td><td>90 min</td><td>600+ min</td><td>360 min</td><td>150 min</td></tr>
+        <tr><td>Warhead</td><td class="red">15 kg HE-frag / shaped charge</td><td>2.2–4 kg</td><td>40–50 kg</td><td>~18 kg</td><td>50–90 kg</td></tr>
+        <tr><td>GNSS-denied capability</td><td class="red">High · 4-element CRPA, INS</td><td>Low</td><td>None</td><td>Medium (claimed)</td><td>Low</td></tr>
+        <tr><td>Swarm</td><td class="red">Tentative</td><td>n/d</td><td>No</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Unit cost</td><td class="red">~$150,000</td><td>$20–40K</td><td>$20–80K</td><td>$35–40K</td><td>n/d</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Mk II is 3–4× faster in the terminal phase than every electric or piston rival, and its navigation stack is the deepest in this band. It is also the costliest here by a wide margin and competes on speed, range and guidance, not price. Shahed-136, LUCAS and Geran-4 fly much longer missions, and LUCAS and Geran-4 disclose fielded swarm support.</p>
+
+  <h3 id="lm-high">Loitering munition Mk II, high-end band</h3>
+  <div class="tw">
+    <table>
+      <caption>Mk II against high-end loitering munitions</caption>
+      <thead><tr><th>Parameter</th><th class="red">Nightshade Mk II</th><th>IAI Harop</th><th>Switchblade 600</th><th>Rheinmetall FV-014</th><th>Indela Berkut-BM</th></tr></thead>
+      <tbody>
+        <tr><td>Country · status</td><td class="red">India · 2026 (development)</td><td>Israel · fielded 2009</td><td>USA · fielded 2020</td><td>Germany · contracted 2026</td><td>Belarus · inducted by India 2026</td></tr>
+        <tr><td>Cruise / terminal</td><td class="red">550 / 650 km/h</td><td>185 / ~300 km/h</td><td>112 / 185 km/h</td><td>~150–180 / ~200 km/h (est.)</td><td>~410 / ~450–500 km/h</td></tr>
+        <tr><td>Range</td><td class="red">300 km</td><td>200 km</td><td>40 km (Block 2: 110+)</td><td>100 km</td><td>150–180 km</td></tr>
+        <tr><td>Endurance</td><td class="red">40 min</td><td>360+ min</td><td>40 min</td><td>70 min</td><td>~45 min</td></tr>
+        <tr><td>Warhead</td><td class="red">15 kg</td><td>23 kg</td><td>~2.5 kg</td><td>5–6 kg</td><td>10 kg</td></tr>
+        <tr><td>Terminal guidance</td><td class="red">Autonomous, pre-planned</td><td>Man-in-loop + anti-radiation</td><td>Man-in-loop</td><td>Man-in-loop</td><td>Autonomous, pre-programmed</td></tr>
+        <tr><td>Swarm</td><td class="red">Tentative</td><td>No</td><td>No</td><td>Yes</td><td>n/d</td></tr>
+        <tr><td>ITAR</td><td class="red">No</td><td>No</td><td>Yes</td><td>No</td><td>No</td></tr>
+        <tr><td>Unit cost</td><td class="red">~$150,000</td><td>$500K–1M+</td><td>$100–150K</td><td>~$50–100K (est.)</td><td>n/d</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Mk II is the fastest platform in this comparison and outranges Harop and FV-014, at about a fifth of Harop's cost and level with Switchblade 600. FV-014 is the closest global peer by weight and mission class. Harop's six-hour endurance, FV-014's 70-minute loiter and native swarming, and Berkut-BM's induction into Indian service are real advantages.</p>
+
+  <h3 id="reference-class">Reference class: jet-powered effectors</h3>
+  <p>Jet-powered one-way effectors sit alongside this field rather than inside it. They are kept here as a reference for speed and price.</p>
+  <div class="tw">
+    <table>
+      <caption>Jet-powered one-way effectors · reference</caption>
+      <thead><tr><th>System</th><th>Origin</th><th>Cruise speed</th><th>Range</th><th>Warhead</th><th>Export</th><th>Unit cost</th></tr></thead>
+      <tbody>
+        <tr><td>Barracuda-250</td><td>USA · Anduril</td><td>926 km/h</td><td>370 km air / 277 km ground</td><td>15.9 kg</td><td>ITAR</td><td>Under $216K</td></tr>
+        <tr><td>Peklo</td><td>Ukraine · UDI</td><td>700 km/h</td><td>700 km</td><td>23 kg</td><td>Ukrainian export controls</td><td>n/d</td></tr>
+        <tr><td>Nyan</td><td>UK · Callen-Lenz / BAE</td><td>~222 km/h</td><td>250+ km</td><td>Under 20 kg</td><td>UK export controls</td><td>~$130K</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small"><span class="prov claim">manufacturer claims</span> <span class="prov est">estimates</span> Where a competitor figure is not disclosed, no number is substituted.</p>
 </section>
 
 <!-- ═══════════ MEASURED AGAINST ═══════════ -->
 <section id="measured">
   <div class="sec-tag">06 · Self-assessment</div>
-  <h2>Institutional positioning: The Indian defence quadrant and ecosystem archetypes</h2>
-  <p class="lede">Markets frequently treat Indian defence companies as a monolithic asset class. In reality, the domestic defence industrial base divides into four distinct structural archetypes with fundamentally different capital intensities, technological moats, and iteration cadences.</p>
+  <h2>Where Apollyon sits among Indian defence companies</h2>
+  <p class="lede">Markets often treat Indian defence companies as one asset class. In practice the industrial base divides into four archetypes, with very different capital needs, moats and iteration speeds.</p>
 
   <div class="blueprint-plate">
     <div class="blueprint-head"><span class="title">Fig. 04</span><span class="scale">development cadence &middot; unit cost &middot; ecosystem archetypes</span></div>
@@ -274,34 +358,34 @@
         <tr><td><strong>1. Lab Spin-offs</strong><br><small>(Deep-Tech &amp; Universities)</small></td><td><strong>Apollyon Dynamics</strong> (BITS Pilani), Pixxel, ideaForge, Bellatrix, Inspecity</td><td>Proprietary, ground-up IP (turbines, edge perception, flight-control packages); built first as deep tech, later co-opted by MoD</td><td>High venture risk-reward; highest IP defensibility; 3–5 years from mainboard IPOs</td><td><strong>Apollyon's Native DNA:</strong> Sits in the high-cadence, low-cost quadrant, executing with extreme speed and frugal engineering.</td></tr>
         <tr><td><strong>2. DRDO Alumni</strong><br><small>(Procurement Literacy)</small></td><td>Astra Microwave Products (Malla Reddy), NabhaDrishti Aerospace</td><td>Procurement literacy: deep fluency with military GSQRs, bureaucratic tendering, and compliance audits</td><td>High operational stability; lower asymmetric valuation multiples; predictable government revenue</td><td><strong>Collaborative Interface:</strong> Apollyon benchmarks its GSQR submissions and trial protocols against ex-DRDO compliance standards.</td></tr>
         <tr><td><strong>3. MSME Upgraders</strong><br><small>(The Production Engine)</small></td><td>Solar Industries (Nagastra), Paras Defence &amp; Space Technologies</td><td>Scaled manufacturing infrastructure, audited balance sheets, CNC precision capacity, and proven export channels</td><td>Public market alpha; expanding operating leverage; immediate conversion of capex into serial deliveries</td><td><strong>Manufacturing Scaling:</strong> Apollyon partners with Tier-1 MSMEs for airframe casting, precision turbine milling, and warhead filling.</td></tr>
-        <tr><td><strong>4. Conglomerates</strong><br><small>(The Heavy Capex Play)</small></td><td>Tata Advanced Systems, Adani Defence, Larsen &amp; Toubro (L&T), Mahindra</td><td>Massive capital expenditure, large land banks, foreign prime JVs, and top-tier heavy platform programs (fighter lines, submarines)</td><td>Safest structural balance sheets; valuation upside largely priced into parent entities; slower 7–10 year cycles</td><td><strong>Non-Competitive Coexistence:</strong> Conglomerates avoid the expendable sub-₹1.5 Cr tier; Apollyon dominates the high-volume middle layer they cannot service frugally.</td></tr>
+        <tr><td><strong>4. Conglomerates</strong><br><small>(The Heavy Capex Play)</small></td><td>Tata Advanced Systems, Adani Defence, Larsen &amp; Toubro (L&T), Mahindra</td><td>Massive capital expenditure, large land banks, foreign prime JVs, and top-tier heavy platform programs (fighter lines, submarines)</td><td>Safest structural balance sheets; valuation upside largely priced into parent entities; slower 7–10 year cycles</td><td><strong>Non-Competitive Coexistence:</strong> Conglomerates avoid the expendable sub-₹1.5 Cr tier; Apollyon targets the high-volume middle layer they are not built to serve at low unit cost.</td></tr>
       </tbody>
     </table>
   </div>
 
-  <p>By operating as an <strong>Archetype 1 deep-tech creator</strong> that licenses and subcontracts physical manufacturing to <strong>Archetype 3 MSMEs</strong>, Apollyon sidesteps the multi-billion-rupee capex trap of legacy conglomerates while sustaining an agile 18-month product iteration loop.</p>
+  <p>By operating as an <strong>Archetype 1 deep-tech creator</strong> that licenses and subcontracts physical manufacturing to <strong>Archetype 3 MSMEs</strong>, Apollyon avoids the heavy capital spending of legacy conglomerates and keeps an 18-month product iteration loop.</p>
 </section>
 
 <!-- ═══════════ PHILOSOPHIES ═══════════ -->
 <section id="philosophies">
   <div class="sec-tag">07 · Design space</div>
   <h2>Three philosophies of affordable strike</h2>
-  <p>Two distinct strike concepts emerged recently to address the requirement for affordable, high-volume standoff weapons. Ukraine built around surplus aviation engines; Anduril built around automated factory tooling. India requires an ecosystem-first model tailored to its domestic industrial strengths.</p>
+  <p>Two strike concepts have emerged recently for affordable, high-volume standoff weapons. Ukraine built around surplus aviation engines; Anduril built around automated factory tooling. India requires an ecosystem-first model tailored to its domestic industrial strengths.</p>
   <div class="cards">
     <div class="card">
       <div class="kicker">Constraint-first</div>
       <h3>FP-5 Flamingo · Ukraine</h3>
-      <p>Built around thousands of surplus AI-25 trainer turbofans. Produces a 6-tonne airframe carrying a 1,150 kg penetrator with basic GNSS/INS navigation and no terminal seeker. Tradeoff: high radar cross-section and roughly a 1-in-3 arrival rate. Stockpile exhaustion subsequently created a binding production ceiling.</p>
+      <p>Built around thousands of surplus AI-25 trainer turbofans. Produces a 6-tonne airframe carrying a 1,150 kg penetrator with basic GNSS/INS navigation and no terminal seeker. Tradeoff: high radar cross-section and roughly a 1-in-3 arrival rate. Stockpile exhaustion then set a hard production ceiling: by 2026 output was capped near three rounds a day.</p>
     </div>
     <div class="card">
       <div class="kicker">Manufacturing-first</div>
       <h3>Barracuda-500 · Anduril</h3>
-      <p>Engineered around high-volume factory assembly: 70% commercial parts, four qualified engine sources, 30 hours assembly time, and 90% component commonality. Delivers 45 kg payloads across Tomahawk-class ranges. Requires multi-thousand unit military contracts to justify dedicated tooling capital.</p>
+      <p>Engineered around high-volume factory assembly: 70% commercial parts, four qualified engine sources, 30 hours assembly time, and 90% component commonality. Delivers 45 kg payloads across Tomahawk-class ranges. Needs multi-thousand-unit military contracts to pay for the tooling; without that volume, unit costs drift back toward boutique levels.</p>
     </div>
     <div class="card">
       <div class="kicker">Ecosystem-first</div>
       <h3>India · The middle layer</h3>
-      <p>Leverages India's sovereign missile expertise alongside automotive stamping, aluminum casting, and domestic electronics capacity. Apollyon targets the operational middle tier: 400–1,200 km range, 50–150 kg warheads, under ₹2 crore per unit, produced at hundreds per month with a shared autonomy stack.</p>
+      <p>Builds on India's missile expertise alongside automotive stamping, aluminum casting, and domestic electronics capacity. Apollyon targets the operational middle tier: 400–1,200 km range, 50–150 kg warheads, under ₹2 crore per unit, produced at hundreds per month with a shared autonomy stack. The discipline it demands is sizing each weapon to domestic tooling, holding parts commonality, and designing around suppliers that are already qualified.</p>
     </div>
   </div>
   <p class="small">Detailed salvo mathematics and financial models appear on <a href="trajectory.html#salvo">the trajectory page</a>.</p>
@@ -310,7 +394,7 @@
 <!-- ═══════════ FIXES ═══════════ -->
 <section id="fixes">
   <div class="sec-tag">08 · Actions</div>
-  <h2>Institutional priorities and transparency commitments</h2>
+  <h2>What we must fix ourselves</h2>
   <ol>
     <li><strong>Publish separate transit and dash figures for Ahuti:</strong> Distinguish cruise endurance from sub-2-minute sprint intercepts to accurately communicate the flight envelope to evaluators.</li>
     <li><strong>Finalize Ahuti unit production pricing:</strong> Establish firm price bands for procurement proposals to anchor value against Western systems.</li>
@@ -325,12 +409,30 @@
     <span>Apollyon Dynamics &middot; Strategy &middot; Global Benchmark</span>
   </div>
 
+<nav class="pager" aria-label="Reading order">
+  <a class="prev" href="../strategy/market.html"><span class="k">&larr; Previous &middot; Strategy</span><span class="t">The market</span></a>
+  <a class="next" href="../strategy/supply-chain.html"><span class="k">Next &middot; Strategy &rarr;</span><span class="t">Supply chain</span></a>
+</nav>
 <footer>
   <div>Apollyon Dynamics &middot; Neo-Prime Wiki &middot; Rev 3.0</div>
   <div><a href="../doctrine/new-arsenal.html">The New Arsenal</a> &middot; <a href="../about/history.html">Company</a> &middot; <a href="../strategy/competitive.html">Competitive field</a> &middot; apollyondynamics.com</div>
 </footer>
 
 </main>
+<nav class="toc" aria-label="On this page">
+  <h4>On this page</h4>
+  <ul>
+    <li><a href="#interceptors">The interceptor field</a></li>
+    <li><a href="#interceptor-commercial">Interceptor economics</a></li>
+    <li><a href="#capital">Capital efficiency</a></li>
+    <li><a href="#reads">Three reads to run</a></li>
+    <li><a href="#strike">The Nightshade field</a></li>
+    <li><a href="#measured">Who we are measured against</a></li>
+    <li><a href="#philosophies">Three philosophies</a></li>
+    <li><a href="#fixes">What we must fix ourselves</a></li>
+  </ul>
+  <a class="toc-top" href="#top">Back to top &uarr;</a>
+</nav>
 </div>
 </div>
 </body>

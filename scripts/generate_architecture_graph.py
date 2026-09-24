@@ -213,7 +213,7 @@ px2 = 3100
 
 # Row 1: Tactical Cash Engines (y=235)
 draw_node('ahuti.html', px1, 235, prod_w, prod_h, "Ahuti C-UAS Interceptor", "wiki/products/ahuti.html", "High-speed multirotor kinetic interceptor (498 km/h national record).\nConsumable air-defence effector for DKS / Make-II; defeats jet loitering\nmunitions in the 400 km/h threat band. Unit cost ₹10–15 Lakh.", "REVENUE ENGINE", GREEN, border_color=GREEN)
-draw_node('nightshade-adx1.html', px2, 235, prod_w, prod_h, "Nightshade Mk II", "wiki/products/nightshade-adx1.html", "Jet-powered one-way effector & aerial target (700 km/h, 300 km, 15 kg warhead).\nPlanning price ₹1.5 Cr (~₹3,333/kg·km). Dual-role target drone captures\nrecurring peacetime training contracts (AADC) into steady operating cash.", "REVENUE ENGINE", GREEN, border_color=GREEN)
+draw_node('nightshade-adx1.html', px2, 235, prod_w, prod_h, "Nightshade Mk II", "wiki/products/nightshade-adx1.html", "Jet-powered one-way effector & aerial target (650 km/h, 300 km, 15 kg payload).\nPlanning price ₹1.5 Cr (~₹3,333/kg·km). Dual-role target drone captures\nrecurring peacetime training contracts (AADC) into steady operating cash.", "REVENUE ENGINE", GREEN, border_color=GREEN)
 
 # Row 2: Deep Standoff Strike & Maritime (y=425)
 draw_node('hemlock.html', px1, 425, prod_w, prod_h, "Hemlock Family (Mk I / Mk II)", "wiki/products/hemlock.html", "Long-range deep-strike cruise missiles:\n• Mk I: 75 kg warhead, 1,000 km range, 900 km/h, ₹350/kg·km target.\n• Mk II: 1,000 kg warhead, 1,500 km range, terrain-following, ₹35/kg·km floor.", "STRATEGIC STRIKE", GREEN, border_color=GREEN)
@@ -229,7 +229,7 @@ prod_summary_lines = [
     "   - Nightshade Mk I: Flown 2026; validated dynamic vehicle-mounted jet catapult launch at 650 km/h.",
     "",
     "• NEAR-TERM SERIAL PRODUCTION (2027–2028):",
-    "   - Nightshade Mk II: 15 kg warhead, 300 km range, 700 km/h terminal dive (4,500 kg·km).",
+    "   - Nightshade Mk II: 15 kg payload, 300 km range, 650 km/h terminal dive (4,500 kg·km).",
     "     Planning price near ₹1.5 crore (~₹3,333 / kg·km). Dual-role configuration captures recurring",
     "     peacetime live-fire training (AADC) while logging thousands of flight hours on serial tooling.",
     "   - Nightshade Mk III: 25 kg warhead, 500 km range, 800 km/h dive (12,500 kg·km, ₹1,700/kg·km).",

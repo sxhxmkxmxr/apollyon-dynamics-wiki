@@ -3,90 +3,103 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Seekers &amp; terminal guidance &mdash; Apollyon Dynamics Wiki</title>
+<title>Seekers — Apollyon Dynamics Wiki</title>
 <meta name="description" content="Apollyon Dynamics engineering wiki — autonomous strike, interception and battlefield-intelligence systems, with the shared architecture they are built from.">
 <link rel="icon" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/wiki.css">
+<script src="../js/wiki.js" defer></script>
 </head>
-<body>
+<body id="top" data-section="architecture">
 
 <div class="rail">
   <div class="rail-inner">
+    <button class="rail-menu" type="button" aria-controls="site-nav" aria-expanded="false"><span class="bars" aria-hidden="true"></span><span class="lbl">Menu</span></button>
     <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
-    <nav class="rail-links">
-      <a href="../index.html#thesis">Thesis</a>
-      <a href="../index.html#products">Products</a>
-      <a href="../strategy/trajectory.html">Strategy</a>
-      <a href="../architecture/index.html" class="on">Architecture</a>
-      <a href="../strategic-dependency/full-record.html">Dependencies</a>
-      <a href="../doctrine/new-arsenal.html">Doctrine</a>
-      <a href="../about/history.html">Company</a>
+    <nav class="rail-links" aria-label="Sections">
+      <a id="rail-thesis" href="../index.html#thesis">Thesis</a>
+      <a id="rail-products" href="../index.html#products">Products</a>
+      <a id="rail-architecture" href="../architecture/index.html" class="on">Architecture</a>
+      <a id="rail-strategy" href="../strategy/trajectory.html">Strategy</a>
+      <a id="rail-doctrine" href="../doctrine/new-arsenal.html">Doctrine</a>
+      <a id="rail-company" href="../about/history.html">Company</a>
     </nav>
   </div>
+  <div class="rail-progress" aria-hidden="true"><i></i></div>
 </div>
 <div class="shell">
 <div class="layout">
 
-<aside class="aside">
-  <h4>On this page</h4>
-  <ul>
-    <li><a href="#family">The family</a></li>
-    <li><a href="#eoir">EO / IR</a></li>
-    <li><a href="#arh">Anti-radiation</a></li>
-    <li><a href="#scene">Scene matching</a></li>
-    <li><a href="#fits">Fits</a></li>
-  </ul>
-  <nav class="atlas" aria-label="Wiki map">
-    <h4>Wiki map</h4>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232 650"><line class="spine" x1="16" y1="52" x2="16" y2="488"/><line class="spine" x1="16" y1="488" x2="16" y2="642"/><a href="../index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="10" width="220" height="42"/><text class="hub-t" x="18" y="27">INDEX</text><text class="hub-s" x="18" y="40">the argument · every path starts here</text><text class="hub-n" x="216" y="27" text-anchor="end">01</text></a><line class="spine" x1="16" y1="69" x2="28" y2="69"/><text class="cl" x="30" y="72">PRODUCTS</text><line class="rule" x1="30" y1="77" x2="222" y2="77"/><a href="../products/nightshade-adx1.html" class="atlas-node"><rect class="mk" x="30" y="84.5" width="5" height="5"/><text class="lb" x="41" y="92.5">Nightshade family</text></a><a href="../products/hemlock.html" class="atlas-node"><rect class="mk" x="30" y="101.5" width="5" height="5"/><text class="lb" x="41" y="109.5">Hemlock</text></a><a href="../products/ahuti.html" class="atlas-node"><rect class="mk" x="30" y="118.5" width="5" height="5"/><text class="lb" x="41" y="126.5">Ahuti interceptor</text></a><a href="../products/usv-strike.html" class="atlas-node"><rect class="mk" x="30" y="135.5" width="5" height="5"/><text class="lb" x="41" y="143.5">Piranha USV</text></a><text class="bridge" x="41" y="159">each machine configures the core ↓</text><line class="spine" x1="16" y1="180" x2="28" y2="180"/><text class="cl" x="30" y="183">STRATEGY</text><line class="rule" x1="30" y1="188" x2="222" y2="188"/><a href="../strategy/trajectory.html" class="atlas-node"><rect class="mk" x="30" y="195.5" width="5" height="5"/><text class="lb" x="41" y="203.5">Trajectory &amp; cost per kg·km</text></a><a href="../strategy/competitive.html" class="atlas-node"><rect class="mk" x="30" y="212.5" width="5" height="5"/><text class="lb" x="41" y="220.5">The competitive field</text></a><a href="../strategy/supply-chain.html" class="atlas-node"><rect class="mk" x="30" y="229.5" width="5" height="5"/><text class="lb" x="41" y="237.5">Supply chain</text></a><line class="spine" x1="16" y1="258" x2="28" y2="258"/><text class="cl" x="30" y="261">DOCTRINE</text><line class="rule" x1="30" y1="266" x2="222" y2="266"/><a href="../doctrine/new-arsenal.html" class="atlas-node"><rect class="mk" x="30" y="273.5" width="5" height="5"/><text class="lb" x="41" y="281.5">The New Arsenal</text></a><a href="../doctrine/precision-is-mercy.html" class="atlas-node"><rect class="mk" x="30" y="290.5" width="5" height="5"/><text class="lb" x="41" y="298.5">Precision is Mercy</text></a><a href="../doctrine/missing-middle.html" class="atlas-node"><rect class="mk" x="30" y="307.5" width="5" height="5"/><text class="lb" x="41" y="315.5">The missing middle</text></a><a href="../doctrine/strike-design-space.html" class="atlas-node"><rect class="mk" x="30" y="324.5" width="5" height="5"/><text class="lb" x="41" y="332.5">Strike design space</text></a><line class="spine" x1="16" y1="353" x2="28" y2="353"/><text class="cl" x="30" y="356">RECORD</text><line class="rule" x1="30" y1="361" x2="222" y2="361"/><a href="../about/history.html" class="atlas-node"><rect class="mk" x="30" y="368.5" width="5" height="5"/><text class="lb" x="41" y="376.5">Company history</text></a><a href="../about/team.html" class="atlas-node"><rect class="mk" x="30" y="385.5" width="5" height="5"/><text class="lb" x="41" y="393.5">Team &amp; advisors</text></a><a href="../strategic-dependency/full-record.html" class="atlas-node"><rect class="mk" x="30" y="402.5" width="5" height="5"/><text class="lb" x="41" y="410.5">The full record · 70 episodes</text></a><a href="../architecture/index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="440" width="220" height="42"/><text class="hub-t" x="18" y="457">ARCHITECTURE</text><text class="hub-s" x="18" y="470">the core · method, machine, loop</text><text class="hub-n" x="216" y="457" text-anchor="end">02</text></a><line class="spine" x1="16" y1="499" x2="28" y2="499"/><text class="cl on" x="30" y="502">SUBSYSTEMS</text><line class="rule" x1="30" y1="507" x2="222" y2="507"/><a href="../subsystems/near-envelope-control.html" class="atlas-node"><rect class="mk" x="30" y="514.5" width="5" height="5"/><text class="lb" x="41" y="522.5">Robust flight control</text></a><a href="../subsystems/gnss-denied-navigation.html" class="atlas-node"><rect class="mk" x="30" y="531.5" width="5" height="5"/><text class="lb" x="41" y="539.5">GNSS-denied navigation</text></a><a href="../subsystems/onboard-compute.html" class="atlas-node"><rect class="mk" x="30" y="548.5" width="5" height="5"/><text class="lb" x="41" y="556.5">Edge compute</text></a><a href="../subsystems/flight-software.html" class="atlas-node"><rect class="mk" x="30" y="565.5" width="5" height="5"/><text class="lb" x="41" y="573.5">Flight software</text></a><a href="../subsystems/seekers.html" class="atlas-node here"><rect class="mk" x="30" y="582.5" width="5" height="5"/><text class="lb" x="41" y="590.5">Seekers</text></a><a href="../subsystems/airframe-structures.html" class="atlas-node"><rect class="mk" x="30" y="599.5" width="5" height="5"/><text class="lb" x="41" y="607.5">Airframe &amp; structures</text></a><a href="../subsystems/launch-systems.html" class="atlas-node"><rect class="mk" x="30" y="616.5" width="5" height="5"/><text class="lb" x="41" y="624.5">Launch &amp; ground</text></a></svg>
-  </nav>
-  <div class="groups">
-  <h4>Products</h4>
-  <ul>
-    <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
-    <li><a href="../products/hemlock.html">Hemlock</a></li>
-    <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
-    <li><a href="../products/usv-strike.html">Piranha USV</a></li>
-  </ul>
-  <h4>Strategy</h4>
-  <ul>
-    <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
-    <li><a href="../strategy/competitive.html">The competitive field</a></li>
-    <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
-  </ul>
-  <h4>Architecture</h4>
-  <ul>
-    <li><a href="../architecture/index.html">The shared core</a></li>
-    <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
-    <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
-    <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
-    <li><a href="../subsystems/flight-software.html">Flight software</a></li>
-    <li><a href="../subsystems/seekers.html" class="here">Seekers</a></li>
-    <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
-    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground</a></li>
-  </ul>
-  <h4>Doctrine</h4>
-  <ul>
-    <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
-    <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
-    <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
-    <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
-  </ul>
-  <h4>Record</h4>
-  <ul>
-    <li><a href="../about/history.html">Company history</a></li>
-    <li><a href="../about/team.html">Team &amp; advisors</a></li>
-    <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
-  </ul>
+<aside class="aside" id="site-nav" aria-label="Wiki navigation">
+  <div class="nav-group">
+    <h4><span class="n">01</span>Overview</h4>
+    <ul>
+      <li><a href="../index.html">The argument</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">02</span>Products</h4>
+    <ul>
+      <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
+      <li><a href="../products/hemlock.html">Hemlock</a></li>
+      <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
+      <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+    </ul>
+  </div>
+  <div class="nav-group on">
+    <h4><span class="n">03</span>Architecture</h4>
+    <ul>
+      <li><a href="../architecture/index.html">The shared core</a></li>
+      <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
+      <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
+      <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
+      <li><a href="../subsystems/flight-software.html">Flight software</a></li>
+      <li class="here"><a href="../subsystems/seekers.html" aria-current="page">Seekers</a>
+        <ul class="nav-toc">
+          <li><a href="#family">The family</a></li>
+          <li><a href="#eoir">EO / IR</a></li>
+          <li><a href="#arh">Anti-radiation</a></li>
+          <li><a href="#scene">Scene matching</a></li>
+          <li><a href="#fits">Fits</a></li>
+        </ul>
+      </li>
+      <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
+      <li><a href="../subsystems/launch-systems.html">Launch &amp; ground systems</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">04</span>Strategy</h4>
+    <ul>
+      <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
+      <li><a href="../strategy/market.html">The market</a></li>
+      <li><a href="../strategy/competitive.html">The competitive field</a></li>
+      <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">05</span>Doctrine</h4>
+    <ul>
+      <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
+      <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
+      <li><a href="../doctrine/missing-middle.html">The Missing Middle</a></li>
+      <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">06</span>Record</h4>
+    <ul>
+      <li><a href="../about/history.html">Company history</a></li>
+      <li><a href="../about/team.html">Team &amp; advisors</a></li>
+      <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
+    </ul>
   </div>
 </aside>
 
 <main class="main">
 
-<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../architecture/index.html#subsystems">Subsystems</a><span>/</span>Terminal guidance / Seekers</div>
+<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../architecture/index.html#subsystems">Subsystems</a><span>/</span>Seekers</div>
 <header class="masthead">
     <div class="mast-brand-lockup">
     <img src="../assets/logos/logo-ad-white.png" alt="Apollyon Dynamics Mark" class="brand-mark">
@@ -95,7 +108,7 @@
   </div>
   <div class="mast-meta">Terminal guidance · passive imaging and anti-radiation homing <span>· core subsystem · Nightshade · Hemlock · Ahuti</span></div>
   <h1>Seekers and <span class="sub">terminal guidance</span></h1>
-  <p class="standfirst">Modular seeker payloads separate airframe manufacturing from target engagement physics. The seeker determines whether an effector impacts a geographic coordinate or destroys a dynamic target, eliminating satellite navigation dependencies during the terminal engagement window.</p>
+  <p class="standfirst">Modular seekers keep the airframe separate from the job of finding the target. The seeker decides whether a round hits a map coordinate or the target itself, and it removes any need for satellite navigation in the final seconds.</p>
 </header>
 
 <section id="family">
@@ -109,7 +122,7 @@
         <tr>
           <td>EO / IR imaging</td>
           <td>Passive electro-optical and infrared imaging with terminal lock-on, independent of GNSS</td>
-          <td>Precision strike on static and relocatable point targets</td>
+          <td>Precision strike on static point targets</td>
           <td>Command posts · ammunition depots · critical infrastructure</td>
         </tr>
         <tr>
@@ -127,30 +140,30 @@
       </tbody>
     </table>
   </div>
-  <p>All three seeker variants operate completely <strong>passively</strong>. They emit zero radio frequency energy, preventing hostile electronic support measures from detecting the inbound weapon. This passive operating requirement mirrors the low-duty-cycle altimeter constraint detailed in <a href="gnss-denied-navigation.html">GNSS-denied navigation</a>.</p>
+  <p>All three seeker variants operate completely <strong>passively</strong>. They emit no radio energy, so hostile electronic support measures have nothing to detect. This passive operating requirement mirrors the low-duty-cycle altimeter constraint detailed in <a href="gnss-denied-navigation.html">GNSS-denied navigation</a>.</p>
 </section>
 
 <section id="eoir">
   <div class="sec-tag">02 · EO / IR</div>
   <h2>Tonbo TRAP-1 electro-optical and infrared seeker integration</h2>
-  <p>The Tonbo TRAP-1 imaging seeker provides day-and-night target acquisition and terminal tracking without external satellite signals. Fast airframes collapse defender reaction times, but terminal accuracy determines target neutralization. Without terminal visual tracking, a fast missile simply arrives rapidly at an approximate coordinate.</p>
-  <p>Against mobile or relocatable targets, satellite coordinates become obsolete during flight transit. Even without jamming, coordinate guidance delivers rounds to vacant positions. The TRAP-1 resolves target visual features directly, tracking vehicle hulls and structural components up to impact.</p>
+  <p>The Tonbo TRAP-1 imaging seeker provides day-and-night target acquisition and terminal tracking without external satellite signals. Fast airframes shorten the defender's reaction time, but terminal accuracy decides whether the target is destroyed. Without terminal visual tracking, a fast missile simply arrives rapidly at an approximate coordinate.</p>
+  <p>A coordinate fix alone can drift or be spoofed before the round arrives. The TRAP-1 sees the target itself, matching stored target features up to impact, so terminal accuracy does not rest on satellite signals alone.</p>
   <div class="note key">
     <div class="t">Kinematics and terminal sensing</div>
-    <p>Speed secures ingress survivability; terminal sensing guarantees target neutralization. Apollyon couples high subsonic airframes with terminal imaging seekers because an unguided fast weapon and an intercepted slow drone produce the same operational failure.</p>
+    <p>Speed helps the round survive the way in; terminal sensing makes sure it hits. Apollyon couples high subsonic airframes with terminal imaging seekers because an unguided fast weapon and an intercepted slow drone produce the same operational failure.</p>
   </div>
 </section>
 
 <section id="arh">
   <div class="sec-tag">03 · Anti-radiation</div>
   <h2>Passive anti-radiation homing</h2>
-  <p>The anti-radiation seeker tracks radio frequency emissions from hostile air defence radars and electronic countermeasure systems. Its operational role is air-defence suppression, compelling hostile surface-to-air missile batteries to deactivate their emitters or face terminal strikes.</p>
-  <p>This payload enables layered strike doctrine. Inexpensive attritable effectors fly ahead of heavy cruise missiles, forcing hostile batteries to illuminate and deplete missile magazines before main strike packages enter the sector. See <a href="../doctrine/missing-middle.html">The missing middle</a>.</p>
+  <p>The anti-radiation seeker tracks radio frequency emissions from hostile air defence radars and electronic countermeasure systems. Its job is air-defence suppression: hostile surface-to-air batteries must switch off their radars or be hit.</p>
+  <p>This payload makes layered strike possible. Inexpensive attritable effectors fly ahead of heavy cruise missiles, forcing hostile batteries to switch on their radars and spend their missiles before the main strike arrives. See <a href="../doctrine/missing-middle.html">The Missing Middle</a>.</p>
 </section>
 
 <section id="scene">
   <div class="sec-tag">04 · Scene matching</div>
-  <h3>Terminal scene matching and silhouette lock</h3>
+  <h2>Terminal scene matching and silhouette lock</h2>
   <p>On heavy strike rounds like the Hemlock, terminal guidance uses a <strong>dual uncooled LWIR and visible automatic scene matcher</strong>. At the terminal waypoint, the weapon transitions into a <strong>steep high-angle terminal dive profile</strong>, matching ground silhouettes against onboard geometric models to achieve a circular error probable of roughly 25–50 metres.</p>
   <p>We select uncooled microbolometers deliberately. Cooled thermal detectors offer higher raw sensitivity but require cryogenic pumps, high electrical power, and lengthy cooldown cycles. The matching is classical: edge geometry is correlated against stored reference silhouettes rather than absolute thermal gradients. That keeps the processing small, but it also means the reference has to fit the conditions of the strike — a thermal frame does not match a daylight satellite tile directly.</p>
 </section>
@@ -163,7 +176,7 @@
       <caption>Seeker configuration by product</caption>
       <thead><tr><th>Product</th><th>Fit</th></tr></thead>
       <tbody>
-        <tr><td><a href="../products/nightshade-adx1.html">Nightshade ADX-1</a></td><td>EO/IR · anti-radiation · GNSS impact. Swappable on one airframe, selected per mission profile. Mk II and Mk III add day/night vision-based terminal homing</td></tr>
+        <tr><td><a href="../products/nightshade-adx1.html">Nightshade ADX-1</a></td><td>Mk II loitering munition: dual-band EO/IR seeker with onboard automatic target recognition. The target-drone configurations carry no seeker.</td></tr>
         <tr><td><a href="../products/hemlock.html">Hemlock</a></td><td>Dual uncooled LWIR / visible scene matcher for steep terminal dive; CEP ~25–50 m</td></tr>
         <tr><td><a href="../products/ahuti.html">Ahuti</a></td><td>Onboard day/night seeker taking over from ground-radar cueing in the terminal phase; visual or RF lock-on</td></tr>
       </tbody>
@@ -178,12 +191,27 @@
   </div>
 </section>
 
+<nav class="pager" aria-label="Reading order">
+  <a class="prev" href="../subsystems/flight-software.html"><span class="k">&larr; Previous &middot; Architecture</span><span class="t">Flight software</span></a>
+  <a class="next" href="../subsystems/airframe-structures.html"><span class="k">Next &middot; Architecture &rarr;</span><span class="t">Airframe &amp; structures</span></a>
+</nav>
 <footer>
   <div>Apollyon Dynamics &middot; Neo-Prime Wiki &middot; Rev 3.0</div>
   <div><a href="../doctrine/new-arsenal.html">The New Arsenal</a> &middot; <a href="../about/history.html">Company</a> &middot; <a href="../strategy/competitive.html">Competitive field</a> &middot; apollyondynamics.com</div>
 </footer>
 
 </main>
+<nav class="toc" aria-label="On this page">
+  <h4>On this page</h4>
+  <ul>
+    <li><a href="#family">The family</a></li>
+    <li><a href="#eoir">EO / IR</a></li>
+    <li><a href="#arh">Anti-radiation</a></li>
+    <li><a href="#scene">Scene matching</a></li>
+    <li><a href="#fits">Fits</a></li>
+  </ul>
+  <a class="toc-top" href="#top">Back to top &uarr;</a>
+</nav>
 </div>
 </div>
 </body>

@@ -10,80 +10,93 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/wiki.css">
+<script src="../js/wiki.js" defer></script>
 </head>
-<body>
+<body id="top" data-section="products">
 
 <div class="rail">
   <div class="rail-inner">
+    <button class="rail-menu" type="button" aria-controls="site-nav" aria-expanded="false"><span class="bars" aria-hidden="true"></span><span class="lbl">Menu</span></button>
     <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
-    <nav class="rail-links">
-      <a href="../index.html#thesis">Thesis</a>
-      <a href="../index.html#products" class="on">Products</a>
-      <a href="../strategy/trajectory.html">Strategy</a>
-      <a href="../architecture/index.html">Architecture</a>
-      <a href="../strategic-dependency/full-record.html">Dependencies</a>
-      <a href="../doctrine/new-arsenal.html">Doctrine</a>
-      <a href="../about/history.html">Company</a>
+    <nav class="rail-links" aria-label="Sections">
+      <a id="rail-thesis" href="../index.html#thesis">Thesis</a>
+      <a id="rail-products" href="../index.html#products" class="on">Products</a>
+      <a id="rail-architecture" href="../architecture/index.html">Architecture</a>
+      <a id="rail-strategy" href="../strategy/trajectory.html">Strategy</a>
+      <a id="rail-doctrine" href="../doctrine/new-arsenal.html">Doctrine</a>
+      <a id="rail-company" href="../about/history.html">Company</a>
     </nav>
   </div>
+  <div class="rail-progress" aria-hidden="true"><i></i></div>
 </div>
 <div class="shell">
 <div class="layout">
 
-<aside class="aside">
-  <h4>On this page</h4>
-  <ul>
-    <li><a href="#specs">Specifications</a></li>
-    <li><a href="#blueprint">CAD schematic</a></li>
-    <li><a href="#usecases">Operational usecases</a></li>
-    <li><a href="#specifics">Engineering specifics</a></li>
-    <li><a href="#marine-nav">Non-satellite nav</a></li>
-    <li><a href="#hydrodynamics">Sea-state control</a></li>
-    <li><a href="#warhead">Shaped-charge warhead</a></li>
-    <li><a href="#subsystems">Shared subsystems</a></li>
-  </ul>
-  <nav class="atlas" aria-label="Wiki map">
-    <h4>Wiki map</h4>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232 650"><line class="spine" x1="16" y1="52" x2="16" y2="488"/><line class="spine" x1="16" y1="488" x2="16" y2="642"/><a href="../index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="10" width="220" height="42"/><text class="hub-t" x="18" y="27">INDEX</text><text class="hub-s" x="18" y="40">the argument · every path starts here</text><text class="hub-n" x="216" y="27" text-anchor="end">01</text></a><line class="spine" x1="16" y1="69" x2="28" y2="69"/><text class="cl on" x="30" y="72">PRODUCTS</text><line class="rule" x1="30" y1="77" x2="222" y2="77"/><a href="../products/nightshade-adx1.html" class="atlas-node"><rect class="mk" x="30" y="84.5" width="5" height="5"/><text class="lb" x="41" y="92.5">Nightshade family</text></a><a href="../products/hemlock.html" class="atlas-node"><rect class="mk" x="30" y="101.5" width="5" height="5"/><text class="lb" x="41" y="109.5">Hemlock</text></a><a href="../products/ahuti.html" class="atlas-node"><rect class="mk" x="30" y="118.5" width="5" height="5"/><text class="lb" x="41" y="126.5">Ahuti interceptor</text></a><a href="../products/usv-strike.html" class="atlas-node here"><rect class="mk" x="30" y="135.5" width="5" height="5"/><text class="lb" x="41" y="143.5">Piranha USV</text></a><text class="bridge" x="41" y="159">each machine configures the core ↓</text><line class="spine" x1="16" y1="180" x2="28" y2="180"/><text class="cl" x="30" y="183">STRATEGY</text><line class="rule" x1="30" y1="188" x2="222" y2="188"/><a href="../strategy/trajectory.html" class="atlas-node"><rect class="mk" x="30" y="195.5" width="5" height="5"/><text class="lb" x="41" y="203.5">Trajectory &amp; cost per kg·km</text></a><a href="../strategy/competitive.html" class="atlas-node"><rect class="mk" x="30" y="212.5" width="5" height="5"/><text class="lb" x="41" y="220.5">The competitive field</text></a><a href="../strategy/supply-chain.html" class="atlas-node"><rect class="mk" x="30" y="229.5" width="5" height="5"/><text class="lb" x="41" y="237.5">Supply chain</text></a><line class="spine" x1="16" y1="258" x2="28" y2="258"/><text class="cl" x="30" y="261">DOCTRINE</text><line class="rule" x1="30" y1="266" x2="222" y2="266"/><a href="../doctrine/new-arsenal.html" class="atlas-node"><rect class="mk" x="30" y="273.5" width="5" height="5"/><text class="lb" x="41" y="281.5">The New Arsenal</text></a><a href="../doctrine/precision-is-mercy.html" class="atlas-node"><rect class="mk" x="30" y="290.5" width="5" height="5"/><text class="lb" x="41" y="298.5">Precision is Mercy</text></a><a href="../doctrine/missing-middle.html" class="atlas-node"><rect class="mk" x="30" y="307.5" width="5" height="5"/><text class="lb" x="41" y="315.5">The missing middle</text></a><a href="../doctrine/strike-design-space.html" class="atlas-node"><rect class="mk" x="30" y="324.5" width="5" height="5"/><text class="lb" x="41" y="332.5">Strike design space</text></a><line class="spine" x1="16" y1="353" x2="28" y2="353"/><text class="cl" x="30" y="356">RECORD</text><line class="rule" x1="30" y1="361" x2="222" y2="361"/><a href="../about/history.html" class="atlas-node"><rect class="mk" x="30" y="368.5" width="5" height="5"/><text class="lb" x="41" y="376.5">Company history</text></a><a href="../about/team.html" class="atlas-node"><rect class="mk" x="30" y="385.5" width="5" height="5"/><text class="lb" x="41" y="393.5">Team &amp; advisors</text></a><a href="../strategic-dependency/full-record.html" class="atlas-node"><rect class="mk" x="30" y="402.5" width="5" height="5"/><text class="lb" x="41" y="410.5">The full record · 70 episodes</text></a><a href="../architecture/index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="440" width="220" height="42"/><text class="hub-t" x="18" y="457">ARCHITECTURE</text><text class="hub-s" x="18" y="470">the core · method, machine, loop</text><text class="hub-n" x="216" y="457" text-anchor="end">02</text></a><line class="spine" x1="16" y1="499" x2="28" y2="499"/><text class="cl" x="30" y="502">SUBSYSTEMS</text><line class="rule" x1="30" y1="507" x2="222" y2="507"/><a href="../subsystems/near-envelope-control.html" class="atlas-node"><rect class="mk" x="30" y="514.5" width="5" height="5"/><text class="lb" x="41" y="522.5">Robust flight control</text></a><a href="../subsystems/gnss-denied-navigation.html" class="atlas-node"><rect class="mk" x="30" y="531.5" width="5" height="5"/><text class="lb" x="41" y="539.5">GNSS-denied navigation</text></a><a href="../subsystems/onboard-compute.html" class="atlas-node"><rect class="mk" x="30" y="548.5" width="5" height="5"/><text class="lb" x="41" y="556.5">Edge compute</text></a><a href="../subsystems/flight-software.html" class="atlas-node"><rect class="mk" x="30" y="565.5" width="5" height="5"/><text class="lb" x="41" y="573.5">Flight software</text></a><a href="../subsystems/seekers.html" class="atlas-node"><rect class="mk" x="30" y="582.5" width="5" height="5"/><text class="lb" x="41" y="590.5">Seekers</text></a><a href="../subsystems/airframe-structures.html" class="atlas-node"><rect class="mk" x="30" y="599.5" width="5" height="5"/><text class="lb" x="41" y="607.5">Airframe &amp; structures</text></a><a href="../subsystems/launch-systems.html" class="atlas-node"><rect class="mk" x="30" y="616.5" width="5" height="5"/><text class="lb" x="41" y="624.5">Launch &amp; ground</text></a></svg>
-  </nav>
-  <div class="groups">
-  <h4>Products</h4>
-  <ul>
-    <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
-    <li><a href="../products/hemlock.html">Hemlock</a></li>
-    <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
-    <li><a href="../products/usv-strike.html" class="here">Piranha USV</a></li>
-  </ul>
-  <h4>Strategy</h4>
-  <ul>
-    <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
-    <li><a href="../strategy/competitive.html">The competitive field</a></li>
-    <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
-  </ul>
-  <h4>Architecture</h4>
-  <ul>
-    <li><a href="../architecture/index.html">The shared core</a></li>
-    <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
-    <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
-    <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
-    <li><a href="../subsystems/flight-software.html">Flight software</a></li>
-    <li><a href="../subsystems/seekers.html">Seekers</a></li>
-    <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
-    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground</a></li>
-  </ul>
-  <h4>Doctrine</h4>
-  <ul>
-    <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
-    <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
-    <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
-    <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
-  </ul>
-  <h4>Record</h4>
-  <ul>
-    <li><a href="../about/history.html">Company history</a></li>
-    <li><a href="../about/team.html">Team &amp; advisors</a></li>
-    <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
-  </ul>
+<aside class="aside" id="site-nav" aria-label="Wiki navigation">
+  <div class="nav-group">
+    <h4><span class="n">01</span>Overview</h4>
+    <ul>
+      <li><a href="../index.html">The argument</a></li>
+    </ul>
+  </div>
+  <div class="nav-group on">
+    <h4><span class="n">02</span>Products</h4>
+    <ul>
+      <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
+      <li><a href="../products/hemlock.html">Hemlock</a></li>
+      <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
+      <li class="here"><a href="../products/usv-strike.html" aria-current="page">Piranha USV</a>
+        <ul class="nav-toc">
+          <li><a href="#specs">Specifications</a></li>
+          <li><a href="#blueprint">CAD schematic</a></li>
+          <li><a href="#usecases">Use cases</a></li>
+          <li><a href="#specifics">Engineering specifics</a></li>
+          <li><a href="#marine-nav">Non-satellite nav</a></li>
+          <li><a href="#hydrodynamics">Vessel control</a></li>
+          <li><a href="#warhead">Shaped-charge warhead</a></li>
+          <li><a href="#subsystems">Shared subsystems</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">03</span>Architecture</h4>
+    <ul>
+      <li><a href="../architecture/index.html">The shared core</a></li>
+      <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
+      <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
+      <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
+      <li><a href="../subsystems/flight-software.html">Flight software</a></li>
+      <li><a href="../subsystems/seekers.html">Seekers</a></li>
+      <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
+      <li><a href="../subsystems/launch-systems.html">Launch &amp; ground systems</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">04</span>Strategy</h4>
+    <ul>
+      <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
+      <li><a href="../strategy/market.html">The market</a></li>
+      <li><a href="../strategy/competitive.html">The competitive field</a></li>
+      <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">05</span>Doctrine</h4>
+    <ul>
+      <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
+      <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
+      <li><a href="../doctrine/missing-middle.html">The Missing Middle</a></li>
+      <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">06</span>Record</h4>
+    <ul>
+      <li><a href="../about/history.html">Company history</a></li>
+      <li><a href="../about/team.html">Team &amp; advisors</a></li>
+      <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
+    </ul>
   </div>
 </aside>
 
@@ -97,10 +110,10 @@
     <div class="brand-sep"></div>
     <img src="../assets/logos/logo-text-white.png" alt="Apollyon Dynamics" class="brand-text">
   </div>
-  <div class="mast-meta">Class C · Maritime <span>· dual-use surface vessel · sea trials planned this year</span></div>
+  <div class="mast-meta">Class C · Maritime <span>· dual-use surface vessel · hull &amp; hardware in development</span></div>
   <h1>Piranha USV, <span class="sub">strike and surveillance from one hull</span></h1>
-  <p class="standfirst">A low-observable, attritable unmanned surface vessel built on a common wave-piercing hull for strike and persistent maritime ISR. In its strike role, Piranha delivers a 280 kg shaped-charge warhead across 800+ km ranges using non-satellite maritime odometry and terminal optical tracking. In its dual-use role, it provides coastal agencies with persistent autonomous patrol without crewed vessels.</p>
-  <p class="standfirst">The platform is currently in structural integration, with sea trials scheduled before year-end. Navigation and control algorithms follow the core Apollyon doctrine: sovereign physical references, complete GNSS independence, and deterministic autonomy executed at the edge.</p>
+  <p class="standfirst">A low-observable, attritable unmanned surface vessel built on a common wave-piercing hull for strike and persistent maritime ISR. In its strike role, Piranha is designed to carry a 150–250 kg class shaped-charge warhead over 300–500 km using non-satellite maritime odometry and terminal optical tracking. In its dual-use role, it provides coastal agencies with persistent autonomous patrol without crewed vessels.</p>
+  <p class="standfirst">The hull and onboard hardware are in build now, with sea trials from the end of 2026. Navigation and control follow the core Apollyon approach: physical references the vessel senses for itself, no dependence on GNSS, and autonomy that runs on board.</p>
 </header>
 
 <section id="specs">
@@ -112,7 +125,7 @@
     <div class="spec-grid">
       <div class="spec-col">
         <div class="spec-col-title">Hull &amp; vessel</div>
-        <div class="row"><div class="lbl">Displacement (full load)</div><div class="val">1,150 kg</div></div>
+        <div class="row"><div class="lbl">Displacement (full load)</div><div class="val">~1,000–1,200 kg (design target)</div></div>
         <div class="row"><div class="lbl">Dry weight</div><div class="val">580 kg</div></div>
         <div class="row"><div class="lbl">Length overall (LOA)</div><div class="val">5.80 m</div></div>
         <div class="row"><div class="lbl">Beam overall (BOA)</div><div class="val">1.40 m</div></div>
@@ -124,13 +137,13 @@
         <div class="row"><div class="lbl">Engine type</div><div class="val">High-output marine turbo-diesel</div></div>
         <div class="row"><div class="lbl">Power output</div><div class="val">260 hp (194 kW)</div></div>
         <div class="row"><div class="lbl">Drive mechanism</div><div class="val">Twin steerable waterjets</div></div>
-        <div class="row"><div class="lbl">Sprint speed (calm sea)</div><div class="val accent">48+ knots (88+ km/h)</div></div>
-        <div class="row"><div class="lbl">Economical cruise speed</div><div class="val">28–32 knots</div></div>
-        <div class="row"><div class="lbl">Operational range</div><div class="val accent">800+ km (430+ nm)</div></div>
+        <div class="row"><div class="lbl">Sprint speed (calm sea)</div><div class="val accent">35–45 knots (design target)</div></div>
+        <div class="row"><div class="lbl">Economical cruise speed</div><div class="val">20–25 knots</div></div>
+        <div class="row"><div class="lbl">Operational range</div><div class="val accent">300–500 km (design target)</div></div>
       </div>
       <div class="spec-col">
         <div class="spec-col-title">Lethality &amp; payload</div>
-        <div class="row"><div class="lbl">Primary warhead</div><div class="val accent">250–300 kg HE shaped charge</div></div>
+        <div class="row"><div class="lbl">Primary warhead</div><div class="val accent">150–250 kg class HE shaped charge</div></div>
         <div class="row"><div class="lbl">Penetration capability</div><div class="val">defeats naval steel hull structure</div></div>
         <div class="row"><div class="lbl">Fuse mechanism</div><div class="val">Multi-mode impact fuze</div></div>
         <div class="row"><div class="lbl">Target classes</div><div class="val">Corvettes, frigates, LSTs, piers</div></div>
@@ -151,7 +164,7 @@
 
   <div class="note">
     <div class="t">Doctrine alignment</div>
-    <p>Major surface combatants require years to construct and cost thousands of crores. Piranha costs under ₹65 lakh at rate, utilizing vacuum resin-infusion tooling across domestic commercial boatyards. Firing sixty-lakh attritable surface craft forces adversaries to expend multi-crore surface-to-air missiles and close-in defensive ordnance, reversing the maritime cost-exchange ratio across disputed littoral corridors.</p>
+    <p>Major surface combatants require years to construct and cost thousands of crores. Piranha is targeted under ₹65 lakh at rate, using vacuum resin-infusion tooling in domestic commercial boatyards. Sending sixty-lakh attritable surface craft forces adversaries to expend multi-crore surface-to-air missiles and close-in defensive ordnance, which turns the maritime cost exchange in the attacker's favour.</p>
   </div>
 </section>
 
@@ -204,7 +217,7 @@
         
         <!-- Warhead Compartment: STA 0500-1800 (x=130 to x=320) -->
         <rect x="135" y="105" width="180" height="90" fill="url(#hatch_wh_usv)" stroke="#D92323" stroke-width="1.2" rx="4"/>
-        <text x="225" y="146" fill="#D92323" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" text-anchor="middle">280 kg HE WARHEAD</text>
+        <text x="225" y="146" fill="#D92323" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" text-anchor="middle">HE WARHEAD</text>
         <text x="225" y="160" fill="#D92323" font-family="JetBrains Mono, monospace" font-size="7.5" text-anchor="middle">COPPER SHAPED-CHARGE LINER</text>
 
         <!-- Midship Bulkhead: x=320 -->
@@ -225,7 +238,7 @@
         <rect x="465" y="94" width="170" height="112" fill="url(#hatch_fuel_usv)" stroke="#C7C4BD" stroke-width="1.2" rx="3"/>
         <line x1="550" y1="94" x2="550" y2="206" stroke="#C7C4BD" stroke-width="0.8" stroke-dasharray="4,2"/>
         <text x="550" y="146" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" text-anchor="middle">DIESEL FUEL CELL (480 L)</text>
-        <text x="550" y="160" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="7.5" text-anchor="middle">RANGE &gt; 800 KM @ 30 KTS</text>
+        <text x="550" y="160" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="7.5" text-anchor="middle">RANGE 300–500 KM · DESIGN TARGET</text>
 
         <!-- Engine Room Bulkhead: x=640 -->
         <line x1="640" y1="90" x2="640" y2="210" stroke="#C7C4BD" stroke-width="1.5"/>
@@ -272,15 +285,15 @@
       </svg>
     </div>
     <div class="blueprint-cap">
-      <b>CAD Station Reference</b> &mdash; Structural arrangement of the Piranha USV. From left: wave-piercing bow impact sensor (STA 0000–0500), 280 kg shaped-charge warhead cavity (STA 0500–1800), stabilised optical mast and mission compute module (STA 1800–2800), baffled 480 L diesel tank (STA 2800–4200), turbocharged marine diesel (STA 4200–5200), and dual vectored waterjets with hydraulic trim tabs (STA 5200–5800).
+      <b>CAD Station Reference</b> &mdash; Structural arrangement of the Piranha USV. From left: wave-piercing bow impact sensor (STA 0000–0500), shaped-charge warhead cavity (STA 0500–1800), stabilised optical mast and mission compute module (STA 1800–2800), baffled 480 L diesel tank (STA 2800–4200), turbocharged marine diesel (STA 4200–5200), and dual vectored waterjets with hydraulic trim tabs (STA 5200–5800).
     </div>
   </div>
 </section>
 
 <section id="usecases">
   <div class="sec-tag">03 · Operational roles</div>
-  <h2>Primary usecases &amp; doctrine</h2>
-  <p class="lede">The Piranha USV is engineered to project lethal asymmetric power across disputed littoral zones, island chains, and hostile anchorages where conventional naval vessels cannot operate without excessive risk.</p>
+  <h2>Primary use cases</h2>
+  <p class="lede">The Piranha USV is built to strike in disputed littoral waters, island chains and hostile anchorages, where crewed naval vessels cannot operate without excessive risk.</p>
 
   <div class="tw">
     <table>
@@ -290,7 +303,7 @@
         <tr>
           <td><strong>Littoral interdiction</strong></td>
           <td>Hostile amphibious task forces and surface combatants operating within sovereign Exclusive Economic Zones (EEZ) and island territories.</td>
-          <td>Continuous semi-submerged patrol; the low-observable hull delays radar detection until close range, enabling high-speed 48-knot interception.</td>
+          <td>Persistent low-profile patrol; the low-observable hull delays radar detection until close range, then a high-speed sprint closes the distance.</td>
         </tr>
         <tr>
           <td><strong>Swarm saturation strike</strong></td>
@@ -300,12 +313,12 @@
         <tr>
           <td><strong>Port &amp; anchorage denial</strong></td>
           <td>Heavily defended enemy naval bases, submarine pens, and ammunition loading jetties shielded by GPS jammers and surface booms.</td>
-          <td>Autonomous non-satellite navigation using shoreline DSMAC matching; sneaks through harbour mouths and strikes high-value moored combatants at the waterline.</td>
+          <td>Autonomous non-satellite navigation using shoreline scene matching; enters through harbour mouths and strikes high-value moored combatants at the waterline.</td>
         </tr>
         <tr>
           <td><strong>Choke point interdiction</strong></td>
           <td>Strategic maritime straits where commercial and naval transit can be selectively blockaded or contested during heightened conflict.</td>
-          <td>Silent low-speed loitering (under 6 knots on auxiliary electric drive) for up to 36 hours before spooling main diesel for sprint attack.</td>
+          <td>Silent low-speed loitering (under 6 knots on auxiliary electric drive) for extended periods before spooling main diesel for sprint attack.</td>
         </tr>
       </tbody>
     </table>
@@ -314,27 +327,29 @@
 
 <section id="specifics">
   <div class="sec-tag">04 · Engineering specifics</div>
-  <h2>Deep technical architecture</h2>
+  <h2>Navigation, control and warhead</h2>
 
   <h3 id="marine-nav">A · Non-satellite sea-surface navigation</h3>
   <p>Satellite denial over open water presents unique challenges: unlike land terrain, the open sea has no static topographic features for elevation correlation. The Piranha USV employs a layered navigation stack built specifically for marine environments:</p>
   <ul>
     <li><strong>CRPA Anti-Jam GNSS:</strong> Indigenous multi-element antenna suppresses coastal jammers by &gt;45 dB, maintaining NavIC/GPS lock during initial transit.</li>
-    <li><strong>Hydro-Inertial Dead Reckoning:</strong> High-grade tactical IMUs fused with Doppler Velocity Logs (DVL) measuring acoustic speed over seabed, filtering out surface current drift.</li>
+    <li><strong>Hydro-Inertial Dead Reckoning:</strong> Tactical IMUs fused with a Doppler Velocity Log (DVL). In coastal water the DVL locks onto the seabed and measures true speed over ground, which removes current drift; beyond its bottom-lock depth it measures speed through the water, and the current becomes an estimated state.</li>
     <li><strong>Coastline DSMAC:</strong> As the vessel nears target archipelagos, ports, or coastlines, high-resolution optical cameras match shoreline profiles, headlands, and navigation marks against pre-loaded commercial satellite maps.</li>
-    <li><strong>Optical Waterline Tracking:</strong> In the terminal 3 km run, dual daylight/MWIR stabilised cameras lock onto ship hull silhouettes, ignoring decoys, chaff, and smoke screens.</li>
+    <li><strong>Optical Waterline Tracking:</strong> In the terminal 3 km run, stabilised daylight/MWIR cameras lock onto the target's hull silhouette at the waterline, which chaff and most decoys do not reproduce.</li>
   </ul>
 
-  <h3 id="hydrodynamics">B · Sea-state 4 hydrodynamic stability &amp; waterjet control</h3>
-  <p>Transiting at 45+ knots in rough seas induces extreme wave-slamming forces, propeller cavitation, and hull broaching. Apollyon's robust control stack solves these dynamics in real time:</p>
+  <h3 id="hydrodynamics">B · Control: the same method, a marine controller</h3>
+  <p>Piranha is controlled the way the aircraft are, with the physics changed from air to water. A guidance layer turns the route into the heading and speed to hold, a controller holds them, and the waterjets carry out the commands. As on every Apollyon platform, the controller's settings come from a model of the vehicle identified from real runs, not from textbook assumptions, and envelope limits keep demand inside what the hull and jets can actually deliver.</p>
+  <p>The hard part is the equivalent of flying near the edge of the envelope. A fast hull behaves very differently at low speed, while climbing onto the plane and at full sprint, so the control settings are scheduled across those regimes rather than fixed. The sea adds its own problems. The controller has to ignore the rocking of individual waves and follow only the real motion. It has to hold running trim so the hull stays stable at speed, and it has to keep station on the track despite current and wind pushing the vessel sideways.</p>
   <ul>
-    <li><strong>Wave-Piercing Faceted Monohull:</strong> Sharp knife-bow pierces oncoming waves rather than riding over them, significantly reducing vertical G-loads on internal components.</li>
-    <li><strong>Dynamic Waterjet Vectoring:</strong> Twin steerable waterjets eliminate exposed rudders and propellers, preventing damage from debris, nets, or shallow shoals.</li>
-    <li><strong>Active Trim Control:</strong> High-speed hydraulic interceptor tabs respond at 100 Hz via the mission computer, continuously trimming pitch and roll to prevent porpoising at sprint speeds.</li>
+    <li><strong>Speed follows the sea:</strong> as the sea state rises, the vessel limits its own speed to stay inside the structural limits of the hull.</li>
+    <li><strong>Sharing the water:</strong> in transit and on patrol it keeps clear of other traffic using its radar and cameras, and follows the rules of the road.</li>
+    <li><strong>When the link drops:</strong> it falls back to a pre-set safe behaviour. The decision to strike always stays with a human commander.</li>
   </ul>
+  <p>The hull and hardware are still in build, so these settings will be worked out in sea trials, through the same loop the aircraft use: run the vessel, compare the logs with the simulation, correct the model and the settings, and clear each change in hardware-in-the-loop testing before it goes back on the water. <a href="../subsystems/near-envelope-control.html#generalisation">One method, many platforms &rarr;</a></p>
 
   <h3 id="warhead">C · Heavy shaped-charge penetrating warhead</h3>
-  <p>Unlike blast-only drone boats that produce superficial topside damage, the Piranha USV integrates a custom-engineered 250–300 kg shaped-charge warhead designed to compromise naval structural integrity:</p>
+  <p>Unlike blast-only drone boats that produce superficial topside damage, the Piranha USV integrates a custom-engineered 250–300 kg shaped-charge warhead designed to break a warship's hull:</p>
   <ul>
     <li><strong>Waterline &amp; Sub-Surface Impact:</strong> The vessel trims down immediately prior to impact, detonating against the target's hull right at or below the waterline.</li>
     <li><strong>Copper Jet Penetration:</strong> The precision-machined shaped-charge liner drives a hyper-velocity jet through the hull below the waterline, flooding machinery and magazine spaces.</li>
@@ -345,10 +360,10 @@
 <section id="dual-use">
   <div class="sec-tag">05 · Dual use</div>
   <h2>One hull, two customers</h2>
-  <p>A common composite hull supports two distinct mission configurations. The strike variant houses a 280 kg shaped-charge warhead and impact fuzing. The surveillance variant replaces high explosives with an electro-optical/infrared mast, maritime search radar, and secure tactical datalinks. Port trusts, coast guards, and littoral security forces gain persistent presence across shipping lanes at a fraction of crewed vessel operating costs. Peacetime commercial manufacturing sustains shipyard tooling and workforce proficiency, establishing a rapid surge line for combat effectors when required.</p>
+  <p>A common composite hull supports two distinct mission configurations. The strike variant houses a shaped-charge warhead (150–250 kg class) and impact fuzing. The surveillance variant replaces high explosives with an electro-optical/infrared mast, maritime search radar, and secure tactical datalinks. Port trusts, coast guards, and littoral security forces gain persistent presence across shipping lanes at a fraction of crewed vessel operating costs. Peacetime orders keep the boatyard tooling and workforce busy, so a surge line for strike craft is ready when it is needed.</p>
   <div class="note key">
     <div class="t">Programme</div>
-    <p>First sea trials in 2026; full-scale trials with radar and imaging sensors in 2027; serial production from 2028. Hull tooling and the navigation package are common between the strike and surveillance variants, so the peacetime customer pays for the tooling the strike line inherits.</p>
+    <p>Hull and onboard hardware in development through 2026; sea trials, with radar and imaging sensors, from the end of 2026; serial production from 2028. Hull tooling and the navigation package are common between the strike and surveillance variants, so the peacetime customer pays for the tooling the strike line inherits.</p>
   </div>
 </section>
 
@@ -358,33 +373,46 @@
   <div class="cards">
     <div class="card">
       <div class="kicker">Guidance &amp; control</div>
-      <h3><a href="../subsystems/near-envelope-control.html">Robust Control for Fast Platforms</a></h3>
-      <p>Adapted from our flight dynamics core to manage high-speed hydrodynamic surface stability, wave-slamming rejection, and active waterjet trim.</p>
+      <h3><a href="../subsystems/near-envelope-control.html">Robust flight control · the method</a></h3>
+      <p>Piranha runs its own marine autopilot. What it inherits from the aircraft programmes is the method: instrumented trials, a model identified from the logs, and hardware-in-the-loop clearance before each configuration goes on the water.</p>
     </div>
     <div class="card">
       <div class="kicker">Navigation</div>
-      <h3><a href="../subsystems/gnss-denied-navigation.html">High-Speed GNSS-Denied Navigation</a></h3>
-      <p>Fuses anti-jam CRPA NavIC/GPS with coastline DSMAC scene correlation and hydro-inertial odometry for long-range sea transit.</p>
+      <h3><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></h3>
+      <p>Anti-jam CRPA NavIC/GPS, coastline scene matching and hydro-inertial dead reckoning for long sea transits.</p>
     </div>
     <div class="card">
       <div class="kicker">Compute</div>
-      <h3><a href="../subsystems/onboard-compute.html">Edge Compute &amp; Mission Perception</a></h3>
-      <p>Runs waterline tracking, obstacle avoidance and peer-to-peer mesh coordination on the mission computer.</p>
-    </div>
-    <div class="card">
-      <div class="kicker">Software</div>
-      <h3><a href="../subsystems/flight-software.html">Flight Software Stack</a></h3>
-      <p>Shared proprietary autopilot baseline and telemetry configuration, adapted for mission-critical marine strike execution.</p>
+      <h3><a href="../subsystems/onboard-compute.html">Edge compute</a></h3>
+      <p>Runs waterline tracking, collision avoidance, the sea-state speed governor and mesh coordination on the mission computer.</p>
     </div>
   </div>
 </section>
 
+<nav class="pager" aria-label="Reading order">
+  <a class="prev" href="../products/ahuti.html"><span class="k">&larr; Previous &middot; Products</span><span class="t">Ahuti interceptor</span></a>
+  <a class="next" href="../architecture/index.html"><span class="k">Next &middot; Architecture &rarr;</span><span class="t">The shared core</span></a>
+</nav>
 <footer>
   <div>Apollyon Dynamics &middot; Neo-Prime Wiki &middot; Rev 3.0</div>
   <div><a href="../doctrine/new-arsenal.html">The New Arsenal</a> &middot; <a href="../about/history.html">Company</a> &middot; <a href="../strategy/competitive.html">Competitive field</a> &middot; apollyondynamics.com</div>
 </footer>
 
 </main>
+<nav class="toc" aria-label="On this page">
+  <h4>On this page</h4>
+  <ul>
+    <li><a href="#specs">Specifications</a></li>
+    <li><a href="#blueprint">CAD schematic</a></li>
+    <li><a href="#usecases">Use cases</a></li>
+    <li><a href="#specifics">Engineering specifics</a></li>
+    <li><a href="#marine-nav">Non-satellite nav</a></li>
+    <li><a href="#hydrodynamics">Vessel control</a></li>
+    <li><a href="#warhead">Shaped-charge warhead</a></li>
+    <li><a href="#subsystems">Shared subsystems</a></li>
+  </ul>
+  <a class="toc-top" href="#top">Back to top &uarr;</a>
+</nav>
 </div>
 </div>
 </body>

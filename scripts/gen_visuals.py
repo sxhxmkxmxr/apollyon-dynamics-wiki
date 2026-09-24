@@ -9,7 +9,6 @@ Text is budgeted: every label is fitted to the space it sits in, and
 multi-line prose is wrapped, so nothing overruns a box or collides.
 
 Outputs:
-  wiki/assets/<name>.svg      — standalone files
   wiki/assets/visuals.json    — {name: "<svg>…</svg>"} for inline builders
 """
 import html
@@ -312,7 +311,6 @@ def cost_curve():
     # Apollyon long-range strike family
     fam = [
         ("Nightshade Mk II", 300, 3333),
-        ("Nightshade Mk III", 500, 1700),
         ("Hemlock", 1500, 59),
     ]
     f_pts = [(X(r), Y(c)) for _, r, c in fam]
@@ -326,13 +324,6 @@ def cost_curve():
     o.append(txt(x2 - 16.4, y2 - 5, "Nightshade Mk II", 12, "#ffffff", MONO, anchor="end", weight=700))
     o.append(txt(x2 - 16.4, y2 + 10, "₹3,333 / kg·km", 10.5, "#fca5a5", MONO, anchor="end", weight=500))
     o.append(f'<circle cx="{x2:.1f}" cy="{y2:.1f}" r="{5.8}" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/>')
-
-    # Mk III: left-below
-    x3, y3 = X(500), Y(1700)
-    o.append(line(518, 204, 525, 189, "#f87171", 1))
-    o.append(txt(514, 210, "Nightshade Mk III", 12, "#ffffff", MONO, anchor="end", weight=700))
-    o.append(txt(514, 225, "₹1,700 / kg·km", 10.5, "#fca5a5", MONO, anchor="end", weight=500))
-    o.append(f'<circle cx="{x3:.1f}" cy="{y3:.1f}" r="{5.8}" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/>')
 
     # Hemlock: left
     xh2, yh2 = X(1500), Y(59)
@@ -365,18 +356,17 @@ def strike_family():
     L, R, T, B = 100, 900, 75, 320
 
     def X(i):
-        return L + i * (R - L) / 3
+        return L + i * (R - L) / 2
 
     def Y(v):
         return B - lg(v, 10, 3000000) * (B - T)
 
     fam = [
         ("NIGHTSHADE MK I", 20, ["GNSS-Only", "Proof of Concept"], "20 km range · No warhead", "650 km/h flight test"),
-        ("NIGHTSHADE MK II", 4500, ["One-Way Effector", "+ Target Drone"], "15 kg warhead · 300 km", "700 km/h terminal dive"),
-        ("NIGHTSHADE MK III", 12500, ["Long-Range", "One-Way Effector"], "25 kg warhead · 500 km", "800 km/h terminal dive"),
+        ("NIGHTSHADE MK II", 4500, ["Loitering Munition", "+ Target Drones"], "15 kg payload · 300 km", "650 km/h terminal dive"),
         ("HEMLOCK", 675000, ["Long-Range", "Cruise Missile"], "450–500 kg · 1,000–1,500 km", "860–980 km/h"),
     ]
-    years = ["FLOWN 2026", "2027", "2028", "2030–31"]
+    years = ["FLOWN 2026", "2027", "2030–31"]
 
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="img" '
          f'aria-label="Strike envelope by generation: Nightshade Mk I to Hemlock">']
@@ -986,17 +976,16 @@ def eng_system():
     gens = [
         ("NIGHTSHADE MK I", "PAYS FOR THE METHOD", True),
         ("NIGHTSHADE MK II", "PAYS THE DELTA", False),
-        ("NIGHTSHADE MK III", "+ EVIDENCE REUSED", False),
         ("HEMLOCK", "NEW AIRFRAME · INHERITED METHOD", False),
     ]
     for i, (g, sub, core) in enumerate(gens):
-        x = 40 + i * 235
+        x = 40 + i * 315
         stroke = RED if core else LINE2
         fill = RED_W if core else "#090d14"
         tcol = "#ffffff" if core else INK2
         scol = "#fca5a5" if core else INK3
-        o.append(line(x + 107, 670, x + 107, 680, LINE2, 1))
-        o.append(panel_box(x, 680, 215, 48, g, sub=sub, stroke=stroke, fill=fill, sw=1.3 if core else 1.0,
+        o.append(line(x + 145, 670, x + 145, 680, LINE2, 1))
+        o.append(panel_box(x, 680, 290, 48, g, sub=sub, stroke=stroke, fill=fill, sw=1.3 if core else 1.0,
                            tcol=tcol, scol=scol, size=8.2, sub_size=7.2))
 
     o.append(txt(960, 764, "EACH PASS COSTS LESS · EACH GENERATION PAYS LESS · THE FRONTIER RISES", 9.2, INK2, MONO, anchor="end", ls="0.08em", weight=600))
@@ -1303,9 +1292,7 @@ def main():
     inline = {}
     for name, fn in VISUALS.items():
         svg = fn()
-        open(os.path.join(OUT, f"{name}.svg"), "w", encoding="utf-8").write(svg)
         inline[name] = svg
-        print(f"wrote assets/{name}.svg  ({len(svg):,} bytes)")
     json.dump(inline, open(os.path.join(OUT, "visuals.json"), "w", encoding="utf-8"))
     print("wrote assets/visuals.json")
 
