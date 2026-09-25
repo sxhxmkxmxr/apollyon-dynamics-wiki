@@ -4,87 +4,100 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Nightshade family — Apollyon Dynamics Wiki</title>
-<meta name="description" content="The Nightshade family: jet-powered one-way effectors and target drones — Mk I proof of concept, Mk II one-way effector, Mk III long-range, and the target-drone variant.">
+<meta name="description" content="The Nightshade family: one turbojet airframe in three configurations — an economical target drone, a premium target drone, and the Mk II loitering munition.">
 <link rel="icon" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/wiki.css">
+<script src="../js/wiki.js" defer></script>
 </head>
-<body>
+<body id="top" data-section="products">
 
 <div class="rail">
   <div class="rail-inner">
+    <button class="rail-menu" type="button" aria-controls="site-nav" aria-expanded="false"><span class="bars" aria-hidden="true"></span><span class="lbl">Menu</span></button>
     <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
-    <nav class="rail-links">
-      <a href="../index.html#thesis">Thesis</a>
-      <a href="../index.html#products" class="on">Products</a>
-      <a href="../strategy/trajectory.html">Strategy</a>
-      <a href="../architecture/index.html">Architecture</a>
-      <a href="../strategic-dependency/full-record.html">Dependencies</a>
-      <a href="../doctrine/new-arsenal.html">Doctrine</a>
-      <a href="../about/history.html">Company</a>
+    <nav class="rail-links" aria-label="Sections">
+      <a id="rail-thesis" href="../index.html#thesis">Thesis</a>
+      <a id="rail-products" href="../index.html#products" class="on">Products</a>
+      <a id="rail-architecture" href="../architecture/index.html">Architecture</a>
+      <a id="rail-strategy" href="../strategy/trajectory.html">Strategy</a>
+      <a id="rail-doctrine" href="../doctrine/new-arsenal.html">Doctrine</a>
+      <a id="rail-company" href="../about/history.html">Company</a>
     </nav>
   </div>
+  <div class="rail-progress" aria-hidden="true"><i></i></div>
 </div>
 <div class="shell">
 <div class="layout">
 
-<aside class="aside">
-  <h4>On this page</h4>
-  <ul>
-    <li><a href="#definition">Definition and role</a></li>
-    <li><a href="#family">The family</a></li>
-    <li><a href="#specs">Mk II specification</a></li>
-    <li><a href="#missions">Mission roles</a></li>
-    <li><a href="#navigation">Navigation and EW</a></li>
-    <li><a href="#seeker">Seeker and terminal</a></li>
-    <li><a href="#launch">Launch and deployment</a></li>
-    <li><a href="#target-drone">Target-drone variant</a></li>
-    <li><a href="#subsystems">Subsystems used</a></li>
-  </ul>
-  <nav class="atlas" aria-label="Wiki map">
-    <h4>Wiki map</h4>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232 650"><line class="spine" x1="16" y1="52" x2="16" y2="488"/><line class="spine" x1="16" y1="488" x2="16" y2="642"/><a href="../index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="10" width="220" height="42"/><text class="hub-t" x="18" y="27">INDEX</text><text class="hub-s" x="18" y="40">the argument · every path starts here</text><text class="hub-n" x="216" y="27" text-anchor="end">01</text></a><line class="spine" x1="16" y1="69" x2="28" y2="69"/><text class="cl on" x="30" y="72">PRODUCTS</text><line class="rule" x1="30" y1="77" x2="222" y2="77"/><a href="../products/nightshade-adx1.html" class="atlas-node here"><rect class="mk" x="30" y="84.5" width="5" height="5"/><text class="lb" x="41" y="92.5">Nightshade family</text></a><a href="../products/hemlock.html" class="atlas-node"><rect class="mk" x="30" y="101.5" width="5" height="5"/><text class="lb" x="41" y="109.5">Hemlock</text></a><a href="../products/ahuti.html" class="atlas-node"><rect class="mk" x="30" y="118.5" width="5" height="5"/><text class="lb" x="41" y="126.5">Ahuti interceptor</text></a><a href="../products/usv-strike.html" class="atlas-node"><rect class="mk" x="30" y="135.5" width="5" height="5"/><text class="lb" x="41" y="143.5">Piranha USV</text></a><text class="bridge" x="41" y="159">each machine configures the core ↓</text><line class="spine" x1="16" y1="180" x2="28" y2="180"/><text class="cl" x="30" y="183">STRATEGY</text><line class="rule" x1="30" y1="188" x2="222" y2="188"/><a href="../strategy/trajectory.html" class="atlas-node"><rect class="mk" x="30" y="195.5" width="5" height="5"/><text class="lb" x="41" y="203.5">Trajectory &amp; cost per kg·km</text></a><a href="../strategy/competitive.html" class="atlas-node"><rect class="mk" x="30" y="212.5" width="5" height="5"/><text class="lb" x="41" y="220.5">The competitive field</text></a><a href="../strategy/supply-chain.html" class="atlas-node"><rect class="mk" x="30" y="229.5" width="5" height="5"/><text class="lb" x="41" y="237.5">Supply chain</text></a><line class="spine" x1="16" y1="258" x2="28" y2="258"/><text class="cl" x="30" y="261">DOCTRINE</text><line class="rule" x1="30" y1="266" x2="222" y2="266"/><a href="../doctrine/new-arsenal.html" class="atlas-node"><rect class="mk" x="30" y="273.5" width="5" height="5"/><text class="lb" x="41" y="281.5">The New Arsenal</text></a><a href="../doctrine/precision-is-mercy.html" class="atlas-node"><rect class="mk" x="30" y="290.5" width="5" height="5"/><text class="lb" x="41" y="298.5">Precision is Mercy</text></a><a href="../doctrine/missing-middle.html" class="atlas-node"><rect class="mk" x="30" y="307.5" width="5" height="5"/><text class="lb" x="41" y="315.5">The missing middle</text></a><a href="../doctrine/strike-design-space.html" class="atlas-node"><rect class="mk" x="30" y="324.5" width="5" height="5"/><text class="lb" x="41" y="332.5">Strike design space</text></a><line class="spine" x1="16" y1="353" x2="28" y2="353"/><text class="cl" x="30" y="356">RECORD</text><line class="rule" x1="30" y1="361" x2="222" y2="361"/><a href="../about/history.html" class="atlas-node"><rect class="mk" x="30" y="368.5" width="5" height="5"/><text class="lb" x="41" y="376.5">Company history</text></a><a href="../about/team.html" class="atlas-node"><rect class="mk" x="30" y="385.5" width="5" height="5"/><text class="lb" x="41" y="393.5">Team &amp; advisors</text></a><a href="../strategic-dependency/full-record.html" class="atlas-node"><rect class="mk" x="30" y="402.5" width="5" height="5"/><text class="lb" x="41" y="410.5">The full record · 70 episodes</text></a><a href="../architecture/index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="440" width="220" height="42"/><text class="hub-t" x="18" y="457">ARCHITECTURE</text><text class="hub-s" x="18" y="470">the core · method, machine, loop</text><text class="hub-n" x="216" y="457" text-anchor="end">02</text></a><line class="spine" x1="16" y1="499" x2="28" y2="499"/><text class="cl" x="30" y="502">SUBSYSTEMS</text><line class="rule" x1="30" y1="507" x2="222" y2="507"/><a href="../subsystems/near-envelope-control.html" class="atlas-node"><rect class="mk" x="30" y="514.5" width="5" height="5"/><text class="lb" x="41" y="522.5">Robust flight control</text></a><a href="../subsystems/gnss-denied-navigation.html" class="atlas-node"><rect class="mk" x="30" y="531.5" width="5" height="5"/><text class="lb" x="41" y="539.5">GNSS-denied navigation</text></a><a href="../subsystems/onboard-compute.html" class="atlas-node"><rect class="mk" x="30" y="548.5" width="5" height="5"/><text class="lb" x="41" y="556.5">Edge compute</text></a><a href="../subsystems/flight-software.html" class="atlas-node"><rect class="mk" x="30" y="565.5" width="5" height="5"/><text class="lb" x="41" y="573.5">Flight software</text></a><a href="../subsystems/seekers.html" class="atlas-node"><rect class="mk" x="30" y="582.5" width="5" height="5"/><text class="lb" x="41" y="590.5">Seekers</text></a><a href="../subsystems/airframe-structures.html" class="atlas-node"><rect class="mk" x="30" y="599.5" width="5" height="5"/><text class="lb" x="41" y="607.5">Airframe &amp; structures</text></a><a href="../subsystems/launch-systems.html" class="atlas-node"><rect class="mk" x="30" y="616.5" width="5" height="5"/><text class="lb" x="41" y="624.5">Launch &amp; ground</text></a></svg>
-  </nav>
-  <div class="groups">
-  <h4>Products</h4>
-  <ul>
-    <li><a href="../products/nightshade-adx1.html" class="here">Nightshade family</a></li>
-    <li><a href="../products/hemlock.html">Hemlock</a></li>
-    <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
-    <li><a href="../products/usv-strike.html">Piranha USV</a></li>
-  </ul>
-  <h4>Strategy</h4>
-  <ul>
-    <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
-    <li><a href="../strategy/competitive.html">The competitive field</a></li>
-    <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
-  </ul>
-  <h4>Architecture</h4>
-  <ul>
-    <li><a href="../architecture/index.html">The shared core</a></li>
-    <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
-    <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
-    <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
-    <li><a href="../subsystems/flight-software.html">Flight software</a></li>
-    <li><a href="../subsystems/seekers.html">Seekers</a></li>
-    <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
-    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground</a></li>
-  </ul>
-  <h4>Doctrine</h4>
-  <ul>
-    <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
-    <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
-    <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
-    <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
-  </ul>
-  <h4>Record</h4>
-  <ul>
-    <li><a href="../about/history.html">Company history</a></li>
-    <li><a href="../about/team.html">Team &amp; advisors</a></li>
-    <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
-  </ul>
+<aside class="aside" id="site-nav" aria-label="Wiki navigation">
+  <div class="nav-group">
+    <h4><span class="n">01</span>Overview</h4>
+    <ul>
+      <li><a href="../index.html">The argument</a></li>
+    </ul>
+  </div>
+  <div class="nav-group on">
+    <h4><span class="n">02</span>Products</h4>
+    <ul>
+      <li class="here"><a href="../products/nightshade-adx1.html" aria-current="page">Nightshade family</a>
+        <ul class="nav-toc">
+          <li><a href="#definition">Definition and role</a></li>
+          <li><a href="#family">The family</a></li>
+          <li><a href="#specs">Mk II specification</a></li>
+          <li><a href="#missions">Mission roles</a></li>
+          <li><a href="#navigation">Navigation and EW</a></li>
+          <li><a href="#seeker">Seeker and terminal</a></li>
+          <li><a href="#launch">Launch and deployment</a></li>
+          <li><a href="#target-drone">Target-drone variant</a></li>
+          <li><a href="#subsystems">Subsystems used</a></li>
+        </ul>
+      </li>
+      <li><a href="../products/hemlock.html">Hemlock</a></li>
+      <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
+      <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">03</span>Architecture</h4>
+    <ul>
+      <li><a href="../architecture/index.html">The shared core</a></li>
+      <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
+      <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
+      <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
+      <li><a href="../subsystems/flight-software.html">Flight software</a></li>
+      <li><a href="../subsystems/seekers.html">Seekers</a></li>
+      <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
+      <li><a href="../subsystems/launch-systems.html">Launch &amp; ground systems</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">04</span>Strategy</h4>
+    <ul>
+      <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
+      <li><a href="../strategy/market.html">The market</a></li>
+      <li><a href="../strategy/competitive.html">The competitive field</a></li>
+      <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">05</span>Doctrine</h4>
+    <ul>
+      <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
+      <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
+      <li><a href="../doctrine/missing-middle.html">The Missing Middle</a></li>
+      <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">06</span>Record</h4>
+    <ul>
+      <li><a href="../about/history.html">Company history</a></li>
+      <li><a href="../about/team.html">Team &amp; advisors</a></li>
+      <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
+    </ul>
   </div>
 </aside>
 
@@ -98,18 +111,18 @@
     <img src="../assets/logos/logo-text-white.png" alt="Apollyon Dynamics" class="brand-text">
   </div>
   <div class="mast-meta">Class A · Long-range strike</div>
-  <h1>Nightshade family, <span class="sub">one airframe, three roles</span></h1>
-  <p class="standfirst">Jet-powered one-way effectors, targets and decoys engineered to collapse the interception window. Nightshade delivers point-target accuracy under electronic warfare at unit economics that allow sustained salvo employment.</p>
+  <h1>Nightshade family, <span class="sub">one airframe, three configurations</span></h1>
+  <p class="standfirst">One turbojet airframe in three configurations: an economical target drone, a premium long-range target drone, and the Mk II loitering munition. Nightshade delivers point-target accuracy under electronic warfare at unit economics that allow sustained salvo employment.</p>
 </header>
 
 <div class="hero-plate">
   <img src="../assets/nightshade-render.jpg" alt="Nightshade one-way effector, development render" loading="lazy">
   <div class="hero-strip">
-    <div class="hs"><div class="v">700<span class="u">km/h</span></div><span class="k">Terminal speed</span></div>
+    <div class="hs"><div class="v">650<span class="u">km/h</span></div><span class="k">Terminal speed</span></div>
     <div class="hs"><div class="v">300<span class="u">km</span></div><span class="k">Range</span></div>
-    <div class="hs"><div class="v">15<span class="u">kg</span></div><span class="k">Modular warhead</span></div>
+    <div class="hs"><div class="v">15<span class="u">kg</span></div><span class="k">Modular payload</span></div>
     <div class="hs"><div class="v">86<span class="u">kg</span></div><span class="k">MTOW</span></div>
-    <div class="hs"><div class="v">Q4 '26</div><span class="k">Mk II prototype</span></div>
+    <div class="hs"><div class="v">Q4 '26</div><span class="k">Target-drone prototype</span></div>
   </div>
 </div>
 
@@ -117,31 +130,31 @@
 <section id="definition">
   <div class="sec-tag">01 · Definition</div>
   <h2>What Nightshade is, and the gap it closes</h2>
-  <p>Striking high-value targets across operational depth requires three properties at once: terminal precision, high cruise speed, and expendable economics. Slow loitering munitions fly at 100–200 km/h. That sluggish profile leaves them vulnerable to radar-directed cannon, short-range surface-to-air missiles, and tactical radio jammers. Traditional cruise missiles survive and hit reliably, but cost ₹20–35 crore per round. At that price, armed forces cannot fire salvos without exhausting inventories within days.</p>
-  <p>Nightshade resolves this contradiction. A compact turbojet propels the airframe at 550 km/h in cruise and 700 km/h in terminal dive, shrinking the defender's engagement window to seconds. When satellite signals fail under hostile jamming, an onboard four-tier navigation stack maintains track until the dual-band imaging seeker acquires the target silhouette. Priced at roughly ₹1.5 crore (≈$150,000), Nightshade turns high-speed strike into an attritable munition. It is the first platform family to run the Apollyon <a href="../architecture/index.html">shared core</a>.</p>
+  <p>Striking high-value targets across operational depth requires three properties at once: terminal precision, high cruise speed, and expendable economics. Slow loitering munitions fly at 100–200 km/h. That low speed leaves them vulnerable to radar-directed cannon, short-range air defences, and tactical radio jammers. Traditional cruise missiles survive and hit reliably, but cost &#8377;20–35 crore per round, which limits how many can be fired in an extended campaign.</p>
+  <p>Nightshade is designed around this trade-off. A compact turbojet propels the airframe at 550 km/h in cruise and 650 km/h in terminal dive, narrowing an air defence's engagement window. When satellite signals fail under hostile jamming, the strike configuration's onboard four-tier navigation stack maintains track until the dual-band imaging seeker acquires the target silhouette. Priced at roughly &#8377;1.5 crore (&#8776;$150,000), Nightshade turns high-speed strike into an affordable, attritable round. It is the first platform family to run the Apollyon <a href="../architecture/index.html">shared core</a>.</p>
 </section>
 
 <!-- ═══════════ FAMILY ═══════════ -->
 <section id="family">
   <div class="sec-tag">02 · Family</div>
-  <h2>Five configurations, one lineage</h2>
+  <h2>Three configurations, one airframe</h2>
   <div class="tw">
     <table>
       <caption>Variant identity <span class="prov est">internal roadmap</span></caption>
-      <thead><tr><th>Variant</th><th>Role</th><th>Payload</th><th>Range</th><th>Top speed</th><th>Navigation</th><th>Launch</th></tr></thead>
+      <thead><tr><th>Variant</th><th>Role</th><th>Payload</th><th>Range</th><th>Terminal speed</th><th>Navigation</th><th>Control link</th><th>Est. cost</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td>Nightshade Mk I</td><td>Technology demonstrator</td><td>—</td><td>20 km</td><td>650 km/h</td><td>GNSS only</td><td>Vehicle / catapult</td></tr>
-        <tr><td><strong>Nightshade Mk II · one-way effector</strong></td><td>Tactical-to-strategic precision strike</td><td>15 kg modular</td><td>300 km</td><td>700 km/h</td><td>Shared core · 4 layers</td><td>Catapult (vehicle-launch optional)</td></tr>
-        <tr><td><strong>Nightshade Mk II · target drone</strong></td><td>Air-defence training target</td><td>Luneberg lenses</td><td>300 km</td><td>700 km/h</td><td>Shared core · 4 layers</td><td>Catapult</td></tr>
-        <tr><td><strong>Nightshade Mk II · decoy</strong></td><td>Air-defence saturation &amp; radar decoy</td><td>Luneberg lenses / EW payload</td><td>300 km</td><td>700 km/h</td><td>Shared core · 4 layers</td><td>Catapult</td></tr>
-        <tr><td>Nightshade Mk III</td><td>Long-range one-way effector</td><td>25 kg modular</td><td>500 km</td><td>800 km/h</td><td>Shared core · 4 layers</td><td>Rocket-assisted take-off</td></tr>
+        <tr><td>Nightshade Mk I</td><td>Technology demonstrator</td><td>—</td><td>20 km</td><td>650 km/h</td><td>GNSS only</td><td>—</td><td>—</td><td>Done · flown 2026</td></tr>
+        <tr><td><strong>Target drone · Economical</strong></td><td>Aerial target</td><td>Luneberg lens (3 m²), smoke &amp; IR flares</td><td>300 km</td><td>650 km/h</td><td>Multiband GNSS · anti-jam / anti-spoof</td><td>50 km LOS</td><td>$90,000</td><td>Prototype Q4 2026</td></tr>
+        <tr><td><strong>Target drone · Premium (ADX-1 Premium)</strong></td><td>Long-range aerial target</td><td>Luneberg lens (3 m²), smoke &amp; IR flares</td><td>300 km</td><td>650 km/h</td><td>Dual-antenna GNSS · primary + backup</td><td>~300 km-class LOS · satcom BVLOS</td><td>~$150,000</td><td>Prototype Q4 2026</td></tr>
+        <tr><td><strong>Loitering munition · Mk II</strong></td><td>Strike / SEAD / decoy</td><td>15 kg HE-frag / shaped charge (modular)</td><td>300 km</td><td>650 km/h</td><td>4-element CRPA · multiband GNSS · INS · EO/IR seeker</td><td>50 km LOS</td><td>~$150,000</td><td>Prototype Q1 2027</td></tr>
       </tbody>
     </table>
   </div>
+  <p class="small">All three configurations share the 40 kgf / 400 N turbojet, 550 km/h cruise, 650 km/h terminal, 300 km range, 40 min endurance, 86 kg MTOW, ~15,000 ft ceiling, catapult / tactical-vehicle / RATO launch and parachute recovery. They differ only in control link and payload. Costs are internal engineering estimates, September 2026.</p>
   <div class="blueprint-plate">
     <div class="blueprint-head"><span class="title">Fig. 01</span><span class="scale">envelope · family position</span></div>
     <div class="blueprint-body">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" role="img" aria-label="Strike envelope by generation: Nightshade Mk I to Hemlock"><text x="70.0" y="32.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#A19E97" letter-spacing="0.12em">STRIKE ENVELOPE — PAYLOAD × RANGE (KG·KM, LOG SCALE)</text><line x1="90.0" y1="320.0" x2="910.0" y2="320.0" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="324.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#7F7C76" text-anchor="end">10</text><line x1="90.0" y1="275.3" x2="910.0" y2="275.3" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="279.3" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#7F7C76" text-anchor="end">100</text><line x1="90.0" y1="230.5" x2="910.0" y2="230.5" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="234.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#7F7C76" text-anchor="end">1K</text><line x1="90.0" y1="185.8" x2="910.0" y2="185.8" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="189.8" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#7F7C76" text-anchor="end">10K</text><line x1="90.0" y1="141.1" x2="910.0" y2="141.1" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="145.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#7F7C76" text-anchor="end">100K</text><line x1="90.0" y1="96.3" x2="910.0" y2="96.3" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="100.3" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#7F7C76" text-anchor="end">1M</text><path d="M100.0,306.5 H366.7 V201.3" fill="none" stroke="#F04B4B" stroke-width="2.2"/><path d="M366.7,201.3 H633.3 V181.5" fill="none" stroke="#F04B4B" stroke-width="2.2"/><path d="M633.3,181.5 H900.0 V104.0" fill="none" stroke="#F04B4B" stroke-width="2.2"/><line x1="80.0" y1="320.0" x2="920.0" y2="320.0" stroke="#2B2B2B" stroke-width="1.2"/><circle cx="100.0" cy="306.5" r="6" fill="#D92323" stroke="#FFFFFF" stroke-width="1.6"/><text x="100.0" y="292.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="15.0" fill="#FFFFFF" text-anchor="middle" font-weight="800">20</text><text x="100.0" y="54.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.06em">NIGHTSHADE MK I</text><line x1="233.3" y1="330.0" x2="233.3" y2="505.0" stroke="#1C1C1C" stroke-width="1" stroke-dasharray="3,3"/><rect x="46.0" y="336" width="108" height="24" fill="#D92323" rx="3"/><text x="100.0" y="353.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" text-anchor="middle" font-weight="800" letter-spacing="0.08em">FLOWN 2026</text><text x="100.0" y="384.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">GNSS-Only</text><text x="100.0" y="402.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">Proof of Concept</text><text x="100.0" y="436.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5" fill="#E2DFD8" text-anchor="middle" font-weight="600">20 km range · No warhead</text><text x="100.0" y="456.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#A19E97" text-anchor="middle">650 km/h flight test</text><circle cx="366.7" cy="201.3" r="6" fill="#D92323" stroke="#FFFFFF" stroke-width="1.6"/><text x="366.7" y="187.3" font-family="JetBrains Mono, ui-monospace, monospace" font-size="15.0" fill="#FFFFFF" text-anchor="middle" font-weight="800">4,500</text><text x="366.7" y="54.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.06em">NIGHTSHADE MK II</text><line x1="500.0" y1="330.0" x2="500.0" y2="505.0" stroke="#1C1C1C" stroke-width="1" stroke-dasharray="3,3"/><rect x="320.7" y="336" width="92" height="24" fill="#161616" stroke="#333333" rx="3"/><text x="366.7" y="353.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.08em">2027</text><text x="366.7" y="384.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">One-Way Effector</text><text x="366.7" y="402.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">+ Target Drone</text><text x="366.7" y="436.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5" fill="#E2DFD8" text-anchor="middle" font-weight="600">15 kg warhead · 300 km</text><text x="366.7" y="456.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#A19E97" text-anchor="middle">700 km/h terminal dive</text><circle cx="633.3" cy="181.5" r="6" fill="#D92323" stroke="#FFFFFF" stroke-width="1.6"/><text x="633.3" y="167.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="15.0" fill="#FFFFFF" text-anchor="middle" font-weight="800">12,500</text><text x="633.3" y="54.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.06em">NIGHTSHADE MK III</text><line x1="766.7" y1="330.0" x2="766.7" y2="505.0" stroke="#1C1C1C" stroke-width="1" stroke-dasharray="3,3"/><rect x="587.3" y="336" width="92" height="24" fill="#161616" stroke="#333333" rx="3"/><text x="633.3" y="353.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.08em">2028</text><text x="633.3" y="384.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">Long-Range</text><text x="633.3" y="402.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">One-Way Effector</text><text x="633.3" y="436.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5" fill="#E2DFD8" text-anchor="middle" font-weight="600">25 kg warhead · 500 km</text><text x="633.3" y="456.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#A19E97" text-anchor="middle">800 km/h terminal dive</text><circle cx="900.0" cy="104.0" r="6" fill="#D92323" stroke="#FFFFFF" stroke-width="1.6"/><text x="900.0" y="90.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="15.0" fill="#FFFFFF" text-anchor="middle" font-weight="800">675,000</text><text x="900.0" y="54.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.06em">HEMLOCK</text><rect x="854.0" y="336" width="92" height="24" fill="#161616" stroke="#333333" rx="3"/><text x="900.0" y="353.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.08em">2030–31</text><text x="900.0" y="384.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">Long-Range</text><text x="900.0" y="402.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">Cruise Missile</text><text x="900.0" y="436.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5" fill="#E2DFD8" text-anchor="end" font-weight="600">450–500 kg · 1,000–1,500 km</text><text x="900.0" y="456.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#A19E97" text-anchor="end">860–980 km/h</text><line x1="80.0" y1="475.0" x2="920.0" y2="475.0" stroke="#2B2B2B" stroke-width="1"/><text x="80.0" y="498.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13.0" fill="#A19E97">Mk I carries no payload and flies a minimal guidance fit; every system above it inherits the same engineering base.</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" role="img" aria-label="Strike envelope by generation: Nightshade Mk I to Hemlock"><text x="70.0" y="32.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#A19E97" letter-spacing="0.12em">STRIKE ENVELOPE — PAYLOAD × RANGE (KG·KM, LOG SCALE)</text><line x1="90.0" y1="320.0" x2="910.0" y2="320.0" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="324.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#7F7C76" text-anchor="end">10</text><line x1="90.0" y1="275.3" x2="910.0" y2="275.3" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="279.3" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#7F7C76" text-anchor="end">100</text><line x1="90.0" y1="230.5" x2="910.0" y2="230.5" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="234.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#7F7C76" text-anchor="end">1K</text><line x1="90.0" y1="185.8" x2="910.0" y2="185.8" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="189.8" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#7F7C76" text-anchor="end">10K</text><line x1="90.0" y1="141.1" x2="910.0" y2="141.1" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="145.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#7F7C76" text-anchor="end">100K</text><line x1="90.0" y1="96.3" x2="910.0" y2="96.3" stroke="#1D1D1D" stroke-width="1"/><text x="82.0" y="100.3" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#7F7C76" text-anchor="end">1M</text><path d="M100.0,306.5 H500.0 V201.3" fill="none" stroke="#F04B4B" stroke-width="2.2"/><path d="M500.0,201.3 H900.0 V104.0" fill="none" stroke="#F04B4B" stroke-width="2.2"/><line x1="80.0" y1="320.0" x2="920.0" y2="320.0" stroke="#2B2B2B" stroke-width="1.2"/><circle cx="100.0" cy="306.5" r="6" fill="#D92323" stroke="#FFFFFF" stroke-width="1.6"/><text x="100.0" y="292.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="15.0" fill="#FFFFFF" text-anchor="middle" font-weight="800">20</text><text x="100.0" y="54.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.06em">NIGHTSHADE MK I</text><line x1="300.0" y1="330.0" x2="300.0" y2="505.0" stroke="#1C1C1C" stroke-width="1" stroke-dasharray="3,3"/><rect x="46.0" y="336" width="108" height="24" fill="#D92323" rx="3"/><text x="100.0" y="353.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" text-anchor="middle" font-weight="800" letter-spacing="0.08em">FLOWN 2026</text><text x="100.0" y="384.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">GNSS-Only</text><text x="100.0" y="402.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">Proof of Concept</text><text x="100.0" y="436.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5" fill="#E2DFD8" text-anchor="middle" font-weight="600">20 km range · No warhead</text><text x="100.0" y="456.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#A19E97" text-anchor="middle">650 km/h flight test</text><circle cx="500.0" cy="201.3" r="6" fill="#D92323" stroke="#FFFFFF" stroke-width="1.6"/><text x="500.0" y="187.3" font-family="JetBrains Mono, ui-monospace, monospace" font-size="15.0" fill="#FFFFFF" text-anchor="middle" font-weight="800">4,500</text><text x="500.0" y="54.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.06em">NIGHTSHADE MK II</text><line x1="700.0" y1="330.0" x2="700.0" y2="505.0" stroke="#1C1C1C" stroke-width="1" stroke-dasharray="3,3"/><rect x="454.0" y="336" width="92" height="24" fill="#161616" stroke="#333333" rx="3"/><text x="500.0" y="353.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.08em">2027</text><text x="500.0" y="384.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">Loitering Munition</text><text x="500.0" y="402.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">+ Target Drones</text><text x="500.0" y="436.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5" fill="#E2DFD8" text-anchor="middle" font-weight="600">15 kg payload · 300 km</text><text x="500.0" y="456.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#A19E97" text-anchor="middle">650 km/h terminal dive</text><circle cx="900.0" cy="104.0" r="6" fill="#D92323" stroke="#FFFFFF" stroke-width="1.6"/><text x="900.0" y="90.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="15.0" fill="#FFFFFF" text-anchor="middle" font-weight="800">675,000</text><text x="900.0" y="54.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.06em">HEMLOCK</text><rect x="854.0" y="336" width="92" height="24" fill="#161616" stroke="#333333" rx="3"/><text x="900.0" y="353.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.08em">2030–31</text><text x="900.0" y="384.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">Long-Range</text><text x="900.0" y="402.0" font-family="Inter, Helvetica Neue, sans-serif" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">Cruise Missile</text><text x="900.0" y="436.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5" fill="#E2DFD8" text-anchor="end" font-weight="600">450–500 kg · 1,000–1,500 km</text><text x="900.0" y="456.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#A19E97" text-anchor="end">860–980 km/h</text><line x1="80.0" y1="475.0" x2="920.0" y2="475.0" stroke="#2B2B2B" stroke-width="1"/><text x="80.0" y="498.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13.0" fill="#A19E97">Mk I carries no payload and flies a minimal guidance fit; every system above it inherits the same engineering base.</text></svg>
 </div>
     <div class="blueprint-cap"><b>Fig. 01</b> Where the Nightshade marks sit in the family envelope. Mk I is the proof of concept; Mk II is the first machine to carry the shared core, and the first to enter the line.</div>
   </div>
@@ -152,77 +165,75 @@
   <div class="sec-tag">03 · Specification</div>
   <h2>Mk II, in full</h2>
   <div class="spec-card">
-    <div class="spec-topbar"><span>Nightshade Mk II · One-Way Effector / Target Drone / Decoy</span><span class="right">Baseline configuration · estimates marked</span></div>
+    <div class="spec-topbar"><span>Nightshade Mk II · Loitering munition</span><span class="right">Baseline configuration · estimates marked</span></div>
     <div class="spec-grid">
       <div class="spec-col">
         <div class="spec-col-title">Platform</div>
-        <div class="row"><span class="lbl">Role</span><span class="val">One-Way Effector / Target Drone / Decoy</span></div>
-        <div class="row"><span class="lbl">Powerplant</span><span class="val">Turbojet, 40–45 kgf class</span></div>
-        <div class="row"><span class="lbl">Airframe</span><span class="val">Composite, low-RCS</span></div>
-        <div class="row"><span class="lbl">Length · span</span><span class="val">3.0 m · 2.45 m</span></div>
+        <div class="row"><span class="lbl">Role</span><span class="val">Loitering munition · strike / SEAD / decoy</span></div>
+        <div class="row"><span class="lbl">Powerplant</span><span class="val">Turbojet, 40 kgf / 400 N class</span></div>
+        <div class="row"><span class="lbl">Airframe</span><span class="val">Composite</span></div>
+        <div class="row"><span class="lbl">Wingspan</span><span class="val">2.3 m</span></div>
         <div class="row"><span class="lbl">MTOW</span><span class="val">86 kg</span></div>
         <div class="row"><span class="lbl">Thrust-to-weight at MTOW</span><span class="val accent">0.46+</span></div>
       </div>
       <div class="spec-col">
         <div class="spec-col-title">Performance</div>
         <div class="row"><span class="lbl">Cruise speed</span><span class="val">550 km/h</span></div>
-        <div class="row"><span class="lbl">Terminal / dive speed</span><span class="val">700 km/h</span></div>
+        <div class="row"><span class="lbl">Terminal / dive speed</span><span class="val">650 km/h</span></div>
         <div class="row"><span class="lbl">Time to target · 100 km</span><span class="val">10.9 min</span></div>
         <div class="row"><span class="lbl">Time to target · 300 km</span><span class="val">32.7 min</span></div>
+        <div class="row"><span class="lbl">Terminal accuracy</span><span class="val accent">CEP &lt; 10 m (claimed) · seeker lock</span></div>
         <div class="row"><span class="lbl">Operational range</span><span class="val">300 km</span></div>
-        <div class="row"><span class="lbl">Endurance · ceiling</span><span class="val">~45 min · ~15,000 ft</span></div>
+        <div class="row"><span class="lbl">Endurance · ceiling</span><span class="val">40 min · ~15,000 ft</span></div>
       </div>
       <div class="spec-col">
         <div class="spec-col-title">Payload &amp; lethality</div>
-        <div class="row"><span class="lbl">Warhead</span><span class="val">15 kg HE-frag / shaped charge</span></div>
+        <div class="row"><span class="lbl">Warhead / payload</span><span class="val">15 kg HE-frag / shaped charge</span></div>
         <div class="row"><span class="lbl">Bay</span><span class="val">Modular</span></div>
-        <div class="row"><span class="lbl">Target set</span><span class="val">Fixed &amp; relocatable point targets</span></div>
+        <div class="row"><span class="lbl">Target set</span><span class="val">Fixed point targets</span></div>
         <div class="row"><span class="lbl">Day / night</span><span class="val">EO + IR thermal</span></div>
-        <div class="row"><span class="lbl">Wave-off / abort</span><span class="val accent">Yes · en route</span></div>
       </div>
       <div class="spec-col">
         <div class="spec-col-title">Operations</div>
-        <div class="row"><span class="lbl">Launch</span><span class="val">Pneumatic catapult / vehicle</span></div>
-        <div class="row"><span class="lbl">Recovery</span><span class="val">Expendable</span></div>
-        <div class="row"><span class="lbl">Set-up time</span><span class="val">≤ 15 min</span></div>
+        <div class="row"><span class="lbl">Launch</span><span class="val">Catapult / tactical vehicle / RATO</span></div>
+        <div class="row"><span class="lbl">Recovery</span><span class="val">Parachute when not expended</span></div>
+        <div class="row"><span class="lbl">Set-up time</span><span class="val">≤ 25 min</span></div>
+        <div class="row"><span class="lbl">Control link</span><span class="val">50 km line-of-sight</span></div>
         <div class="row"><span class="lbl">Crew</span><span class="val">2 personnel</span></div>
         <div class="row"><span class="lbl">GNSS-denied capability</span><span class="val accent">High · 4-layer stack</span></div>
+        <div class="row"><span class="lbl">Guidance</span><span class="val">Autonomous pre-planned · fire-and-forget</span></div>
+        <div class="row"><span class="lbl">Swarm</span><span class="val">Tentative</span></div>
       </div>
     </div>
   </div>
-  <p class="small">Tentative figures marked in the internal comparison file: CEP &lt; 5 m, indigenous content ~70%, unit flyaway ≈ $150k. Specification is configuration-dependent and confirmed per contract.</p>
+  <p class="small">Tentative figures marked in the internal comparison file: CEP &lt; 10 m, indigenous content ~45–50%, unit flyaway ≈ $150k. Specification is configuration-dependent and confirmed per contract.</p>
 </section>
 
 <!-- ═══════════ MISSIONS ═══════════ -->
 <section id="missions">
   <div class="sec-tag">04 · Roles</div>
-  <h2>One airframe, three roles, several missions</h2>
-  <p class="lede">The same airframe leaves the line as a one-way effector, a live-fire training target, or a decoy. The warhead bay decides which; nothing else changes.</p>
+  <h2>Three configurations, several missions</h2>
+  <p class="lede">The same airframe leaves the line as an economical target drone, a premium target drone, or the Mk II loitering munition. Mk II flies the strike, SEAD and decoy missions; the two target drones fly air-defence training.</p>
   <div class="cards">
     <div class="card">
       <div class="kicker">Mission 01</div>
       <h3>Precision strike</h3>
-      <p>Autonomous strikes on static and relocatable tactical assets without continuous data links. The dual-band seeker locks onto target features independently of satellite signals, destroying command posts, fuel dumps, revetted aircraft, and ammunition hubs.</p>
+      <p>Autonomous strikes on static tactical assets without continuous data links. The dual-band seeker locks onto target features independently of satellite signals, destroying command posts, fuel dumps, revetted aircraft, and ammunition hubs.</p>
     </div>
     <div class="card">
       <div class="kicker">Mission 02</div>
       <h3>SEAD / counter-radar</h3>
-      <p>A passive anti-radiation seeker homes directly onto enemy radar emissions. By striking surveillance radars, missile fire-control units, and high-power jammers, Nightshade punches corridors through integrated air defence networks without risking crewed aircraft.</p>
+      <p>Strikes on air-defence radars, fire-control units and jammers at pre-planned locations, with the EO/IR seeker for terminal lock. Opens corridors through air defences without risking crewed aircraft.</p>
     </div>
     <div class="card">
-      <div class="kicker">Mission 03</div>
-      <h3>Maritime interdiction</h3>
-      <p>Configured with maritime contrast tracking, the effector engages corvettes, missile boats, and logistics vessels in contested littoral waters. High terminal velocity overwhelms close-in weapon systems while keeping surface combatants outside defensive perimeters.</p>
-    </div>
-    <div class="card">
-      <div class="kicker">Mission 04 · revenue</div>
+      <div class="kicker">Mission 03 · revenue</div>
       <h3>Air-defence training target</h3>
-      <p>The target-drone configuration replaces the warhead with Luneberg lenses, providing air defence crews with a realistic 700 km/h target. Live-fire training consumes units on recurring operational budgets. See <a href="#target-drone">target-drone details below</a>.</p>
+      <p>The two target-drone configurations carry a Luneberg lens (3 m²), smoke and IR flares in place of a warhead, giving air-defence crews a realistic 650 km/h target. Live-fire training consumes units on recurring operational budgets. See <a href="#target-drone">target-drone details below</a>.</p>
     </div>
     <div class="card">
-      <div class="kicker">Mission 05</div>
+      <div class="kicker">Mission 04</div>
       <h3>Decoy</h3>
-      <p>With radar augmentation in place of the warhead, the same airframe presents a credible strike signature and pulls interceptors and radar attention away from the attacking package. It launches from the same rail, is flown by the same crew, and runs the same flight-control baseline.</p>
+      <p>A Mk II role: the airframe presents a credible strike signature and pulls interceptors and radar attention away from the attacking package. It launches from the same rail, is flown by the same crew, and runs the same flight-control baseline.</p>
     </div>
   </div>
 </section>
@@ -231,35 +242,36 @@
 <section id="navigation">
   <div class="sec-tag">05 · Navigation</div>
   <h2>Four layers, each a fallback for the last</h2>
-  <p>The navigation stack is the primary physical inheritance from the shared core architecture. Each layer acts as an autonomous fallback for the one preceding it, ensuring the round reaches its target area even through dense electronic warfare.</p>
+  <p>The Mk II loitering munition carries the full four-layer stack — the primary physical inheritance from the shared core architecture. Each layer acts as an autonomous fallback for the one preceding it, ensuring the round reaches its target area even through dense electronic warfare.</p>
   <div class="tw">
     <table>
-      <caption>Layer-by-layer</caption>
+      <caption>Loitering munition Mk II · layer by layer</caption>
       <thead><tr><th>Layer</th><th>Function</th><th>Behaviour under attack</th></tr></thead>
       <tbody>
-        <tr><td><strong>1 · CRPA antenna</strong></td><td>Controlled reception pattern array with multi-beam adaptive null-steering.</td><td>Steers adaptive spatial nulls toward ground jammers before unwanted radio energy reaches the receiver front end.</td></tr>
+        <tr><td><strong>1 · CRPA antenna</strong></td><td>Four-element controlled reception pattern antenna.</td><td>Anti-jam and anti-spoof front end; suppresses interference before it reaches the receiver.</td></tr>
         <tr><td><strong>2 · Multiband GNSS</strong></td><td>Concurrent L1, L2, and L5 tracking across GPS, GLONASS, Galileo, and NavIC.</td><td>Maintains primary geodetic position while the CRPA suppresses interference.</td></tr>
-        <tr><td><strong>3 · Tactical INS</strong></td><td>Tactical-grade MEMS inertial bridge with thermal compensation.</td><td>Maintains attitude and velocity dead-reckoning during satellite blackouts; drift accumulates purely by elapsed time.</td></tr>
-        <tr><td><strong>4 · Terminal seeker</strong></td><td>Tonbo TRAP-1 dual-band electro-optical and infrared imaging sensor.</td><td>Locks onto physical target geometry during the final dive; operates completely independently of radio frequencies.</td></tr>
+        <tr><td><strong>3 · Inertial reference</strong></td><td>Inertial reference for dead reckoning.</td><td>Carries the position estimate through GNSS outages; drift grows with time.</td></tr>
+        <tr><td><strong>4 · Terminal seeker</strong></td><td>Tonbo TRAP-1 dual-band EO/IR seeker with onboard automatic target recognition and tracking.</td><td>Locks onto the target in the final approach; does not depend on GNSS.</td></tr>
       </tbody>
     </table>
   </div>
-  <p><strong>Sensor Suite Design Note:</strong> Active altimeters (radar and laser) are deliberately excluded from the Nightshade sensor suite. Active emissions expose the munition's ingress vector to hostile electronic support measures (ESM), while radar altimeters add unacceptable SWaP-C overhead to an attritable platform. Instead, Nightshade operates in total electromagnetic silence: vertical channel control relies on barometric altitude fused with inertial state, while midcourse navigation correlates passive optical/IR ground snapshots with pre-loaded digital elevation models to arrest drift. <a href="../architecture/index.html#navigation">How the navigation stack works →</a></p>
+  <p><strong>Target-drone stack:</strong> Target-drone configurations do not carry this stack. The economical tier flies a multiband GNSS receiver (GPS, GLONASS, Galileo, NavIC) with an anti-jam, anti-spoof front end; the premium tier adds a second, independent receiver and blends the two. Neither carries a CRPA array, an inertial reference or a terminal seeker — target presentation, not terminal guidance, is the mission.</p>
+  <p><a href="../architecture/index.html#navigation">How the navigation stack works →</a></p>
 </section>
 
 <!-- ═══════════ SEEKER ═══════════ -->
 <section id="seeker">
   <div class="sec-tag">06 · Terminal</div>
   <h2>The Tonbo TRAP-1 seeker</h2>
-  <p>A strike munition depends fundamentally on its terminal seeker, yet high-resolution sensors are frequently throttled by foreign export regimes. Apollyon integrates the TRAP-1 dual-band EO/IR sensor through an engineering partnership with Tonbo Imaging in Bengaluru. This domestic partnership anchors focal-plane array manufacturing and optical assemblies inside Indian industrial base.</p>
-  <p>The TRAP-1 combines uncooled long-wave infrared with visible-spectrum optics. Onboard compute models run contrast tracking and edge matching against stored target silhouettes, maintaining lock through thermal smoke, camouflage, and twilight transitions. Because the terminal guidance loop operates purely on passive physics, hostile ground jammers have no radio signal to interrupt. <a href="../subsystems/seekers.html">Seeker subsystem →</a></p>
+  <p>A strike munition depends heavily on its terminal seeker, but sourcing high-resolution sensors internationally often brings strict export controls and transfer delays. Apollyon integrates the TRAP-1 dual-band EO/IR sensor through an engineering partnership with Tonbo Imaging in Bengaluru. This domestic partnership anchors focal-plane array manufacturing and optical assemblies inside the Indian industrial base.</p>
+  <p>The seeker combines infrared and visible-spectrum channels, with onboard automatic target recognition and tracking for the final approach. Terminal guidance is autonomous and pre-planned (fire-and-forget); claimed CEP is under 10 m with a visual lock. <a href="../subsystems/seekers.html">Seeker subsystem →</a></p>
 </section>
 
 <!-- ═══════════ LAUNCH ═══════════ -->
 <section id="launch">
   <div class="sec-tag">07 · Launch</div>
   <h2>Ground-mobile, with a validated launch record</h2>
-  <p>Nightshade Mk II deploys from a compact pneumatic catapult or directly from a light vehicle rail. Two operators erect, fuel, and initialize the system in under 15 minutes without heavy engineering machinery. In early 2026, Apollyon demonstrated this mobile deployment doctrine by executing the first car-launch of a jet-powered UAV on Indian soil. The long-range Mk III variant incorporates a solid-propellant rocket booster for zero-length canister launches from unimproved frontline positions. Detailed launch mechanics appear in <a href="../subsystems/launch-systems.html">launch and ground systems</a>.</p>
+  <p>Nightshade Mk II launches from a catapult, from a tactical vehicle, or under rocket-assisted take-off (RATO) from an unprepared position. Two operators erect, fuel, and initialize the system in under 25 minutes without heavy engineering machinery, and the round recovers by parachute when it is not expended against a target. In early 2026, Apollyon demonstrated this by launching the jet airframe from a moving car. Detailed launch mechanics appear in <a href="../subsystems/launch-systems.html">launch and ground systems</a>.</p>
   <figure class="dark">
     <img src="../assets/turbojet-test.jpg" alt="Nightshade turbojet airframe on a test launcher in the field" loading="lazy">
     <figcaption><b>Fig. 02</b> A turbojet test platform on the launcher. Three test platforms were built and flown as part of the Mk II flight-test programme.</figcaption>
@@ -269,9 +281,13 @@
 <!-- ═══════════ TARGET DRONE ═══════════ -->
 <section id="target-drone">
   <div class="sec-tag">08 · Variant</div>
-  <h2>The target-drone variant, and why it matters commercially</h2>
-  <p>The Mk II target drone uses the identical composite airframe, turbojet engine, and autopilot hardware as the combat effector. Apollyon replaces the 15 kg explosive payload with passive Luneberg lenses and active radar transponders. Flying at 700 km/h, the airframe simulates hostile anti-ship missiles and attack aircraft for live-fire training by naval and ground-based air defence units.</p>
-  <p>This variant serves three commercial and industrial objectives:</p>
+  <h2>The target-drone configurations, and why they matter commercially</h2>
+  <p>Both target drones use the same composite airframe, turbojet and autopilot hardware as Mk II, with no warhead, seeker, CRPA array or inertial reference. In place of the warhead they carry a Luneberg lens (3 m²), smoke flare and IR flare. Flying at 650 km/h, they simulate hostile missiles and attack aircraft for live-fire training by naval and ground-based air-defence units.</p>
+  <ul>
+    <li><strong>Economical · $90,000.</strong> 50 km line-of-sight link, multiband GNSS with an anti-jam, anti-spoof front end. The only turbojet target at its price with parachute recovery.</li>
+    <li><strong>Premium (ADX-1 Premium) · ~$150,000.</strong> ~300 km-class line-of-sight link with satcom beyond line of sight, dual-antenna GNSS with independent backup receiver, and a deliberately non-Chinese bill of materials. The link is about $52,000 of the cost and needs a ground azimuth/elevation tracker to realise in the field.</li>
+  </ul>
+  <p>The target drones serve four commercial and industrial objectives:</p>
   <ul>
     <li><strong>Sustained revenue:</strong> Armed forces buy target drones through operational expenditure (OpEx) budgets. These funds recur annually and bypass the multi-year procurement delays typical of capital weapons acquisition.</li>
     <li><strong>Live flight validation:</strong> Peacetime air-defence exercises generate dozens of live flights across varied operational climates, refining flight control algorithms and engine reliability on customer funding.</li>
@@ -280,7 +296,7 @@
   </ul>
   <div class="note key">
     <div class="t">Roadmap position</div>
-    <p>Target-drone prototype Q4 2026, production from Q1 2027; one-way effector prototype Q1 2027, production from Q3 2027; field trials and certification across 2027, mass production from 2028. <a href="../strategy/trajectory.html#family">The generation plan →</a></p>
+    <p>Target-drone prototype Q4 2026, production from Q1 2027; Mk II loitering-munition prototype Q1 2027, production from Q3 2027; field trials and certification across 2027, mass production from 2028. <a href="../strategy/trajectory.html#family">The generation plan →</a></p>
   </div>
 </section>
 
@@ -291,23 +307,42 @@
   <div class="xref">
     <div class="t">This platform configures</div>
     <div class="items">
-      <a href="../subsystems/gnss-denied-navigation.html">High-speed GNSS-denied navigation — the four-layer stack <span>→</span></a>
-      <a href="../subsystems/near-envelope-control.html">Robust control for fast platforms — terminal dive and envelope <span>→</span></a>
-      <a href="../subsystems/seekers.html">Seekers &amp; terminal guidance — EO/IR and anti-radiation <span>→</span></a>
+      <a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation — the four-layer stack <span>→</span></a>
+      <a href="../subsystems/near-envelope-control.html">Robust flight control — terminal dive and envelope <span>→</span></a>
+      <a href="../subsystems/seekers.html">Seekers — dual-band EO/IR <span>→</span></a>
       <a href="../subsystems/airframe-structures.html">Airframe &amp; structures — composite body, production base <span>→</span></a>
-      <a href="../subsystems/launch-systems.html">Launch &amp; ground systems — catapult and vehicle launch <span>→</span></a>
+      <a href="../subsystems/launch-systems.html">Launch &amp; ground systems — catapult, vehicle and RATO launch <span>→</span></a>
       <a href="../subsystems/flight-software.html">Flight software — the shared autopilot baseline <span>→</span></a>
     </div>
   </div>
-  <p class="small">Benchmarks against the field: <a href="../strategy/competitive.html#strike">Nightshade Mk II vs Barracuda, Berkut, Peklo, Geran and Nyan →</a></p>
+  <p class="small">Benchmarks against the field: <a href="../strategy/competitive.html#strike">each configuration against its named rivals →</a></p>
 </section>
 
+<nav class="pager" aria-label="Reading order">
+  <a class="prev" href="../index.html"><span class="k">&larr; Previous &middot; Overview</span><span class="t">The argument</span></a>
+  <a class="next" href="../products/hemlock.html"><span class="k">Next &middot; Products &rarr;</span><span class="t">Hemlock</span></a>
+</nav>
 <footer>
   <div>Apollyon Dynamics &middot; Neo-Prime Wiki &middot; Rev 3.0</div>
   <div><a href="../doctrine/new-arsenal.html">The New Arsenal</a> &middot; <a href="../about/history.html">Company</a> &middot; <a href="../strategy/competitive.html">Competitive field</a> &middot; apollyondynamics.com</div>
 </footer>
 
 </main>
+<nav class="toc" aria-label="On this page">
+  <h4>On this page</h4>
+  <ul>
+    <li><a href="#definition">Definition and role</a></li>
+    <li><a href="#family">The family</a></li>
+    <li><a href="#specs">Mk II specification</a></li>
+    <li><a href="#missions">Mission roles</a></li>
+    <li><a href="#navigation">Navigation and EW</a></li>
+    <li><a href="#seeker">Seeker and terminal</a></li>
+    <li><a href="#launch">Launch and deployment</a></li>
+    <li><a href="#target-drone">Target-drone variant</a></li>
+    <li><a href="#subsystems">Subsystems used</a></li>
+  </ul>
+  <a class="toc-top" href="#top">Back to top &uarr;</a>
+</nav>
 </div>
 </div>
 </body>

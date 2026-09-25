@@ -3,83 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Team &amp; Advisors — Apollyon Dynamics Wiki</title>
-<meta name="description" content="The twenty people behind Apollyon Dynamics: founders, engineers and the board of advisors, with press and industry assessments from the field.">
+<title>Team &amp; advisors — Apollyon Dynamics Wiki</title>
+<meta name="description" content="The 17+ people behind Apollyon Dynamics: founders, engineers and the board of advisors, with press and industry assessments from the field.">
 <link rel="icon" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/wiki.css">
+<script src="../js/wiki.js" defer></script>
 </head>
-<body>
+<body id="top" data-section="company">
 
 <div class="rail">
   <div class="rail-inner">
+    <button class="rail-menu" type="button" aria-controls="site-nav" aria-expanded="false"><span class="bars" aria-hidden="true"></span><span class="lbl">Menu</span></button>
     <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
-    <nav class="rail-links">
-      <a href="../index.html#thesis">Thesis</a>
-      <a href="../index.html#products">Products</a>
-      <a href="../strategy/trajectory.html">Strategy</a>
-      <a href="../architecture/index.html">Architecture</a>
-      <a href="../strategic-dependency/full-record.html">Dependencies</a>
-      <a href="../doctrine/new-arsenal.html">Doctrine</a>
-      <a href="../about/history.html" class="on">Company</a>
+    <nav class="rail-links" aria-label="Sections">
+      <a id="rail-thesis" href="../index.html#thesis">Thesis</a>
+      <a id="rail-products" href="../index.html#products">Products</a>
+      <a id="rail-architecture" href="../architecture/index.html">Architecture</a>
+      <a id="rail-strategy" href="../strategy/trajectory.html">Strategy</a>
+      <a id="rail-doctrine" href="../doctrine/new-arsenal.html">Doctrine</a>
+      <a id="rail-company" href="../about/history.html" class="on">Company</a>
     </nav>
   </div>
+  <div class="rail-progress" aria-hidden="true"><i></i></div>
 </div>
 <div class="shell">
 <div class="layout">
 
-<aside class="aside">
-  <h4>On this page</h4>
-  <ul>
-    <li><a href="#founders">Founders</a></li>
-    <li><a href="#team">The engineering team</a></li>
-    <li><a href="#advisors">Board of advisors</a></li>
-    <li><a href="#press">Press and industry</a></li>
-  </ul>
-  <nav class="atlas" aria-label="Wiki map">
-    <h4>Wiki map</h4>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232 650"><line class="spine" x1="16" y1="52" x2="16" y2="488"/><line class="spine" x1="16" y1="488" x2="16" y2="642"/><a href="../index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="10" width="220" height="42"/><text class="hub-t" x="18" y="27">INDEX</text><text class="hub-s" x="18" y="40">the argument · every path starts here</text><text class="hub-n" x="216" y="27" text-anchor="end">01</text></a><line class="spine" x1="16" y1="69" x2="28" y2="69"/><text class="cl" x="30" y="72">PRODUCTS</text><line class="rule" x1="30" y1="77" x2="222" y2="77"/><a href="../products/nightshade-adx1.html" class="atlas-node"><rect class="mk" x="30" y="84.5" width="5" height="5"/><text class="lb" x="41" y="92.5">Nightshade family</text></a><a href="../products/hemlock.html" class="atlas-node"><rect class="mk" x="30" y="101.5" width="5" height="5"/><text class="lb" x="41" y="109.5">Hemlock</text></a><a href="../products/ahuti.html" class="atlas-node"><rect class="mk" x="30" y="118.5" width="5" height="5"/><text class="lb" x="41" y="126.5">Ahuti interceptor</text></a><a href="../products/usv-strike.html" class="atlas-node"><rect class="mk" x="30" y="135.5" width="5" height="5"/><text class="lb" x="41" y="143.5">Piranha USV</text></a><text class="bridge" x="41" y="159">each machine configures the core ↓</text><line class="spine" x1="16" y1="180" x2="28" y2="180"/><text class="cl" x="30" y="183">STRATEGY</text><line class="rule" x1="30" y1="188" x2="222" y2="188"/><a href="../strategy/trajectory.html" class="atlas-node"><rect class="mk" x="30" y="195.5" width="5" height="5"/><text class="lb" x="41" y="203.5">Trajectory &amp; cost per kg·km</text></a><a href="../strategy/competitive.html" class="atlas-node"><rect class="mk" x="30" y="212.5" width="5" height="5"/><text class="lb" x="41" y="220.5">The competitive field</text></a><a href="../strategy/supply-chain.html" class="atlas-node"><rect class="mk" x="30" y="229.5" width="5" height="5"/><text class="lb" x="41" y="237.5">Supply chain</text></a><line class="spine" x1="16" y1="258" x2="28" y2="258"/><text class="cl" x="30" y="261">DOCTRINE</text><line class="rule" x1="30" y1="266" x2="222" y2="266"/><a href="../doctrine/new-arsenal.html" class="atlas-node"><rect class="mk" x="30" y="273.5" width="5" height="5"/><text class="lb" x="41" y="281.5">The New Arsenal</text></a><a href="../doctrine/precision-is-mercy.html" class="atlas-node"><rect class="mk" x="30" y="290.5" width="5" height="5"/><text class="lb" x="41" y="298.5">Precision is Mercy</text></a><a href="../doctrine/missing-middle.html" class="atlas-node"><rect class="mk" x="30" y="307.5" width="5" height="5"/><text class="lb" x="41" y="315.5">The missing middle</text></a><a href="../doctrine/strike-design-space.html" class="atlas-node"><rect class="mk" x="30" y="324.5" width="5" height="5"/><text class="lb" x="41" y="332.5">Strike design space</text></a><line class="spine" x1="16" y1="353" x2="28" y2="353"/><text class="cl on" x="30" y="356">RECORD</text><line class="rule" x1="30" y1="361" x2="222" y2="361"/><a href="../about/history.html" class="atlas-node"><rect class="mk" x="30" y="368.5" width="5" height="5"/><text class="lb" x="41" y="376.5">Company history</text></a><a href="../about/team.html" class="atlas-node here"><rect class="mk" x="30" y="385.5" width="5" height="5"/><text class="lb" x="41" y="393.5">Team &amp; advisors</text></a><a href="../strategic-dependency/full-record.html" class="atlas-node"><rect class="mk" x="30" y="402.5" width="5" height="5"/><text class="lb" x="41" y="410.5">The full record · 70 episodes</text></a><a href="../architecture/index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="440" width="220" height="42"/><text class="hub-t" x="18" y="457">ARCHITECTURE</text><text class="hub-s" x="18" y="470">the core · method, machine, loop</text><text class="hub-n" x="216" y="457" text-anchor="end">02</text></a><line class="spine" x1="16" y1="499" x2="28" y2="499"/><text class="cl" x="30" y="502">SUBSYSTEMS</text><line class="rule" x1="30" y1="507" x2="222" y2="507"/><a href="../subsystems/near-envelope-control.html" class="atlas-node"><rect class="mk" x="30" y="514.5" width="5" height="5"/><text class="lb" x="41" y="522.5">Robust flight control</text></a><a href="../subsystems/gnss-denied-navigation.html" class="atlas-node"><rect class="mk" x="30" y="531.5" width="5" height="5"/><text class="lb" x="41" y="539.5">GNSS-denied navigation</text></a><a href="../subsystems/onboard-compute.html" class="atlas-node"><rect class="mk" x="30" y="548.5" width="5" height="5"/><text class="lb" x="41" y="556.5">Edge compute</text></a><a href="../subsystems/flight-software.html" class="atlas-node"><rect class="mk" x="30" y="565.5" width="5" height="5"/><text class="lb" x="41" y="573.5">Flight software</text></a><a href="../subsystems/seekers.html" class="atlas-node"><rect class="mk" x="30" y="582.5" width="5" height="5"/><text class="lb" x="41" y="590.5">Seekers</text></a><a href="../subsystems/airframe-structures.html" class="atlas-node"><rect class="mk" x="30" y="599.5" width="5" height="5"/><text class="lb" x="41" y="607.5">Airframe &amp; structures</text></a><a href="../subsystems/launch-systems.html" class="atlas-node"><rect class="mk" x="30" y="616.5" width="5" height="5"/><text class="lb" x="41" y="624.5">Launch &amp; ground</text></a></svg>
-  </nav>
-  <div class="groups">
-  <h4>Products</h4>
-  <ul>
-    <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
-    <li><a href="../products/hemlock.html">Hemlock</a></li>
-    <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
-    <li><a href="../products/usv-strike.html">Piranha USV</a></li>
-  </ul>
-  <h4>Strategy</h4>
-  <ul>
-    <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
-    <li><a href="../strategy/competitive.html">The competitive field</a></li>
-    <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
-  </ul>
-  <h4>Architecture</h4>
-  <ul>
-    <li><a href="../architecture/index.html">The shared core</a></li>
-    <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
-    <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
-    <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
-    <li><a href="../subsystems/flight-software.html">Flight software</a></li>
-    <li><a href="../subsystems/seekers.html">Seekers</a></li>
-    <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
-    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground</a></li>
-  </ul>
-  <h4>Doctrine</h4>
-  <ul>
-    <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
-    <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
-    <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
-    <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
-  </ul>
-  <h4>Record</h4>
-  <ul>
-    <li><a href="../about/history.html">Company history</a></li>
-    <li><a href="../about/team.html" class="here">Team &amp; advisors</a></li>
-    <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
-  </ul>
+<aside class="aside" id="site-nav" aria-label="Wiki navigation">
+  <div class="nav-group">
+    <h4><span class="n">01</span>Overview</h4>
+    <ul>
+      <li><a href="../index.html">The argument</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">02</span>Products</h4>
+    <ul>
+      <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
+      <li><a href="../products/hemlock.html">Hemlock</a></li>
+      <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
+      <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">03</span>Architecture</h4>
+    <ul>
+      <li><a href="../architecture/index.html">The shared core</a></li>
+      <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
+      <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
+      <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
+      <li><a href="../subsystems/flight-software.html">Flight software</a></li>
+      <li><a href="../subsystems/seekers.html">Seekers</a></li>
+      <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
+      <li><a href="../subsystems/launch-systems.html">Launch &amp; ground systems</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">04</span>Strategy</h4>
+    <ul>
+      <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
+      <li><a href="../strategy/market.html">The market</a></li>
+      <li><a href="../strategy/competitive.html">The competitive field</a></li>
+      <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">05</span>Doctrine</h4>
+    <ul>
+      <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
+      <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
+      <li><a href="../doctrine/missing-middle.html">The Missing Middle</a></li>
+      <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
+    </ul>
+  </div>
+  <div class="nav-group on">
+    <h4><span class="n">06</span>Record</h4>
+    <ul>
+      <li><a href="../about/history.html">Company history</a></li>
+      <li class="here"><a href="../about/team.html" aria-current="page">Team &amp; advisors</a>
+        <ul class="nav-toc">
+          <li><a href="#founders">Founders</a></li>
+          <li><a href="#team">The engineering team</a></li>
+          <li><a href="#advisors">Board of advisors</a></li>
+          <li><a href="#press">Press and industry</a></li>
+        </ul>
+      </li>
+      <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
+    </ul>
   </div>
 </aside>
 
@@ -93,9 +106,9 @@
     <div class="brand-sep"></div>
     <img src="../assets/logos/logo-text-white.png" alt="Apollyon Dynamics" class="brand-text">
   </div>
-  <div class="mast-meta">Company · team and advisors <span>· 20 engineers and operators · 7 advisors</span></div>
+  <div class="mast-meta">Company · team and advisors <span>· 17+ engineers and operators · 7 advisors</span></div>
   <h1>The people behind <span class="sub">the machines</span></h1>
-  <p class="standfirst">Apollyon is a team of twenty, up from nine at the start of 2026. It is deliberately built around a narrow set of disciplines the company refuses to buy in: propulsion, flight control, machine learning, airframe design and manufacturing. A board of advisors from the services, DRDO, space and industry reviews the work as it moves.</p>
+  <p class="standfirst">Apollyon is a team of 17+, up from nine at the start of 2026. It is deliberately built around a narrow set of disciplines the company refuses to buy in: propulsion, flight control, machine learning, airframe design and manufacturing. A board of advisors from the services, DRDO, space and industry reviews the work as it moves.</p>
 </header>
 
 <section id="founders">
@@ -177,7 +190,7 @@
       <div class="pd">BITS Pilani Hyderabad.</div>
     </div>
     <div class="person open">
-      <div class="pn">+9</div>
+      <div class="pn">+8+</div>
       <div class="pr">Engineers &amp; operators</div>
       <div class="pd">The wider team behind field trials, integration and operations.</div>
     </div>
@@ -238,35 +251,29 @@
   <div id="testimonials"></div>
   <div class="sec-tag">04 · External assessment</div>
   <h2>What the field, and the press, have said</h2>
-  <div class="cards">
-    <div class="card">
-      <div class="kicker">Press · July 2026</div>
-      <h3><a href="https://x.com/anandmahindra/status/2077730190776762451" target="_blank" rel="noopener noreferrer">Anand Mahindra</a></h3>
-      <p>&ldquo;The future cutting edge of India's defence capability will be shaped by startups. This one just built a drone that outperforms the Shahed. Don't be deceived by the rudimentary lab or the untidy test field. These teams are hungry, lean, and they rebuild their product every time the battlefield changes. We need to nurture them like national assets.&rdquo;</p>
-      <div class="foot"><span>Industry endorsement</span><a href="https://x.com/anandmahindra/status/2077730190776762451" target="_blank" rel="noopener noreferrer">X &middot; Jul 2026 &nearr;</a></div>
-    </div>
-    <div class="card">
-      <div class="kicker">Press · July 2025</div>
-      <h3><a href="https://x.com/PiyushGoyal/status/1947647400836776216?lang=en" target="_blank" rel="noopener noreferrer">Piyush Goyal</a></h3>
-      <p>&ldquo;From a hostel room to the war zone! So proud of this startup built by two budding engineers that now has delivery orders from the Army for their &lsquo;Made In India&rsquo; kamikaze drones.&rdquo;</p>
-      <div class="foot"><span>Government to industry</span><a href="https://x.com/PiyushGoyal/status/1947647400836776216?lang=en" target="_blank" rel="noopener noreferrer">X &middot; Jul 2025 &nearr;</a></div>
-    </div>
-    <div class="card">
-      <div class="kicker">Press · 22 July 2025</div>
-      <h3><a href="https://web.archive.org/web/20260920145828/https://timesofindia.indiatimes.com/india/look-whos-making-kamikaze-drones-for-army-two-20-yr-old-engineering-students/articleshow/122823195.cms" target="_blank" rel="noopener noreferrer">The Times of India</a></h3>
-      <p>Coverage of the first Army orders: radar-resistant airframes reaching 300 km/h with a 1 kg payload, built by two students and delivered to units across multiple states. The headline read <em>&ldquo;<a href="https://web.archive.org/web/20260920145828/https://timesofindia.indiatimes.com/india/look-whos-making-kamikaze-drones-for-army-two-20-yr-old-engineering-students/articleshow/122823195.cms" target="_blank" rel="noopener noreferrer">Look who's making kamikaze drones for Army: two 20-year-old engineering students</a>.&rdquo;</em></p>
-      <div class="foot"><span>National press</span><a href="https://web.archive.org/web/20260920145828/https://timesofindia.indiatimes.com/india/look-whos-making-kamikaze-drones-for-army-two-20-yr-old-engineering-students/articleshow/122823195.cms" target="_blank" rel="noopener noreferrer">TOI &middot; Jul 2025 &nearr;</a></div>
-    </div>
-  </div>
-  <p class="small">Longer assessments from the space and venture ecosystem sit in the <a href="history.html#testimonials">company history</a>. The programmes these people run are on the <a href="../index.html#products">product register</a>, and the record behind them is in <a href="../strategic-dependency/full-record.html">the full record</a>.</p>
+  <p>What national leadership, industry and the press have said about the team — Anand Mahindra, Piyush Goyal, The Times of India, and longer assessments from the space and venture ecosystem — is collected in one place, in the <a href="history.html#testimonials">company history</a>. The programmes these people run are on the <a href="../index.html#products">product register</a>.</p>
 </section>
 
+<nav class="pager" aria-label="Reading order">
+  <a class="prev" href="../about/history.html"><span class="k">&larr; Previous &middot; Record</span><span class="t">Company history</span></a>
+  <a class="next" href="../strategic-dependency/full-record.html"><span class="k">Next &middot; Record &rarr;</span><span class="t">The full record &middot; 70 episodes</span></a>
+</nav>
 <footer>
   <div>Apollyon Dynamics &middot; Neo-Prime Wiki &middot; Rev 3.0</div>
   <div><a href="../doctrine/new-arsenal.html">The New Arsenal</a> &middot; <a href="../about/history.html">Company</a> &middot; <a href="../strategy/competitive.html">Competitive field</a> &middot; apollyondynamics.com</div>
 </footer>
 
 </main>
+<nav class="toc" aria-label="On this page">
+  <h4>On this page</h4>
+  <ul>
+    <li><a href="#founders">Founders</a></li>
+    <li><a href="#team">The engineering team</a></li>
+    <li><a href="#advisors">Board of advisors</a></li>
+    <li><a href="#press">Press and industry</a></li>
+  </ul>
+  <a class="toc-top" href="#top">Back to top &uarr;</a>
+</nav>
 </div>
 </div>
 </body>

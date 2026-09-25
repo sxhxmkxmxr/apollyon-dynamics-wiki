@@ -9,7 +9,6 @@ Text is budgeted: every label is fitted to the space it sits in, and
 multi-line prose is wrapped, so nothing overruns a box or collides.
 
 Outputs:
-  wiki/assets/<name>.svg      — standalone files
   wiki/assets/visuals.json    — {name: "<svg>…</svg>"} for inline builders
 """
 import html
@@ -312,7 +311,6 @@ def cost_curve():
     # Apollyon long-range strike family
     fam = [
         ("Nightshade Mk II", 300, 3333),
-        ("Nightshade Mk III", 500, 1700),
         ("Hemlock", 1500, 59),
     ]
     f_pts = [(X(r), Y(c)) for _, r, c in fam]
@@ -326,13 +324,6 @@ def cost_curve():
     o.append(txt(x2 - 16.4, y2 - 5, "Nightshade Mk II", 12, "#ffffff", MONO, anchor="end", weight=700))
     o.append(txt(x2 - 16.4, y2 + 10, "₹3,333 / kg·km", 10.5, "#fca5a5", MONO, anchor="end", weight=500))
     o.append(f'<circle cx="{x2:.1f}" cy="{y2:.1f}" r="{5.8}" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/>')
-
-    # Mk III: left-below
-    x3, y3 = X(500), Y(1700)
-    o.append(line(518, 204, 525, 189, "#f87171", 1))
-    o.append(txt(514, 210, "Nightshade Mk III", 12, "#ffffff", MONO, anchor="end", weight=700))
-    o.append(txt(514, 225, "₹1,700 / kg·km", 10.5, "#fca5a5", MONO, anchor="end", weight=500))
-    o.append(f'<circle cx="{x3:.1f}" cy="{y3:.1f}" r="{5.8}" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/>')
 
     # Hemlock: left
     xh2, yh2 = X(1500), Y(59)
@@ -365,18 +356,17 @@ def strike_family():
     L, R, T, B = 100, 900, 75, 320
 
     def X(i):
-        return L + i * (R - L) / 3
+        return L + i * (R - L) / 2
 
     def Y(v):
         return B - lg(v, 10, 3000000) * (B - T)
 
     fam = [
         ("NIGHTSHADE MK I", 20, ["GNSS-Only", "Proof of Concept"], "20 km range · No warhead", "650 km/h flight test"),
-        ("NIGHTSHADE MK II", 4500, ["One-Way Effector", "+ Target Drone"], "15 kg warhead · 300 km", "700 km/h terminal dive"),
-        ("NIGHTSHADE MK III", 12500, ["Long-Range", "One-Way Effector"], "25 kg warhead · 500 km", "800 km/h terminal dive"),
+        ("NIGHTSHADE MK II", 4500, ["Loitering Munition", "+ Target Drones"], "15 kg payload · 300 km", "650 km/h terminal dive"),
         ("HEMLOCK", 675000, ["Long-Range", "Cruise Missile"], "450–500 kg · 1,000–1,500 km", "860–980 km/h"),
     ]
-    years = ["FLOWN 2026", "2027", "2028", "2030–31"]
+    years = ["FLOWN 2026", "2027", "2030–31"]
 
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="img" '
          f'aria-label="Strike envelope by generation: Nightshade Mk I to Hemlock">']
@@ -653,7 +643,7 @@ def arch_software():
     o.append(panel_box(322, 100, 336, 58, "STATE ESTIMATOR", sub="FUSES EVERY NAVIGATION INPUT",
                        stroke=RED, fill=RED_W, sw=1.3, tcol=INK, size=10, sub_size=7.8))
     o.append(panel_box(322, 178, 336, 58, "GUIDANCE LAW", sub="WAYPOINT · TERRAIN-FOLLOW · TERMINAL", size=10, sub_size=7.8))
-    o.append(panel_box(322, 256, 336, 58, "CONTROL LAW", sub="DIRECT-ACTUATOR POLICY", size=10, sub_size=7.8))
+    o.append(panel_box(322, 256, 336, 58, "CONTROL LAW", sub="GAIN-SCHEDULED · PER AIRFRAME", size=10, sub_size=7.8))
     o.append(panel_box(322, 334, 336, 58, "ENVELOPE PROTECTION", sub="SATURATION · G-LIMIT · ABORT", size=10, sub_size=7.8))
     for y in (158, 236, 314):
         o.append(arrow(490, y, 490, y + 20, ns, "red"))
@@ -914,7 +904,7 @@ def eng_system():
     cells = [
         ("SIMULATOR PHYSICS", "AERO AND COMPONENT TERMS"),
         ("ONBOARD RUNTIME", "KERNEL AND SCHEDULING"),
-        ("CONTROL POLICIES", "RETRAINED AT THE EDGE"),
+        ("CONTROL LAWS", "RETUNED FROM FLIGHT DATA"),
         ("HARDWARE SPEC", "POWER, THERMAL, STRUCTURE"),
     ]
     xs = [56, 174, 292, 410]
@@ -947,7 +937,7 @@ def eng_system():
     o.append(arrow(800, 358, 800, 372, ns, "ink"))
 
     o.append(panel_box(640, 372, 320, 44, "STATE & CONTROL ESTIMATION",
-                       sub="CLASSICAL ESTIMATION + LEARNING-BASED CONTROL LAWS",
+                       sub="CLASSICAL ESTIMATION + GAIN-SCHEDULED CONTROL LAWS",
                        stroke=LINE2, fill="#090d14", size=9.6, sub_size=7.2, scol=INK3))
 
     o.append(arrow(800, 416, 800, 434, ns, "ink"))
@@ -970,15 +960,15 @@ def eng_system():
     o.append(f'<path d="M524,543 H572 V332 H640" fill="none" stroke="{LINE3}" stroke-width="1.2" marker-end="url(#{ns}-grey)"/>')
     o.append(txt(572, 535, "FLIGHT LOGS", 8.5, INK3, MONO, anchor="middle", ls="0.08em", weight=600))
 
-    # Cross connection: TRAINED POLICY (from TRAINING left edge 640 to FLY AT THE EDGE right edge 524)
+    # Cross connection: TUNED LAWS (from ESTIMATION left edge 640 to FLY AT THE EDGE right edge 524)
     # Wire at x=592, text at 592
     o.append(f'<path d="M640,394 H592 V329 H524" fill="none" stroke="{RED2}" stroke-width="1.2" marker-end="url(#{ns}-red)"/>')
-    o.append(txt(592, 322, "TRAINED POLICY", 8.5, RED2, MONO, anchor="middle", weight=700, ls="0.08em"))
+    o.append(txt(592, 322, "TUNED LAWS", 8.5, RED2, MONO, anchor="middle", weight=700, ls="0.08em"))
 
     # ── C · the compounding asset ─────────────────────────────────────
     o.append(band(608, "C", "THE COMPOUNDING ASSET — WHY THE SPEED REPEATS"))
 
-    assets = ["ENGINEERING METHOD", "PHYSICS PACKAGE", "TRAINING PIPELINE", "QUALIFICATION EVIDENCE", "TEST RIGS & PIPELINE"]
+    assets = ["ENGINEERING METHOD", "PHYSICS PACKAGE", "TUNING PIPELINE", "QUALIFICATION EVIDENCE", "TEST RIGS & PIPELINE"]
     for i, a in enumerate(assets):
         x = 40 + i * 187
         o.append(panel_box(x, 634, 172, 36, a, stroke=LINE2, fill="#090d14", size=8.0, tcol=INK2))
@@ -986,17 +976,16 @@ def eng_system():
     gens = [
         ("NIGHTSHADE MK I", "PAYS FOR THE METHOD", True),
         ("NIGHTSHADE MK II", "PAYS THE DELTA", False),
-        ("NIGHTSHADE MK III", "+ EVIDENCE REUSED", False),
         ("HEMLOCK", "NEW AIRFRAME · INHERITED METHOD", False),
     ]
     for i, (g, sub, core) in enumerate(gens):
-        x = 40 + i * 235
+        x = 40 + i * 315
         stroke = RED if core else LINE2
         fill = RED_W if core else "#090d14"
         tcol = "#ffffff" if core else INK2
         scol = "#fca5a5" if core else INK3
-        o.append(line(x + 107, 670, x + 107, 680, LINE2, 1))
-        o.append(panel_box(x, 680, 215, 48, g, sub=sub, stroke=stroke, fill=fill, sw=1.3 if core else 1.0,
+        o.append(line(x + 145, 670, x + 145, 680, LINE2, 1))
+        o.append(panel_box(x, 680, 290, 48, g, sub=sub, stroke=stroke, fill=fill, sw=1.3 if core else 1.0,
                            tcol=tcol, scol=scol, size=8.2, sub_size=7.2))
 
     o.append(txt(960, 764, "EACH PASS COSTS LESS · EACH GENERATION PAYS LESS · THE FRONTIER RISES", 9.2, INK2, MONO, anchor="end", ls="0.08em", weight=600))
@@ -1011,7 +1000,7 @@ def eng_twin():
     W, H = 1000, 560
     ns = "et"
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="img" '
-         f'aria-label="The flight vehicle and its simulation twin: measured flight data identifies the physics, the twin trains the policies, the hardware-in-the-loop harness clears them for flight">',
+         f'aria-label="The flight vehicle and its simulation twin: measured flight data identifies the physics, the twin tunes the control laws, the hardware-in-the-loop harness clears them for flight">',
          defs_arrow(ns, {"ink": INK2, "red": RED2, "grey": LINE3})]
 
     def chip(x, y, w, h, label, size=7, tcol=INK2, stroke=LINE3, fill=BG):
@@ -1043,7 +1032,7 @@ def eng_twin():
                        sub="UNIFIED MULTI-BODY SOLVER · BOUNDARY LAYER · PROPULSION & THERMAL DYNAMICS",
                        stroke=RED, fill=RED_W, sw=1.3, tcol="#ffffff", scol="#C7C4BD", size=9.4, sub_size=6.6))
     o.append(panel_box(546, 256, 398, 62, "ESTIMATION & CONTROL SYNTHESIS",
-                       sub="OPTIMAL OBSERVERS & GAIN SCHEDULES · ADAPTIVE & LEARNED CONTROL", size=8.4, sub_size=6.8))
+                       sub="OPTIMAL OBSERVERS & GAIN SCHEDULES · ENVELOPE-LIMITING CONTROL", size=8.4, sub_size=6.8))
     o.append(panel_box(546, 330, 398, 58, "HARDWARE-IN-THE-LOOP (HIL)",
                        sub="REAL-TIME DETERMINISTIC SENSOR & ACTUATOR BUS EMULATION", size=8.4, sub_size=6.8))
     o.append(panel_box(546, 400, 398, 42, "QUALIFICATION EVIDENCE",
@@ -1052,7 +1041,7 @@ def eng_twin():
     o.append(arrow(470, 120, 530, 120, ns, "ink"))
     o.append(txt(500, 112, "FLIGHT LOGS", 8, INK3, MONO, anchor="middle", ls="0.08em"))
     o.append(arrow(530, 454, 470, 454, ns, "red"))
-    o.append(txt(500, 446, "POLICIES", 8, RED2, MONO, anchor="middle", ls="0.08em"))
+    o.append(txt(500, 446, "CONTROL LAWS", 8, RED2, MONO, anchor="middle", ls="0.08em"))
 
     o.append(txt(40, 500, "HIGH-INCIDENCE FLIGHT REGIMES DEMAND RIGOROUS SYSTEM IDENTIFICATION FROM SORTIE DATA.", 11.5, INK, SANS, weight=600))
     o.append(txt(40, 522, "Airframe configurations parameterise a unified multi-body solver; validated estimation filters and actuator dynamics compound across platforms.", 10.5, INK3, SANS))
@@ -1303,9 +1292,7 @@ def main():
     inline = {}
     for name, fn in VISUALS.items():
         svg = fn()
-        open(os.path.join(OUT, f"{name}.svg"), "w", encoding="utf-8").write(svg)
         inline[name] = svg
-        print(f"wrote assets/{name}.svg  ({len(svg):,} bytes)")
     json.dump(inline, open(os.path.join(OUT, "visuals.json"), "w", encoding="utf-8"))
     print("wrote assets/visuals.json")
 

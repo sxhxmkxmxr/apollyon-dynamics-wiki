@@ -3,84 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Supply Chain — Apollyon Dynamics Wiki</title>
+<title>Supply chain — Apollyon Dynamics Wiki</title>
 <meta name="description" content="Apollyon's component posture: multi-sourced engines, indigenous airframes and seekers through Tonbo, and the honest open gaps with their qualification plans.">
 <link rel="icon" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/wiki.css">
+<script src="../js/wiki.js" defer></script>
 </head>
-<body>
+<body id="top" data-section="strategy">
 
 <div class="rail">
   <div class="rail-inner">
+    <button class="rail-menu" type="button" aria-controls="site-nav" aria-expanded="false"><span class="bars" aria-hidden="true"></span><span class="lbl">Menu</span></button>
     <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
-    <nav class="rail-links">
-      <a href="../index.html#thesis">Thesis</a>
-      <a href="../index.html#products">Products</a>
-      <a href="../strategy/trajectory.html" class="on">Strategy</a>
-      <a href="../architecture/index.html">Architecture</a>
-      <a href="../strategic-dependency/full-record.html">Dependencies</a>
-      <a href="../doctrine/new-arsenal.html">Doctrine</a>
-      <a href="../about/history.html">Company</a>
+    <nav class="rail-links" aria-label="Sections">
+      <a id="rail-thesis" href="../index.html#thesis">Thesis</a>
+      <a id="rail-products" href="../index.html#products">Products</a>
+      <a id="rail-architecture" href="../architecture/index.html">Architecture</a>
+      <a id="rail-strategy" href="../strategy/trajectory.html" class="on">Strategy</a>
+      <a id="rail-doctrine" href="../doctrine/new-arsenal.html">Doctrine</a>
+      <a id="rail-company" href="../about/history.html">Company</a>
     </nav>
   </div>
+  <div class="rail-progress" aria-hidden="true"><i></i></div>
 </div>
 <div class="shell">
 <div class="layout">
 
-<aside class="aside">
-  <h4>On this page</h4>
-  <ul>
-    <li><a href="#posture">The posture</a></li>
-    <li><a href="#nightshade">Nightshade supply chain</a></li>
-    <li><a href="#ahuti">Ahuti supply chain</a></li>
-    <li><a href="#partners">Strategic partners</a></li>
-    <li><a href="#gaps">Open gaps</a></li>
-  </ul>
-  <nav class="atlas" aria-label="Wiki map">
-    <h4>Wiki map</h4>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232 650"><line class="spine" x1="16" y1="52" x2="16" y2="488"/><line class="spine" x1="16" y1="488" x2="16" y2="642"/><a href="../index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="10" width="220" height="42"/><text class="hub-t" x="18" y="27">INDEX</text><text class="hub-s" x="18" y="40">the argument · every path starts here</text><text class="hub-n" x="216" y="27" text-anchor="end">01</text></a><line class="spine" x1="16" y1="69" x2="28" y2="69"/><text class="cl" x="30" y="72">PRODUCTS</text><line class="rule" x1="30" y1="77" x2="222" y2="77"/><a href="../products/nightshade-adx1.html" class="atlas-node"><rect class="mk" x="30" y="84.5" width="5" height="5"/><text class="lb" x="41" y="92.5">Nightshade family</text></a><a href="../products/hemlock.html" class="atlas-node"><rect class="mk" x="30" y="101.5" width="5" height="5"/><text class="lb" x="41" y="109.5">Hemlock</text></a><a href="../products/ahuti.html" class="atlas-node"><rect class="mk" x="30" y="118.5" width="5" height="5"/><text class="lb" x="41" y="126.5">Ahuti interceptor</text></a><a href="../products/usv-strike.html" class="atlas-node"><rect class="mk" x="30" y="135.5" width="5" height="5"/><text class="lb" x="41" y="143.5">Piranha USV</text></a><text class="bridge" x="41" y="159">each machine configures the core ↓</text><line class="spine" x1="16" y1="180" x2="28" y2="180"/><text class="cl on" x="30" y="183">STRATEGY</text><line class="rule" x1="30" y1="188" x2="222" y2="188"/><a href="../strategy/trajectory.html" class="atlas-node"><rect class="mk" x="30" y="195.5" width="5" height="5"/><text class="lb" x="41" y="203.5">Trajectory &amp; cost per kg·km</text></a><a href="../strategy/competitive.html" class="atlas-node"><rect class="mk" x="30" y="212.5" width="5" height="5"/><text class="lb" x="41" y="220.5">The competitive field</text></a><a href="../strategy/supply-chain.html" class="atlas-node here"><rect class="mk" x="30" y="229.5" width="5" height="5"/><text class="lb" x="41" y="237.5">Supply chain</text></a><line class="spine" x1="16" y1="258" x2="28" y2="258"/><text class="cl" x="30" y="261">DOCTRINE</text><line class="rule" x1="30" y1="266" x2="222" y2="266"/><a href="../doctrine/new-arsenal.html" class="atlas-node"><rect class="mk" x="30" y="273.5" width="5" height="5"/><text class="lb" x="41" y="281.5">The New Arsenal</text></a><a href="../doctrine/precision-is-mercy.html" class="atlas-node"><rect class="mk" x="30" y="290.5" width="5" height="5"/><text class="lb" x="41" y="298.5">Precision is Mercy</text></a><a href="../doctrine/missing-middle.html" class="atlas-node"><rect class="mk" x="30" y="307.5" width="5" height="5"/><text class="lb" x="41" y="315.5">The missing middle</text></a><a href="../doctrine/strike-design-space.html" class="atlas-node"><rect class="mk" x="30" y="324.5" width="5" height="5"/><text class="lb" x="41" y="332.5">Strike design space</text></a><line class="spine" x1="16" y1="353" x2="28" y2="353"/><text class="cl" x="30" y="356">RECORD</text><line class="rule" x1="30" y1="361" x2="222" y2="361"/><a href="../about/history.html" class="atlas-node"><rect class="mk" x="30" y="368.5" width="5" height="5"/><text class="lb" x="41" y="376.5">Company history</text></a><a href="../about/team.html" class="atlas-node"><rect class="mk" x="30" y="385.5" width="5" height="5"/><text class="lb" x="41" y="393.5">Team &amp; advisors</text></a><a href="../strategic-dependency/full-record.html" class="atlas-node"><rect class="mk" x="30" y="402.5" width="5" height="5"/><text class="lb" x="41" y="410.5">The full record · 70 episodes</text></a><a href="../architecture/index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="440" width="220" height="42"/><text class="hub-t" x="18" y="457">ARCHITECTURE</text><text class="hub-s" x="18" y="470">the core · method, machine, loop</text><text class="hub-n" x="216" y="457" text-anchor="end">02</text></a><line class="spine" x1="16" y1="499" x2="28" y2="499"/><text class="cl" x="30" y="502">SUBSYSTEMS</text><line class="rule" x1="30" y1="507" x2="222" y2="507"/><a href="../subsystems/near-envelope-control.html" class="atlas-node"><rect class="mk" x="30" y="514.5" width="5" height="5"/><text class="lb" x="41" y="522.5">Robust flight control</text></a><a href="../subsystems/gnss-denied-navigation.html" class="atlas-node"><rect class="mk" x="30" y="531.5" width="5" height="5"/><text class="lb" x="41" y="539.5">GNSS-denied navigation</text></a><a href="../subsystems/onboard-compute.html" class="atlas-node"><rect class="mk" x="30" y="548.5" width="5" height="5"/><text class="lb" x="41" y="556.5">Edge compute</text></a><a href="../subsystems/flight-software.html" class="atlas-node"><rect class="mk" x="30" y="565.5" width="5" height="5"/><text class="lb" x="41" y="573.5">Flight software</text></a><a href="../subsystems/seekers.html" class="atlas-node"><rect class="mk" x="30" y="582.5" width="5" height="5"/><text class="lb" x="41" y="590.5">Seekers</text></a><a href="../subsystems/airframe-structures.html" class="atlas-node"><rect class="mk" x="30" y="599.5" width="5" height="5"/><text class="lb" x="41" y="607.5">Airframe &amp; structures</text></a><a href="../subsystems/launch-systems.html" class="atlas-node"><rect class="mk" x="30" y="616.5" width="5" height="5"/><text class="lb" x="41" y="624.5">Launch &amp; ground</text></a></svg>
-  </nav>
-  <div class="groups">
-  <h4>Products</h4>
-  <ul>
-    <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
-    <li><a href="../products/hemlock.html">Hemlock</a></li>
-    <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
-    <li><a href="../products/usv-strike.html">Piranha USV</a></li>
-  </ul>
-  <h4>Strategy</h4>
-  <ul>
-    <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
-    <li><a href="../strategy/competitive.html">The competitive field</a></li>
-    <li><a href="../strategy/supply-chain.html" class="here">Supply chain</a></li>
-  </ul>
-  <h4>Architecture</h4>
-  <ul>
-    <li><a href="../architecture/index.html">The shared core</a></li>
-    <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
-    <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
-    <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
-    <li><a href="../subsystems/flight-software.html">Flight software</a></li>
-    <li><a href="../subsystems/seekers.html">Seekers</a></li>
-    <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
-    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground</a></li>
-  </ul>
-  <h4>Doctrine</h4>
-  <ul>
-    <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
-    <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
-    <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
-    <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
-  </ul>
-  <h4>Record</h4>
-  <ul>
-    <li><a href="../about/history.html">Company history</a></li>
-    <li><a href="../about/team.html">Team &amp; advisors</a></li>
-    <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
-  </ul>
+<aside class="aside" id="site-nav" aria-label="Wiki navigation">
+  <div class="nav-group">
+    <h4><span class="n">01</span>Overview</h4>
+    <ul>
+      <li><a href="../index.html">The argument</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">02</span>Products</h4>
+    <ul>
+      <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
+      <li><a href="../products/hemlock.html">Hemlock</a></li>
+      <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
+      <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">03</span>Architecture</h4>
+    <ul>
+      <li><a href="../architecture/index.html">The shared core</a></li>
+      <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
+      <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
+      <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
+      <li><a href="../subsystems/flight-software.html">Flight software</a></li>
+      <li><a href="../subsystems/seekers.html">Seekers</a></li>
+      <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
+      <li><a href="../subsystems/launch-systems.html">Launch &amp; ground systems</a></li>
+    </ul>
+  </div>
+  <div class="nav-group on">
+    <h4><span class="n">04</span>Strategy</h4>
+    <ul>
+      <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
+      <li><a href="../strategy/market.html">The market</a></li>
+      <li><a href="../strategy/competitive.html">The competitive field</a></li>
+      <li class="here"><a href="../strategy/supply-chain.html" aria-current="page">Supply chain</a>
+        <ul class="nav-toc">
+          <li><a href="#posture">The posture</a></li>
+          <li><a href="#nightshade">Nightshade supply chain</a></li>
+          <li><a href="#ahuti">Ahuti supply chain</a></li>
+          <li><a href="#partners">Strategic partners</a></li>
+          <li><a href="#gaps">Open gaps</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">05</span>Doctrine</h4>
+    <ul>
+      <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
+      <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
+      <li><a href="../doctrine/missing-middle.html">The Missing Middle</a></li>
+      <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">06</span>Record</h4>
+    <ul>
+      <li><a href="../about/history.html">Company history</a></li>
+      <li><a href="../about/team.html">Team &amp; advisors</a></li>
+      <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
+    </ul>
   </div>
 </aside>
 
@@ -94,19 +107,38 @@
   </div>
   <div class="mast-meta">Apollyon Dynamics · Strategy</div>
   <h1>The supply chain, <span class="sub">multi-sourced by design</span></h1>
-  <p class="standfirst">Seventy years of Indian defence history says the single-source foreign component is a strategic vulnerability. The design rule that follows is simple: at least two qualified sources on every critical part, the hard parts owned in-house, and no critical component whose lead time runs through a port the country does not control.</p>
+  <p class="standfirst">Seventy years of Indian defence history demonstrates that relying on single-source foreign suppliers creates strategic risk. Our procurement rule is straightforward: maintain at least two qualified sources for every critical component where feasible, keep core proprietary engineering in-house, and establish a clear roadmap to domestic production for anything sourced externally today.</p>
 </header>
 
 <!-- ═══════════ POSTURE ═══════════ -->
 <section id="posture">
   <div class="sec-tag">01 · Posture</div>
   <h2>Component ownership and multi-sourcing rules</h2>
-  <p>System architecture dictates supply chain resilience. Because flight software, guidance policies, and airframe structures determine terminal performance, Apollyon maintains direct ownership of these core layers. Peripheral hardware follows a strict dual-sourcing rule across independent regulatory regimes.</p>
+  <p>Supply chain resilience begins with systems architecture. Because guidance algorithms, mission logic, and composite airframe structures determine flight performance, Apollyon designs and builds these layers directly. The flight-control baseline is licensed from Embention (Veronte) for initial production, with an in-house equivalent to be developed in parallel once production is steady. For supporting electronics and mechanical assemblies, we enforce dual-sourcing across distinct regulatory jurisdictions.</p>
   <ul>
-    <li><strong>Proprietary In-House Layers:</strong> Composite airframes, structural bulkheads, fuel delivery systems, seeker algorithmic integration, flight-control configuration packages, launcher mechanisms, and our simulation physics backbone.</li>
-    <li><strong>Multi-Sourced Components:</strong> Gas turbine engines, tactical inertial sensors, encrypted telemetry links, and motor controllers. Each component maintains at least two qualified manufacturing sources across India, Europe, the Americas, or East Asia to prevent export embargo bottlenecks.</li>
-    <li><strong>Strategic Domestic Partnerships:</strong> High-resolution optical seekers sourced through Tonbo Imaging—transforming the most export-sensitive strike component into an indigenous sovereign asset.</li>
+    <li><strong>Owned in-house:</strong> Composite structures, internal bulkheads, fuel delivery systems, seeker algorithmic integration, flight-control configuration packages, launch rails, and our simulation physics environment.</li>
+    <li><strong>Multi-sourced:</strong> Gas turbine engines, tactical inertial sensors, encrypted telemetry transceivers, and motor speed controllers. Each component maintains at least two qualified manufacturing sources across India, Europe, the Americas, or East Asia to prevent export bottlenecks.</li>
+    <li><strong>Strategic domestic partners:</strong> High-resolution imaging seekers developed with Tonbo Imaging in Bengaluru, keeping sensitive optical guidance technology within the Indian industrial base.</li>
   </ul>
+  <p>By categorizing components into owned technology, domestic partnerships, dual-sourced items, or globally available hardware, we ensure that every critical subsystem has a named owner and an accountable supply path.</p>
+  <div class="tw">
+    <table>
+      <caption>Control model by layer</caption>
+      <thead><tr><th>Layer</th><th>Control model</th></tr></thead>
+      <tbody>
+        <tr><td>Guidance algorithms</td><td class="red">Owned</td></tr>
+        <tr><td>Flight-control configuration</td><td class="red">Owned</td></tr>
+        <tr><td>Flight-control baseline</td><td>Named vendor &middot; configuration-controlled</td></tr>
+        <tr><td>Vehicle architecture</td><td class="red">Owned</td></tr>
+        <tr><td>Composite structure</td><td class="red">Owned</td></tr>
+        <tr><td>EO/IR seeker</td><td>Strategic Indian partner</td></tr>
+        <tr><td>Propulsion</td><td>Domestic + alternative source</td></tr>
+        <tr><td>INS / GNSS</td><td>Dual-source</td></tr>
+        <tr><td>RF electronics</td><td>Dual-source</td></tr>
+        <tr><td>Commodity compute</td><td>Globally replaceable</td></tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
 <!-- ═══════════ NIGHTSHADE ═══════════ -->
@@ -119,7 +151,7 @@
       <thead><tr><th>Subsystem</th><th>Source(s)</th><th>Posture</th></tr></thead>
       <tbody>
         <tr><td><strong>Engine</strong></td><td>DG Propulsion (India) · GD Jetcat (India, Coimbatore; German design lineage) · one qualified allied source</td><td>Multi-source qualified for supply-chain resilience; domestic options lead the order.</td></tr>
-        <tr><td><strong>Airframe</strong></td><td>Apollyon Dynamics (in-house)</td><td>Completely indigenous; composite and wound structures designed for the domestic base.</td></tr>
+        <tr><td><strong>Airframe</strong></td><td>Apollyon Dynamics (in-house)</td><td>Indian design and manufacture; composite and wound structures designed for the domestic base.</td></tr>
         <tr><td><strong>Fuel system</strong></td><td>Apollyon Dynamics (in-house)</td><td>Tankage, feed and CG management owned end to end.</td></tr>
         <tr><td><strong>Seeker</strong></td><td>In-house integration through Tonbo Imaging (India)</td><td>TRAP-1 dual-band EO/IR; strategic partnership. See <a href="#partners">partners</a>.</td></tr>
         <tr><td><strong>GNSS antenna</strong></td><td>Accord / Xtragen (India)</td><td>Indigenous.</td></tr>
@@ -128,11 +160,11 @@
         <tr><td><strong>Inertial navigation</strong></td><td>Two qualified allied sources · Aeron (India, Pune)</td><td>Three qualified routes; Indian alternative in the set.</td></tr>
         <tr><td><strong>Telemetry / datalink</strong></td><td>Two qualified allied sources across independent regimes</td><td>Two independent supply regimes; encrypted RF, spoof-hardened.</td></tr>
         <tr><td><strong>Flight control system hardware</strong></td><td>Two qualified allied sources</td><td>Two suppliers for the hardware; the software baseline and packages are the next row.</td></tr>
-        <tr><td><strong>Flight control software</strong></td><td>Veronte Autopilot 1x &amp; 1x PDI Builder (Veronte Embention) · Apollyon configuration packages</td><td>Proprietary baseline set up through configuration; Apollyon owns the control-law, guidance and mission packages. See <a href="../architecture/index.html#flight-software">architecture §07</a>.</td></tr>
+        <tr><td><strong>Flight control software</strong></td><td>Veronte Autopilot 1x &amp; 1x PDI Builder (Veronte Embention) · Apollyon configuration packages</td><td>Proprietary, certified baseline set up through configuration; Apollyon owns the control-law, guidance and mission packages. An in-house replacement is developed in parallel once production is steady. Established vendor relationships across the partner network support supply continuity. See <a href="../subsystems/flight-software.html">flight software</a>.</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="small">Indigenous content for the Nightshade family exceeds 70% by value, ensuring eligibility under Indian IDDM procurement rules. Figures represent internal accounting estimates.</p>
+  <p class="small">Indigenous content for the Nightshade family is about 45–50% by value. Figures represent internal accounting estimates.</p>
 </section>
 
 <!-- ═══════════ AHUTI ═══════════ -->
@@ -170,15 +202,15 @@
         <tr><td><strong>Raphe mPhibr</strong></td><td>Autonomous systems integration</td><td>Consortium partner on the Indian Army DKS counter-UAS project with DGAAD, and signatory of a pilot purchase order on the Ahuti interceptor line. Delivers interceptor effectors into an operational radar and command architecture.</td></tr>
         <tr><td><strong>HBL Engineering</strong></td><td>Batteries &amp; manufacturing depth</td><td>Strategic partner and shareholder. Decades of defence-grade battery and system production, engaged to dual-source the interceptor's high-discharge cells inside India and to deepen rate manufacturing as volumes rise.</td></tr>
         <tr><td><strong>Dhruva Space</strong></td><td>Space communications <span class="prov est">MoU in signing</span></td><td>Satellite and space-based communications to extend the reach and resilience of the mobile command stack. The advisor link is Sanjay Nekkanti's own company.</td></tr>
-        <tr><td><strong>Eunomia Innovations</strong></td><td>Maritime systems engineering <span class="prov est">MoU in signing</span></td><td>Sea-state engineering depth for the Piranha USV line as it moves from first water into full-scale trials.</td></tr>
-        <tr><td><strong>Indian Army formations</strong></td><td>Operational evaluation</td><td>Eight active field formations and eight mobile drone-lab units. Provides immediate tactical feedback and empirical flight data from high-altitude forward posts.</td></tr>
+        <tr><td><strong>Eunomia Innovations</strong></td><td>Maritime systems engineering <span class="prov est">MoU in signing</span></td><td>Sea-state and hull engineering depth for the Piranha USV line while the hull and onboard hardware are in development, and through first water and sea trials.</td></tr>
+        <tr><td><strong>Indian Army formations</strong></td><td>Operational evaluation</td><td>Eight active field formations and a mobile drone lab. Provides immediate tactical feedback and empirical flight data from high-altitude forward posts.</td></tr>
         <tr><td><strong>Border Security Force (BSF)</strong></td><td>Border defence deployments</td><td>Memorandum of Understanding signed December 2025, deploying interceptors across active Western border sectors.</td></tr>
       </tbody>
     </table>
   </div>
   <div class="note">
-    <div class="t">Domestic seeker integration and the non-aligned procurement moat</div>
-    <p>High-resolution imaging seekers represent the most restrictive component in international arms markets. Foreign export controls and supplier rationing frequently delay missile programs during geopolitical crises. Sourcing seekers domestically through mentor company Tonbo Imaging keeps the most sensitive strike component outside foreign export-control regimes while opening established distribution channels into non-aligned defence markets across Armenia, South America, and Africa. Because India is not subject to a broad international sanctions regime and actively promotes defence exports, Apollyon maintains a two-way procurement advantage over Russian, Ukrainian, and Western competitors who face export bans, sanctions, or ITAR restrictions.</p>
+    <div class="t">Domestic seeker integration and export access</div>
+    <p>High-resolution imaging seekers are among the most closely controlled components in international defence procurement. Export licensing reviews and supplier allocation can delay delivery schedules during geopolitical shifts. Sourcing seekers domestically through our partnership with Tonbo Imaging anchors our optical guidance inside India and avoids foreign regulatory vetoes. It also opens distribution through Tonbo's existing customer base across non-aligned defence markets in Eastern Europe, Latin America, and North Africa. Because Indian defence products are not subject to foreign export controls or Western ITAR restrictions, our platforms can be delivered reliably to partner nations.</p>
   </div>
 </section>
 
@@ -186,7 +218,7 @@
 <section id="gaps">
   <div class="sec-tag">05 · Diligence</div>
   <h2>Active supply chain exposures and mitigation roadmaps</h2>
-  <p>Institutional transparency requires documenting open supply chain exposures alongside completed qualifications:</p>
+  <p>Open exposures are listed here alongside the completed qualifications:</p>
   <div class="tw">
     <table>
       <caption>Exposures and closure plans</caption>
@@ -196,7 +228,7 @@
         <tr><td><strong>Telemetry link (RF dual-sourcing)</strong></td><td>Foreign regulatory updates could delay radio transceiver deliveries.</td><td>Qualifying a secondary encrypted Indian datalink with the same interface profile. Nightshade already runs dual-sourced datalinks.</td></tr>
         <tr><td><strong>Flight computer (commercial edge module on Ahuti)</strong></td><td>Export classification shifts on embedded computing modules.</td><td>Baseline uses commercial non-ITAR modules; domestic pin-compatible edge compute boards are currently undergoing environmental qualification.</td></tr>
         <tr><td><strong>EO/IR sensor payload</strong></td><td>Foreign single-source optical assemblies on light interceptors.</td><td>Developing an indigenous Tonbo lightweight microbolometer payload once fleet production scale justifies custom tooling.</td></tr>
-        <tr><td><strong>High-thrust turbofan scaling (Hemlock class)</strong></td><td>Long-range cruise missiles need the 450 kgf class, where the supplier base is narrower than for micro-turbines.</td><td>Anchored on the GTRE Manik 450, built by BrahMos Aerospace Thiruvananthapuram (BATL). Eight of the first 25 engines are delivered; the line runs about 12 a year against the 240–480 a year needed at full rate.</td></tr>
+        <tr><td><strong>High-thrust turbofan scaling (Hemlock class)</strong></td><td>Long-range cruise missiles need the 450 kgf class, where the supplier base is narrower than for micro-turbines.</td><td>Anchored on the GTRE Manik 450, built by BrahMos Aerospace Thiruvananthapuram (BATL). Deliveries are still at low rate — 15 of a first order of 35 engines had been delivered by mid-2025 — against the 240–480 a year needed at full rate.</td></tr>
       </tbody>
     </table>
   </div>
@@ -208,12 +240,27 @@
     <span>Apollyon Dynamics &middot; Strategy &middot; Supply Chain Resiliency</span>
   </div>
 
+<nav class="pager" aria-label="Reading order">
+  <a class="prev" href="../strategy/competitive.html"><span class="k">&larr; Previous &middot; Strategy</span><span class="t">The competitive field</span></a>
+  <a class="next" href="../doctrine/new-arsenal.html"><span class="k">Next &middot; Doctrine &rarr;</span><span class="t">The New Arsenal</span></a>
+</nav>
 <footer>
   <div>Apollyon Dynamics &middot; Neo-Prime Wiki &middot; Rev 3.0</div>
   <div><a href="../doctrine/new-arsenal.html">The New Arsenal</a> &middot; <a href="../about/history.html">Company</a> &middot; <a href="../strategy/competitive.html">Competitive field</a> &middot; apollyondynamics.com</div>
 </footer>
 
 </main>
+<nav class="toc" aria-label="On this page">
+  <h4>On this page</h4>
+  <ul>
+    <li><a href="#posture">The posture</a></li>
+    <li><a href="#nightshade">Nightshade supply chain</a></li>
+    <li><a href="#ahuti">Ahuti supply chain</a></li>
+    <li><a href="#partners">Strategic partners</a></li>
+    <li><a href="#gaps">Open gaps</a></li>
+  </ul>
+  <a class="toc-top" href="#top">Back to top &uarr;</a>
+</nav>
 </div>
 </div>
 </body>

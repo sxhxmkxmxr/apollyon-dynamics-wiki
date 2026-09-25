@@ -3,91 +3,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Flight Software Stack — Apollyon Dynamics Wiki</title>
+<title>Flight software — Apollyon Dynamics Wiki</title>
 <meta name="description" content="Apollyon Dynamics engineering wiki — a proprietary, certification-oriented autopilot baseline from Embention Veronte, with Apollyon-authored control laws, guidance and mission logic.">
 <link rel="icon" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/wiki.css">
+<script src="../js/wiki.js" defer></script>
 </head>
-<body>
+<body id="top" data-section="architecture">
 
 <div class="rail">
   <div class="rail-inner">
+    <button class="rail-menu" type="button" aria-controls="site-nav" aria-expanded="false"><span class="bars" aria-hidden="true"></span><span class="lbl">Menu</span></button>
     <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
-    <nav class="rail-links">
-      <a href="../index.html#thesis">Thesis</a>
-      <a href="../index.html#products">Products</a>
-      <a href="../strategy/trajectory.html">Strategy</a>
-      <a href="../architecture/index.html" class="on">Architecture</a>
-      <a href="../strategic-dependency/full-record.html">Dependencies</a>
-      <a href="../doctrine/new-arsenal.html">Doctrine</a>
-      <a href="../about/history.html">Company</a>
+    <nav class="rail-links" aria-label="Sections">
+      <a id="rail-thesis" href="../index.html#thesis">Thesis</a>
+      <a id="rail-products" href="../index.html#products">Products</a>
+      <a id="rail-architecture" href="../architecture/index.html" class="on">Architecture</a>
+      <a id="rail-strategy" href="../strategy/trajectory.html">Strategy</a>
+      <a id="rail-doctrine" href="../doctrine/new-arsenal.html">Doctrine</a>
+      <a id="rail-company" href="../about/history.html">Company</a>
     </nav>
   </div>
+  <div class="rail-progress" aria-hidden="true"><i></i></div>
 </div>
 <div class="shell">
 <div class="layout">
 
-<aside class="aside">
-  <h4>On this page</h4>
-  <ul>
-    <li><a href="#baseline">A proprietary baseline</a></li>
-    <li><a href="#toolchain">The toolchain</a></li>
-    <li><a href="#authored">What Apollyon authors</a></li>
-    <li><a href="#verification">HIL verification</a></li>
-    <li><a href="#governance">Configuration governance</a></li>
-    <li><a href="#usedby">Used by</a></li>
-  </ul>
-  <nav class="atlas" aria-label="Wiki map">
-    <h4>Wiki map</h4>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232 650"><line class="spine" x1="16" y1="52" x2="16" y2="488"/><line class="spine" x1="16" y1="488" x2="16" y2="642"/><a href="../index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="10" width="220" height="42"/><text class="hub-t" x="18" y="27">INDEX</text><text class="hub-s" x="18" y="40">the argument · every path starts here</text><text class="hub-n" x="216" y="27" text-anchor="end">01</text></a><line class="spine" x1="16" y1="69" x2="28" y2="69"/><text class="cl" x="30" y="72">PRODUCTS</text><line class="rule" x1="30" y1="77" x2="222" y2="77"/><a href="../products/nightshade-adx1.html" class="atlas-node"><rect class="mk" x="30" y="84.5" width="5" height="5"/><text class="lb" x="41" y="92.5">Nightshade family</text></a><a href="../products/hemlock.html" class="atlas-node"><rect class="mk" x="30" y="101.5" width="5" height="5"/><text class="lb" x="41" y="109.5">Hemlock</text></a><a href="../products/ahuti.html" class="atlas-node"><rect class="mk" x="30" y="118.5" width="5" height="5"/><text class="lb" x="41" y="126.5">Ahuti interceptor</text></a><a href="../products/usv-strike.html" class="atlas-node"><rect class="mk" x="30" y="135.5" width="5" height="5"/><text class="lb" x="41" y="143.5">Piranha USV</text></a><text class="bridge" x="41" y="159">each machine configures the core ↓</text><line class="spine" x1="16" y1="180" x2="28" y2="180"/><text class="cl" x="30" y="183">STRATEGY</text><line class="rule" x1="30" y1="188" x2="222" y2="188"/><a href="../strategy/trajectory.html" class="atlas-node"><rect class="mk" x="30" y="195.5" width="5" height="5"/><text class="lb" x="41" y="203.5">Trajectory &amp; cost per kg·km</text></a><a href="../strategy/competitive.html" class="atlas-node"><rect class="mk" x="30" y="212.5" width="5" height="5"/><text class="lb" x="41" y="220.5">The competitive field</text></a><a href="../strategy/supply-chain.html" class="atlas-node"><rect class="mk" x="30" y="229.5" width="5" height="5"/><text class="lb" x="41" y="237.5">Supply chain</text></a><line class="spine" x1="16" y1="258" x2="28" y2="258"/><text class="cl" x="30" y="261">DOCTRINE</text><line class="rule" x1="30" y1="266" x2="222" y2="266"/><a href="../doctrine/new-arsenal.html" class="atlas-node"><rect class="mk" x="30" y="273.5" width="5" height="5"/><text class="lb" x="41" y="281.5">The New Arsenal</text></a><a href="../doctrine/precision-is-mercy.html" class="atlas-node"><rect class="mk" x="30" y="290.5" width="5" height="5"/><text class="lb" x="41" y="298.5">Precision is Mercy</text></a><a href="../doctrine/missing-middle.html" class="atlas-node"><rect class="mk" x="30" y="307.5" width="5" height="5"/><text class="lb" x="41" y="315.5">The missing middle</text></a><a href="../doctrine/strike-design-space.html" class="atlas-node"><rect class="mk" x="30" y="324.5" width="5" height="5"/><text class="lb" x="41" y="332.5">Strike design space</text></a><line class="spine" x1="16" y1="353" x2="28" y2="353"/><text class="cl" x="30" y="356">RECORD</text><line class="rule" x1="30" y1="361" x2="222" y2="361"/><a href="../about/history.html" class="atlas-node"><rect class="mk" x="30" y="368.5" width="5" height="5"/><text class="lb" x="41" y="376.5">Company history</text></a><a href="../about/team.html" class="atlas-node"><rect class="mk" x="30" y="385.5" width="5" height="5"/><text class="lb" x="41" y="393.5">Team &amp; advisors</text></a><a href="../strategic-dependency/full-record.html" class="atlas-node"><rect class="mk" x="30" y="402.5" width="5" height="5"/><text class="lb" x="41" y="410.5">The full record · 70 episodes</text></a><a href="../architecture/index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="440" width="220" height="42"/><text class="hub-t" x="18" y="457">ARCHITECTURE</text><text class="hub-s" x="18" y="470">the core · method, machine, loop</text><text class="hub-n" x="216" y="457" text-anchor="end">02</text></a><line class="spine" x1="16" y1="499" x2="28" y2="499"/><text class="cl on" x="30" y="502">SUBSYSTEMS</text><line class="rule" x1="30" y1="507" x2="222" y2="507"/><a href="../subsystems/near-envelope-control.html" class="atlas-node"><rect class="mk" x="30" y="514.5" width="5" height="5"/><text class="lb" x="41" y="522.5">Robust flight control</text></a><a href="../subsystems/gnss-denied-navigation.html" class="atlas-node"><rect class="mk" x="30" y="531.5" width="5" height="5"/><text class="lb" x="41" y="539.5">GNSS-denied navigation</text></a><a href="../subsystems/onboard-compute.html" class="atlas-node"><rect class="mk" x="30" y="548.5" width="5" height="5"/><text class="lb" x="41" y="556.5">Edge compute</text></a><a href="../subsystems/flight-software.html" class="atlas-node here"><rect class="mk" x="30" y="565.5" width="5" height="5"/><text class="lb" x="41" y="573.5">Flight software</text></a><a href="../subsystems/seekers.html" class="atlas-node"><rect class="mk" x="30" y="582.5" width="5" height="5"/><text class="lb" x="41" y="590.5">Seekers</text></a><a href="../subsystems/airframe-structures.html" class="atlas-node"><rect class="mk" x="30" y="599.5" width="5" height="5"/><text class="lb" x="41" y="607.5">Airframe &amp; structures</text></a><a href="../subsystems/launch-systems.html" class="atlas-node"><rect class="mk" x="30" y="616.5" width="5" height="5"/><text class="lb" x="41" y="624.5">Launch &amp; ground</text></a></svg>
-  </nav>
-  <div class="groups">
-  <h4>Products</h4>
-  <ul>
-    <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
-    <li><a href="../products/hemlock.html">Hemlock</a></li>
-    <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
-    <li><a href="../products/usv-strike.html">Piranha USV</a></li>
-  </ul>
-  <h4>Strategy</h4>
-  <ul>
-    <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
-    <li><a href="../strategy/competitive.html">The competitive field</a></li>
-    <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
-  </ul>
-  <h4>Architecture</h4>
-  <ul>
-    <li><a href="../architecture/index.html">The shared core</a></li>
-    <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
-    <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
-    <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
-    <li><a href="../subsystems/flight-software.html" class="here">Flight software</a></li>
-    <li><a href="../subsystems/seekers.html">Seekers</a></li>
-    <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
-    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground</a></li>
-  </ul>
-  <h4>Doctrine</h4>
-  <ul>
-    <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
-    <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
-    <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
-    <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
-  </ul>
-  <h4>Record</h4>
-  <ul>
-    <li><a href="../about/history.html">Company history</a></li>
-    <li><a href="../about/team.html">Team &amp; advisors</a></li>
-    <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
-  </ul>
+<aside class="aside" id="site-nav" aria-label="Wiki navigation">
+  <div class="nav-group">
+    <h4><span class="n">01</span>Overview</h4>
+    <ul>
+      <li><a href="../index.html">The argument</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">02</span>Products</h4>
+    <ul>
+      <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
+      <li><a href="../products/hemlock.html">Hemlock</a></li>
+      <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
+      <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+    </ul>
+  </div>
+  <div class="nav-group on">
+    <h4><span class="n">03</span>Architecture</h4>
+    <ul>
+      <li><a href="../architecture/index.html">The shared core</a></li>
+      <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
+      <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
+      <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
+      <li class="here"><a href="../subsystems/flight-software.html" aria-current="page">Flight software</a>
+        <ul class="nav-toc">
+          <li><a href="#baseline">A proprietary baseline</a></li>
+          <li><a href="#toolchain">The toolchain</a></li>
+          <li><a href="#authored">What Apollyon authors</a></li>
+          <li><a href="#verification">HIL verification</a></li>
+          <li><a href="#governance">Configuration governance</a></li>
+          <li><a href="#roadmap">Veronte now, in-house next</a></li>
+          <li><a href="#usedby">Used by</a></li>
+        </ul>
+      </li>
+      <li><a href="../subsystems/seekers.html">Seekers</a></li>
+      <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
+      <li><a href="../subsystems/launch-systems.html">Launch &amp; ground systems</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">04</span>Strategy</h4>
+    <ul>
+      <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
+      <li><a href="../strategy/market.html">The market</a></li>
+      <li><a href="../strategy/competitive.html">The competitive field</a></li>
+      <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">05</span>Doctrine</h4>
+    <ul>
+      <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
+      <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
+      <li><a href="../doctrine/missing-middle.html">The Missing Middle</a></li>
+      <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">06</span>Record</h4>
+    <ul>
+      <li><a href="../about/history.html">Company history</a></li>
+      <li><a href="../about/team.html">Team &amp; advisors</a></li>
+      <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
+    </ul>
   </div>
 </aside>
 
 <main class="main">
 
-<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../architecture/index.html#subsystems">Subsystems</a><span>/</span>Software / Flight Software Stack</div>
+<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../architecture/index.html#subsystems">Subsystems</a><span>/</span>Flight software</div>
 <header class="masthead">
     <div class="mast-brand-lockup">
     <img src="../assets/logos/logo-ad-white.png" alt="Apollyon Dynamics Mark" class="brand-mark">
@@ -95,26 +109,26 @@
     <img src="../assets/logos/logo-text-white.png" alt="Apollyon Dynamics" class="brand-text">
   </div>
   <div class="mast-meta">Software · proprietary autopilot baseline, authored control laws &amp; HIL verification <span>· core subsystem</span></div>
-  <h1>Flight Software <span class="sub">Stack</span></h1>
-  <p class="standfirst">The flight-critical loop runs on a proprietary autopilot that is set up through configuration — Embention's Veronte Autopilot 1x. Apollyon writes the control laws, guidance, envelope protection and mission logic that sit on top, and tests each build on hardware-in-the-loop before it flies.</p>
+  <h1>Flight software, <span class="sub">on a proprietary baseline</span></h1>
+  <p class="standfirst">The flight-critical control loop runs on Embention's Veronte Autopilot 1x, a certified commercial baseline configured for each vehicle. Apollyon authors the guidance modes, control laws, flight envelope limits, and mission logic that run on top of it, verifying every release on hardware-in-the-loop simulators before flight.</p>
 </header>
 
 <section id="baseline">
   <div class="sec-tag">01 · Foundation</div>
   <h2>A proprietary flight-control baseline</h2>
-  <p class="lede">Defence certification in India rules out a community open-source autopilot. The flight-critical core needs a named owner, a clear record of where it came from, and a vendor responsible for it through its life.</p>
+  <p class="lede">Operational defence certification in India requires flight-critical software to have a clear origin, an accountable vendor, and a documented qualification history. Open-source autopilots do not meet this standard for military systems.</p>
 
-  <p>Apollyon therefore builds on Embention's <strong>Veronte Autopilot 1x</strong>, a proprietary flight controller that is set up through configuration rather than code changes. It is already used across uncrewed aircraft. We chose a commercial baseline over an open-source stack for three reasons: the software has a named owner and a documented history, its changes are controlled, and the vendor supports it across its lifecycle.</p>
+  <p>Apollyon builds on Embention's <strong>Veronte Autopilot 1x</strong>, a commercial flight controller widely used across uncrewed platforms. The autopilot operates through parameterised configuration rather than source-code modification. We selected a commercial baseline because it provides a proven audit trail, vendor-backed lifecycle support, and strict configuration governance.</p>
 
   <div class="note key">
     <div class="t">The baseline is not modified at source</div>
-    <p>Apollyon does not change the autopilot firmware itself. The engineering work lives in a versioned <strong>configuration package</strong>—control laws, guidance phases, envelope limits, allocation matrices and safety logic—written in the vendor's engineering environment and uploaded to the flight controller. One baseline, one package per airframe.</p>
+    <p>Apollyon does not modify the autopilot firmware directly. Instead, our team maintains version-controlled configuration packages containing the control laws, guidance phases, flight envelope limits, control allocation matrices, and failsafe logic. These packages are developed in the vendor's toolchain and loaded onto the controller. The core hardware and baseline firmware remain uniform across our fleet, with one tailored configuration package for each airframe.</p>
   </div>
 
   <div class="blueprint-plate">
     <div class="blueprint-head"><span class="title">Fig. 01</span><span class="scale">one baseline · authored layer</span></div>
     <div class="blueprint-body">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" role="img" aria-label="Flight software stack: the Veronte Embention proprietary baseline beneath an Apollyon-authored configuration layer">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" role="img" aria-label="Flight software: the Veronte Embention proprietary baseline beneath an Apollyon-authored configuration layer">
 <rect width="1000" height="620" fill="#050505"/>
 <text x="48" y="38" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#F04B4B" font-weight="700" letter-spacing="0.14em">APOLLYON-AUTHORED LAYER OVER A PROPRIETARY BASELINE</text>
 <text x="952" y="38" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#C7C4BD" text-anchor="end" letter-spacing="0.08em">ONE CONFIGURATION SET PER PLATFORM</text>
@@ -150,17 +164,17 @@
 <section id="toolchain">
   <div class="sec-tag">02 · Toolchain</div>
   <h2>Authored, executed, operated, verified</h2>
-  <p class="lede">The toolchain has four stages and one configuration. The package we write on the bench is the package that flies and the package that is verified. Nothing is rewritten between engineering and the airframe.</p>
+  <p class="lede">The toolchain follows four stages around a single configuration package. The exact configuration authored on the bench is what flies in the airframe and what undergoes hardware-in-the-loop simulation, avoiding translation errors between engineering and flight.</p>
 
   <div class="tw">
     <table>
       <caption>The four stages</caption>
       <thead><tr><th>Stage</th><th>Tool</th><th>Role</th></tr></thead>
       <tbody>
-        <tr><td><strong>Author</strong></td><td>1x PDI Builder</td><td>Control laws, guidance phases, envelope limits, actuation allocation and safety logic assembled as block programs.</td></tr>
-        <tr><td><strong>Execute</strong></td><td>Veronte Autopilot 1x</td><td>Flight-critical guidance, navigation and control, state estimation and actuator commands.</td></tr>
-        <tr><td><strong>Operate</strong></td><td>Veronte Ops</td><td>Mission planning, telemetry, commanded actions, flight termination and alerts.</td></tr>
-        <tr><td><strong>Verify</strong></td><td>HIL Simulator</td><td>The production autopilot flown against a simulated vehicle before any real sortie.</td></tr>
+        <tr><td><strong>Author</strong></td><td>1x PDI Builder</td><td>Control laws, guidance phases, envelope limits, actuation allocation, and safety logic assembled as block programs.</td></tr>
+        <tr><td><strong>Execute</strong></td><td>Veronte Autopilot 1x</td><td>Flight-critical guidance, navigation and control, state estimation, and actuator commands.</td></tr>
+        <tr><td><strong>Operate</strong></td><td>Veronte Ops</td><td>Mission planning, live telemetry, commanded actions, flight termination, and system alerts.</td></tr>
+        <tr><td><strong>Verify</strong></td><td>HIL Simulator</td><td>Production autopilot hardware flown against simulated vehicle dynamics before any field sortie.</td></tr>
       </tbody>
     </table>
   </div>
@@ -222,7 +236,7 @@
 <section id="authored">
   <div class="sec-tag">03 · The authored layer</div>
   <h2>What Apollyon authors</h2>
-  <p class="lede">The baseline provides the framework. The capability comes from what Apollyon configures on it: the control and mission logic that adapts a general-purpose controller to each vehicle.</p>
+  <p class="lede">The commercial baseline provides the core real-time operating environment and basic estimation routines. Apollyon designs and configures the flight mechanics: the specific control and guidance algorithms that adapt the controller to the dynamics of each vehicle.</p>
 
   <div class="tw">
     <table>
@@ -240,16 +254,16 @@
 
   <div class="note key">
     <div class="t">Why the configuration layer matters</div>
-    <p>An airframe is defined by its configuration package, so it does not need a separate build. Any improvement to the baseline can be applied to every platform that shares it. Building a new vehicle then costs only the difference in its package, which is measured against the <a href="../subsystems/near-envelope-control.html">shared physics backbone</a>.</p>
+    <p>Configuring airframes through versioned packages avoids maintaining separate software forks for different aircraft. Improvements to common control or guidance logic can be evaluated across the fleet, while adapting a new vehicle requires writing only the aerodynamic and actuator parameters specific to its airframe, calibrated against the <a href="../subsystems/near-envelope-control.html">shared physics backbone</a>.</p>
   </div>
 </section>
 
 <section id="verification">
   <div class="sec-tag">04 · Verification</div>
   <h2>Hardware-in-the-loop before the rail</h2>
-  <p class="lede">No configuration flies until it has passed on the bench. The Veronte HIL Simulator runs the production autopilot against a simulated vehicle, so the flight controller under test is the same unit that will fly.</p>
+  <p class="lede">No configuration package flies until it has been validated on the bench. The Veronte hardware-in-the-loop simulator runs production autopilot hardware against high-fidelity simulated vehicle dynamics in real time. The flight controller under test is the exact unit that flies.</p>
 
-  <p>The autopilot receives simulated navigation and sensor data and returns real actuator commands. Control laws, guidance logic and failsafes therefore run exactly as they will in flight.</p>
+  <p>The autopilot receives simulated sensor streams and commands real servo actuators, verifying that control laws, guidance modes, and emergency logic execute exactly as intended in flight.</p>
 
   <div class="tw">
     <table>
@@ -263,24 +277,44 @@
     </table>
   </div>
 
-  <p>Faults and degraded conditions—jammed surfaces, sensor dropouts, loss of navigation, electronic-warfare interference—are injected on the bench against the same software that will fly. Each sortie then returns high-rate telemetry that feeds the physics backbone and the next tuning cycle. <a href="../subsystems/near-envelope-control.html">The sim-to-real flight loop &rarr;</a></p>
+  <p>Engineers inject simulated failures on the test bench—such as surface jamming, sensor dropouts, GPS loss, and electronic interference—against the identical flight software that takes to the air. Sortie telemetry then feeds empirical flight data back into our aerodynamic models to refine subsequent tuning. <a href="../subsystems/near-envelope-control.html">The sim-to-real flight loop &rarr;</a></p>
 </section>
 
 <section id="governance">
   <div class="sec-tag">05 · Governance</div>
   <h2>Configuration control and certification</h2>
-  <p class="lede">A proprietary baseline supports certification as well as engineering. It gives the flight-critical core a vendor-maintained history and a configuration process that can be audited.</p>
+  <p class="lede">Using an established commercial baseline supports both airworthiness certification and technical governance. It provides a formal audit trail for all flight-critical functions.</p>
 
-  <p>Every Apollyon configuration package is versioned, reviewed and released under change control. The autopilot supports locked configurations and per-phase checklists, so a released package cannot be changed in the field without the matching control action. This leaves a clear record from the authored block program to the uploaded configuration and the flight log.</p>
+  <p>Every Apollyon configuration package is version-tracked, peer-reviewed, and locked before deployment. The controller enforces release locks and pre-flight checklists, preventing unauthorized field alterations and linking every sortie log back to an approved software build.</p>
 
   <div class="note">
     <div class="t">Certification basis</div>
-    <p>The flight-control baseline is supplied with vendor compliance and lifecycle documentation, which Apollyon keeps as part of the platform's certification evidence. Qualification and airworthiness claims are made only against that documentation, not derived from the engineering tools.</p>
+    <p>The flight-control baseline is supplied with vendor compliance and lifecycle documentation, which Apollyon maintains as part of each platform's formal certification evidence. Airworthiness and qualification claims are made strictly against this certified baseline.</p>
   </div>
 </section>
 
+<section id="roadmap">
+  <div class="sec-tag">06 · Roadmap</div>
+  <h2>Veronte now, an in-house baseline next</h2>
+  <p class="lede">Achieving formal military flight certification for a new autopilot core typically takes years of flight trials and tens of millions of dollars. Embention has invested many years and roughly $40 million into certifying and maturing the Veronte platform. Rather than duplicating that development at the outset—which would add substantial schedule risk to our airframe and propulsion development—we use Veronte as our initial production baseline.</p>
+  <p>This approach allows our team to focus on system-level integration, aerodynamic maturation, and serial manufacturing for initial customer deliveries. Veronte provides a proven, airworthy foundation while we build operational flight hours and scale our production lines.</p>
+  <p>Once units are in service and serial manufacturing is steady, Apollyon develops its own flight-control core in-house, in parallel. Because our control laws, guidance algorithms, and envelope safety boundaries are already authored in our configuration packages, the in-house replacement will inherit a mature flight baseline. The replacement will be validated against the same hardware-in-the-loop test benches, verified through extensive flight testing, and formally qualified before transitioning onto fielded platforms.</p>
+  <div class="tw">
+    <table>
+      <caption>Flight-control baseline by phase</caption>
+      <thead><tr><th>Phase</th><th>Baseline</th><th>Focus</th></tr></thead>
+      <tbody>
+        <tr><td><strong>First orders</strong></td><td>Veronte Autopilot 1x · Apollyon packages</td><td>Scale, robustness and full-system integration</td></tr>
+        <tr><td><strong>Steady production</strong></td><td>Veronte in service · in-house baseline in development</td><td>Parallel development, HIL and flight testing of the replacement</td></tr>
+        <tr><td><strong>After certification</strong></td><td>In-house baseline</td><td>Transition platform by platform once qualified</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small">Supply continuity for the autopilot baseline is maintained through established vendor relationships across our partner network, as outlined in our <a href="../strategy/supply-chain.html">supply chain strategy</a>.</p>
+</section>
+
 <section id="usedby">
-  <div class="sec-tag">06 · Used by</div>
+  <div class="sec-tag">07 · Used by</div>
   <h2>Platforms carrying this subsystem</h2>
   <div class="xref">
     <div class="t">Integrated into</div>
@@ -291,15 +325,32 @@
       <a href="../products/usv-strike.html">Piranha USV — marine surface strike execution engine</a>
     </div>
   </div>
-  <p>Interfaces with: <a href="near-envelope-control.html">Robust Control for Fast Platforms</a>, <a href="onboard-compute.html">Edge Compute &amp; Mission Perception</a>, <a href="gnss-denied-navigation.html">High-Speed GNSS-Denied Navigation</a>.</p>
+  <p>Interfaces with: <a href="near-envelope-control.html">Robust flight control</a>, <a href="onboard-compute.html">Edge compute</a>, <a href="gnss-denied-navigation.html">GNSS-denied navigation</a>.</p>
 </section>
 
+<nav class="pager" aria-label="Reading order">
+  <a class="prev" href="../subsystems/onboard-compute.html"><span class="k">&larr; Previous &middot; Architecture</span><span class="t">Edge compute</span></a>
+  <a class="next" href="../subsystems/seekers.html"><span class="k">Next &middot; Architecture &rarr;</span><span class="t">Seekers</span></a>
+</nav>
 <footer>
   <div>Apollyon Dynamics &middot; Neo-Prime Wiki &middot; Rev 3.0</div>
   <div><a href="../doctrine/new-arsenal.html">The New Arsenal</a> &middot; <a href="../about/history.html">Company</a> &middot; <a href="../strategy/competitive.html">Competitive field</a> &middot; apollyondynamics.com</div>
 </footer>
 
 </main>
+<nav class="toc" aria-label="On this page">
+  <h4>On this page</h4>
+  <ul>
+    <li><a href="#baseline">A proprietary baseline</a></li>
+    <li><a href="#toolchain">The toolchain</a></li>
+    <li><a href="#authored">What Apollyon authors</a></li>
+    <li><a href="#verification">HIL verification</a></li>
+    <li><a href="#governance">Configuration governance</a></li>
+    <li><a href="#roadmap">Veronte now, in-house next</a></li>
+    <li><a href="#usedby">Used by</a></li>
+  </ul>
+  <a class="toc-top" href="#top">Back to top &uarr;</a>
+</nav>
 </div>
 </div>
 </body>

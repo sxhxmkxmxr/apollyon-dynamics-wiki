@@ -3,85 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Strike Design Space — Apollyon Dynamics Wiki</title>
+<title>Strike design space — Apollyon Dynamics Wiki</title>
 <meta name="description" content="Apollyon Dynamics engineering wiki — technical analysis of the standoff strike design space, salvo arithmetic, and manufacturing models.">
 <link rel="icon" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/wiki.css">
+<script src="../js/wiki.js" defer></script>
 </head>
-<body>
+<body id="top" data-section="doctrine">
 
 <div class="rail">
   <div class="rail-inner">
+    <button class="rail-menu" type="button" aria-controls="site-nav" aria-expanded="false"><span class="bars" aria-hidden="true"></span><span class="lbl">Menu</span></button>
     <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
-    <nav class="rail-links">
-      <a href="../index.html#thesis">Thesis</a>
-      <a href="../index.html#products">Products</a>
-      <a href="../strategy/trajectory.html">Strategy</a>
-      <a href="../architecture/index.html">Architecture</a>
-      <a href="../strategic-dependency/full-record.html">Dependencies</a>
-      <a href="../doctrine/new-arsenal.html" class="on">Doctrine</a>
-      <a href="../about/history.html">Company</a>
+    <nav class="rail-links" aria-label="Sections">
+      <a id="rail-thesis" href="../index.html#thesis">Thesis</a>
+      <a id="rail-products" href="../index.html#products">Products</a>
+      <a id="rail-architecture" href="../architecture/index.html">Architecture</a>
+      <a id="rail-strategy" href="../strategy/trajectory.html">Strategy</a>
+      <a id="rail-doctrine" href="../doctrine/new-arsenal.html" class="on">Doctrine</a>
+      <a id="rail-company" href="../about/history.html">Company</a>
     </nav>
   </div>
+  <div class="rail-progress" aria-hidden="true"><i></i></div>
 </div>
 <div class="shell">
 <div class="layout">
 
-<aside class="aside">
-  <h4>On this page</h4>
-  <ul>
-    <li><a href="#space">The design space</a></li>
-    <li><a href="#tiers">Strike tiers</a></li>
-    <li><a href="#arithmetic">Salvo arithmetic</a></li>
-    <li><a href="#philosophies">Three philosophies</a></li>
-    <li><a href="#requirement">The requirement sheet</a></li>
-    <li><a href="#answer">Product mapping</a></li>
-  </ul>
-  <nav class="atlas" aria-label="Wiki map">
-    <h4>Wiki map</h4>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232 650"><line class="spine" x1="16" y1="52" x2="16" y2="488"/><line class="spine" x1="16" y1="488" x2="16" y2="642"/><a href="../index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="10" width="220" height="42"/><text class="hub-t" x="18" y="27">INDEX</text><text class="hub-s" x="18" y="40">the argument · every path starts here</text><text class="hub-n" x="216" y="27" text-anchor="end">01</text></a><line class="spine" x1="16" y1="69" x2="28" y2="69"/><text class="cl" x="30" y="72">PRODUCTS</text><line class="rule" x1="30" y1="77" x2="222" y2="77"/><a href="../products/nightshade-adx1.html" class="atlas-node"><rect class="mk" x="30" y="84.5" width="5" height="5"/><text class="lb" x="41" y="92.5">Nightshade family</text></a><a href="../products/hemlock.html" class="atlas-node"><rect class="mk" x="30" y="101.5" width="5" height="5"/><text class="lb" x="41" y="109.5">Hemlock</text></a><a href="../products/ahuti.html" class="atlas-node"><rect class="mk" x="30" y="118.5" width="5" height="5"/><text class="lb" x="41" y="126.5">Ahuti interceptor</text></a><a href="../products/usv-strike.html" class="atlas-node"><rect class="mk" x="30" y="135.5" width="5" height="5"/><text class="lb" x="41" y="143.5">Piranha USV</text></a><text class="bridge" x="41" y="159">each machine configures the core ↓</text><line class="spine" x1="16" y1="180" x2="28" y2="180"/><text class="cl" x="30" y="183">STRATEGY</text><line class="rule" x1="30" y1="188" x2="222" y2="188"/><a href="../strategy/trajectory.html" class="atlas-node"><rect class="mk" x="30" y="195.5" width="5" height="5"/><text class="lb" x="41" y="203.5">Trajectory &amp; cost per kg·km</text></a><a href="../strategy/competitive.html" class="atlas-node"><rect class="mk" x="30" y="212.5" width="5" height="5"/><text class="lb" x="41" y="220.5">The competitive field</text></a><a href="../strategy/supply-chain.html" class="atlas-node"><rect class="mk" x="30" y="229.5" width="5" height="5"/><text class="lb" x="41" y="237.5">Supply chain</text></a><line class="spine" x1="16" y1="258" x2="28" y2="258"/><text class="cl on" x="30" y="261">DOCTRINE</text><line class="rule" x1="30" y1="266" x2="222" y2="266"/><a href="../doctrine/new-arsenal.html" class="atlas-node"><rect class="mk" x="30" y="273.5" width="5" height="5"/><text class="lb" x="41" y="281.5">The New Arsenal</text></a><a href="../doctrine/precision-is-mercy.html" class="atlas-node"><rect class="mk" x="30" y="290.5" width="5" height="5"/><text class="lb" x="41" y="298.5">Precision is Mercy</text></a><a href="../doctrine/missing-middle.html" class="atlas-node"><rect class="mk" x="30" y="307.5" width="5" height="5"/><text class="lb" x="41" y="315.5">The missing middle</text></a><a href="../doctrine/strike-design-space.html" class="atlas-node here"><rect class="mk" x="30" y="324.5" width="5" height="5"/><text class="lb" x="41" y="332.5">Strike design space</text></a><line class="spine" x1="16" y1="353" x2="28" y2="353"/><text class="cl" x="30" y="356">RECORD</text><line class="rule" x1="30" y1="361" x2="222" y2="361"/><a href="../about/history.html" class="atlas-node"><rect class="mk" x="30" y="368.5" width="5" height="5"/><text class="lb" x="41" y="376.5">Company history</text></a><a href="../about/team.html" class="atlas-node"><rect class="mk" x="30" y="385.5" width="5" height="5"/><text class="lb" x="41" y="393.5">Team &amp; advisors</text></a><a href="../strategic-dependency/full-record.html" class="atlas-node"><rect class="mk" x="30" y="402.5" width="5" height="5"/><text class="lb" x="41" y="410.5">The full record · 70 episodes</text></a><a href="../architecture/index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="440" width="220" height="42"/><text class="hub-t" x="18" y="457">ARCHITECTURE</text><text class="hub-s" x="18" y="470">the core · method, machine, loop</text><text class="hub-n" x="216" y="457" text-anchor="end">02</text></a><line class="spine" x1="16" y1="499" x2="28" y2="499"/><text class="cl" x="30" y="502">SUBSYSTEMS</text><line class="rule" x1="30" y1="507" x2="222" y2="507"/><a href="../subsystems/near-envelope-control.html" class="atlas-node"><rect class="mk" x="30" y="514.5" width="5" height="5"/><text class="lb" x="41" y="522.5">Robust flight control</text></a><a href="../subsystems/gnss-denied-navigation.html" class="atlas-node"><rect class="mk" x="30" y="531.5" width="5" height="5"/><text class="lb" x="41" y="539.5">GNSS-denied navigation</text></a><a href="../subsystems/onboard-compute.html" class="atlas-node"><rect class="mk" x="30" y="548.5" width="5" height="5"/><text class="lb" x="41" y="556.5">Edge compute</text></a><a href="../subsystems/flight-software.html" class="atlas-node"><rect class="mk" x="30" y="565.5" width="5" height="5"/><text class="lb" x="41" y="573.5">Flight software</text></a><a href="../subsystems/seekers.html" class="atlas-node"><rect class="mk" x="30" y="582.5" width="5" height="5"/><text class="lb" x="41" y="590.5">Seekers</text></a><a href="../subsystems/airframe-structures.html" class="atlas-node"><rect class="mk" x="30" y="599.5" width="5" height="5"/><text class="lb" x="41" y="607.5">Airframe &amp; structures</text></a><a href="../subsystems/launch-systems.html" class="atlas-node"><rect class="mk" x="30" y="616.5" width="5" height="5"/><text class="lb" x="41" y="624.5">Launch &amp; ground</text></a></svg>
-  </nav>
-  <div class="groups">
-  <h4>Products</h4>
-  <ul>
-    <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
-    <li><a href="../products/hemlock.html">Hemlock</a></li>
-    <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
-    <li><a href="../products/usv-strike.html">Piranha USV</a></li>
-  </ul>
-  <h4>Strategy</h4>
-  <ul>
-    <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
-    <li><a href="../strategy/competitive.html">The competitive field</a></li>
-    <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
-  </ul>
-  <h4>Architecture</h4>
-  <ul>
-    <li><a href="../architecture/index.html">The shared core</a></li>
-    <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
-    <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
-    <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
-    <li><a href="../subsystems/flight-software.html">Flight software</a></li>
-    <li><a href="../subsystems/seekers.html">Seekers</a></li>
-    <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
-    <li><a href="../subsystems/launch-systems.html">Launch &amp; ground</a></li>
-  </ul>
-  <h4>Doctrine</h4>
-  <ul>
-    <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
-    <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
-    <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
-    <li><a href="../doctrine/strike-design-space.html" class="here">Strike design space</a></li>
-  </ul>
-  <h4>Record</h4>
-  <ul>
-    <li><a href="../about/history.html">Company history</a></li>
-    <li><a href="../about/team.html">Team &amp; advisors</a></li>
-    <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
-  </ul>
+<aside class="aside" id="site-nav" aria-label="Wiki navigation">
+  <div class="nav-group">
+    <h4><span class="n">01</span>Overview</h4>
+    <ul>
+      <li><a href="../index.html">The argument</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">02</span>Products</h4>
+    <ul>
+      <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
+      <li><a href="../products/hemlock.html">Hemlock</a></li>
+      <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
+      <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">03</span>Architecture</h4>
+    <ul>
+      <li><a href="../architecture/index.html">The shared core</a></li>
+      <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
+      <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
+      <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
+      <li><a href="../subsystems/flight-software.html">Flight software</a></li>
+      <li><a href="../subsystems/seekers.html">Seekers</a></li>
+      <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
+      <li><a href="../subsystems/launch-systems.html">Launch &amp; ground systems</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">04</span>Strategy</h4>
+    <ul>
+      <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
+      <li><a href="../strategy/market.html">The market</a></li>
+      <li><a href="../strategy/competitive.html">The competitive field</a></li>
+      <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
+    </ul>
+  </div>
+  <div class="nav-group on">
+    <h4><span class="n">05</span>Doctrine</h4>
+    <ul>
+      <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
+      <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
+      <li><a href="../doctrine/missing-middle.html">The Missing Middle</a></li>
+      <li class="here"><a href="../doctrine/strike-design-space.html" aria-current="page">Strike design space</a>
+        <ul class="nav-toc">
+          <li><a href="#space">The design space</a></li>
+          <li><a href="#tiers">Strike tiers</a></li>
+          <li><a href="#arithmetic">Salvo arithmetic</a></li>
+          <li><a href="#philosophies">Three philosophies</a></li>
+          <li><a href="#requirement">The requirement sheet</a></li>
+          <li><a href="#answer">Product mapping</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">06</span>Record</h4>
+    <ul>
+      <li><a href="../about/history.html">Company history</a></li>
+      <li><a href="../about/team.html">Team &amp; advisors</a></li>
+      <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
+    </ul>
   </div>
 </aside>
 
@@ -96,7 +109,7 @@
     <img src="../assets/logos/logo-text-white.png" alt="Apollyon Dynamics" class="brand-text">
   </div>
   <div class="mast-meta">Technical Reference &middot; A worked application of <a href="missing-middle.html">The Missing Middle</a> doctrine</div>
-  <h1>The Standoff Strike <span class="sub">Design Space</span></h1>
+  <h1>The standoff strike <span class="sub">design space</span></h1>
   <p class="standfirst">A technical evaluation of the operational layer between exquisite multi-crore cruise missiles and slow tactical loitering munitions: three-axis trade spaces, salvo dynamics against integrated air defences, and comparative manufacturing philosophies.</p>
 </header>
 
@@ -120,8 +133,8 @@
     <div class="card">
       <div class="kicker">Tier A &middot; Strategic deterrence</div>
       <h3>Strategic cruise &amp; ballistic</h3>
-      <p>High-value, hardened, time-critical targets: strategic command centers, airbase infrastructure, hardened revetments, and capital ships. Low production rates and high unit costs remain justified by mission criticality. BrahMos, Pralay, Nirbhay / LRLACM, Agni series, and LRAShM.</p>
-      <div class="foot"><span>₹25–35 Cr / round</span><span>~8 / month</span></div>
+      <p>High-value, hardened, time-critical targets: strategic command centers, airbase infrastructure, hardened revetments, and capital ships. Built in series — BrahMos and Pralay at an officially stated 100–200 rounds a year — but at unit costs that reserve them for the highest-value targets. BrahMos, Pralay, Nirbhay / LRLACM, Agni series, and LRAShM.</p>
+      <div class="foot"><span>₹25–35 Cr / round</span><span>100–200 / year</span></div>
     </div>
     <div class="card">
       <div class="kicker">Tier B &middot; Tactical loitering</div>
@@ -138,7 +151,7 @@
   </div>
 
   <div class="stats">
-    <div class="stat"><div class="n accent">~100 / yr</div><div class="d">LRLACM production baseline: suitable for exquisite stockpiles, but insufficient for sustained high-intensity campaigns</div></div>
+    <div class="stat"><div class="n accent">100–200 / yr</div><div class="d">BrahMos and Pralay serial output (official figures): the right volume for high-value targets, but too costly per round to spend on every target a campaign has to hit</div></div>
     <div class="stat"><div class="n">₹1.78 lakh Cr</div><div class="d">FY2025–26 Indian defence production, with private sector firms delivering roughly ₹42,000 crore</div></div>
     <div class="stat"><div class="n">DAP 2026</div><div class="d">Draft framework ending public monopolies on tactical missiles, selecting private firms as development-cum-production partners</div></div>
     <div class="stat"><div class="n">4,500 m</div><div class="d">Plateau launch floor across Ladakh and Sikkim, where low air density reduces turbine thrust and aerodynamic lift</div></div>
@@ -149,12 +162,7 @@
   <div class="sec-tag">03 &middot; Salvo arithmetic</div>
   <h2>The mathematical necessity of the middle tier</h2>
   <p>The operational requirement for an attritable strike layer rests on salvo arithmetic. Consider an engagement against a defended theater command with a fixed procurement budget split between cheap attritable effectors and heavy cruise missiles. Target sets divide into two physical categories: relocatable assets (radars, launcher vehicles, fuel dumps, communication bridges) that succumb to 50–100 kg warheads, and hardened concrete installations (underground bunkers, aircraft shelters) that require heavy penetrators.</p>
-  <p>Three salvo outcomes emerge consistently across war games:</p>
-  <ol>
-    <li><strong>All-exquisite salvos leave the majority of targets untouched:</strong> Small peacetime inventories deplete within days, allowing hostile air defences to concentrate interceptors against a handful of inbound tracks.</li>
-    <li><strong>All-cheap salvos degrade soft targets but fail against hardened defences:</strong> Light tactical munitions lack the kinetic energy and penetrating mass to collapse reinforced concrete revetments.</li>
-    <li><strong>Mixed salvos outperform single-tier inventories:</strong> Inexpensive effectors overwhelm radar tracking channels, forcing defenders to deplete surface-to-air missile magazines before heavy penetrators arrive.</li>
-  </ol>
+  <p>The outcome is the same across war games: all-exquisite salvos leave most targets untouched, all-cheap salvos fail against hardened sites, and a mixture beats both. The <a href="../strategy/trajectory.html#salvo">salvo model on the trajectory page</a> works through the numbers with every constant exposed.</p>
   <p>Salvo firing sequences dictate campaign efficiency. Firing inexpensive rounds first forces hostile radar emitters to radiate and expend multi-crore interceptors. Heavy cruise missiles then navigate through depleted air defence envelopes. Reversing this sequence wastes multi-crore weapons against intact point defences.</p>
   
   <div class="callout eq">
@@ -169,50 +177,14 @@
 <section id="philosophies">
   <div class="sec-tag">04 &middot; Comparative</div>
   <h2>Three manufacturing models and India's sovereign advantage</h2>
-  <div class="tw">
-    <table>
-      <caption>Constraint-first, manufacturing-first, ecosystem-first</caption>
-      <thead><tr><th>Philosophy</th><th>Method</th><th>Structural risk</th></tr></thead>
-      <tbody>
-        <tr>
-          <td>Constraint-first<br><span class="muted">Fire Point &middot; FP-5 Flamingo</span></td>
-          <td>Designs weapons around existing component stockpiles—such as surplus AI-25 aircraft engines. A 12.6-metre airframe and 1,150 kg warhead follow downstream from a single available 350 kg powerplant.</td>
-          <td>Stockpile exhaustion creates an insurmountable production ceiling. By 2026, dwindling engine reserves capped manufacturing at three units daily, forcing delayed redesigns of domestic replacements.</td>
-        </tr>
-        <tr>
-          <td>Manufacturing-first<br><span class="muted">Anduril &middot; Barracuda</span></td>
-          <td>Designs automated production lines first, deriving missile structures from commercial tooling. Incorporates 70% commodity parts and requires ten hand tools for assembly across four engine suppliers.</td>
-          <td>Relies on massive upfront procurement orders. Without sustained government procurement volume, tooling amortisation stalls and unit costs rise toward boutique defence levels.</td>
-        </tr>
-        <tr>
-          <td>Ecosystem-first<br><span class="muted">India &middot; Apollyon model</span></td>
-          <td>Leverages India's existing tier-1 automotive, casting, and precision-machining industrial base. Couples domestic aerospace engineering with commercial manufacturing scale and sovereign software stacks.</td>
-          <td>Requires disciplined engineering tradeoffs: sizing weapons to domestic manufacturing tooling, maintaining strict parts commonality, and designing around verified domestic suppliers.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <p>Foreign approaches cannot be replicated directly. Surplus engines depend on legacy Soviet inventories, while Western manufacturing models rely on massive single-buyer contracts. Apollyon builds on the Indian industrial base that exists today.</p>
+  <p>There are three ways to reach affordable strike today. Ukraine's Fire Point designs around surplus engines it already holds; Anduril designs the production line first and derives the missile from commercial tooling; the Indian route builds on the automotive, casting and precision-machining base that already exists. Each carries its own structural risk: stockpile exhaustion, dependence on very large orders, and the discipline of sizing weapons to domestic tooling. <a href="../strategy/competitive.html#philosophies">The three models, compared system by system &rarr;</a></p>
 </section>
 
 <section id="requirement">
   <div class="sec-tag">05 &middot; The requirement sheet</div>
   <h2>Aligning procurement metrics with wartime replenishment</h2>
   <p>Peacetime procurement contracts specify range, velocity, payload mass, and circular error probable. They rarely evaluate monthly production throughput or supply chain independence. A weapon requiring imported components with two-year lead times receives the same evaluation as an airframe built entirely from domestic casting lines. Sustainable defence demands replenishment metrics on procurement balance sheets.</p>
-  <div class="tw">
-    <table>
-      <caption>What is specified today versus wartime requirements</caption>
-      <thead><tr><th>Specified today &middot; peacetime boutique procurement</th><th>Also required &middot; wartime replenishment and mass</th></tr></thead>
-      <tbody>
-        <tr><td>Range (km)</td><td>Unit cost at volume production (₹ / round)</td></tr>
-        <tr><td>Cruise speed (Mach)</td><td>Assembly labour hours per airframe</td></tr>
-        <tr><td>Circular error probable (m)</td><td>Unique custom part count</td></tr>
-        <tr><td>Warhead mass and chemistry (kg)</td><td>Qualified domestic suppliers per critical component (&ge; 2)</td></tr>
-        <tr><td>Launch platform interface compatibility</td><td>Sustained monthly manufacturing capacity (rounds / month)</td></tr>
-        <tr><td>Environmental qualification (MIL-STD)</td><td>Replenishment lead time (weeks) &middot; domestic content by value (%) &middot; depot storage life (years)</td></tr>
-      </tbody>
-    </table>
-  </div>
+  <p>The replenishment metrics a wartime requirement sheet should add — unit cost at volume, assembly hours, unique part count, qualified domestic suppliers per part, monthly capacity and replenishment lead time — are set out on <a href="../strategy/trajectory.html#requirement">the trajectory page</a>.</p>
 </section>
 
 <section id="answer">
@@ -220,8 +192,8 @@
   <h2>The unified middle-layer product family</h2>
   <p>Apollyon addresses this gap with a cohesive system architecture rather than isolated airframes. Common subsystems span the entire product family:</p>
   <ul>
-    <li><strong>Indigenous Turbojet Propulsion:</strong> Scalable turbojets spanning 40–100 kgf micro-turbines up to the Manik 450 kgf turbofan.</li>
-    <li><strong>Anti-Jam Multi-Constellation Navigation:</strong> NavIC and GPS protected by 7-element CRPA spatial nulling arrays—see <a href="../subsystems/gnss-denied-navigation.html#crpa">Anti-jam GNSS</a>.</li>
+    <li><strong>Turbojet Propulsion:</strong> 40 kgf-class micro-turbines today, scaling up to the indigenous Manik 450 kgf turbofan.</li>
+    <li><strong>Anti-Jam Multi-Constellation Navigation:</strong> NavIC and GPS protected by CRPA spatial nulling arrays (four-element on Nightshade, seven-element on Hemlock)—see <a href="../subsystems/gnss-denied-navigation.html#crpa">Anti-jam GNSS</a>.</li>
     <li><strong>Passive Optical Terminal Tracking:</strong> Day and night imaging seekers operating without RF emissions—see <a href="../subsystems/seekers.html">Seekers</a>.</li>
     <li><strong>Automotive Composite and Stamped Structures:</strong> Progressive die bulkheads and out-of-autoclave composite fuselages—see <a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a>.</li>
     <li><strong>Unified Real-Time Autonomy:</strong> One deterministic flight-software baseline across the Nightshade family, with later programmes inheriting the method—see the <a href="../architecture/index.html#sharing">subsystem commonality matrix</a>.</li>
@@ -235,12 +207,28 @@
   <span>Apollyon Dynamics &middot; Doctrine Reference &middot; Strike Design Space</span>
 </div>
 
+<nav class="pager" aria-label="Reading order">
+  <a class="prev" href="../doctrine/missing-middle.html"><span class="k">&larr; Previous &middot; Doctrine</span><span class="t">The Missing Middle</span></a>
+  <a class="next" href="../about/history.html"><span class="k">Next &middot; Record &rarr;</span><span class="t">Company history</span></a>
+</nav>
 <footer>
   <div>Apollyon Dynamics &middot; Neo-Prime Wiki &middot; Rev 3.0</div>
   <div><a href="../doctrine/new-arsenal.html">The New Arsenal</a> &middot; <a href="../about/history.html">Company</a> &middot; <a href="../strategy/competitive.html">Competitive field</a> &middot; apollyondynamics.com</div>
 </footer>
 
 </main>
+<nav class="toc" aria-label="On this page">
+  <h4>On this page</h4>
+  <ul>
+    <li><a href="#space">The design space</a></li>
+    <li><a href="#tiers">Strike tiers</a></li>
+    <li><a href="#arithmetic">Salvo arithmetic</a></li>
+    <li><a href="#philosophies">Three philosophies</a></li>
+    <li><a href="#requirement">The requirement sheet</a></li>
+    <li><a href="#answer">Product mapping</a></li>
+  </ul>
+  <a class="toc-top" href="#top">Back to top &uarr;</a>
+</nav>
 </div>
 </div>
 </body>

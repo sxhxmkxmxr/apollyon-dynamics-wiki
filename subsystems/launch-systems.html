@@ -3,89 +3,102 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Launch &amp; ground systems &mdash; Apollyon Dynamics Wiki</title>
+<title>Launch &amp; ground systems — Apollyon Dynamics Wiki</title>
 <meta name="description" content="Apollyon Dynamics engineering wiki — autonomous strike, interception and battlefield-intelligence systems, with the shared architecture they are built from.">
 <link rel="icon" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/wiki.css">
+<script src="../js/wiki.js" defer></script>
 </head>
-<body>
+<body id="top" data-section="architecture">
 
 <div class="rail">
   <div class="rail-inner">
+    <button class="rail-menu" type="button" aria-controls="site-nav" aria-expanded="false"><span class="bars" aria-hidden="true"></span><span class="lbl">Menu</span></button>
     <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
-    <nav class="rail-links">
-      <a href="../index.html#thesis">Thesis</a>
-      <a href="../index.html#products">Products</a>
-      <a href="../strategy/trajectory.html">Strategy</a>
-      <a href="../architecture/index.html" class="on">Architecture</a>
-      <a href="../strategic-dependency/full-record.html">Dependencies</a>
-      <a href="../doctrine/new-arsenal.html">Doctrine</a>
-      <a href="../about/history.html">Company</a>
+    <nav class="rail-links" aria-label="Sections">
+      <a id="rail-thesis" href="../index.html#thesis">Thesis</a>
+      <a id="rail-products" href="../index.html#products">Products</a>
+      <a id="rail-architecture" href="../architecture/index.html" class="on">Architecture</a>
+      <a id="rail-strategy" href="../strategy/trajectory.html">Strategy</a>
+      <a id="rail-doctrine" href="../doctrine/new-arsenal.html">Doctrine</a>
+      <a id="rail-company" href="../about/history.html">Company</a>
     </nav>
   </div>
+  <div class="rail-progress" aria-hidden="true"><i></i></div>
 </div>
 <div class="shell">
 <div class="layout">
 
-<aside class="aside">
-  <h4>On this page</h4>
-  <ul>
-    <li><a href="#register">Register</a></li>
-    <li><a href="#principles">Principles</a></li>
-    <li><a href="#host">Host platforms</a></li>
-    <li><a href="#usedby">Used by</a></li>
-  </ul>
-  <nav class="atlas" aria-label="Wiki map">
-    <h4>Wiki map</h4>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232 650"><line class="spine" x1="16" y1="52" x2="16" y2="488"/><line class="spine" x1="16" y1="488" x2="16" y2="642"/><a href="../index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="10" width="220" height="42"/><text class="hub-t" x="18" y="27">INDEX</text><text class="hub-s" x="18" y="40">the argument · every path starts here</text><text class="hub-n" x="216" y="27" text-anchor="end">01</text></a><line class="spine" x1="16" y1="69" x2="28" y2="69"/><text class="cl" x="30" y="72">PRODUCTS</text><line class="rule" x1="30" y1="77" x2="222" y2="77"/><a href="../products/nightshade-adx1.html" class="atlas-node"><rect class="mk" x="30" y="84.5" width="5" height="5"/><text class="lb" x="41" y="92.5">Nightshade family</text></a><a href="../products/hemlock.html" class="atlas-node"><rect class="mk" x="30" y="101.5" width="5" height="5"/><text class="lb" x="41" y="109.5">Hemlock</text></a><a href="../products/ahuti.html" class="atlas-node"><rect class="mk" x="30" y="118.5" width="5" height="5"/><text class="lb" x="41" y="126.5">Ahuti interceptor</text></a><a href="../products/usv-strike.html" class="atlas-node"><rect class="mk" x="30" y="135.5" width="5" height="5"/><text class="lb" x="41" y="143.5">Piranha USV</text></a><text class="bridge" x="41" y="159">each machine configures the core ↓</text><line class="spine" x1="16" y1="180" x2="28" y2="180"/><text class="cl" x="30" y="183">STRATEGY</text><line class="rule" x1="30" y1="188" x2="222" y2="188"/><a href="../strategy/trajectory.html" class="atlas-node"><rect class="mk" x="30" y="195.5" width="5" height="5"/><text class="lb" x="41" y="203.5">Trajectory &amp; cost per kg·km</text></a><a href="../strategy/competitive.html" class="atlas-node"><rect class="mk" x="30" y="212.5" width="5" height="5"/><text class="lb" x="41" y="220.5">The competitive field</text></a><a href="../strategy/supply-chain.html" class="atlas-node"><rect class="mk" x="30" y="229.5" width="5" height="5"/><text class="lb" x="41" y="237.5">Supply chain</text></a><line class="spine" x1="16" y1="258" x2="28" y2="258"/><text class="cl" x="30" y="261">DOCTRINE</text><line class="rule" x1="30" y1="266" x2="222" y2="266"/><a href="../doctrine/new-arsenal.html" class="atlas-node"><rect class="mk" x="30" y="273.5" width="5" height="5"/><text class="lb" x="41" y="281.5">The New Arsenal</text></a><a href="../doctrine/precision-is-mercy.html" class="atlas-node"><rect class="mk" x="30" y="290.5" width="5" height="5"/><text class="lb" x="41" y="298.5">Precision is Mercy</text></a><a href="../doctrine/missing-middle.html" class="atlas-node"><rect class="mk" x="30" y="307.5" width="5" height="5"/><text class="lb" x="41" y="315.5">The missing middle</text></a><a href="../doctrine/strike-design-space.html" class="atlas-node"><rect class="mk" x="30" y="324.5" width="5" height="5"/><text class="lb" x="41" y="332.5">Strike design space</text></a><line class="spine" x1="16" y1="353" x2="28" y2="353"/><text class="cl" x="30" y="356">RECORD</text><line class="rule" x1="30" y1="361" x2="222" y2="361"/><a href="../about/history.html" class="atlas-node"><rect class="mk" x="30" y="368.5" width="5" height="5"/><text class="lb" x="41" y="376.5">Company history</text></a><a href="../about/team.html" class="atlas-node"><rect class="mk" x="30" y="385.5" width="5" height="5"/><text class="lb" x="41" y="393.5">Team &amp; advisors</text></a><a href="../strategic-dependency/full-record.html" class="atlas-node"><rect class="mk" x="30" y="402.5" width="5" height="5"/><text class="lb" x="41" y="410.5">The full record · 70 episodes</text></a><a href="../architecture/index.html" class="atlas-hub"><rect class="hub-plate" x="6" y="440" width="220" height="42"/><text class="hub-t" x="18" y="457">ARCHITECTURE</text><text class="hub-s" x="18" y="470">the core · method, machine, loop</text><text class="hub-n" x="216" y="457" text-anchor="end">02</text></a><line class="spine" x1="16" y1="499" x2="28" y2="499"/><text class="cl on" x="30" y="502">SUBSYSTEMS</text><line class="rule" x1="30" y1="507" x2="222" y2="507"/><a href="../subsystems/near-envelope-control.html" class="atlas-node"><rect class="mk" x="30" y="514.5" width="5" height="5"/><text class="lb" x="41" y="522.5">Robust flight control</text></a><a href="../subsystems/gnss-denied-navigation.html" class="atlas-node"><rect class="mk" x="30" y="531.5" width="5" height="5"/><text class="lb" x="41" y="539.5">GNSS-denied navigation</text></a><a href="../subsystems/onboard-compute.html" class="atlas-node"><rect class="mk" x="30" y="548.5" width="5" height="5"/><text class="lb" x="41" y="556.5">Edge compute</text></a><a href="../subsystems/flight-software.html" class="atlas-node"><rect class="mk" x="30" y="565.5" width="5" height="5"/><text class="lb" x="41" y="573.5">Flight software</text></a><a href="../subsystems/seekers.html" class="atlas-node"><rect class="mk" x="30" y="582.5" width="5" height="5"/><text class="lb" x="41" y="590.5">Seekers</text></a><a href="../subsystems/airframe-structures.html" class="atlas-node"><rect class="mk" x="30" y="599.5" width="5" height="5"/><text class="lb" x="41" y="607.5">Airframe &amp; structures</text></a><a href="../subsystems/launch-systems.html" class="atlas-node here"><rect class="mk" x="30" y="616.5" width="5" height="5"/><text class="lb" x="41" y="624.5">Launch &amp; ground</text></a></svg>
-  </nav>
-  <div class="groups">
-  <h4>Products</h4>
-  <ul>
-    <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
-    <li><a href="../products/hemlock.html">Hemlock</a></li>
-    <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
-    <li><a href="../products/usv-strike.html">Piranha USV</a></li>
-  </ul>
-  <h4>Strategy</h4>
-  <ul>
-    <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
-    <li><a href="../strategy/competitive.html">The competitive field</a></li>
-    <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
-  </ul>
-  <h4>Architecture</h4>
-  <ul>
-    <li><a href="../architecture/index.html">The shared core</a></li>
-    <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
-    <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
-    <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
-    <li><a href="../subsystems/flight-software.html">Flight software</a></li>
-    <li><a href="../subsystems/seekers.html">Seekers</a></li>
-    <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
-    <li><a href="../subsystems/launch-systems.html" class="here">Launch &amp; ground</a></li>
-  </ul>
-  <h4>Doctrine</h4>
-  <ul>
-    <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
-    <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
-    <li><a href="../doctrine/missing-middle.html">The missing middle</a></li>
-    <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
-  </ul>
-  <h4>Record</h4>
-  <ul>
-    <li><a href="../about/history.html">Company history</a></li>
-    <li><a href="../about/team.html">Team &amp; advisors</a></li>
-    <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
-  </ul>
+<aside class="aside" id="site-nav" aria-label="Wiki navigation">
+  <div class="nav-group">
+    <h4><span class="n">01</span>Overview</h4>
+    <ul>
+      <li><a href="../index.html">The argument</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">02</span>Products</h4>
+    <ul>
+      <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
+      <li><a href="../products/hemlock.html">Hemlock</a></li>
+      <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
+      <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+    </ul>
+  </div>
+  <div class="nav-group on">
+    <h4><span class="n">03</span>Architecture</h4>
+    <ul>
+      <li><a href="../architecture/index.html">The shared core</a></li>
+      <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
+      <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
+      <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
+      <li><a href="../subsystems/flight-software.html">Flight software</a></li>
+      <li><a href="../subsystems/seekers.html">Seekers</a></li>
+      <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
+      <li class="here"><a href="../subsystems/launch-systems.html" aria-current="page">Launch &amp; ground systems</a>
+        <ul class="nav-toc">
+          <li><a href="#register">Register</a></li>
+          <li><a href="#principles">Principles</a></li>
+          <li><a href="#host">Host platforms</a></li>
+          <li><a href="#usedby">Used by</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">04</span>Strategy</h4>
+    <ul>
+      <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
+      <li><a href="../strategy/market.html">The market</a></li>
+      <li><a href="../strategy/competitive.html">The competitive field</a></li>
+      <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">05</span>Doctrine</h4>
+    <ul>
+      <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
+      <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
+      <li><a href="../doctrine/missing-middle.html">The Missing Middle</a></li>
+      <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
+    </ul>
+  </div>
+  <div class="nav-group">
+    <h4><span class="n">06</span>Record</h4>
+    <ul>
+      <li><a href="../about/history.html">Company history</a></li>
+      <li><a href="../about/team.html">Team &amp; advisors</a></li>
+      <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
+    </ul>
   </div>
 </aside>
 
 <main class="main">
 
-<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../architecture/index.html#subsystems">Subsystems</a><span>/</span>Ground segment / Launch systems</div>
+<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../architecture/index.html#subsystems">Subsystems</a><span>/</span>Launch &amp; ground systems</div>
 <header class="masthead">
     <div class="mast-brand-lockup">
     <img src="../assets/logos/logo-ad-white.png" alt="Apollyon Dynamics Mark" class="brand-mark">
@@ -94,7 +107,7 @@
   </div>
   <div class="mast-meta">Ground segment · launchers, canisters and readiness <span>· core subsystem · all strike and intercept systems</span></div>
   <h1>Launch and <span class="sub">ground systems</span></h1>
-  <p class="standfirst">Readiness time functions as a core design specification. An interceptor that requires ten minutes of preparation misses its engagement window, while a strike missile that demands prepared launch pads cannot disperse across tactical terrain.</p>
+  <p class="standfirst">Readiness time is a core design requirement. An interceptor that requires ten minutes of preparation misses its engagement window, while a strike missile that demands prepared launch pads cannot disperse across tactical terrain.</p>
 </header>
 
 <section id="register">
@@ -112,13 +125,13 @@
         </tr>
         <tr>
           <td><a href="../products/nightshade-adx1.html">Nightshade ADX-1</a></td>
-          <td>Ground-mobile tactical launcher; Mk I supports pneumatic catapult, vehicle roof-rail, and car-top launch.</td>
-          <td>Under 30 minutes from road arrival to launch-ready.</td>
+          <td>Ground-mobile tactical launcher; catapult, tactical-vehicle rail and RATO launch (Mk I flew from a pneumatic catapult and car-top rail).</td>
+          <td>Under 25 minutes from road arrival to launch-ready.</td>
         </tr>
         <tr>
           <td><a href="../products/ahuti.html">Ahuti</a></td>
           <td>Hermetically sealed launch canister, cued by sector radar.</td>
-          <td>Sub-second ignition upon radar track declaration.</td>
+          <td>Sub-second ignition once release is given on a radar track.</td>
         </tr>
       </tbody>
     </table>
@@ -133,20 +146,20 @@
   <p>An air-breathing turbojet cannot accelerate a 1,500 kg missile from zero airspeed. A solid rocket booster accelerates the round off a zero-length rail, delivering the airframe to turbojet ignition speed within 2.5 seconds before cleanly jettisoning. Encapsulating the rail inside a sealed canister allows standard 8×8 military trucks to transport, erect, and fire rounds without fixed launch infrastructure.</p>
 
   <h3>Rapid deployment across extreme temperature envelopes</h3>
-  <p>Nightshade deploys from transport cases to flight status in under 30 minutes across ambient temperatures from <strong>−15 °C to +50 °C</strong>. The Hemlock launches from plateau floors at <strong>4,500 m AMSL and above</strong>, across a certified <strong>−30 °C to +55 °C</strong> band (HQ IDS TPCR 2025 item 15; Army questionnaire, July 2026).</p>
+  <p>Nightshade deploys from transport cases to flight status in under 25 minutes across ambient temperatures from <strong>−15 °C to +50 °C</strong>. The Hemlock launches from plateau floors at <strong>4,500 m AMSL and above</strong>, across a certified <strong>−30 °C to +55 °C</strong> band (HQ IDS TPCR 2025 item 15; Army questionnaire, July 2026).</p>
 
   <h3>Immediate response for interceptor canisters</h3>
-  <p>Ahuti's readiness constraint is dictated by incoming threat velocities rather than operator scheduling. The round requires zero field assembly, propellant servicing, or sensor alignment. Sealed canisters stand on ready alert; when sector radar establishes a track file, the interceptor launches automatically under radar guidance without preliminary visual search.</p>
+  <p>Ahuti's readiness is set by how fast the threat is coming, not by the crew's schedule. The round requires zero field assembly, propellant servicing, or sensor alignment. Sealed canisters stand on ready alert; when sector radar establishes a track, the interceptor is ready to fly the moment the commander releases it, under radar guidance and without a preliminary visual search.</p>
 </section>
 
 <section id="host">
   <div class="sec-tag">03 · Host platforms</div>
   <h2>Chassis compatibility and command links</h2>
-  <p>Launch hardware mounts directly onto standard Indian Army high-mobility logistics vehicles. This integration leverages existing maintenance depots, spare parts inventories, and driver certifications instead of introducing proprietary transport platforms.</p>
-  <p>When forward radar and C2 operate in the sector, local air picture feeds tracking vectors directly to canister batteries, while target nomination pipelines allocate coordinates to strike packages. Ground launchers connect over standard tactical networks to receive mission assignments.</p>
+  <p>Launch hardware mounts directly onto standard Indian Army high-mobility logistics vehicles. That lets it use existing maintenance depots, spare parts inventories, and driver certifications instead of introducing proprietary transport platforms.</p>
+  <p>When forward radar and C2 operate in the sector, the local air picture sends tracks straight to the canister batteries, and target nominations pass coordinates to strike packages. Ground launchers connect over standard tactical networks to receive mission assignments.</p>
   <div class="note key">
     <div class="t">Command hierarchy boundary</div>
-    <p>Automated software does not execute autonomous weapon release. Mission systems correlate tracks and nominate engagement solutions, while human commanders retain sole authority for launch decisions. See <a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a>.</p>
+    <p>Software never releases a weapon on its own. Mission systems correlate tracks and nominate engagement solutions, while human commanders retain sole authority for launch decisions. See <a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a>.</p>
   </div>
 </section>
 
@@ -163,12 +176,26 @@
   </div>
 </section>
 
+<nav class="pager" aria-label="Reading order">
+  <a class="prev" href="../subsystems/airframe-structures.html"><span class="k">&larr; Previous &middot; Architecture</span><span class="t">Airframe &amp; structures</span></a>
+  <a class="next" href="../strategy/trajectory.html"><span class="k">Next &middot; Strategy &rarr;</span><span class="t">Trajectory &amp; cost per kg&middot;km</span></a>
+</nav>
 <footer>
   <div>Apollyon Dynamics &middot; Neo-Prime Wiki &middot; Rev 3.0</div>
   <div><a href="../doctrine/new-arsenal.html">The New Arsenal</a> &middot; <a href="../about/history.html">Company</a> &middot; <a href="../strategy/competitive.html">Competitive field</a> &middot; apollyondynamics.com</div>
 </footer>
 
 </main>
+<nav class="toc" aria-label="On this page">
+  <h4>On this page</h4>
+  <ul>
+    <li><a href="#register">Register</a></li>
+    <li><a href="#principles">Principles</a></li>
+    <li><a href="#host">Host platforms</a></li>
+    <li><a href="#usedby">Used by</a></li>
+  </ul>
+  <a class="toc-top" href="#top">Back to top &uarr;</a>
+</nav>
 </div>
 </div>
 </body>
