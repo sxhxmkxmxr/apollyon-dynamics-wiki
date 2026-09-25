@@ -112,7 +112,7 @@
   </div>
   <div class="mast-meta">Class C · Maritime <span>· dual-use surface vessel · hull &amp; hardware in development</span></div>
   <h1>Piranha USV, <span class="sub">strike and surveillance from one hull</span></h1>
-  <p class="standfirst">A low-observable, attritable unmanned surface vessel built on a common wave-piercing hull for strike and persistent maritime ISR. In its strike role, Piranha is designed to carry a 150–250 kg class shaped-charge warhead over 300–500 km using non-satellite maritime odometry and terminal optical tracking. In its dual-use role, it provides coastal agencies with persistent autonomous patrol without crewed vessels.</p>
+  <p class="standfirst">A small unmanned surface vessel carrying a marine radar and a stabilised EO/IR payload. The same hull works as a reconnaissance craft, building a radar and camera picture of the coast and shipping lanes, and as a one-way strike craft with a 50 kg+ class warhead. Top speed is 65 km/h.</p>
   <p class="standfirst">The hull and onboard hardware are in build now, with sea trials from the end of 2026. Navigation and control follow the core Apollyon approach: physical references the vessel senses for itself, no dependence on GNSS, and autonomy that runs on board.</p>
 </header>
 
@@ -125,46 +125,42 @@
     <div class="spec-grid">
       <div class="spec-col">
         <div class="spec-col-title">Hull &amp; vessel</div>
-        <div class="row"><div class="lbl">Displacement (full load)</div><div class="val">~1,000–1,200 kg (design target)</div></div>
-        <div class="row"><div class="lbl">Dry weight</div><div class="val">580 kg</div></div>
-        <div class="row"><div class="lbl">Length overall (LOA)</div><div class="val">5.80 m</div></div>
-        <div class="row"><div class="lbl">Beam overall (BOA)</div><div class="val">1.40 m</div></div>
-        <div class="row"><div class="lbl">Draft (static / planning)</div><div class="val">0.38 m / 0.18 m</div></div>
-        <div class="row"><div class="lbl">Radar cross section (X-band)</div><div class="val accent">low-observable faceted hull</div></div>
+        <div class="row"><div class="lbl">Hull</div><div class="val">Low-profile composite monohull</div></div>
+        <div class="row"><div class="lbl">Length overall</div><div class="val">~4 m class (design target)</div></div>
+        <div class="row"><div class="lbl">Displacement (full load)</div><div class="val">~400–600 kg (design target)</div></div>
+        <div class="row"><div class="lbl">Sea state</div><div class="val">Operates to sea state 3 (design target)</div></div>
+        <div class="row"><div class="lbl">Build</div><div class="val">Vacuum-infused composite</div></div>
       </div>
       <div class="spec-col">
         <div class="spec-col-title">Propulsion &amp; kinematics</div>
-        <div class="row"><div class="lbl">Engine type</div><div class="val">High-output marine turbo-diesel</div></div>
-        <div class="row"><div class="lbl">Power output</div><div class="val">260 hp (194 kW)</div></div>
-        <div class="row"><div class="lbl">Drive mechanism</div><div class="val">Twin steerable waterjets</div></div>
-        <div class="row"><div class="lbl">Sprint speed (calm sea)</div><div class="val accent">35–45 knots (design target)</div></div>
-        <div class="row"><div class="lbl">Economical cruise speed</div><div class="val">20–25 knots</div></div>
-        <div class="row"><div class="lbl">Operational range</div><div class="val accent">300–500 km (design target)</div></div>
+        <div class="row"><div class="lbl">Engine</div><div class="val">Marine engine, 60–90 hp class</div></div>
+        <div class="row"><div class="lbl">Drive</div><div class="val">Waterjet</div></div>
+        <div class="row"><div class="lbl">Top speed</div><div class="val accent">65 km/h (~35 knots)</div></div>
+        <div class="row"><div class="lbl">Cruise speed</div><div class="val">35–45 km/h</div></div>
+        <div class="row"><div class="lbl">Operational range</div><div class="val">150–250 km (design target)</div></div>
       </div>
       <div class="spec-col">
-        <div class="spec-col-title">Lethality &amp; payload</div>
-        <div class="row"><div class="lbl">Primary warhead</div><div class="val accent">150–250 kg class HE shaped charge</div></div>
-        <div class="row"><div class="lbl">Penetration capability</div><div class="val">defeats naval steel hull structure</div></div>
-        <div class="row"><div class="lbl">Fuse mechanism</div><div class="val">Multi-mode impact fuze</div></div>
-        <div class="row"><div class="lbl">Target classes</div><div class="val">Corvettes, frigates, LSTs, piers</div></div>
-        <div class="row"><div class="lbl">Sea state rating</div><div class="val">Operates SS-4 · Survives SS-5</div></div>
-        <div class="row"><div class="lbl">Swarm coordination</div><div class="val">Apollyon Mesh P2P link</div></div>
+        <div class="spec-col-title">Sensors &amp; payload</div>
+        <div class="row"><div class="lbl">Marine radar</div><div class="val accent">Compact X-band surveillance radar</div></div>
+        <div class="row"><div class="lbl">EO/IR</div><div class="val accent">Stabilised day and thermal gimbal</div></div>
+        <div class="row"><div class="lbl">Warhead (strike)</div><div class="val">50 kg+ class HE</div></div>
+        <div class="row"><div class="lbl">Fuzing</div><div class="val">Contact and delayed-action</div></div>
+        <div class="row"><div class="lbl">Target classes</div><div class="val">Patrol craft, landing craft, moored vessels, jetties</div></div>
       </div>
       <div class="spec-col">
-        <div class="spec-col-title">Guidance &amp; autonomy</div>
-        <div class="row"><div class="lbl">Anti-jam GNSS</div><div class="val">NavIC L5/S + GPS (CRPA nulling)</div></div>
-        <div class="row"><div class="lbl">GNSS-denied navigation</div><div class="val">Coastline DSMAC + visual INS</div></div>
-        <div class="row"><div class="lbl">Terminal seeker</div><div class="val">Stabilised dual EO/MWIR sensor</div></div>
-        <div class="row"><div class="lbl">Terminal guidance</div><div class="val">Waterline tracking correlator</div></div>
-        <div class="row"><div class="lbl">Unit production target</div><div class="val">₹45–65 Lakh per unit</div></div>
-        <div class="row"><div class="lbl">Build methodology</div><div class="val">Infused carbon-aramid composite</div></div>
+        <div class="spec-col-title">Guidance, links &amp; cost</div>
+        <div class="row"><div class="lbl">Anti-jam GNSS</div><div class="val">NavIC + GPS with CRPA</div></div>
+        <div class="row"><div class="lbl">GNSS-denied navigation</div><div class="val">Coastline scene matching + inertial / DVL</div></div>
+        <div class="row"><div class="lbl">Terminal guidance</div><div class="val">Waterline tracking on the EO/IR gimbal</div></div>
+        <div class="row"><div class="lbl">Links</div><div class="val">Datalink to shore · mesh between craft</div></div>
+        <div class="row"><div class="lbl">Unit cost (estimate)</div><div class="val accent">₹1.5–2.5 crore</div></div>
       </div>
     </div>
   </div>
 
   <div class="note">
-    <div class="t">Doctrine alignment</div>
-    <p>Major surface combatants require years to construct and cost thousands of crores. Piranha is targeted under ₹65 lakh at rate, using vacuum resin-infusion tooling in domestic commercial boatyards. Sending sixty-lakh attritable surface craft forces adversaries to expend multi-crore surface-to-air missiles and close-in defensive ordnance, which turns the maritime cost exchange in the attacker's favour.</p>
+    <div class="t">Why it costs what it costs</div>
+    <p>Piranha is not a cheap boat. A marine radar and a stabilised EO/IR gimbal are the largest items in its ₹1.5–2.5 crore estimated cost; the hull, engine and waterjet are a smaller share. That buys a craft that can watch a stretch of coast for days in peacetime and, in the strike configuration, find and hit a target on its own sensors. It is still a small fraction of the cost of a crewed patrol vessel or an anti-ship missile.</p>
   </div>
 </section>
 
@@ -178,7 +174,7 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
         FIG. 01 &mdash; Piranha USV Planform &amp; Internal Equipment Packaging
       </div>
-      <span class="scale">Scale: 1:30 · Length: 5,800 mm · Dimensions in Millimetres</span>
+      <span class="scale">Scale: 1:22 · Length: ~4,200 mm · Dimensions in Millimetres · Design target</span>
     </div>
     <div class="blueprint-body">
       <svg viewBox="0 0 960 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CAD schematic of Piranha USV">
@@ -218,7 +214,7 @@
         <!-- Warhead Compartment: STA 0500-1800 (x=130 to x=320) -->
         <rect x="135" y="105" width="180" height="90" fill="url(#hatch_wh_usv)" stroke="#D92323" stroke-width="1.2" rx="4"/>
         <text x="225" y="146" fill="#D92323" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" text-anchor="middle">HE WARHEAD</text>
-        <text x="225" y="160" fill="#D92323" font-family="JetBrains Mono, monospace" font-size="7.5" text-anchor="middle">COPPER SHAPED-CHARGE LINER</text>
+        <text x="225" y="160" fill="#D92323" font-family="JetBrains Mono, monospace" font-size="7.5" text-anchor="middle">50 KG+ CLASS · STRIKE ONLY</text>
 
         <!-- Midship Bulkhead: x=320 -->
         <line x1="320" y1="85" x2="320" y2="215" stroke="#C7C4BD" stroke-width="1.5"/>
@@ -231,22 +227,22 @@
         <text x="370" y="153" fill="#ffffff" font-family="JetBrains Mono, monospace" font-size="7" font-weight="700" text-anchor="middle">EO/IR</text>
         <!-- Edge Compute Unit -->
         <rect x="400" y="130" width="45" height="40" fill="none" stroke="#F2EFE9" stroke-width="1"/>
-        <text x="422" y="153" fill="#F2EFE9" font-family="JetBrains Mono, monospace" font-size="6.5" font-weight="700" text-anchor="middle">MISSION</text>
+        <text x="422" y="153" fill="#F2EFE9" font-family="JetBrains Mono, monospace" font-size="6.5" font-weight="700" text-anchor="middle">RADAR</text>
 
         <!-- Fuel Bay (Baffled Self-Sealing Diesel Cells): STA 2800-4200 (x=460 to x=640) -->
         <line x1="460" y1="88" x2="460" y2="212" stroke="#C7C4BD" stroke-width="1.5"/>
         <rect x="465" y="94" width="170" height="112" fill="url(#hatch_fuel_usv)" stroke="#C7C4BD" stroke-width="1.2" rx="3"/>
         <line x1="550" y1="94" x2="550" y2="206" stroke="#C7C4BD" stroke-width="0.8" stroke-dasharray="4,2"/>
-        <text x="550" y="146" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" text-anchor="middle">DIESEL FUEL CELL (480 L)</text>
-        <text x="550" y="160" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="7.5" text-anchor="middle">RANGE 300–500 KM · DESIGN TARGET</text>
+        <text x="550" y="146" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" text-anchor="middle">FUEL CELL</text>
+        <text x="550" y="160" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="7.5" text-anchor="middle">RANGE 150–250 KM · DESIGN TARGET</text>
 
         <!-- Engine Room Bulkhead: x=640 -->
         <line x1="640" y1="90" x2="640" y2="210" stroke="#C7C4BD" stroke-width="1.5"/>
 
         <!-- Turbo-Diesel Engine: STA 4200-5200 (x=640 to x=790) -->
         <rect x="650" y="115" width="135" height="70" fill="rgba(161,158,151,0.07)" stroke="#A19E97" stroke-width="1.2" rx="2"/>
-        <text x="717" y="146" fill="#A19E97" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" text-anchor="middle">260 HP TURBO-DIESEL</text>
-        <text x="717" y="160" fill="#A19E97" font-family="JetBrains Mono, monospace" font-size="7.5" text-anchor="middle">ACOUSTIC DAMPED ENCLOSURE</text>
+        <text x="717" y="146" fill="#A19E97" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" text-anchor="middle">MARINE ENGINE · 60–90 HP</text>
+        <text x="717" y="160" fill="#A19E97" font-family="JetBrains Mono, monospace" font-size="7.5" text-anchor="middle">ENCLOSED ENGINE BAY</text>
 
         <!-- Driveshaft & Waterjet Bay: STA 5200-5800 (x=790 to x=880) -->
         <line x1="790" y1="95" x2="790" y2="205" stroke="#C7C4BD" stroke-width="1.2"/>
@@ -255,7 +251,7 @@
         <rect x="840" y="156" width="50" height="26" fill="#141414" stroke="#C7C4BD" stroke-width="1.2"/>
         <path d="M 890 120 L 920 124 L 920 138 L 890 142 Z" fill="rgba(199,196,189,0.15)" stroke="#C7C4BD" stroke-width="1"/>
         <path d="M 890 158 L 920 162 L 920 176 L 890 180 Z" fill="rgba(199,196,189,0.15)" stroke="#C7C4BD" stroke-width="1"/>
-        <text x="895" y="110" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="7.5">TWIN WATERJETS</text>
+        <text x="895" y="110" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="7.5">WATERJET</text>
 
         <!-- Station Lines & Callouts -->
         <g stroke="#C7C4BD" stroke-width="0.7" opacity="0.6">
@@ -268,11 +264,11 @@
         </g>
         <g fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="7.5" opacity="0.8">
           <text x="80" y="35" text-anchor="middle">STA 0000</text>
-          <text x="130" y="35" text-anchor="middle">STA 0500</text>
-          <text x="320" y="35" text-anchor="middle">STA 1800</text>
-          <text x="460" y="35" text-anchor="middle">STA 2800</text>
-          <text x="640" y="35" text-anchor="middle">STA 4200</text>
-          <text x="880" y="35" text-anchor="middle">STA 5800</text>
+          <text x="130" y="35" text-anchor="middle">STA 0400</text>
+          <text x="320" y="35" text-anchor="middle">STA 1300</text>
+          <text x="460" y="35" text-anchor="middle">STA 2000</text>
+          <text x="640" y="35" text-anchor="middle">STA 3000</text>
+          <text x="880" y="35" text-anchor="middle">STA 4200</text>
         </g>
 
         <!-- Dimension arrows below -->
@@ -281,11 +277,11 @@
           <line x1="80" y1="255" x2="80" y2="265"/>
           <line x1="880" y1="255" x2="880" y2="265"/>
         </g>
-        <text x="480" y="275" fill="#F2EFE9" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">OVERALL LENGTH: 5,800 MM · BEAM: 1,400 MM · DEPTH: 980 MM</text>
+        <text x="480" y="275" fill="#F2EFE9" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">OVERALL LENGTH: ~4,200 MM · BEAM: ~1,100 MM · DEPTH: ~700 MM</text>
       </svg>
     </div>
     <div class="blueprint-cap">
-      <b>CAD Station Reference</b> &mdash; Structural arrangement of the Piranha USV. From left: wave-piercing bow impact sensor (STA 0000–0500), shaped-charge warhead cavity (STA 0500–1800), stabilised optical mast and mission compute module (STA 1800–2800), baffled 480 L diesel tank (STA 2800–4200), turbocharged marine diesel (STA 4200–5200), and dual vectored waterjets with hydraulic trim tabs (STA 5200–5800).
+      <b>CAD Station Reference</b> &mdash; Arrangement of the Piranha USV, design target. From left: bow impact sensor (STA 0000–0400), warhead bay, fitted on the strike configuration only (STA 0400–1300), EO/IR gimbal mast, marine radar and mission computer (STA 1300–2000), fuel cell (STA 2000–3000), marine engine (STA 3000–3900) and waterjet (STA 3900–4200).
     </div>
   </div>
 </section>
@@ -293,32 +289,32 @@
 <section id="usecases">
   <div class="sec-tag">03 · Operational roles</div>
   <h2>Primary use cases</h2>
-  <p class="lede">The Piranha USV is built to strike in disputed littoral waters, island chains and hostile anchorages, where crewed naval vessels cannot operate without excessive risk.</p>
+  <p class="lede">Piranha works in littoral waters, island chains and approaches to ports, where a crewed boat would be at risk. Every craft carries the radar and EO/IR payload; strike craft add the warhead.</p>
 
   <div class="tw">
     <table>
       <caption>Operational mission sets</caption>
-      <thead><tr><th>Mission</th><th>Operational problem</th><th>USV solution</th></tr></thead>
+      <thead><tr><th>Mission</th><th>Operational problem</th><th>How Piranha is used</th></tr></thead>
       <tbody>
         <tr>
-          <td><strong>Littoral interdiction</strong></td>
-          <td>Hostile amphibious task forces and surface combatants operating within sovereign Exclusive Economic Zones (EEZ) and island territories.</td>
-          <td>Persistent low-profile patrol; the low-observable hull delays radar detection until close range, then a high-speed sprint closes the distance.</td>
+          <td><strong>Coastal reconnaissance</strong></td>
+          <td>Keeping a continuous picture of shipping lanes, coastline and island territory without tying up crewed vessels.</td>
+          <td>Patrols with the marine radar and EO/IR gimbal running and relays tracks and imagery to shore.</td>
         </tr>
         <tr>
-          <td><strong>Swarm saturation strike</strong></td>
-          <td>Modern multi-function naval radars and Close-In Weapon Systems (CIWS) engage isolated surface targets with high kill probability.</td>
-          <td>Salvos of 8–16 USVs coordinate arrival via mesh radio; multiple craft converge simultaneously from dispersed 360° bearings to overwhelm tracking channels.</td>
+          <td><strong>Littoral strike</strong></td>
+          <td>Hostile small combatants, landing craft and supply boats operating close to the coast.</td>
+          <td>A strike-configured craft finds the target on its own radar and camera, runs in at up to 65 km/h and detonates at the waterline.</td>
+        </tr>
+        <tr>
+          <td><strong>Coordinated strike</strong></td>
+          <td>A single small craft is easy for a defended vessel to track and engage.</td>
+          <td>Several craft coordinate their arrival over a mesh link and approach from different bearings, splitting the defender's attention.</td>
         </tr>
         <tr>
           <td><strong>Port &amp; anchorage denial</strong></td>
-          <td>Heavily defended enemy naval bases, submarine pens, and ammunition loading jetties shielded by GPS jammers and surface booms.</td>
-          <td>Autonomous non-satellite navigation using shoreline scene matching; enters through harbour mouths and strikes high-value moored combatants at the waterline.</td>
-        </tr>
-        <tr>
-          <td><strong>Choke point interdiction</strong></td>
-          <td>Strategic maritime straits where commercial and naval transit can be selectively blockaded or contested during heightened conflict.</td>
-          <td>Silent low-speed loitering (under 6 knots on auxiliary electric drive) for extended periods before spooling main diesel for sprint attack.</td>
+          <td>Defended harbours and anchorages under GNSS jamming.</td>
+          <td>Navigates by shoreline scene matching and targets moored vessels and jetty infrastructure.</td>
         </tr>
       </tbody>
     </table>
@@ -335,7 +331,7 @@
     <li><strong>CRPA Anti-Jam GNSS:</strong> Indigenous multi-element antenna suppresses coastal jammers by &gt;45 dB, maintaining NavIC/GPS lock during initial transit.</li>
     <li><strong>Hydro-Inertial Dead Reckoning:</strong> Tactical IMUs fused with a Doppler Velocity Log (DVL). In coastal water the DVL locks onto the seabed and measures true speed over ground, which removes current drift; beyond its bottom-lock depth it measures speed through the water, and the current becomes an estimated state.</li>
     <li><strong>Coastline DSMAC:</strong> As the vessel nears target archipelagos, ports, or coastlines, high-resolution optical cameras match shoreline profiles, headlands, and navigation marks against pre-loaded commercial satellite maps.</li>
-    <li><strong>Optical Waterline Tracking:</strong> In the terminal 3 km run, stabilised daylight/MWIR cameras lock onto the target's hull silhouette at the waterline, which chaff and most decoys do not reproduce.</li>
+    <li><strong>Optical Waterline Tracking:</strong> In the terminal run, the stabilised EO/IR gimbal locks onto the target's hull silhouette at the waterline, which chaff and most decoys do not reproduce.</li>
   </ul>
 
   <h3 id="hydrodynamics">B · Control: the same method, a marine controller</h3>
@@ -343,27 +339,27 @@
   <p>The hard part is the equivalent of flying near the edge of the envelope. A fast hull behaves very differently at low speed, while climbing onto the plane and at full sprint, so the control settings are scheduled across those regimes rather than fixed. The sea adds its own problems. The controller has to ignore the rocking of individual waves and follow only the real motion. It has to hold running trim so the hull stays stable at speed, and it has to keep station on the track despite current and wind pushing the vessel sideways.</p>
   <ul>
     <li><strong>Speed follows the sea:</strong> as the sea state rises, the vessel limits its own speed to stay inside the structural limits of the hull.</li>
-    <li><strong>Sharing the water:</strong> in transit and on patrol it keeps clear of other traffic using its radar and cameras, and follows the rules of the road.</li>
+    <li><strong>Sharing the water:</strong> in transit and on patrol it keeps clear of other traffic using its marine radar and EO/IR, and follows the rules of the road.</li>
     <li><strong>When the link drops:</strong> it falls back to a pre-set safe behaviour. The decision to strike always stays with a human commander.</li>
   </ul>
   <p>The hull and hardware are still in build, so these settings will be worked out in sea trials, through the same loop the aircraft use: run the vessel, compare the logs with the simulation, correct the model and the settings, and clear each change in hardware-in-the-loop testing before it goes back on the water. <a href="../subsystems/near-envelope-control.html#generalisation">One method, many platforms &rarr;</a></p>
 
-  <h3 id="warhead">C · Heavy shaped-charge penetrating warhead</h3>
-  <p>Unlike blast-only drone boats that produce superficial topside damage, the Piranha USV is designed for a 150–250 kg class shaped-charge warhead intended to breach a vessel's hull:</p>
+  <h3 id="warhead">C · Warhead</h3>
+  <p>The strike configuration carries a 50 kg+ class high-explosive warhead in the bow bay. It is sized for small combatants, landing craft, moored vessels and jetty infrastructure, not for major warships.</p>
   <ul>
-    <li><strong>Waterline &amp; Sub-Surface Impact:</strong> The vessel trims down immediately prior to impact, detonating against the target's hull right at or below the waterline.</li>
-    <li><strong>Copper Jet Penetration:</strong> The precision-machined shaped-charge liner drives a hyper-velocity jet through the hull below the waterline, flooding machinery and magazine spaces.</li>
-    <li><strong>Redundant Fuzing:</strong> Redundant contact and delayed-action fuzing ensure lethal detonation even during glancing blows.</li>
+    <li><strong>Waterline detonation:</strong> the craft is guided onto the target's hull at the waterline, where damage lets water in.</li>
+    <li><strong>Redundant fuzing:</strong> contact and delayed-action fuzes, so a glancing hit still detonates.</li>
+    <li><strong>Human decision:</strong> the decision to strike stays with a human commander.</li>
   </ul>
 </section>
 
 <section id="dual-use">
   <div class="sec-tag">05 · Dual use</div>
   <h2>One hull, two customers</h2>
-  <p>A common composite hull supports two distinct mission configurations. The strike variant houses a shaped-charge warhead (150–250 kg class) and impact fuzing. The surveillance variant replaces high explosives with an electro-optical/infrared mast, maritime search radar, and secure tactical datalinks. Port trusts, coast guards, and littoral security forces gain persistent presence across shipping lanes at a fraction of crewed vessel operating costs. Peacetime orders keep the boatyard tooling and workforce busy, so a surge line for strike craft is ready when it is needed.</p>
+  <p>One hull serves both jobs. Every Piranha carries the marine radar and the EO/IR gimbal. The reconnaissance configuration uses them to watch the coast and shipping lanes and comes home; the strike configuration adds the 50 kg+ warhead and uses the same sensors to find and hit the target. Coast guards, port authorities and littoral security forces get a persistent sensor picture without crewing a boat, and the peacetime fleet keeps the boatyard tooling and the crews who operate it in practice.</p>
   <div class="note key">
     <div class="t">Programme</div>
-    <p>Hull and onboard hardware in development through 2026; sea trials, with radar and imaging sensors, from the end of 2026; serial production from 2028. Hull tooling and the navigation package are common between the strike and surveillance variants, so the peacetime customer pays for the tooling the strike line inherits.</p>
+    <p>Hull and onboard hardware in development through 2026; sea trials with the radar and EO/IR payload from the end of 2026; serial production from 2028. The hull, sensors and navigation package are common to both configurations.</p>
   </div>
 </section>
 

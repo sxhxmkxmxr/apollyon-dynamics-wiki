@@ -67,7 +67,7 @@ These appear on several pages. Change them everywhere or nowhere.
 | Nightshade target drones | Economical $90,000 · Premium ~$150,000 · prototypes Q4 2026 |
 | Nightshade indigenous content | ~45–50% |
 | Hemlock | 450–500 kg warhead · 1,000–1,500 km · ₹3–5 Cr · concept |
-| Piranha | Design targets given as ranges; sea trials from the end of 2026 |
+| Piranha | Small USV (~4 m class), 65 km/h top speed, marine radar + EO/IR on every hull, 50 kg+ warhead on the strike configuration, recon and one-way strike from one hull, ~₹1.5–2.5 Cr estimated unit cost; sea trials from the end of 2026 |
 | Flight-control baseline | Veronte Autopilot 1x (Embention) now; in-house replacement developed in parallel once production is steady |
 | Funding | Equity-funded (₹4 Cr pre-seed, Naandi Ventures) plus tactical revenue |
 
