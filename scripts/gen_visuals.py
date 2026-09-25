@@ -643,7 +643,7 @@ def arch_software():
     o.append(panel_box(322, 100, 336, 58, "STATE ESTIMATOR", sub="FUSES EVERY NAVIGATION INPUT",
                        stroke=RED, fill=RED_W, sw=1.3, tcol=INK, size=10, sub_size=7.8))
     o.append(panel_box(322, 178, 336, 58, "GUIDANCE LAW", sub="WAYPOINT · TERRAIN-FOLLOW · TERMINAL", size=10, sub_size=7.8))
-    o.append(panel_box(322, 256, 336, 58, "CONTROL LAW", sub="DIRECT-ACTUATOR POLICY", size=10, sub_size=7.8))
+    o.append(panel_box(322, 256, 336, 58, "CONTROL LAW", sub="GAIN-SCHEDULED · PER AIRFRAME", size=10, sub_size=7.8))
     o.append(panel_box(322, 334, 336, 58, "ENVELOPE PROTECTION", sub="SATURATION · G-LIMIT · ABORT", size=10, sub_size=7.8))
     for y in (158, 236, 314):
         o.append(arrow(490, y, 490, y + 20, ns, "red"))
@@ -904,7 +904,7 @@ def eng_system():
     cells = [
         ("SIMULATOR PHYSICS", "AERO AND COMPONENT TERMS"),
         ("ONBOARD RUNTIME", "KERNEL AND SCHEDULING"),
-        ("CONTROL POLICIES", "RETRAINED AT THE EDGE"),
+        ("CONTROL LAWS", "RETUNED FROM FLIGHT DATA"),
         ("HARDWARE SPEC", "POWER, THERMAL, STRUCTURE"),
     ]
     xs = [56, 174, 292, 410]
@@ -937,7 +937,7 @@ def eng_system():
     o.append(arrow(800, 358, 800, 372, ns, "ink"))
 
     o.append(panel_box(640, 372, 320, 44, "STATE & CONTROL ESTIMATION",
-                       sub="CLASSICAL ESTIMATION + LEARNING-BASED CONTROL LAWS",
+                       sub="CLASSICAL ESTIMATION + GAIN-SCHEDULED CONTROL LAWS",
                        stroke=LINE2, fill="#090d14", size=9.6, sub_size=7.2, scol=INK3))
 
     o.append(arrow(800, 416, 800, 434, ns, "ink"))
@@ -960,15 +960,15 @@ def eng_system():
     o.append(f'<path d="M524,543 H572 V332 H640" fill="none" stroke="{LINE3}" stroke-width="1.2" marker-end="url(#{ns}-grey)"/>')
     o.append(txt(572, 535, "FLIGHT LOGS", 8.5, INK3, MONO, anchor="middle", ls="0.08em", weight=600))
 
-    # Cross connection: TRAINED POLICY (from TRAINING left edge 640 to FLY AT THE EDGE right edge 524)
+    # Cross connection: TUNED LAWS (from ESTIMATION left edge 640 to FLY AT THE EDGE right edge 524)
     # Wire at x=592, text at 592
     o.append(f'<path d="M640,394 H592 V329 H524" fill="none" stroke="{RED2}" stroke-width="1.2" marker-end="url(#{ns}-red)"/>')
-    o.append(txt(592, 322, "TRAINED POLICY", 8.5, RED2, MONO, anchor="middle", weight=700, ls="0.08em"))
+    o.append(txt(592, 322, "TUNED LAWS", 8.5, RED2, MONO, anchor="middle", weight=700, ls="0.08em"))
 
     # ── C · the compounding asset ─────────────────────────────────────
     o.append(band(608, "C", "THE COMPOUNDING ASSET — WHY THE SPEED REPEATS"))
 
-    assets = ["ENGINEERING METHOD", "PHYSICS PACKAGE", "TRAINING PIPELINE", "QUALIFICATION EVIDENCE", "TEST RIGS & PIPELINE"]
+    assets = ["ENGINEERING METHOD", "PHYSICS PACKAGE", "TUNING PIPELINE", "QUALIFICATION EVIDENCE", "TEST RIGS & PIPELINE"]
     for i, a in enumerate(assets):
         x = 40 + i * 187
         o.append(panel_box(x, 634, 172, 36, a, stroke=LINE2, fill="#090d14", size=8.0, tcol=INK2))
@@ -1000,7 +1000,7 @@ def eng_twin():
     W, H = 1000, 560
     ns = "et"
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="img" '
-         f'aria-label="The flight vehicle and its simulation twin: measured flight data identifies the physics, the twin trains the policies, the hardware-in-the-loop harness clears them for flight">',
+         f'aria-label="The flight vehicle and its simulation twin: measured flight data identifies the physics, the twin tunes the control laws, the hardware-in-the-loop harness clears them for flight">',
          defs_arrow(ns, {"ink": INK2, "red": RED2, "grey": LINE3})]
 
     def chip(x, y, w, h, label, size=7, tcol=INK2, stroke=LINE3, fill=BG):
@@ -1032,7 +1032,7 @@ def eng_twin():
                        sub="UNIFIED MULTI-BODY SOLVER · BOUNDARY LAYER · PROPULSION & THERMAL DYNAMICS",
                        stroke=RED, fill=RED_W, sw=1.3, tcol="#ffffff", scol="#C7C4BD", size=9.4, sub_size=6.6))
     o.append(panel_box(546, 256, 398, 62, "ESTIMATION & CONTROL SYNTHESIS",
-                       sub="OPTIMAL OBSERVERS & GAIN SCHEDULES · ADAPTIVE & LEARNED CONTROL", size=8.4, sub_size=6.8))
+                       sub="OPTIMAL OBSERVERS & GAIN SCHEDULES · ENVELOPE-LIMITING CONTROL", size=8.4, sub_size=6.8))
     o.append(panel_box(546, 330, 398, 58, "HARDWARE-IN-THE-LOOP (HIL)",
                        sub="REAL-TIME DETERMINISTIC SENSOR & ACTUATOR BUS EMULATION", size=8.4, sub_size=6.8))
     o.append(panel_box(546, 400, 398, 42, "QUALIFICATION EVIDENCE",
@@ -1041,7 +1041,7 @@ def eng_twin():
     o.append(arrow(470, 120, 530, 120, ns, "ink"))
     o.append(txt(500, 112, "FLIGHT LOGS", 8, INK3, MONO, anchor="middle", ls="0.08em"))
     o.append(arrow(530, 454, 470, 454, ns, "red"))
-    o.append(txt(500, 446, "POLICIES", 8, RED2, MONO, anchor="middle", ls="0.08em"))
+    o.append(txt(500, 446, "CONTROL LAWS", 8, RED2, MONO, anchor="middle", ls="0.08em"))
 
     o.append(txt(40, 500, "HIGH-INCIDENCE FLIGHT REGIMES DEMAND RIGOROUS SYSTEM IDENTIFICATION FROM SORTIE DATA.", 11.5, INK, SANS, weight=600))
     o.append(txt(40, 522, "Airframe configurations parameterise a unified multi-body solver; validated estimation filters and actuator dynamics compound across platforms.", 10.5, INK3, SANS))

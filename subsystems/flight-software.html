@@ -110,19 +110,19 @@
   </div>
   <div class="mast-meta">Software · proprietary autopilot baseline, authored control laws &amp; HIL verification <span>· core subsystem</span></div>
   <h1>Flight software, <span class="sub">on a proprietary baseline</span></h1>
-  <p class="standfirst">The flight-critical loop runs on a proprietary autopilot that is set up through configuration — Embention's Veronte Autopilot 1x. Apollyon writes the control laws, guidance, envelope protection and mission logic that sit on top, and tests each build on hardware-in-the-loop before it flies.</p>
+  <p class="standfirst">The flight-critical control loop runs on Embention's Veronte Autopilot 1x, a certified commercial baseline configured for each vehicle. Apollyon authors the guidance modes, control laws, flight envelope limits, and mission logic that run on top of it, verifying every release on hardware-in-the-loop simulators before flight.</p>
 </header>
 
 <section id="baseline">
   <div class="sec-tag">01 · Foundation</div>
   <h2>A proprietary flight-control baseline</h2>
-  <p class="lede">Defence certification in India rules out a community open-source autopilot. The flight-critical core needs a named owner, a clear record of where it came from, and a vendor responsible for it through its life.</p>
+  <p class="lede">Operational defence certification in India requires flight-critical software to have a clear origin, an accountable vendor, and a documented qualification history. Open-source autopilots do not meet this standard for military systems.</p>
 
-  <p>Apollyon therefore builds on Embention's <strong>Veronte Autopilot 1x</strong>, a proprietary flight controller that is set up through configuration rather than code changes. It is already used across uncrewed aircraft. We chose a commercial baseline over an open-source stack for three reasons: the software has a named owner and a documented history, its changes are controlled, and the vendor supports it across its lifecycle.</p>
+  <p>Apollyon builds on Embention's <strong>Veronte Autopilot 1x</strong>, a commercial flight controller widely used across uncrewed platforms. The autopilot operates through parameterised configuration rather than source-code modification. We selected a commercial baseline because it provides a proven audit trail, vendor-backed lifecycle support, and strict configuration governance.</p>
 
   <div class="note key">
     <div class="t">The baseline is not modified at source</div>
-    <p>Apollyon does not change the autopilot firmware itself. The engineering work lives in a versioned <strong>configuration package</strong>—control laws, guidance phases, envelope limits, allocation matrices and safety logic—written in the vendor's engineering environment and uploaded to the flight controller. One baseline, one package per airframe.</p>
+    <p>Apollyon does not modify the autopilot firmware directly. Instead, our team maintains version-controlled configuration packages containing the control laws, guidance phases, flight envelope limits, control allocation matrices, and failsafe logic. These packages are developed in the vendor's toolchain and loaded onto the controller. The core hardware and baseline firmware remain uniform across our fleet, with one tailored configuration package for each airframe.</p>
   </div>
 
   <div class="blueprint-plate">
@@ -164,17 +164,17 @@
 <section id="toolchain">
   <div class="sec-tag">02 · Toolchain</div>
   <h2>Authored, executed, operated, verified</h2>
-  <p class="lede">The toolchain has four stages and one configuration. The package we write on the bench is the package that flies and the package that is verified. Nothing is rewritten between engineering and the airframe.</p>
+  <p class="lede">The toolchain follows four stages around a single configuration package. The exact configuration authored on the bench is what flies in the airframe and what undergoes hardware-in-the-loop simulation, avoiding translation errors between engineering and flight.</p>
 
   <div class="tw">
     <table>
       <caption>The four stages</caption>
       <thead><tr><th>Stage</th><th>Tool</th><th>Role</th></tr></thead>
       <tbody>
-        <tr><td><strong>Author</strong></td><td>1x PDI Builder</td><td>Control laws, guidance phases, envelope limits, actuation allocation and safety logic assembled as block programs.</td></tr>
-        <tr><td><strong>Execute</strong></td><td>Veronte Autopilot 1x</td><td>Flight-critical guidance, navigation and control, state estimation and actuator commands.</td></tr>
-        <tr><td><strong>Operate</strong></td><td>Veronte Ops</td><td>Mission planning, telemetry, commanded actions, flight termination and alerts.</td></tr>
-        <tr><td><strong>Verify</strong></td><td>HIL Simulator</td><td>The production autopilot flown against a simulated vehicle before any real sortie.</td></tr>
+        <tr><td><strong>Author</strong></td><td>1x PDI Builder</td><td>Control laws, guidance phases, envelope limits, actuation allocation, and safety logic assembled as block programs.</td></tr>
+        <tr><td><strong>Execute</strong></td><td>Veronte Autopilot 1x</td><td>Flight-critical guidance, navigation and control, state estimation, and actuator commands.</td></tr>
+        <tr><td><strong>Operate</strong></td><td>Veronte Ops</td><td>Mission planning, live telemetry, commanded actions, flight termination, and system alerts.</td></tr>
+        <tr><td><strong>Verify</strong></td><td>HIL Simulator</td><td>Production autopilot hardware flown against simulated vehicle dynamics before any field sortie.</td></tr>
       </tbody>
     </table>
   </div>
@@ -236,7 +236,7 @@
 <section id="authored">
   <div class="sec-tag">03 · The authored layer</div>
   <h2>What Apollyon authors</h2>
-  <p class="lede">The baseline provides the framework. The capability comes from what Apollyon configures on it: the control and mission logic that adapts a general-purpose controller to each vehicle.</p>
+  <p class="lede">The commercial baseline provides the core real-time operating environment and basic estimation routines. Apollyon designs and configures the flight mechanics: the specific control and guidance algorithms that adapt the controller to the dynamics of each vehicle.</p>
 
   <div class="tw">
     <table>
@@ -254,16 +254,16 @@
 
   <div class="note key">
     <div class="t">Why the configuration layer matters</div>
-    <p>An airframe is defined by its configuration package, so it does not need a separate build. Any improvement to the baseline can be applied to every platform that shares it. Building a new vehicle then costs only the difference in its package, which is measured against the <a href="../subsystems/near-envelope-control.html">shared physics backbone</a>.</p>
+    <p>Configuring airframes through versioned packages avoids maintaining separate software forks for different aircraft. Improvements to common control or guidance logic can be evaluated across the fleet, while adapting a new vehicle requires writing only the aerodynamic and actuator parameters specific to its airframe, calibrated against the <a href="../subsystems/near-envelope-control.html">shared physics backbone</a>.</p>
   </div>
 </section>
 
 <section id="verification">
   <div class="sec-tag">04 · Verification</div>
   <h2>Hardware-in-the-loop before the rail</h2>
-  <p class="lede">No configuration flies until it has passed on the bench. The Veronte HIL Simulator runs the production autopilot against a simulated vehicle, so the flight controller under test is the same unit that will fly.</p>
+  <p class="lede">No configuration package flies until it has been validated on the bench. The Veronte hardware-in-the-loop simulator runs production autopilot hardware against high-fidelity simulated vehicle dynamics in real time. The flight controller under test is the exact unit that flies.</p>
 
-  <p>The autopilot receives simulated navigation and sensor data and returns real actuator commands. Control laws, guidance logic and failsafes therefore run exactly as they will in flight.</p>
+  <p>The autopilot receives simulated sensor streams and commands real servo actuators, verifying that control laws, guidance modes, and emergency logic execute exactly as intended in flight.</p>
 
   <div class="tw">
     <table>
@@ -277,28 +277,28 @@
     </table>
   </div>
 
-  <p>Faults and degraded conditions—jammed surfaces, sensor dropouts, loss of navigation, electronic-warfare interference—are injected on the bench against the same software that will fly. Each sortie then returns high-rate telemetry that feeds the physics backbone and the next tuning cycle. <a href="../subsystems/near-envelope-control.html">The sim-to-real flight loop &rarr;</a></p>
+  <p>Engineers inject simulated failures on the test bench—such as surface jamming, sensor dropouts, GPS loss, and electronic interference—against the identical flight software that takes to the air. Sortie telemetry then feeds empirical flight data back into our aerodynamic models to refine subsequent tuning. <a href="../subsystems/near-envelope-control.html">The sim-to-real flight loop &rarr;</a></p>
 </section>
 
 <section id="governance">
   <div class="sec-tag">05 · Governance</div>
   <h2>Configuration control and certification</h2>
-  <p class="lede">A proprietary baseline supports certification as well as engineering. It gives the flight-critical core a vendor-maintained history and a configuration process that can be audited.</p>
+  <p class="lede">Using an established commercial baseline supports both airworthiness certification and technical governance. It provides a formal audit trail for all flight-critical functions.</p>
 
-  <p>Every Apollyon configuration package is versioned, reviewed and released under change control. The autopilot supports locked configurations and per-phase checklists, so a released package cannot be changed in the field without the matching control action. This leaves a clear record from the authored block program to the uploaded configuration and the flight log.</p>
+  <p>Every Apollyon configuration package is version-tracked, peer-reviewed, and locked before deployment. The controller enforces release locks and pre-flight checklists, preventing unauthorized field alterations and linking every sortie log back to an approved software build.</p>
 
   <div class="note">
     <div class="t">Certification basis</div>
-    <p>The flight-control baseline is supplied with vendor compliance and lifecycle documentation, which Apollyon keeps as part of the platform's certification evidence. Qualification and airworthiness claims are made only against that documentation, not derived from the engineering tools.</p>
+    <p>The flight-control baseline is supplied with vendor compliance and lifecycle documentation, which Apollyon maintains as part of each platform's formal certification evidence. Airworthiness and qualification claims are made strictly against this certified baseline.</p>
   </div>
 </section>
 
 <section id="roadmap">
   <div class="sec-tag">06 · Roadmap</div>
   <h2>Veronte now, an in-house baseline next</h2>
-  <p class="lede">Military flight software has to meet certification and qualification standards before it flies with a service. Earning those for a new autopilot takes years and significant capital. Veronte already carries that history, so it is the right baseline for the first production aircraft.</p>
-  <p>Embention has spent many years and around $40M building the Veronte baseline. Apollyon is building the jet, the airframe and the mission system around it; reproducing that effort in parallel at the start would slow every programme. The first orders are used instead to reach scale, robustness and a fully proven integration of the whole aircraft with Veronte.</p>
-  <p>Once units are in service and production is steady, Apollyon develops its own replacement in parallel: an in-house flight-control baseline, tested against the same HIL bench and flight record, and taken through certification before it replaces Veronte on any platform. The configuration packages Apollyon writes today carry the control laws, guidance and safety logic that the in-house baseline will inherit.</p>
+  <p class="lede">Achieving formal military flight certification for a new autopilot core typically takes years of flight trials and tens of millions of dollars. Embention has invested many years and roughly $40 million into certifying and maturing the Veronte platform. Rather than duplicating that development at the outset—which would add substantial schedule risk to our airframe and propulsion development—we use Veronte as our initial production baseline.</p>
+  <p>This approach allows our team to focus on system-level integration, aerodynamic maturation, and serial manufacturing for initial customer deliveries. Veronte provides a proven, airworthy foundation while we build operational flight hours and scale our production lines.</p>
+  <p>Once units are in service and serial manufacturing is steady, Apollyon develops its own flight-control core in-house, in parallel. Because our control laws, guidance algorithms, and envelope safety boundaries are already authored in our configuration packages, the in-house replacement will inherit a mature flight baseline. The replacement will be validated against the same hardware-in-the-loop test benches, verified through extensive flight testing, and formally qualified before transitioning onto fielded platforms.</p>
   <div class="tw">
     <table>
       <caption>Flight-control baseline by phase</caption>
@@ -310,7 +310,7 @@
       </tbody>
     </table>
   </div>
-  <p class="small">Supply continuity for the baseline is supported by established vendor relationships across Apollyon's partner network. The sourcing posture sits in <a href="../strategy/supply-chain.html">the supply chain</a>.</p>
+  <p class="small">Supply continuity for the autopilot baseline is maintained through established vendor relationships across our partner network, as outlined in our <a href="../strategy/supply-chain.html">supply chain strategy</a>.</p>
 </section>
 
 <section id="usedby">
