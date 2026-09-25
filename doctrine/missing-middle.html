@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/wiki.css">
+<script src="../js/wiki-map-data.js" defer></script>
 <script src="../js/wiki.js" defer></script>
 </head>
 <body id="top" data-section="doctrine">
@@ -344,8 +345,12 @@
 </footer>
 
 </main>
-<nav class="toc" aria-label="On this page">
-  <h4>On this page</h4>
+<nav class="toc" aria-label="On this page and wiki map">
+  <div class="toc-tabs" role="tablist">
+    <button type="button" role="tab" id="tab-page" aria-controls="toc-page" aria-selected="true">On this page</button>
+    <button type="button" role="tab" id="tab-map" aria-controls="toc-map" aria-selected="false">Wiki map</button>
+  </div>
+  <div class="toc-pane" id="toc-page" role="tabpanel" aria-labelledby="tab-page">
   <ul>
     <li><a href="#barbell">I &middot; The barbell</a></li>
     <li><a href="#layer">II &middot; The layer warfare added</a></li>
@@ -359,6 +364,8 @@
     <li><a href="#strike-space">Worked example &middot; Strike design space</a></li>
   </ul>
   <a class="toc-top" href="#top">Back to top &uarr;</a>
+  </div>
+  <div class="toc-pane" id="toc-map" role="tabpanel" aria-labelledby="tab-map" hidden></div>
 </nav>
 </div>
 </div>

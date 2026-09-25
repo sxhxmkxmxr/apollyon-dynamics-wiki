@@ -181,6 +181,18 @@ body.nav-open .rail-menu .bars::after { top: 3px; border-top-color: var(--red-2)
   font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .14em;
   text-transform: uppercase; color: var(--ink-4); margin: 0 0 14px;
 }
+/* Two tabs: On this page · Wiki map */
+.toc-tabs { display: flex; gap: 14px; margin: 0 0 14px; border-bottom: 1px solid var(--line-2); }
+.toc-tabs button {
+  background: none; border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px;
+  padding: 0 0 8px; cursor: pointer; white-space: nowrap;
+  font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-4);
+}
+.toc-tabs button:hover { color: var(--ink-2); }
+.toc-tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--red); }
+.toc-tabs button:focus-visible { outline: 1px solid var(--red-2); outline-offset: 3px; }
+.toc-none { font-size: 12.5px; color: var(--ink-4); margin: 0; }
 .toc ul { list-style: none; margin: 0; border-left: 1px solid var(--line-2); }
 .toc li { margin: 0; }
 .toc a {
@@ -196,10 +208,82 @@ body.nav-open .rail-menu .bars::after { top: 3px; border-top-color: var(--red-2)
 }
 .toc-top:hover { color: var(--ink); }
 
+/* ── Wiki map (right panel tab, and the sheet on narrower screens) ─── */
+.wmap { font-size: 12.5px; line-height: 1.35; }
+.wmap-filter {
+  width: 100%; margin: 0 0 14px; padding: 7px 9px; background: var(--bg-1);
+  border: 1px solid var(--line-2); color: var(--ink); font: inherit; font-size: 12px;
+}
+.wmap-filter::placeholder { color: var(--ink-4); }
+.wmap-filter:focus { outline: none; border-color: var(--ink-4); }
+.wmap-group + .wmap-group { margin-top: 16px; }
+.wmap-gh {
+  display: flex; gap: 8px; margin: 0 0 6px; font-family: var(--mono); font-size: 10.5px;
+  font-weight: 600; letter-spacing: .13em; text-transform: uppercase; color: var(--ink-4);
+}
+.wmap-gh .n { color: var(--line-3); }
+.wmap ul { list-style: none; margin: 0; }
+.wmap li { margin: 0; }
+.wmap-pages { border-left: 1px solid var(--line-2); }
+.wmap summary {
+  display: flex; align-items: baseline; gap: 6px; cursor: pointer; list-style: none;
+  padding: 4px 0 4px 10px; margin-left: -1px; border-left: 1px solid transparent;
+}
+.wmap summary::-webkit-details-marker { display: none; }
+.wmap summary::before {
+  content: ""; flex: 0 0 auto; width: 5px; height: 5px; margin-right: 2px;
+  border-right: 1px solid var(--ink-4); border-bottom: 1px solid var(--ink-4);
+  transform: rotate(-45deg) translateY(-1px); transition: transform .15s ease;
+}
+.wmap details[open] > summary::before { transform: rotate(45deg) translateY(-2px); }
+.wmap summary a { color: var(--ink-3); text-decoration: none; flex: 1 1 auto; }
+.wmap summary a:hover { color: var(--ink); }
+.wmap-count { font-family: var(--mono); font-size: 10px; color: var(--line-3); }
+.wmap-page.here > details > summary { border-left: 2px solid var(--red); padding-left: 9px; }
+.wmap-page.here > details > summary a { color: var(--ink); font-weight: 600; }
+.wmap-sections { margin: 2px 0 6px 21px; border-left: 1px solid var(--line); }
+.wmap-sections a {
+  display: block; padding: 3px 0 3px 9px; color: var(--ink-4); text-decoration: none; font-size: 12px;
+}
+.wmap-sections a:hover { color: var(--ink-2); }
+.wmap-foot, .wmap-none {
+  margin: 16px 0 0; font-family: var(--mono); font-size: 10px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--ink-4);
+}
+.map-open {
+  display: none; width: 100%; margin-top: 26px; padding: 9px 12px; text-align: left; cursor: pointer;
+  background: none; border: 1px solid var(--line-2); color: var(--ink-3);
+  font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+}
+.map-open:hover { color: var(--ink); border-color: var(--ink-4); }
+.map-sheet {
+  position: fixed; inset: 0; z-index: 90; display: none; background: rgba(0, 0, 0, .6);
+}
+.map-sheet.open { display: block; }
+.map-sheet-head, .map-sheet-body { width: min(420px, 100%); margin-left: auto; background: var(--bg); }
+.map-sheet-head {
+  display: flex; justify-content: space-between; align-items: center; height: 56px; padding: 0 20px;
+  border-left: 1px solid var(--line-2); border-bottom: 1px solid var(--line-2);
+  font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink);
+}
+.map-sheet-close {
+  background: none; border: 1px solid var(--line-2); color: var(--ink-3); cursor: pointer;
+  font: inherit; padding: 6px 10px;
+}
+.map-sheet-close:hover { color: var(--ink); }
+.map-sheet-body {
+  height: calc(100% - 56px); overflow-y: auto; padding: 20px; border-left: 1px solid var(--line-2);
+}
+.map-sheet .wmap { font-size: 14px; }
+.map-sheet .wmap-sections a { font-size: 13px; }
+body.map-sheet-open { overflow: hidden; }
+
 @media (max-width: 1320px) {
   .layout { grid-template-columns: var(--aside-w) minmax(0, 1fr); gap: 56px; }
   .toc { display: none; }
   .nav-toc { display: block; }
+  .map-open { display: block; }
 }
 
 /* ── Narrow screens: the navigation becomes a drawer ────────────────── */
