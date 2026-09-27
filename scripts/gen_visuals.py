@@ -64,7 +64,14 @@ def fit(s, maxw, size, fam=MONO, min_size=6.2):
     return [(s, sz)]
 
 
+# House rule: no red text on the dark ground. Red stays on marks, lines and
+# fills; any label asked for in a red is drawn in ink instead.
+RED_TEXT = {c.upper() for c in (RED, RED2, "#FF3B30", "#FF453A", "#F87171", "#FCA5A5")}
+
+
 def txt(x, y, s, size=10.5, fill=INK3, fam=MONO, anchor="start", weight=None, ls=None):
+    if fill.upper() in RED_TEXT:
+        fill = INK
     a = f'font-family="{fam}" font-size="{size:.1f}" fill="{fill}"'
     if anchor != "start":
         a += f' text-anchor="{anchor}"'
@@ -315,35 +322,35 @@ def cost_curve():
     ]
     f_pts = [(X(r), Y(c)) for _, r, c in fam]
     pts_str = " ".join(f"{x:.1f},{y:.1f}" for x, y in f_pts)
-    o.append(f'<polyline points="{pts_str}" fill="none" stroke="rgba(255, 59, 48, 0.22)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>')
-    o.append(f'<polyline points="{pts_str}" fill="none" stroke="#ff3b30" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>')
+    # One signal red from the palette; no glow underlay.
+    o.append(f'<polyline points="{pts_str}" fill="none" stroke="{RED2}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>')
 
     # Mk II: left
     x2, y2 = X(300), Y(3333)
-    o.append(line(x2 - 13.4, y2, x2 - 5.8, y2, "#f87171", 1))
-    o.append(txt(x2 - 16.4, y2 - 5, "Nightshade Mk II", 12, "#ffffff", MONO, anchor="end", weight=700))
-    o.append(txt(x2 - 16.4, y2 + 10, "₹3,333 / kg·km", 10.5, "#fca5a5", MONO, anchor="end", weight=500))
-    o.append(f'<circle cx="{x2:.1f}" cy="{y2:.1f}" r="{5.8}" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/>')
+    o.append(line(x2 - 13.4, y2, x2 - 5.8, y2, RED2, 1))
+    o.append(txt(x2 - 16.4, y2 - 5, "Nightshade Mk II", 12, INK, MONO, anchor="end", weight=700))
+    o.append(txt(x2 - 16.4, y2 + 10, "₹3,333 / kg·km", 10.5, INK2, MONO, anchor="end", weight=500))
+    o.append(f'<circle cx="{x2:.1f}" cy="{y2:.1f}" r="{5.8}" fill="{RED}" stroke="{INK}" stroke-width="1.6"/>')
 
     # Hemlock: left
     xh2, yh2 = X(1500), Y(59)
-    o.append(line(814, 365.9, 820.9, 365.9, "#f87171", 1))
-    o.append(txt(810, 369, "Hemlock", 12, "#ffffff", MONO, anchor="end", weight=700))
-    o.append(txt(810, 384, "₹59 / kg·km", 10.5, "#fca5a5", MONO, anchor="end", weight=500))
-    o.append(txt(810, 401, "about 8× below Tomahawk", 11, "#ff453a", MONO, anchor="end", weight=700))
-    o.append(f'<circle cx="{xh2:.1f}" cy="{yh2:.1f}" r="{5.8}" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/>')
+    o.append(line(814, 365.9, 820.9, 365.9, RED2, 1))
+    o.append(txt(810, 369, "Hemlock", 12, INK, MONO, anchor="end", weight=700))
+    o.append(txt(810, 384, "₹59 / kg·km", 10.5, INK2, MONO, anchor="end", weight=500))
+    o.append(txt(810, 401, "about 8× below Tomahawk", 11, INK, MONO, anchor="end", weight=700))
+    o.append(f'<circle cx="{xh2:.1f}" cy="{yh2:.1f}" r="{5.8}" fill="{RED}" stroke="{INK}" stroke-width="1.6"/>')
 
     # Legend
     o.append(line(694, 44, 718, 44, "#414141", 1.8, "4,3"))
     o.append(f'<circle cx="706" cy="44" r="5" fill="{BG}" stroke="#A19E97" stroke-width="1.8"/>')
     o.append(txt(726, 47.5, "IN SERVICE", 9.5, "#C7C4BD", MONO, weight=600))
 
-    o.append(line(816, 44, 840, 44, "#ff3b30", 2.5))
-    o.append('<circle cx="828" cy="44" r="5.2" fill="#ff3b30" stroke="#ffffff" stroke-width="1.4"/>')
-    o.append(txt(848, 47.5, "APOLLYON", 9.5, "#ffffff", MONO, weight=700))
+    o.append(line(816, 44, 840, 44, RED2, 2.5))
+    o.append(f'<circle cx="828" cy="44" r="5.2" fill="{RED}" stroke="{INK}" stroke-width="1.4"/>')
+    o.append(txt(848, 47.5, "APOLLYON", 9.5, INK, MONO, weight=700))
 
-    # Footnote
-    o.append(txt(L, 524, "USD 1 = INR 95 · Comparator prices from public sources · Berkut-BM unit cost estimated", 9.5, "#414141", MONO))
+    # Footnote (was #414141 on black, 2:1; now meets 4.5:1)
+    o.append(txt(L, 524, "USD 1 = INR 95 · Comparator prices from public sources · Berkut-BM unit cost estimated", 9.5, INK4, MONO))
     o.append("</svg>")
     return "".join(o)
 
