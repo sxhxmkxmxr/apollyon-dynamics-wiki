@@ -36,8 +36,8 @@
         
         <!-- Warhead Compartment: STA 0500-1800 (x=130 to x=320) -->
         <rect x="135" y="105" width="180" height="90" fill="url(#hatch_wh_usv)" stroke="#D92323" stroke-width="1.2" rx="4"/>
-        <text x="225" y="146" fill="#D92323" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" text-anchor="middle">HE WARHEAD</text>
-        <text x="225" y="160" fill="#D92323" font-family="JetBrains Mono, monospace" font-size="7.5" text-anchor="middle">50 KG+ CLASS · STRIKE ONLY</text>
+        <text x="225" y="146" fill="#f2efe9" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" text-anchor="middle">HE WARHEAD</text>
+        <text x="225" y="160" fill="#f2efe9" font-family="JetBrains Mono, monospace" font-size="7.5" text-anchor="middle">50 KG+ CLASS · STRIKE ONLY</text>
 
         <!-- Midship Bulkhead: x=320 -->
         <line x1="320" y1="85" x2="320" y2="215" stroke="#C7C4BD" stroke-width="1.5"/>

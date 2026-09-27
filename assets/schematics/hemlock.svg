@@ -53,8 +53,8 @@
 
         <!-- 2. PENETRATING WARHEAD BAY (STA 200 - 330) -->
         <rect x="205" y="103" width="120" height="44" fill="url(#hatch_wh)" stroke="#D92323" stroke-width="1.2"/>
-        <text x="265" y="122" fill="#D92323" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" text-anchor="middle">WARHEAD 450–500 kg</text>
-        <text x="265" y="133" fill="#F04B4B" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">Modular Penetrator</text>
+        <text x="265" y="122" fill="#f2efe9" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" text-anchor="middle">WARHEAD 450–500 kg</text>
+        <text x="265" y="133" fill="#f2efe9" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">Modular Penetrator</text>
 
         <!-- 3. JP-10 FUEL BLADDER (STA 330 - 490) -->
         <rect x="335" y="103" width="150" height="44" fill="url(#hatch_fuel)" stroke="#C7C4BD" stroke-width="1"/>
