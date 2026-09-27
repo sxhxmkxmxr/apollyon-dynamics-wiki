@@ -64,7 +64,14 @@ def fit(s, maxw, size, fam=MONO, min_size=6.2):
     return [(s, sz)]
 
 
+# House rule: no red text on the dark ground. Red stays on marks, lines and
+# fills; any label asked for in a red is drawn in ink instead.
+RED_TEXT = {c.upper() for c in (RED, RED2, "#FF3B30", "#FF453A", "#F87171", "#FCA5A5")}
+
+
 def txt(x, y, s, size=10.5, fill=INK3, fam=MONO, anchor="start", weight=None, ls=None):
+    if fill.upper() in RED_TEXT:
+        fill = INK
     a = f'font-family="{fam}" font-size="{size:.1f}" fill="{fill}"'
     if anchor != "start":
         a += f' text-anchor="{anchor}"'
@@ -315,35 +322,35 @@ def cost_curve():
     ]
     f_pts = [(X(r), Y(c)) for _, r, c in fam]
     pts_str = " ".join(f"{x:.1f},{y:.1f}" for x, y in f_pts)
-    o.append(f'<polyline points="{pts_str}" fill="none" stroke="rgba(255, 59, 48, 0.22)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>')
-    o.append(f'<polyline points="{pts_str}" fill="none" stroke="#ff3b30" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>')
+    # One signal red from the palette; no glow underlay.
+    o.append(f'<polyline points="{pts_str}" fill="none" stroke="{RED2}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>')
 
     # Mk II: left
     x2, y2 = X(300), Y(3333)
-    o.append(line(x2 - 13.4, y2, x2 - 5.8, y2, "#f87171", 1))
-    o.append(txt(x2 - 16.4, y2 - 5, "Nightshade Mk II", 12, "#ffffff", MONO, anchor="end", weight=700))
-    o.append(txt(x2 - 16.4, y2 + 10, "₹3,333 / kg·km", 10.5, "#fca5a5", MONO, anchor="end", weight=500))
-    o.append(f'<circle cx="{x2:.1f}" cy="{y2:.1f}" r="{5.8}" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/>')
+    o.append(line(x2 - 13.4, y2, x2 - 5.8, y2, RED2, 1))
+    o.append(txt(x2 - 16.4, y2 - 5, "Nightshade Mk II", 12, INK, MONO, anchor="end", weight=700))
+    o.append(txt(x2 - 16.4, y2 + 10, "₹3,333 / kg·km", 10.5, INK2, MONO, anchor="end", weight=500))
+    o.append(f'<circle cx="{x2:.1f}" cy="{y2:.1f}" r="{5.8}" fill="{RED}" stroke="{INK}" stroke-width="1.6"/>')
 
     # Hemlock: left
     xh2, yh2 = X(1500), Y(59)
-    o.append(line(814, 365.9, 820.9, 365.9, "#f87171", 1))
-    o.append(txt(810, 369, "Hemlock", 12, "#ffffff", MONO, anchor="end", weight=700))
-    o.append(txt(810, 384, "₹59 / kg·km", 10.5, "#fca5a5", MONO, anchor="end", weight=500))
-    o.append(txt(810, 401, "about 8× below Tomahawk", 11, "#ff453a", MONO, anchor="end", weight=700))
-    o.append(f'<circle cx="{xh2:.1f}" cy="{yh2:.1f}" r="{5.8}" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/>')
+    o.append(line(814, 365.9, 820.9, 365.9, RED2, 1))
+    o.append(txt(810, 369, "Hemlock", 12, INK, MONO, anchor="end", weight=700))
+    o.append(txt(810, 384, "₹59 / kg·km", 10.5, INK2, MONO, anchor="end", weight=500))
+    o.append(txt(810, 401, "about 8× below Tomahawk", 11, INK, MONO, anchor="end", weight=700))
+    o.append(f'<circle cx="{xh2:.1f}" cy="{yh2:.1f}" r="{5.8}" fill="{RED}" stroke="{INK}" stroke-width="1.6"/>')
 
     # Legend
     o.append(line(694, 44, 718, 44, "#414141", 1.8, "4,3"))
     o.append(f'<circle cx="706" cy="44" r="5" fill="{BG}" stroke="#A19E97" stroke-width="1.8"/>')
     o.append(txt(726, 47.5, "IN SERVICE", 9.5, "#C7C4BD", MONO, weight=600))
 
-    o.append(line(816, 44, 840, 44, "#ff3b30", 2.5))
-    o.append('<circle cx="828" cy="44" r="5.2" fill="#ff3b30" stroke="#ffffff" stroke-width="1.4"/>')
-    o.append(txt(848, 47.5, "APOLLYON", 9.5, "#ffffff", MONO, weight=700))
+    o.append(line(816, 44, 840, 44, RED2, 2.5))
+    o.append(f'<circle cx="828" cy="44" r="5.2" fill="{RED}" stroke="{INK}" stroke-width="1.4"/>')
+    o.append(txt(848, 47.5, "APOLLYON", 9.5, INK, MONO, weight=700))
 
-    # Footnote
-    o.append(txt(L, 524, "USD 1 = INR 95 · Comparator prices from public sources · Berkut-BM unit cost estimated", 9.5, "#414141", MONO))
+    # Footnote (was #414141 on black, 2:1; now meets 4.5:1)
+    o.append(txt(L, 524, "USD 1 = INR 95 · Comparator prices from public sources · Berkut-BM unit cost estimated", 9.5, INK4, MONO))
     o.append("</svg>")
     return "".join(o)
 
@@ -460,93 +467,148 @@ def ahuti_speed():
 
 # ══════════════════════════════════════════════════════════════════════
 # 5/6 · INDIA — production and exports
+# The production chart is the homepage's main graph. One builder, two
+# layouts: "wide" for the reading column and "compact" (portrait, larger
+# type) for phones; the page shows one or the other with CSS. Every bar is
+# labelled in the chart's one unit, and bars pass 3:1 against the plate.
 # ══════════════════════════════════════════════════════════════════════
-def india_production():
-    W, H = 1000, 520
-    L, R, T, B = 72, 928, 140, 380
-    years = ["FY21", "FY22", "FY23", "FY24", "FY25", "FY26"]
-    vals = [84643, 94846, 106000, 127000, 151000, 178000]
-    top = 200000
-    o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="img" '
-         f'aria-label="India annual defence production FY21 to FY26 in crore rupees">']
-    o.append(txt(L - 10, 46, "ANNUAL DEFENCE PRODUCTION", 19, INK, MONO, weight=700, ls="0.08em"))
-    o.append(txt(R + 10, 46, "₹ LAKH CRORE", 17, INK3, MONO, anchor="end", ls="0.08em"))
-    o.append(line(L - 10, 66, R + 10, 66, LINE))
+INDIA_PRODUCTION = {
+    "title": "ANNUAL DEFENCE PRODUCTION",
+    "unit": "₹ LAKH CRORE",
+    "years": ["FY21", "FY22", "FY23", "FY24", "FY25", "FY26"],
+    "vals": [84643, 94846, 106000, 127000, 151000, 178000],   # ₹ crore
+    "top": 200000,
+    "fmt": lambda v: f"{v / 100000:.2f}",                      # shown in lakh crore
+    # The 4.1× is measured from FY14 (₹43,746 Cr), which is not plotted, so
+    # the badge names its base instead of implying growth over FY21–FY26.
+    "badge": "4.1× SINCE FY14",
+    "break_after": None,
+    "notes": ["4.1× since FY14 (₹43,746 Cr) · FY26 total ₹1.78 lakh Cr",
+              "75% of FY27 capital acquisition reserved for domestic industry (₹1.39 lakh Cr)."],
+    "label": "Bar chart of India's annual defence production, FY21 to FY26, in lakh crore rupees: "
+             "0.85, 0.95, 1.06, 1.27, 1.51 and 1.78",
+    "label_compact": "India's annual defence production by year, FY21 to FY26, in lakh crore rupees: "
+                     "0.85, 0.95, 1.06, 1.27, 1.51 and 1.78",
+}
 
-    bw = (R - L) / len(vals) * 0.56
+INDIA_EXPORTS = {
+    "title": "ANNUAL DEFENCE EXPORTS",
+    "unit": "₹ CRORE",
+    "years": ["FY14", "FY21", "FY22", "FY23", "FY24", "FY25", "FY26"],
+    "vals": [686, 8434, 12815, 15920, 21083, 23622, 38424],
+    "top": 44000,
+    "fmt": lambda v: f"{v:,}",
+    "badge": "56× SINCE FY14",
+    "break_after": 0,          # FY14 and FY21 are seven years apart: mark the axis break
+    "notes": ["56× since FY14 · ₹38,424 Cr in FY26 · private firms 45.16% of exports",
+              "across 145 domestic firms and more than 80 destination nations."],
+    "label": "Bar chart of India's defence exports in crore rupees: FY14 686, then FY21 to FY26 "
+             "8,434, 12,815, 15,920, 21,083, 23,622 and 38,424",
+    "label_compact": "India's defence exports by year in crore rupees: FY14 686, then FY21 to FY26 "
+                     "8,434, 12,815, 15,920, 21,083, 23,622 and 38,424",
+}
+
+
+def _note_lines(s, maxw, size):
+    words, lines, cur = s.split(), [], ""
+    for w in words:
+        trial = (cur + " " + w).strip()
+        if cur and len(trial) * charw(size, MONO) > maxw:
+            lines.append(cur)
+            cur = w
+        else:
+            cur = trial
+    if cur:
+        lines.append(cur)
+    return lines
+
+
+def _bar_chart(spec, compact=False):
+    vals, years = spec["vals"], spec["years"]
+    n = len(vals)
+    if compact:   # renders ~0.6x on a 390 px phone: 19 units is about 11 px
+        W, L, R, T, B = 600, 30, 570, 190, 520
+        size = dict(title=26, unit=20, val=19, big=24, yr=19, note=18, badge=18)
+    else:         # renders ~0.8x in the reading column: 17 units is about 13.6 px
+        W, L, R, T, B = 1000, 72, 928, 150, 384
+        size = dict(title=20, unit=17, val=17, big=30, yr=17, note=16, badge=17)
+    o = []
+
+    # Title and unit
+    if compact:
+        o.append(txt(L, 50, spec["title"], size["title"], INK, MONO, weight=700, ls="0.06em"))
+        o.append(txt(L, 84, spec["unit"], size["unit"], INK3, MONO, ls="0.08em"))
+        o.append(line(L, 102, R, 102, LINE))
+        badge_y = 118
+    else:
+        o.append(txt(L - 10, 46, spec["title"], size["title"], INK, MONO, weight=700, ls="0.08em"))
+        o.append(txt(R + 10, 46, spec["unit"], size["unit"], INK3, MONO, anchor="end", ls="0.08em"))
+        o.append(line(L - 10, 66, R + 10, 66, LINE))
+        badge_y = 80
+
+    # Growth badge, right-aligned above the latest bar (white on red: 4.98:1)
+    bw_badge = len(spec["badge"]) * charw(size["badge"], MONO) + 28
+    bx = (R if compact else R + 10) - bw_badge
+    o.append(f'<rect x="{bx:.1f}" y="{badge_y}" width="{bw_badge:.1f}" height="{size["badge"] + 18}" fill="{RED}"/>')
+    o.append(txt(bx + bw_badge / 2, badge_y + size["badge"] + 4, spec["badge"], size["badge"],
+                 "#FFFFFF", MONO, anchor="middle", weight=700, ls="0.04em"))
+
+    # Bars, each labelled in the chart's unit; first and latest emphasised
+    slot = (R - L) / n
+    bw = slot * (0.62 if compact else 0.56)
     for i, (yr, v) in enumerate(zip(years, vals)):
-        cx = L + (i + 0.5) * (R - L) / len(vals)
-        h = (v / top) * (B - T)
-        first = i == 0
-        last = i == len(vals) - 1
+        cx = L + (i + 0.5) * slot
+        h = max(4.0, v / spec["top"] * (B - T))
+        first, last = i == 0, i == n - 1
         if last:
             o.append(rect(cx - bw / 2, B - h, bw, h, stroke=RED2, fill=RED, sw=1.5))
-            o.append(f'<rect x="{cx - 84:.1f}" y="70" width="168" height="34" fill="{RED}" rx="4"/>')
-            o.append(txt(cx, 93, "▲ 4.1× GROWTH", 18, "#FFFFFF", MONO, anchor="middle", weight=800, ls="0.08em"))
-            o.append(txt(cx, 136, "₹1.78L Cr", 34, "#FFFFFF", MONO, anchor="middle", weight=800))
-            o.append(txt(cx, 412, yr, 19, "#FFFFFF", MONO, anchor="middle", weight=700))
-        elif first:
-            o.append(rect(cx - bw / 2, B - h, bw, h, stroke="#666666", fill="#222222", sw=1.5))
-            o.append(f'<rect x="{cx - 65:.1f}" y="70" width="130" height="34" fill="#181818" stroke="#444444" stroke-width="1.2" rx="4"/>')
-            o.append(txt(cx, 92, "START · BASE", 15, INK3, MONO, anchor="middle", weight=700, ls="0.08em"))
-            o.append(txt(cx, 136, "₹85K Cr", 34, "#FFFFFF", MONO, anchor="middle", weight=800))
-            o.append(f'<line x1="{cx:.1f}" y1="148" x2="{cx:.1f}" y2="{B - h - 4:.1f}" stroke="#444444" stroke-width="1.2" stroke-dasharray="3,3"/>')
-            o.append(txt(cx, 412, yr, 19, "#FFFFFF", MONO, anchor="middle", weight=700))
         else:
-            o.append(rect(cx - bw / 2, B - h, bw, h, stroke="#2A2A2A", fill="#141414", sw=1))
-            o.append(txt(cx, B - h - 10, f"₹{v/1000:.0f}K", 12.5, "#666666", MONO, anchor="middle"))
-            o.append(txt(cx, 410, yr, 13, "#666666", MONO, anchor="middle"))
+            o.append(rect(cx - bw / 2, B - h, bw, h, stroke=INK4, fill="#1F1F1F", sw=1.5))
+        emph = first or last
+        o.append(txt(cx, B - h - 12, spec["fmt"](v), size["big"] if emph else size["val"],
+                     INK if emph else INK2, MONO, anchor="middle", weight=700 if emph else 500))
+        o.append(txt(cx, B + size["yr"] + 14, yr, size["yr"], INK if last else INK3, MONO,
+                     anchor="middle", weight=700 if last else 500))
 
-    o.append(line(L - 10, B, R + 10, B, LINE2, sw=1.2))
-    o.append(txt(L - 10, 458, "4.1× since FY14 (₹43,746 Cr) · FY26 total ₹1.78 lakh Cr", 16, INK2, MONO, weight=500))
-    o.append(txt(L - 10, 486, "75% of FY27 capital acquisition reserved for domestic industry (₹1.39 lakh Cr).", 15, INK4, MONO))
-    o.append("</svg>")
-    return "".join(o)
+    # Baseline, with a break mark where the years are not consecutive
+    o.append(line(L - (0 if compact else 10), B, R + (0 if compact else 10), B, LINE3, sw=1.2))
+    if spec["break_after"] is not None:
+        xb = L + (spec["break_after"] + 1) * slot
+        o.append(f'<rect x="{xb - 6:.1f}" y="{B - 3}" width="12" height="6" fill="{BG}"/>')
+        for dx in (-5, 1):
+            o.append(line(xb + dx, B + 7, xb + dx + 4, B - 7, INK3, sw=1.4))
+
+    # Notes (the same text as before, wrapped on phones)
+    y = B + size["yr"] + 58
+    for k, note in enumerate(spec["notes"]):
+        colour, weight = (INK2, 500) if k == 0 else (INK3, None)
+        lines = _note_lines(note, R - L, size["note"]) if compact else [note]
+        for ln in lines:
+            o.append(txt(L if compact else L - 10, y, ln, size["note"], colour, MONO, weight=weight))
+            y += size["note"] + 10
+        y += 4
+    H = int(y + 6)
+
+    label = spec["label_compact" if compact else "label"]
+    head = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="img" '
+            f'aria-label="{label}">')
+    return head + "".join(o) + "</svg>"
+
+
+def india_production():
+    return _bar_chart(INDIA_PRODUCTION)
+
+
+def india_production_compact():
+    return _bar_chart(INDIA_PRODUCTION, compact=True)
 
 
 def india_exports():
-    W, H = 1000, 520
-    L, R, T, B = 72, 928, 140, 380
-    years = ["FY14", "FY21", "FY22", "FY23", "FY24", "FY25", "FY26"]
-    vals = [686, 8434, 12815, 15920, 21083, 23622, 38424]
-    top = 44000
-    n = len(vals)
-    bw = (R - L) / n * 0.52
-    o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="img" '
-         f'aria-label="India defence exports FY14 to FY26 in crore rupees">']
-    o.append(txt(L - 10, 46, "ANNUAL DEFENCE EXPORTS", 19, INK, MONO, weight=700, ls="0.08em"))
-    o.append(txt(R + 10, 46, "₹ CRORE", 17, INK3, MONO, anchor="end", ls="0.08em"))
-    o.append(line(L - 10, 66, R + 10, 66, LINE))
+    return _bar_chart(INDIA_EXPORTS)
 
-    for i, (yr, v) in enumerate(zip(years, vals)):
-        cx = L + (i + 0.5) * (R - L) / n
-        h = max(4.0, (v / top) * (B - T))
-        last = i == n - 1
-        first = i == 0
-        if last:
-            o.append(rect(cx - bw / 2, B - h, bw, h, stroke=RED2, fill=RED, sw=1.5))
-            o.append(f'<rect x="{cx - 84:.1f}" y="70" width="168" height="34" fill="{RED}" rx="4"/>')
-            o.append(txt(cx, 93, "▲ 56× GROWTH", 18, "#FFFFFF", MONO, anchor="middle", weight=800, ls="0.08em"))
-            o.append(txt(cx, 136, "₹38,424 Cr", 34, "#FFFFFF", MONO, anchor="middle", weight=800))
-            o.append(txt(cx, 412, yr, 19, "#FFFFFF", MONO, anchor="middle", weight=700))
-        elif first:
-            o.append(rect(cx - bw / 2, B - h, bw, h, stroke="#666666", fill="#222222", sw=1.5))
-            o.append(f'<rect x="{cx - 65:.1f}" y="70" width="130" height="34" fill="#181818" stroke="#444444" stroke-width="1.2" rx="4"/>')
-            o.append(txt(cx, 92, "START · BASE", 15, INK3, MONO, anchor="middle", weight=700, ls="0.08em"))
-            o.append(txt(cx, 136, "₹686 Cr", 34, "#FFFFFF", MONO, anchor="middle", weight=800))
-            o.append(f'<line x1="{cx:.1f}" y1="148" x2="{cx:.1f}" y2="{B - h - 4:.1f}" stroke="#444444" stroke-width="1.2" stroke-dasharray="3,3"/>')
-            o.append(txt(cx, 412, yr, 19, "#FFFFFF", MONO, anchor="middle", weight=700))
-        else:
-            label = f"₹{v:,}"
-            o.append(rect(cx - bw / 2, B - h, bw, h, stroke="#2A2A2A", fill="#141414", sw=1))
-            o.append(txt(cx, B - h - 10, label, 12, "#666666", MONO, anchor="middle"))
-            o.append(txt(cx, 410, yr, 13, "#666666", MONO, anchor="middle"))
 
-    o.append(line(L - 10, B, R + 10, B, LINE2, sw=1.2))
-    o.append(txt(L - 10, 458, "56× since FY14 · ₹38,424 Cr in FY26 · private firms 45.16% of exports", 16, INK2, MONO, weight=500))
-    o.append(txt(L - 10, 486, "across 145 domestic firms and more than 80 destination nations.", 15, INK4, MONO))
-    o.append("</svg>")
-    return "".join(o)
+def india_exports_compact():
+    return _bar_chart(INDIA_EXPORTS, compact=True)
 
 
 # ══════════════════════════════════════════════════════════════════════
@@ -821,6 +883,7 @@ def salvo_curve():
     o.append(txt(L + 286, B + 78, "EXQUISITE FIRED FIRST", 9.5, INK3, MONO))
     o.append(txt(L, B + 108, "All-exquisite leaves most targets untouched; all-attritable clears the soft set and nothing hardened.", 10, INK4, MONO))
     o.append(txt(L, B + 126, "The mixture beats both corners, and the firing order is worth as much as the mixture.", 10, INK4, MONO))
+    o.append("</svg>")
     return "".join(o)
 
 
@@ -1272,7 +1335,9 @@ VISUALS = {
     "strike_family": strike_family,
     "ahuti_speed": ahuti_speed,
     "india_production": india_production,
+    "india_production_compact": india_production_compact,
     "india_exports": india_exports,
+    "india_exports_compact": india_exports_compact,
     "arch_vehicle": arch_vehicle,
     "arch_software": arch_software,
     "cortex_stack": cortex_stack,
@@ -1287,12 +1352,33 @@ VISUALS = {
 }
 
 
+def check(inline):
+    """inline_visuals.py matches embeds by aria-label and ends each match at
+    the next </svg>, so every visual must close and carry a unique label."""
+    import re
+    labels, ids = {}, {}
+    for name, svg in inline.items():
+        if svg.count("<svg") != svg.count("</svg>"):
+            raise SystemExit(f"{name}: unbalanced <svg> / </svg>")
+        m = re.search(r'aria-label="([^"]+)"', svg)
+        if not m:
+            raise SystemExit(f"{name}: no aria-label")
+        if m.group(1) in labels:
+            raise SystemExit(f"{name}: aria-label duplicates {labels[m.group(1)]}")
+        labels[m.group(1)] = name
+        for i in re.findall(r'\sid="([^"]+)"', svg):
+            if i in ids and ids[i] != name:
+                raise SystemExit(f"{name}: id '{i}' also used by {ids[i]}")
+            ids[i] = name
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     inline = {}
     for name, fn in VISUALS.items():
         svg = fn()
         inline[name] = svg
+    check(inline)
     json.dump(inline, open(os.path.join(OUT, "visuals.json"), "w", encoding="utf-8"))
     print("wrote assets/visuals.json")
 

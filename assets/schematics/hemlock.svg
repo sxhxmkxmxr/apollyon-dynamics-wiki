@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copied from products/hemlock.html ("CAD schematic of the Hemlock cruise missile"). Edit both together. -->
+<svg viewBox="0 0 960 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CAD schematic of the Hemlock cruise missile">
+        <defs>
+          <pattern id="cad_grid" width="20" height="20" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="20" y2="0" stroke="rgba(199,196,189,0.05)" stroke-width="1"/>
+            <line x1="0" y1="0" x2="0" y2="20" stroke="rgba(199,196,189,0.05)" stroke-width="1"/>
+          </pattern>
+          <pattern id="hatch_wh" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#D92323" stroke-width="1" opacity="0.4"/>
+          </pattern>
+          <pattern id="hatch_fuel" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#C7C4BD" stroke-width="1" opacity="0.3"/>
+          </pattern>
+          <pattern id="hatch_booster" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#7F7C76" stroke-width="1" opacity="0.35"/>
+          </pattern>
+        </defs>
+
+        <rect width="960" height="260" fill="#0A0A0A"/>
+        <rect width="960" height="260" fill="url(#cad_grid)"/>
+
+        <!-- Centerline Datum -->
+        <line x1="30" y1="125" x2="930" y2="125" stroke="#C7C4BD" stroke-width="0.8" stroke-dasharray="12,4,2,4" opacity="0.6"/>
+        <text x="35" y="120" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="8" opacity="0.7">DATUM CL</text>
+
+        <!-- JETTISONABLE SOLID ROCKET BOOSTER (STA 750 to 900) -->
+        <rect x="730" y="98" width="160" height="54" fill="url(#hatch_booster)" stroke="#C7C4BD" stroke-width="1.2"/>
+        <polygon points="890,92 925,78 925,98 890,108" fill="#141414" stroke="#C7C4BD" stroke-width="1.2"/>
+        <polygon points="890,158 925,172 925,152 890,142" fill="#141414" stroke="#C7C4BD" stroke-width="1.2"/>
+        <path d="M 890 112 L 915 106 L 915 144 L 890 138 Z" fill="#1D1D1D" stroke="#7F7C76" stroke-width="1"/>
+        <line x1="730" y1="88" x2="730" y2="162" stroke="#D92323" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="810" y="129" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="600" text-anchor="middle">SOLID BOOSTER (JETTISONABLE)</text>
+
+        <!-- MAIN AIRFRAME BODY (STA 80 to 730) -->
+        <path d="M 80 125 Q 140 98, 200 98 L 730 98 L 730 152 L 200 152 Q 140 152, 80 125 Z" fill="rgba(16,16,16,0.9)" stroke="#F2EFE9" stroke-width="1.8"/>
+
+        <!-- COMPARTMENT BULKHEADS -->
+        <line x1="200" y1="98" x2="200" y2="152" stroke="#414141" stroke-width="1.2"/>
+        <line x1="330" y1="98" x2="330" y2="152" stroke="#414141" stroke-width="1.2"/>
+        <line x1="490" y1="98" x2="490" y2="152" stroke="#414141" stroke-width="1.2"/>
+
+        <!-- 1. AVIONICS & CRPA BAY (STA 80 - 200) -->
+        <path d="M 88 125 Q 135 104, 185 104 L 185 146 Q 135 146, 88 125 Z" fill="rgba(199,196,189,0.06)" stroke="#C7C4BD" stroke-width="0.8"/>
+        <rect x="130" y="93" width="45" height="5" fill="#C7C4BD" stroke="#F2EFE9" stroke-width="0.8"/>
+        <circle cx="138" cy="95.5" r="1.5" fill="#0A0A0A"/>
+        <circle cx="148" cy="95.5" r="1.5" fill="#0A0A0A"/>
+        <circle cx="158" cy="95.5" r="1.5" fill="#0A0A0A"/>
+        <circle cx="168" cy="95.5" r="1.5" fill="#0A0A0A"/>
+        <rect x="145" y="152" width="22" height="4" fill="#C7C4BD" stroke="#C7C4BD"/>
+        <text x="140" y="122" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="8" font-weight="700" text-anchor="middle">AVIONICS / CRPA</text>
+        <text x="140" y="133" fill="#7F7C76" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">Scene-match Core</text>
+
+        <!-- 2. PENETRATING WARHEAD BAY (STA 200 - 330) -->
+        <rect x="205" y="103" width="120" height="44" fill="url(#hatch_wh)" stroke="#D92323" stroke-width="1.2"/>
+        <text x="265" y="122" fill="#f2efe9" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" text-anchor="middle">WARHEAD 450–500 kg</text>
+        <text x="265" y="133" fill="#f2efe9" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">Modular Penetrator</text>
+
+        <!-- 3. JP-10 FUEL BLADDER (STA 330 - 490) -->
+        <rect x="335" y="103" width="150" height="44" fill="url(#hatch_fuel)" stroke="#C7C4BD" stroke-width="1"/>
+        <text x="410" y="122" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="600" text-anchor="middle">JP-10 FUEL CELL</text>
+        <text x="410" y="133" fill="#7F7C76" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">~450–500 kg &#183; CG Balanced</text>
+
+        <!-- 4. MANIK 450 TURBOFAN BAY (STA 490 - 730) -->
+        <rect x="520" y="104" width="195" height="42" fill="#141414" stroke="#F2EFE9" stroke-width="1.2"/>
+        <line x1="535" y1="104" x2="535" y2="146" stroke="#C7C4BD" stroke-width="1"/>
+        <line x1="550" y1="106" x2="550" y2="144" stroke="#414141" stroke-width="1"/>
+        <line x1="565" y1="108" x2="565" y2="142" stroke="#414141" stroke-width="1"/>
+        <rect x="580" y="109" width="60" height="32" fill="#0A0A0A" stroke="#D92323" stroke-width="0.8" stroke-dasharray="2,2"/>
+        <circle cx="610" cy="125" r="6" fill="none" stroke="#D92323" stroke-width="0.8"/>
+        <line x1="660" y1="106" x2="660" y2="144" stroke="#C7C4BD" stroke-width="1.5"/>
+        <path d="M 700 110 L 730 114 L 730 136 L 700 140 Z" fill="#1D1D1D" stroke="#F2EFE9" stroke-width="1"/>
+        <text x="620" y="123" fill="#F2EFE9" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="700" text-anchor="middle">MANIK 450 kgf TURBOFAN</text>
+        <text x="620" y="134" fill="#7F7C76" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">BATL &#183; Twin-Spool</text>
+
+        <!-- TAIL CONTROL FINS -->
+        <polygon points="680,98 722,62 730,62 724,98" fill="#141414" stroke="#F2EFE9" stroke-width="1.2"/>
+        <polygon points="680,152 722,188 730,188 724,152" fill="#141414" stroke="#F2EFE9" stroke-width="1.2"/>
+
+        <!-- DIMENSION RULES -->
+        <line x1="80" y1="210" x2="730" y2="210" stroke="#7F7C76" stroke-width="1"/>
+        <line x1="80" y1="204" x2="80" y2="216" stroke="#7F7C76" stroke-width="1"/>
+        <line x1="730" y1="204" x2="730" y2="216" stroke="#7F7C76" stroke-width="1"/>
+        <text x="405" y="222" fill="#F2EFE9" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">Fuselage Length: 5,500 &#8211; 6,500 mm</text>
+
+        <line x1="80" y1="238" x2="925" y2="238" stroke="#C7C4BD" stroke-width="1"/>
+        <line x1="80" y1="232" x2="80" y2="244" stroke="#C7C4BD" stroke-width="1"/>
+        <line x1="925" y1="232" x2="925" y2="244" stroke="#C7C4BD" stroke-width="1"/>
+        <text x="502" y="250" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" text-anchor="middle">Total Launch Configuration with Booster: 6,500 &#8211; 8,000 mm</text>
+
+        <line x1="50" y1="98" x2="50" y2="152" stroke="#7F7C76" stroke-width="1"/>
+        <line x1="44" y1="98" x2="56" y2="98" stroke="#7F7C76" stroke-width="1"/>
+        <line x1="44" y1="152" x2="56" y2="152" stroke="#7F7C76" stroke-width="1"/>
+        <text x="70" y="172" fill="#7F7C76" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle">&#216; 450&#8211;600 mm</text>
+      </svg>

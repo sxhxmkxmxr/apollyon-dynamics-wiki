@@ -19,7 +19,8 @@ PLACEHOLDER = re.compile(r"<!--\s*VISUAL:([a-z0-9_]+)\s*-->")
 def main():
     total = 0
     for root, dirs, files in os.walk(WIKI):
-        dirs[:] = [d for d in dirs if d not in ("scripts", "assets", "css", "js")]
+        dirs[:] = [d for d in dirs if d not in ("scripts", "assets", "css", "js", "drafts")
+                   and not d.startswith((".", "_"))]
         for f in files:
             if not f.endswith(".html"):
                 continue
@@ -44,7 +45,12 @@ def main():
                 if pat.search(new):
                     new = pat.sub(lambda _m: '<div class="blueprint-body">\n' + svg + '\n</div>', new)
             if new != html:
-                open(full, "w", encoding="utf-8").write(new)
+                # The refresh ends each match at the next </svg>; an unclosed
+                # svg would let it swallow the page between two figures.
+                if new.count("<svg") != new.count("</svg>"):
+                    raise SystemExit(f"{rel}: unbalanced <svg> after inlining; nothing written")
+                # newline="\n": the pages are LF; text mode on Windows would write CRLF
+                open(full, "w", encoding="utf-8", newline="\n").write(new)
                 n = len(PLACEHOLDER.findall(html))
                 print(f"inlined {n} visual(s) into {rel}")
                 total += n

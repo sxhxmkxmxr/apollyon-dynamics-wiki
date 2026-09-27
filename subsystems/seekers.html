@@ -3,113 +3,123 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
 <title>Seekers — Apollyon Dynamics Wiki</title>
 <meta name="description" content="Apollyon Dynamics engineering wiki — autonomous strike, interception and battlefield-intelligence systems, with the shared architecture they are built from.">
 <link rel="icon" href="../assets/logos/favicon-red.png">
+<link rel="preload" href="../assets/fonts/endless-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/uav-osd-sans-mono.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/wiki.css">
 <script src="../js/wiki.js" defer></script>
 </head>
 <body id="top" data-section="architecture">
-
-<div class="rail">
-  <div class="rail-inner">
-    <button class="rail-menu" type="button" aria-controls="site-nav" aria-expanded="false"><span class="bars" aria-hidden="true"></span><span class="lbl">Menu</span></button>
-    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
-    <nav class="rail-links" aria-label="Sections">
-      <a id="rail-thesis" href="../index.html#thesis">Thesis</a>
-      <a id="rail-products" href="../index.html#products">Products</a>
-      <a id="rail-architecture" href="../architecture/index.html" class="on">Architecture</a>
-      <a id="rail-strategy" href="../strategy/trajectory.html">Strategy</a>
-      <a id="rail-doctrine" href="../doctrine/new-arsenal.html">Doctrine</a>
-      <a id="rail-company" href="../about/history.html">Company</a>
-    </nav>
+<!-- shell:topbar -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="topbar-menu" type="button" aria-controls="site-nav" aria-expanded="false"><span class="bars" aria-hidden="true"></span>Menu</button>
+    <a class="brand" href="../index.html" aria-label="Apollyon Dynamics Engineering Wiki, home"><span class="wiki-mark" aria-hidden="true"></span><span class="brand-name">Apollyon Dynamics</span><span class="brand-wiki">Engineering Wiki</span></a>
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../architecture/index.html">Architecture</a></li><li><span aria-current="page">Seekers</span></li></ol></nav>
   </div>
-  <div class="rail-progress" aria-hidden="true"><i></i></div>
-</div>
+</header>
+<!-- /shell:topbar -->
+
 <div class="shell">
 <div class="layout">
 
-<aside class="aside" id="site-nav" aria-label="Wiki navigation">
-  <div class="nav-group">
-    <h4><span class="n">01</span>Overview</h4>
-    <ul>
-      <li><a href="../index.html">The argument</a></li>
+<!-- shell:sidebar -->
+<nav class="sidebar" id="site-nav" aria-label="Wiki map">
+  <div class="map-group">
+    <p class="map-label" id="map-overview">Overview</p>
+    <ul aria-labelledby="map-overview">
+      <li><a href="../index.html"><span class="map-t">Home</span></a></li>
     </ul>
   </div>
-  <div class="nav-group">
-    <h4><span class="n">02</span>Products</h4>
-    <ul>
-      <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
-      <li><a href="../products/hemlock.html">Hemlock</a></li>
-      <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
-      <li><a href="../products/usv-strike.html">Piranha USV</a></li>
+  <div class="map-group">
+    <p class="map-label" id="map-products">Products</p>
+    <ul aria-labelledby="map-products">
+      <li><a href="../products/ahuti.html"><span class="map-t">Ahuti interceptor</span><span class="vh">,</span> <span class="status" data-status="flight-testing">Flight testing</span></a></li>
+      <li><a href="../products/nightshade-adx1.html"><span class="map-t">Nightshade family</span><span class="vh">,</span> <span class="status" data-status="in-development">In development</span></a></li>
+      <li><a href="../products/usv-strike.html"><span class="map-t">Piranha USV</span><span class="vh">,</span> <span class="status" data-status="in-development">In development</span></a></li>
+      <li><a href="../products/hemlock.html"><span class="map-t">Hemlock</span><span class="vh">,</span> <span class="status" data-status="concept">Concept</span></a></li>
     </ul>
   </div>
-  <div class="nav-group on">
-    <h4><span class="n">03</span>Architecture</h4>
-    <ul>
-      <li><a href="../architecture/index.html">The shared core</a></li>
-      <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
-      <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
-      <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
-      <li><a href="../subsystems/flight-software.html">Flight software</a></li>
-      <li class="here"><a href="../subsystems/seekers.html" aria-current="page">Seekers</a>
-        <ul class="nav-toc">
-          <li><a href="#family">The family</a></li>
-          <li><a href="#eoir">EO / IR</a></li>
-          <li><a href="#arh">Anti-radiation</a></li>
-          <li><a href="#scene">Scene matching</a></li>
-          <li><a href="#fits">Fits</a></li>
-        </ul>
-      </li>
-      <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
-      <li><a href="../subsystems/launch-systems.html">Launch &amp; ground systems</a></li>
+  <div class="map-group">
+    <p class="map-label" id="map-architecture">Architecture</p>
+    <ul aria-labelledby="map-architecture">
+      <li><a href="../architecture/index.html"><span class="map-t">The shared core</span></a></li>
+      <li><a href="../subsystems/near-envelope-control.html"><span class="map-t">Robust flight control</span></a></li>
+      <li><a href="../subsystems/gnss-denied-navigation.html"><span class="map-t">GNSS-denied navigation</span></a></li>
+      <li><a href="../subsystems/onboard-compute.html"><span class="map-t">Edge compute</span></a></li>
+      <li><a href="../subsystems/flight-software.html"><span class="map-t">Flight software</span></a></li>
+      <li><a href="../subsystems/seekers.html" aria-current="page"><span class="map-t">Seekers</span></a></li>
+      <li><a href="../subsystems/airframe-structures.html"><span class="map-t">Airframe &amp; structures</span><span class="vh">,</span> <span class="status" data-status="in-progress">In progress</span></a></li>
+      <li><a href="../subsystems/launch-systems.html"><span class="map-t">Launch &amp; ground systems</span></a></li>
     </ul>
   </div>
-  <div class="nav-group">
-    <h4><span class="n">04</span>Strategy</h4>
-    <ul>
-      <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
-      <li><a href="../strategy/market.html">The market</a></li>
-      <li><a href="../strategy/competitive.html">The competitive field</a></li>
-      <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
+  <div class="map-group">
+    <p class="map-label" id="map-strategy">Strategy</p>
+    <ul aria-labelledby="map-strategy">
+      <li><a href="../strategy/trajectory.html"><span class="map-t">Trajectory &amp; cost per kg&middot;km</span></a></li>
+      <li><a href="../strategy/market.html"><span class="map-t">The market</span></a></li>
+      <li><a href="../strategy/competitive.html"><span class="map-t">The competitive field</span></a></li>
+      <li><a href="../strategy/supply-chain.html"><span class="map-t">Supply chain</span></a></li>
     </ul>
   </div>
-  <div class="nav-group">
-    <h4><span class="n">05</span>Doctrine</h4>
-    <ul>
-      <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
-      <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
-      <li><a href="../doctrine/missing-middle.html">The Missing Middle</a></li>
-      <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
+  <div class="map-group">
+    <p class="map-label" id="map-doctrine">Doctrine</p>
+    <ul aria-labelledby="map-doctrine">
+      <li><a href="../doctrine/new-arsenal.html"><span class="map-t">The New Arsenal</span></a></li>
+      <li><a href="../doctrine/precision-is-mercy.html"><span class="map-t">Precision is Mercy</span></a></li>
+      <li><a href="../doctrine/missing-middle.html"><span class="map-t">The Missing Middle</span></a></li>
+      <li><a href="../doctrine/strike-design-space.html"><span class="map-t">Strike design space</span></a></li>
     </ul>
   </div>
-  <div class="nav-group">
-    <h4><span class="n">06</span>Record</h4>
-    <ul>
-      <li><a href="../about/history.html">Company history</a></li>
-      <li><a href="../about/team.html">Team &amp; advisors</a></li>
-      <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
+  <div class="map-group">
+    <p class="map-label" id="map-context">Context</p>
+    <ul aria-labelledby="map-context">
+      <li><a href="../strategic-dependency/full-record.html"><span class="map-t">The full record &middot; 70 episodes</span></a></li>
     </ul>
   </div>
-</aside>
+  <div class="map-group">
+    <p class="map-label" id="map-company">Company</p>
+    <ul aria-labelledby="map-company">
+      <li><a href="../about/history.html"><span class="map-t">Company history</span></a></li>
+      <li><a href="../about/team.html"><span class="map-t">Team &amp; advisors</span></a></li>
+    </ul>
+  </div>
+  <p class="map-key"><a href="../index.html#status-key">How to read the status labels</a></p>
+</nav>
+<!-- /shell:sidebar -->
 
-<main class="main">
+<main class="main" id="main">
 
-<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../architecture/index.html#subsystems">Subsystems</a><span>/</span>Seekers</div>
 <header class="masthead">
     <div class="mast-brand-lockup">
     <img src="../assets/logos/logo-ad-white.png" alt="Apollyon Dynamics Mark" class="brand-mark">
     <div class="brand-sep"></div>
     <img src="../assets/logos/logo-text-white.png" alt="Apollyon Dynamics" class="brand-text">
   </div>
-  <div class="mast-meta">Terminal guidance · passive imaging and anti-radiation homing <span>· core subsystem · Nightshade · Hemlock · Ahuti</span></div>
   <h1>Seekers and <span class="sub">terminal guidance</span></h1>
   <p class="standfirst">Modular seekers keep the airframe separate from the job of finding the target. The seeker decides whether a round hits a map coordinate or the target itself, and it removes any need for satellite navigation in the final seconds.</p>
+  <div class="mast-meta">Terminal guidance · passive imaging and anti-radiation homing <span>· core subsystem · Nightshade · Hemlock · Ahuti</span></div>
 </header>
+
+<!-- shell:page-toc -->
+<details class="page-toc">
+  <summary>On this page</summary>
+  <ul>
+    <li><a href="#family">The family</a></li>
+    <li><a href="#eoir">EO / IR</a></li>
+    <li><a href="#arh">Anti-radiation</a></li>
+    <li><a href="#scene">Scene matching</a></li>
+    <li><a href="#fits">Fits</a></li>
+  </ul>
+</details>
+<!-- /shell:page-toc -->
 
 <section id="family">
   <div class="sec-tag">01 · The family</div>
@@ -191,18 +201,17 @@
   </div>
 </section>
 
+<!-- shell:pager -->
 <nav class="pager" aria-label="Reading order">
   <a class="prev" href="../subsystems/flight-software.html"><span class="k">&larr; Previous &middot; Architecture</span><span class="t">Flight software</span></a>
   <a class="next" href="../subsystems/airframe-structures.html"><span class="k">Next &middot; Architecture &rarr;</span><span class="t">Airframe &amp; structures</span></a>
 </nav>
-<footer>
-  <div>Apollyon Dynamics &middot; Neo-Prime Wiki &middot; Rev 3.0</div>
-  <div><a href="../doctrine/new-arsenal.html">The New Arsenal</a> &middot; <a href="../about/history.html">Company</a> &middot; <a href="../strategy/competitive.html">Competitive field</a> &middot; apollyondynamics.com</div>
-</footer>
+<!-- /shell:pager -->
 
 </main>
+<!-- shell:toc -->
 <nav class="toc" aria-label="On this page">
-  <h4>On this page</h4>
+  <p class="toc-h">On this page</p>
   <ul>
     <li><a href="#family">The family</a></li>
     <li><a href="#eoir">EO / IR</a></li>
@@ -210,9 +219,20 @@
     <li><a href="#scene">Scene matching</a></li>
     <li><a href="#fits">Fits</a></li>
   </ul>
-  <a class="toc-top" href="#top">Back to top &uarr;</a>
+  <a class="toc-top" href="#top">Back to top</a>
 </nav>
+<!-- /shell:toc -->
 </div>
 </div>
+
+<!-- shell:footer -->
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <p class="site-footer-id"><span class="wiki-mark" aria-hidden="true"></span>Apollyon Dynamics &middot; Engineering Wiki &middot; Rev 3.0</p>
+    <p><a href="../index.html#status-key">Status key</a> &middot; <a href="../about/history.html">Company history</a> &middot; <a href="../about/history.html#contact">Contact</a> &middot; <a href="https://www.apollyondynamics.com" rel="noopener">apollyondynamics.com<span class="vh"> (company website)</span> &nearr;</a></p>
+  </div>
+</footer>
+<!-- /shell:footer -->
+
 </body>
 </html>
