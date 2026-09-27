@@ -821,6 +821,7 @@ def salvo_curve():
     o.append(txt(L + 286, B + 78, "EXQUISITE FIRED FIRST", 9.5, INK3, MONO))
     o.append(txt(L, B + 108, "All-exquisite leaves most targets untouched; all-attritable clears the soft set and nothing hardened.", 10, INK4, MONO))
     o.append(txt(L, B + 126, "The mixture beats both corners, and the firing order is worth as much as the mixture.", 10, INK4, MONO))
+    o.append("</svg>")
     return "".join(o)
 
 
@@ -1287,12 +1288,33 @@ VISUALS = {
 }
 
 
+def check(inline):
+    """inline_visuals.py matches embeds by aria-label and ends each match at
+    the next </svg>, so every visual must close and carry a unique label."""
+    import re
+    labels, ids = {}, {}
+    for name, svg in inline.items():
+        if svg.count("<svg") != svg.count("</svg>"):
+            raise SystemExit(f"{name}: unbalanced <svg> / </svg>")
+        m = re.search(r'aria-label="([^"]+)"', svg)
+        if not m:
+            raise SystemExit(f"{name}: no aria-label")
+        if m.group(1) in labels:
+            raise SystemExit(f"{name}: aria-label duplicates {labels[m.group(1)]}")
+        labels[m.group(1)] = name
+        for i in re.findall(r'\sid="([^"]+)"', svg):
+            if i in ids and ids[i] != name:
+                raise SystemExit(f"{name}: id '{i}' also used by {ids[i]}")
+            ids[i] = name
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     inline = {}
     for name, fn in VISUALS.items():
         svg = fn()
         inline[name] = svg
+    check(inline)
     json.dump(inline, open(os.path.join(OUT, "visuals.json"), "w", encoding="utf-8"))
     print("wrote assets/visuals.json")
 
