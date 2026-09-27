@@ -21,7 +21,7 @@
 <header class="topbar">
   <div class="topbar-inner">
     <button class="topbar-menu" type="button" aria-controls="site-nav" aria-expanded="false"><span class="bars" aria-hidden="true"></span>Menu</button>
-    <a class="brand" href="index.html" aria-label="Apollyon Dynamics Engineering Wiki, home"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Apollyon Dynamics</span><span class="brand-wiki">Engineering Wiki</span></a>
+    <a class="brand" href="index.html" aria-label="Apollyon Dynamics Engineering Wiki, home"><span class="wiki-mark" aria-hidden="true"></span><span class="brand-name">Apollyon Dynamics</span><span class="brand-wiki">Engineering Wiki</span></a>
   </div>
 </header>
 <!-- /shell:topbar -->
@@ -97,254 +97,175 @@
 <main class="main" id="main">
 
 <header class="masthead" id="thesis">
-  <div class="mast-brand-lockup">
-    <img src="assets/logos/logo-ad-white.png" alt="Apollyon Dynamics Mark" class="brand-mark">
-    <div class="brand-sep"></div>
-    <img src="assets/logos/logo-text-white.png" alt="Apollyon Dynamics" class="brand-text">
-  </div>
   <h1>An Indian neo-prime, <span class="sub">built from the bottom up</span></h1>
   <p class="standfirst">Apollyon Dynamics builds autonomous strike and interception systems for India: a family of jet-powered effectors, a high-speed interceptor and an unmanned surface vessel, with a long-range cruise missile in concept. They share one engineering method, are designed for the industrial base India already has, and are priced to be used in the numbers a long conflict consumes.</p>
-  <div class="mast-meta">Apollyon Dynamics</div>
+  <p class="page-meta">Engineering Wiki &middot; Rev 3.0 &middot; Updated September 2026</p>
 </header>
 
 <!-- shell:page-toc -->
 <details class="page-toc">
   <summary>On this page</summary>
   <ul>
-    <li><a href="#origin">Origin</a></li>
-    <li><a href="#doctrine">Doctrine</a></li>
+    <li><a href="#at-a-glance">At a glance</a></li>
+    <li><a href="#doctrine">Three principles</a></li>
+    <li><a href="#products">Products and maturity</a></li>
     <li><a href="#war">Modern warfare has changed</a></li>
     <li><a href="#dependency">Eight decades of dependency</a></li>
-    <li><a href="#window">The window</a></li>
+    <li><a href="#window">The market turned inward</a></li>
     <li><a href="#plan">Strike per rupee</a></li>
-    <li><a href="#architecture">The Speed Moat</a></li>
-    <li><a href="#products">The Arsenal</a></li>
+    <li><a href="#architecture">The speed moat</a></li>
     <li><a href="#business">The business</a></li>
-    <li><a href="#moats">Compounding Moats</a></li>
-    <li><a href="#record">Track Record</a></li>
-    <li><a href="#engage">Engage</a></li>
+    <li><a href="#moats">Compounding moats</a></li>
+    <li><a href="#origin">How we started</a></li>
+    <li><a href="#record">Track record</a></li>
+    <li><a href="#explore">Explore the wiki</a></li>
+    <li><a href="#engage">Working with us</a></li>
   </ul>
 </details>
 <!-- /shell:page-toc -->
 
-<!-- ═══════════════════ 01 · ORIGIN ═══════════════════ -->
-<section id="origin">
-  <div class="sec-tag">01 · Origin</div>
-  <h2>How we started</h2>
-  <p class="lede">Apollyon Dynamics started in May 2025 at BITS Pilani, Hyderabad. While the two founders were still undergraduates, they built their first tactical quadcopter in their hostel rooms using 3D printers.</p>
-  <p>The first drones were designed and built in-house. The team took them to Chandigarh for flight trials with the Indian Army, where their flight performance and resistance to jamming helped secure the company's first order. That order came from 15 Guards and was worth ₹2.68 lakh. Within two months of incorporation, Apollyon had delivered its first production hardware to a forward unit.</p>
-  <p>More orders and deployments followed across Jammu, Udhampur, Chandimandir and Arunachal Pradesh. Working with Army units from the beginning gave the team a chance to test its designs in the field, understand what soldiers actually needed, and use that feedback in subsequent builds. Alongside tactical airframes, Apollyon built and delivered a containerised Mobile Drone Lab to the Army with 15 Guards in Jammu, bringing diagnostic, calibration and mission-programming equipment to the forward base. <a href="about/team.html">The people behind the programmes &rarr;</a></p>
-  <p><a href="about/history.html">Read the company history &rarr;</a></p>
-
-  <div class="stats">
+<!-- ═══════════════════ 01 · AT A GLANCE ═══════════════════ -->
+<section id="at-a-glance">
+  <h2><span class="sec-no">01</span>At a glance</h2>
+  <div class="stats glance">
+    <div class="stat"><div class="n">May 2025</div><div class="d">Founded<span class="muted">BITS Pilani, Hyderabad</span></div></div>
     <div class="stat"><div class="n">&lt;2 mo</div><div class="d">Hostel to frontline<span class="muted">First unit delivery from incorporation</span></div></div>
     <div class="stat"><div class="n">08</div><div class="d">Fielded formations<span class="muted">Indian Army and BSF, four theatres</span></div></div>
     <div class="stat"><div class="n">17+</div><div class="d">Engineers and operators<span class="muted">Multi-disciplinary team, from nine in January</span></div></div>
+    <div class="stat"><div class="n">&#8377;4 Cr</div><div class="d">Pre-seed, May 2026<span class="muted">Led by Naandi Ventures, alongside tactical revenue</span></div></div>
+    <div class="stat"><div class="n">498 km/h</div><div class="d">Ahuti sprint record<span class="muted">India Book of Records, Sep 2026 (sprint testbed)</span></div></div>
+  </div>
+  <div class="routes">
+    <div class="route">
+      <h3>Investor overview</h3>
+      <p>Read this page in order: the principles, the products and their maturity, the argument, then the record.</p>
+      <p><a href="strategy/trajectory.html">Strategy: Trajectory &amp; cost per kg&middot;km &rarr;</a></p>
+    </div>
+    <div class="route">
+      <h3>Technical review</h3>
+      <p>Start from the shared engineering core, then each subsystem and product page.</p>
+      <p><a href="architecture/index.html">Architecture: The shared core &rarr;</a></p>
+    </div>
+    <div class="route">
+      <h3>Evidence and record</h3>
+      <p>Orders, deployments and flight milestones, and the documented history behind the argument.</p>
+      <p><a href="about/history.html">Company: Company history &rarr;</a></p>
+    </div>
   </div>
 </section>
 
-<!-- ═══════════════════ 02 · DOCTRINE ═══════════════════ -->
+<!-- ═══════════════════ 02 · THREE PRINCIPLES ═══════════════════ -->
 <section id="doctrine">
-  <div class="sec-tag">02 · Doctrine</div>
-  <h2>Precision is mercy</h2>
+  <h2><span class="sec-no">02</span>Three principles</h2>
+  <p class="lede">The company&rsquo;s doctrine rests on three principles, each argued in full on its own page.</p>
+  <div class="cards principles">
+    <div class="card">
+      <h3><a href="doctrine/precision-is-mercy.html">Precision is Mercy</a></h3>
+      <div class="kicker">01 · Ethical principle</div>
+      <p>Lethality and precision belong together. Force without precision is barbarism; restraint without lethality is impotence. Discrimination confines destruction to legitimate military targets, protecting non-combatants and making aggression prohibitively costly.</p>
+      <div class="foot"><span>Ethics &middot; Discrimination</span></div>
+    </div>
+    <div class="card">
+      <h3><a href="doctrine/new-arsenal.html">The New Arsenal</a></h3>
+      <div class="kicker">02 · Industrial principle</div>
+      <p>An arsenal is an industrial state. The decisive weapon in long wars is not the peacetime stockpile, but the factory floor that replenishes it. Sovereign strategic autonomy requires domestic manufacturing depth, software independence, and institutional accumulation.</p>
+      <div class="foot"><span>Industrial depth &middot; Sovereignty</span></div>
+    </div>
+    <div class="card">
+      <h3><a href="doctrine/missing-middle.html">The Missing Middle</a></h3>
+      <div class="kicker">03 · Arsenal architecture</div>
+      <p>India is not missing technology. It is missing an industrial tempo. Between exquisite strategic weapons and mature ordnance commodities sits the unbuilt layer: high-tech, software-defined, attritable mass iterated in weeks and built at high rate.</p>
+      <div class="foot"><span>Tempo &middot; Attritable mass</span></div>
+    </div>
+  </div>
+
+  <h3>Precision is mercy</h3>
   <p>A defence company should be comfortable with the fact that its products are lethal weapons. They are built to destroy military capability. A system that cannot do this reliably is a weak instrument of deterrence. Lethality, therefore, matters in the most literal sense. Apollyon intends to build highly lethal weapons, making it prohibitively costly to wage war against India.</p>
   <p>The ethical question begins after accepting that fact: how should destructive force be designed and employed by a state that claims restraint as a virtue? Our answer is contained in one of the company's simplest yet defining phrases: <strong>Precision is Mercy.</strong> Precision in striking a legitimate military target is an act of mercy toward the civilian population. Destructive capacity by itself is a poor measure of military quality; the higher standard is discriminate force: the ability to produce the required military effect against the intended target while minimising incidental harm, unnecessary destruction and risk to those who are not direct part of the conflict.</p>
   <p><strong>Lethality and precision therefore belong together.</strong> Lethality provides certainty of military effect; precision confines that effect to where it is intended. The desired weapon is one that maximises the probability of achieving the legitimate military objective while minimising consequences beyond it. This certainty is what upholds <strong>unassailable deterrence.</strong></p>
-  <blockquote>
+  <blockquote lang="hi">
     क्षमा शोभती उस भुजंग को, जिसके पास गरल हो<br>
     उसको क्या जो दंतहीन, विषरहित, विनीत, सरल हो।
-    <cite>Ramdhari Singh 'Dinkar'</cite>
+    <cite lang="en">Ramdhari Singh 'Dinkar'</cite>
   </blockquote>
   <p>Restraint has value only when a state possesses alternatives. <i>A country that cannot impose costs upon the aggressor can maintain peace only as an act of mercy of the aggressor.</i> Only a country with overwhelming military power can choose not to escalate. In a democratic and plural state, the purpose of military power is neither conquest nor violence as an expression of national will. Its purpose is to make coercion unprofitable, to protect political independence, and to give the state enough freedom of action that diplomacy, restraint and peaceful settlement remain genuine choices rather than being necessitated by weakness.</p>
-  <div class="cards" style="margin-top:28px;">
-    <div class="card">
-      <div class="kicker">01 · Ethical principle</div>
-      <h3><a href="doctrine/precision-is-mercy.html">Precision is Mercy</a></h3>
-      <p>Lethality and precision belong together. Force without precision is barbarism; restraint without lethality is impotence. Discrimination confines destruction to legitimate military targets, protecting non-combatants and making aggression prohibitively costly.</p>
-      <div class="foot"><span>Ethics &middot; Discrimination</span><a href="doctrine/precision-is-mercy.html">Read doctrine &rarr;</a></div>
-    </div>
-    <div class="card">
-      <div class="kicker">02 · Industrial principle</div>
-      <h3><a href="doctrine/new-arsenal.html">The New Arsenal</a></h3>
-      <p>An arsenal is an industrial state. The decisive weapon in long wars is not the peacetime stockpile, but the factory floor that replenishes it. Sovereign strategic autonomy requires domestic manufacturing depth, software independence, and institutional accumulation.</p>
-      <div class="foot"><span>Industrial depth &middot; Sovereignty</span><a href="doctrine/new-arsenal.html">Read doctrine &rarr;</a></div>
-    </div>
-    <div class="card">
-      <div class="kicker">03 · Arsenal architecture</div>
-      <h3><a href="doctrine/missing-middle.html">The Missing Middle</a></h3>
-      <p>India is not missing technology. It is missing an industrial tempo. Between exquisite strategic weapons and mature ordnance commodities sits the unbuilt layer: high-tech, software-defined, attritable mass iterated in weeks and built at high rate.</p>
-      <div class="foot"><span>Tempo &middot; Attritable mass</span><a href="doctrine/missing-middle.html">Read doctrine &rarr;</a></div>
-    </div>
-  </div>
 </section>
 
-<!-- ═══════════════════ 03 · THE WORLD ═══════════════════ -->
-<section id="war">
-  <div class="sec-tag">03 · The world</div>
-  <h2>Modern warfare has changed</h2>
-  <p class="lede">Cheap drones, better sensors, electronic warfare and mass production have changed how wars are fought. A military now needs not only capable weapons, but enough of them to sustain a long conflict.</p>
-
-  <figure class="dark">
-    <img src="assets/modern-warfare-inversions.png" alt="Fig. 01 — How the battlefield is changing" loading="lazy">
-    <figcaption><b>Fig. 01</b> How the battlefield is changing.</figcaption>
-  </figure>
-
-  <p>The important change is not that expensive weapons are becoming obsolete. It is that they can no longer do everything. A cheap drone can force an expensive response, while a small number of sophisticated weapons cannot deal with every threat. Modern armies need both: advanced systems for difficult targets and cheaper systems that can be built and used in large numbers.
-      Apart from this, all the conventional ways of navigation are becoming increasingly unreliable, as satellite navigation and communications are commonly disrupted in light of conflict.</p>
-  <p>The goal is simple: build weapons that work effectively and decisively in these conditions, can be produced in sufficient numbers, and are affordable enough to use when needed.</p>
-</section>
-
-<!-- ═══════════════════ 04 · DEPENDENCY ═══════════════════ -->
-<section id="dependency">
-  <div class="sec-tag">04 · History</div>
-  <h2>Eight decades of strategic dependency (1947–2026)</h2>
-  <p class="lede">Military equipment is bought with the expectation that it will work when needed. But its effectiveness depends on much more than the equipment itself. Spare parts, ammunition, maintenance, software and technical support must all remain available throughout a conflict.</p>
-  <p>Dependence on foreign suppliers puts this battle-readiness completely outside a country's control. An aircraft may be perfectly capable to fly, but without the parts or weapons it needs, it cannot perform its intended role. What appears to be a complete military capability in peacetime can become unavailable precisely when it is needed most.</p>
-  <p>The following timeline shows how dependence on foreign suppliers has repeatedly jeopardized the sovereignty and effectiveness of Indian military action since independence.</p>
-
-  <div class="war-timeline">
-    <div class="war-rail" id="war-rail">
-      <div class="war-spine"></div>
-    </div>
-    <div class="war-files" id="war-files"><svg class="war-threads" id="war-threads" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg></div>
-    <div class="war-scale"><span>1947</span><span>2026</span></div>
-  </div>
-  <div class="war-panel" id="war-panel"></div>
-
-  <p class="small" style="margin-top:14px;">Taken from primary documentation like declassified diplomatic cables and Standing Committee on Defence parliamentary reports. Read the full record <a href="strategic-dependency/full-record.html">here</a>.</p>
-</section>
-
-<!-- ═══════════════════ 05 · WINDOW ═══════════════════ -->
-<section id="window">
-  <div class="sec-tag">05 · The window</div>
-  <h2>India's defence market turned inward</h2>
-  <p class="lede">India has structurally redirected its defence procurement toward domestic manufacturing. Between FY14 and FY26, domestic defence output expanded 4-fold to ₹1.78 lakh crore, while military exports increased 56-fold to ₹38,424 crore. Statutory procurement mandates now guarantee domestic volume for aerospace and missile manufacturing.</p>
-
-  <div class="grid-2">
-    <div>
-      <div class="blueprint-body">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" role="img" aria-label="India annual defence production FY21 to FY26 in crore rupees"><text x="62.0" y="46.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#F2EFE9" font-weight="700" letter-spacing="0.08em">ANNUAL DEFENCE PRODUCTION</text><text x="938.0" y="46.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#A19E97" text-anchor="end" letter-spacing="0.08em">₹ LAKH CRORE</text><line x1="62.0" y1="66.0" x2="938.0" y2="66.0" stroke="#1D1D1D" stroke-width="1"/><rect x="103.4" y="278.4" width="79.9" height="101.6" fill="#222222" stroke="#666666" stroke-width="1.5"/><rect x="78.3" y="70" width="130" height="34" fill="#181818" stroke="#444444" stroke-width="1.2" rx="4"/><text x="143.3" y="92.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="15.0" fill="#A19E97" text-anchor="middle" font-weight="700" letter-spacing="0.08em">START · BASE</text><text x="143.3" y="136.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="34.0" fill="#FFFFFF" text-anchor="middle" font-weight="800">₹85K Cr</text><line x1="143.3" y1="148" x2="143.3" y2="274.4" stroke="#444444" stroke-width="1.2" stroke-dasharray="3,3"/><text x="143.3" y="412.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">FY21</text><rect x="246.1" y="266.2" width="79.9" height="113.8" fill="#141414" stroke="#2A2A2A" stroke-width="1"/><text x="286.0" y="256.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5" fill="#666666" text-anchor="middle">₹95K</text><text x="286.0" y="410.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13.0" fill="#666666" text-anchor="middle">FY22</text><rect x="388.7" y="252.8" width="79.9" height="127.2" fill="#141414" stroke="#2A2A2A" stroke-width="1"/><text x="428.7" y="242.8" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5" fill="#666666" text-anchor="middle">₹106K</text><text x="428.7" y="410.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13.0" fill="#666666" text-anchor="middle">FY23</text><rect x="531.4" y="227.6" width="79.9" height="152.4" fill="#141414" stroke="#2A2A2A" stroke-width="1"/><text x="571.3" y="217.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5" fill="#666666" text-anchor="middle">₹127K</text><text x="571.3" y="410.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13.0" fill="#666666" text-anchor="middle">FY24</text><rect x="674.1" y="198.8" width="79.9" height="181.2" fill="#141414" stroke="#2A2A2A" stroke-width="1"/><text x="714.0" y="188.8" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.5" fill="#666666" text-anchor="middle">₹151K</text><text x="714.0" y="410.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13.0" fill="#666666" text-anchor="middle">FY25</text><rect x="816.7" y="166.4" width="79.9" height="213.6" fill="#D92323" stroke="#F04B4B" stroke-width="1.5"/><rect x="772.7" y="70" width="168" height="34" fill="#D92323" rx="4"/><text x="856.7" y="93.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="18.0" fill="#FFFFFF" text-anchor="middle" font-weight="800" letter-spacing="0.08em">▲ 4.1× GROWTH</text><text x="856.7" y="136.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="34.0" fill="#FFFFFF" text-anchor="middle" font-weight="800">₹1.78L Cr</text><text x="856.7" y="412.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">FY26</text><line x1="62.0" y1="380.0" x2="938.0" y2="380.0" stroke="#2B2B2B" stroke-width="1.2"/><text x="62.0" y="458.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="16.0" fill="#C7C4BD" font-weight="500">4.1× since FY14 (₹43,746 Cr) · FY26 total ₹1.78 lakh Cr</text><text x="62.0" y="486.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="15.0" fill="#7F7C76">75% of FY27 capital acquisition reserved for domestic industry (₹1.39 lakh Cr).</text></svg>
-</div>
-      <p class="small" style="margin-top:12px;">Production, FY21–FY26. Source: Ministry of Defence / PIB releases.</p>
-    </div>
-    <div>
-      <div class="blueprint-body">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" role="img" aria-label="India defence exports FY14 to FY26 in crore rupees"><text x="62.0" y="46.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#F2EFE9" font-weight="700" letter-spacing="0.08em">ANNUAL DEFENCE EXPORTS</text><text x="938.0" y="46.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#A19E97" text-anchor="end" letter-spacing="0.08em">₹ CRORE</text><line x1="62.0" y1="66.0" x2="938.0" y2="66.0" stroke="#1D1D1D" stroke-width="1"/><rect x="101.3" y="376.0" width="63.6" height="4.0" fill="#222222" stroke="#666666" stroke-width="1.5"/><rect x="68.1" y="70" width="130" height="34" fill="#181818" stroke="#444444" stroke-width="1.2" rx="4"/><text x="133.1" y="92.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="15.0" fill="#A19E97" text-anchor="middle" font-weight="700" letter-spacing="0.08em">START · BASE</text><text x="133.1" y="136.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="34.0" fill="#FFFFFF" text-anchor="middle" font-weight="800">₹686 Cr</text><line x1="133.1" y1="148" x2="133.1" y2="372.0" stroke="#444444" stroke-width="1.2" stroke-dasharray="3,3"/><text x="133.1" y="412.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">FY14</text><rect x="223.6" y="334.0" width="63.6" height="46.0" fill="#141414" stroke="#2A2A2A" stroke-width="1"/><text x="255.4" y="324.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#666666" text-anchor="middle">₹8,434</text><text x="255.4" y="410.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13.0" fill="#666666" text-anchor="middle">FY21</text><rect x="345.9" y="310.1" width="63.6" height="69.9" fill="#141414" stroke="#2A2A2A" stroke-width="1"/><text x="377.7" y="300.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#666666" text-anchor="middle">₹12,815</text><text x="377.7" y="410.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13.0" fill="#666666" text-anchor="middle">FY22</text><rect x="468.2" y="293.2" width="63.6" height="86.8" fill="#141414" stroke="#2A2A2A" stroke-width="1"/><text x="500.0" y="283.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#666666" text-anchor="middle">₹15,920</text><text x="500.0" y="410.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13.0" fill="#666666" text-anchor="middle">FY23</text><rect x="590.5" y="265.0" width="63.6" height="115.0" fill="#141414" stroke="#2A2A2A" stroke-width="1"/><text x="622.3" y="255.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#666666" text-anchor="middle">₹21,083</text><text x="622.3" y="410.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13.0" fill="#666666" text-anchor="middle">FY24</text><rect x="712.8" y="251.2" width="63.6" height="128.8" fill="#141414" stroke="#2A2A2A" stroke-width="1"/><text x="744.6" y="241.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#666666" text-anchor="middle">₹23,622</text><text x="744.6" y="410.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13.0" fill="#666666" text-anchor="middle">FY25</text><rect x="835.1" y="170.4" width="63.6" height="209.6" fill="#D92323" stroke="#F04B4B" stroke-width="1.5"/><rect x="782.9" y="70" width="168" height="34" fill="#D92323" rx="4"/><text x="866.9" y="93.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="18.0" fill="#FFFFFF" text-anchor="middle" font-weight="800" letter-spacing="0.08em">▲ 56× GROWTH</text><text x="866.9" y="136.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="34.0" fill="#FFFFFF" text-anchor="middle" font-weight="800">₹38,424 Cr</text><text x="866.9" y="412.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#FFFFFF" text-anchor="middle" font-weight="700">FY26</text><line x1="62.0" y1="380.0" x2="938.0" y2="380.0" stroke="#2B2B2B" stroke-width="1.2"/><text x="62.0" y="458.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="16.0" fill="#C7C4BD" font-weight="500">56× since FY14 · ₹38,424 Cr in FY26 · private firms 45.16% of exports</text><text x="62.0" y="486.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="15.0" fill="#7F7C76">across 145 domestic firms and more than 80 destination nations.</text></svg>
-</div>
-      <p class="small" style="margin-top:12px;">Exports, FY14–FY26. Source: Ministry of Defence / PIB releases.</p>
-    </div>
-  </div>
-
-  <ul>
-    <li><strong>Statutory capital reservation.</strong> The Ministry of Defence reserves 75% of its capital procurement budget—amounting to ₹1.39 lakh crore in FY27—for domestic manufacturers. Positive Indigenisation Lists embargo 5,521 imported subsystems and items, while updated procurement procedures dissolved historical public monopolies in tactical missile fabrication.</li>
-    <li><strong>Sustained attrition requirements.</strong> Active operational deployments across the Himalayan Line of Actual Control, the Line of Control, and maritime sea lanes consume ordnance faster than overseas supply lines can replenish. High-intensity multi-front operations require high-rate domestic production lines rather than fixed stocks of imported munitions.</li>
-    <li><strong>Independent export demand &amp; geopolitical asymmetry.</strong> Many countries face high costs and restrictions when buying foreign defence equipment. India offers an alternative, and Apollyon has an additional advantage through its partnership with Tonbo Imaging. Tonbo's existing international customers, industry relationships and export experience give Apollyon a starting point in markets it would otherwise have to enter on its own. <a href="strategy/market.html">The market, and who can buy &rarr;</a></li>
-  </ul>
-</section>
-
-<!-- ═══════════════════ 06 · PLAN ═══════════════════ -->
-<section id="plan">
-  <div class="sec-tag">06 · The plan</div>
-  <h2>Strike per rupee</h2>
-  <p class="lede">The measure Apollyon optimises is the price of delivered effect: what India pays for each kilogram of warhead carried each kilometre. Today's effectors, interceptors and cruise missiles are the first platforms built against that measure, and each generation is meant to push it lower.</p>
-
-  <h3>The unit we count in</h3>
-  <p>Comparing weapons by unit price or range alone obscures delivered effect. A commander buys warhead mass delivered across distance. Combining payload and range yields total delivered strike work:</p>
-
-  <div class="callout eq">
-    <div class="k">Governing Equations</div>
-    <div class="formula">Strike Envelope&nbsp;[kg·km] = Payload (kg) <b>×</b> Range (km)</div>
-    <div class="formula" style="margin-top:10px;">Cost per Effect&nbsp;[₹/kg·km] = Unit Cost (₹) <b>÷</b> Strike Envelope</div>
-    <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--ink-2);line-height:1.8;">
-      <div>• <strong>Nightshade Mk II:</strong> 15 kg <b>×</b> 300 km = 4,500 kg·km&nbsp;&nbsp;→&nbsp;&nbsp;₹1.5 Cr ÷ 4,500 ≈ <span style="color:var(--ink);font-weight:600;">₹3,333 / kg·km</span></div>
-      <div>• <strong>Hemlock:</strong> 450 kg <b>×</b> 1,500 km = 675,000 kg·km&nbsp;&nbsp;→&nbsp;&nbsp;₹4 Cr ÷ 675k ≈ <span style="color:var(--red-2);font-weight:700;">₹59 / kg·km</span></div>
-    </div>
-    <p style="margin:10px 0 0;font-size:12px;color:var(--ink-3);">Normalizes tactical loitering munitions and heavy cruise missiles onto a single capital-efficiency axis.</p>
-  </div>
-
-  <p>Two rules qualify this metric: the airframe must clear electronic-warfare and autonomous terminal accuracy gates, and survivability assumes subsonic terrain masking and route planning.</p>
-
-  <h3>What a rupee buys</h3>
-  <p>Divide a round's price by its envelope and you have the price of delivered effect. A Nightshade Mk II carries 15 kg over 300 km for a planning price near ₹1.5 crore, which works out to about ₹3,333 for every kilogram-kilometre. Hemlock is specified at 450 kg over 1,500 km for roughly ₹4 crore, or about ₹59. Between the two, the envelope grows by 150 times while the price of each kilogram-kilometre falls by more than 50 times.</p>
-
-  <div class="blueprint-plate">
-    <div class="blueprint-head"><span class="title">Fig. 02</span><span class="scale">cost per kg·km · log-log</span></div>
-    <div class="blueprint-body">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 570" role="img" aria-label="Cost per kilogram-kilometre by range: Apollyon family against in-service comparators"><rect width="1000" height="570" fill="#050505"/><line x1="92.0" y1="424.5" x2="96.0" y2="424.5" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="402.5" x2="96.0" y2="402.5" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="386.9" x2="96.0" y2="386.9" stroke="#2B2B2B" stroke-width="0.8"/><line x1="96.0" y1="374.9" x2="930.0" y2="374.9" stroke="#1D1D1D" stroke-width="0.8" stroke-dasharray="3,4"/><line x1="92.0" y1="374.9" x2="96.0" y2="374.9" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="365.0" x2="96.0" y2="365.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="356.6" x2="96.0" y2="356.6" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="349.4" x2="96.0" y2="349.4" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="343.0" x2="96.0" y2="343.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="299.8" x2="96.0" y2="299.8" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="277.9" x2="96.0" y2="277.9" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="262.3" x2="96.0" y2="262.3" stroke="#2B2B2B" stroke-width="0.8"/><line x1="96.0" y1="250.2" x2="930.0" y2="250.2" stroke="#1D1D1D" stroke-width="0.8" stroke-dasharray="3,4"/><line x1="92.0" y1="250.2" x2="96.0" y2="250.2" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="240.3" x2="96.0" y2="240.3" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="232.0" x2="96.0" y2="232.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="224.7" x2="96.0" y2="224.7" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="218.4" x2="96.0" y2="218.4" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="175.1" x2="96.0" y2="175.1" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="153.2" x2="96.0" y2="153.2" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="137.6" x2="96.0" y2="137.6" stroke="#2B2B2B" stroke-width="0.8"/><line x1="96.0" y1="125.5" x2="930.0" y2="125.5" stroke="#1D1D1D" stroke-width="0.8" stroke-dasharray="3,4"/><line x1="92.0" y1="125.5" x2="96.0" y2="125.5" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="115.7" x2="96.0" y2="115.7" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="107.3" x2="96.0" y2="107.3" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="100.1" x2="96.0" y2="100.1" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="93.7" x2="96.0" y2="93.7" stroke="#2B2B2B" stroke-width="0.8"/><line x1="96.0" y1="462.0" x2="930.0" y2="462.0" stroke="#232323" stroke-width="1"/><line x1="89.0" y1="462.0" x2="96.0" y2="462.0" stroke="#414141" stroke-width="1.2"/><text x="84.0" y="466.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="end" font-weight="600">₹10</text><line x1="96.0" y1="337.3" x2="930.0" y2="337.3" stroke="#232323" stroke-width="1"/><line x1="89.0" y1="337.3" x2="96.0" y2="337.3" stroke="#414141" stroke-width="1.2"/><text x="84.0" y="341.3" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="end" font-weight="600">₹100</text><line x1="96.0" y1="212.7" x2="930.0" y2="212.7" stroke="#232323" stroke-width="1"/><line x1="89.0" y1="212.7" x2="96.0" y2="212.7" stroke="#414141" stroke-width="1.2"/><text x="84.0" y="216.7" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="end" font-weight="600">₹1,000</text><line x1="96.0" y1="88.0" x2="930.0" y2="88.0" stroke="#232323" stroke-width="1"/><line x1="89.0" y1="88.0" x2="96.0" y2="88.0" stroke="#414141" stroke-width="1.2"/><text x="84.0" y="92.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="end" font-weight="600">₹10,000</text><line x1="283.0" y1="462.0" x2="283.0" y2="466.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="470.0" y1="462.0" x2="470.0" y2="466.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="579.4" y1="462.0" x2="579.4" y2="466.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="621.0" y1="462.0" x2="621.0" y2="466.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="657.1" y1="462.0" x2="657.1" y2="466.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="766.5" y1="462.0" x2="766.5" y2="466.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="875.9" y1="462.0" x2="875.9" y2="466.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="205.4" y1="88.0" x2="205.4" y2="462.0" stroke="#141414" stroke-width="1"/><line x1="205.4" y1="462.0" x2="205.4" y2="468.0" stroke="#414141" stroke-width="1.2"/><text x="205.4" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">150</text><line x1="392.4" y1="88.0" x2="392.4" y2="462.0" stroke="#141414" stroke-width="1"/><line x1="392.4" y1="462.0" x2="392.4" y2="468.0" stroke="#414141" stroke-width="1.2"/><text x="392.4" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">300</text><line x1="530.2" y1="88.0" x2="530.2" y2="462.0" stroke="#141414" stroke-width="1"/><line x1="530.2" y1="462.0" x2="530.2" y2="468.0" stroke="#414141" stroke-width="1.2"/><text x="530.2" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">500</text><line x1="717.3" y1="88.0" x2="717.3" y2="462.0" stroke="#141414" stroke-width="1"/><line x1="717.3" y1="462.0" x2="717.3" y2="468.0" stroke="#414141" stroke-width="1.2"/><text x="717.3" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">1,000</text><line x1="826.7" y1="88.0" x2="826.7" y2="462.0" stroke="#141414" stroke-width="1"/><line x1="826.7" y1="462.0" x2="826.7" y2="468.0" stroke="#414141" stroke-width="1.2"/><text x="826.7" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">1,500</text><line x1="904.3" y1="88.0" x2="904.3" y2="462.0" stroke="#141414" stroke-width="1"/><line x1="904.3" y1="462.0" x2="904.3" y2="468.0" stroke="#414141" stroke-width="1.2"/><text x="904.3" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">2,000</text><line x1="96.0" y1="462.0" x2="930.0" y2="462.0" stroke="#414141" stroke-width="1.2"/><line x1="96.0" y1="88.0" x2="96.0" y2="462.0" stroke="#414141" stroke-width="1.2"/><text x="96.0" y="44.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#F2EFE9" font-weight="700" letter-spacing="0.08em">LOWER IS BETTER ↓</text><text x="251.0" y="44.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#A19E97" letter-spacing="0.08em">·   UNIT COST ÷ (PAYLOAD × RANGE)</text><text x="513.0" y="510.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#A19E97" text-anchor="middle" font-weight="600" letter-spacing="0.12em">OPERATIONAL RANGE, KM (LOG SCALE)</text><text x="84.0" y="72.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#A19E97" font-weight="600" letter-spacing="0.12em">COST PER KG·KM (INR)</text><polyline points="205.4,131.2 456.2,149.7 688.8,250.2 844.1,252.4" fill="none" stroke="#414141" stroke-width="1.8" stroke-dasharray="6,4" stroke-linecap="round" stroke-linejoin="round"/><line x1="205.4" y1="123.2" x2="205.4" y2="125.7" stroke="#414141" stroke-width="1"/><text x="205.4" y="107.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">Berkut-BM</text><text x="205.4" y="120.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#A19E97" text-anchor="middle">₹4,500</text><circle cx="205.4" cy="131.2" r="5.5" fill="#050505" stroke="#A19E97" stroke-width="2"/><line x1="456.2" y1="141.7" x2="456.2" y2="144.2" stroke="#414141" stroke-width="1"/><text x="456.2" y="125.7" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">Barracuda-250</text><text x="456.2" y="138.7" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#A19E97" text-anchor="middle">₹3,200</text><circle cx="456.2" cy="149.7" r="5.5" fill="#050505" stroke="#A19E97" stroke-width="2"/><line x1="688.8" y1="242.2" x2="688.8" y2="244.7" stroke="#414141" stroke-width="1"/><text x="688.8" y="226.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">Barracuda-500</text><text x="688.8" y="239.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#A19E97" text-anchor="middle">₹500</text><circle cx="688.8" cy="250.2" r="5.5" fill="#050505" stroke="#A19E97" stroke-width="2"/><line x1="844.1" y1="244.4" x2="844.1" y2="246.9" stroke="#414141" stroke-width="1"/><text x="844.1" y="228.4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">Tomahawk</text><text x="844.1" y="241.4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#A19E97" text-anchor="middle">₹480</text><circle cx="844.1" cy="252.4" r="5.5" fill="#050505" stroke="#A19E97" stroke-width="2"/><polyline points="392.4,147.5 826.7,365.9" fill="none" stroke="#F04B4B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="379.0" y1="147.5" x2="386.6" y2="147.5" stroke="#F04B4B" stroke-width="1"/><text x="376.0" y="142.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#F2EFE9" text-anchor="end" font-weight="700">Nightshade Mk II</text><text x="376.0" y="157.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="end" font-weight="500">₹3,333 / kg·km</text><circle cx="392.4" cy="147.5" r="5.8" fill="#D92323" stroke="#F2EFE9" stroke-width="1.6"/><line x1="814.0" y1="365.9" x2="820.9" y2="365.9" stroke="#F04B4B" stroke-width="1"/><text x="810.0" y="369.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#F2EFE9" text-anchor="end" font-weight="700">Hemlock</text><text x="810.0" y="384.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="end" font-weight="500">₹59 / kg·km</text><text x="810.0" y="401.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#F2EFE9" text-anchor="end" font-weight="700">about 8× below Tomahawk</text><circle cx="826.7" cy="365.9" r="5.8" fill="#D92323" stroke="#F2EFE9" stroke-width="1.6"/><line x1="694.0" y1="44.0" x2="718.0" y2="44.0" stroke="#414141" stroke-width="1.8" stroke-dasharray="4,3"/><circle cx="706" cy="44" r="5" fill="#050505" stroke="#A19E97" stroke-width="1.8"/><text x="726.0" y="47.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#C7C4BD" font-weight="600">IN SERVICE</text><line x1="816.0" y1="44.0" x2="840.0" y2="44.0" stroke="#F04B4B" stroke-width="2.5"/><circle cx="828" cy="44" r="5.2" fill="#D92323" stroke="#F2EFE9" stroke-width="1.4"/><text x="848.0" y="47.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#F2EFE9" font-weight="700">APOLLYON</text><text x="96.0" y="524.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76">USD 1 = INR 95 · Comparator prices from public sources · Berkut-BM unit cost estimated</text></svg>
-</div>
-    <div class="blueprint-cap"><b>Fig. 02</b> Cost per kilogram-kilometre against range. In-service comparators in grey, the Apollyon family in red. Prices come from public sources; Apollyon unit costs are internal planning figures.</div>
-  </div>
-
-  <h3>Why the curve falls</h3>
-  <p>Every platform in the family is built to the same engineering method: multiband GNSS with CRPA anti-jam, inertial navigation, seeker integration through Tonbo, electronic-warfare hardening, and the qualification process behind all of it. The Nightshade configurations share one autopilot baseline and a single configuration lineage; Hemlock carries the method and the evidence base onto a new airframe and its own guidance implementation. A new airframe is mostly an integration job covering engine class, structure, launch mode and warhead, and the qualification evidence from the previous machine travels with it.</p>
-
-  <div class="quotebar">
-    <p>The guidance stack is the product. The airframe is packaging.</p>
-  </div>
-
-  <p>This is where legacy cruise missile costs come from: proprietary radar altimeters, hand-tuned optical correlators, military-specification inertial platforms, and a decade of qualification spent on each of them. The family leaves that hardware behind. Software on automotive-grade processors does the same work, and the structures are designed for India's composite and stamped-metal base. <a href="strategy/trajectory.html">The full arithmetic, and the salvo model that follows from it &rarr;</a></p>
-</section>
-
-<!-- ═══════════════════ 07 · ARCHITECTURE ═══════════════════ -->
-<section id="architecture">
-  <div class="sec-tag">07 · Architecture</div>
-  <h2>The Speed Moat</h2>
-  <p class="lede">Development speed needs to be built into the engineering system itself, not treated as a temporary advantage of being small. At Apollyon, engineering compounds across programmes: each project leaves behind calibrated physical models, test rigs, qualification data, and qualified suppliers that the next programme builds on. More capable platforms still require new engineering, but that effort is focused on what is truly novel, allowing new airframes to be integrated and flight-tested much faster.</p>
-
-  <div class="blueprint-plate">
-    <div class="blueprint-head"><span class="title">Fig. 03</span><span class="scale">the engineering system</span></div>
-    <div class="blueprint-body">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" role="img" aria-label="The engineering system: the engineering method applied to each airframe, and the iterative flight loop upgrading four subsystems"><rect width="1000" height="580" fill="#050505"/><defs><marker id="es-ink" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#C7C4BD"/></marker><marker id="es-red" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#F04B4B"/></marker><marker id="es-grey" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#414141"/></marker></defs><text x="40.0" y="34.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#F04B4B" font-weight="700" letter-spacing="0.14em">A · THE MACHINE — WHAT FLIES</text><text x="960.0" y="34.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.0" fill="#C7C4BD" text-anchor="end" font-weight="600" letter-spacing="0.08em">ONE ENGINEERING METHOD · MODULAR VEHICLE HARDWARE</text><line x1="40.0" y1="46.0" x2="960.0" y2="46.0" stroke="#2B2B2B" stroke-width="1"/><rect x="40.0" y="58.0" width="215.0" height="50.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1.1"/><text x="147.5" y="80.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.2" fill="#C7C4BD" text-anchor="middle" font-weight="600">PER-PLATFORM SENSORS</text><text x="147.5" y="92.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#A19E97" text-anchor="middle">MISSION-MATCHED EO/IR &amp; RF</text><rect x="275.0" y="58.0" width="450.0" height="50.0" fill="#3A1212" stroke="#D92323" stroke-width="1.4"/><text x="500.0" y="79.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="600">PROVEN METHOD — REUSABLE ACROSS PROGRAMMES</text><text x="500.0" y="92.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.8" fill="#cbd5e1" text-anchor="middle">PROVEN MODELS · TEST RIGS · QUALIFICATION EVIDENCE · TEAM KNOWLEDGE</text><rect x="745.0" y="58.0" width="215.0" height="50.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1.1"/><text x="852.5" y="80.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.2" fill="#C7C4BD" text-anchor="middle" font-weight="600">PER-PLATFORM AIRFRAME</text><text x="852.5" y="92.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#A19E97" text-anchor="middle">PROPULSION &amp; STRUCTURE</text><line x1="40.0" y1="126.0" x2="960.0" y2="126.0" stroke="#414141" stroke-width="1.2"/><text x="48.0" y="120.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.0" fill="#A19E97" font-weight="600" letter-spacing="0.12em">REGULATED POWER RAIL</text><line x1="147.5" y1="126.0" x2="147.5" y2="140.0" stroke="#414141" stroke-width="1.1"/><line x1="382.5" y1="126.0" x2="382.5" y2="140.0" stroke="#414141" stroke-width="1.1"/><line x1="617.5" y1="126.0" x2="617.5" y2="140.0" stroke="#414141" stroke-width="1.1"/><line x1="852.5" y1="126.0" x2="852.5" y2="140.0" stroke="#414141" stroke-width="1.1"/><rect x="40.0" y="140.0" width="215.0" height="56.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1.0"/><text x="147.5" y="167.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">MISSION SENSORS &amp; SEEKERS</text><text x="147.5" y="181.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#A19E97" text-anchor="middle">EO/IR SEEKERS · PITOT · CRPA GNSS</text><line x1="255.0" y1="168.0" x2="275.0" y2="168.0" stroke="#C7C4BD" stroke-width="1.1" marker-end="url(#es-ink)"/><rect x="275.0" y="140.0" width="215.0" height="56.0" fill="#3A1212" stroke="#D92323" stroke-width="1.3"/><text x="382.5" y="167.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#ffffff" text-anchor="middle" font-weight="600">STATE ESTIMATION &amp; NAV</text><text x="382.5" y="181.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#fca5a5" text-anchor="middle">EKF OBSERVERS · SCENE MATCHING · TERRAIN FIXES</text><line x1="490.0" y1="168.0" x2="510.0" y2="168.0" stroke="#F04B4B" stroke-width="1.2" marker-end="url(#es-red)"/><rect x="510.0" y="140.0" width="215.0" height="56.0" fill="#3A1212" stroke="#D92323" stroke-width="1.3"/><text x="617.5" y="167.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#ffffff" text-anchor="middle" font-weight="600">FLIGHT CONTROL</text><text x="617.5" y="181.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#fca5a5" text-anchor="middle">GUIDANCE · CONTROL · ENVELOPE</text><line x1="725.0" y1="168.0" x2="745.0" y2="168.0" stroke="#C7C4BD" stroke-width="1.1" marker-end="url(#es-ink)"/><rect x="745.0" y="140.0" width="215.0" height="56.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1.0"/><text x="852.5" y="167.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">PROPULSION &amp; ACTUATION</text><text x="852.5" y="181.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#A19E97" text-anchor="middle">TURBOJET / MOTOR · FIN SERVOS</text><line x1="40.0" y1="214.0" x2="76.0" y2="214.0" stroke="#C7C4BD" stroke-width="1.2"/><text x="84.0" y="217.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.8" fill="#C7C4BD" letter-spacing="0.08em">SENSOR / TELEMETRY BUS</text><line x1="240.0" y1="214.0" x2="276.0" y2="214.0" stroke="#F04B4B" stroke-width="1.2"/><text x="284.0" y="217.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.8" fill="#F04B4B" letter-spacing="0.08em">DETERMINISTIC CONTROL COMMANDS</text><line x1="510.0" y1="214.0" x2="546.0" y2="214.0" stroke="#414141" stroke-width="1.2"/><text x="554.0" y="217.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.8" fill="#A19E97" letter-spacing="0.08em">POWER DISTRIBUTION</text><text x="960.0" y="217.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.8" fill="#7F7C76" text-anchor="end" letter-spacing="0.06em">EVERY PROGRAMME STARTS FROM TESTED MODELS AND TOOLS</text><text x="40.0" y="252.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#F04B4B" font-weight="700" letter-spacing="0.14em">B · THE LOOP — SUBSYSTEM ITERATION CADENCE</text><text x="960.0" y="252.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.0" fill="#C7C4BD" text-anchor="end" font-weight="600" letter-spacing="0.08em">HOURS TO ISOLATE RESIDUALS · DAYS TO DEPLOY UPGRADE</text><line x1="40.0" y1="264.0" x2="960.0" y2="264.0" stroke="#2B2B2B" stroke-width="1"/><rect x="56.0" y="278.0" width="468.0" height="46.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1.1"/><text x="290.0" y="305.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.2" fill="#C7C4BD" text-anchor="middle" font-weight="600">FLY AT THE ENVELOPE BOUNDARY</text><line x1="290.0" y1="324.0" x2="290.0" y2="340.0" stroke="#C7C4BD" stroke-width="1.1" marker-end="url(#es-ink)"/><rect x="56.0" y="340.0" width="468.0" height="42.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1.1"/><text x="290.0" y="359.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.8" fill="#C7C4BD" text-anchor="middle" font-weight="600">DISCREPANCY &amp; RESIDUAL ANALYSIS</text><text x="290.0" y="371.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#A19E97" text-anchor="middle">MEASURED FLIGHT LOGS REPLAYED AGAINST DIGITAL TWIN</text><line x1="290.0" y1="382.0" x2="290.0" y2="396.0" stroke="#C7C4BD" stroke-width="1.1" marker-end="url(#es-ink)"/><line x1="113.0" y1="396.0" x2="467.0" y2="396.0" stroke="#2B2B2B" stroke-width="1"/><line x1="113.0" y1="396.0" x2="113.0" y2="408.0" stroke="#2B2B2B" stroke-width="1"/><rect x="56.0" y="408.0" width="114.0" height="54.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1"/><text x="113.0" y="433.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">AERO COEFFICIENTS</text><text x="113.0" y="444.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="6.4" fill="#A19E97" text-anchor="middle">DRAG POLARS &amp; LIFT TERMS</text><line x1="113.0" y1="462.0" x2="113.0" y2="474.0" stroke="#2B2B2B" stroke-width="1"/><line x1="231.0" y1="396.0" x2="231.0" y2="408.0" stroke="#2B2B2B" stroke-width="1"/><rect x="174.0" y="408.0" width="114.0" height="54.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1"/><text x="231.0" y="433.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">MISSION COMPUTE</text><text x="231.0" y="444.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="6.4" fill="#A19E97" text-anchor="middle">PERCEPTION &amp; ROUTE PLANNING</text><line x1="231.0" y1="462.0" x2="231.0" y2="474.0" stroke="#2B2B2B" stroke-width="1"/><line x1="349.0" y1="396.0" x2="349.0" y2="408.0" stroke="#2B2B2B" stroke-width="1"/><rect x="292.0" y="408.0" width="114.0" height="54.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1"/><text x="349.0" y="433.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">GUIDANCE &amp; CONTROL</text><text x="349.0" y="444.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="6.4" fill="#A19E97" text-anchor="middle">GAIN MAPS &amp; ATTITUDE LAWS</text><line x1="349.0" y1="462.0" x2="349.0" y2="474.0" stroke="#2B2B2B" stroke-width="1"/><line x1="467.0" y1="396.0" x2="467.0" y2="408.0" stroke="#2B2B2B" stroke-width="1"/><rect x="410.0" y="408.0" width="114.0" height="54.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1"/><text x="467.0" y="433.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">STRUCTURAL / THERMAL</text><text x="467.0" y="444.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="6.4" fill="#A19E97" text-anchor="middle">VIBRATION &amp; CURRENT LIMITS</text><line x1="467.0" y1="462.0" x2="467.0" y2="474.0" stroke="#2B2B2B" stroke-width="1"/><line x1="113.0" y1="474.0" x2="467.0" y2="474.0" stroke="#2B2B2B" stroke-width="1"/><line x1="290.0" y1="474.0" x2="290.0" y2="488.0" stroke="#C7C4BD" stroke-width="1.1" marker-end="url(#es-ink)"/><rect x="56.0" y="488.0" width="468.0" height="46.0" fill="#3A1212" stroke="#D92323" stroke-width="1.4"/><text x="290.0" y="509.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="600">THE NEXT AIRCRAFT SORTIE</text><text x="290.0" y="522.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#fca5a5" text-anchor="middle">EXPANDED FLIGHT ENVELOPE · REDUCED CONTROL LAG · HIGHER STABILITY MARGIN</text><line x1="56.0" y1="511.0" x2="34.0" y2="511.0" stroke="#2B2B2B" stroke-width="1.2"/><line x1="34.0" y1="511.0" x2="34.0" y2="301.0" stroke="#2B2B2B" stroke-width="1.2"/><line x1="34.0" y1="301.0" x2="56.0" y2="301.0" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#es-ink)"/><rect x="640.0" y="278.0" width="320.0" height="48.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1.1"/><text x="800.0" y="300.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.8" fill="#C7C4BD" text-anchor="middle" font-weight="600">HIGH-FIDELITY DIGITAL TWIN</text><text x="800.0" y="312.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.0" fill="#A19E97" text-anchor="middle">UNIFIED 6-DOF RIGID BODY &amp; AERO DYNAMICS</text><line x1="800.0" y1="326.0" x2="800.0" y2="342.0" stroke="#C7C4BD" stroke-width="1.1" marker-end="url(#es-ink)"/><rect x="640.0" y="342.0" width="320.0" height="46.0" fill="#3A1212" stroke="#D92323" stroke-width="1.3"/><text x="800.0" y="363.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.8" fill="#ffffff" text-anchor="middle" font-weight="600">ESTIMATION &amp; CONTROL SYNTHESIS</text><text x="800.0" y="375.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.0" fill="#fca5a5" text-anchor="middle">OPTIMAL OBSERVERS &amp; GAIN SCHEDULES · ENVELOPE-LIMITING CONTROL</text><line x1="800.0" y1="388.0" x2="800.0" y2="404.0" stroke="#C7C4BD" stroke-width="1.1" marker-end="url(#es-ink)"/><rect x="640.0" y="404.0" width="320.0" height="46.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1.1"/><text x="800.0" y="425.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.8" fill="#C7C4BD" text-anchor="middle" font-weight="600">HARDWARE-IN-THE-LOOP (HIL)</text><text x="800.0" y="437.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.0" fill="#A19E97" text-anchor="middle">REAL-TIME DETERMINISTIC SENSOR &amp; ACTUATOR SIMULATION</text><line x1="800.0" y1="450.0" x2="800.0" y2="466.0" stroke="#C7C4BD" stroke-width="1.1" marker-end="url(#es-ink)"/><rect x="640.0" y="466.0" width="320.0" height="46.0" fill="#3A1212" stroke="#D92323" stroke-width="1.3"/><text x="800.0" y="487.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.8" fill="#ffffff" text-anchor="middle" font-weight="600">FLIGHT FLYWHEEL</text><text x="800.0" y="499.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.0" fill="#fca5a5" text-anchor="middle">FLEET OPERATIONS &amp; SORTIES → EMPIRICAL FLIGHT DATA</text><path d="M960,489 H976 V302 H960" fill="none" stroke="#414141" stroke-width="1.2" marker-end="url(#es-ink)"/><path d="M524,511 H576 V302 H640" fill="none" stroke="#414141" stroke-width="1.2" marker-end="url(#es-grey)"/><text x="576.0" y="504.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.0" fill="#A19E97" text-anchor="middle" font-weight="600" letter-spacing="0.08em">FLIGHT LOGS</text><path d="M640,365 H584 V301 H524" fill="none" stroke="#F04B4B" stroke-width="1.2" marker-end="url(#es-red)"/><text x="584.0" y="294.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.0" fill="#F04B4B" text-anchor="middle" font-weight="700" letter-spacing="0.08em">VALIDATED LAWS</text></svg>
-</div>
-    <div class="blueprint-cap"><b>Fig. 03</b> The engineering system in two operational registers. <strong>A — the machine:</strong> every airframe built to the same engineering method, with platform-specific work isolated to mission sensors, propulsion, structural actuation and the guidance package. <strong>B — the loop:</strong> boundary flight telemetry replayed against the digital twin to extract parameter residuals, combining classical estimation with gain-scheduled control laws and deterministic HIL validation before the next sortie.</div>
-  </div>
-
-  <h3>The core engineering challenge</h3>
-  <p class="lede">High-speed autonomous flight breaks standard aerospace assumptions across four physical regimes:</p>
-
-  <div class="tw">
-    <table>
-      <caption>The four physical bottlenecks and their architectural resolutions</caption>
-      <thead>
-        <tr>
-          <th>Bottleneck</th>
-          <th>The Physical Barrier</th>
-          <th>Apollyon Architectural Solution</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong style="color:var(--red-2);">01 &middot; Coupling</strong><br><span style="font-size:11.5px;color:var(--ink-4);font-family:var(--mono);">Recertification trap</span></td>
-          <td>Changing airframe geometry or engines traditionally forces multi-year recertification of navigation filters and control laws.</td>
-          <td><strong>Reusable engineering core:</strong> Aerodynamics and mass properties load from calibrated tables at boot. Within a family, adapting to a new airframe requires parameter identification rather than firmware rewrites; each new programme inherits proven methods and test evidence.</td>
-        </tr>
-        <tr>
-          <td><strong style="color:var(--red-2);">02 &middot; Saturated Boundary</strong><br><span style="font-size:11.5px;color:var(--ink-4);font-family:var(--mono);">Non-linear limit</span></td>
-          <td>At 250–400&nbsp;m/s, control surfaces approach mechanical deflection limits under severe cross-axis coupling, causing classical PID loops to degrade.</td>
-          <td><strong>Hybrid synthesis:</strong> Classical stability margins across the nominal envelope, paired with gain-scheduled and envelope-limiting control laws identified from flight testing.</td>
-        </tr>
-        <tr>
-          <td><strong style="color:var(--red-2);">03 &middot; Latency as Geometry</strong><br><span style="font-size:11.5px;color:var(--ink-4);font-family:var(--mono);">Compute as distance</span></td>
-          <td>At high closing velocity, even small delays in sensor processing or bus communication produce significant miss distance.</td>
-          <td><strong>Two compute domains:</strong> The flight-critical loop runs on a deterministic autopilot baseline; vision and perception workloads run on a separate mission computer and never interrupt flight control.</td>
-        </tr>
-        <tr>
-          <td><strong style="color:var(--red-2);">04 &middot; The Reality Gap</strong><br><span style="font-size:11.5px;color:var(--ink-4);font-family:var(--mono);">Simulation limits</span></td>
-          <td>High-altitude mountain turbulence, transonic buffet, and active EW cannot be modeled accurately from CAD or textbook CFD alone.</td>
-          <td><strong>Empirical telemetry loop:</strong> Flight logs are fed back into our 6-DOF simulation models within hours, systematically refining aerodynamic tables and control tuning across platforms.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <p><a href="architecture/index.html">The shared architecture, in full — the machine, the twin, and the loop &rarr;</a></p>
-
-</section>
-
-<!-- ═══════════════════ 08 · PRODUCTS ═══════════════════ -->
+<!-- ═══════════════════ 03 · PRODUCTS AND MATURITY ═══════════════════ -->
 <section id="products">
-  <div class="sec-tag">08 · Products</div>
-  <h2>The Arsenal</h2>
+  <h2><span class="sec-no">03</span>Products and maturity</h2>
   <p class="lede">Three platform classes, four products, one engineering method that compounds. Three products are in active development — Nightshade, Ahuti and Piranha — and the fourth, the Hemlock cruise missile, is in its concept phase.</p>
+  <p class="maturity-note">Grouped by maturity. A render is a computer-generated image of a design; a schematic is an engineering drawing. Specifications of products not yet built are design targets. <a href="#status-key">How to read the status labels</a></p>
+
+  <div class="maturity">
+  <div class="maturity-group">
+    <h3 class="maturity-h"><span class="status" data-status="flight-testing">Flight testing</span></h3>
+    <div class="product-grid">
+      <article class="product-card">
+        <figure class="product-media" data-nozoom>
+          <img src="assets/ahuti-render.jpg" alt="Render of the Ahuti interceptor: a pointed fuselage carrying four rotor pods" width="2534" height="1425" loading="lazy" decoding="async">
+          <figcaption class="media-type">Render</figcaption>
+        </figure>
+        <div class="product-body">
+          <h4><a href="products/ahuti.html">Ahuti Mk II</a></h4>
+          <p class="product-class">Class B &middot; Air Defence &amp; Counter-UAS &middot; Tactical Interceptor &middot; Fielded Record</p>
+          <p class="product-status">Flying &middot; IBR record</p>
+          <p class="product-specs">400 km/h band &middot; ~10 km &middot; 3 kg</p>
+          <p>A 3 kg high-speed multirotor interceptor targeting the 400 km/h operational band (derived from a 498 km/h developmental sprint testbed certified by the India Book of Records <span class="prov obs">observed</span>). Designed to defeat fast loitering munitions, Ahuti employs radar-cued initial midcourse guidance, autonomous onboard optical terminal tracking, and direct kinetic impact.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="maturity-group">
+    <h3 class="maturity-h"><span class="status" data-status="in-development">In development</span></h3>
+    <div class="product-grid">
+      <article class="product-card">
+        <figure class="product-media" data-nozoom>
+          <img src="assets/nightshade-render.jpg" alt="Render of the Nightshade airframe: a jet fuselage with swept wings and a dorsal intake" width="2400" height="1350" loading="lazy" decoding="async">
+          <figcaption class="media-type">Render</figcaption>
+        </figure>
+        <div class="product-body">
+          <h4><a href="products/nightshade-adx1.html">Nightshade Mk II</a></h4>
+          <p class="product-class">Class A &middot; Standoff &amp; Long-Range Strike &middot; Jet-Powered &middot; Target Drone (Economical / Premium) / Loitering Munition Mk II</p>
+          <p class="product-status">Target drones Q4 2026 &middot; Mk II LM Q1 2027</p>
+          <p class="product-specs"><span class="specs-k">Design targets</span>15 kg &middot; 300 km &middot; 650 km/h</p>
+          <p>One turbojet airframe in three configurations: an economical target drone ($90,000), a premium long-range target drone ($150,000) and the Mk II loitering munition ($150,000) for strike, SEAD and decoy. All cruise at 550 km/h, dive at 650 km/h and reach 300 km. Mk II carries a 15 kg warhead and a dual-band EO/IR seeker. The target drones bring recurring revenue and flight hours on the same tooling.</p>
+        </div>
+      </article>
+      <article class="product-card">
+        <figure class="product-media is-schematic" data-nozoom>
+          <img src="assets/schematics/piranha.svg" alt="Schematic of the Piranha unmanned surface vessel (CAD drawing)" width="960" height="300" loading="lazy" decoding="async">
+          <figcaption class="media-type">Schematic</figcaption>
+        </figure>
+        <div class="product-body">
+          <h4><a href="products/usv-strike.html">Piranha USV</a></h4>
+          <p class="product-class">Class C &middot; Maritime Autonomous Interdiction &middot; Surface Strike &amp; Patrol &middot; Maritime Strike USV</p>
+          <p class="product-status">Hull &amp; hardware in development</p>
+          <p class="product-specs"><span class="specs-k">Design targets</span>65 km/h &middot; radar + EO/IR &middot; 50 kg+ warhead</p>
+          <p>A small unmanned surface vessel with a marine radar and a stabilised EO/IR payload, used for coastal reconnaissance and, with a 50 kg+ class warhead, as a one-way strike craft. Top speed 65 km/h; hull and onboard hardware in development.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="maturity-group">
+    <h3 class="maturity-h"><span class="status" data-status="concept">Concept</span></h3>
+    <div class="product-grid">
+      <article class="product-card">
+        <figure class="product-media is-schematic" data-nozoom>
+          <img src="assets/schematics/hemlock.svg" alt="Schematic of the Hemlock cruise missile concept (CAD drawing)" width="960" height="260" loading="lazy" decoding="async">
+          <figcaption class="media-type">Concept schematic</figcaption>
+        </figure>
+        <div class="product-body">
+          <h4><a href="products/hemlock.html">Hemlock</a></h4>
+          <p class="product-class">Class A &middot; Standoff &amp; Long-Range Strike &middot; Jet-Powered &middot; Long-range cruise missile &middot; concept phase</p>
+          <p class="product-status">Concept &middot; prototype targeted 2029</p>
+          <p class="product-specs"><span class="specs-k">Design targets</span>450&ndash;500 kg &middot; 1,000&ndash;1,500 km &middot; &#8377;3&ndash;5 Cr target</p>
+          <p>Long-range land-attack cruise missile, in its concept phase, designed around the sovereign Manik 450 kgf turbofan. Specified to carry a 450–500 kg modular warhead 1,000–1,500 km with terrain-following ingress and a software-defined navigation stack, at a target of ₹3–5 crore at rate.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+  </div>
 
   <div class="tw">
     <table>
@@ -354,7 +275,7 @@
         <tr>
           <td><strong>A · Long-range strike</strong></td>
           <td>Deliver precise, survivable effect at operational and strategic depth in salvo quantities a real campaign consumes.</td>
-          <td><a href="products/nightshade-adx1.html">Nightshade family</a> <span style="font-family:var(--mono);font-size:11px;color:var(--ink-4);">(Target Drone (Economical / Premium) / Loitering Munition Mk II)</span>, <a href="products/hemlock.html">Hemlock</a></td>
+          <td><a href="products/nightshade-adx1.html">Nightshade family</a> <span class="tbl-sub">(Target Drone (Economical / Premium) / Loitering Munition Mk II)</span>, <a href="products/hemlock.html">Hemlock</a></td>
           <td>Nightshade Mk I flown · target drones Q4 2026 · Mk II loitering munition Q1 2027 · Hemlock in concept</td>
         </tr>
         <tr>
@@ -374,92 +295,227 @@
     </table>
   </div>
 
-  <div class="product-stack">
-    <!-- Class A Box: Nightshade Mk II & Hemlock -->
-    <div class="product-class-box">
-      <div class="product-class-head">
-        <span><span class="tag">Class A</span><span class="title">Standoff &amp; Long-Range Strike</span></span>
-        <span class="meta">2 Platforms · Jet-Powered</span>
-      </div>
-      <div class="product-card-horizontal">
-        <div class="pch-meta">
-          <div class="pch-kicker">Target Drone (Economical / Premium) / Loitering Munition Mk II</div>
-          <h3 class="pch-title"><a href="products/nightshade-adx1.html">Nightshade Mk II</a></h3>
-          <div class="pch-specs">
-            <div><span class="pill dev">Target drones Q4 2026 · Mk II LM Q1 2027</span></div>
-            <div>15 kg · 300 km · 650 km/h</div>
-          </div>
-        </div>
-        <div class="pch-desc">
-          <p>One turbojet airframe in three configurations: an economical target drone ($90,000), a premium long-range target drone ($150,000) and the Mk II loitering munition ($150,000) for strike, SEAD and decoy. All cruise at 550 km/h, dive at 650 km/h and reach 300 km. Mk II carries a 15 kg warhead and a dual-band EO/IR seeker. The target drones bring recurring revenue and flight hours on the same tooling.</p>
-        </div>
-      </div>
-      <div class="product-card-horizontal">
-        <div class="pch-meta">
-          <div class="pch-kicker">Long-range cruise missile · concept phase</div>
-          <h3 class="pch-title"><a href="products/hemlock.html">Hemlock</a></h3>
-          <div class="pch-specs">
-            <div><span class="pill future">Concept · prototype targeted 2029</span></div>
-            <div>450–500 kg · 1,000–1,500 km · ₹3–5 Cr target</div>
-          </div>
-        </div>
-        <div class="pch-desc">
-          <p>Long-range land-attack cruise missile, in its concept phase, designed around the sovereign Manik 450 kgf turbofan. Specified to carry a 450–500 kg modular warhead 1,000–1,500 km with terrain-following ingress and a software-defined navigation stack, at a target of ₹3–5 crore at rate.</p>
-        </div>
-      </div>
-    </div>
+  <p>The three Nightshade configurations share one airframe, one autopilot baseline and one configuration set, so advances in one transfer to the others. Every other platform — Hemlock, the interceptor, the maritime USV — is a tailored implementation that inherits the method and the qualified component base. A containerised Mobile Drone Lab delivered to the Indian Army supports calibration and pre-flight checks at the forward base without depot reachback. <a href="architecture/index.html">See what is shared, and what is not &rarr;</a></p>
+</section>
 
-    <!-- Class B Box: Ahuti Mk II -->
-    <div class="product-class-box">
-      <div class="product-class-head">
-        <span><span class="tag">Class B</span><span class="title">Air Defence &amp; Counter-UAS</span></span>
-        <span class="meta">Tactical Interceptor · Fielded Record</span>
-      </div>
-      <div class="product-card-horizontal">
-        <div class="pch-meta">
-          <div class="pch-kicker">Tactical Interceptor</div>
-          <h3 class="pch-title"><a href="products/ahuti.html">Ahuti Mk II</a></h3>
-          <div class="pch-specs">
-            <div><span class="pill fielded">Flying · IBR record</span></div>
-            <div>400 km/h band · ~10 km · 3 kg</div>
-          </div>
-        </div>
-        <div class="pch-desc">
-          <p>A 3 kg high-speed multirotor interceptor targeting the 400 km/h operational band (derived from a 498 km/h developmental sprint testbed certified by the India Book of Records). Designed to defeat fast loitering munitions, Ahuti employs radar-cued initial midcourse guidance, autonomous onboard optical terminal tracking, and direct kinetic impact.</p>
-        </div>
-      </div>
-    </div>
+<!-- ═══════════════════ 04 · THE WORLD ═══════════════════ -->
+<section id="war">
+  <h2><span class="sec-no">04</span>Modern warfare has changed</h2>
+  <p class="lede">Cheap drones, better sensors, electronic warfare and mass production have changed how wars are fought. A military now needs not only capable weapons, but enough of them to sustain a long conflict.</p>
 
-    <!-- Class C Box: Piranha USV -->
-    <div class="product-class-box">
-      <div class="product-class-head">
-        <span><span class="tag">Class C</span><span class="title">Maritime Autonomous Interdiction</span></span>
-        <span class="meta">Surface Strike &amp; Patrol · Hull in development</span>
-      </div>
-      <div class="product-card-horizontal">
-        <div class="pch-meta">
-          <div class="pch-kicker">Maritime Strike USV</div>
-          <h3 class="pch-title"><a href="products/usv-strike.html">Piranha USV</a></h3>
-          <div class="pch-specs">
-            <div><span class="pill dev">Hull &amp; hardware in development</span></div>
-            <div>65 km/h · radar + EO/IR · 50 kg+ warhead</div>
-          </div>
-        </div>
-        <div class="pch-desc">
-          <p>A small unmanned surface vessel with a marine radar and a stabilised EO/IR payload, used for coastal reconnaissance and, with a 50 kg+ class warhead, as a one-way strike craft. Top speed 65 km/h; hull and onboard hardware in development.</p>
-        </div>
-      </div>
-    </div>
+  <figure class="dark">
+    <picture>
+      <source srcset="assets/modern-warfare-inversions.webp" type="image/webp">
+      <img src="assets/modern-warfare-inversions.png" alt="Infographic, The new laws of the battlefield: old and new logic compared across six areas, the interceptor exchange ratio, what now decides outcomes and the operating consequences. The full text follows the figure." width="1122" height="1402" loading="lazy" decoding="async">
+    </picture>
+    <figcaption><b>Fig. 01</b> How the battlefield is changing.</figcaption>
+  </figure>
 
+  <details class="fig-text">
+    <summary>Text of Fig. 01</summary>
+    <div class="fig-text-body">
+      <p><strong>The new laws of the battlefield.</strong> Same conflict. Different arithmetic.</p>
+      <div class="tw"><table>
+        <thead><tr><th>Area</th><th>Old logic</th><th>New logic</th></tr></thead>
+        <tbody>
+          <tr><td>01 &middot; Platform</td><td>Exquisite, manned</td><td>Autonomous, attritable</td></tr>
+          <tr><td>02 &middot; Production</td><td>Hundreds</td><td>Thousands</td></tr>
+          <tr><td>03 &middot; Sensing</td><td>Can hide</td><td>Always seen</td></tr>
+          <tr><td>04 &middot; Spectrum</td><td>GPS assumed</td><td>Denial is normal</td></tr>
+          <tr><td>05 &middot; Geometry</td><td>Concentrated</td><td>Dispersed &amp; mobile</td></tr>
+          <tr><td>06 &middot; Exchange</td><td>Costly defence</td><td>Massed cheap attack</td></tr>
+        </tbody>
+      </table></div>
+      <p><strong>The exchange:</strong> 1 : 50&ndash;200, high-end interceptor : attritable rounds.</p>
+      <p><strong>What now decides:</strong> cost per effect, monthly output, magazine depth, autonomy, upgrade speed, decision speed.</p>
+      <p><strong>Operating consequence:</strong> disperse, manufacture at rate, assume observation, fight through jamming, automate, win the exchange.</p>
+    </div>
+  </details>
+
+  <p>The important change is not that expensive weapons are becoming obsolete. It is that they can no longer do everything. A cheap drone can force an expensive response, while a small number of sophisticated weapons cannot deal with every threat. Modern armies need both: advanced systems for difficult targets and cheaper systems that can be built and used in large numbers.
+      Apart from this, all the conventional ways of navigation are becoming increasingly unreliable, as satellite navigation and communications are commonly disrupted in light of conflict.</p>
+  <p>The goal is simple: build weapons that work effectively and decisively in these conditions, can be produced in sufficient numbers, and are affordable enough to use when needed.</p>
+</section>
+
+<!-- ═══════════════════ 05 · DEPENDENCY ═══════════════════ -->
+<section id="dependency">
+  <h2><span class="sec-no">05</span>Eight decades of strategic dependency (1947–2026)</h2>
+  <p class="lede">Military equipment is bought with the expectation that it will work when needed. But its effectiveness depends on much more than the equipment itself. Spare parts, ammunition, maintenance, software and technical support must all remain available throughout a conflict.</p>
+  <p>Dependence on foreign suppliers puts this battle-readiness completely outside a country's control. An aircraft may be perfectly capable to fly, but without the parts or weapons it needs, it cannot perform its intended role. What appears to be a complete military capability in peacetime can become unavailable precisely when it is needed most.</p>
+  <p>The following timeline shows how dependence on foreign suppliers has repeatedly jeopardized the sovereignty and effectiveness of Indian military action since independence.</p>
+
+  <div class="war-timeline">
+    <div class="war-rail" id="war-rail">
+      <div class="war-spine"></div>
+    </div>
+    <div class="war-files" id="war-files" role="group" aria-label="Conflicts, 1947 to 2026. Choose one to read its case file."><svg class="war-threads" id="war-threads" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg></div>
+    <div class="war-scale"><span>1947</span><span>2026</span></div>
+  </div>
+  <div class="war-panel" id="war-panel"></div>
+  <p class="vh" id="war-status" aria-live="polite"></p>
+  <ul class="war-static">
+    <li><a href="strategic-dependency/full-record.html#kashmir-1947">1947&ndash;48 &middot; First Kashmir War</a></li>
+    <li><a href="strategic-dependency/full-record.html#war-1962">Oct&ndash;Nov 1962 &middot; Sino-Indian War</a></li>
+    <li><a href="strategic-dependency/full-record.html#war-1965">Aug&ndash;Sep 1965 &middot; Second Kashmir War</a></li>
+    <li><a href="strategic-dependency/full-record.html#war-1971">Dec 1971 &middot; Bangladesh War</a></li>
+    <li><a href="strategic-dependency/full-record.html#siachen-1984">Apr 1984 &middot; Siachen &middot; Meghdoot</a></li>
+    <li><a href="strategic-dependency/full-record.html#kargil-1999">May&ndash;Jul 1999 &middot; Kargil War</a></li>
+    <li><a href="strategic-dependency/full-record.html#ladakh-2020">2020&ndash; &middot; Ladakh Crisis</a></li>
+  </ul>
+
+  <p class="small war-source">Taken from primary documentation like declassified diplomatic cables and Standing Committee on Defence parliamentary reports. Read <a href="strategic-dependency/full-record.html">the full record of 70 documented episodes</a>.</p>
+</section>
+
+<!-- ═══════════════════ 06 · THE MARKET ═══════════════════ -->
+<section id="window">
+  <h2><span class="sec-no">06</span>India's defence market turned inward</h2>
+  <p class="lede">India has structurally redirected its defence procurement toward domestic manufacturing. Between FY14 and FY26, domestic defence output expanded 4-fold to ₹1.78 lakh crore, while military exports increased 56-fold to ₹38,424 crore. Statutory procurement mandates now guarantee domestic volume for aerospace and missile manufacturing.</p>
+
+  <!-- Fig. 02 is the homepage's main graph. Chart and table values mirror
+       INDIA_PRODUCTION / INDIA_EXPORTS in scripts/gen_visuals.py: change both. -->
+  <div class="blueprint-plate fig-main" id="fig-production">
+    <div class="blueprint-head"><span class="title">Fig. 02</span><span class="scale">annual defence production &middot; &#8377; lakh crore</span></div>
+    <div class="fig-variant fig-variant--wide"><div class="blueprint-body">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 525" role="img" aria-label="Bar chart of India's annual defence production, FY21 to FY26, in lakh crore rupees: 0.85, 0.95, 1.06, 1.27, 1.51 and 1.78"><text x="62.0" y="46.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="20.0" fill="#F2EFE9" font-weight="700" letter-spacing="0.08em">ANNUAL DEFENCE PRODUCTION</text><text x="938.0" y="46.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#A19E97" text-anchor="end" letter-spacing="0.08em">₹ LAKH CRORE</text><line x1="62.0" y1="66.0" x2="938.0" y2="66.0" stroke="#1D1D1D" stroke-width="1"/><rect x="751.9" y="80" width="186.1" height="35" fill="#D92323"/><text x="844.9" y="101.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.04em">4.1× SINCE FY14</text><rect x="103.4" y="285.0" width="79.9" height="99.0" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="143.3" y="273.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="30.0" fill="#F2EFE9" text-anchor="middle" font-weight="700">0.85</text><text x="143.3" y="415.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY21</text><rect x="246.1" y="273.0" width="79.9" height="111.0" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="286.0" y="261.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#C7C4BD" text-anchor="middle" font-weight="500">0.95</text><text x="286.0" y="415.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY22</text><rect x="388.7" y="260.0" width="79.9" height="124.0" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="428.7" y="248.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#C7C4BD" text-anchor="middle" font-weight="500">1.06</text><text x="428.7" y="415.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY23</text><rect x="531.4" y="235.4" width="79.9" height="148.6" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="571.3" y="223.4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#C7C4BD" text-anchor="middle" font-weight="500">1.27</text><text x="571.3" y="415.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY24</text><rect x="674.1" y="207.3" width="79.9" height="176.7" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="714.0" y="195.3" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#C7C4BD" text-anchor="middle" font-weight="500">1.51</text><text x="714.0" y="415.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY25</text><rect x="816.7" y="175.7" width="79.9" height="208.3" fill="#D92323" stroke="#F04B4B" stroke-width="1.5"/><text x="856.7" y="163.7" font-family="JetBrains Mono, ui-monospace, monospace" font-size="30.0" fill="#F2EFE9" text-anchor="middle" font-weight="700">1.78</text><text x="856.7" y="415.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#F2EFE9" text-anchor="middle" font-weight="700">FY26</text><line x1="62.0" y1="384.0" x2="938.0" y2="384.0" stroke="#414141" stroke-width="1.2"/><text x="62.0" y="459.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="16.0" fill="#C7C4BD" font-weight="500">4.1× since FY14 (₹43,746 Cr) · FY26 total ₹1.78 lakh Cr</text><text x="62.0" y="489.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="16.0" fill="#A19E97">75% of FY27 capital acquisition reserved for domestic industry (₹1.39 lakh Cr).</text></svg>
+</div></div>
+    <div class="fig-variant fig-variant--compact"><div class="blueprint-body">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 723" role="img" aria-label="India's annual defence production by year, FY21 to FY26, in lakh crore rupees: 0.85, 0.95, 1.06, 1.27, 1.51 and 1.78"><text x="30.0" y="50.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="26.0" fill="#F2EFE9" font-weight="700" letter-spacing="0.06em">ANNUAL DEFENCE PRODUCTION</text><text x="30.0" y="84.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="20.0" fill="#A19E97" letter-spacing="0.08em">₹ LAKH CRORE</text><line x1="30.0" y1="102.0" x2="570.0" y2="102.0" stroke="#1D1D1D" stroke-width="1"/><rect x="374.6" y="118" width="195.4" height="36" fill="#D92323"/><text x="472.3" y="140.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="18.0" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.04em">4.1× SINCE FY14</text><rect x="47.1" y="380.3" width="55.8" height="139.7" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="75.0" y="368.3" font-family="JetBrains Mono, ui-monospace, monospace" font-size="24.0" fill="#F2EFE9" text-anchor="middle" font-weight="700">0.85</text><text x="75.0" y="553.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY21</text><rect x="137.1" y="363.5" width="55.8" height="156.5" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="165.0" y="351.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#C7C4BD" text-anchor="middle" font-weight="500">0.95</text><text x="165.0" y="553.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY22</text><rect x="227.1" y="345.1" width="55.8" height="174.9" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="255.0" y="333.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#C7C4BD" text-anchor="middle" font-weight="500">1.06</text><text x="255.0" y="553.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY23</text><rect x="317.1" y="310.4" width="55.8" height="209.6" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="345.0" y="298.4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#C7C4BD" text-anchor="middle" font-weight="500">1.27</text><text x="345.0" y="553.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY24</text><rect x="407.1" y="270.9" width="55.8" height="249.2" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="435.0" y="258.9" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#C7C4BD" text-anchor="middle" font-weight="500">1.51</text><text x="435.0" y="553.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY25</text><rect x="497.1" y="226.3" width="55.8" height="293.7" fill="#D92323" stroke="#F04B4B" stroke-width="1.5"/><text x="525.0" y="214.3" font-family="JetBrains Mono, ui-monospace, monospace" font-size="24.0" fill="#F2EFE9" text-anchor="middle" font-weight="700">1.78</text><text x="525.0" y="553.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#F2EFE9" text-anchor="middle" font-weight="700">FY26</text><line x1="30.0" y1="520.0" x2="570.0" y2="520.0" stroke="#414141" stroke-width="1.2"/><text x="30.0" y="597.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="18.0" fill="#C7C4BD" font-weight="500">4.1× since FY14 (₹43,746 Cr) · FY26 total ₹1.78</text><text x="30.0" y="625.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="18.0" fill="#C7C4BD" font-weight="500">lakh Cr</text><text x="30.0" y="657.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="18.0" fill="#A19E97">75% of FY27 capital acquisition reserved for</text><text x="30.0" y="685.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="18.0" fill="#A19E97">domestic industry (₹1.39 lakh Cr).</text></svg>
+</div></div>
+    <div class="blueprint-cap"><b>Fig. 02</b> Production, FY21&ndash;FY26. Source: Ministry of Defence / PIB releases. The 4.1&times; growth is measured from FY14 (&#8377;43,746 crore), which is not plotted.</div>
+    <details class="fig-data">
+      <summary>Data behind Fig. 02</summary>
+      <div class="tw"><table>
+        <caption>India&rsquo;s annual defence production</caption>
+        <thead><tr><th>Year</th><th class="num">&#8377; crore</th><th class="num">&#8377; lakh crore</th></tr></thead>
+        <tbody><tr><td>FY21</td><td class="num">84,643</td><td class="num">0.85</td></tr><tr><td>FY22</td><td class="num">94,846</td><td class="num">0.95</td></tr><tr><td>FY23</td><td class="num">106,000</td><td class="num">1.06</td></tr><tr><td>FY24</td><td class="num">127,000</td><td class="num">1.27</td></tr><tr><td>FY25</td><td class="num">151,000</td><td class="num">1.51</td></tr><tr><td>FY26</td><td class="num">178,000</td><td class="num">1.78</td></tr></tbody>
+      </table></div>
+    </details>
   </div>
 
-  <p>The three Nightshade configurations share one airframe, one autopilot baseline and one configuration set, so advances in one transfer to the others. Every other platform — Hemlock, the interceptor, the maritime USV — is a tailored implementation that inherits the method and the qualified component base. A containerised Mobile Drone Lab delivered to the Indian Army supports calibration and pre-flight checks at the forward base without depot reachback. <a href="architecture/index.html">See what is shared, and what is not &rarr;</a></p>
+  <div class="blueprint-plate" id="fig-exports">
+    <div class="blueprint-head"><span class="title">Fig. 03</span><span class="scale">annual defence exports &middot; &#8377; crore</span></div>
+    <div class="fig-variant fig-variant--wide"><div class="blueprint-body">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 525" role="img" aria-label="Bar chart of India's defence exports in crore rupees: FY14 686, then FY21 to FY26 8,434, 12,815, 15,920, 21,083, 23,622 and 38,424"><text x="62.0" y="46.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="20.0" fill="#F2EFE9" font-weight="700" letter-spacing="0.08em">ANNUAL DEFENCE EXPORTS</text><text x="938.0" y="46.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#A19E97" text-anchor="end" letter-spacing="0.08em">₹ CRORE</text><line x1="62.0" y1="66.0" x2="938.0" y2="66.0" stroke="#1D1D1D" stroke-width="1"/><rect x="762.4" y="80" width="175.6" height="35" fill="#D92323"/><text x="850.2" y="101.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.04em">56× SINCE FY14</text><rect x="98.9" y="380.0" width="68.5" height="4.0" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="133.1" y="368.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="30.0" fill="#F2EFE9" text-anchor="middle" font-weight="700">686</text><text x="133.1" y="415.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY14</text><rect x="221.2" y="339.1" width="68.5" height="44.9" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="255.4" y="327.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#C7C4BD" text-anchor="middle" font-weight="500">8,434</text><text x="255.4" y="415.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY21</text><rect x="343.5" y="315.8" width="68.5" height="68.2" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="377.7" y="303.8" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#C7C4BD" text-anchor="middle" font-weight="500">12,815</text><text x="377.7" y="415.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY22</text><rect x="465.8" y="299.3" width="68.5" height="84.7" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="500.0" y="287.3" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#C7C4BD" text-anchor="middle" font-weight="500">15,920</text><text x="500.0" y="415.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY23</text><rect x="588.0" y="271.9" width="68.5" height="112.1" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="622.3" y="259.9" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#C7C4BD" text-anchor="middle" font-weight="500">21,083</text><text x="622.3" y="415.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY24</text><rect x="710.3" y="258.4" width="68.5" height="125.6" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="744.6" y="246.4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#C7C4BD" text-anchor="middle" font-weight="500">23,622</text><text x="744.6" y="415.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY25</text><rect x="832.6" y="179.7" width="68.5" height="204.3" fill="#D92323" stroke="#F04B4B" stroke-width="1.5"/><text x="866.9" y="167.7" font-family="JetBrains Mono, ui-monospace, monospace" font-size="30.0" fill="#F2EFE9" text-anchor="middle" font-weight="700">38,424</text><text x="866.9" y="415.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="17.0" fill="#F2EFE9" text-anchor="middle" font-weight="700">FY26</text><line x1="62.0" y1="384.0" x2="938.0" y2="384.0" stroke="#414141" stroke-width="1.2"/><rect x="188.3" y="381" width="12" height="6" fill="#050505"/><line x1="189.3" y1="391.0" x2="193.3" y2="377.0" stroke="#A19E97" stroke-width="1.4"/><line x1="195.3" y1="391.0" x2="199.3" y2="377.0" stroke="#A19E97" stroke-width="1.4"/><text x="62.0" y="459.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="16.0" fill="#C7C4BD" font-weight="500">56× since FY14 · ₹38,424 Cr in FY26 · private firms 45.16% of exports</text><text x="62.0" y="489.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="16.0" fill="#A19E97">across 145 domestic firms and more than 80 destination nations.</text></svg>
+</div></div>
+    <div class="fig-variant fig-variant--compact"><div class="blueprint-body">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 723" role="img" aria-label="India's defence exports by year in crore rupees: FY14 686, then FY21 to FY26 8,434, 12,815, 15,920, 21,083, 23,622 and 38,424"><text x="30.0" y="50.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="26.0" fill="#F2EFE9" font-weight="700" letter-spacing="0.06em">ANNUAL DEFENCE EXPORTS</text><text x="30.0" y="84.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="20.0" fill="#A19E97" letter-spacing="0.08em">₹ CRORE</text><line x1="30.0" y1="102.0" x2="570.0" y2="102.0" stroke="#1D1D1D" stroke-width="1"/><rect x="385.8" y="118" width="184.2" height="36" fill="#D92323"/><text x="477.9" y="140.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="18.0" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.04em">56× SINCE FY14</text><rect x="44.7" y="514.9" width="47.8" height="5.1" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="68.6" y="502.9" font-family="JetBrains Mono, ui-monospace, monospace" font-size="24.0" fill="#F2EFE9" text-anchor="middle" font-weight="700">686</text><text x="68.6" y="553.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY14</text><rect x="121.8" y="456.7" width="47.8" height="63.3" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="145.7" y="444.7" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#C7C4BD" text-anchor="middle" font-weight="500">8,434</text><text x="145.7" y="553.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY21</text><rect x="198.9" y="423.9" width="47.8" height="96.1" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="222.9" y="411.9" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#C7C4BD" text-anchor="middle" font-weight="500">12,815</text><text x="222.9" y="553.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY22</text><rect x="276.1" y="400.6" width="47.8" height="119.4" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="300.0" y="388.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#C7C4BD" text-anchor="middle" font-weight="500">15,920</text><text x="300.0" y="553.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY23</text><rect x="353.2" y="361.9" width="47.8" height="158.1" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="377.1" y="349.9" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#C7C4BD" text-anchor="middle" font-weight="500">21,083</text><text x="377.1" y="553.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY24</text><rect x="430.4" y="342.8" width="47.8" height="177.2" fill="#1F1F1F" stroke="#7F7C76" stroke-width="1.5"/><text x="454.3" y="330.8" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#C7C4BD" text-anchor="middle" font-weight="500">23,622</text><text x="454.3" y="553.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#A19E97" text-anchor="middle" font-weight="500">FY25</text><rect x="507.5" y="231.8" width="47.8" height="288.2" fill="#D92323" stroke="#F04B4B" stroke-width="1.5"/><text x="531.4" y="219.8" font-family="JetBrains Mono, ui-monospace, monospace" font-size="24.0" fill="#F2EFE9" text-anchor="middle" font-weight="700">38,424</text><text x="531.4" y="553.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="19.0" fill="#F2EFE9" text-anchor="middle" font-weight="700">FY26</text><line x1="30.0" y1="520.0" x2="570.0" y2="520.0" stroke="#414141" stroke-width="1.2"/><rect x="101.1" y="517" width="12" height="6" fill="#050505"/><line x1="102.1" y1="527.0" x2="106.1" y2="513.0" stroke="#A19E97" stroke-width="1.4"/><line x1="108.1" y1="527.0" x2="112.1" y2="513.0" stroke="#A19E97" stroke-width="1.4"/><text x="30.0" y="597.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="18.0" fill="#C7C4BD" font-weight="500">56× since FY14 · ₹38,424 Cr in FY26 · private</text><text x="30.0" y="625.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="18.0" fill="#C7C4BD" font-weight="500">firms 45.16% of exports</text><text x="30.0" y="657.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="18.0" fill="#A19E97">across 145 domestic firms and more than 80</text><text x="30.0" y="685.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="18.0" fill="#A19E97">destination nations.</text></svg>
+</div></div>
+    <div class="blueprint-cap"><b>Fig. 03</b> Exports, FY14&ndash;FY26. Source: Ministry of Defence / PIB releases. The axis breaks between FY14 and FY21.</div>
+    <details class="fig-data">
+      <summary>Data behind Fig. 03</summary>
+      <div class="tw"><table>
+        <caption>India&rsquo;s annual defence exports</caption>
+        <thead><tr><th>Year</th><th class="num">&#8377; crore</th></tr></thead>
+        <tbody><tr><td>FY14</td><td class="num">686</td></tr><tr><td>FY21</td><td class="num">8,434</td></tr><tr><td>FY22</td><td class="num">12,815</td></tr><tr><td>FY23</td><td class="num">15,920</td></tr><tr><td>FY24</td><td class="num">21,083</td></tr><tr><td>FY25</td><td class="num">23,622</td></tr><tr><td>FY26</td><td class="num">38,424</td></tr></tbody>
+      </table></div>
+    </details>
+  </div>
+
+  <ul>
+    <li><strong>Statutory capital reservation.</strong> The Ministry of Defence reserves 75% of its capital procurement budget—amounting to ₹1.39 lakh crore in FY27—for domestic manufacturers. Positive Indigenisation Lists embargo 5,521 imported subsystems and items, while updated procurement procedures dissolved historical public monopolies in tactical missile fabrication.</li>
+    <li><strong>Sustained attrition requirements.</strong> Active operational deployments across the Himalayan Line of Actual Control, the Line of Control, and maritime sea lanes consume ordnance faster than overseas supply lines can replenish. High-intensity multi-front operations require high-rate domestic production lines rather than fixed stocks of imported munitions.</li>
+    <li><strong>Independent export demand &amp; geopolitical asymmetry.</strong> Many countries face high costs and restrictions when buying foreign defence equipment. India offers an alternative, and Apollyon has an additional advantage through its partnership with Tonbo Imaging. Tonbo's existing international customers, industry relationships and export experience give Apollyon a starting point in markets it would otherwise have to enter on its own. <a href="strategy/market.html">The market, and who can buy &rarr;</a></li>
+  </ul>
+</section>
+
+<!-- ═══════════════════ 07 · STRIKE PER RUPEE ═══════════════════ -->
+<section id="plan">
+  <h2><span class="sec-no">07</span>Strike per rupee</h2>
+  <p class="lede">The measure Apollyon optimises is the price of delivered effect: what India pays for each kilogram of warhead carried each kilometre. Today's effectors, interceptors and cruise missiles are the first platforms built against that measure, and each generation is meant to push it lower.</p>
+
+  <h3>The unit we count in</h3>
+  <p>Comparing weapons by unit price or range alone obscures delivered effect. A commander buys warhead mass delivered across distance. Combining payload and range yields total delivered strike work:</p>
+
+  <figure class="codeblock">
+    <figcaption class="codeblock-head">Governing Equations</figcaption>
+<pre><code><span class="c-k">Strike Envelope</span>&nbsp;[kg·km] = Payload (kg) <b>×</b> Range (km)
+<span class="c-k">Cost per Effect</span>&nbsp;[₹/kg·km] = Unit Cost (₹) <b>÷</b> Strike Envelope
+
+• <strong>Nightshade Mk II:</strong> 15 kg <b>×</b> 300 km = 4,500 kg·km  →  ₹1.5 Cr ÷ 4,500 ≈ <span class="c-r">₹3,333 / kg·km</span>
+• <strong>Hemlock:</strong> 450 kg <b>×</b> 1,500 km = 675,000 kg·km  →  ₹4 Cr ÷ 675k ≈ <span class="c-r">₹59 / kg·km</span></code></pre>
+    <p class="codeblock-note">Normalizes tactical loitering munitions and heavy cruise missiles onto a single capital-efficiency axis.</p>
+  </figure>
+
+  <p>Two rules qualify this metric: the airframe must clear electronic-warfare and autonomous terminal accuracy gates, and survivability assumes subsonic terrain masking and route planning.</p>
+
+  <h3>What a rupee buys</h3>
+  <p>Divide a round's price by its envelope and you have the price of delivered effect. A Nightshade Mk II carries 15 kg over 300 km for a planning price near ₹1.5 crore, which works out to about ₹3,333 for every kilogram-kilometre. Hemlock is specified at 450 kg over 1,500 km for roughly ₹4 crore, or about ₹59. Between the two, the envelope grows by 150 times while the price of each kilogram-kilometre falls by more than 50 times.</p>
+
+  <div class="blueprint-plate">
+    <div class="blueprint-head"><span class="title">Fig. 04</span><span class="scale">cost per kg·km · log-log</span></div>
+    <div class="blueprint-body">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 570" role="img" aria-label="Cost per kilogram-kilometre by range: Apollyon family against in-service comparators"><rect width="1000" height="570" fill="#050505"/><line x1="92.0" y1="424.5" x2="96.0" y2="424.5" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="402.5" x2="96.0" y2="402.5" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="386.9" x2="96.0" y2="386.9" stroke="#2B2B2B" stroke-width="0.8"/><line x1="96.0" y1="374.9" x2="930.0" y2="374.9" stroke="#1D1D1D" stroke-width="0.8" stroke-dasharray="3,4"/><line x1="92.0" y1="374.9" x2="96.0" y2="374.9" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="365.0" x2="96.0" y2="365.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="356.6" x2="96.0" y2="356.6" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="349.4" x2="96.0" y2="349.4" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="343.0" x2="96.0" y2="343.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="299.8" x2="96.0" y2="299.8" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="277.9" x2="96.0" y2="277.9" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="262.3" x2="96.0" y2="262.3" stroke="#2B2B2B" stroke-width="0.8"/><line x1="96.0" y1="250.2" x2="930.0" y2="250.2" stroke="#1D1D1D" stroke-width="0.8" stroke-dasharray="3,4"/><line x1="92.0" y1="250.2" x2="96.0" y2="250.2" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="240.3" x2="96.0" y2="240.3" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="232.0" x2="96.0" y2="232.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="224.7" x2="96.0" y2="224.7" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="218.4" x2="96.0" y2="218.4" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="175.1" x2="96.0" y2="175.1" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="153.2" x2="96.0" y2="153.2" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="137.6" x2="96.0" y2="137.6" stroke="#2B2B2B" stroke-width="0.8"/><line x1="96.0" y1="125.5" x2="930.0" y2="125.5" stroke="#1D1D1D" stroke-width="0.8" stroke-dasharray="3,4"/><line x1="92.0" y1="125.5" x2="96.0" y2="125.5" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="115.7" x2="96.0" y2="115.7" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="107.3" x2="96.0" y2="107.3" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="100.1" x2="96.0" y2="100.1" stroke="#2B2B2B" stroke-width="0.8"/><line x1="92.0" y1="93.7" x2="96.0" y2="93.7" stroke="#2B2B2B" stroke-width="0.8"/><line x1="96.0" y1="462.0" x2="930.0" y2="462.0" stroke="#232323" stroke-width="1"/><line x1="89.0" y1="462.0" x2="96.0" y2="462.0" stroke="#414141" stroke-width="1.2"/><text x="84.0" y="466.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="end" font-weight="600">₹10</text><line x1="96.0" y1="337.3" x2="930.0" y2="337.3" stroke="#232323" stroke-width="1"/><line x1="89.0" y1="337.3" x2="96.0" y2="337.3" stroke="#414141" stroke-width="1.2"/><text x="84.0" y="341.3" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="end" font-weight="600">₹100</text><line x1="96.0" y1="212.7" x2="930.0" y2="212.7" stroke="#232323" stroke-width="1"/><line x1="89.0" y1="212.7" x2="96.0" y2="212.7" stroke="#414141" stroke-width="1.2"/><text x="84.0" y="216.7" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="end" font-weight="600">₹1,000</text><line x1="96.0" y1="88.0" x2="930.0" y2="88.0" stroke="#232323" stroke-width="1"/><line x1="89.0" y1="88.0" x2="96.0" y2="88.0" stroke="#414141" stroke-width="1.2"/><text x="84.0" y="92.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="end" font-weight="600">₹10,000</text><line x1="283.0" y1="462.0" x2="283.0" y2="466.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="470.0" y1="462.0" x2="470.0" y2="466.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="579.4" y1="462.0" x2="579.4" y2="466.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="621.0" y1="462.0" x2="621.0" y2="466.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="657.1" y1="462.0" x2="657.1" y2="466.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="766.5" y1="462.0" x2="766.5" y2="466.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="875.9" y1="462.0" x2="875.9" y2="466.0" stroke="#2B2B2B" stroke-width="0.8"/><line x1="205.4" y1="88.0" x2="205.4" y2="462.0" stroke="#141414" stroke-width="1"/><line x1="205.4" y1="462.0" x2="205.4" y2="468.0" stroke="#414141" stroke-width="1.2"/><text x="205.4" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">150</text><line x1="392.4" y1="88.0" x2="392.4" y2="462.0" stroke="#141414" stroke-width="1"/><line x1="392.4" y1="462.0" x2="392.4" y2="468.0" stroke="#414141" stroke-width="1.2"/><text x="392.4" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">300</text><line x1="530.2" y1="88.0" x2="530.2" y2="462.0" stroke="#141414" stroke-width="1"/><line x1="530.2" y1="462.0" x2="530.2" y2="468.0" stroke="#414141" stroke-width="1.2"/><text x="530.2" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">500</text><line x1="717.3" y1="88.0" x2="717.3" y2="462.0" stroke="#141414" stroke-width="1"/><line x1="717.3" y1="462.0" x2="717.3" y2="468.0" stroke="#414141" stroke-width="1.2"/><text x="717.3" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">1,000</text><line x1="826.7" y1="88.0" x2="826.7" y2="462.0" stroke="#141414" stroke-width="1"/><line x1="826.7" y1="462.0" x2="826.7" y2="468.0" stroke="#414141" stroke-width="1.2"/><text x="826.7" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">1,500</text><line x1="904.3" y1="88.0" x2="904.3" y2="462.0" stroke="#141414" stroke-width="1"/><line x1="904.3" y1="462.0" x2="904.3" y2="468.0" stroke="#414141" stroke-width="1.2"/><text x="904.3" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">2,000</text><line x1="96.0" y1="462.0" x2="930.0" y2="462.0" stroke="#414141" stroke-width="1.2"/><line x1="96.0" y1="88.0" x2="96.0" y2="462.0" stroke="#414141" stroke-width="1.2"/><text x="96.0" y="44.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#F2EFE9" font-weight="700" letter-spacing="0.08em">LOWER IS BETTER ↓</text><text x="251.0" y="44.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#A19E97" letter-spacing="0.08em">·   UNIT COST ÷ (PAYLOAD × RANGE)</text><text x="513.0" y="510.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#A19E97" text-anchor="middle" font-weight="600" letter-spacing="0.12em">OPERATIONAL RANGE, KM (LOG SCALE)</text><text x="84.0" y="72.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#A19E97" font-weight="600" letter-spacing="0.12em">COST PER KG·KM (INR)</text><polyline points="205.4,131.2 456.2,149.7 688.8,250.2 844.1,252.4" fill="none" stroke="#414141" stroke-width="1.8" stroke-dasharray="6,4" stroke-linecap="round" stroke-linejoin="round"/><line x1="205.4" y1="123.2" x2="205.4" y2="125.7" stroke="#414141" stroke-width="1"/><text x="205.4" y="107.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">Berkut-BM</text><text x="205.4" y="120.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#A19E97" text-anchor="middle">₹4,500</text><circle cx="205.4" cy="131.2" r="5.5" fill="#050505" stroke="#A19E97" stroke-width="2"/><line x1="456.2" y1="141.7" x2="456.2" y2="144.2" stroke="#414141" stroke-width="1"/><text x="456.2" y="125.7" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">Barracuda-250</text><text x="456.2" y="138.7" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#A19E97" text-anchor="middle">₹3,200</text><circle cx="456.2" cy="149.7" r="5.5" fill="#050505" stroke="#A19E97" stroke-width="2"/><line x1="688.8" y1="242.2" x2="688.8" y2="244.7" stroke="#414141" stroke-width="1"/><text x="688.8" y="226.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">Barracuda-500</text><text x="688.8" y="239.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#A19E97" text-anchor="middle">₹500</text><circle cx="688.8" cy="250.2" r="5.5" fill="#050505" stroke="#A19E97" stroke-width="2"/><line x1="844.1" y1="244.4" x2="844.1" y2="246.9" stroke="#414141" stroke-width="1"/><text x="844.1" y="228.4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">Tomahawk</text><text x="844.1" y="241.4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#A19E97" text-anchor="middle">₹480</text><circle cx="844.1" cy="252.4" r="5.5" fill="#050505" stroke="#A19E97" stroke-width="2"/><polyline points="392.4,147.5 826.7,365.9" fill="none" stroke="#F04B4B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="379.0" y1="147.5" x2="386.6" y2="147.5" stroke="#F04B4B" stroke-width="1"/><text x="376.0" y="142.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#F2EFE9" text-anchor="end" font-weight="700">Nightshade Mk II</text><text x="376.0" y="157.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="end" font-weight="500">₹3,333 / kg·km</text><circle cx="392.4" cy="147.5" r="5.8" fill="#D92323" stroke="#F2EFE9" stroke-width="1.6"/><line x1="814.0" y1="365.9" x2="820.9" y2="365.9" stroke="#F04B4B" stroke-width="1"/><text x="810.0" y="369.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#F2EFE9" text-anchor="end" font-weight="700">Hemlock</text><text x="810.0" y="384.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="end" font-weight="500">₹59 / kg·km</text><text x="810.0" y="401.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.0" fill="#F2EFE9" text-anchor="end" font-weight="700">about 8× below Tomahawk</text><circle cx="826.7" cy="365.9" r="5.8" fill="#D92323" stroke="#F2EFE9" stroke-width="1.6"/><line x1="694.0" y1="44.0" x2="718.0" y2="44.0" stroke="#414141" stroke-width="1.8" stroke-dasharray="4,3"/><circle cx="706" cy="44" r="5" fill="#050505" stroke="#A19E97" stroke-width="1.8"/><text x="726.0" y="47.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#C7C4BD" font-weight="600">IN SERVICE</text><line x1="816.0" y1="44.0" x2="840.0" y2="44.0" stroke="#F04B4B" stroke-width="2.5"/><circle cx="828" cy="44" r="5.2" fill="#D92323" stroke="#F2EFE9" stroke-width="1.4"/><text x="848.0" y="47.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#F2EFE9" font-weight="700">APOLLYON</text><text x="96.0" y="524.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76">USD 1 = INR 95 · Comparator prices from public sources · Berkut-BM unit cost estimated</text></svg>
+</div>
+    <div class="blueprint-cap"><b>Fig. 04</b> Cost per kilogram-kilometre against range. In-service comparators in grey, the Apollyon family in red. Prices come from public sources; Apollyon unit costs are internal planning figures.</div>
+  </div>
+
+  <h3>Why the curve falls</h3>
+  <p>Every platform in the family is built to the same engineering method: multiband GNSS with CRPA anti-jam, inertial navigation, seeker integration through Tonbo, electronic-warfare hardening, and the qualification process behind all of it. The Nightshade configurations share one autopilot baseline and a single configuration lineage; Hemlock carries the method and the evidence base onto a new airframe and its own guidance implementation. A new airframe is mostly an integration job covering engine class, structure, launch mode and warhead, and the qualification evidence from the previous machine travels with it.</p>
+
+  <div class="quotebar">
+    <p>The guidance stack is the product. The airframe is packaging.</p>
+  </div>
+
+  <p>This is where legacy cruise missile costs come from: proprietary radar altimeters, hand-tuned optical correlators, military-specification inertial platforms, and a decade of qualification spent on each of them. The family leaves that hardware behind. Software on automotive-grade processors does the same work, and the structures are designed for India's composite and stamped-metal base. <a href="strategy/trajectory.html">The full arithmetic, and the salvo model that follows from it &rarr;</a></p>
+</section>
+
+<!-- ═══════════════════ 08 · ARCHITECTURE ═══════════════════ -->
+<section id="architecture">
+  <h2><span class="sec-no">08</span>The speed moat</h2>
+  <p class="lede">Development speed needs to be built into the engineering system itself, not treated as a temporary advantage of being small. At Apollyon, engineering compounds across programmes: each project leaves behind calibrated physical models, test rigs, qualification data, and qualified suppliers that the next programme builds on. More capable platforms still require new engineering, but that effort is focused on what is truly novel, allowing new airframes to be integrated and flight-tested much faster.</p>
+
+  <div class="blueprint-plate">
+    <div class="blueprint-head"><span class="title">Fig. 05</span><span class="scale">the engineering system</span></div>
+    <div class="blueprint-body">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" role="img" aria-label="The engineering system: the engineering method applied to each airframe, and the iterative flight loop upgrading four subsystems"><rect width="1000" height="580" fill="#050505"/><defs><marker id="es-ink" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#C7C4BD"/></marker><marker id="es-red" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#F04B4B"/></marker><marker id="es-grey" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#414141"/></marker></defs><text x="40.0" y="34.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#f2efe9" font-weight="700" letter-spacing="0.14em">A · THE MACHINE — WHAT FLIES</text><text x="960.0" y="34.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.0" fill="#C7C4BD" text-anchor="end" font-weight="600" letter-spacing="0.08em">ONE ENGINEERING METHOD · MODULAR VEHICLE HARDWARE</text><line x1="40.0" y1="46.0" x2="960.0" y2="46.0" stroke="#2B2B2B" stroke-width="1"/><rect x="40.0" y="58.0" width="215.0" height="50.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1.1"/><text x="147.5" y="80.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.2" fill="#C7C4BD" text-anchor="middle" font-weight="600">PER-PLATFORM SENSORS</text><text x="147.5" y="92.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#A19E97" text-anchor="middle">MISSION-MATCHED EO/IR &amp; RF</text><rect x="275.0" y="58.0" width="450.0" height="50.0" fill="#3A1212" stroke="#D92323" stroke-width="1.4"/><text x="500.0" y="79.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="600">PROVEN METHOD — REUSABLE ACROSS PROGRAMMES</text><text x="500.0" y="92.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.8" fill="#cbd5e1" text-anchor="middle">PROVEN MODELS · TEST RIGS · QUALIFICATION EVIDENCE · TEAM KNOWLEDGE</text><rect x="745.0" y="58.0" width="215.0" height="50.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1.1"/><text x="852.5" y="80.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.2" fill="#C7C4BD" text-anchor="middle" font-weight="600">PER-PLATFORM AIRFRAME</text><text x="852.5" y="92.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.4" fill="#A19E97" text-anchor="middle">PROPULSION &amp; STRUCTURE</text><line x1="40.0" y1="126.0" x2="960.0" y2="126.0" stroke="#414141" stroke-width="1.2"/><text x="48.0" y="120.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.0" fill="#A19E97" font-weight="600" letter-spacing="0.12em">REGULATED POWER RAIL</text><line x1="147.5" y1="126.0" x2="147.5" y2="140.0" stroke="#414141" stroke-width="1.1"/><line x1="382.5" y1="126.0" x2="382.5" y2="140.0" stroke="#414141" stroke-width="1.1"/><line x1="617.5" y1="126.0" x2="617.5" y2="140.0" stroke="#414141" stroke-width="1.1"/><line x1="852.5" y1="126.0" x2="852.5" y2="140.0" stroke="#414141" stroke-width="1.1"/><rect x="40.0" y="140.0" width="215.0" height="56.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1.0"/><text x="147.5" y="167.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">MISSION SENSORS &amp; SEEKERS</text><text x="147.5" y="181.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#A19E97" text-anchor="middle">EO/IR SEEKERS · PITOT · CRPA GNSS</text><line x1="255.0" y1="168.0" x2="275.0" y2="168.0" stroke="#C7C4BD" stroke-width="1.1" marker-end="url(#es-ink)"/><rect x="275.0" y="140.0" width="215.0" height="56.0" fill="#3A1212" stroke="#D92323" stroke-width="1.3"/><text x="382.5" y="167.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#ffffff" text-anchor="middle" font-weight="600">STATE ESTIMATION &amp; NAV</text><text x="382.5" y="181.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#f2efe9" text-anchor="middle">EKF OBSERVERS · SCENE MATCHING · TERRAIN FIXES</text><line x1="490.0" y1="168.0" x2="510.0" y2="168.0" stroke="#F04B4B" stroke-width="1.2" marker-end="url(#es-red)"/><rect x="510.0" y="140.0" width="215.0" height="56.0" fill="#3A1212" stroke="#D92323" stroke-width="1.3"/><text x="617.5" y="167.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#ffffff" text-anchor="middle" font-weight="600">FLIGHT CONTROL</text><text x="617.5" y="181.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#f2efe9" text-anchor="middle">GUIDANCE · CONTROL · ENVELOPE</text><line x1="725.0" y1="168.0" x2="745.0" y2="168.0" stroke="#C7C4BD" stroke-width="1.1" marker-end="url(#es-ink)"/><rect x="745.0" y="140.0" width="215.0" height="56.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1.0"/><text x="852.5" y="167.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">PROPULSION &amp; ACTUATION</text><text x="852.5" y="181.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#A19E97" text-anchor="middle">TURBOJET / MOTOR · FIN SERVOS</text><line x1="40.0" y1="214.0" x2="76.0" y2="214.0" stroke="#C7C4BD" stroke-width="1.2"/><text x="84.0" y="217.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.8" fill="#C7C4BD" letter-spacing="0.08em">SENSOR / TELEMETRY BUS</text><line x1="240.0" y1="214.0" x2="276.0" y2="214.0" stroke="#F04B4B" stroke-width="1.2"/><text x="284.0" y="217.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.8" fill="#f2efe9" letter-spacing="0.08em">DETERMINISTIC CONTROL COMMANDS</text><line x1="510.0" y1="214.0" x2="546.0" y2="214.0" stroke="#414141" stroke-width="1.2"/><text x="554.0" y="217.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.8" fill="#A19E97" letter-spacing="0.08em">POWER DISTRIBUTION</text><text x="960.0" y="217.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.8" fill="#7F7C76" text-anchor="end" letter-spacing="0.06em">EVERY PROGRAMME STARTS FROM TESTED MODELS AND TOOLS</text><text x="40.0" y="252.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#f2efe9" font-weight="700" letter-spacing="0.14em">B · THE LOOP — SUBSYSTEM ITERATION CADENCE</text><text x="960.0" y="252.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.0" fill="#C7C4BD" text-anchor="end" font-weight="600" letter-spacing="0.08em">HOURS TO ISOLATE RESIDUALS · DAYS TO DEPLOY UPGRADE</text><line x1="40.0" y1="264.0" x2="960.0" y2="264.0" stroke="#2B2B2B" stroke-width="1"/><rect x="56.0" y="278.0" width="468.0" height="46.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1.1"/><text x="290.0" y="305.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.2" fill="#C7C4BD" text-anchor="middle" font-weight="600">FLY AT THE ENVELOPE BOUNDARY</text><line x1="290.0" y1="324.0" x2="290.0" y2="340.0" stroke="#C7C4BD" stroke-width="1.1" marker-end="url(#es-ink)"/><rect x="56.0" y="340.0" width="468.0" height="42.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1.1"/><text x="290.0" y="359.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.8" fill="#C7C4BD" text-anchor="middle" font-weight="600">DISCREPANCY &amp; RESIDUAL ANALYSIS</text><text x="290.0" y="371.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.5" fill="#A19E97" text-anchor="middle">MEASURED FLIGHT LOGS REPLAYED AGAINST DIGITAL TWIN</text><line x1="290.0" y1="382.0" x2="290.0" y2="396.0" stroke="#C7C4BD" stroke-width="1.1" marker-end="url(#es-ink)"/><line x1="113.0" y1="396.0" x2="467.0" y2="396.0" stroke="#2B2B2B" stroke-width="1"/><line x1="113.0" y1="396.0" x2="113.0" y2="408.0" stroke="#2B2B2B" stroke-width="1"/><rect x="56.0" y="408.0" width="114.0" height="54.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1"/><text x="113.0" y="433.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">AERO COEFFICIENTS</text><text x="113.0" y="444.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="6.4" fill="#A19E97" text-anchor="middle">DRAG POLARS &amp; LIFT TERMS</text><line x1="113.0" y1="462.0" x2="113.0" y2="474.0" stroke="#2B2B2B" stroke-width="1"/><line x1="231.0" y1="396.0" x2="231.0" y2="408.0" stroke="#2B2B2B" stroke-width="1"/><rect x="174.0" y="408.0" width="114.0" height="54.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1"/><text x="231.0" y="433.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">MISSION COMPUTE</text><text x="231.0" y="444.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="6.4" fill="#A19E97" text-anchor="middle">PERCEPTION &amp; ROUTE PLANNING</text><line x1="231.0" y1="462.0" x2="231.0" y2="474.0" stroke="#2B2B2B" stroke-width="1"/><line x1="349.0" y1="396.0" x2="349.0" y2="408.0" stroke="#2B2B2B" stroke-width="1"/><rect x="292.0" y="408.0" width="114.0" height="54.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1"/><text x="349.0" y="433.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">GUIDANCE &amp; CONTROL</text><text x="349.0" y="444.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="6.4" fill="#A19E97" text-anchor="middle">GAIN MAPS &amp; ATTITUDE LAWS</text><line x1="349.0" y1="462.0" x2="349.0" y2="474.0" stroke="#2B2B2B" stroke-width="1"/><line x1="467.0" y1="396.0" x2="467.0" y2="408.0" stroke="#2B2B2B" stroke-width="1"/><rect x="410.0" y="408.0" width="114.0" height="54.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1"/><text x="467.0" y="433.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#C7C4BD" text-anchor="middle" font-weight="600">STRUCTURAL / THERMAL</text><text x="467.0" y="444.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="6.4" fill="#A19E97" text-anchor="middle">VIBRATION &amp; CURRENT LIMITS</text><line x1="467.0" y1="462.0" x2="467.0" y2="474.0" stroke="#2B2B2B" stroke-width="1"/><line x1="113.0" y1="474.0" x2="467.0" y2="474.0" stroke="#2B2B2B" stroke-width="1"/><line x1="290.0" y1="474.0" x2="290.0" y2="488.0" stroke="#C7C4BD" stroke-width="1.1" marker-end="url(#es-ink)"/><rect x="56.0" y="488.0" width="468.0" height="46.0" fill="#3A1212" stroke="#D92323" stroke-width="1.4"/><text x="290.0" y="509.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="600">THE NEXT AIRCRAFT SORTIE</text><text x="290.0" y="522.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.6" fill="#f2efe9" text-anchor="middle">EXPANDED FLIGHT ENVELOPE · REDUCED CONTROL LAG · HIGHER STABILITY MARGIN</text><line x1="56.0" y1="511.0" x2="34.0" y2="511.0" stroke="#2B2B2B" stroke-width="1.2"/><line x1="34.0" y1="511.0" x2="34.0" y2="301.0" stroke="#2B2B2B" stroke-width="1.2"/><line x1="34.0" y1="301.0" x2="56.0" y2="301.0" stroke="#C7C4BD" stroke-width="1.2" marker-end="url(#es-ink)"/><rect x="640.0" y="278.0" width="320.0" height="48.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1.1"/><text x="800.0" y="300.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.8" fill="#C7C4BD" text-anchor="middle" font-weight="600">HIGH-FIDELITY DIGITAL TWIN</text><text x="800.0" y="312.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.0" fill="#A19E97" text-anchor="middle">UNIFIED 6-DOF RIGID BODY &amp; AERO DYNAMICS</text><line x1="800.0" y1="326.0" x2="800.0" y2="342.0" stroke="#C7C4BD" stroke-width="1.1" marker-end="url(#es-ink)"/><rect x="640.0" y="342.0" width="320.0" height="46.0" fill="#3A1212" stroke="#D92323" stroke-width="1.3"/><text x="800.0" y="363.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.8" fill="#ffffff" text-anchor="middle" font-weight="600">ESTIMATION &amp; CONTROL SYNTHESIS</text><text x="800.0" y="375.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.0" fill="#f2efe9" text-anchor="middle">OPTIMAL OBSERVERS &amp; GAIN SCHEDULES · ENVELOPE-LIMITING CONTROL</text><line x1="800.0" y1="388.0" x2="800.0" y2="404.0" stroke="#C7C4BD" stroke-width="1.1" marker-end="url(#es-ink)"/><rect x="640.0" y="404.0" width="320.0" height="46.0" fill="#090d14" stroke="#2B2B2B" stroke-width="1.1"/><text x="800.0" y="425.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.8" fill="#C7C4BD" text-anchor="middle" font-weight="600">HARDWARE-IN-THE-LOOP (HIL)</text><text x="800.0" y="437.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.0" fill="#A19E97" text-anchor="middle">REAL-TIME DETERMINISTIC SENSOR &amp; ACTUATOR SIMULATION</text><line x1="800.0" y1="450.0" x2="800.0" y2="466.0" stroke="#C7C4BD" stroke-width="1.1" marker-end="url(#es-ink)"/><rect x="640.0" y="466.0" width="320.0" height="46.0" fill="#3A1212" stroke="#D92323" stroke-width="1.3"/><text x="800.0" y="487.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.8" fill="#ffffff" text-anchor="middle" font-weight="600">FLIGHT FLYWHEEL</text><text x="800.0" y="499.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="7.0" fill="#f2efe9" text-anchor="middle">FLEET OPERATIONS &amp; SORTIES → EMPIRICAL FLIGHT DATA</text><path d="M960,489 H976 V302 H960" fill="none" stroke="#414141" stroke-width="1.2" marker-end="url(#es-ink)"/><path d="M524,511 H576 V302 H640" fill="none" stroke="#414141" stroke-width="1.2" marker-end="url(#es-grey)"/><text x="576.0" y="504.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.0" fill="#A19E97" text-anchor="middle" font-weight="600" letter-spacing="0.08em">FLIGHT LOGS</text><path d="M640,365 H584 V301 H524" fill="none" stroke="#F04B4B" stroke-width="1.2" marker-end="url(#es-red)"/><text x="584.0" y="294.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.0" fill="#f2efe9" text-anchor="middle" font-weight="700" letter-spacing="0.08em">VALIDATED LAWS</text></svg>
+</div>
+    <div class="blueprint-cap"><b>Fig. 05</b> The engineering system in two operational registers. <strong>A — the machine:</strong> every airframe built to the same engineering method, with platform-specific work isolated to mission sensors, propulsion, structural actuation and the guidance package. <strong>B — the loop:</strong> boundary flight telemetry replayed against the digital twin to extract parameter residuals, combining classical estimation with gain-scheduled control laws and deterministic HIL validation before the next sortie.</div>
+  </div>
+
+  <h3>The core engineering challenge</h3>
+  <p class="lede">High-speed autonomous flight breaks standard aerospace assumptions across four physical regimes:</p>
+
+  <div class="tw">
+    <table>
+      <caption>The four physical bottlenecks and their architectural resolutions</caption>
+      <thead>
+        <tr>
+          <th>Bottleneck</th>
+          <th>The Physical Barrier</th>
+          <th>Apollyon Architectural Solution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong class="tbl-k">01 &middot; Coupling</strong><br><span class="tbl-sub">Recertification trap</span></td>
+          <td>Changing airframe geometry or engines traditionally forces multi-year recertification of navigation filters and control laws.</td>
+          <td><strong>Reusable engineering core:</strong> Aerodynamics and mass properties load from calibrated tables at boot. Within a family, adapting to a new airframe requires parameter identification rather than firmware rewrites; each new programme inherits proven methods and test evidence.</td>
+        </tr>
+        <tr>
+          <td><strong class="tbl-k">02 &middot; Saturated Boundary</strong><br><span class="tbl-sub">Non-linear limit</span></td>
+          <td>At 250–400&nbsp;m/s, control surfaces approach mechanical deflection limits under severe cross-axis coupling, causing classical PID loops to degrade.</td>
+          <td><strong>Hybrid synthesis:</strong> Classical stability margins across the nominal envelope, paired with gain-scheduled and envelope-limiting control laws identified from flight testing.</td>
+        </tr>
+        <tr>
+          <td><strong class="tbl-k">03 &middot; Latency as Geometry</strong><br><span class="tbl-sub">Compute as distance</span></td>
+          <td>At high closing velocity, even small delays in sensor processing or bus communication produce significant miss distance.</td>
+          <td><strong>Two compute domains:</strong> The flight-critical loop runs on a deterministic autopilot baseline; vision and perception workloads run on a separate mission computer and never interrupt flight control.</td>
+        </tr>
+        <tr>
+          <td><strong class="tbl-k">04 &middot; The Reality Gap</strong><br><span class="tbl-sub">Simulation limits</span></td>
+          <td>High-altitude mountain turbulence, transonic buffet, and active EW cannot be modeled accurately from CAD or textbook CFD alone.</td>
+          <td><strong>Empirical telemetry loop:</strong> Flight logs are fed back into our 6-DOF simulation models within hours, systematically refining aerodynamic tables and control tuning across platforms.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p><a href="architecture/index.html">The shared architecture, in full — the machine, the twin, and the loop &rarr;</a></p>
+
 </section>
 
 <!-- ═══════════════════ 09 · THE BUSINESS ═══════════════════ -->
 <section id="business">
-  <div class="sec-tag">09 · The business</div>
-  <h2>Stable Initial Revenue Funds Better Capability</h2>
+  <h2><span class="sec-no">09</span>Stable initial revenue funds better capability</h2>
   <p class="lede">Major strategic defence tenders can take four to six years under long-term capital procurement cycles. Apollyon pairs long-term work with near-term delivery: supplying tactical interceptors (Ahuti) and target drones (Nightshade) directly through Delegation of Financial Powers to Defence Services (DFPDS), where procurement cycles run roughly 6–12 months. Ongoing demand for consumable tactical rounds provides immediate operating cash flow and continuous flight hours. This revenue, combined with capital raised, supports the longer development cycle of deep-strike platforms.</p>
 
   <h3>Cash engines underwriting deep strike</h3>
@@ -500,15 +556,14 @@
 
 <!-- ═══════════════════ 10 · MOATS ═══════════════════ -->
 <section id="moats">
-  <div class="sec-tag">10 · Compounding</div>
-  <h2>Compounding Moats: The Flywheel of Engineering, Industry, Distribution</h2>
+  <h2><span class="sec-no">10</span>Compounding moats: the flywheel of engineering, industry, distribution</h2>
   <p class="lede">A product is temporary. The engineering system, the supplier network and the route to market remain after the machine is delivered. Each programme lowers the cost and time required to build the next one, and widens the set of customers who can buy it.</p>
   <div class="blueprint-plate">
-    <div class="blueprint-head"><span class="title">Fig. 04</span><span class="scale">three loops &middot; one direction</span></div>
+    <div class="blueprint-head"><span class="title">Fig. 06</span><span class="scale">three loops &middot; one direction</span></div>
     <div class="blueprint-body">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" role="img" aria-label="The compounding loops: flight data and hardware feed engineering, industry and distribution, and each delivered programme returns more units, data and capital"><defs><marker id="cl-ink" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#7F7C76"/></marker><marker id="cl-red" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#F04B4B"/></marker><marker id="cl-grey" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#414141"/></marker></defs><rect x="260.0" y="40.0" width="480.0" height="48.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="500.0" y="62.8" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle" font-weight="600">FLIGHT DATA / HARDWARE</text><text x="500.0" y="74.2" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.0" fill="#7F7C76" text-anchor="middle">WHAT A DELIVERED PROGRAMME RETURNS</text><line x1="500.0" y1="88.0" x2="500.0" y2="124.0" stroke="#C7C4BD" stroke-width="1.1" marker-end="url(#cl-ink)"/><rect x="260.0" y="124.0" width="480.0" height="92.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="500.0" y="157.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#F2EFE9" text-anchor="middle" font-weight="700" letter-spacing="0.14em">ENGINEERING LOOP</text><text x="500.0" y="181.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.8" fill="#A19E97" text-anchor="middle">faster iteration · better models</text><text x="500.0" y="195.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.8" fill="#A19E97" text-anchor="middle">reusable models · qualification</text><rect x="260.0" y="252.0" width="480.0" height="92.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="500.0" y="285.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#F2EFE9" text-anchor="middle" font-weight="700" letter-spacing="0.14em">INDUSTRIAL LOOP</text><text x="500.0" y="309.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.8" fill="#A19E97" text-anchor="middle">seekers · propulsion · suppliers</text><text x="500.0" y="323.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.8" fill="#A19E97" text-anchor="middle">tooling · production · integration</text><rect x="260.0" y="380.0" width="480.0" height="92.0" fill="#050505" stroke="#414141" stroke-width="1"/><text x="500.0" y="413.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12.0" fill="#F2EFE9" text-anchor="middle" font-weight="700" letter-spacing="0.14em">DISTRIBUTION LOOP</text><text x="500.0" y="437.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.8" fill="#A19E97" text-anchor="middle">export approvals · customers</text><text x="500.0" y="451.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.8" fill="#A19E97" text-anchor="middle">partners · field deployments</text><line x1="500.0" y1="216.0" x2="500.0" y2="252.0" stroke="#F04B4B" stroke-width="1.1" marker-end="url(#cl-red)"/><line x1="500.0" y1="344.0" x2="500.0" y2="380.0" stroke="#F04B4B" stroke-width="1.1" marker-end="url(#cl-red)"/><line x1="500.0" y1="472.0" x2="500.0" y2="508.0" stroke="#F04B4B" stroke-width="1.1" marker-end="url(#cl-red)"/><rect x="260.0" y="508.0" width="480.0" height="74.0" fill="#3A1212" stroke="#D92323" stroke-width="1.4"/><text x="500.0" y="538.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#F2EFE9" text-anchor="middle" font-weight="700" letter-spacing="0.1em">MORE UNITS · MORE DATA · MORE CAPITAL</text><text x="500.0" y="558.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#A19E97" text-anchor="middle">the next programme starts from a higher base</text><path d="M740,545 H880 V64 H740" fill="none" stroke="#F04B4B" stroke-width="1.2" stroke-dasharray="5 5" marker-end="url(#cl-red)"/><text x="810.0" y="56.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.5" fill="#F2EFE9" text-anchor="middle" font-weight="700" letter-spacing="0.12em">NEXT PROGRAMME</text></svg>
 </div>
-    <div class="blueprint-cap"><b>Fig. 04</b> Three loops run on what a delivered programme leaves behind. Engineering feeds the industrial base, the industrial base feeds distribution, and distribution returns orders, capital and flight data to the next machine.</div>
+    <div class="blueprint-cap"><b>Fig. 06</b> Three loops run on what a delivered programme leaves behind. Engineering feeds the industrial base, the industrial base feeds distribution, and distribution returns orders, capital and flight data to the next machine.</div>
   </div>
 
   <div class="factbox">
@@ -527,11 +582,11 @@
   </div>
 
   <div class="blueprint-plate">
-    <div class="blueprint-head"><span class="title">Fig. 05</span><span class="scale">eight months &middot; five standards</span></div>
+    <div class="blueprint-head"><span class="title">Fig. 07</span><span class="scale">eight months &middot; five standards</span></div>
     <div class="blueprint-body">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" role="img" aria-label="Ahuti interceptor top speed across four build standards in eight months"><line x1="90.0" y1="330.0" x2="930.0" y2="330.0" stroke="#2B2B2B" stroke-width="1"/><text x="76.0" y="334.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#7F7C76" text-anchor="end">0</text><line x1="90.0" y1="283.6" x2="930.0" y2="283.6" stroke="#1D1D1D" stroke-width="1"/><text x="76.0" y="287.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#7F7C76" text-anchor="end">100</text><line x1="90.0" y1="237.1" x2="930.0" y2="237.1" stroke="#1D1D1D" stroke-width="1"/><text x="76.0" y="241.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#7F7C76" text-anchor="end">200</text><line x1="90.0" y1="190.7" x2="930.0" y2="190.7" stroke="#1D1D1D" stroke-width="1"/><text x="76.0" y="194.7" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#7F7C76" text-anchor="end">300</text><line x1="90.0" y1="144.3" x2="930.0" y2="144.3" stroke="#1D1D1D" stroke-width="1"/><text x="76.0" y="148.3" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#7F7C76" text-anchor="end">400</text><line x1="90.0" y1="97.9" x2="930.0" y2="97.9" stroke="#1D1D1D" stroke-width="1"/><text x="76.0" y="101.9" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#7F7C76" text-anchor="end">500</text><text x="76.0" y="54.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" letter-spacing="0.12em">TOP SPEED (KM/H)</text><line x1="90.0" y1="144.3" x2="930.0" y2="144.3" stroke="#3A1212" stroke-width="1.2" stroke-dasharray="5 5"/><text x="94.0" y="136.3" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#F2EFE9" letter-spacing="0.08em">JET GERAN THREAT BAND ≈ 400</text><polyline points="90.0,246.4 300.0,199.1 510.0,173.5 720.0,166.6 930.0,98.8" fill="none" stroke="#F04B4B" stroke-width="1.8"/><circle cx="90.0" cy="246.4" r="5" fill="#D92323"/><text x="90.0" y="230.4" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13.0" fill="#F2EFE9" text-anchor="middle" font-weight="700">180</text><text x="90.0" y="356.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#F2EFE9" text-anchor="middle" font-weight="700" letter-spacing="0.1em">BUILD 1</text><text x="90.0" y="374.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">LATE 2025</text><circle cx="300.0" cy="199.1" r="5" fill="#D92323"/><text x="300.0" y="183.1" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13.0" fill="#F2EFE9" text-anchor="middle" font-weight="700">282</text><text x="300.0" y="356.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#F2EFE9" text-anchor="middle" font-weight="700" letter-spacing="0.1em">BUILD 2</text><text x="300.0" y="374.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">Q1 2026</text><circle cx="510.0" cy="173.5" r="5" fill="#D92323"/><text x="510.0" y="157.5" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13.0" fill="#F2EFE9" text-anchor="middle" font-weight="700">337</text><text x="510.0" y="356.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#F2EFE9" text-anchor="middle" font-weight="700" letter-spacing="0.1em">BUILD 3</text><text x="510.0" y="374.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">Q2 2026</text><circle cx="720.0" cy="166.6" r="5" fill="#D92323"/><text x="720.0" y="150.6" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13.0" fill="#F2EFE9" text-anchor="middle" font-weight="700">352</text><text x="720.0" y="356.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#F2EFE9" text-anchor="middle" font-weight="700" letter-spacing="0.1em">BUILD 4</text><text x="720.0" y="374.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">Q3 2026</text><circle cx="930.0" cy="98.8" r="5" fill="#D92323"/><text x="930.0" y="82.8" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13.0" fill="#F2EFE9" text-anchor="middle" font-weight="700">498</text><text x="930.0" y="356.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#F2EFE9" text-anchor="middle" font-weight="700" letter-spacing="0.1em">MK II</text><text x="930.0" y="374.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle">SEP 2026</text><line x1="90.0" y1="330.0" x2="930.0" y2="330.0" stroke="#2B2B2B" stroke-width="1"/><text x="90.0" y="396.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#7F7C76">Five flight standards in eight months · certified national record, India Book of Records,</text><text x="90.0" y="414.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.0" fill="#7F7C76">1 Sep 2026 · 400 km/h is the target threat envelope used to drive the programme.</text></svg>
 </div>
-    <div class="blueprint-cap"><b>Fig. 05</b> Five flight standards in eight months. Aerodynamic and powertrain development progressed from 180 km/h to a 498 km/h sprint testbed record, establishing the production target in the 400 km/h operational threat band.</div>
+    <div class="blueprint-cap"><b>Fig. 07</b> Five flight standards in eight months. Aerodynamic and powertrain development progressed from 180 km/h to a 498 km/h sprint testbed record, establishing the production target in the 400 km/h operational threat band.</div>
   </div>
 
   <p class="strip-label">What remains after each build</p>
@@ -627,7 +682,7 @@
 
   <div class="blueprint-plate">
     <div class="blueprint-head">
-      <span class="title">Fig. 06 · Sovereign Export Footprint &amp; Distribution Corridors</span>
+      <span class="title">Fig. 08 · Sovereign Export Footprint &amp; Distribution Corridors</span>
       <span class="scale">non-itar provenance &middot; 24+ qualified countries &middot; 3 demand pillars</span>
     </div>
     <div class="blueprint-body">
@@ -652,7 +707,7 @@
         <line x1="500" y1="255" x2="500" y2="365" stroke="#d92323" stroke-width="1.4" marker-end="url(#tr-red)"/>
         <rect x="380" y="160" width="240" height="86" fill="#220808" stroke="#d92323" stroke-width="1.5"/>
         <text x="500" y="186" font-family="JetBrains Mono, monospace" font-size="11.5" fill="#f2efe9" text-anchor="middle" font-weight="700" letter-spacing="0.08em">INDIA · BENGALURU</text>
-        <text x="500" y="204" font-family="JetBrains Mono, monospace" font-size="10" fill="#f04b4b" text-anchor="middle" font-weight="600">Apollyon × Tonbo Sovereign Core</text>
+        <text x="500" y="204" font-family="JetBrains Mono, monospace" font-size="10" fill="#f2efe9" text-anchor="middle" font-weight="600">Apollyon × Tonbo Sovereign Core</text>
         <text x="500" y="221" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#a19e97" text-anchor="middle">Indian Airframe · Integration &amp; Mission Software</text>
         <text x="500" y="234" font-family="JetBrains Mono, monospace" font-size="8" fill="#7f7c76" text-anchor="middle" letter-spacing="0.05em">NON-ITAR SUPPLY BASE</text>
         <rect x="30" y="38" width="280" height="82" fill="#050505" stroke="#333333" stroke-width="1"/>
@@ -662,7 +717,7 @@
         <text x="46" y="107" font-family="JetBrains Mono, monospace" font-size="8" fill="#7f7c76">SHOWCASES: EUROSATORY 2026 · NORTH TECH (SHARKJET)</text>
         <rect x="690" y="38" width="280" height="82" fill="#120606" stroke="#5a1a1a" stroke-width="1"/>
         <text x="706" y="60" font-family="JetBrains Mono, monospace" font-size="10.5" fill="#f2efe9" font-weight="700" letter-spacing="0.06em">ARMENIA (CAUCASUS)</text>
-        <text x="706" y="77" font-family="Inter, sans-serif" font-size="10" fill="#f04b4b" font-weight="600">Volt C-UAS · Spartan-S Thermal Sights</text>
+        <text x="706" y="77" font-family="Inter, sans-serif" font-size="10" fill="#f2efe9" font-weight="600">Volt C-UAS · Spartan-S Thermal Sights</text>
         <text x="706" y="93" font-family="Inter, sans-serif" font-size="9" fill="#c7c4bd">Helmet-mounted thermal monoculars for frontline</text>
         <text x="706" y="107" font-family="JetBrains Mono, monospace" font-size="8" fill="#7f7c76">ACTIVE MODERNISATION · COMBAT TESTED</text>
         <rect x="30" y="260" width="280" height="82" fill="#050505" stroke="#333333" stroke-width="1"/>
@@ -679,7 +734,7 @@
         <text x="500" y="397" font-family="JetBrains Mono, monospace" font-size="11" fill="#f2efe9" text-anchor="middle" font-weight="700" letter-spacing="0.08em">80+ NON-ALIGNED SOVEREIGN DESTINATIONS</text>
         <text x="500" y="414" font-family="Inter, sans-serif" font-size="9.5" fill="#c7c4bd" text-anchor="middle">Southeast Asia · Middle East · Central Asia · Africa · Latin America</text>
         <text x="500" y="429" font-family="JetBrains Mono, monospace" font-size="8" fill="#7f7c76" text-anchor="middle" letter-spacing="0.08em">PRE-QUALIFIED CHANNELS · NO ITAR END-USE VETO · DIVERSIFIED CORRIDORS</text>
-        <text x="40" y="468" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#555" letter-spacing="0.1em">QUALIFIED OPERATIONAL CORRIDORS · 15+ YEARS FIELD EXPERIENCE · 24 MARKETS</text>
+        <text x="40" y="468" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#938f88" letter-spacing="0.1em">QUALIFIED OPERATIONAL CORRIDORS · 15+ YEARS FIELD EXPERIENCE · 24 MARKETS</text>
       </svg>
 
       <div class="export-channels-section">
@@ -714,7 +769,7 @@
         </div>
       </div>
     </div>
-    <div class="blueprint-cap"><b>Fig. 06</b> The Sovereign Export Corridors, Fielded Footprint, and Monopsony Hedge. Rather than starting foreign distribution from scratch, Apollyon pairs an ITAR-free Indian supply base with Tonbo's 15+ years of active field qualifications across 24 countries. This distribution reach hedges single-buyer monopsony across three independent demand channels, while export volume continuously deflates unit strike costs for the Indian Armed Forces.</div>
+    <div class="blueprint-cap"><b>Fig. 08</b> The Sovereign Export Corridors, Fielded Footprint, and Monopsony Hedge. Rather than starting foreign distribution from scratch, Apollyon pairs an ITAR-free Indian supply base with Tonbo's 15+ years of active field qualifications across 24 countries. This distribution reach hedges single-buyer monopsony across three independent demand channels, while export volume continuously deflates unit strike costs for the Indian Armed Forces.</div>
   </div>
 
   <div class="stats">
@@ -748,11 +803,11 @@
 
   <h3><span class="hno">06</span>Where Apollyon is trying to sit</h3>
   <div class="blueprint-plate">
-    <div class="blueprint-head"><span class="title">Fig. 07</span><span class="scale">cadence &middot; cost &middot; sophistication</span></div>
+    <div class="blueprint-head"><span class="title">Fig. 09</span><span class="scale">cadence &middot; cost &middot; sophistication</span></div>
     <div class="blueprint-body">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" role="img" aria-label="Position map: development cadence against unit cost, bubble size showing system sophistication, with Apollyon in the high-cadence expendable quadrant"><rect x="120" y="80" width="400.0" height="220.0" fill="#3A1212" fill-opacity="0.5"/><line x1="120.0" y1="80.0" x2="120.0" y2="520.0" stroke="#2B2B2B" stroke-width="1.2"/><line x1="120.0" y1="520.0" x2="920.0" y2="520.0" stroke="#2B2B2B" stroke-width="1.2"/><line x1="520.0" y1="80.0" x2="520.0" y2="520.0" stroke="#1D1D1D" stroke-width="1" stroke-dasharray="4 4"/><line x1="120.0" y1="300.0" x2="920.0" y2="300.0" stroke="#1D1D1D" stroke-width="1" stroke-dasharray="4 4"/><text transform="translate(62,300.0) rotate(-90)" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle" letter-spacing="0.14em">DEVELOPMENT &amp; UPDATE CADENCE</text><text x="120.0" y="550.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.0" fill="#7F7C76" letter-spacing="0.1em">LOW UNIT COST · EXPENDABLE</text><text x="920.0" y="550.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.0" fill="#7F7C76" text-anchor="end" letter-spacing="0.1em">HIGH UNIT COST · EXQUISITE</text><text x="520.0" y="572.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.5" fill="#7F7C76" text-anchor="middle" letter-spacing="0.16em">UNIT COST</text><circle cx="300" cy="175" r="46" fill="#3A1212" stroke="#D92323" stroke-width="1.6"/><text x="300.0" y="245.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#F2EFE9" text-anchor="middle" font-weight="700" letter-spacing="0.1em">APOLLYON</text><text x="300.0" y="259.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.5" fill="#7F7C76" text-anchor="middle">non-ITAR · India cost base</text><circle cx="710" cy="210" r="56" fill="#050505" stroke="#414141" stroke-width="1.3"/><text x="710.0" y="288.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle">ANDURIL · ITAR</text><text x="710.0" y="304.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.5" fill="#7F7C76" text-anchor="middle">Western neo-primes</text><circle cx="280" cy="415" r="40" fill="#050505" stroke="#414141" stroke-width="1.3"/><text x="280.0" y="477.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle">EXPORT-BLOCKED BUILDERS</text><text x="280.0" y="493.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.5" fill="#7F7C76" text-anchor="middle">Ukrainian · Geran · Peklo</text><circle cx="530" cy="430" r="32" fill="#050505" stroke="#414141" stroke-width="1.3"/><text x="530.0" y="484.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle">SOLAR · ADANI · TATA</text><text x="530.0" y="500.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.5" fill="#7F7C76" text-anchor="middle">Indian conglomerates</text><circle cx="740" cy="400" r="54" fill="#050505" stroke="#414141" stroke-width="1.3"/><text x="740.0" y="476.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10.5" fill="#C7C4BD" text-anchor="middle">MBDA · KONGSBERG</text><text x="740.0" y="492.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.5" fill="#7F7C76" text-anchor="middle">Incumbent primes</text><text x="120.0" y="600.0" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9.0" fill="#7F7C76" letter-spacing="0.08em">BUBBLE SIZE = SYSTEM SOPHISTICATION · AXES ARE QUALITATIVE</text></svg>
 </div>
-    <div class="blueprint-cap"><b>Fig. 07</b> Two axes set the market: how fast a system is updated, and what one round costs. Bubble size is system sophistication. The shaded quadrant, high cadence with expendable economics, is the one Apollyon is built to occupy.</div>
+    <div class="blueprint-cap"><b>Fig. 09</b> Two axes set the market: how fast a system is updated, and what one round costs. Bubble size is system sophistication. The shaded quadrant, high cadence with expendable economics, is the one Apollyon is built to occupy.</div>
   </div>
 
   <h3><span class="hno">07</span>Proof in products</h3>
@@ -762,7 +817,7 @@
       <caption>Ahuti Mk II against its closest peer</caption>
       <thead><tr><th>Parameter</th><th class="red">Ahuti Mk II</th><th>Osiris UEB-1</th></tr></thead>
       <tbody>
-        <tr><td>Top speed</td><td class="red">400 km/h band<br><small style="color:var(--ink-3);font-size:10px;">(498 km/h sprint testbed)</small></td><td>315 km/h</td></tr>
+        <tr><td>Top speed</td><td class="red">400 km/h band<br><small class="tbl-sub">(498 km/h sprint testbed)</small></td><td>315 km/h</td></tr>
         <tr><td>Warhead</td><td class="red">3 kg</td><td>3.1 kg</td></tr>
         <tr><td>Range</td><td class="red">~10 km</td><td>18 km LOS</td></tr>
         <tr><td>Origin</td><td class="red">India</td><td>Ukraine / Poland</td></tr>
@@ -777,7 +832,7 @@
       <caption>Nightshade Mk II against loitering munitions</caption>
       <thead><tr><th>System</th><th>Terminal speed</th><th>Warhead</th><th>Range</th><th>Terminal guidance</th><th>Unit cost</th></tr></thead>
       <tbody>
-        <tr><td><strong>Nightshade Mk II</strong><br><small style="color:var(--ink-4);font-family:var(--mono);font-size:11px;">Loitering Munition (turbojet)</small></td><td class="red">650 km/h</td><td class="red">15 kg</td><td class="red">300 km</td><td class="red">Autonomous · EO/IR seeker</td><td class="red">~$150K</td></tr>
+        <tr><td><strong>Nightshade Mk II</strong><br><small class="tbl-sub">Loitering Munition (turbojet)</small></td><td class="red">650 km/h</td><td class="red">15 kg</td><td class="red">300 km</td><td class="red">Autonomous · EO/IR seeker</td><td class="red">~$150K</td></tr>
         <tr><td>IAI Harop</td><td>~300 km/h</td><td>23 kg</td><td>200 km</td><td>Man-in-loop + anti-radiation</td><td>$500K&ndash;1M+</td></tr>
         <tr><td>Switchblade 600</td><td>185 km/h</td><td>~2.5 kg</td><td>40 km</td><td>Man-in-loop</td><td>$100&ndash;150K</td></tr>
         <tr><td>Rheinmetall FV-014</td><td>~200 km/h (est.)</td><td>5&ndash;6 kg</td><td>100 km</td><td>Man-in-loop</td><td>~$50&ndash;100K (est.)</td></tr>
@@ -788,10 +843,19 @@
   <p class="small">The target-drone comparisons, the lower-cost band and the full matrices sit in <a href="strategy/competitive.html">the competitive field</a>.</p>
 </section>
 
-<!-- ═══════════════════ 11 · RECORD ═══════════════════ -->
+<!-- ═══════════════════ 11 · ORIGIN ═══════════════════ -->
+<section id="origin">
+  <h2><span class="sec-no">11</span>How we started</h2>
+  <p class="lede">Apollyon Dynamics started in May 2025 at BITS Pilani, Hyderabad. While the two founders were still undergraduates, they built their first tactical quadcopter in their hostel rooms using 3D printers.</p>
+  <p>The first drones were designed and built in-house. The team took them to Chandigarh for flight trials with the Indian Army, where their flight performance and resistance to jamming helped secure the company's first order. That order came from 15 Guards and was worth ₹2.68 lakh. Within two months of incorporation, Apollyon had delivered its first production hardware to a forward unit.</p>
+  <p>More orders and deployments followed across Jammu, Udhampur, Chandimandir and Arunachal Pradesh. Working with Army units from the beginning gave the team a chance to test its designs in the field, understand what soldiers actually needed, and use that feedback in subsequent builds. Alongside tactical airframes, Apollyon built and delivered a containerised Mobile Drone Lab to the Army with 15 Guards in Jammu, bringing diagnostic, calibration and mission-programming equipment to the forward base. <a href="about/team.html">The people behind the programmes &rarr;</a></p>
+  <p><a href="about/history.html">Read the company history &rarr;</a></p>
+
+</section>
+
+<!-- ═══════════════════ 12 · RECORD ═══════════════════ -->
 <section id="record">
-  <div class="sec-tag">11 · Record</div>
-  <h2>Track Record</h2>
+  <h2><span class="sec-no">12</span>Track record</h2>
   <p class="lede">Progress is documented through instrumented flight trials, field deployment acceptance, and verified hardware production. The milestones below trace the path from a hostel workshop to Army field trials; the <a href="about/history.html#timeline">company history</a> carries the full chronology and the deployment footprint.</p>
 
   <p class="strip-label">Done</p>
@@ -825,16 +889,89 @@
   </div>
 
   <figure class="dark">
-    <img src="assets/field-units.jpg" alt="Field trials and proving grounds across Indian Army and BSF formations" loading="lazy">
+    <img src="assets/field-units.jpg" alt="Field trials and proving grounds across Indian Army and BSF formations" width="1400" height="989" loading="lazy" decoding="async">
     <figcaption><b>Proving Grounds &amp; User Evaluations</b> Verified field evaluations and trials conducted across active service formations: 15 Guards (Jammu), BSF Academy (Gwalior), 181 Mountain Brigade (Lohitpur), Army Air Defence College (Gopalpur), and Babina Field Firing Ranges. <a href="about/history.html">The full operational chronology &rarr;</a></figcaption>
   </figure>
 
 </section>
 
-<!-- ═══════════════════ 12 · ENGAGE ═══════════════════ -->
+<!-- ═══════════════════ 13 · EXPLORE ═══════════════════ -->
+<section id="explore">
+  <h2><span class="sec-no">13</span>Explore the wiki</h2>
+  <p class="lede">Every page, grouped as in the wiki map, with what each covers.</p>
+<!-- shell:directory -->
+<div class="directory">
+  <div class="dir-group" id="explore-products">
+    <h3>Products</h3>
+    <ul>
+      <li><a href="products/ahuti.html">Ahuti interceptor</a> <span class="status" data-status="flight-testing">Flight testing</span><span class="dir-d">A high-speed electric interceptor for hostile reconnaissance drones and loitering munitions.</span></li>
+      <li><a href="products/nightshade-adx1.html">Nightshade family</a> <span class="status" data-status="in-development">In development</span><span class="dir-d">One turbojet airframe in three configurations: two target drones and the Mk II loitering munition.</span></li>
+      <li><a href="products/usv-strike.html">Piranha USV</a> <span class="status" data-status="in-development">In development</span><span class="dir-d">A small unmanned surface vessel with marine radar and EO/IR, for reconnaissance and one-way strike.</span></li>
+      <li><a href="products/hemlock.html">Hemlock</a> <span class="status" data-status="concept">Concept</span><span class="dir-d">A high-subsonic cruise missile concept built around the GTRE Manik 450 kgf turbofan.</span></li>
+    </ul>
+  </div>
+  <div class="dir-group" id="explore-architecture">
+    <h3>Architecture</h3>
+    <ul>
+      <li><a href="architecture/index.html">The shared core</a><span class="dir-d">The permanent engineering method behind every product: hardware, software and the flight loop.</span></li>
+      <li><a href="subsystems/near-envelope-control.html">Robust flight control</a><span class="dir-d">Flight control for fast aircraft at high dynamic pressure, high-G turns and actuator limits.</span></li>
+      <li><a href="subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a><span class="dir-d">Navigating when satellite signals are jammed or spoofed: anti-jam antennas and scene matching.</span></li>
+      <li><a href="subsystems/onboard-compute.html">Edge compute</a><span class="dir-d">Mission and perception compute on a second domain, alongside the flight-critical autopilot.</span></li>
+      <li><a href="subsystems/flight-software.html">Flight software</a><span class="dir-d">The Veronte autopilot baseline, Apollyon-authored control laws and hardware-in-the-loop verification.</span></li>
+      <li><a href="subsystems/seekers.html">Seekers</a><span class="dir-d">Modular seekers for terminal guidance: passive imaging and anti-radiation homing.</span></li>
+      <li><a href="subsystems/airframe-structures.html">Airframe &amp; structures</a> <span class="status" data-status="in-progress">In progress</span><span class="dir-d">How airframes are designed to be built fast: composites, stamped metal and manufacturability.</span></li>
+      <li><a href="subsystems/launch-systems.html">Launch &amp; ground systems</a><span class="dir-d">Launchers, canisters and readiness time for the strike and intercept systems.</span></li>
+    </ul>
+  </div>
+  <div class="dir-group" id="explore-strategy">
+    <h3>Strategy</h3>
+    <ul>
+      <li><a href="strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a><span class="dir-d">The long-term strategy: strike envelope, cost per kg&middot;km and salvo arithmetic.</span></li>
+      <li><a href="strategy/market.html">The market</a><span class="dir-d">Addressable segments, Budget 2026 and Vision 2047, demand pillars, exports and channels.</span></li>
+      <li><a href="strategy/competitive.html">The competitive field</a><span class="dir-d">The products benchmarked against the interceptor and loitering-munition fields.</span></li>
+      <li><a href="strategy/supply-chain.html">Supply chain</a><span class="dir-d">Component posture: multi-sourced engines, Tonbo seekers, partners and the open gaps.</span></li>
+    </ul>
+  </div>
+  <div class="dir-group" id="explore-doctrine">
+    <h3>Doctrine</h3>
+    <ul>
+      <li><a href="doctrine/new-arsenal.html">The New Arsenal</a><span class="dir-d">The founding doctrine: why a neo-prime can be built from the bottom up in India now.</span></li>
+      <li><a href="doctrine/precision-is-mercy.html">Precision is Mercy</a><span class="dir-d">The ethical doctrine: how a state that values restraint should design destructive force.</span></li>
+      <li><a href="doctrine/missing-middle.html">The Missing Middle</a><span class="dir-d">India lacks an industrial tempo, not technology: the unbuilt middle tier of defence manufacturing.</span></li>
+      <li><a href="doctrine/strike-design-space.html">Strike design space</a><span class="dir-d">A worked analysis of the standoff strike layer between cruise missiles and loitering munitions.</span></li>
+    </ul>
+  </div>
+  <div class="dir-group" id="explore-context">
+    <h3>Context</h3>
+    <ul>
+      <li><a href="strategic-dependency/full-record.html">The full record &middot; 70 episodes</a><span class="dir-d">70 documented wartime denials of equipment to India, 1947 to 2026, in order.</span></li>
+    </ul>
+  </div>
+  <div class="dir-group" id="explore-company">
+    <h3>Company</h3>
+    <ul>
+      <li><a href="about/history.html">Company history</a><span class="dir-d">From a student workshop at BITS Pilani Hyderabad to fielded formations: the company record.</span></li>
+      <li><a href="about/team.html">Team &amp; advisors</a><span class="dir-d">Founders, engineers and advisors: a team of 17+.</span></li>
+    </ul>
+  </div>
+</div>
+<!-- /shell:directory -->
+
+  <h3 id="status-key">How to read the status labels</h3>
+  <p>Products carry a maturity label: a word and a shape, never colour alone.</p>
+  <dl class="key">
+    <div><dt><span class="status" data-status="fielded">Fielded</span></dt><dd>In service with a user.</dd></div>
+    <div><dt><span class="status" data-status="flight-testing">Flight testing</span></dt><dd>Built and flying; not yet delivered to a user.</dd></div>
+    <div><dt><span class="status" data-status="in-development">In development</span></dt><dd>Design and build under way; not yet tested as a complete system.</dd></div>
+    <div><dt><span class="status" data-status="concept">Concept</span></dt><dd>Studies and schematics; no hardware yet.</dd></div>
+    <div><dt><span class="status" data-status="in-progress">In progress</span></dt><dd>A page whose content is still being written.</dd></div>
+  </dl>
+  <p>Figures carry an evidence marker where their page gives one: <span class="prov obs">observed</span> measured in a test or record; <span class="prov est">estimate</span> an internal engineering or cost estimate; <span class="prov target">target</span> a design target, not yet demonstrated; <span class="prov claim">claim</span> a third party&rsquo;s figure, not verified by Apollyon. Images are labelled as a render (computer-generated), a photograph or a schematic.</p>
+</section>
+
+<!-- ═══════════════════ 14 · ENGAGE ═══════════════════ -->
 <section id="engage">
-  <div class="sec-tag">12 · Engage</div>
-  <h2>Working with us</h2>
+  <h2><span class="sec-no">14</span>Working with us</h2>
   <p>For flight evaluation requests, operational field trials, integration partnerships, or investor diligence, consult the direct registry on the <a href="about/history.html#contact">company directory</a>. The technical and economic analyses in this wiki—covering <a href="architecture/index.html">system architecture</a>, <a href="strategy/trajectory.html">cost trajectory</a>, <a href="strategy/market.html">market</a>, <a href="strategy/competitive.html">competitive benchmarks</a>, <a href="strategy/supply-chain.html">supply chain posture</a>, and the <a href="strategic-dependency/full-record.html">sovereign dependency record</a>—provide complete diligence verification directly from primary engineering documentation.</p>
 
 </section>
@@ -851,18 +988,20 @@
 <nav class="toc" aria-label="On this page">
   <p class="toc-h">On this page</p>
   <ul>
-    <li><a href="#origin">Origin</a></li>
-    <li><a href="#doctrine">Doctrine</a></li>
+    <li><a href="#at-a-glance">At a glance</a></li>
+    <li><a href="#doctrine">Three principles</a></li>
+    <li><a href="#products">Products and maturity</a></li>
     <li><a href="#war">Modern warfare has changed</a></li>
     <li><a href="#dependency">Eight decades of dependency</a></li>
-    <li><a href="#window">The window</a></li>
+    <li><a href="#window">The market turned inward</a></li>
     <li><a href="#plan">Strike per rupee</a></li>
-    <li><a href="#architecture">The Speed Moat</a></li>
-    <li><a href="#products">The Arsenal</a></li>
+    <li><a href="#architecture">The speed moat</a></li>
     <li><a href="#business">The business</a></li>
-    <li><a href="#moats">Compounding Moats</a></li>
-    <li><a href="#record">Track Record</a></li>
-    <li><a href="#engage">Engage</a></li>
+    <li><a href="#moats">Compounding moats</a></li>
+    <li><a href="#origin">How we started</a></li>
+    <li><a href="#record">Track record</a></li>
+    <li><a href="#explore">Explore the wiki</a></li>
+    <li><a href="#engage">Working with us</a></li>
   </ul>
   <a class="toc-top" href="#top">Back to top</a>
 </nav>
@@ -870,7 +1009,7 @@
 </div>
 </div>
 
-<!-- Dependency timeline logic -->
+<!-- Dependency timeline. WARS is the data; the markup it fills is in #dependency. -->
 <script>
 (function() {
   var WARS = [
@@ -907,79 +1046,68 @@
   var panel = document.getElementById('war-panel');
   var filesBox = document.getElementById('war-files');
   var threads = document.getElementById('war-threads');
+  var status = document.getElementById('war-status');
+  var list = document.querySelector('.war-static');
+  if (!rail || !panel || !filesBox || !threads) return;
   var NS = 'http://www.w3.org/2000/svg';
   function fileX(i) { return (i + 0.5) / WARS.length * 100; }
-  var fileBtns = [], threadLines = [];
-  function select(i) {
-    var btns = rail.querySelectorAll('.war-dot');
-    btns.forEach(function(b, j) { b.classList.toggle('active', i === j); });
-    fileBtns.forEach(function(b, j) { b.classList.toggle('active', i === j); });
+  var dots = [], fileBtns = [], threadLines = [];
+  function select(i, announce) {
+    dots.forEach(function(b, j) { b.classList.toggle('active', i === j); });
+    fileBtns.forEach(function(b, j) {
+      b.classList.toggle('active', i === j);
+      b.setAttribute('aria-pressed', i === j ? 'true' : 'false');
+    });
     threadLines.forEach(function(l, j) { l.classList.toggle('active', i === j); });
     var w = WARS[i];
     var chips = w.chips.map(function(c) {
       return '<a href="strategic-dependency/full-record.html#' + c[0] + '">' + c[1] + ' &rarr;</a>';
     }).join('');
-    panel.innerHTML = '<div class="wk">' + w.dates + ' \u00b7 ' + w.chips.length + ' denial lines</div>' +
+    panel.innerHTML = '<p class="wk">' + w.dates + ' · ' + w.chips.length + ' denial lines</p>' +
       '<h3>' + w.name + '</h3><p>' + w.sum + '</p>' +
       '<div class="war-chips">' + chips + '</div>';
+    if (announce && status) status.textContent = w.name + ', ' + w.dates + '. Its case file is shown below the timeline.';
   }
   WARS.forEach(function(w, i) {
+    // The dots on the rail repeat the case-file buttons, for pointer users only.
     var b = document.createElement('button');
-    b.className = 'war-dot' + (i === 5 ? ' active' : '');
+    b.type = 'button';
+    b.className = 'war-dot' + (w.flip ? ' flip' : '') + (w.x < 8 ? ' edge' : '');
     b.style.left = w.x + '%';
-    b.setAttribute('aria-label', w.name);
-    if (w.flip) b.classList.add('flip');
+    b.tabIndex = -1;
+    b.setAttribute('aria-hidden', 'true');
     b.innerHTML = '<span class="yr">' + w.yr + '</span><span class="pip"></span><span class="nm">' + (w.short || w.name) + '</span>';
-    b.addEventListener('click', function() { select(i); });
+    b.addEventListener('click', function() { select(i, true); });
     rail.appendChild(b);
+    dots.push(b);
     var fx = fileX(i);
     var f = document.createElement('button');
-    f.className = 'war-file' + (i === 5 ? ' active' : '');
+    f.type = 'button';
+    f.className = 'war-file';
     f.style.left = (fx - 6) + '%';
-    f.setAttribute('aria-label', w.name + ' case file');
+    f.setAttribute('aria-controls', 'war-panel');
+    f.setAttribute('aria-pressed', 'false');
     var n = w.chips.length;
     f.innerHTML = '<span class="fy">' + w.yr + '</span><span class="fn">' + (w.short || w.name) + '</span><span class="fc">' + n + (n === 1 ? ' DENIAL LINE' : ' DENIAL LINES') + '</span>';
-    f.addEventListener('click', function() { select(i); });
+    f.addEventListener('click', function() { select(i, true); });
     filesBox.appendChild(f);
     fileBtns.push(f);
     var ln = document.createElementNS(NS, 'line');
     ln.setAttribute('x1', w.x); ln.setAttribute('y1', 0);
     ln.setAttribute('x2', fx); ln.setAttribute('y2', 100);
-    if (i === 5) ln.classList.add('active');
     threads.appendChild(ln);
     threadLines.push(ln);
   });
-  select(5);
-})();
-
-// Rail active link sync between Thesis and Products
-(function() {
-  var railThesis = document.getElementById('rail-thesis');
-  var railProducts = document.getElementById('rail-products');
-  var productsSec = document.getElementById('products');
-  if (!railThesis || !railProducts || !productsSec) return;
-
-  function sync() {
-    var rect = productsSec.getBoundingClientRect();
-    if (rect.top <= 140 && rect.bottom > 80) {
-      railProducts.classList.add('on');
-      railThesis.classList.remove('on');
-    } else {
-      railThesis.classList.add('on');
-      railProducts.classList.remove('on');
-    }
-  }
-
-  window.addEventListener('scroll', sync, { passive: true });
-  window.addEventListener('hashchange', sync);
-  sync();
+  // The plain list serves readers without JavaScript, and print.
+  if (list) list.hidden = true;
+  select(5, false);
 })();
 </script>
 
 <!-- shell:footer -->
 <footer class="site-footer">
   <div class="site-footer-inner">
-    <p class="site-footer-id"><span class="brand-mark" aria-hidden="true"></span>Apollyon Dynamics &middot; Engineering Wiki &middot; Rev 3.0</p>
+    <p class="site-footer-id"><span class="wiki-mark" aria-hidden="true"></span>Apollyon Dynamics &middot; Engineering Wiki &middot; Rev 3.0</p>
     <p><a href="index.html#status-key">Status key</a> &middot; <a href="about/history.html">Company history</a> &middot; <a href="about/history.html#contact">Contact</a> &middot; <a href="https://www.apollyondynamics.com" rel="noopener">apollyondynamics.com<span class="vh"> (company website)</span> &nearr;</a></p>
   </div>
 </footer>

@@ -240,7 +240,7 @@ def topbar_html(path):
         '<span class="bars" aria-hidden="true"></span>Menu</button>\n'
         # aria-label: on phones the visible name is hidden and only the mark shows
         f'    <a class="brand" href="{pf}index.html" aria-label="{SITE} {WIKI_NAME}, home">'
-        '<span class="brand-mark" aria-hidden="true"></span>'
+        '<span class="wiki-mark" aria-hidden="true"></span>'
         f'<span class="brand-name">{SITE}</span><span class="brand-wiki">{WIKI_NAME}</span></a>\n'
         f'{crumbs_html(path)}'
         '  </div>\n'
@@ -326,7 +326,7 @@ def footer_html(path):
     return block("footer", (
         '<footer class="site-footer">\n'
         '  <div class="site-footer-inner">\n'
-        f'    <p class="site-footer-id"><span class="brand-mark" aria-hidden="true"></span>{SITE} &middot; {WIKI_NAME} &middot; {REVISION}</p>\n'
+        f'    <p class="site-footer-id"><span class="wiki-mark" aria-hidden="true"></span>{SITE} &middot; {WIKI_NAME} &middot; {REVISION}</p>\n'
         f'    <p><a href="{pf}index.html#status-key">Status key</a> &middot; '
         f'<a href="{pf}about/history.html">Company history</a> &middot; '
         f'<a href="{pf}about/history.html#contact">Contact</a> &middot; '
