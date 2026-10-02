@@ -39,6 +39,10 @@ for hf in html_files:
         parsed = urlparse(link)
         target_path = parsed.path
         target_frag = parsed.fragment
+        if parsed.query:
+            # ?action=… and special-page queries are views that js/wiki.js
+            # renders; only the file they open can be checked here.
+            target_frag = ""
 
         if not target_path:
             if target_frag:
