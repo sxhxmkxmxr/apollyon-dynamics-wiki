@@ -1,120 +1,330 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="client-nojs vector-feature-language-in-header-enabled vector-feature-custom-font-size-clientpref-1 vector-feature-limited-width-clientpref-1 vector-feature-main-menu-pinned-clientpref-0 vector-feature-toc-pinned-clientpref-1 vector-feature-appearance-pinned-clientpref-1 vector-feature-page-tools-pinned-clientpref-0 vector-feature-page-previews-clientpref-1 skin-theme-clientpref-day vector-toc-available" lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Piranha USV — Apollyon Dynamics Wiki</title>
+<title>Piranha USV - Apollyon Wiki</title>
 <meta name="description" content="Apollyon Dynamics engineering wiki — autonomous strike, interception and battlefield-intelligence systems, with the shared architecture they are built from.">
+<script>(function(){var d=document.documentElement,c=d.className;c=c.replace(/(^|\s)client-nojs(\s|$)/,"$1client-js$2");try{var p=localStorage.getItem("mwclientpreferences");if(p){p.split(",").forEach(function(v){var k=v.replace(/-clientpref-\w+$/,"");if(!/^[\w-]+$/.test(v))return;c=c.replace(new RegExp("(^|\\s)"+k+"-clientpref-\\w+(?=\\s|$)"),"$1"+v);});}}catch(e){}d.className=c;})();</script>
 <link rel="icon" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/wiki.css">
+<script src="../js/wiki-map-data.js" defer></script>
 <script src="../js/wiki.js" defer></script>
 </head>
-<body id="top" data-section="products">
-
-<div class="rail">
-  <div class="rail-inner">
-    <button class="rail-menu" type="button" aria-controls="site-nav" aria-expanded="false"><span class="bars" aria-hidden="true"></span><span class="lbl">Menu</span></button>
-    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
-    <nav class="rail-links" aria-label="Sections">
-      <a id="rail-thesis" href="../index.html#thesis">Thesis</a>
-      <a id="rail-products" href="../index.html#products" class="on">Products</a>
-      <a id="rail-architecture" href="../architecture/index.html">Architecture</a>
-      <a id="rail-strategy" href="../strategy/trajectory.html">Strategy</a>
-      <a id="rail-doctrine" href="../doctrine/new-arsenal.html">Doctrine</a>
-      <a id="rail-company" href="../about/history.html">Company</a>
-    </nav>
-  </div>
-  <div class="rail-progress" aria-hidden="true"><i></i></div>
+<body id="top" class="skin--responsive skin-vector skin-vector-2022 mediawiki ltr sitedir-ltr ns-0 ns-subject page-Piranha_USV action-view" data-page="products/usv-strike.html">
+<a class="mw-jump-link" href="#bodyContent">Jump to content</a>
+<div class="vector-header-container">
+<header class="vector-header mw-header">
+<div class="vector-header-start">
+<nav class="vector-main-menu-landmark" aria-label="Site">
+<div id="vector-main-menu-dropdown" class="vector-dropdown vector-main-menu-dropdown vector-button-flush-left vector-button-flush-right" title="Main menu">
+  <input type="checkbox" id="vector-main-menu-dropdown-checkbox" role="button" aria-haspopup="true" class="vector-dropdown-checkbox" aria-label="Main menu">
+  <label id="vector-main-menu-dropdown-label" for="vector-main-menu-dropdown-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--weight-quiet cdx-button--icon-only" aria-hidden="true"><span class="vector-icon mw-ui-icon-menu mw-ui-icon-wikimedia-menu"></span><span class="vector-dropdown-label-text">Main menu</span></label>
+  <div class="vector-dropdown-content">
+<div id="vector-main-menu-unpinned-container" class="vector-unpinned-container">
+<div id="vector-main-menu" class="vector-main-menu vector-pinnable-element">
+<div class="vector-pinnable-header vector-main-menu-pinnable-header" data-feature-name="main-menu-pinned">
+  <div class="vector-pinnable-header-label">Main menu</div>
+  <button class="vector-pinnable-header-toggle-button vector-pinnable-header-pin-button" data-event-name="pinnable-header.main-menu.pin">move to sidebar</button>
+  <button class="vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button" data-event-name="pinnable-header.main-menu.unpin">hide</button>
 </div>
-<div class="shell">
-<div class="layout">
-
-<aside class="aside" id="site-nav" aria-label="Wiki navigation">
-  <div class="nav-group">
-    <h4><span class="n">01</span>Overview</h4>
-    <ul>
-      <li><a href="../index.html">The argument</a></li>
-    </ul>
+<div id="p-navigation" class="vector-menu mw-portlet mw-portlet-navigation">
+<div class="vector-menu-heading vector-menu-heading-hidden">Navigation</div>
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="n-mainpage-description" class="mw-list-item "><a href="../index.html" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li>
+<li id="n-contents" class="mw-list-item "><a href="../special/contents.html" title="Guides to browsing Apollyon Wiki"><span>Contents</span></a></li>
+<li id="n-randompage" class="mw-list-item "><a href="../special/random.html" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li>
+<li id="n-aboutsite" class="mw-list-item "><a href="../about/history.html" title="Find out about Apollyon Dynamics"><span>About Apollyon Dynamics</span></a></li>
+<li id="n-contactpage" class="mw-list-item "><a href="../about/history.html#contact" title="How to contact Apollyon Dynamics"><span>Contact us</span></a></li>
+</ul></div>
+</div>
+<div id="p-products" class="vector-menu mw-portlet mw-portlet-products">
+<div class="vector-menu-heading">Products</div>
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="n-nightshade_family" class="mw-list-item "><a href="../products/nightshade-adx1.html"><span>Nightshade family</span></a></li>
+<li id="n-hemlock" class="mw-list-item "><a href="../products/hemlock.html"><span>Hemlock</span></a></li>
+<li id="n-ahuti_interceptor" class="mw-list-item "><a href="../products/ahuti.html"><span>Ahuti interceptor</span></a></li>
+<li id="n-piranha_usv" class="mw-list-item mw-list-item-current"><a href="../products/usv-strike.html" aria-current="page"><span>Piranha USV</span></a></li>
+</ul></div>
+</div>
+<div id="p-architecture" class="vector-menu mw-portlet mw-portlet-architecture">
+<div class="vector-menu-heading">Architecture</div>
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="n-the_shared_core" class="mw-list-item "><a href="../architecture/index.html"><span>The shared core</span></a></li>
+<li id="n-robust_flight_control" class="mw-list-item "><a href="../subsystems/near-envelope-control.html"><span>Robust flight control</span></a></li>
+<li id="n-gnss-denied_navigation" class="mw-list-item "><a href="../subsystems/gnss-denied-navigation.html"><span>GNSS-denied navigation</span></a></li>
+<li id="n-edge_compute" class="mw-list-item "><a href="../subsystems/onboard-compute.html"><span>Edge compute</span></a></li>
+<li id="n-flight_software" class="mw-list-item "><a href="../subsystems/flight-software.html"><span>Flight software</span></a></li>
+<li id="n-seekers" class="mw-list-item "><a href="../subsystems/seekers.html"><span>Seekers</span></a></li>
+<li id="n-airframe_structures" class="mw-list-item "><a href="../subsystems/airframe-structures.html"><span>Airframe &amp; structures</span></a></li>
+<li id="n-launch_ground_systems" class="mw-list-item "><a href="../subsystems/launch-systems.html"><span>Launch &amp; ground systems</span></a></li>
+</ul></div>
+</div>
+<div id="p-strategy" class="vector-menu mw-portlet mw-portlet-strategy">
+<div class="vector-menu-heading">Strategy</div>
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="n-trajectory_cost_per_kg_km" class="mw-list-item "><a href="../strategy/trajectory.html"><span>Trajectory &amp; cost per kg&middot;km</span></a></li>
+<li id="n-the_market" class="mw-list-item "><a href="../strategy/market.html"><span>The market</span></a></li>
+<li id="n-the_competitive_field" class="mw-list-item "><a href="../strategy/competitive.html"><span>The competitive field</span></a></li>
+<li id="n-supply_chain" class="mw-list-item "><a href="../strategy/supply-chain.html"><span>Supply chain</span></a></li>
+</ul></div>
+</div>
+<div id="p-doctrine" class="vector-menu mw-portlet mw-portlet-doctrine">
+<div class="vector-menu-heading">Doctrine</div>
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="n-the_new_arsenal" class="mw-list-item "><a href="../doctrine/new-arsenal.html"><span>The New Arsenal</span></a></li>
+<li id="n-precision_is_mercy" class="mw-list-item "><a href="../doctrine/precision-is-mercy.html"><span>Precision is Mercy</span></a></li>
+<li id="n-the_missing_middle" class="mw-list-item "><a href="../doctrine/missing-middle.html"><span>The Missing Middle</span></a></li>
+<li id="n-strike_design_space" class="mw-list-item "><a href="../doctrine/strike-design-space.html"><span>Strike design space</span></a></li>
+</ul></div>
+</div>
+<div id="p-record" class="vector-menu mw-portlet mw-portlet-record">
+<div class="vector-menu-heading">Record</div>
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="n-company_history" class="mw-list-item "><a href="../about/history.html"><span>Company history</span></a></li>
+<li id="n-team_advisors" class="mw-list-item "><a href="../about/team.html"><span>Team &amp; advisors</span></a></li>
+<li id="n-the_full_record_70_episodes" class="mw-list-item "><a href="../strategic-dependency/full-record.html"><span>The full record &middot; 70 episodes</span></a></li>
+</ul></div>
+</div>
+<div id="p-interaction" class="vector-menu mw-portlet mw-portlet-interaction">
+<div class="vector-menu-heading">Wiki</div>
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="n-recentchanges" class="mw-list-item "><a href="../special/recent-changes.html" title="A list of recent changes to the wiki [r]" accesskey="r"><span>Recent changes</span></a></li>
+</ul></div>
+</div>
+</div>
+</div>
   </div>
-  <div class="nav-group on">
-    <h4><span class="n">02</span>Products</h4>
-    <ul>
-      <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
-      <li><a href="../products/hemlock.html">Hemlock</a></li>
-      <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
-      <li class="here"><a href="../products/usv-strike.html" aria-current="page">Piranha USV</a>
-        <ul class="nav-toc">
-          <li><a href="#specs">Specifications</a></li>
-          <li><a href="#blueprint">CAD schematic</a></li>
-          <li><a href="#usecases">Use cases</a></li>
-          <li><a href="#specifics">Engineering specifics</a></li>
-          <li><a href="#marine-nav">Non-satellite nav</a></li>
-          <li><a href="#hydrodynamics">Vessel control</a></li>
-          <li><a href="#warhead">Shaped-charge warhead</a></li>
-          <li><a href="#subsystems">Shared subsystems</a></li>
-        </ul>
-      </li>
-    </ul>
+</div>
+</nav>
+<a href="../index.html" class="mw-logo" title="Visit the main page">
+  <img class="mw-logo-icon" src="../assets/logos/logo-ad-white.png" alt="" aria-hidden="true" width="50" height="15">
+  <span class="mw-logo-container">
+    <strong class="mw-logo-wordmark">Apollyon Wiki</strong>
+  </span>
+</a>
+</div>
+<div class="vector-header-end">
+<nav class="vector-user-links" aria-label="Personal tools">
+<div class="vector-user-links-main">
+<div id="vector-appearance-dropdown" class="vector-dropdown vector-appearance-dropdown" title="Change the appearance of the page&#x27;s font size, width, and color">
+  <input type="checkbox" id="vector-appearance-dropdown-checkbox" role="button" aria-haspopup="true" class="vector-dropdown-checkbox" aria-label="Appearance">
+  <label id="vector-appearance-dropdown-label" for="vector-appearance-dropdown-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--weight-quiet cdx-button--icon-only" aria-hidden="true"><span class="vector-icon mw-ui-icon-appearance mw-ui-icon-wikimedia-appearance"></span><span class="vector-dropdown-label-text">Appearance</span></label>
+  <div class="vector-dropdown-content">
+<div id="vector-appearance-unpinned-container" class="vector-unpinned-container"></div>
   </div>
-  <div class="nav-group">
-    <h4><span class="n">03</span>Architecture</h4>
-    <ul>
-      <li><a href="../architecture/index.html">The shared core</a></li>
-      <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
-      <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
-      <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
-      <li><a href="../subsystems/flight-software.html">Flight software</a></li>
-      <li><a href="../subsystems/seekers.html">Seekers</a></li>
-      <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
-      <li><a href="../subsystems/launch-systems.html">Launch &amp; ground systems</a></li>
-    </ul>
-  </div>
-  <div class="nav-group">
-    <h4><span class="n">04</span>Strategy</h4>
-    <ul>
-      <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
-      <li><a href="../strategy/market.html">The market</a></li>
-      <li><a href="../strategy/competitive.html">The competitive field</a></li>
-      <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
-    </ul>
-  </div>
-  <div class="nav-group">
-    <h4><span class="n">05</span>Doctrine</h4>
-    <ul>
-      <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
-      <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
-      <li><a href="../doctrine/missing-middle.html">The Missing Middle</a></li>
-      <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
-    </ul>
-  </div>
-  <div class="nav-group">
-    <h4><span class="n">06</span>Record</h4>
-    <ul>
-      <li><a href="../about/history.html">Company history</a></li>
-      <li><a href="../about/team.html">Team &amp; advisors</a></li>
-      <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
-    </ul>
-  </div>
-</aside>
-
-<main class="main">
-
-<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../index.html#products">Products</a><span>/</span>Class C · Maritime<span>/</span>Piranha USV</div>
-
-<header class="masthead">
-    <div class="mast-brand-lockup">
-    <img src="../assets/logos/logo-ad-white.png" alt="Apollyon Dynamics Mark" class="brand-mark">
-    <div class="brand-sep"></div>
-    <img src="../assets/logos/logo-text-white.png" alt="Apollyon Dynamics" class="brand-text">
-  </div>
-  <div class="mast-meta">Class C · Maritime <span>· dual-use surface vessel · hull &amp; hardware in development</span></div>
-  <h1>Piranha USV, <span class="sub">strike and surveillance from one hull</span></h1>
-  <p class="standfirst">A small unmanned surface vessel carrying a marine radar and a stabilised EO/IR payload. The same hull works as a reconnaissance craft, building a radar and camera picture of the coast and shipping lanes, and as a one-way strike craft with a 50 kg+ class warhead. Top speed is 65 km/h.</p>
-  <p class="standfirst">The hull and onboard hardware are in build now, with sea trials from the end of 2026. Navigation and control follow the core Apollyon approach: physical references the vessel senses for itself, no dependence on GNSS, and autonomy that runs on board.</p>
+</div>
+<div id="p-vector-user-menu-preferences" class="vector-menu mw-portlet"><div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="pt-contact" class="mw-list-item"><a href="../about/history.html#contact"><span>Contact</span></a></li>
+<li id="pt-team" class="mw-list-item"><a href="../about/team.html"><span>Team</span></a></li>
+<li id="pt-website" class="mw-list-item"><a href="https://apollyondynamics.com" class="external"><span>apollyondynamics.com</span></a></li>
+</ul></div></div>
+</div>
+</nav>
+</div>
 </header>
+</div>
+<div class="mw-page-container">
+<div class="mw-page-container-inner">
+<div class="vector-sitenotice-container"><div id="siteNotice"></div></div>
+<div class="vector-column-start">
+<div class="vector-main-menu-container">
+<div id="mw-navigation">
+<nav id="mw-panel" class="vector-main-menu-landmark" aria-label="Site">
+<div id="vector-main-menu-pinned-container" class="vector-pinned-container"></div>
+</nav>
+</div>
+</div>
+<div class="vector-sticky-pinned-container">
+<nav id="mw-panel-toc" aria-label="Contents" class="mw-table-of-contents-container vector-toc-landmark">
+<div id="vector-toc-pinned-container" class="vector-pinned-container">
+<div id="vector-toc" class="vector-toc vector-pinnable-element">
+<div class="vector-pinnable-header vector-toc-pinnable-header vector-pinnable-header-pinned" data-feature-name="toc-pinned">
+  <div class="vector-pinnable-header-label">Contents</div>
+  <button class="vector-pinnable-header-toggle-button vector-pinnable-header-pin-button" data-event-name="pinnable-header.toc.pin">move to sidebar</button>
+  <button class="vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button" data-event-name="pinnable-header.toc.unpin">hide</button>
+</div>
+<ul class="vector-toc-contents" id="mw-panel-toc-list">
+<li id="toc-mw-content-text" class="vector-toc-list-item vector-toc-level-1 vector-toc-list-item-active">
+  <a href="#" class="vector-toc-link"><div class="vector-toc-text">(Top)</div></a>
+</li>
+<li id="toc-specs" class="vector-toc-list-item vector-toc-level-1">
+  <a class="vector-toc-link" href="#specs"><div class="vector-toc-text"><span class="vector-toc-numb">1</span><span>Primary engineering baseline</span></div></a>
+</li>
+<li id="toc-blueprint" class="vector-toc-list-item vector-toc-level-1">
+  <a class="vector-toc-link" href="#blueprint"><div class="vector-toc-text"><span class="vector-toc-numb">2</span><span>Internal architecture &amp; CAD layout</span></div></a>
+</li>
+<li id="toc-usecases" class="vector-toc-list-item vector-toc-level-1">
+  <a class="vector-toc-link" href="#usecases"><div class="vector-toc-text"><span class="vector-toc-numb">3</span><span>Primary use cases</span></div></a>
+</li>
+<li id="toc-specifics" class="vector-toc-list-item vector-toc-level-1">
+  <a class="vector-toc-link" href="#specifics"><div class="vector-toc-text"><span class="vector-toc-numb">4</span><span>Navigation, control and warhead</span></div></a>
+  <button aria-controls="toc-specifics-sublist" class="cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-toc-toggle"><span class="vector-icon mw-ui-icon-expand mw-ui-icon-wikimedia-expand"></span><span>Toggle Navigation, control and warhead subsection</span></button>
+  <ul id="toc-specifics-sublist" class="vector-toc-list">
+    <li id="toc-marine-nav" class="vector-toc-list-item vector-toc-level-2">
+      <a class="vector-toc-link" href="#marine-nav"><div class="vector-toc-text"><span class="vector-toc-numb">4.1</span><span>A · Non-satellite sea-surface navigation</span></div></a>
+    </li>
+    <li id="toc-hydrodynamics" class="vector-toc-list-item vector-toc-level-2">
+      <a class="vector-toc-link" href="#hydrodynamics"><div class="vector-toc-text"><span class="vector-toc-numb">4.2</span><span>B · Control: the same method, a marine controller</span></div></a>
+    </li>
+    <li id="toc-warhead" class="vector-toc-list-item vector-toc-level-2">
+      <a class="vector-toc-link" href="#warhead"><div class="vector-toc-text"><span class="vector-toc-numb">4.3</span><span>C · Warhead</span></div></a>
+    </li>
+  </ul>
+</li>
+<li id="toc-dual-use" class="vector-toc-list-item vector-toc-level-1">
+  <a class="vector-toc-link" href="#dual-use"><div class="vector-toc-text"><span class="vector-toc-numb">5</span><span>One hull, two customers</span></div></a>
+</li>
+<li id="toc-subsystems" class="vector-toc-list-item vector-toc-level-1">
+  <a class="vector-toc-link" href="#subsystems"><div class="vector-toc-text"><span class="vector-toc-numb">6</span><span>Subsystems powering this vessel</span></div></a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+</div>
+<div class="mw-content-container">
+<main id="content" class="mw-body">
+<header class="mw-body-header vector-page-titlebar">
+<nav aria-label="Contents" class="vector-toc-landmark">
+<div id="vector-page-titlebar-toc" class="vector-dropdown vector-page-titlebar-toc vector-button-flush-left" title="Toggle the table of contents">
+  <input type="checkbox" id="vector-page-titlebar-toc-checkbox" role="button" aria-haspopup="true" class="vector-dropdown-checkbox" aria-label="Toggle the table of contents">
+  <label id="vector-page-titlebar-toc-label" for="vector-page-titlebar-toc-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--weight-quiet cdx-button--icon-only" aria-hidden="true"><span class="vector-icon mw-ui-icon-listBullet mw-ui-icon-wikimedia-listBullet"></span><span class="vector-dropdown-label-text">Toggle the table of contents</span></label>
+  <div class="vector-dropdown-content">
+<div id="vector-page-titlebar-toc-unpinned-container" class="vector-unpinned-container"></div>
+  </div>
+</div>
+</nav>
+<h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-main">Piranha USV, <span class="sub">strike and surveillance from one hull</span></span></h1>
+</header>
+<div class="vector-page-toolbar">
+<div class="vector-page-toolbar-container">
+<div id="left-navigation">
+<nav aria-label="Namespaces">
+<div id="p-associated-pages" class="vector-menu vector-menu-tabs mw-portlet">
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="ca-nstab-main" class="selected vector-tab-noicon mw-list-item"><a href="usv-strike.html" title="View the content page [c]" accesskey="c"><span>Article</span></a></li>
+<li id="ca-talk" class="new vector-tab-noicon mw-list-item"><a href="?action=talk" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t"><span>Talk</span></a></li>
+</ul></div>
+</div>
+</nav>
+</div>
+<div id="right-navigation" class="vector-collapsible">
+<nav aria-label="Views">
+<div id="p-views" class="vector-menu vector-menu-tabs mw-portlet">
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="ca-view" class="selected vector-tab-noicon mw-list-item"><a href="usv-strike.html"><span>Read</span></a></li>
+<li id="ca-viewsource" class="vector-tab-noicon mw-list-item"><a href="?action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li>
+<li id="ca-history" class="vector-tab-noicon mw-list-item"><a href="?action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li>
+</ul></div>
+</div>
+</nav>
+<nav class="vector-page-tools-landmark" aria-label="Page tools">
+<div id="vector-page-tools-dropdown" class="vector-dropdown vector-page-tools-dropdown">
+  <input type="checkbox" id="vector-page-tools-dropdown-checkbox" role="button" aria-haspopup="true" class="vector-dropdown-checkbox" aria-label="Tools">
+  <label id="vector-page-tools-dropdown-label" for="vector-page-tools-dropdown-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--weight-quiet " aria-hidden="true"><span class="vector-dropdown-label-text">Tools</span></label>
+  <div class="vector-dropdown-content">
+<div id="vector-page-tools-unpinned-container" class="vector-unpinned-container">
+<div id="vector-page-tools" class="vector-page-tools vector-pinnable-element">
+<div class="vector-pinnable-header vector-page-tools-pinnable-header" data-feature-name="page-tools-pinned">
+  <div class="vector-pinnable-header-label">Tools</div>
+  <button class="vector-pinnable-header-toggle-button vector-pinnable-header-pin-button" data-event-name="pinnable-header.page-tools.pin">move to sidebar</button>
+  <button class="vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button" data-event-name="pinnable-header.page-tools.unpin">hide</button>
+</div>
+<div id="p-cactions" class="vector-menu mw-portlet mw-portlet-cactions">
+<div class="vector-menu-heading">Actions</div>
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="ca-more-view" class="mw-list-item selected vector-more-collapsible-item"><a href="?"><span>Read</span></a></li>
+<li id="ca-more-viewsource" class="mw-list-item vector-more-collapsible-item"><a href="?action=edit"><span>View source</span></a></li>
+<li id="ca-more-history" class="mw-list-item vector-more-collapsible-item"><a href="?action=history"><span>View history</span></a></li>
+</ul></div>
+</div>
+<div id="p-tb" class="vector-menu mw-portlet mw-portlet-tb">
+<div class="vector-menu-heading">General</div>
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="t-whatlinkshere" class="mw-list-item "><a href="?action=whatlinkshere" title="A list of all wiki pages that link here [j]" accesskey="j"><span>What links here</span></a></li>
+<li id="t-recentchangeslinked" class="mw-list-item "><a href="../special/recent-changes.html" title="Recent changes across the wiki [k]" accesskey="k"><span>Related changes</span></a></li>
+<li id="t-permalink" class="mw-list-item "><a href="#" title="Permanent link to this revision of this page" data-action="permalink"><span>Permanent link</span></a></li>
+<li id="t-info" class="mw-list-item "><a href="?action=info" title="More information about this page"><span>Page information</span></a></li>
+<li id="t-cite" class="mw-list-item "><a href="?action=cite" title="Information on how to cite this page"><span>Cite this page</span></a></li>
+</ul></div>
+</div>
+<div id="p-coll-print_export" class="vector-menu mw-portlet mw-portlet-coll-print_export">
+<div class="vector-menu-heading">Print/export</div>
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="coll-download-as-rl" class="mw-list-item "><a href="#" title="Download this page as a PDF file" data-action="print"><span>Download as PDF</span></a></li>
+<li id="t-print" class="mw-list-item "><a href="#" title="Printable version of this page [p]" accesskey="p" data-action="print"><span>Printable version</span></a></li>
+</ul></div>
+</div>
+</div>
+</div>
+  </div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<div class="vector-column-end">
+<div class="vector-sticky-pinned-container">
+<nav class="vector-page-tools-landmark" aria-label="Page tools">
+<div id="vector-page-tools-pinned-container" class="vector-pinned-container"></div>
+</nav>
+<nav class="vector-appearance-landmark" aria-label="Appearance">
+<div id="vector-appearance-pinned-container" class="vector-pinned-container">
+<div id="vector-appearance" class="vector-appearance vector-pinnable-element">
+<div class="vector-pinnable-header vector-appearance-pinnable-header vector-pinnable-header-pinned" data-feature-name="appearance-pinned">
+  <div class="vector-pinnable-header-label">Appearance</div>
+  <button class="vector-pinnable-header-toggle-button vector-pinnable-header-pin-button" data-event-name="pinnable-header.appearance.pin">move to sidebar</button>
+  <button class="vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button" data-event-name="pinnable-header.appearance.unpin">hide</button>
+</div>
+<div class="vector-menu mw-portlet mw-portlet-vector-feature-custom-font-size" data-clientpref="vector-feature-custom-font-size">
+<div class="vector-menu-heading">Text</div>
+<div class="vector-menu-content"><form class="cdx-radio-group">
+  <div class="cdx-radio"><input class="cdx-radio__input" type="radio" name="vector-feature-custom-font-size" id="vector-feature-custom-font-size-0" value="0"><span class="cdx-radio__icon"></span><label for="vector-feature-custom-font-size-0" class="cdx-radio__label">Small</label></div>
+  <div class="cdx-radio"><input class="cdx-radio__input" type="radio" name="vector-feature-custom-font-size" id="vector-feature-custom-font-size-1" value="1"><span class="cdx-radio__icon"></span><label for="vector-feature-custom-font-size-1" class="cdx-radio__label">Standard</label></div>
+  <div class="cdx-radio"><input class="cdx-radio__input" type="radio" name="vector-feature-custom-font-size" id="vector-feature-custom-font-size-2" value="2"><span class="cdx-radio__icon"></span><label for="vector-feature-custom-font-size-2" class="cdx-radio__label">Large</label></div>
+</form>
+<p class="skin-client-pref-note">This page is always in small font size</p></div>
+</div>
+<div class="vector-menu mw-portlet mw-portlet-vector-feature-limited-width" data-clientpref="vector-feature-limited-width">
+<div class="vector-menu-heading">Width</div>
+<div class="vector-menu-content"><form class="cdx-radio-group">
+  <div class="cdx-radio"><input class="cdx-radio__input" type="radio" name="vector-feature-limited-width" id="vector-feature-limited-width-1" value="1"><span class="cdx-radio__icon"></span><label for="vector-feature-limited-width-1" class="cdx-radio__label">Standard</label></div>
+  <div class="cdx-radio"><input class="cdx-radio__input" type="radio" name="vector-feature-limited-width" id="vector-feature-limited-width-0" value="0"><span class="cdx-radio__icon"></span><label for="vector-feature-limited-width-0" class="cdx-radio__label">Wide</label></div>
+</form>
+<p class="skin-client-pref-note">The content is as wide as possible for your browser window.</p></div>
+</div>
+<div class="vector-menu mw-portlet mw-portlet-skin-theme" data-clientpref="skin-theme">
+<div class="vector-menu-heading">Color <span class="skin-beta">(beta)</span></div>
+<div class="vector-menu-content"><form class="cdx-radio-group">
+  <div class="cdx-radio"><input class="cdx-radio__input" type="radio" name="skin-theme" id="skin-theme-os" value="os"><span class="cdx-radio__icon"></span><label for="skin-theme-os" class="cdx-radio__label">Automatic</label></div>
+  <div class="cdx-radio"><input class="cdx-radio__input" type="radio" name="skin-theme" id="skin-theme-day" value="day"><span class="cdx-radio__icon"></span><label for="skin-theme-day" class="cdx-radio__label">Light</label></div>
+  <div class="cdx-radio"><input class="cdx-radio__input" type="radio" name="skin-theme" id="skin-theme-night" value="night"><span class="cdx-radio__icon"></span><label for="skin-theme-night" class="cdx-radio__label">Dark</label></div>
+</form>
+<p class="skin-client-pref-note">This page is always in light mode.</p></div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+</div>
+<div id="bodyContent" class="vector-body" aria-labelledby="firstHeading">
+<div class="vector-body-before-content">
+<div class="mw-indicators">
+<div id="mw-indicator-pp-default" class="mw-indicator"><a href="?action=info#mw-pageinfo-restrictions" title="This article is protected. Its source is kept in the repository and published by rebuilding the wiki."><span class="mw-protection-lock" aria-hidden="true"></span><span class="mw-indicator-label">This article is protected</span></a></div>
+</div>
+<div id="siteSub" class="noprint">From Apollyon Wiki</div>
+</div>
+<div id="contentSub"><div id="mw-content-subtitle">Class C · Maritime <span>· dual-use surface vessel · hull &amp; hardware in development</span></div></div>
+<div id="mw-content-text" class="mw-body-content">
+<div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr">
+<!-- article:start -->
+<p class="standfirst">A small unmanned surface vessel carrying a marine radar and a stabilised EO/IR payload. The same hull works as a reconnaissance craft, building a radar and camera picture of the coast and shipping lanes, and as a one-way strike craft with a 50 kg+ class warhead. Top speed is 65 km/h.</p>
+<p class="standfirst">The hull and onboard hardware are in build now, with sea trials from the end of 2026. Navigation and control follow the core Apollyon approach: physical references the vessel senses for itself, no dependence on GNSS, and autonomy that runs on board.</p>
 
 <section id="specs">
   <div class="sec-tag">01 · Specification</div>
@@ -180,81 +390,81 @@
       <svg viewBox="0 0 960 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CAD schematic of Piranha USV">
         <defs>
           <pattern id="cad_grid_usv" width="20" height="20" patternUnits="userSpaceOnUse">
-            <line x1="0" y1="0" x2="20" y2="0" stroke="rgba(199,196,189,0.05)" stroke-width="1"/>
-            <line x1="0" y1="0" x2="0" y2="20" stroke="rgba(199,196,189,0.05)" stroke-width="1"/>
+            <line x1="0" y1="0" x2="20" y2="0" stroke="rgba(32,33,34,0.05)" stroke-width="1"/>
+            <line x1="0" y1="0" x2="0" y2="20" stroke="rgba(32,33,34,0.05)" stroke-width="1"/>
           </pattern>
           <pattern id="hatch_wh_usv" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-            <line x1="0" y1="0" x2="0" y2="6" stroke="#D92323" stroke-width="1" opacity="0.4"/>
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#D73333" stroke-width="1" opacity="0.4"/>
           </pattern>
           <pattern id="hatch_fuel_usv" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
-            <line x1="0" y1="0" x2="0" y2="6" stroke="#C7C4BD" stroke-width="1" opacity="0.3"/>
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#303234" stroke-width="1" opacity="0.3"/>
           </pattern>
         </defs>
 
-        <rect width="960" height="300" fill="#0A0A0A"/>
+        <rect width="960" height="300" fill="#F8F9FA"/>
         <rect width="960" height="300" fill="url(#cad_grid_usv)"/>
 
         <!-- Centerline Datum -->
-        <line x1="40" y1="150" x2="920" y2="150" stroke="#C7C4BD" stroke-width="0.8" stroke-dasharray="12,4,2,4" opacity="0.6"/>
-        <text x="45" y="142" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="8" opacity="0.7">DATUM CL / KEEL CENTERLINE</text>
+        <line x1="40" y1="150" x2="920" y2="150" stroke="#303234" stroke-width="0.8" stroke-dasharray="12,4,2,4" opacity="0.6"/>
+        <text x="45" y="142" fill="#303234" font-family="JetBrains Mono, monospace" font-size="8" opacity="0.7">DATUM CL / KEEL CENTERLINE</text>
 
         <!-- Hull Contour (Stealth Faceted Wave-Piercing Monohull) -->
-        <path d="M 80 150 L 140 100 L 320 85 L 680 90 L 880 105 L 880 195 L 680 210 L 320 215 L 140 200 Z" fill="none" stroke="#F2EFE9" stroke-width="1.8"/>
+        <path d="M 80 150 L 140 100 L 320 85 L 680 90 L 880 105 L 880 195 L 680 210 L 320 215 L 140 200 Z" fill="none" stroke="#000000" stroke-width="1.8"/>
 
         <!-- Internal Chine & Deck Facets -->
-        <path d="M 80 150 L 160 120 L 340 105 L 680 108 L 870 120" fill="none" stroke="#7F7C76" stroke-width="0.9" stroke-dasharray="3,2"/>
-        <path d="M 80 150 L 160 180 L 340 195 L 680 192 L 870 180" fill="none" stroke="#7F7C76" stroke-width="0.9" stroke-dasharray="3,2"/>
+        <path d="M 80 150 L 160 120 L 340 105 L 680 108 L 870 120" fill="none" stroke="#72777D" stroke-width="0.9" stroke-dasharray="3,2"/>
+        <path d="M 80 150 L 160 180 L 340 195 L 680 192 L 870 180" fill="none" stroke="#72777D" stroke-width="0.9" stroke-dasharray="3,2"/>
 
         <!-- Transom Flat -->
-        <line x1="880" y1="105" x2="880" y2="195" stroke="#C7C4BD" stroke-width="2"/>
+        <line x1="880" y1="105" x2="880" y2="195" stroke="#303234" stroke-width="2"/>
 
         <!-- Bulkhead Lines (Watertight Subdivisions) -->
-        <line x1="130" y1="102" x2="130" y2="198" stroke="#C7C4BD" stroke-width="1.2" stroke-dasharray="2,2"/>
+        <line x1="130" y1="102" x2="130" y2="198" stroke="#303234" stroke-width="1.2" stroke-dasharray="2,2"/>
         
         <!-- Warhead Compartment: STA 0500-1800 (x=130 to x=320) -->
-        <rect x="135" y="105" width="180" height="90" fill="url(#hatch_wh_usv)" stroke="#D92323" stroke-width="1.2" rx="4"/>
-        <text x="225" y="146" fill="#D92323" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" text-anchor="middle">HE WARHEAD</text>
-        <text x="225" y="160" fill="#D92323" font-family="JetBrains Mono, monospace" font-size="7.5" text-anchor="middle">50 KG+ CLASS · STRIKE ONLY</text>
+        <rect x="135" y="105" width="180" height="90" fill="url(#hatch_wh_usv)" stroke="#D73333" stroke-width="1.2" rx="4"/>
+        <text x="225" y="146" fill="#D73333" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" text-anchor="middle">HE WARHEAD</text>
+        <text x="225" y="160" fill="#D73333" font-family="JetBrains Mono, monospace" font-size="7.5" text-anchor="middle">50 KG+ CLASS · STRIKE ONLY</text>
 
         <!-- Midship Bulkhead: x=320 -->
-        <line x1="320" y1="85" x2="320" y2="215" stroke="#C7C4BD" stroke-width="1.5"/>
+        <line x1="320" y1="85" x2="320" y2="215" stroke="#303234" stroke-width="1.5"/>
 
         <!-- Avionics, Compute & Optical Mast Bay: STA 1800-2800 (x=320 to x=460) -->
-        <rect x="325" y="100" width="130" height="100" fill="rgba(199,196,189,0.05)" stroke="#C7C4BD" stroke-width="1"/>
+        <rect x="325" y="100" width="130" height="100" fill="rgba(32,33,34,0.05)" stroke="#303234" stroke-width="1"/>
         <!-- EO/MWIR Mast -->
-        <circle cx="370" cy="150" r="14" fill="#0A0A0A" stroke="#C7C4BD" stroke-width="1.5"/>
-        <circle cx="370" cy="150" r="8" fill="#C7C4BD" opacity="0.4"/>
-        <text x="370" y="153" fill="#ffffff" font-family="JetBrains Mono, monospace" font-size="7" font-weight="700" text-anchor="middle">EO/IR</text>
+        <circle cx="370" cy="150" r="14" fill="#F8F9FA" stroke="#303234" stroke-width="1.5"/>
+        <circle cx="370" cy="150" r="8" fill="#303234" opacity="0.4"/>
+        <text x="370" y="153" fill="#000000" font-family="JetBrains Mono, monospace" font-size="7" font-weight="700" text-anchor="middle">EO/IR</text>
         <!-- Edge Compute Unit -->
-        <rect x="400" y="130" width="45" height="40" fill="none" stroke="#F2EFE9" stroke-width="1"/>
-        <text x="422" y="153" fill="#F2EFE9" font-family="JetBrains Mono, monospace" font-size="6.5" font-weight="700" text-anchor="middle">RADAR</text>
+        <rect x="400" y="130" width="45" height="40" fill="none" stroke="#000000" stroke-width="1"/>
+        <text x="422" y="153" fill="#000000" font-family="JetBrains Mono, monospace" font-size="6.5" font-weight="700" text-anchor="middle">RADAR</text>
 
         <!-- Fuel Bay (Baffled Self-Sealing Diesel Cells): STA 2800-4200 (x=460 to x=640) -->
-        <line x1="460" y1="88" x2="460" y2="212" stroke="#C7C4BD" stroke-width="1.5"/>
-        <rect x="465" y="94" width="170" height="112" fill="url(#hatch_fuel_usv)" stroke="#C7C4BD" stroke-width="1.2" rx="3"/>
-        <line x1="550" y1="94" x2="550" y2="206" stroke="#C7C4BD" stroke-width="0.8" stroke-dasharray="4,2"/>
-        <text x="550" y="146" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" text-anchor="middle">FUEL CELL</text>
-        <text x="550" y="160" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="7.5" text-anchor="middle">RANGE 150–250 KM · DESIGN TARGET</text>
+        <line x1="460" y1="88" x2="460" y2="212" stroke="#303234" stroke-width="1.5"/>
+        <rect x="465" y="94" width="170" height="112" fill="url(#hatch_fuel_usv)" stroke="#303234" stroke-width="1.2" rx="3"/>
+        <line x1="550" y1="94" x2="550" y2="206" stroke="#303234" stroke-width="0.8" stroke-dasharray="4,2"/>
+        <text x="550" y="146" fill="#303234" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" text-anchor="middle">FUEL CELL</text>
+        <text x="550" y="160" fill="#303234" font-family="JetBrains Mono, monospace" font-size="7.5" text-anchor="middle">RANGE 150–250 KM · DESIGN TARGET</text>
 
         <!-- Engine Room Bulkhead: x=640 -->
-        <line x1="640" y1="90" x2="640" y2="210" stroke="#C7C4BD" stroke-width="1.5"/>
+        <line x1="640" y1="90" x2="640" y2="210" stroke="#303234" stroke-width="1.5"/>
 
         <!-- Turbo-Diesel Engine: STA 4200-5200 (x=640 to x=790) -->
-        <rect x="650" y="115" width="135" height="70" fill="rgba(161,158,151,0.07)" stroke="#A19E97" stroke-width="1.2" rx="2"/>
-        <text x="717" y="146" fill="#A19E97" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" text-anchor="middle">MARINE ENGINE · 60–90 HP</text>
-        <text x="717" y="160" fill="#A19E97" font-family="JetBrains Mono, monospace" font-size="7.5" text-anchor="middle">ENCLOSED ENGINE BAY</text>
+        <rect x="650" y="115" width="135" height="70" fill="rgba(84,89,93,0.07)" stroke="#54595D" stroke-width="1.2" rx="2"/>
+        <text x="717" y="146" fill="#54595D" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" text-anchor="middle">MARINE ENGINE · 60–90 HP</text>
+        <text x="717" y="160" fill="#54595D" font-family="JetBrains Mono, monospace" font-size="7.5" text-anchor="middle">ENCLOSED ENGINE BAY</text>
 
         <!-- Driveshaft & Waterjet Bay: STA 5200-5800 (x=790 to x=880) -->
-        <line x1="790" y1="95" x2="790" y2="205" stroke="#C7C4BD" stroke-width="1.2"/>
+        <line x1="790" y1="95" x2="790" y2="205" stroke="#303234" stroke-width="1.2"/>
         <!-- Waterjets -->
-        <rect x="840" y="118" width="50" height="26" fill="#141414" stroke="#C7C4BD" stroke-width="1.2"/>
-        <rect x="840" y="156" width="50" height="26" fill="#141414" stroke="#C7C4BD" stroke-width="1.2"/>
-        <path d="M 890 120 L 920 124 L 920 138 L 890 142 Z" fill="rgba(199,196,189,0.15)" stroke="#C7C4BD" stroke-width="1"/>
-        <path d="M 890 158 L 920 162 L 920 176 L 890 180 Z" fill="rgba(199,196,189,0.15)" stroke="#C7C4BD" stroke-width="1"/>
-        <text x="895" y="110" fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="7.5">WATERJET</text>
+        <rect x="840" y="118" width="50" height="26" fill="#F8F9FA" stroke="#303234" stroke-width="1.2"/>
+        <rect x="840" y="156" width="50" height="26" fill="#F8F9FA" stroke="#303234" stroke-width="1.2"/>
+        <path d="M 890 120 L 920 124 L 920 138 L 890 142 Z" fill="rgba(32,33,34,0.15)" stroke="#303234" stroke-width="1"/>
+        <path d="M 890 158 L 920 162 L 920 176 L 890 180 Z" fill="rgba(32,33,34,0.15)" stroke="#303234" stroke-width="1"/>
+        <text x="895" y="110" fill="#303234" font-family="JetBrains Mono, monospace" font-size="7.5">WATERJET</text>
 
         <!-- Station Lines & Callouts -->
-        <g stroke="#C7C4BD" stroke-width="0.7" opacity="0.6">
+        <g stroke="#303234" stroke-width="0.7" opacity="0.6">
           <line x1="80" y1="40" x2="80" y2="85"/>
           <line x1="130" y1="40" x2="130" y2="85"/>
           <line x1="320" y1="40" x2="320" y2="85"/>
@@ -262,7 +472,7 @@
           <line x1="640" y1="40" x2="640" y2="85"/>
           <line x1="880" y1="40" x2="880" y2="85"/>
         </g>
-        <g fill="#C7C4BD" font-family="JetBrains Mono, monospace" font-size="7.5" opacity="0.8">
+        <g fill="#303234" font-family="JetBrains Mono, monospace" font-size="7.5" opacity="0.8">
           <text x="80" y="35" text-anchor="middle">STA 0000</text>
           <text x="130" y="35" text-anchor="middle">STA 0400</text>
           <text x="320" y="35" text-anchor="middle">STA 1300</text>
@@ -272,12 +482,12 @@
         </g>
 
         <!-- Dimension arrows below -->
-        <g stroke="#7F7C76" stroke-width="0.8">
+        <g stroke="#72777D" stroke-width="0.8">
           <line x1="80" y1="260" x2="880" y2="260"/>
           <line x1="80" y1="255" x2="80" y2="265"/>
           <line x1="880" y1="255" x2="880" y2="265"/>
         </g>
-        <text x="480" y="275" fill="#F2EFE9" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">OVERALL LENGTH: ~4,200 MM · BEAM: ~1,100 MM · DEPTH: ~700 MM</text>
+        <text x="480" y="275" fill="#000000" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">OVERALL LENGTH: ~4,200 MM · BEAM: ~1,100 MM · DEPTH: ~700 MM</text>
       </svg>
     </div>
     <div class="blueprint-cap">
@@ -384,31 +594,76 @@
     </div>
   </div>
 </section>
+<!-- article:end -->
 
-<nav class="pager" aria-label="Reading order">
-  <a class="prev" href="../products/ahuti.html"><span class="k">&larr; Previous &middot; Products</span><span class="t">Ahuti interceptor</span></a>
-  <a class="next" href="../architecture/index.html"><span class="k">Next &middot; Architecture &rarr;</span><span class="t">The shared core</span></a>
-</nav>
-<footer>
-  <div>Apollyon Dynamics &middot; Neo-Prime Wiki &middot; Rev 3.0</div>
-  <div><a href="../doctrine/new-arsenal.html">The New Arsenal</a> &middot; <a href="../about/history.html">Company</a> &middot; <a href="../strategy/competitive.html">Competitive field</a> &middot; apollyondynamics.com</div>
-</footer>
-
+<table class="wikitable succession-box noprint" role="presentation">
+<tbody>
+<tr><th colspan="3" class="succession-header">Apollyon Wiki reading order</th></tr>
+<tr>
+<td class="succession-before"><span class="succession-label">Preceded&nbsp;by</span><br><a href="../products/ahuti.html">Ahuti interceptor</a><br><small>Products</small></td>
+<td class="succession-title"><b>Piranha USV</b><br>Products &middot; 5 of 24</td>
+<td class="succession-after"><span class="succession-label">Succeeded&nbsp;by</span><br><a href="../architecture/index.html">The shared core</a><br><small>Architecture</small></td>
+</tr>
+</tbody>
+</table>
+<div role="navigation" class="navbox" aria-labelledby="Apollyon_Wiki_navbox">
+<table class="nowraplinks mw-collapsible navbox-inner">
+<tbody>
+<tr><th scope="col" class="navbox-title" colspan="2"><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="../special/contents.html"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="../special/recent-changes.html"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a href="../special/contents.html"><abbr title="Edit this template">e</abbr></a></li></ul></div><div id="Apollyon_Wiki_navbox"><a href="../index.html">Apollyon Dynamics</a></div></th></tr>
+<tr><th scope="row" class="navbox-group">Overview</th><td class="navbox-list-with-group navbox-list navbox-odd hlist"><div><ul><li><a href="../index.html">The argument</a></li></ul></div></td></tr>
+<tr><th scope="row" class="navbox-group">Products</th><td class="navbox-list-with-group navbox-list navbox-even hlist"><div><ul><li><a href="../products/nightshade-adx1.html">Nightshade family</a></li><li><a href="../products/hemlock.html">Hemlock</a></li><li><a href="../products/ahuti.html">Ahuti interceptor</a></li><li><a class="mw-selflink selflink">Piranha USV</a></li></ul></div></td></tr>
+<tr><th scope="row" class="navbox-group">Architecture</th><td class="navbox-list-with-group navbox-list navbox-odd hlist"><div><ul><li><a href="../architecture/index.html">The shared core</a></li><li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li><li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li><li><a href="../subsystems/onboard-compute.html">Edge compute</a></li><li><a href="../subsystems/flight-software.html">Flight software</a></li><li><a href="../subsystems/seekers.html">Seekers</a></li><li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li><li><a href="../subsystems/launch-systems.html">Launch &amp; ground systems</a></li></ul></div></td></tr>
+<tr><th scope="row" class="navbox-group">Strategy</th><td class="navbox-list-with-group navbox-list navbox-even hlist"><div><ul><li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li><li><a href="../strategy/market.html">The market</a></li><li><a href="../strategy/competitive.html">The competitive field</a></li><li><a href="../strategy/supply-chain.html">Supply chain</a></li></ul></div></td></tr>
+<tr><th scope="row" class="navbox-group">Doctrine</th><td class="navbox-list-with-group navbox-list navbox-odd hlist"><div><ul><li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li><li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li><li><a href="../doctrine/missing-middle.html">The Missing Middle</a></li><li><a href="../doctrine/strike-design-space.html">Strike design space</a></li></ul></div></td></tr>
+<tr><th scope="row" class="navbox-group">Record</th><td class="navbox-list-with-group navbox-list navbox-even hlist"><div><ul><li><a href="../about/history.html">Company history</a></li><li><a href="../about/team.html">Team &amp; advisors</a></li><li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li></ul></div></td></tr>
+<tr><td class="navbox-abovebelow" colspan="2"><div><span class="nowrap"><span class="vector-icon mw-ui-icon-article mw-ui-icon-wikimedia-article"></span> <a href="../special/contents.html">Contents</a></span> &middot; <span class="nowrap"><a href="../special/recent-changes.html">Recent changes</a></span> &middot; <span class="nowrap"><a href="../special/random.html">Random article</a></span></div></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="usv-strike.html">products/usv-strike.html</a>"</div>
+</div>
+<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../special/contents.html" title="Contents">Category</a>: <ul><li><a href="../special/contents.html#Products" title="Category:Products">Products</a></li></ul></div></div>
+</div>
 </main>
-<nav class="toc" aria-label="On this page">
-  <h4>On this page</h4>
-  <ul>
-    <li><a href="#specs">Specifications</a></li>
-    <li><a href="#blueprint">CAD schematic</a></li>
-    <li><a href="#usecases">Use cases</a></li>
-    <li><a href="#specifics">Engineering specifics</a></li>
-    <li><a href="#marine-nav">Non-satellite nav</a></li>
-    <li><a href="#hydrodynamics">Vessel control</a></li>
-    <li><a href="#warhead">Shaped-charge warhead</a></li>
-    <li><a href="#subsystems">Shared subsystems</a></li>
-  </ul>
-  <a class="toc-top" href="#top">Back to top &uarr;</a>
-</nav>
+</div>
+<div class="mw-footer-container">
+<footer id="footer" class="mw-footer">
+<ul id="footer-info">
+<li id="footer-info-lastmod"></li>
+<li id="footer-info-copyright">Published by Apollyon Dynamics for investors, evaluators and due-diligence readers. Prices are selling prices; figures marked <i>estimate</i> or <i>claim</i> are not measured results. Rev 3.0.</li>
+</ul>
+<ul id="footer-places">
+<li id="footer-places-about"><a href="../about/history.html">About Apollyon Dynamics</a></li>
+<li id="footer-places-contact"><a href="../about/history.html#contact">Contact Apollyon Dynamics</a></li>
+<li id="footer-places-contents"><a href="../special/contents.html">Contents</a></li>
+<li id="footer-places-recentchanges"><a href="../special/recent-changes.html">Recent changes</a></li>
+</ul>
+<ul id="footer-icons" class="noprint">
+<li id="footer-copyrightico"><a href="https://apollyondynamics.com" class="cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled"><img src="../assets/logos/logo-ad-white.png" width="44" height="13" alt="" loading="lazy"><span>Apollyon Dynamics</span></a></li>
+<li id="footer-poweredbyico"><a href="../special/contents.html" class="cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled"><span class="mw-powered">Powered by<br><b>site_shell.py</b></span></a></li>
+</ul>
+</footer>
+</div>
+</div>
+</div>
+<div class="vector-header-container vector-sticky-header-container">
+<div id="vector-sticky-header" class="vector-sticky-header">
+<div class="vector-sticky-header-start">
+<div class="vector-sticky-header-context-bar">
+<nav aria-label="Contents" class="vector-toc-landmark"><div id="vector-sticky-header-toc" class="vector-dropdown vector-sticky-header-toc vector-button-flush-left">
+  <input type="checkbox" id="vector-sticky-header-toc-checkbox" role="button" aria-haspopup="true" class="vector-dropdown-checkbox" aria-label="Toggle the table of contents">
+  <label id="vector-sticky-header-toc-label" for="vector-sticky-header-toc-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--weight-quiet cdx-button--icon-only" aria-hidden="true"><span class="vector-icon mw-ui-icon-listBullet mw-ui-icon-wikimedia-listBullet"></span><span class="vector-dropdown-label-text">Toggle the table of contents</span></label>
+  <div class="vector-dropdown-content">
+<div id="vector-sticky-header-toc-unpinned-container" class="vector-unpinned-container"></div>
+  </div>
+</div></nav>
+<div class="vector-sticky-header-context-bar-primary" aria-hidden="true"><span class="mw-page-title-main">Piranha USV, <span class="sub">strike and surveillance from one hull</span></span></div>
+</div>
+</div>
+<div class="vector-sticky-header-end" aria-hidden="true">
+<div class="vector-sticky-header-icons"><a href="?action=talk" class="cdx-button cdx-button--fake-button cdx-button--weight-quiet cdx-button--icon-only" title="Talk" tabindex="-1"><span class="vector-icon mw-ui-icon-speechBubbles mw-ui-icon-wikimedia-speechBubbles"></span><span>Talk</span></a><a href="?action=history" class="cdx-button cdx-button--fake-button cdx-button--weight-quiet cdx-button--icon-only" title="View history" tabindex="-1"><span class="vector-icon mw-ui-icon-history mw-ui-icon-wikimedia-history"></span><span>View history</span></a><a href="?action=edit" class="cdx-button cdx-button--fake-button cdx-button--weight-quiet cdx-button--icon-only" title="View source" tabindex="-1"><span class="vector-icon mw-ui-icon-wikiText mw-ui-icon-wikimedia-wikiText"></span><span>View source</span></a></div>
+</div>
 </div>
 </div>
 </body>

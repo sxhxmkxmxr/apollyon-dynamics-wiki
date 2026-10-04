@@ -1,117 +1,320 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="client-nojs vector-feature-language-in-header-enabled vector-feature-custom-font-size-clientpref-1 vector-feature-limited-width-clientpref-1 vector-feature-main-menu-pinned-clientpref-0 vector-feature-toc-pinned-clientpref-1 vector-feature-appearance-pinned-clientpref-1 vector-feature-page-tools-pinned-clientpref-0 vector-feature-page-previews-clientpref-1 skin-theme-clientpref-day vector-toc-available" lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Flight software — Apollyon Dynamics Wiki</title>
+<title>Flight software - Apollyon Wiki</title>
 <meta name="description" content="Apollyon Dynamics engineering wiki — a proprietary, certification-oriented autopilot baseline from Embention Veronte, with Apollyon-authored control laws, guidance and mission logic.">
+<script>(function(){var d=document.documentElement,c=d.className;c=c.replace(/(^|\s)client-nojs(\s|$)/,"$1client-js$2");try{var p=localStorage.getItem("mwclientpreferences");if(p){p.split(",").forEach(function(v){var k=v.replace(/-clientpref-\w+$/,"");if(!/^[\w-]+$/.test(v))return;c=c.replace(new RegExp("(^|\\s)"+k+"-clientpref-\\w+(?=\\s|$)"),"$1"+v);});}}catch(e){}d.className=c;})();</script>
 <link rel="icon" href="../assets/logos/favicon-red.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/wiki.css">
+<script src="../js/wiki-map-data.js" defer></script>
 <script src="../js/wiki.js" defer></script>
 </head>
-<body id="top" data-section="architecture">
-
-<div class="rail">
-  <div class="rail-inner">
-    <button class="rail-menu" type="button" aria-controls="site-nav" aria-expanded="false"><span class="bars" aria-hidden="true"></span><span class="lbl">Menu</span></button>
-    <a class="rail-brand" href="../index.html"><span class="glyph"></span>Apollyon Dynamics <em>&middot; Engineering Wiki</em></a>
-    <nav class="rail-links" aria-label="Sections">
-      <a id="rail-thesis" href="../index.html#thesis">Thesis</a>
-      <a id="rail-products" href="../index.html#products">Products</a>
-      <a id="rail-architecture" href="../architecture/index.html" class="on">Architecture</a>
-      <a id="rail-strategy" href="../strategy/trajectory.html">Strategy</a>
-      <a id="rail-doctrine" href="../doctrine/new-arsenal.html">Doctrine</a>
-      <a id="rail-company" href="../about/history.html">Company</a>
-    </nav>
-  </div>
-  <div class="rail-progress" aria-hidden="true"><i></i></div>
+<body id="top" class="skin--responsive skin-vector skin-vector-2022 mediawiki ltr sitedir-ltr ns-0 ns-subject page-Flight_software action-view" data-page="subsystems/flight-software.html">
+<a class="mw-jump-link" href="#bodyContent">Jump to content</a>
+<div class="vector-header-container">
+<header class="vector-header mw-header">
+<div class="vector-header-start">
+<nav class="vector-main-menu-landmark" aria-label="Site">
+<div id="vector-main-menu-dropdown" class="vector-dropdown vector-main-menu-dropdown vector-button-flush-left vector-button-flush-right" title="Main menu">
+  <input type="checkbox" id="vector-main-menu-dropdown-checkbox" role="button" aria-haspopup="true" class="vector-dropdown-checkbox" aria-label="Main menu">
+  <label id="vector-main-menu-dropdown-label" for="vector-main-menu-dropdown-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--weight-quiet cdx-button--icon-only" aria-hidden="true"><span class="vector-icon mw-ui-icon-menu mw-ui-icon-wikimedia-menu"></span><span class="vector-dropdown-label-text">Main menu</span></label>
+  <div class="vector-dropdown-content">
+<div id="vector-main-menu-unpinned-container" class="vector-unpinned-container">
+<div id="vector-main-menu" class="vector-main-menu vector-pinnable-element">
+<div class="vector-pinnable-header vector-main-menu-pinnable-header" data-feature-name="main-menu-pinned">
+  <div class="vector-pinnable-header-label">Main menu</div>
+  <button class="vector-pinnable-header-toggle-button vector-pinnable-header-pin-button" data-event-name="pinnable-header.main-menu.pin">move to sidebar</button>
+  <button class="vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button" data-event-name="pinnable-header.main-menu.unpin">hide</button>
 </div>
-<div class="shell">
-<div class="layout">
-
-<aside class="aside" id="site-nav" aria-label="Wiki navigation">
-  <div class="nav-group">
-    <h4><span class="n">01</span>Overview</h4>
-    <ul>
-      <li><a href="../index.html">The argument</a></li>
-    </ul>
+<div id="p-navigation" class="vector-menu mw-portlet mw-portlet-navigation">
+<div class="vector-menu-heading vector-menu-heading-hidden">Navigation</div>
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="n-mainpage-description" class="mw-list-item "><a href="../index.html" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li>
+<li id="n-contents" class="mw-list-item "><a href="../special/contents.html" title="Guides to browsing Apollyon Wiki"><span>Contents</span></a></li>
+<li id="n-randompage" class="mw-list-item "><a href="../special/random.html" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li>
+<li id="n-aboutsite" class="mw-list-item "><a href="../about/history.html" title="Find out about Apollyon Dynamics"><span>About Apollyon Dynamics</span></a></li>
+<li id="n-contactpage" class="mw-list-item "><a href="../about/history.html#contact" title="How to contact Apollyon Dynamics"><span>Contact us</span></a></li>
+</ul></div>
+</div>
+<div id="p-products" class="vector-menu mw-portlet mw-portlet-products">
+<div class="vector-menu-heading">Products</div>
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="n-nightshade_family" class="mw-list-item "><a href="../products/nightshade-adx1.html"><span>Nightshade family</span></a></li>
+<li id="n-hemlock" class="mw-list-item "><a href="../products/hemlock.html"><span>Hemlock</span></a></li>
+<li id="n-ahuti_interceptor" class="mw-list-item "><a href="../products/ahuti.html"><span>Ahuti interceptor</span></a></li>
+<li id="n-piranha_usv" class="mw-list-item "><a href="../products/usv-strike.html"><span>Piranha USV</span></a></li>
+</ul></div>
+</div>
+<div id="p-architecture" class="vector-menu mw-portlet mw-portlet-architecture">
+<div class="vector-menu-heading">Architecture</div>
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="n-the_shared_core" class="mw-list-item "><a href="../architecture/index.html"><span>The shared core</span></a></li>
+<li id="n-robust_flight_control" class="mw-list-item "><a href="../subsystems/near-envelope-control.html"><span>Robust flight control</span></a></li>
+<li id="n-gnss-denied_navigation" class="mw-list-item "><a href="../subsystems/gnss-denied-navigation.html"><span>GNSS-denied navigation</span></a></li>
+<li id="n-edge_compute" class="mw-list-item "><a href="../subsystems/onboard-compute.html"><span>Edge compute</span></a></li>
+<li id="n-flight_software" class="mw-list-item mw-list-item-current"><a href="../subsystems/flight-software.html" aria-current="page"><span>Flight software</span></a></li>
+<li id="n-seekers" class="mw-list-item "><a href="../subsystems/seekers.html"><span>Seekers</span></a></li>
+<li id="n-airframe_structures" class="mw-list-item "><a href="../subsystems/airframe-structures.html"><span>Airframe &amp; structures</span></a></li>
+<li id="n-launch_ground_systems" class="mw-list-item "><a href="../subsystems/launch-systems.html"><span>Launch &amp; ground systems</span></a></li>
+</ul></div>
+</div>
+<div id="p-strategy" class="vector-menu mw-portlet mw-portlet-strategy">
+<div class="vector-menu-heading">Strategy</div>
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="n-trajectory_cost_per_kg_km" class="mw-list-item "><a href="../strategy/trajectory.html"><span>Trajectory &amp; cost per kg&middot;km</span></a></li>
+<li id="n-the_market" class="mw-list-item "><a href="../strategy/market.html"><span>The market</span></a></li>
+<li id="n-the_competitive_field" class="mw-list-item "><a href="../strategy/competitive.html"><span>The competitive field</span></a></li>
+<li id="n-supply_chain" class="mw-list-item "><a href="../strategy/supply-chain.html"><span>Supply chain</span></a></li>
+</ul></div>
+</div>
+<div id="p-doctrine" class="vector-menu mw-portlet mw-portlet-doctrine">
+<div class="vector-menu-heading">Doctrine</div>
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="n-the_new_arsenal" class="mw-list-item "><a href="../doctrine/new-arsenal.html"><span>The New Arsenal</span></a></li>
+<li id="n-precision_is_mercy" class="mw-list-item "><a href="../doctrine/precision-is-mercy.html"><span>Precision is Mercy</span></a></li>
+<li id="n-the_missing_middle" class="mw-list-item "><a href="../doctrine/missing-middle.html"><span>The Missing Middle</span></a></li>
+<li id="n-strike_design_space" class="mw-list-item "><a href="../doctrine/strike-design-space.html"><span>Strike design space</span></a></li>
+</ul></div>
+</div>
+<div id="p-record" class="vector-menu mw-portlet mw-portlet-record">
+<div class="vector-menu-heading">Record</div>
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="n-company_history" class="mw-list-item "><a href="../about/history.html"><span>Company history</span></a></li>
+<li id="n-team_advisors" class="mw-list-item "><a href="../about/team.html"><span>Team &amp; advisors</span></a></li>
+<li id="n-the_full_record_70_episodes" class="mw-list-item "><a href="../strategic-dependency/full-record.html"><span>The full record &middot; 70 episodes</span></a></li>
+</ul></div>
+</div>
+<div id="p-interaction" class="vector-menu mw-portlet mw-portlet-interaction">
+<div class="vector-menu-heading">Wiki</div>
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="n-recentchanges" class="mw-list-item "><a href="../special/recent-changes.html" title="A list of recent changes to the wiki [r]" accesskey="r"><span>Recent changes</span></a></li>
+</ul></div>
+</div>
+</div>
+</div>
   </div>
-  <div class="nav-group">
-    <h4><span class="n">02</span>Products</h4>
-    <ul>
-      <li><a href="../products/nightshade-adx1.html">Nightshade family</a></li>
-      <li><a href="../products/hemlock.html">Hemlock</a></li>
-      <li><a href="../products/ahuti.html">Ahuti interceptor</a></li>
-      <li><a href="../products/usv-strike.html">Piranha USV</a></li>
-    </ul>
+</div>
+</nav>
+<a href="../index.html" class="mw-logo" title="Visit the main page">
+  <img class="mw-logo-icon" src="../assets/logos/logo-ad-white.png" alt="" aria-hidden="true" width="50" height="15">
+  <span class="mw-logo-container">
+    <strong class="mw-logo-wordmark">Apollyon Wiki</strong>
+  </span>
+</a>
+</div>
+<div class="vector-header-end">
+<nav class="vector-user-links" aria-label="Personal tools">
+<div class="vector-user-links-main">
+<div id="vector-appearance-dropdown" class="vector-dropdown vector-appearance-dropdown" title="Change the appearance of the page&#x27;s font size, width, and color">
+  <input type="checkbox" id="vector-appearance-dropdown-checkbox" role="button" aria-haspopup="true" class="vector-dropdown-checkbox" aria-label="Appearance">
+  <label id="vector-appearance-dropdown-label" for="vector-appearance-dropdown-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--weight-quiet cdx-button--icon-only" aria-hidden="true"><span class="vector-icon mw-ui-icon-appearance mw-ui-icon-wikimedia-appearance"></span><span class="vector-dropdown-label-text">Appearance</span></label>
+  <div class="vector-dropdown-content">
+<div id="vector-appearance-unpinned-container" class="vector-unpinned-container"></div>
   </div>
-  <div class="nav-group on">
-    <h4><span class="n">03</span>Architecture</h4>
-    <ul>
-      <li><a href="../architecture/index.html">The shared core</a></li>
-      <li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li>
-      <li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li>
-      <li><a href="../subsystems/onboard-compute.html">Edge compute</a></li>
-      <li class="here"><a href="../subsystems/flight-software.html" aria-current="page">Flight software</a>
-        <ul class="nav-toc">
-          <li><a href="#baseline">A proprietary baseline</a></li>
-          <li><a href="#toolchain">The toolchain</a></li>
-          <li><a href="#authored">What Apollyon authors</a></li>
-          <li><a href="#verification">HIL verification</a></li>
-          <li><a href="#governance">Configuration governance</a></li>
-          <li><a href="#roadmap">Veronte now, in-house next</a></li>
-          <li><a href="#usedby">Used by</a></li>
-        </ul>
-      </li>
-      <li><a href="../subsystems/seekers.html">Seekers</a></li>
-      <li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li>
-      <li><a href="../subsystems/launch-systems.html">Launch &amp; ground systems</a></li>
-    </ul>
-  </div>
-  <div class="nav-group">
-    <h4><span class="n">04</span>Strategy</h4>
-    <ul>
-      <li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li>
-      <li><a href="../strategy/market.html">The market</a></li>
-      <li><a href="../strategy/competitive.html">The competitive field</a></li>
-      <li><a href="../strategy/supply-chain.html">Supply chain</a></li>
-    </ul>
-  </div>
-  <div class="nav-group">
-    <h4><span class="n">05</span>Doctrine</h4>
-    <ul>
-      <li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li>
-      <li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li>
-      <li><a href="../doctrine/missing-middle.html">The Missing Middle</a></li>
-      <li><a href="../doctrine/strike-design-space.html">Strike design space</a></li>
-    </ul>
-  </div>
-  <div class="nav-group">
-    <h4><span class="n">06</span>Record</h4>
-    <ul>
-      <li><a href="../about/history.html">Company history</a></li>
-      <li><a href="../about/team.html">Team &amp; advisors</a></li>
-      <li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li>
-    </ul>
-  </div>
-</aside>
-
-<main class="main">
-
-<div class="crumb"><a href="../index.html">Wiki</a><span>/</span><a href="../architecture/index.html#subsystems">Subsystems</a><span>/</span>Flight software</div>
-<header class="masthead">
-    <div class="mast-brand-lockup">
-    <img src="../assets/logos/logo-ad-white.png" alt="Apollyon Dynamics Mark" class="brand-mark">
-    <div class="brand-sep"></div>
-    <img src="../assets/logos/logo-text-white.png" alt="Apollyon Dynamics" class="brand-text">
-  </div>
-  <div class="mast-meta">Software · proprietary autopilot baseline, authored control laws &amp; HIL verification <span>· core subsystem</span></div>
-  <h1>Flight software, <span class="sub">on a proprietary baseline</span></h1>
-  <p class="standfirst">The flight-critical control loop runs on Embention's Veronte Autopilot 1x, a certified commercial baseline configured for each vehicle. Apollyon authors the guidance modes, control laws, flight envelope limits, and mission logic that run on top of it, verifying every release on hardware-in-the-loop simulators before flight.</p>
+</div>
+<div id="p-vector-user-menu-preferences" class="vector-menu mw-portlet"><div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="pt-contact" class="mw-list-item"><a href="../about/history.html#contact"><span>Contact</span></a></li>
+<li id="pt-team" class="mw-list-item"><a href="../about/team.html"><span>Team</span></a></li>
+<li id="pt-website" class="mw-list-item"><a href="https://apollyondynamics.com" class="external"><span>apollyondynamics.com</span></a></li>
+</ul></div></div>
+</div>
+</nav>
+</div>
 </header>
+</div>
+<div class="mw-page-container">
+<div class="mw-page-container-inner">
+<div class="vector-sitenotice-container"><div id="siteNotice"></div></div>
+<div class="vector-column-start">
+<div class="vector-main-menu-container">
+<div id="mw-navigation">
+<nav id="mw-panel" class="vector-main-menu-landmark" aria-label="Site">
+<div id="vector-main-menu-pinned-container" class="vector-pinned-container"></div>
+</nav>
+</div>
+</div>
+<div class="vector-sticky-pinned-container">
+<nav id="mw-panel-toc" aria-label="Contents" class="mw-table-of-contents-container vector-toc-landmark">
+<div id="vector-toc-pinned-container" class="vector-pinned-container">
+<div id="vector-toc" class="vector-toc vector-pinnable-element">
+<div class="vector-pinnable-header vector-toc-pinnable-header vector-pinnable-header-pinned" data-feature-name="toc-pinned">
+  <div class="vector-pinnable-header-label">Contents</div>
+  <button class="vector-pinnable-header-toggle-button vector-pinnable-header-pin-button" data-event-name="pinnable-header.toc.pin">move to sidebar</button>
+  <button class="vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button" data-event-name="pinnable-header.toc.unpin">hide</button>
+</div>
+<ul class="vector-toc-contents" id="mw-panel-toc-list">
+<li id="toc-mw-content-text" class="vector-toc-list-item vector-toc-level-1 vector-toc-list-item-active">
+  <a href="#" class="vector-toc-link"><div class="vector-toc-text">(Top)</div></a>
+</li>
+<li id="toc-baseline" class="vector-toc-list-item vector-toc-level-1">
+  <a class="vector-toc-link" href="#baseline"><div class="vector-toc-text"><span class="vector-toc-numb">1</span><span>A proprietary flight-control baseline</span></div></a>
+</li>
+<li id="toc-toolchain" class="vector-toc-list-item vector-toc-level-1">
+  <a class="vector-toc-link" href="#toolchain"><div class="vector-toc-text"><span class="vector-toc-numb">2</span><span>Software lifecycle and verification</span></div></a>
+</li>
+<li id="toc-authored" class="vector-toc-list-item vector-toc-level-1">
+  <a class="vector-toc-link" href="#authored"><div class="vector-toc-text"><span class="vector-toc-numb">3</span><span>What Apollyon authors</span></div></a>
+</li>
+<li id="toc-verification" class="vector-toc-list-item vector-toc-level-1">
+  <a class="vector-toc-link" href="#verification"><div class="vector-toc-text"><span class="vector-toc-numb">4</span><span>Hardware-in-the-loop before the rail</span></div></a>
+</li>
+<li id="toc-governance" class="vector-toc-list-item vector-toc-level-1">
+  <a class="vector-toc-link" href="#governance"><div class="vector-toc-text"><span class="vector-toc-numb">5</span><span>Configuration control and certification</span></div></a>
+</li>
+<li id="toc-roadmap" class="vector-toc-list-item vector-toc-level-1">
+  <a class="vector-toc-link" href="#roadmap"><div class="vector-toc-text"><span class="vector-toc-numb">6</span><span>Veronte now, an in-house baseline next</span></div></a>
+</li>
+<li id="toc-usedby" class="vector-toc-list-item vector-toc-level-1">
+  <a class="vector-toc-link" href="#usedby"><div class="vector-toc-text"><span class="vector-toc-numb">7</span><span>Platforms carrying this subsystem</span></div></a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+</div>
+<div class="mw-content-container">
+<main id="content" class="mw-body">
+<header class="mw-body-header vector-page-titlebar">
+<nav aria-label="Contents" class="vector-toc-landmark">
+<div id="vector-page-titlebar-toc" class="vector-dropdown vector-page-titlebar-toc vector-button-flush-left" title="Toggle the table of contents">
+  <input type="checkbox" id="vector-page-titlebar-toc-checkbox" role="button" aria-haspopup="true" class="vector-dropdown-checkbox" aria-label="Toggle the table of contents">
+  <label id="vector-page-titlebar-toc-label" for="vector-page-titlebar-toc-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--weight-quiet cdx-button--icon-only" aria-hidden="true"><span class="vector-icon mw-ui-icon-listBullet mw-ui-icon-wikimedia-listBullet"></span><span class="vector-dropdown-label-text">Toggle the table of contents</span></label>
+  <div class="vector-dropdown-content">
+<div id="vector-page-titlebar-toc-unpinned-container" class="vector-unpinned-container"></div>
+  </div>
+</div>
+</nav>
+<h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-main">Flight software, <span class="sub">on a proprietary baseline</span></span></h1>
+</header>
+<div class="vector-page-toolbar">
+<div class="vector-page-toolbar-container">
+<div id="left-navigation">
+<nav aria-label="Namespaces">
+<div id="p-associated-pages" class="vector-menu vector-menu-tabs mw-portlet">
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="ca-nstab-main" class="selected vector-tab-noicon mw-list-item"><a href="flight-software.html" title="View the content page [c]" accesskey="c"><span>Article</span></a></li>
+<li id="ca-talk" class="new vector-tab-noicon mw-list-item"><a href="?action=talk" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t"><span>Talk</span></a></li>
+</ul></div>
+</div>
+</nav>
+</div>
+<div id="right-navigation" class="vector-collapsible">
+<nav aria-label="Views">
+<div id="p-views" class="vector-menu vector-menu-tabs mw-portlet">
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="ca-view" class="selected vector-tab-noicon mw-list-item"><a href="flight-software.html"><span>Read</span></a></li>
+<li id="ca-viewsource" class="vector-tab-noicon mw-list-item"><a href="?action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li>
+<li id="ca-history" class="vector-tab-noicon mw-list-item"><a href="?action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li>
+</ul></div>
+</div>
+</nav>
+<nav class="vector-page-tools-landmark" aria-label="Page tools">
+<div id="vector-page-tools-dropdown" class="vector-dropdown vector-page-tools-dropdown">
+  <input type="checkbox" id="vector-page-tools-dropdown-checkbox" role="button" aria-haspopup="true" class="vector-dropdown-checkbox" aria-label="Tools">
+  <label id="vector-page-tools-dropdown-label" for="vector-page-tools-dropdown-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--weight-quiet " aria-hidden="true"><span class="vector-dropdown-label-text">Tools</span></label>
+  <div class="vector-dropdown-content">
+<div id="vector-page-tools-unpinned-container" class="vector-unpinned-container">
+<div id="vector-page-tools" class="vector-page-tools vector-pinnable-element">
+<div class="vector-pinnable-header vector-page-tools-pinnable-header" data-feature-name="page-tools-pinned">
+  <div class="vector-pinnable-header-label">Tools</div>
+  <button class="vector-pinnable-header-toggle-button vector-pinnable-header-pin-button" data-event-name="pinnable-header.page-tools.pin">move to sidebar</button>
+  <button class="vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button" data-event-name="pinnable-header.page-tools.unpin">hide</button>
+</div>
+<div id="p-cactions" class="vector-menu mw-portlet mw-portlet-cactions">
+<div class="vector-menu-heading">Actions</div>
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="ca-more-view" class="mw-list-item selected vector-more-collapsible-item"><a href="?"><span>Read</span></a></li>
+<li id="ca-more-viewsource" class="mw-list-item vector-more-collapsible-item"><a href="?action=edit"><span>View source</span></a></li>
+<li id="ca-more-history" class="mw-list-item vector-more-collapsible-item"><a href="?action=history"><span>View history</span></a></li>
+</ul></div>
+</div>
+<div id="p-tb" class="vector-menu mw-portlet mw-portlet-tb">
+<div class="vector-menu-heading">General</div>
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="t-whatlinkshere" class="mw-list-item "><a href="?action=whatlinkshere" title="A list of all wiki pages that link here [j]" accesskey="j"><span>What links here</span></a></li>
+<li id="t-recentchangeslinked" class="mw-list-item "><a href="../special/recent-changes.html" title="Recent changes across the wiki [k]" accesskey="k"><span>Related changes</span></a></li>
+<li id="t-permalink" class="mw-list-item "><a href="#" title="Permanent link to this revision of this page" data-action="permalink"><span>Permanent link</span></a></li>
+<li id="t-info" class="mw-list-item "><a href="?action=info" title="More information about this page"><span>Page information</span></a></li>
+<li id="t-cite" class="mw-list-item "><a href="?action=cite" title="Information on how to cite this page"><span>Cite this page</span></a></li>
+</ul></div>
+</div>
+<div id="p-coll-print_export" class="vector-menu mw-portlet mw-portlet-coll-print_export">
+<div class="vector-menu-heading">Print/export</div>
+<div class="vector-menu-content"><ul class="vector-menu-content-list">
+<li id="coll-download-as-rl" class="mw-list-item "><a href="#" title="Download this page as a PDF file" data-action="print"><span>Download as PDF</span></a></li>
+<li id="t-print" class="mw-list-item "><a href="#" title="Printable version of this page [p]" accesskey="p" data-action="print"><span>Printable version</span></a></li>
+</ul></div>
+</div>
+</div>
+</div>
+  </div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<div class="vector-column-end">
+<div class="vector-sticky-pinned-container">
+<nav class="vector-page-tools-landmark" aria-label="Page tools">
+<div id="vector-page-tools-pinned-container" class="vector-pinned-container"></div>
+</nav>
+<nav class="vector-appearance-landmark" aria-label="Appearance">
+<div id="vector-appearance-pinned-container" class="vector-pinned-container">
+<div id="vector-appearance" class="vector-appearance vector-pinnable-element">
+<div class="vector-pinnable-header vector-appearance-pinnable-header vector-pinnable-header-pinned" data-feature-name="appearance-pinned">
+  <div class="vector-pinnable-header-label">Appearance</div>
+  <button class="vector-pinnable-header-toggle-button vector-pinnable-header-pin-button" data-event-name="pinnable-header.appearance.pin">move to sidebar</button>
+  <button class="vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button" data-event-name="pinnable-header.appearance.unpin">hide</button>
+</div>
+<div class="vector-menu mw-portlet mw-portlet-vector-feature-custom-font-size" data-clientpref="vector-feature-custom-font-size">
+<div class="vector-menu-heading">Text</div>
+<div class="vector-menu-content"><form class="cdx-radio-group">
+  <div class="cdx-radio"><input class="cdx-radio__input" type="radio" name="vector-feature-custom-font-size" id="vector-feature-custom-font-size-0" value="0"><span class="cdx-radio__icon"></span><label for="vector-feature-custom-font-size-0" class="cdx-radio__label">Small</label></div>
+  <div class="cdx-radio"><input class="cdx-radio__input" type="radio" name="vector-feature-custom-font-size" id="vector-feature-custom-font-size-1" value="1"><span class="cdx-radio__icon"></span><label for="vector-feature-custom-font-size-1" class="cdx-radio__label">Standard</label></div>
+  <div class="cdx-radio"><input class="cdx-radio__input" type="radio" name="vector-feature-custom-font-size" id="vector-feature-custom-font-size-2" value="2"><span class="cdx-radio__icon"></span><label for="vector-feature-custom-font-size-2" class="cdx-radio__label">Large</label></div>
+</form>
+<p class="skin-client-pref-note">This page is always in small font size</p></div>
+</div>
+<div class="vector-menu mw-portlet mw-portlet-vector-feature-limited-width" data-clientpref="vector-feature-limited-width">
+<div class="vector-menu-heading">Width</div>
+<div class="vector-menu-content"><form class="cdx-radio-group">
+  <div class="cdx-radio"><input class="cdx-radio__input" type="radio" name="vector-feature-limited-width" id="vector-feature-limited-width-1" value="1"><span class="cdx-radio__icon"></span><label for="vector-feature-limited-width-1" class="cdx-radio__label">Standard</label></div>
+  <div class="cdx-radio"><input class="cdx-radio__input" type="radio" name="vector-feature-limited-width" id="vector-feature-limited-width-0" value="0"><span class="cdx-radio__icon"></span><label for="vector-feature-limited-width-0" class="cdx-radio__label">Wide</label></div>
+</form>
+<p class="skin-client-pref-note">The content is as wide as possible for your browser window.</p></div>
+</div>
+<div class="vector-menu mw-portlet mw-portlet-skin-theme" data-clientpref="skin-theme">
+<div class="vector-menu-heading">Color <span class="skin-beta">(beta)</span></div>
+<div class="vector-menu-content"><form class="cdx-radio-group">
+  <div class="cdx-radio"><input class="cdx-radio__input" type="radio" name="skin-theme" id="skin-theme-os" value="os"><span class="cdx-radio__icon"></span><label for="skin-theme-os" class="cdx-radio__label">Automatic</label></div>
+  <div class="cdx-radio"><input class="cdx-radio__input" type="radio" name="skin-theme" id="skin-theme-day" value="day"><span class="cdx-radio__icon"></span><label for="skin-theme-day" class="cdx-radio__label">Light</label></div>
+  <div class="cdx-radio"><input class="cdx-radio__input" type="radio" name="skin-theme" id="skin-theme-night" value="night"><span class="cdx-radio__icon"></span><label for="skin-theme-night" class="cdx-radio__label">Dark</label></div>
+</form>
+<p class="skin-client-pref-note">This page is always in light mode.</p></div>
+</div>
+</div>
+</div>
+</nav>
+</div>
+</div>
+<div id="bodyContent" class="vector-body" aria-labelledby="firstHeading">
+<div class="vector-body-before-content">
+<div class="mw-indicators">
+<div id="mw-indicator-pp-default" class="mw-indicator"><a href="?action=info#mw-pageinfo-restrictions" title="This article is protected. Its source is kept in the repository and published by rebuilding the wiki."><span class="mw-protection-lock" aria-hidden="true"></span><span class="mw-indicator-label">This article is protected</span></a></div>
+</div>
+<div id="siteSub" class="noprint">From Apollyon Wiki</div>
+</div>
+<div id="contentSub"><div id="mw-content-subtitle">Software · proprietary autopilot baseline, authored control laws &amp; HIL verification <span>· core subsystem</span></div></div>
+<div id="mw-content-text" class="mw-body-content">
+<div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr">
+<!-- article:start -->
+<p class="standfirst">The flight-critical control loop runs on Embention's Veronte Autopilot 1x, a certified commercial baseline configured for each vehicle. Apollyon authors the guidance modes, control laws, flight envelope limits, and mission logic that run on top of it, verifying every release on hardware-in-the-loop simulators before flight.</p>
 
 <section id="baseline">
   <div class="sec-tag">01 · Foundation</div>
@@ -129,32 +332,32 @@
     <div class="blueprint-head"><span class="title">Fig. 01</span><span class="scale">one baseline · authored layer</span></div>
     <div class="blueprint-body">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" role="img" aria-label="Flight software: the Veronte Embention proprietary baseline beneath an Apollyon-authored configuration layer">
-<rect width="1000" height="620" fill="#050505"/>
-<text x="48" y="38" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#F04B4B" font-weight="700" letter-spacing="0.14em">APOLLYON-AUTHORED LAYER OVER A PROPRIETARY BASELINE</text>
-<text x="952" y="38" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#C7C4BD" text-anchor="end" letter-spacing="0.08em">ONE CONFIGURATION SET PER PLATFORM</text>
-<line x1="48" y1="50" x2="952" y2="50" stroke="#2B2B2B" stroke-width="1"/>
-<text x="48" y="78" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#F04B4B" font-weight="700" letter-spacing="0.12em">APOLLYON-AUTHORED — CONFIGURATION PACKAGES</text>
-<rect x="48" y="90" width="904" height="58" fill="#3A1212" stroke="#D92323" stroke-width="1.4"/>
-<text x="66" y="116" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" font-weight="700" letter-spacing="0.04em">MISSION &amp; AUTONOMY</text>
-<text x="66" y="134" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#E8B4B4">route &amp; terrain following · terminal-phase logic · abort and failsafe triggers</text>
-<rect x="48" y="158" width="904" height="58" fill="#2A0E0E" stroke="#D92323" stroke-width="1.2"/>
-<text x="66" y="184" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" font-weight="700" letter-spacing="0.04em">CONTROL &amp; GUIDANCE LAWS</text>
-<text x="66" y="202" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#E8B4B4">gain-scheduled loops · envelope limits · allocation matrices · per-airframe tuning sets</text>
-<text x="48" y="244" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#A19E97" font-weight="700" letter-spacing="0.12em">VERONTE EMBENTION BASELINE — PRIMARY PROPRIETARY</text>
-<rect x="48" y="256" width="904" height="58" fill="#0B1119" stroke="#414141" stroke-width="1.2"/>
-<text x="66" y="282" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" font-weight="700" letter-spacing="0.04em">GUIDANCE–NAVIGATION–CONTROL CORE</text>
-<text x="66" y="300" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#A19E97">EKF state estimation · guidance modes · control loops · mixing &amp; actuation</text>
-<rect x="48" y="324" width="904" height="58" fill="#090D14" stroke="#2B2B2B" stroke-width="1.2"/>
-<text x="66" y="350" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" font-weight="700" letter-spacing="0.04em">SENSOR DRIVERS &amp; I/O</text>
-<text x="66" y="368" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#A19E97">SPI · I²C · CAN-FD · UART · serial · PWM · ADS-B</text>
-<rect x="48" y="392" width="904" height="58" fill="#090D14" stroke="#2B2B2B" stroke-width="1.2"/>
-<text x="66" y="418" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" font-weight="700" letter-spacing="0.04em">REAL-TIME EXECUTION &amp; TELEMETRY</text>
-<text x="66" y="436" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#A19E97">deterministic GNC schedule · onboard logging · datalink framing</text>
-<text x="48" y="478" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#7F7C76" font-weight="700" letter-spacing="0.12em">HARDWARE</text>
-<rect x="48" y="490" width="904" height="58" fill="#050505" stroke="#414141" stroke-width="1.2"/>
-<text x="66" y="516" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" font-weight="700" letter-spacing="0.04em">VERONTE AUTOPILOT 1x</text>
-<text x="66" y="534" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#A19E97">triple-IMU sensing · single, quadruple and DRx redundant configurations</text>
-<text x="48" y="592" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#7F7C76">The baseline is identical across the fleet; only the Apollyon configuration package changes.</text>
+<rect width="1000" height="620" fill="#FFFFFF"/>
+<text x="48" y="38" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#B32424" font-weight="700" letter-spacing="0.14em">APOLLYON-AUTHORED LAYER OVER A PROPRIETARY BASELINE</text>
+<text x="952" y="38" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#303234" text-anchor="end" letter-spacing="0.08em">ONE CONFIGURATION SET PER PLATFORM</text>
+<line x1="48" y1="50" x2="952" y2="50" stroke="#C8CCD1" stroke-width="1"/>
+<text x="48" y="78" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#B32424" font-weight="700" letter-spacing="0.12em">APOLLYON-AUTHORED — CONFIGURATION PACKAGES</text>
+<rect x="48" y="90" width="904" height="58" fill="#FEE7E6" stroke="#D73333" stroke-width="1.4"/>
+<text x="66" y="116" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#000000" font-weight="700" letter-spacing="0.04em">MISSION &amp; AUTONOMY</text>
+<text x="66" y="134" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#B32424">route &amp; terrain following · terminal-phase logic · abort and failsafe triggers</text>
+<rect x="48" y="158" width="904" height="58" fill="#FFF4F3" stroke="#D73333" stroke-width="1.2"/>
+<text x="66" y="184" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#000000" font-weight="700" letter-spacing="0.04em">CONTROL &amp; GUIDANCE LAWS</text>
+<text x="66" y="202" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#B32424">gain-scheduled loops · envelope limits · allocation matrices · per-airframe tuning sets</text>
+<text x="48" y="244" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#54595D" font-weight="700" letter-spacing="0.12em">VERONTE EMBENTION BASELINE — PRIMARY PROPRIETARY</text>
+<rect x="48" y="256" width="904" height="58" fill="#EAF3FF" stroke="#A2A9B1" stroke-width="1.2"/>
+<text x="66" y="282" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#000000" font-weight="700" letter-spacing="0.04em">GUIDANCE–NAVIGATION–CONTROL CORE</text>
+<text x="66" y="300" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#54595D">EKF state estimation · guidance modes · control loops · mixing &amp; actuation</text>
+<rect x="48" y="324" width="904" height="58" fill="#EAF3FF" stroke="#C8CCD1" stroke-width="1.2"/>
+<text x="66" y="350" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#000000" font-weight="700" letter-spacing="0.04em">SENSOR DRIVERS &amp; I/O</text>
+<text x="66" y="368" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#54595D">SPI · I²C · CAN-FD · UART · serial · PWM · ADS-B</text>
+<rect x="48" y="392" width="904" height="58" fill="#EAF3FF" stroke="#C8CCD1" stroke-width="1.2"/>
+<text x="66" y="418" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#000000" font-weight="700" letter-spacing="0.04em">REAL-TIME EXECUTION &amp; TELEMETRY</text>
+<text x="66" y="436" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#54595D">deterministic GNC schedule · onboard logging · datalink framing</text>
+<text x="48" y="478" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#72777D" font-weight="700" letter-spacing="0.12em">HARDWARE</text>
+<rect x="48" y="490" width="904" height="58" fill="#FFFFFF" stroke="#A2A9B1" stroke-width="1.2"/>
+<text x="66" y="516" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#000000" font-weight="700" letter-spacing="0.04em">VERONTE AUTOPILOT 1x</text>
+<text x="66" y="534" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#54595D">triple-IMU sensing · single, quadruple and DRx redundant configurations</text>
+<text x="48" y="592" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#72777D">The baseline is identical across the fleet; only the Apollyon configuration package changes.</text>
 </svg>
     </div>
     <div class="blueprint-cap"><b>Fig. 01</b> The proprietary baseline carries the flight-critical functions; Apollyon owns the configuration layer above it. New airframes change the package, not the core.</div>
@@ -163,7 +366,7 @@
 
 <section id="toolchain">
   <div class="sec-tag">02 · Toolchain</div>
-  <h2>Authored, executed, operated, verified</h2>
+  <h2>Software lifecycle and verification</h2>
   <p class="lede">The toolchain follows four stages around a single configuration package. The exact configuration authored on the bench is what flies in the airframe and what undergoes hardware-in-the-loop simulation, avoiding translation errors between engineering and flight.</p>
 
   <div class="tw">
@@ -183,50 +386,50 @@
     <div class="blueprint-head"><span class="title">Fig. 02</span><span class="scale">author · execute · operate · verify</span></div>
     <div class="blueprint-body">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" role="img" aria-label="Flight-control toolchain: authoring in 1x PDI Builder, execution on the Veronte Autopilot 1x, operation in Veronte Ops and verification in the HIL Simulator">
-<rect width="1000" height="540" fill="#050505"/>
+<rect width="1000" height="540" fill="#FFFFFF"/>
 <defs>
-<marker id="fsm-ink" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#C7C4BD"/></marker>
-<marker id="fsm-red" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#F04B4B"/></marker>
+<marker id="fsm-ink" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#303234"/></marker>
+<marker id="fsm-red" viewBox="0 0 8 8" refX="6.4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0.6 L7.4,4 L0,7.4 z" fill="#B32424"/></marker>
 </defs>
-<text x="48" y="38" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#F04B4B" font-weight="700" letter-spacing="0.14em">THE FLIGHT-CONTROL TOOLCHAIN</text>
-<text x="952" y="38" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#C7C4BD" text-anchor="end" letter-spacing="0.08em">ONE CONFIGURATION · FOUR STAGES</text>
-<line x1="48" y1="50" x2="952" y2="50" stroke="#2B2B2B" stroke-width="1"/>
+<text x="48" y="38" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#B32424" font-weight="700" letter-spacing="0.14em">THE FLIGHT-CONTROL TOOLCHAIN</text>
+<text x="952" y="38" font-family="JetBrains Mono, ui-monospace, monospace" font-size="9" fill="#303234" text-anchor="end" letter-spacing="0.08em">ONE CONFIGURATION · FOUR STAGES</text>
+<line x1="48" y1="50" x2="952" y2="50" stroke="#C8CCD1" stroke-width="1"/>
 
-<rect x="380" y="200" width="240" height="108" fill="#3A1212" stroke="#D92323" stroke-width="1.6"/>
-<text x="500" y="236" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12" fill="#FFFFFF" text-anchor="middle" font-weight="700" letter-spacing="0.04em">VERONTE AUTOPILOT 1x</text>
-<text x="500" y="258" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#E8B4B4" text-anchor="middle">flight-critical execution</text>
-<text x="500" y="278" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#E8B4B4" text-anchor="middle">GNC · estimation · control · actuation</text>
+<rect x="380" y="200" width="240" height="108" fill="#FEE7E6" stroke="#D73333" stroke-width="1.6"/>
+<text x="500" y="236" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12" fill="#000000" text-anchor="middle" font-weight="700" letter-spacing="0.04em">VERONTE AUTOPILOT 1x</text>
+<text x="500" y="258" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#B32424" text-anchor="middle">flight-critical execution</text>
+<text x="500" y="278" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#B32424" text-anchor="middle">GNC · estimation · control · actuation</text>
 
-<rect x="60" y="92" width="252" height="88" fill="#0B1119" stroke="#414141" stroke-width="1.1"/>
-<text x="186" y="122" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" text-anchor="middle" font-weight="700">1x PDI BUILDER</text>
-<text x="186" y="142" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#A19E97" text-anchor="middle">authoring</text>
-<text x="186" y="160" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#7F7C76" text-anchor="middle">control laws · guidance · envelopes · safety</text>
-<path d="M312,150 C356,150 352,232 378,240" fill="none" stroke="#F04B4B" stroke-width="1.5" marker-end="url(#fsm-red)"/>
-<text x="322" y="196" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#F04B4B">upload</text>
+<rect x="60" y="92" width="252" height="88" fill="#EAF3FF" stroke="#A2A9B1" stroke-width="1.1"/>
+<text x="186" y="122" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#000000" text-anchor="middle" font-weight="700">1x PDI BUILDER</text>
+<text x="186" y="142" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#54595D" text-anchor="middle">authoring</text>
+<text x="186" y="160" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#72777D" text-anchor="middle">control laws · guidance · envelopes · safety</text>
+<path d="M312,150 C356,150 352,232 378,240" fill="none" stroke="#B32424" stroke-width="1.5" marker-end="url(#fsm-red)"/>
+<text x="322" y="196" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#B32424">upload</text>
 
-<rect x="60" y="326" width="252" height="88" fill="#0B1119" stroke="#414141" stroke-width="1.1"/>
-<text x="186" y="356" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" text-anchor="middle" font-weight="700">HIL SIMULATOR</text>
-<text x="186" y="376" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#A19E97" text-anchor="middle">verification</text>
-<text x="186" y="394" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#7F7C76" text-anchor="middle">X-Plane · MSFS · Simulink</text>
-<path d="M314,346 C354,336 350,300 378,292" fill="none" stroke="#C7C4BD" stroke-width="1.3" marker-end="url(#fsm-ink)"/>
-<path d="M378,270 C350,262 354,346 314,356" fill="none" stroke="#C7C4BD" stroke-width="1.3" marker-end="url(#fsm-ink)"/>
-<text x="322" y="316" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#A19E97">fly</text>
+<rect x="60" y="326" width="252" height="88" fill="#EAF3FF" stroke="#A2A9B1" stroke-width="1.1"/>
+<text x="186" y="356" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#000000" text-anchor="middle" font-weight="700">HIL SIMULATOR</text>
+<text x="186" y="376" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#54595D" text-anchor="middle">verification</text>
+<text x="186" y="394" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#72777D" text-anchor="middle">X-Plane · MSFS · Simulink</text>
+<path d="M314,346 C354,336 350,300 378,292" fill="none" stroke="#303234" stroke-width="1.3" marker-end="url(#fsm-ink)"/>
+<path d="M378,270 C350,262 354,346 314,356" fill="none" stroke="#303234" stroke-width="1.3" marker-end="url(#fsm-ink)"/>
+<text x="322" y="316" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#54595D">fly</text>
 
-<rect x="690" y="200" width="250" height="108" fill="#090D14" stroke="#414141" stroke-width="1.1"/>
-<text x="815" y="230" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#FFFFFF" text-anchor="middle" font-weight="700">VERONTE OPS</text>
-<text x="815" y="250" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#A19E97" text-anchor="middle">operations</text>
-<text x="815" y="270" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#7F7C76" text-anchor="middle">mission · telemetry · FTS · alerts</text>
-<path d="M688,236 H622" fill="none" stroke="#F04B4B" stroke-width="1.4" marker-end="url(#fsm-red)"/>
-<path d="M620,268 H690" fill="none" stroke="#C7C4BD" stroke-width="1.3" marker-end="url(#fsm-ink)"/>
-<text x="655" y="226" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#F04B4B" text-anchor="middle">command</text>
-<text x="655" y="288" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#A19E97" text-anchor="middle">state</text>
+<rect x="690" y="200" width="250" height="108" fill="#EAF3FF" stroke="#A2A9B1" stroke-width="1.1"/>
+<text x="815" y="230" font-family="JetBrains Mono, ui-monospace, monospace" font-size="11.5" fill="#000000" text-anchor="middle" font-weight="700">VERONTE OPS</text>
+<text x="815" y="250" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#54595D" text-anchor="middle">operations</text>
+<text x="815" y="270" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#72777D" text-anchor="middle">mission · telemetry · FTS · alerts</text>
+<path d="M688,236 H622" fill="none" stroke="#B32424" stroke-width="1.4" marker-end="url(#fsm-red)"/>
+<path d="M620,268 H690" fill="none" stroke="#303234" stroke-width="1.3" marker-end="url(#fsm-ink)"/>
+<text x="655" y="226" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#B32424" text-anchor="middle">command</text>
+<text x="655" y="288" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#54595D" text-anchor="middle">state</text>
 
-<rect x="380" y="424" width="240" height="56" fill="#090D14" stroke="#2B2B2B" stroke-width="1.1"/>
-<text x="500" y="448" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="700">VERONTE LINK</text>
-<text x="500" y="466" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#A19E97" text-anchor="middle">PC ↔ autopilot transport</text>
-<path d="M500,424 V308" fill="none" stroke="#414141" stroke-width="1.3" marker-end="url(#fsm-ink)"/>
+<rect x="380" y="424" width="240" height="56" fill="#EAF3FF" stroke="#C8CCD1" stroke-width="1.1"/>
+<text x="500" y="448" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#000000" text-anchor="middle" font-weight="700">VERONTE LINK</text>
+<text x="500" y="466" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.4" fill="#54595D" text-anchor="middle">PC ↔ autopilot transport</text>
+<path d="M500,424 V308" fill="none" stroke="#A2A9B1" stroke-width="1.3" marker-end="url(#fsm-ink)"/>
 
-<text x="48" y="516" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#7F7C76">HIL flies the production autopilot, not a model—bench results transfer to the airframe.</text>
+<text x="48" y="516" font-family="JetBrains Mono, ui-monospace, monospace" font-size="8.6" fill="#72777D">HIL flies the production autopilot, not a model—bench results transfer to the airframe.</text>
 </svg>
     </div>
     <div class="blueprint-cap"><b>Fig. 02</b> The configuration authored in 1x PDI Builder is uploaded to the autopilot, operated through Veronte Ops, and verified on the HIL bench against a simulated vehicle.</div>
@@ -327,30 +530,76 @@
   </div>
   <p>Interfaces with: <a href="near-envelope-control.html">Robust flight control</a>, <a href="onboard-compute.html">Edge compute</a>, <a href="gnss-denied-navigation.html">GNSS-denied navigation</a>.</p>
 </section>
+<!-- article:end -->
 
-<nav class="pager" aria-label="Reading order">
-  <a class="prev" href="../subsystems/onboard-compute.html"><span class="k">&larr; Previous &middot; Architecture</span><span class="t">Edge compute</span></a>
-  <a class="next" href="../subsystems/seekers.html"><span class="k">Next &middot; Architecture &rarr;</span><span class="t">Seekers</span></a>
-</nav>
-<footer>
-  <div>Apollyon Dynamics &middot; Neo-Prime Wiki &middot; Rev 3.0</div>
-  <div><a href="../doctrine/new-arsenal.html">The New Arsenal</a> &middot; <a href="../about/history.html">Company</a> &middot; <a href="../strategy/competitive.html">Competitive field</a> &middot; apollyondynamics.com</div>
-</footer>
-
+<table class="wikitable succession-box noprint" role="presentation">
+<tbody>
+<tr><th colspan="3" class="succession-header">Apollyon Wiki reading order</th></tr>
+<tr>
+<td class="succession-before"><span class="succession-label">Preceded&nbsp;by</span><br><a href="../subsystems/onboard-compute.html">Edge compute</a><br><small>Architecture</small></td>
+<td class="succession-title"><b>Flight software</b><br>Architecture &middot; 10 of 24</td>
+<td class="succession-after"><span class="succession-label">Succeeded&nbsp;by</span><br><a href="../subsystems/seekers.html">Seekers</a><br><small>Architecture</small></td>
+</tr>
+</tbody>
+</table>
+<div role="navigation" class="navbox" aria-labelledby="Apollyon_Wiki_navbox">
+<table class="nowraplinks mw-collapsible navbox-inner">
+<tbody>
+<tr><th scope="col" class="navbox-title" colspan="2"><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="../special/contents.html"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="../special/recent-changes.html"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a href="../special/contents.html"><abbr title="Edit this template">e</abbr></a></li></ul></div><div id="Apollyon_Wiki_navbox"><a href="../index.html">Apollyon Dynamics</a></div></th></tr>
+<tr><th scope="row" class="navbox-group">Overview</th><td class="navbox-list-with-group navbox-list navbox-odd hlist"><div><ul><li><a href="../index.html">The argument</a></li></ul></div></td></tr>
+<tr><th scope="row" class="navbox-group">Products</th><td class="navbox-list-with-group navbox-list navbox-even hlist"><div><ul><li><a href="../products/nightshade-adx1.html">Nightshade family</a></li><li><a href="../products/hemlock.html">Hemlock</a></li><li><a href="../products/ahuti.html">Ahuti interceptor</a></li><li><a href="../products/usv-strike.html">Piranha USV</a></li></ul></div></td></tr>
+<tr><th scope="row" class="navbox-group">Architecture</th><td class="navbox-list-with-group navbox-list navbox-odd hlist"><div><ul><li><a href="../architecture/index.html">The shared core</a></li><li><a href="../subsystems/near-envelope-control.html">Robust flight control</a></li><li><a href="../subsystems/gnss-denied-navigation.html">GNSS-denied navigation</a></li><li><a href="../subsystems/onboard-compute.html">Edge compute</a></li><li><a class="mw-selflink selflink">Flight software</a></li><li><a href="../subsystems/seekers.html">Seekers</a></li><li><a href="../subsystems/airframe-structures.html">Airframe &amp; structures</a></li><li><a href="../subsystems/launch-systems.html">Launch &amp; ground systems</a></li></ul></div></td></tr>
+<tr><th scope="row" class="navbox-group">Strategy</th><td class="navbox-list-with-group navbox-list navbox-even hlist"><div><ul><li><a href="../strategy/trajectory.html">Trajectory &amp; cost per kg&middot;km</a></li><li><a href="../strategy/market.html">The market</a></li><li><a href="../strategy/competitive.html">The competitive field</a></li><li><a href="../strategy/supply-chain.html">Supply chain</a></li></ul></div></td></tr>
+<tr><th scope="row" class="navbox-group">Doctrine</th><td class="navbox-list-with-group navbox-list navbox-odd hlist"><div><ul><li><a href="../doctrine/new-arsenal.html">The New Arsenal</a></li><li><a href="../doctrine/precision-is-mercy.html">Precision is Mercy</a></li><li><a href="../doctrine/missing-middle.html">The Missing Middle</a></li><li><a href="../doctrine/strike-design-space.html">Strike design space</a></li></ul></div></td></tr>
+<tr><th scope="row" class="navbox-group">Record</th><td class="navbox-list-with-group navbox-list navbox-even hlist"><div><ul><li><a href="../about/history.html">Company history</a></li><li><a href="../about/team.html">Team &amp; advisors</a></li><li><a href="../strategic-dependency/full-record.html">The full record &middot; 70 episodes</a></li></ul></div></td></tr>
+<tr><td class="navbox-abovebelow" colspan="2"><div><span class="nowrap"><span class="vector-icon mw-ui-icon-article mw-ui-icon-wikimedia-article"></span> <a href="../special/contents.html">Contents</a></span> &middot; <span class="nowrap"><a href="../special/recent-changes.html">Recent changes</a></span> &middot; <span class="nowrap"><a href="../special/random.html">Random article</a></span></div></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="flight-software.html">subsystems/flight-software.html</a>"</div>
+</div>
+<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="../special/contents.html" title="Contents">Category</a>: <ul><li><a href="../special/contents.html#Architecture" title="Category:Architecture">Architecture</a></li></ul></div></div>
+</div>
 </main>
-<nav class="toc" aria-label="On this page">
-  <h4>On this page</h4>
-  <ul>
-    <li><a href="#baseline">A proprietary baseline</a></li>
-    <li><a href="#toolchain">The toolchain</a></li>
-    <li><a href="#authored">What Apollyon authors</a></li>
-    <li><a href="#verification">HIL verification</a></li>
-    <li><a href="#governance">Configuration governance</a></li>
-    <li><a href="#roadmap">Veronte now, in-house next</a></li>
-    <li><a href="#usedby">Used by</a></li>
-  </ul>
-  <a class="toc-top" href="#top">Back to top &uarr;</a>
-</nav>
+</div>
+<div class="mw-footer-container">
+<footer id="footer" class="mw-footer">
+<ul id="footer-info">
+<li id="footer-info-lastmod"></li>
+<li id="footer-info-copyright">Published by Apollyon Dynamics for investors, evaluators and due-diligence readers. Prices are selling prices; figures marked <i>estimate</i> or <i>claim</i> are not measured results. Rev 3.0.</li>
+</ul>
+<ul id="footer-places">
+<li id="footer-places-about"><a href="../about/history.html">About Apollyon Dynamics</a></li>
+<li id="footer-places-contact"><a href="../about/history.html#contact">Contact Apollyon Dynamics</a></li>
+<li id="footer-places-contents"><a href="../special/contents.html">Contents</a></li>
+<li id="footer-places-recentchanges"><a href="../special/recent-changes.html">Recent changes</a></li>
+</ul>
+<ul id="footer-icons" class="noprint">
+<li id="footer-copyrightico"><a href="https://apollyondynamics.com" class="cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled"><img src="../assets/logos/logo-ad-white.png" width="44" height="13" alt="" loading="lazy"><span>Apollyon Dynamics</span></a></li>
+<li id="footer-poweredbyico"><a href="../special/contents.html" class="cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled"><span class="mw-powered">Powered by<br><b>site_shell.py</b></span></a></li>
+</ul>
+</footer>
+</div>
+</div>
+</div>
+<div class="vector-header-container vector-sticky-header-container">
+<div id="vector-sticky-header" class="vector-sticky-header">
+<div class="vector-sticky-header-start">
+<div class="vector-sticky-header-context-bar">
+<nav aria-label="Contents" class="vector-toc-landmark"><div id="vector-sticky-header-toc" class="vector-dropdown vector-sticky-header-toc vector-button-flush-left">
+  <input type="checkbox" id="vector-sticky-header-toc-checkbox" role="button" aria-haspopup="true" class="vector-dropdown-checkbox" aria-label="Toggle the table of contents">
+  <label id="vector-sticky-header-toc-label" for="vector-sticky-header-toc-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--weight-quiet cdx-button--icon-only" aria-hidden="true"><span class="vector-icon mw-ui-icon-listBullet mw-ui-icon-wikimedia-listBullet"></span><span class="vector-dropdown-label-text">Toggle the table of contents</span></label>
+  <div class="vector-dropdown-content">
+<div id="vector-sticky-header-toc-unpinned-container" class="vector-unpinned-container"></div>
+  </div>
+</div></nav>
+<div class="vector-sticky-header-context-bar-primary" aria-hidden="true"><span class="mw-page-title-main">Flight software, <span class="sub">on a proprietary baseline</span></span></div>
+</div>
+</div>
+<div class="vector-sticky-header-end" aria-hidden="true">
+<div class="vector-sticky-header-icons"><a href="?action=talk" class="cdx-button cdx-button--fake-button cdx-button--weight-quiet cdx-button--icon-only" title="Talk" tabindex="-1"><span class="vector-icon mw-ui-icon-speechBubbles mw-ui-icon-wikimedia-speechBubbles"></span><span>Talk</span></a><a href="?action=history" class="cdx-button cdx-button--fake-button cdx-button--weight-quiet cdx-button--icon-only" title="View history" tabindex="-1"><span class="vector-icon mw-ui-icon-history mw-ui-icon-wikimedia-history"></span><span>View history</span></a><a href="?action=edit" class="cdx-button cdx-button--fake-button cdx-button--weight-quiet cdx-button--icon-only" title="View source" tabindex="-1"><span class="vector-icon mw-ui-icon-wikiText mw-ui-icon-wikimedia-wikiText"></span><span>View source</span></a></div>
+</div>
 </div>
 </div>
 </body>

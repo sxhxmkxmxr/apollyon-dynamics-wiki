@@ -2,8 +2,9 @@
 """
 gen_visuals.py — every chart and diagram on the Apollyon wiki.
 
-Design language: black ground, bone ink, one signal red, hairline rules,
-mono labels. No gradients, no shadows, no rounded corners.
+Design language: Wikimedia Commons diagrams — white ground, near-black ink,
+Wikimedia greys (#EAECF0 / #C8CCD1 / #A2A9B1), one red accent, hairline rules,
+mono labels. No gradients, no shadows. The wiki inverts them for dark mode.
 
 Text is budgeted: every label is fitted to the space it sits in, and
 multi-line prose is wrapped, so nothing overruns a box or collides.
@@ -19,17 +20,17 @@ import os
 WIKI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(WIKI, "assets")
 
-BG = "#050505"
-INK = "#F2EFE9"
-INK2 = "#C7C4BD"
-INK3 = "#A19E97"
-INK4 = "#7F7C76"
-LINE = "#1D1D1D"
-LINE2 = "#2B2B2B"
-LINE3 = "#414141"
-RED = "#D92323"
-RED2 = "#F04B4B"
-RED_W = "#3A1212"
+BG = "#FFFFFF"
+INK = "#000000"
+INK2 = "#303234"
+INK3 = "#54595D"
+INK4 = "#72777D"
+LINE = "#EAECF0"
+LINE2 = "#C8CCD1"
+LINE3 = "#A2A9B1"
+RED = "#D73333"
+RED2 = "#B32424"
+RED_W = "#FEE7E6"
 
 MONO = "JetBrains Mono, ui-monospace, monospace"
 SANS = "Inter, Helvetica Neue, sans-serif"
@@ -258,37 +259,37 @@ def cost_curve():
     for gv in [20, 30, 40, 50, 60, 70, 80, 90, 200, 300, 400, 500, 600, 700, 800, 900, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000]:
         y = Y(gv)
         if gv in (50, 500, 5000):
-            o.append(line(L, y, R, y, "#1D1D1D", 0.8, "3,4"))
-        o.append(line(L - 4, y, L, y, "#2B2B2B", 0.8))
+            o.append(line(L, y, R, y, "#EAECF0", 0.8, "3,4"))
+        o.append(line(L - 4, y, L, y, "#C8CCD1", 0.8))
 
     # Major horizontal gridlines and Y tick labels
     for gv, lbl in [(10, "₹10"), (100, "₹100"), (1000, "₹1,000"), (10000, "₹10,000")]:
         y = Y(gv)
-        o.append(line(L, y, R, y, "#232323", 1))
-        o.append(line(L - 7, y, L, y, "#414141", 1.2))
-        o.append(txt(L - 12, y + 4, lbl, 10.5, "#C7C4BD", MONO, anchor="end", weight=600))
+        o.append(line(L, y, R, y, "#DADDE3", 1))
+        o.append(line(L - 7, y, L, y, "#A2A9B1", 1.2))
+        o.append(txt(L - 12, y + 4, lbl, 10.5, "#303234", MONO, anchor="end", weight=600))
 
     # Minor X ticks
     for gv in [200, 400, 600, 700, 800, 1200, 1800]:
         x = X(gv)
-        o.append(line(x, B, x, B + 4, "#2B2B2B", 0.8))
+        o.append(line(x, B, x, B + 4, "#C8CCD1", 0.8))
 
     # Major vertical gridlines and X tick labels
     for gv, lbl in [(150, "150"), (300, "300"), (500, "500"), (1000, "1,000"), (1500, "1,500"), (2000, "2,000")]:
         x = X(gv)
-        o.append(line(x, T, x, B, "#141414", 1))
-        o.append(line(x, B, x, B + 6, "#414141", 1.2))
-        o.append(txt(x, B + 22, lbl, 10.5, "#C7C4BD", MONO, anchor="middle", weight=600))
+        o.append(line(x, T, x, B, "#F8F9FA", 1))
+        o.append(line(x, B, x, B + 6, "#A2A9B1", 1.2))
+        o.append(txt(x, B + 22, lbl, 10.5, "#303234", MONO, anchor="middle", weight=600))
 
     # Axis spines
-    o.append(line(L, B, R, B, "#414141", 1.2))
-    o.append(line(L, T, L, B, "#414141", 1.2))
+    o.append(line(L, B, R, B, "#A2A9B1", 1.2))
+    o.append(line(L, T, L, B, "#A2A9B1", 1.2))
 
     # Header directives
-    o.append(txt(L, 44, "LOWER IS BETTER ↓", 10.5, "#F04B4B", MONO, weight=700, ls="0.08em"))
-    o.append(txt(L + 155, 44, "·   UNIT COST ÷ (PAYLOAD × RANGE)", 10, "#A19E97", MONO, ls="0.08em"))
-    o.append(txt((L + R) / 2, B + 48, "OPERATIONAL RANGE, KM (LOG SCALE)", 9.5, "#A19E97", MONO, anchor="middle", ls="0.12em", weight=600))
-    o.append(txt(L - 12, T - 16, "COST PER KG·KM (INR)", 9.5, "#A19E97", MONO, ls="0.12em", weight=600))
+    o.append(txt(L, 44, "LOWER IS BETTER ↓", 10.5, "#B32424", MONO, weight=700, ls="0.08em"))
+    o.append(txt(L + 155, 44, "·   UNIT COST ÷ (PAYLOAD × RANGE)", 10, "#54595D", MONO, ls="0.08em"))
+    o.append(txt((L + R) / 2, B + 48, "OPERATIONAL RANGE, KM (LOG SCALE)", 9.5, "#54595D", MONO, anchor="middle", ls="0.12em", weight=600))
+    o.append(txt(L - 12, T - 16, "COST PER KG·KM (INR)", 9.5, "#54595D", MONO, ls="0.12em", weight=600))
 
     # Comparators in service
     comps = [
@@ -299,14 +300,14 @@ def cost_curve():
     ]
     c_pts = [(X(r), Y(c)) for _, r, c in comps]
     pts_str = " ".join(f"{x:.1f},{y:.1f}" for x, y in c_pts)
-    o.append(f'<polyline points="{pts_str}" fill="none" stroke="#414141" stroke-width="1.8" stroke-dasharray="6,4" stroke-linecap="round" stroke-linejoin="round"/>')
+    o.append(f'<polyline points="{pts_str}" fill="none" stroke="#A2A9B1" stroke-width="1.8" stroke-dasharray="6,4" stroke-linecap="round" stroke-linejoin="round"/>')
 
     for name, r, c in comps:
         x, y = X(r), Y(c)
-        o.append(line(x, y - 8, x, y - 5.5, "#414141", 1))
-        o.append(txt(x, y - 24, name, 11.5, "#C7C4BD", MONO, anchor="middle", weight=600))
-        o.append(txt(x, y - 11, f"₹{c:,}", 10.5, "#A19E97", MONO, anchor="middle"))
-        o.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="5.5" fill="{BG}" stroke="#A19E97" stroke-width="2"/>')
+        o.append(line(x, y - 8, x, y - 5.5, "#A2A9B1", 1))
+        o.append(txt(x, y - 24, name, 11.5, "#303234", MONO, anchor="middle", weight=600))
+        o.append(txt(x, y - 11, f"₹{c:,}", 10.5, "#54595D", MONO, anchor="middle"))
+        o.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="5.5" fill="{BG}" stroke="#54595D" stroke-width="2"/>')
 
     # Apollyon long-range strike family
     fam = [
@@ -315,35 +316,35 @@ def cost_curve():
     ]
     f_pts = [(X(r), Y(c)) for _, r, c in fam]
     pts_str = " ".join(f"{x:.1f},{y:.1f}" for x, y in f_pts)
-    o.append(f'<polyline points="{pts_str}" fill="none" stroke="rgba(255, 59, 48, 0.22)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>')
-    o.append(f'<polyline points="{pts_str}" fill="none" stroke="#ff3b30" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>')
+    o.append(f'<polyline points="{pts_str}" fill="none" stroke="rgba(215,51,51, 0.22)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>')
+    o.append(f'<polyline points="{pts_str}" fill="none" stroke="#D73333" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>')
 
     # Mk II: left
     x2, y2 = X(300), Y(3333)
-    o.append(line(x2 - 13.4, y2, x2 - 5.8, y2, "#f87171", 1))
-    o.append(txt(x2 - 16.4, y2 - 5, "Nightshade Mk II", 12, "#ffffff", MONO, anchor="end", weight=700))
-    o.append(txt(x2 - 16.4, y2 + 10, "₹3,333 / kg·km", 10.5, "#fca5a5", MONO, anchor="end", weight=500))
-    o.append(f'<circle cx="{x2:.1f}" cy="{y2:.1f}" r="{5.8}" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/>')
+    o.append(line(x2 - 13.4, y2, x2 - 5.8, y2, "#D73333", 1))
+    o.append(txt(x2 - 16.4, y2 - 5, "Nightshade Mk II", 12, "#000000", MONO, anchor="end", weight=700))
+    o.append(txt(x2 - 16.4, y2 + 10, "₹3,333 / kg·km", 10.5, "#B32424", MONO, anchor="end", weight=500))
+    o.append(f'<circle cx="{x2:.1f}" cy="{y2:.1f}" r="{5.8}" fill="#D73333" stroke="#FFFFFF" stroke-width="1.6"/>')
 
     # Hemlock: left
     xh2, yh2 = X(1500), Y(59)
-    o.append(line(814, 365.9, 820.9, 365.9, "#f87171", 1))
-    o.append(txt(810, 369, "Hemlock", 12, "#ffffff", MONO, anchor="end", weight=700))
-    o.append(txt(810, 384, "₹59 / kg·km", 10.5, "#fca5a5", MONO, anchor="end", weight=500))
-    o.append(txt(810, 401, "about 8× below Tomahawk", 11, "#ff453a", MONO, anchor="end", weight=700))
-    o.append(f'<circle cx="{xh2:.1f}" cy="{yh2:.1f}" r="{5.8}" fill="#ff3b30" stroke="#ffffff" stroke-width="1.6"/>')
+    o.append(line(814, 365.9, 820.9, 365.9, "#D73333", 1))
+    o.append(txt(810, 369, "Hemlock", 12, "#000000", MONO, anchor="end", weight=700))
+    o.append(txt(810, 384, "₹59 / kg·km", 10.5, "#B32424", MONO, anchor="end", weight=500))
+    o.append(txt(810, 401, "about 8× below Tomahawk", 11, "#D73333", MONO, anchor="end", weight=700))
+    o.append(f'<circle cx="{xh2:.1f}" cy="{yh2:.1f}" r="{5.8}" fill="#D73333" stroke="#FFFFFF" stroke-width="1.6"/>')
 
     # Legend
-    o.append(line(694, 44, 718, 44, "#414141", 1.8, "4,3"))
-    o.append(f'<circle cx="706" cy="44" r="5" fill="{BG}" stroke="#A19E97" stroke-width="1.8"/>')
-    o.append(txt(726, 47.5, "IN SERVICE", 9.5, "#C7C4BD", MONO, weight=600))
+    o.append(line(694, 44, 718, 44, "#A2A9B1", 1.8, "4,3"))
+    o.append(f'<circle cx="706" cy="44" r="5" fill="{BG}" stroke="#54595D" stroke-width="1.8"/>')
+    o.append(txt(726, 47.5, "IN SERVICE", 9.5, "#303234", MONO, weight=600))
 
-    o.append(line(816, 44, 840, 44, "#ff3b30", 2.5))
-    o.append('<circle cx="828" cy="44" r="5.2" fill="#ff3b30" stroke="#ffffff" stroke-width="1.4"/>')
-    o.append(txt(848, 47.5, "APOLLYON", 9.5, "#ffffff", MONO, weight=700))
+    o.append(line(816, 44, 840, 44, "#D73333", 2.5))
+    o.append('<circle cx="828" cy="44" r="5.2" fill="#D73333" stroke="#FFFFFF" stroke-width="1.4"/>')
+    o.append(txt(848, 47.5, "APOLLYON", 9.5, "#000000", MONO, weight=700))
 
     # Footnote
-    o.append(txt(L, 524, "USD 1 = INR 95 · Comparator prices from public sources · Berkut-BM unit cost estimated", 9.5, "#414141", MONO))
+    o.append(txt(L, 524, "USD 1 = INR 95 · Comparator prices from public sources · Berkut-BM unit cost estimated", 9.5, "#A2A9B1", MONO))
     o.append("</svg>")
     return "".join(o)
 
@@ -384,26 +385,26 @@ def strike_family():
 
     for i, ((name, env, role_lines, spec_pld, spec_spd), (x, y)) in enumerate(zip(fam, pts)):
         o.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="6" fill="{RED}" stroke="#FFFFFF" stroke-width="1.6"/>')
-        o.append(txt(x, y - 14, f"{env:,}", 15, "#FFFFFF", MONO, anchor="middle", weight=800))
-        o.append(txt(x, 54, name, 12, "#FFFFFF", MONO, anchor="middle", weight=700, ls="0.06em"))
+        o.append(txt(x, y - 14, f"{env:,}", 15, "#000000", MONO, anchor="middle", weight=800))
+        o.append(txt(x, 54, name, 12, "#000000", MONO, anchor="middle", weight=700, ls="0.06em"))
 
         if i < len(fam) - 1:
             sep_x = (x + pts[i+1][0]) / 2
-            o.append(line(sep_x, B + 10, sep_x, 505, stroke="#1C1C1C", sw=1, dash="3,3"))
+            o.append(line(sep_x, B + 10, sep_x, 505, stroke="#DADDE3", sw=1, dash="3,3"))
 
         yr = years[i]
         if i == 0:
             o.append(f'<rect x="{x - 54:.1f}" y="{B + 16}" width="108" height="24" fill="{RED}" rx="3"/>')
             o.append(txt(x, B + 33, yr, 11.5, "#FFFFFF", MONO, anchor="middle", weight=800, ls="0.08em"))
         else:
-            o.append(f'<rect x="{x - 46:.1f}" y="{B + 16}" width="92" height="24" fill="#161616" stroke="#333333" rx="3"/>')
-            o.append(txt(x, B + 33, yr, 11.5, "#FFFFFF", MONO, anchor="middle", weight=700, ls="0.08em"))
+            o.append(f'<rect x="{x - 46:.1f}" y="{B + 16}" width="92" height="24" fill="#F8F9FA" stroke="#A2A9B1" rx="3"/>')
+            o.append(txt(x, B + 33, yr, 11.5, "#000000", MONO, anchor="middle", weight=700, ls="0.08em"))
 
         for r_idx, r_line in enumerate(role_lines):
-            o.append(txt(x, B + 64 + r_idx * 18, r_line, 14, "#FFFFFF", SANS, anchor="middle", weight=700))
+            o.append(txt(x, B + 64 + r_idx * 18, r_line, 14, "#000000", SANS, anchor="middle", weight=700))
 
         anchor = "end" if i == len(fam) - 1 else "middle"
-        o.append(txt(x, B + 116, spec_pld, 12.5, "#E2DFD8", MONO, anchor=anchor, weight=600))
+        o.append(txt(x, B + 116, spec_pld, 12.5, "#101418", MONO, anchor=anchor, weight=600))
         o.append(txt(x, B + 136, spec_spd, 12, INK3, MONO, anchor=anchor))
 
     o.append(line(L - 20, B + 155, R + 20, B + 155, LINE2))
@@ -483,19 +484,19 @@ def india_production():
             o.append(rect(cx - bw / 2, B - h, bw, h, stroke=RED2, fill=RED, sw=1.5))
             o.append(f'<rect x="{cx - 84:.1f}" y="70" width="168" height="34" fill="{RED}" rx="4"/>')
             o.append(txt(cx, 93, "▲ 4.1× GROWTH", 18, "#FFFFFF", MONO, anchor="middle", weight=800, ls="0.08em"))
-            o.append(txt(cx, 136, "₹1.78L Cr", 34, "#FFFFFF", MONO, anchor="middle", weight=800))
-            o.append(txt(cx, 412, yr, 19, "#FFFFFF", MONO, anchor="middle", weight=700))
+            o.append(txt(cx, 136, "₹1.78L Cr", 34, "#000000", MONO, anchor="middle", weight=800))
+            o.append(txt(cx, 412, yr, 19, "#000000", MONO, anchor="middle", weight=700))
         elif first:
-            o.append(rect(cx - bw / 2, B - h, bw, h, stroke="#666666", fill="#222222", sw=1.5))
-            o.append(f'<rect x="{cx - 65:.1f}" y="70" width="130" height="34" fill="#181818" stroke="#444444" stroke-width="1.2" rx="4"/>')
+            o.append(rect(cx - bw / 2, B - h, bw, h, stroke="#72777D", fill="#EAECF0", sw=1.5))
+            o.append(f'<rect x="{cx - 65:.1f}" y="70" width="130" height="34" fill="#F8F9FA" stroke="#A2A9B1" stroke-width="1.2" rx="4"/>')
             o.append(txt(cx, 92, "START · BASE", 15, INK3, MONO, anchor="middle", weight=700, ls="0.08em"))
-            o.append(txt(cx, 136, "₹85K Cr", 34, "#FFFFFF", MONO, anchor="middle", weight=800))
-            o.append(f'<line x1="{cx:.1f}" y1="148" x2="{cx:.1f}" y2="{B - h - 4:.1f}" stroke="#444444" stroke-width="1.2" stroke-dasharray="3,3"/>')
-            o.append(txt(cx, 412, yr, 19, "#FFFFFF", MONO, anchor="middle", weight=700))
+            o.append(txt(cx, 136, "₹85K Cr", 34, "#000000", MONO, anchor="middle", weight=800))
+            o.append(f'<line x1="{cx:.1f}" y1="148" x2="{cx:.1f}" y2="{B - h - 4:.1f}" stroke="#A2A9B1" stroke-width="1.2" stroke-dasharray="3,3"/>')
+            o.append(txt(cx, 412, yr, 19, "#000000", MONO, anchor="middle", weight=700))
         else:
-            o.append(rect(cx - bw / 2, B - h, bw, h, stroke="#2A2A2A", fill="#141414", sw=1))
-            o.append(txt(cx, B - h - 10, f"₹{v/1000:.0f}K", 12.5, "#666666", MONO, anchor="middle"))
-            o.append(txt(cx, 410, yr, 13, "#666666", MONO, anchor="middle"))
+            o.append(rect(cx - bw / 2, B - h, bw, h, stroke="#C8CCD1", fill="#F8F9FA", sw=1))
+            o.append(txt(cx, B - h - 10, f"₹{v/1000:.0f}K", 12.5, "#72777D", MONO, anchor="middle"))
+            o.append(txt(cx, 410, yr, 13, "#72777D", MONO, anchor="middle"))
 
     o.append(line(L - 10, B, R + 10, B, LINE2, sw=1.2))
     o.append(txt(L - 10, 458, "4.1× since FY14 (₹43,746 Cr) · FY26 total ₹1.78 lakh Cr", 16, INK2, MONO, weight=500))
@@ -527,20 +528,20 @@ def india_exports():
             o.append(rect(cx - bw / 2, B - h, bw, h, stroke=RED2, fill=RED, sw=1.5))
             o.append(f'<rect x="{cx - 84:.1f}" y="70" width="168" height="34" fill="{RED}" rx="4"/>')
             o.append(txt(cx, 93, "▲ 56× GROWTH", 18, "#FFFFFF", MONO, anchor="middle", weight=800, ls="0.08em"))
-            o.append(txt(cx, 136, "₹38,424 Cr", 34, "#FFFFFF", MONO, anchor="middle", weight=800))
-            o.append(txt(cx, 412, yr, 19, "#FFFFFF", MONO, anchor="middle", weight=700))
+            o.append(txt(cx, 136, "₹38,424 Cr", 34, "#000000", MONO, anchor="middle", weight=800))
+            o.append(txt(cx, 412, yr, 19, "#000000", MONO, anchor="middle", weight=700))
         elif first:
-            o.append(rect(cx - bw / 2, B - h, bw, h, stroke="#666666", fill="#222222", sw=1.5))
-            o.append(f'<rect x="{cx - 65:.1f}" y="70" width="130" height="34" fill="#181818" stroke="#444444" stroke-width="1.2" rx="4"/>')
+            o.append(rect(cx - bw / 2, B - h, bw, h, stroke="#72777D", fill="#EAECF0", sw=1.5))
+            o.append(f'<rect x="{cx - 65:.1f}" y="70" width="130" height="34" fill="#F8F9FA" stroke="#A2A9B1" stroke-width="1.2" rx="4"/>')
             o.append(txt(cx, 92, "START · BASE", 15, INK3, MONO, anchor="middle", weight=700, ls="0.08em"))
-            o.append(txt(cx, 136, "₹686 Cr", 34, "#FFFFFF", MONO, anchor="middle", weight=800))
-            o.append(f'<line x1="{cx:.1f}" y1="148" x2="{cx:.1f}" y2="{B - h - 4:.1f}" stroke="#444444" stroke-width="1.2" stroke-dasharray="3,3"/>')
-            o.append(txt(cx, 412, yr, 19, "#FFFFFF", MONO, anchor="middle", weight=700))
+            o.append(txt(cx, 136, "₹686 Cr", 34, "#000000", MONO, anchor="middle", weight=800))
+            o.append(f'<line x1="{cx:.1f}" y1="148" x2="{cx:.1f}" y2="{B - h - 4:.1f}" stroke="#A2A9B1" stroke-width="1.2" stroke-dasharray="3,3"/>')
+            o.append(txt(cx, 412, yr, 19, "#000000", MONO, anchor="middle", weight=700))
         else:
             label = f"₹{v:,}"
-            o.append(rect(cx - bw / 2, B - h, bw, h, stroke="#2A2A2A", fill="#141414", sw=1))
-            o.append(txt(cx, B - h - 10, label, 12, "#666666", MONO, anchor="middle"))
-            o.append(txt(cx, 410, yr, 13, "#666666", MONO, anchor="middle"))
+            o.append(rect(cx - bw / 2, B - h, bw, h, stroke="#C8CCD1", fill="#F8F9FA", sw=1))
+            o.append(txt(cx, B - h - 10, label, 12, "#72777D", MONO, anchor="middle"))
+            o.append(txt(cx, 410, yr, 13, "#72777D", MONO, anchor="middle"))
 
     o.append(line(L - 10, B, R + 10, B, LINE2, sw=1.2))
     o.append(txt(L - 10, 458, "56× since FY14 · ₹38,424 Cr in FY26 · private firms 45.16% of exports", 16, INK2, MONO, weight=500))
@@ -665,7 +666,7 @@ def arch_software():
         o.append(panel_box(314 + i * 160, 522, 150, 38, s, size=7.6))
     o.append(arrow(490, 392, 490, 488, ns, "ink"))
 
-    o.append(rect(50, 596, 900, 62, stroke=LINE3, fill="#0A0A0A"))
+    o.append(rect(50, 596, 900, 62, stroke=LINE3, fill="#F8F9FA"))
     o.append(txt(64, 618, "FOUNDATION", 9.5, RED2, MONO, weight=700, ls="0.13em"))
     for i, s in enumerate(["REAL-TIME RUNTIME · VENDOR BASELINE", "HAL + PER-PLATFORM CONFIG", "HIL / SIL VALIDATION BENCH"]):
         o.append(txt(210 + i * 246, 626, s, 9.3, INK3, MONO))
@@ -821,6 +822,7 @@ def salvo_curve():
     o.append(txt(L + 286, B + 78, "EXQUISITE FIRED FIRST", 9.5, INK3, MONO))
     o.append(txt(L, B + 108, "All-exquisite leaves most targets untouched; all-attritable clears the soft set and nothing hardened.", 10, INK4, MONO))
     o.append(txt(L, B + 126, "The mixture beats both corners, and the firing order is worth as much as the mixture.", 10, INK4, MONO))
+    o.append("</svg>")
     return "".join(o)
 
 
@@ -849,11 +851,11 @@ def eng_system():
 
     o.append(panel_box(40, 64, 650, 54, "ENGINEERING METHOD",
                        sub="PROVEN MODELS · TEST RIGS · QUALIFICATION EVIDENCE",
-                       stroke=RED, fill=RED_W, sw=1.4, tcol="#ffffff", scol="#C7C4BD", size=11, sub_size=8.0))
+                       stroke=RED, fill=RED_W, sw=1.4, tcol="#000000", scol="#303234", size=11, sub_size=8.0))
 
     o.append(panel_box(710, 64, 250, 54, "PER-PLATFORM DELTA",
                        sub="AIRFRAME · ENGINE · GUIDANCE · LAUNCH MODE",
-                       stroke=LINE2, fill="#090d14", sw=1.1, tcol=INK2, scol=INK3, size=10, sub_size=7.8))
+                       stroke=LINE2, fill="#EAF3FF", sw=1.1, tcol=INK2, scol=INK3, size=10, sub_size=7.8))
 
     o.append(line(40, 140, 960, 140, LINE3, 1.2))
     o.append(txt(48, 134, "POWER RAIL", 8.5, INK3, MONO, ls="0.12em", weight=600))
@@ -870,8 +872,8 @@ def eng_system():
         cx = x + 107.5
         o.append(line(cx, 140, cx, 156, LINE3, 1.1))
         stroke = RED if is_core else LINE2
-        fill = RED_W if is_core else "#090d14"
-        tcol = "#ffffff" if is_core else INK2
+        fill = RED_W if is_core else "#EAF3FF"
+        tcol = "#000000" if is_core else INK2
         o.append(panel_box(x, 156, 215, 56, name, stroke=stroke, fill=fill, sw=1.3 if is_core else 1.0, tcol=tcol, size=9.5))
         if i < 3:
             o.append(arrow(x + 215, 184, x + 235, 184, ns, "ink"))
@@ -890,13 +892,13 @@ def eng_system():
     # Left column: x = 56 to 524 (w = 468). Center = 290.
     o.append(panel_box(56, 306, 468, 46, "FLY AT THE EDGE",
                        sub="HIGH-RATE TELEMETRY · BUS METRICS · INERTIAL MEASUREMENTS",
-                       stroke=RED, fill=RED_W, sw=1.3, tcol="#ffffff", scol="#C7C4BD", size=10.5, sub_size=7.8))
+                       stroke=RED, fill=RED_W, sw=1.3, tcol="#000000", scol="#303234", size=10.5, sub_size=7.8))
 
     o.append(arrow(290, 352, 290, 370, ns, "ink"))
 
     o.append(panel_box(56, 370, 468, 42, "MISMATCH & PREDICTION",
                        sub="LOGS REPLAYED AGAINST THE TWIN",
-                       stroke=LINE2, fill="#090d14", sw=1.1, tcol=INK2, scol=INK3, size=9.8, sub_size=7.8))
+                       stroke=LINE2, fill="#EAF3FF", sw=1.1, tcol=INK2, scol=INK3, size=9.8, sub_size=7.8))
 
     o.append(arrow(290, 412, 290, 426, ns, "ink"))
 
@@ -914,7 +916,7 @@ def eng_system():
         x = xs[i]
         cx = cxs[i]
         o.append(line(cx, 426, cx, 438, LINE2, 1))
-        o.append(panel_box(x, 438, 114, 56, lbl, sub=sub, stroke=LINE2, fill="#090d14", size=7.8, sub_size=6.4, scol=INK3, pad=8))
+        o.append(panel_box(x, 438, 114, 56, lbl, sub=sub, stroke=LINE2, fill="#EAF3FF", size=7.8, sub_size=6.4, scol=INK3, pad=8))
         o.append(line(cx, 494, cx, 506, LINE2, 1))
     o.append(line(cxs[0], 506, cxs[-1], 506, LINE2, 1))
 
@@ -922,7 +924,7 @@ def eng_system():
 
     o.append(panel_box(56, 520, 468, 46, "THE NEXT AIRCRAFT",
                        sub="EXPANDED ENVELOPE · HIGHER CONTROL BANDWIDTH · REDUCED LATENCY",
-                       stroke=RED, fill=RED_W, sw=1.3, tcol="#ffffff", scol="#C7C4BD", size=10.5, sub_size=7.4))
+                       stroke=RED, fill=RED_W, sw=1.3, tcol="#000000", scol="#303234", size=10.5, sub_size=7.4))
 
     # Loopback wire: exits left of NEXT AIRCRAFT at (56, 543), runs along x=34, enters FLY AT THE EDGE at (56, 329)
     o.append(line(56, 543, 34, 543, LINE2, 1.2))
@@ -932,25 +934,25 @@ def eng_system():
     # Right column (twin stack): x = 640 to 960 (w = 320). Center = 800.
     o.append(panel_box(640, 306, 320, 52, "PHYSICS BACKBONE",
                        sub="ONE PACKAGE PER AIRFRAME — THE SAME TWIN ARCHITECTURE FOR EVERY VEHICLE",
-                       stroke=RED, fill=RED_W, sw=1.3, tcol="#ffffff", scol="#C7C4BD", size=10, sub_size=7.4))
+                       stroke=RED, fill=RED_W, sw=1.3, tcol="#000000", scol="#303234", size=10, sub_size=7.4))
 
     o.append(arrow(800, 358, 800, 372, ns, "ink"))
 
     o.append(panel_box(640, 372, 320, 44, "STATE & CONTROL ESTIMATION",
                        sub="CLASSICAL ESTIMATION + GAIN-SCHEDULED CONTROL LAWS",
-                       stroke=LINE2, fill="#090d14", size=9.6, sub_size=7.2, scol=INK3))
+                       stroke=LINE2, fill="#EAF3FF", size=9.6, sub_size=7.2, scol=INK3))
 
     o.append(arrow(800, 416, 800, 434, ns, "ink"))
 
     o.append(panel_box(640, 434, 320, 44, "HIL VALIDATION",
                        sub="CLOSED-LOOP AVIONICS HARNESS & REAL-TIME EMULATION",
-                       stroke=LINE2, fill="#090d14", size=9.6, sub_size=7.2, scol=INK3))
+                       stroke=LINE2, fill="#EAF3FF", size=9.6, sub_size=7.2, scol=INK3))
 
     o.append(arrow(800, 478, 800, 496, ns, "ink"))
 
     o.append(panel_box(640, 496, 320, 44, "PROGRAMME FLYWHEEL",
                        sub="FLIGHT SORTIES & HIGH-RATE TESTING → ENVELOPE TELEMETRY",
-                       stroke=LINE2, fill="#090d14", size=9.6, sub_size=7.2, scol=INK3))
+                       stroke=LINE2, fill="#EAF3FF", size=9.6, sub_size=7.2, scol=INK3))
 
     # Flywheel loopback to training
     o.append(f'<path d="M960,518 H976 V394 H960" fill="none" stroke="{LINE3}" stroke-width="1.2" marker-end="url(#{ns}-ink)"/>')
@@ -971,7 +973,7 @@ def eng_system():
     assets = ["ENGINEERING METHOD", "PHYSICS PACKAGE", "TUNING PIPELINE", "QUALIFICATION EVIDENCE", "TEST RIGS & PIPELINE"]
     for i, a in enumerate(assets):
         x = 40 + i * 187
-        o.append(panel_box(x, 634, 172, 36, a, stroke=LINE2, fill="#090d14", size=8.0, tcol=INK2))
+        o.append(panel_box(x, 634, 172, 36, a, stroke=LINE2, fill="#EAF3FF", size=8.0, tcol=INK2))
 
     gens = [
         ("NIGHTSHADE MK I", "PAYS FOR THE METHOD", True),
@@ -981,9 +983,9 @@ def eng_system():
     for i, (g, sub, core) in enumerate(gens):
         x = 40 + i * 315
         stroke = RED if core else LINE2
-        fill = RED_W if core else "#090d14"
-        tcol = "#ffffff" if core else INK2
-        scol = "#fca5a5" if core else INK3
+        fill = RED_W if core else "#EAF3FF"
+        tcol = "#000000" if core else INK2
+        scol = "#B32424" if core else INK3
         o.append(line(x + 145, 670, x + 145, 680, LINE2, 1))
         o.append(panel_box(x, 680, 290, 48, g, sub=sub, stroke=stroke, fill=fill, sw=1.3 if core else 1.0,
                            tcol=tcol, scol=scol, size=8.2, sub_size=7.2))
@@ -1013,9 +1015,9 @@ def eng_twin():
     o.append(chip(56, 94, 398, 40, "MISSION SENSORS & SEEKERS", size=8.4, tcol=INK2))
     for i, c in enumerate(["CRPA GNSS", "EO/IR SEEKER", "SCENE MATCH", "AIR DATA"]):
         o.append(chip(56 + i * 100, 140, 94, 34, c, size=6.8))
-    o.append(chip(56, 186, 398, 40, "STATE ESTIMATION & FLIGHT CONTROL", size=8.4, tcol="#ffffff", stroke=RED, fill=RED_W))
+    o.append(chip(56, 186, 398, 40, "STATE ESTIMATION & FLIGHT CONTROL", size=8.4, tcol="#000000", stroke=RED, fill=RED_W))
     for i, c in enumerate(["INERTIAL (IMU)", "EKF OBSERVERS", "CONTROL LAW", "ENVELOPE"]):
-        o.append(chip(56 + i * 100, 232, 94, 34, c, size=6.8, tcol="#ffffff", stroke=RED, fill=RED_W))
+        o.append(chip(56 + i * 100, 232, 94, 34, c, size=6.8, tcol="#000000", stroke=RED, fill=RED_W))
     o.append(chip(56, 278, 398, 40, "PROPULSION", size=8.4, tcol=INK2))
     o.append(chip(56, 324, 190, 34, "ECU → TURBOJET", size=6.8))
     o.append(chip(264, 324, 190, 34, "FUEL → PUMP", size=6.8))
@@ -1030,7 +1032,7 @@ def eng_twin():
                        sub="EMPIRICAL FLIGHT LOGS → AERO POLARS · ACTUATOR DYNAMICS · INERTIA", size=8.4, sub_size=6.8))
     o.append(panel_box(546, 168, 398, 76, "SHARED PHYSICS BACKBONE",
                        sub="UNIFIED MULTI-BODY SOLVER · BOUNDARY LAYER · PROPULSION & THERMAL DYNAMICS",
-                       stroke=RED, fill=RED_W, sw=1.3, tcol="#ffffff", scol="#C7C4BD", size=9.4, sub_size=6.6))
+                       stroke=RED, fill=RED_W, sw=1.3, tcol="#000000", scol="#303234", size=9.4, sub_size=6.6))
     o.append(panel_box(546, 256, 398, 62, "ESTIMATION & CONTROL SYNTHESIS",
                        sub="OPTIMAL OBSERVERS & GAIN SCHEDULES · ENVELOPE-LIMITING CONTROL", size=8.4, sub_size=6.8))
     o.append(panel_box(546, 330, 398, 58, "HARDWARE-IN-THE-LOOP (HIL)",
