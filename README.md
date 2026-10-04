@@ -73,7 +73,7 @@ These appear on several pages. Change them everywhere or nowhere.
 |---|---|
 | Team | 17+ engineers and operators |
 | Field footprint | 8 fielded formations, four theatres; one mobile drone lab (15 Guards, Jammu) |
-| Nightshade Mk II loitering munition | ₹1.5 Cr (~$150,000) · 15 kg · 300 km · 550 / 650 km/h · prototype Q1 2027 |
+| Nightshade Mk II loitering munition | ₹1.5 Cr (~$150,000) · 15 kg · 300 km · 550 / 700 km/h · prototype Q1 2027 |
 | Nightshade target drones | Economical $90,000 · Premium ~$150,000 · prototypes Q4 2026 |
 | Nightshade indigenous content | ~45–50% |
 | Hemlock | 450–500 kg warhead · 1,000–1,500 km · ₹3–5 Cr · concept |
