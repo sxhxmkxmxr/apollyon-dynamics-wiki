@@ -12,7 +12,7 @@ window.WIKI_MAP = {
      "heading": "Apollyon Dynamics",
      "description": "",
      "extract": "Apollyon Dynamics builds autonomous strike and interception systems for India: a family of jet-powered effectors, a high-speed interceptor and an unmanned surface vessel, with a long-range cruise missile in concept.",
-     "thumb": "assets/interceptor.jpg",
+     "thumb": "assets/coast_gaurds_apollyon.jpeg",
      "sections": [
       {
        "id": "origin",
@@ -135,8 +135,8 @@ window.WIKI_MAP = {
        "subs": []
       }
      ],
-     "words": 4950,
-     "bytes": 160768,
+     "words": 4946,
+     "bytes": 160746,
      "lastmod": "2026-10-04T06:18:52Z",
      "links": [
       "strategy/market.html",
@@ -329,7 +329,7 @@ window.WIKI_MAP = {
      "heading": "Ahuti interceptor, first contact, unmanned",
      "description": "Class B · Air defence & cUAS",
      "extract": "A high-speed electric interceptor engineered to destroy hostile reconnaissance drones and loitering munitions. Engineered for the 400 km/h speed band, Ahuti Mk II delivers hard-kill kinetic interception at expendable quadrotor economics.",
-     "thumb": "assets/interceptor.jpg",
+     "thumb": "assets/ahuti_mk1.png",
      "sections": [
       {
        "id": "definition",
@@ -367,8 +367,8 @@ window.WIKI_MAP = {
        "subs": []
       }
      ],
-     "words": 1189,
-     "bytes": 53385,
+     "words": 1210,
+     "bytes": 53637,
      "lastmod": "2026-10-04T06:18:52Z",
      "links": [
       "index.html",
