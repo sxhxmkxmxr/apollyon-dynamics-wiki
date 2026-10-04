@@ -11,7 +11,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/wiki.css">
-<link rel="search" type="text/html" href="special/search.html" title="Search Apollyon Wiki">
 <script src="js/wiki-map-data.js" defer></script>
 <script src="js/wiki.js" defer></script>
 </head>
@@ -94,7 +93,6 @@
 <div class="vector-menu-heading">Wiki</div>
 <div class="vector-menu-content"><ul class="vector-menu-content-list">
 <li id="n-recentchanges" class="mw-list-item "><a href="special/recent-changes.html" title="A list of recent changes to the wiki [r]" accesskey="r"><span>Recent changes</span></a></li>
-<li id="n-search" class="mw-list-item "><a href="special/search.html" title="Search Apollyon Wiki"><span>Search</span></a></li>
 </ul></div>
 </div>
 </div>
@@ -106,27 +104,10 @@
   <img class="mw-logo-icon" src="assets/logos/logo-ad-white.png" alt="" aria-hidden="true" width="50" height="15">
   <span class="mw-logo-container">
     <strong class="mw-logo-wordmark">Apollyon Wiki</strong>
-    <span class="mw-logo-tagline">The Neo-Prime Encyclopedia</span>
   </span>
 </a>
 </div>
 <div class="vector-header-end">
-<div id="p-search" role="search" class="vector-search-box-vue vector-search-box-collapses vector-search-box-show-thumbnail vector-search-box">
-  <a href="special/search.html" class="cdx-button cdx-button--fake-button cdx-button--weight-quiet cdx-button--icon-only search-toggle" title="Search Apollyon Wiki [f]"><span class="vector-icon mw-ui-icon-search mw-ui-icon-wikimedia-search"></span><span>Search</span></a>
-  <div class="vector-typeahead-search-container">
-<div class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail">
-  <form action="special/search.html" id="searchform" class="cdx-search-input cdx-search-input--has-end-button">
-    <div class="cdx-search-input__input-wrapper">
-      <div class="cdx-text-input cdx-text-input--has-start-icon">
-        <input class="cdx-text-input__input" type="search" name="search" placeholder="Search Apollyon Wiki" aria-label="Search Apollyon Wiki" autocapitalize="sentences" autocomplete="off" spellcheck="false" title="Search Apollyon Wiki [f]" id="searchInput" accesskey="f">
-        <span class="cdx-text-input__icon cdx-text-input__start-icon"></span>
-      </div>
-    </div>
-    <button class="cdx-button cdx-search-input__end-button">Search</button>
-  </form>
-</div>
-  </div>
-</div>
 <nav class="vector-user-links" aria-label="Personal tools">
 <div class="vector-user-links-main">
 <div id="vector-appearance-dropdown" class="vector-dropdown vector-appearance-dropdown" title="Change the appearance of the page&#x27;s font size, width, and color">
@@ -177,7 +158,7 @@
   <a class="vector-toc-link" href="#doctrine"><div class="vector-toc-text"><span class="vector-toc-numb">2</span><span>Precision is mercy</span></div></a>
 </li>
 <li id="toc-war" class="vector-toc-list-item vector-toc-level-1">
-  <a class="vector-toc-link" href="#war"><div class="vector-toc-text"><span class="vector-toc-numb">3</span><span>Modern warfare has changed</span></div></a>
+  <a class="vector-toc-link" href="#war"><div class="vector-toc-text"><span class="vector-toc-numb">3</span><span>What has changed in modern warfare</span></div></a>
 </li>
 <li id="toc-dependency" class="vector-toc-list-item vector-toc-level-1">
   <a class="vector-toc-link" href="#dependency"><div class="vector-toc-text"><span class="vector-toc-numb">4</span><span>Eight decades of strategic dependency (1947–2026)</span></div></a>
@@ -201,8 +182,8 @@
   </ul>
 </li>
 <li id="toc-architecture" class="vector-toc-list-item vector-toc-level-1">
-  <a class="vector-toc-link" href="#architecture"><div class="vector-toc-text"><span class="vector-toc-numb">7</span><span>The Speed Moat</span></div></a>
-  <button aria-controls="toc-architecture-sublist" class="cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-toc-toggle"><span class="vector-icon mw-ui-icon-expand mw-ui-icon-wikimedia-expand"></span><span>Toggle The Speed Moat subsection</span></button>
+  <a class="vector-toc-link" href="#architecture"><div class="vector-toc-text"><span class="vector-toc-numb">7</span><span>Speed as a performance parameter</span></div></a>
+  <button aria-controls="toc-architecture-sublist" class="cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-toc-toggle"><span class="vector-icon mw-ui-icon-expand mw-ui-icon-wikimedia-expand"></span><span>Toggle Speed as a performance parameter subsection</span></button>
   <ul id="toc-architecture-sublist" class="vector-toc-list">
     <li id="toc-The_core_engineering_challenge" class="vector-toc-list-item vector-toc-level-2">
       <a class="vector-toc-link" href="#The_core_engineering_challenge"><div class="vector-toc-text"><span class="vector-toc-numb">7.1</span><span>The core engineering challenge</span></div></a>
@@ -210,11 +191,11 @@
   </ul>
 </li>
 <li id="toc-products" class="vector-toc-list-item vector-toc-level-1">
-  <a class="vector-toc-link" href="#products"><div class="vector-toc-text"><span class="vector-toc-numb">8</span><span>The Arsenal</span></div></a>
+  <a class="vector-toc-link" href="#products"><div class="vector-toc-text"><span class="vector-toc-numb">8</span><span>Products and programmes</span></div></a>
 </li>
 <li id="toc-business" class="vector-toc-list-item vector-toc-level-1">
-  <a class="vector-toc-link" href="#business"><div class="vector-toc-text"><span class="vector-toc-numb">9</span><span>Stable Initial Revenue Funds Better Capability</span></div></a>
-  <button aria-controls="toc-business-sublist" class="cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-toc-toggle"><span class="vector-icon mw-ui-icon-expand mw-ui-icon-wikimedia-expand"></span><span>Toggle Stable Initial Revenue Funds Better Capability subsection</span></button>
+  <a class="vector-toc-link" href="#business"><div class="vector-toc-text"><span class="vector-toc-numb">9</span><span>Funding the capability</span></div></a>
+  <button aria-controls="toc-business-sublist" class="cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-toc-toggle"><span class="vector-icon mw-ui-icon-expand mw-ui-icon-wikimedia-expand"></span><span>Toggle Funding the capability subsection</span></button>
   <ul id="toc-business-sublist" class="vector-toc-list">
     <li id="toc-Cash_engines_underwriting_deep_strike" class="vector-toc-list-item vector-toc-level-2">
       <a class="vector-toc-link" href="#Cash_engines_underwriting_deep_strike"><div class="vector-toc-text"><span class="vector-toc-numb">9.1</span><span>Cash engines underwriting deep strike</span></div></a>
@@ -228,8 +209,8 @@
   </ul>
 </li>
 <li id="toc-moats" class="vector-toc-list-item vector-toc-level-1">
-  <a class="vector-toc-link" href="#moats"><div class="vector-toc-text"><span class="vector-toc-numb">10</span><span>Compounding Moats: The Flywheel of Engineering, Industry, Distribution</span></div></a>
-  <button aria-controls="toc-moats-sublist" class="cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-toc-toggle"><span class="vector-icon mw-ui-icon-expand mw-ui-icon-wikimedia-expand"></span><span>Toggle Compounding Moats: The Flywheel of Engineering, Industry, Distribution subsection</span></button>
+  <a class="vector-toc-link" href="#moats"><div class="vector-toc-text"><span class="vector-toc-numb">10</span><span>How the advantage compounds</span></div></a>
+  <button aria-controls="toc-moats-sublist" class="cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-toc-toggle"><span class="vector-icon mw-ui-icon-expand mw-ui-icon-wikimedia-expand"></span><span>Toggle How the advantage compounds subsection</span></button>
   <ul id="toc-moats-sublist" class="vector-toc-list">
     <li id="toc-The_engineering_loop" class="vector-toc-list-item vector-toc-level-2">
       <a class="vector-toc-link" href="#The_engineering_loop"><div class="vector-toc-text"><span class="vector-toc-numb">10.1</span><span>The engineering loop</span></div></a>
@@ -258,7 +239,7 @@
   <a class="vector-toc-link" href="#record"><div class="vector-toc-text"><span class="vector-toc-numb">11</span><span>Track Record</span></div></a>
 </li>
 <li id="toc-engage" class="vector-toc-list-item vector-toc-level-1">
-  <a class="vector-toc-link" href="#engage"><div class="vector-toc-text"><span class="vector-toc-numb">12</span><span>Working with us</span></div></a>
+  <a class="vector-toc-link" href="#engage"><div class="vector-toc-text"><span class="vector-toc-numb">12</span><span>Contact</span></div></a>
 </li>
 </ul>
 </div>
@@ -278,7 +259,7 @@
   </div>
 </div>
 </nav>
-<h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-main">An Indian neo-prime, <span class="sub">built from the bottom up</span></span></h1>
+<h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-main">Apollyon Dynamics</span></h1>
 </header>
 <div class="vector-page-toolbar">
 <div class="vector-page-toolbar-container">
@@ -396,12 +377,17 @@
 <div class="mw-indicators">
 <div id="mw-indicator-pp-default" class="mw-indicator"><a href="?action=info#mw-pageinfo-restrictions" title="This article is protected. Its source is kept in the repository and published by rebuilding the wiki."><span class="mw-protection-lock" aria-hidden="true"></span><span class="mw-indicator-label">This article is protected</span></a></div>
 </div>
-<div id="siteSub" class="noprint">From Apollyon Wiki, the neo-prime encyclopedia</div>
+<div id="siteSub" class="noprint">From Apollyon Wiki</div>
 </div>
-<div id="contentSub"><div id="mw-content-subtitle">Apollyon Dynamics</div></div>
+<div id="contentSub"><div id="mw-content-subtitle"></div></div>
 <div id="mw-content-text" class="mw-body-content">
 <div class="mw-content-ltr mw-parser-output" lang="en" dir="ltr">
 <!-- article:start -->
+<figure>
+  <img src="assets/interceptor.jpg" alt="The Ahuti interceptor airframe, photographed from above">
+  <figcaption><b>Ahuti</b> The high-speed interceptor airframe, with its four electric motors on the wing roots. <a href="products/ahuti.html">Ahuti interceptor &rarr;</a></figcaption>
+</figure>
+
 <p class="standfirst">Apollyon Dynamics builds autonomous strike and interception systems for India: a family of jet-powered effectors, a high-speed interceptor and an unmanned surface vessel, with a long-range cruise missile in concept. They share one engineering method, are designed for the industrial base India already has, and are priced to be used in the numbers a long conflict consumes.</p>
 
 <!-- ═══════════════════ 01 · ORIGIN ═══════════════════ -->
@@ -458,7 +444,7 @@
 <!-- ═══════════════════ 03 · THE WORLD ═══════════════════ -->
 <section id="war">
   <div class="sec-tag">03 · The world</div>
-  <h2>Modern warfare has changed</h2>
+  <h2>What has changed in modern warfare</h2>
   <p class="lede">Cheap drones, better sensors, electronic warfare and mass production have changed how wars are fought. A military now needs not only capable weapons, but enough of them to sustain a long conflict.</p>
 
   <figure class="dark">
@@ -565,7 +551,7 @@
 <!-- ═══════════════════ 07 · ARCHITECTURE ═══════════════════ -->
 <section id="architecture">
   <div class="sec-tag">07 · Architecture</div>
-  <h2>The Speed Moat</h2>
+  <h2>Speed as a performance parameter</h2>
   <p class="lede">Development speed needs to be built into the engineering system itself, not treated as a temporary advantage of being small. At Apollyon, engineering compounds across programmes: each project leaves behind calibrated physical models, test rigs, qualification data, and qualified suppliers that the next programme builds on. More capable platforms still require new engineering, but that effort is focused on what is truly novel, allowing new airframes to be integrated and flight-tested much faster.</p>
 
   <div class="blueprint-plate">
@@ -620,7 +606,7 @@
 <!-- ═══════════════════ 08 · PRODUCTS ═══════════════════ -->
 <section id="products">
   <div class="sec-tag">08 · Products</div>
-  <h2>The Arsenal</h2>
+  <h2>Products and programmes</h2>
   <p class="lede">Three platform classes, four products, one engineering method that compounds. Three products are in active development — Nightshade, Ahuti and Piranha — and the fourth, the Hemlock cruise missile, is in its concept phase.</p>
 
   <div class="tw">
@@ -736,7 +722,7 @@
 <!-- ═══════════════════ 09 · THE BUSINESS ═══════════════════ -->
 <section id="business">
   <div class="sec-tag">09 · The business</div>
-  <h2>Stable Initial Revenue Funds Better Capability</h2>
+  <h2>Funding the capability</h2>
   <p class="lede">Major strategic defence tenders can take four to six years under long-term capital procurement cycles. Apollyon pairs long-term work with near-term delivery: supplying tactical interceptors (Ahuti) and target drones (Nightshade) directly through Delegation of Financial Powers to Defence Services (DFPDS), where procurement cycles run roughly 6–12 months. Ongoing demand for consumable tactical rounds provides immediate operating cash flow and continuous flight hours. This revenue, combined with capital raised, supports the longer development cycle of deep-strike platforms.</p>
 
   <h3 id="Cash_engines_underwriting_deep_strike">Cash engines underwriting deep strike</h3>
@@ -778,7 +764,7 @@
 <!-- ═══════════════════ 10 · MOATS ═══════════════════ -->
 <section id="moats">
   <div class="sec-tag">10 · Compounding</div>
-  <h2>Compounding Moats: The Flywheel of Engineering, Industry, Distribution</h2>
+  <h2>How the advantage compounds</h2>
   <p class="lede">A product is temporary. The engineering system, the supplier network and the route to market remain after the machine is delivered. Each programme lowers the cost and time required to build the next one, and widens the set of customers who can buy it.</p>
   <div class="blueprint-plate">
     <div class="blueprint-head"><span class="title">Fig. 04</span><span class="scale">three loops &middot; one direction</span></div>
@@ -900,7 +886,7 @@
       </tbody>
     </table>
   </div>
-  <p>Western systems carry ITAR export vetoes and Russian systems face sanctions; Apollyon's non-ITAR architecture can be offered across 80+ friendly nations. This insulates our balance sheet against single-buyer monopsony by balancing three independent demand pillars: domestic Tri-Services, foreign exports, and civil critical infrastructure. In turn, export and commercial volumes amortize R&amp;D and tooling, continuously driving down unit strike costs for the Indian Armed Forces.</p>
+  <p>Weapons bought from the United States and other Western suppliers are licensed under ITAR, the US law that controls weapons exports, and a licence can be withheld, so access is not guaranteed. Weapons bought from Russia are limited by sanctions. Apollyon's systems do not come under ITAR, so they can be offered across 80+ friendly nations. Selling to three separate groups of buyers — the Indian armed services, foreign exports, and civil operators of critical infrastructure — means no single buyer can set the terms or withdraw demand. Higher export and commercial volumes also spread the cost of research and development and of tooling over more units, which drives down what each strike costs the Indian Armed Forces.</p>
 
   <div class="blueprint-plate">
     <div class="blueprint-head">
@@ -1071,6 +1057,11 @@
   <h2>Track Record</h2>
   <p class="lede">Progress is documented through instrumented flight trials, field deployment acceptance, and verified hardware production. The milestones below trace the path from a hostel workshop to Army field trials; the <a href="about/history.html#timeline">company history</a> carries the full chronology and the deployment footprint.</p>
 
+  <figure class="dark">
+    <img src="assets/field-units.jpg" alt="Field trials and proving grounds across Indian Army and BSF formations" loading="lazy">
+    <figcaption><b>Proving Grounds &amp; User Evaluations</b> Verified field evaluations and trials conducted across active service formations: 15 Guards (Jammu), BSF Academy (Gwalior), 181 Mountain Brigade (Lohitpur), Army Air Defence College (Gopalpur), and Babina Field Firing Ranges. <a href="about/history.html">The full operational chronology &rarr;</a></figcaption>
+  </figure>
+
   <p class="strip-label">Done</p>
   <div class="timeline">
     <div class="tl-item"><div class="tl-when">May 2025</div><div class="tl-what">Company founded at BITS Pilani Hyderabad</div><div class="tl-note">R&amp;D laboratory established; development begins on composite airframe fabrication and flight controllers.</div></div>
@@ -1101,17 +1092,13 @@
     <span>498 km/h sprint record · India Book of Records</span>
   </div>
 
-  <figure class="dark">
-    <img src="assets/field-units.jpg" alt="Field trials and proving grounds across Indian Army and BSF formations" loading="lazy">
-    <figcaption><b>Proving Grounds &amp; User Evaluations</b> Verified field evaluations and trials conducted across active service formations: 15 Guards (Jammu), BSF Academy (Gwalior), 181 Mountain Brigade (Lohitpur), Army Air Defence College (Gopalpur), and Babina Field Firing Ranges. <a href="about/history.html">The full operational chronology &rarr;</a></figcaption>
-  </figure>
 
 </section>
 
 <!-- ═══════════════════ 12 · ENGAGE ═══════════════════ -->
 <section id="engage">
   <div class="sec-tag">12 · Engage</div>
-  <h2>Working with us</h2>
+  <h2>Contact</h2>
   <p>For flight evaluation requests, operational field trials, integration partnerships, or investor diligence, consult the direct registry on the <a href="about/history.html#contact">company directory</a>. The technical and economic analyses in this wiki—covering <a href="architecture/index.html">system architecture</a>, <a href="strategy/trajectory.html">cost trajectory</a>, <a href="strategy/market.html">market</a>, <a href="strategy/competitive.html">competitive benchmarks</a>, <a href="strategy/supply-chain.html">supply chain posture</a>, and the <a href="strategic-dependency/full-record.html">sovereign dependency record</a>—provide complete diligence verification directly from primary engineering documentation.</p>
 
 </section>
@@ -1171,24 +1158,6 @@
 <div class="vector-header-container vector-sticky-header-container">
 <div id="vector-sticky-header" class="vector-sticky-header">
 <div class="vector-sticky-header-start">
-<div class="vector-sticky-header-icon-start vector-button-flush-left vector-button-flush-right" aria-hidden="true">
-<button class="cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-sticky-header-search-toggle" tabindex="-1" title="Search"><span class="vector-icon mw-ui-icon-search mw-ui-icon-wikimedia-search"></span><span>Search</span></button>
-</div>
-<div role="search" class="vector-search-box-vue vector-search-box-show-thumbnail vector-search-box vector-sticky-header-search">
-<div class="vector-typeahead-search-container">
-<div class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail">
-  <form action="special/search.html" id="vector-sticky-search-form" class="cdx-search-input cdx-search-input--has-end-button">
-    <div class="cdx-search-input__input-wrapper">
-      <div class="cdx-text-input cdx-text-input--has-start-icon">
-        <input class="cdx-text-input__input" type="search" name="search" placeholder="Search Apollyon Wiki" aria-label="Search Apollyon Wiki" autocapitalize="sentences" autocomplete="off" spellcheck="false" title="Search Apollyon Wiki [f]">
-        <span class="cdx-text-input__icon cdx-text-input__start-icon"></span>
-      </div>
-    </div>
-    <button class="cdx-button cdx-search-input__end-button">Search</button>
-  </form>
-</div>
-</div>
-</div>
 <div class="vector-sticky-header-context-bar">
 <nav aria-label="Contents" class="vector-toc-landmark"><div id="vector-sticky-header-toc" class="vector-dropdown vector-sticky-header-toc vector-button-flush-left">
   <input type="checkbox" id="vector-sticky-header-toc-checkbox" role="button" aria-haspopup="true" class="vector-dropdown-checkbox" aria-label="Toggle the table of contents">
@@ -1197,7 +1166,7 @@
 <div id="vector-sticky-header-toc-unpinned-container" class="vector-unpinned-container"></div>
   </div>
 </div></nav>
-<div class="vector-sticky-header-context-bar-primary" aria-hidden="true"><span class="mw-page-title-main">An Indian neo-prime, <span class="sub">built from the bottom up</span></span></div>
+<div class="vector-sticky-header-context-bar-primary" aria-hidden="true"><span class="mw-page-title-main">Apollyon Dynamics</span></div>
 </div>
 </div>
 <div class="vector-sticky-header-end" aria-hidden="true">

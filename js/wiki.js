@@ -887,7 +887,7 @@
       var shortMon = function (d) { return MONTHS[d.getUTCMonth()].slice(0, 3); };
       var key = 'wiki:' + (rev ? rev.h.slice(0, 10) : 'current');
       var t = esc(pageTitle);
-      var tagline = SITE + ', The Neo-Prime Encyclopedia';
+      var tagline = SITE;
       $('.mw-parser-output', content).innerHTML =
         '<div class="mw-cite-styles">' +
         '<h2>Bibliographic details for "' + t + '"</h2><ul>' +
@@ -907,9 +907,9 @@
         '<h3>CBE/CSE style</h3><p>Apollyon Dynamics. ' + t + ' [Internet]. ' + esc(tagline) + '; ' + y + ' ' + shortMon(last) + ' ' + day + ', ' + fmtTime(last) + ' UTC [cited ' + now.getUTCFullYear() + ' ' + shortMon(now) + ' ' + now.getUTCDate() + ']. Available from: ' + esc(link) + '.</p>' +
         '<h3>Bluebook style</h3><p>' + t + ', ' + esc(link) + ' (last visited ' + MONTHS[now.getUTCMonth()] + ' ' + now.getUTCDate() + ', ' + now.getUTCFullYear() + ').</p>' +
         '<h3>AMA style</h3><p>Apollyon Dynamics. ' + t + '. ' + esc(tagline) + '. ' + mon + ' ' + day + ', ' + y + ', ' + fmtTime(last) + ' UTC. Available at: ' + esc(link) + '. Accessed ' + MONTHS[now.getUTCMonth()] + ' ' + now.getUTCDate() + ', ' + now.getUTCFullYear() + '.</p>' +
-        '<h3>BibTeX entry</h3><pre>@misc{ ' + esc(key) + ',\n  author = "Apollyon Dynamics",\n  title = "' + t + ' --- {' + esc(SITE) + '}{,} The Neo-Prime Encyclopedia",\n  year = "' + y + '",\n  url = "' + esc(link) + '",\n  note = "[Online; accessed ' + now.getUTCDate() + '-' + MONTHS[now.getUTCMonth()] + '-' + now.getUTCFullYear() + ']"\n}</pre>' +
+        '<h3>BibTeX entry</h3><pre>@misc{ ' + esc(key) + ',\n  author = "Apollyon Dynamics",\n  title = "' + t + ' --- {' + esc(SITE) + '}",\n  year = "' + y + '",\n  url = "' + esc(link) + '",\n  note = "[Online; accessed ' + now.getUTCDate() + '-' + MONTHS[now.getUTCMonth()] + '-' + now.getUTCFullYear() + ']"\n}</pre>' +
         '<p>When using the LaTeX package url (<code>\\usepackage{url}</code> somewhere in the preamble) which tends to give much more nicely formatted web addresses, the following may be preferred:</p>' +
-        '<pre>@misc{ ' + esc(key) + ',\n  author = "Apollyon Dynamics",\n  title = "' + t + ' --- {' + esc(SITE) + '}{,} The Neo-Prime Encyclopedia",\n  year = "' + y + '",\n  url = "\\url{' + esc(link) + '}",\n  note = "[Online; accessed ' + now.getUTCDate() + '-' + MONTHS[now.getUTCMonth()] + '-' + now.getUTCFullYear() + ']"\n}</pre>' +
+        '<pre>@misc{ ' + esc(key) + ',\n  author = "Apollyon Dynamics",\n  title = "' + t + ' --- {' + esc(SITE) + '}",\n  year = "' + y + '",\n  url = "\\url{' + esc(link) + '}",\n  note = "[Online; accessed ' + now.getUTCDate() + '-' + MONTHS[now.getUTCMonth()] + '-' + now.getUTCFullYear() + ']"\n}</pre>' +
         '</div>';
     });
   }

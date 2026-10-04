@@ -1,4 +1,4 @@
-# Apollyon Dynamics — Neo-Prime Wiki
+# Apollyon Wiki
 
 A static HTML reference for investors, evaluators and due-diligence readers.
 Open `index.html` in a browser, or serve the directory:
@@ -192,8 +192,8 @@ page versions to a short summary and a link.
 **Pages to deepen**
 
 - Team (short today), launch and ground systems, airframe and structures.
-- Hemlock: the representative image is an SVG / HTML render; add real
-  engineering imagery as it exists.
+- Hemlock and Piranha: the first image on each page is a CAD schematic; product
+  pages lead with a photograph, so replace it with a real photograph as one exists.
 
 **Housekeeping**
 

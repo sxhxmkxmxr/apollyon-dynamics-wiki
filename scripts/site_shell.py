@@ -42,8 +42,7 @@ import sys
 WIKI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SITENAME = "Apollyon Wiki"
-TAGLINE = "The Neo-Prime Encyclopedia"
-SITESUB = "From Apollyon Wiki, the neo-prime encyclopedia"
+SITESUB = "From Apollyon Wiki"
 PUBLISHER = "Apollyon Dynamics"
 WEBSITE = "https://apollyondynamics.com"
 REVISION = "Rev 3.0"
@@ -374,7 +373,6 @@ def main_menu(path):
         parts.append(portlet(f"p-{group.lower()}", group, items))
     parts.append(portlet("p-interaction", "Wiki", [
         li("n-recentchanges", f"{pf}special/recent-changes.html", "Recent changes", "A list of recent changes to the wiki", "r"),
-        li("n-search", f"{pf}special/search.html", "Search", "Search Apollyon Wiki"),
     ]))
     return ('<div id="vector-main-menu" class="vector-main-menu vector-pinnable-element">\n'
             + "\n".join(parts) + "\n</div>")
@@ -506,17 +504,10 @@ def header_html(path):
   <img class="mw-logo-icon" src="{pf}{LOGO}" alt="" aria-hidden="true" width="50" height="15">
   <span class="mw-logo-container">
     <strong class="mw-logo-wordmark">{SITENAME}</strong>
-    <span class="mw-logo-tagline">{TAGLINE}</span>
   </span>
 </a>
 </div>
 <div class="vector-header-end">
-<div id="p-search" role="search" class="vector-search-box-vue vector-search-box-collapses vector-search-box-show-thumbnail vector-search-box">
-  <a href="{pf}special/search.html" class="cdx-button cdx-button--fake-button cdx-button--weight-quiet cdx-button--icon-only search-toggle" title="Search {SITENAME} [f]">{icon("search")}<span>Search</span></a>
-  <div class="vector-typeahead-search-container">
-{search_box(path)}
-  </div>
-</div>
 <nav class="vector-user-links" aria-label="Personal tools">
 <div class="vector-user-links-main">
 {appear}
@@ -707,14 +698,6 @@ def sticky_header_html(page, special):
     return f'''<div class="vector-header-container vector-sticky-header-container">
 <div id="vector-sticky-header" class="vector-sticky-header">
 <div class="vector-sticky-header-start">
-<div class="vector-sticky-header-icon-start vector-button-flush-left vector-button-flush-right" aria-hidden="true">
-<button class="cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-sticky-header-search-toggle" tabindex="-1" title="Search">{icon("search")}<span>Search</span></button>
-</div>
-<div role="search" class="vector-search-box-vue vector-search-box-show-thumbnail vector-search-box vector-sticky-header-search">
-<div class="vector-typeahead-search-container">
-{search_box(page["path"], sticky=True)}
-</div>
-</div>
 <div class="vector-sticky-header-context-bar">
 <nav aria-label="Contents" class="vector-toc-landmark">{toc_dd}</nav>
 <div class="vector-sticky-header-context-bar-primary" aria-hidden="true"><span class="mw-page-title-main">{page["title"]}</span></div>
@@ -760,7 +743,6 @@ def head_html(page):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="{FONTS}" rel="stylesheet">
 <link rel="stylesheet" href="{pf}css/wiki.css">
-<link rel="search" type="text/html" href="{pf}special/search.html" title="Search {SITENAME}">
 <script src="{pf}js/wiki-map-data.js" defer></script>
 <script src="{pf}js/wiki.js" defer></script>
 </head>'''

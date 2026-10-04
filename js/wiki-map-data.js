@@ -9,10 +9,10 @@ window.WIKI_MAP = {
     {
      "title": "The argument",
      "href": "index.html",
-     "heading": "An Indian neo-prime, built from the bottom up",
-     "description": "Apollyon Dynamics",
+     "heading": "Apollyon Dynamics",
+     "description": "",
      "extract": "Apollyon Dynamics builds autonomous strike and interception systems for India: a family of jet-powered effectors, a high-speed interceptor and an unmanned surface vessel, with a long-range cruise missile in concept.",
-     "thumb": "assets/modern-warfare-inversions.png",
+     "thumb": "assets/interceptor.jpg",
      "sections": [
       {
        "id": "origin",
@@ -26,7 +26,7 @@ window.WIKI_MAP = {
       },
       {
        "id": "war",
-       "label": "Modern warfare has changed",
+       "label": "What has changed in modern warfare",
        "subs": []
       },
       {
@@ -59,7 +59,7 @@ window.WIKI_MAP = {
       },
       {
        "id": "architecture",
-       "label": "The Speed Moat",
+       "label": "Speed as a performance parameter",
        "subs": [
         {
          "id": "The_core_engineering_challenge",
@@ -69,12 +69,12 @@ window.WIKI_MAP = {
       },
       {
        "id": "products",
-       "label": "The Arsenal",
+       "label": "Products and programmes",
        "subs": []
       },
       {
        "id": "business",
-       "label": "Stable Initial Revenue Funds Better Capability",
+       "label": "Funding the capability",
        "subs": [
         {
          "id": "Cash_engines_underwriting_deep_strike",
@@ -92,7 +92,7 @@ window.WIKI_MAP = {
       },
       {
        "id": "moats",
-       "label": "Compounding Moats: The Flywheel of Engineering, Industry, Distribution",
+       "label": "How the advantage compounds",
        "subs": [
         {
          "id": "The_engineering_loop",
@@ -131,13 +131,13 @@ window.WIKI_MAP = {
       },
       {
        "id": "engage",
-       "label": "Working with us",
+       "label": "Contact",
        "subs": []
       }
      ],
-     "words": 4883,
-     "bytes": 163340,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "words": 4950,
+     "bytes": 160768,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "strategy/market.html",
       "about/team.html"
@@ -155,7 +155,7 @@ window.WIKI_MAP = {
      "heading": "Nightshade family, one airframe, three configurations",
      "description": "Class A · Long-range strike",
      "extract": "One turbojet airframe in three configurations: an economical target drone, a premium long-range target drone, and the Mk II loitering munition. Nightshade delivers point-target accuracy under electronic warfare at unit economics that allow sustained salvo employment.",
-     "thumb": "assets/nightshade-render.jpg",
+     "thumb": "assets/turbojet-test.jpg",
      "sections": [
       {
        "id": "definition",
@@ -169,7 +169,7 @@ window.WIKI_MAP = {
       },
       {
        "id": "specs",
-       "label": "Mk II, in full",
+       "label": "Nightshade Mk II specification",
        "subs": []
       },
       {
@@ -203,9 +203,9 @@ window.WIKI_MAP = {
        "subs": []
       }
      ],
-     "words": 1656,
-     "bytes": 62548,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "words": 1668,
+     "bytes": 59680,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "index.html",
       "products/hemlock.html",
@@ -237,7 +237,7 @@ window.WIKI_MAP = {
       },
       {
        "id": "family",
-       "label": "The missile",
+       "label": "Specification",
        "subs": [
         {
          "id": "High-altitude_engine_operation",
@@ -276,7 +276,7 @@ window.WIKI_MAP = {
       },
       {
        "id": "industrial",
-       "label": "Built by the supply base that already exists",
+       "label": "Domestic supply base",
        "subs": []
       },
       {
@@ -305,9 +305,9 @@ window.WIKI_MAP = {
        "subs": []
       }
      ],
-     "words": 2693,
-     "bytes": 89471,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "words": 2687,
+     "bytes": 86538,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "index.html",
       "architecture/index.html",
@@ -329,7 +329,7 @@ window.WIKI_MAP = {
      "heading": "Ahuti interceptor, first contact, unmanned",
      "description": "Class B · Air defence & cUAS",
      "extract": "A high-speed electric interceptor engineered to destroy hostile reconnaissance drones and loitering munitions. Engineered for the 400 km/h speed band, Ahuti Mk II delivers hard-kill kinetic interception at expendable quadrotor economics.",
-     "thumb": "assets/ahuti-render.jpg",
+     "thumb": "assets/interceptor.jpg",
      "sections": [
       {
        "id": "definition",
@@ -343,7 +343,7 @@ window.WIKI_MAP = {
       },
       {
        "id": "specs",
-       "label": "Ahuti Mk II, in full",
+       "label": "Ahuti Mk II specification",
        "subs": []
       },
       {
@@ -367,9 +367,9 @@ window.WIKI_MAP = {
        "subs": []
       }
      ],
-     "words": 1174,
-     "bytes": 56004,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "words": 1189,
+     "bytes": 53385,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "index.html",
       "architecture/index.html",
@@ -437,8 +437,8 @@ window.WIKI_MAP = {
       }
      ],
      "words": 1367,
-     "bytes": 58203,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "bytes": 55312,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "index.html",
       "architecture/index.html",
@@ -507,9 +507,9 @@ window.WIKI_MAP = {
        "subs": []
       }
      ],
-     "words": 1828,
-     "bytes": 116603,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "words": 1849,
+     "bytes": 113776,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "index.html",
       "products/nightshade-adx1.html",
@@ -559,8 +559,8 @@ window.WIKI_MAP = {
       }
      ],
      "words": 998,
-     "bytes": 82083,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "bytes": 79192,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "products/nightshade-adx1.html",
       "products/usv-strike.html",
@@ -625,8 +625,8 @@ window.WIKI_MAP = {
       }
      ],
      "words": 1383,
-     "bytes": 52977,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "bytes": 50087,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "products/nightshade-adx1.html",
       "products/hemlock.html",
@@ -648,12 +648,12 @@ window.WIKI_MAP = {
      "sections": [
       {
        "id": "framing",
-       "label": "Latency is a distance, not a benchmark",
+       "label": "Latency expressed as distance",
        "subs": []
       },
       {
        "id": "why-custom",
-       "label": "One computer flies the aircraft. The other reads the world.",
+       "label": "Flight-critical and payload compute",
        "subs": []
       },
       {
@@ -677,9 +677,9 @@ window.WIKI_MAP = {
        "subs": []
       }
      ],
-     "words": 857,
-     "bytes": 48574,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "words": 848,
+     "bytes": 45617,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "products/usv-strike.html",
       "architecture/index.html",
@@ -704,7 +704,7 @@ window.WIKI_MAP = {
       },
       {
        "id": "toolchain",
-       "label": "Authored, executed, operated, verified",
+       "label": "Software lifecycle and verification",
        "subs": []
       },
       {
@@ -734,8 +734,8 @@ window.WIKI_MAP = {
       }
      ],
      "words": 1118,
-     "bytes": 58279,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "bytes": 55382,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "products/nightshade-adx1.html",
       "architecture/index.html",
@@ -779,8 +779,8 @@ window.WIKI_MAP = {
       }
      ],
      "words": 607,
-     "bytes": 42026,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "bytes": 39135,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "products/nightshade-adx1.html",
       "architecture/index.html",
@@ -832,8 +832,8 @@ window.WIKI_MAP = {
       }
      ],
      "words": 474,
-     "bytes": 42530,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "bytes": 39639,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "products/nightshade-adx1.html",
       "architecture/index.html",
@@ -883,8 +883,8 @@ window.WIKI_MAP = {
       }
      ],
      "words": 438,
-     "bytes": 41943,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "bytes": 39052,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "products/nightshade-adx1.html",
       "architecture/index.html",
@@ -956,9 +956,9 @@ window.WIKI_MAP = {
        "subs": []
       }
      ],
-     "words": 2005,
-     "bytes": 87724,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "words": 2038,
+     "bytes": 84941,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "index.html",
       "products/nightshade-adx1.html",
@@ -1013,8 +1013,8 @@ window.WIKI_MAP = {
       }
      ],
      "words": 1528,
-     "bytes": 60765,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "bytes": 57874,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "index.html"
      ]
@@ -1090,8 +1090,8 @@ window.WIKI_MAP = {
       }
      ],
      "words": 2722,
-     "bytes": 72949,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "bytes": 70058,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "index.html",
       "products/nightshade-adx1.html",
@@ -1137,8 +1137,8 @@ window.WIKI_MAP = {
       }
      ],
      "words": 1253,
-     "bytes": 50353,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "bytes": 47462,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "index.html",
       "products/hemlock.html",
@@ -1189,7 +1189,7 @@ window.WIKI_MAP = {
       },
       {
        "id": "global",
-       "label": "Built in India, competitive with the world",
+       "label": "Manufacturing in India",
        "subs": []
       },
       {
@@ -1198,9 +1198,9 @@ window.WIKI_MAP = {
        "subs": []
       }
      ],
-     "words": 2045,
-     "bytes": 52292,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "words": 2041,
+     "bytes": 49361,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "index.html"
      ]
@@ -1245,8 +1245,8 @@ window.WIKI_MAP = {
       }
      ],
      "words": 873,
-     "bytes": 44523,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "bytes": 41632,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "index.html",
       "subsystems/launch-systems.html"
@@ -1311,9 +1311,9 @@ window.WIKI_MAP = {
        "subs": []
       }
      ],
-     "words": 1819,
-     "bytes": 56700,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "words": 1823,
+     "bytes": 53823,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "index.html",
       "products/hemlock.html",
@@ -1362,8 +1362,8 @@ window.WIKI_MAP = {
       }
      ],
      "words": 1130,
-     "bytes": 47467,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "bytes": 44576,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "doctrine/missing-middle.html"
      ]
@@ -1389,22 +1389,22 @@ window.WIKI_MAP = {
       },
       {
        "id": "gamble",
-       "label": "Flight verification over slideware",
+       "label": "Flight test record",
        "subs": []
       },
       {
        "id": "timeline",
-       "label": "A proven track record of execution",
+       "label": "Delivered work and current status",
        "subs": []
       },
       {
        "id": "deployed",
-       "label": "Proving grounds and user evaluations",
+       "label": "Field trials and user evaluations",
        "subs": []
       },
       {
        "id": "testimonials",
-       "label": "What others have said",
+       "label": "Testimonials",
        "subs": []
       },
       {
@@ -1413,9 +1413,9 @@ window.WIKI_MAP = {
        "subs": []
       }
      ],
-     "words": 1324,
-     "bytes": 54889,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "words": 1319,
+     "bytes": 51988,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "index.html",
       "about/team.html"
@@ -1425,34 +1425,34 @@ window.WIKI_MAP = {
      "title": "Team & advisors",
      "href": "about/team.html",
      "heading": "The people behind the machines",
-     "description": "Company · team and advisors · 17+ engineers and operators · 7 advisors",
+     "description": "Company · team and advisors · 17+ engineers and operators · 5 advisors",
      "extract": "Apollyon is a team of 17+, up from nine at the start of 2026. It is deliberately built around a narrow set of disciplines the company refuses to buy in: propulsion, flight control, machine learning, airframe design and manufacturing. A board of advisors from the services, DRDO, space and industry reviews the work as it moves.",
-     "thumb": "assets/team/jayant-khatri.jpg",
+     "thumb": "assets/team/jayant.png",
      "sections": [
       {
        "id": "founders",
-       "label": "Two undergraduates with a workshop",
+       "label": "Founders",
        "subs": []
       },
       {
        "id": "team",
-       "label": "One team across propulsion, code and airframes",
+       "label": "Team",
        "subs": []
       },
       {
        "id": "advisors",
-       "label": "A board that has run the systems we are building",
+       "label": "Advisors",
        "subs": []
       },
       {
        "id": "press",
-       "label": "What the field, and the press, have said",
+       "label": "External assessment",
        "subs": []
       }
      ],
-     "words": 406,
-     "bytes": 42808,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "words": 352,
+     "bytes": 39070,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "index.html",
       "about/history.html"
@@ -1468,7 +1468,7 @@ window.WIKI_MAP = {
      "sections": [
       {
        "id": "narrative-synthesis",
-       "label": "The sixty-year \"buyer of last resort\" trap",
+       "label": "Sixty years of buyer-of-last-resort dependency",
        "subs": []
       },
       {
@@ -1537,9 +1537,9 @@ window.WIKI_MAP = {
        "subs": []
       }
      ],
-     "words": 6306,
-     "bytes": 124761,
-     "lastmod": "2026-09-25T07:14:58Z",
+     "words": 6369,
+     "bytes": 122197,
+     "lastmod": "2026-10-02T14:24:19Z",
      "links": [
       "index.html"
      ]
