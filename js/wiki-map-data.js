@@ -135,9 +135,9 @@ window.WIKI_MAP = {
        "subs": []
       }
      ],
-     "words": 4969,
-     "bytes": 160987,
-     "lastmod": "2026-10-04T19:40:36+00:00",
+     "words": 4988,
+     "bytes": 213376,
+     "lastmod": "2026-10-05T02:07:11+05:30",
      "links": [
       "strategy/market.html",
       "about/team.html"
@@ -205,7 +205,7 @@ window.WIKI_MAP = {
      ],
      "words": 1668,
      "bytes": 59675,
-     "lastmod": "2026-10-04T06:18:52+00:00",
+     "lastmod": "2026-10-05T02:07:11+05:30",
      "links": [
       "index.html",
       "products/hemlock.html",
@@ -560,7 +560,7 @@ window.WIKI_MAP = {
      ],
      "words": 998,
      "bytes": 79192,
-     "lastmod": "2026-10-04T06:18:52+00:00",
+     "lastmod": "2026-10-05T02:07:11+05:30",
      "links": [
       "products/nightshade-adx1.html",
       "products/usv-strike.html",
@@ -626,7 +626,7 @@ window.WIKI_MAP = {
      ],
      "words": 1383,
      "bytes": 50087,
-     "lastmod": "2026-10-04T06:18:52+00:00",
+     "lastmod": "2026-10-05T02:07:11+05:30",
      "links": [
       "products/nightshade-adx1.html",
       "products/hemlock.html",
@@ -958,7 +958,7 @@ window.WIKI_MAP = {
      ],
      "words": 2038,
      "bytes": 84941,
-     "lastmod": "2026-10-04T06:18:52+00:00",
+     "lastmod": "2026-10-05T02:07:11+05:30",
      "links": [
       "index.html",
       "products/nightshade-adx1.html",
@@ -1091,7 +1091,7 @@ window.WIKI_MAP = {
      ],
      "words": 2722,
      "bytes": 70058,
-     "lastmod": "2026-10-04T06:18:52+00:00",
+     "lastmod": "2026-10-05T02:07:11+05:30",
      "links": [
       "index.html",
       "products/nightshade-adx1.html",
@@ -1313,7 +1313,7 @@ window.WIKI_MAP = {
      ],
      "words": 1823,
      "bytes": 53823,
-     "lastmod": "2026-10-04T06:18:52+00:00",
+     "lastmod": "2026-10-05T02:07:11+05:30",
      "links": [
       "index.html",
       "products/hemlock.html",
@@ -1415,7 +1415,7 @@ window.WIKI_MAP = {
      ],
      "words": 1342,
      "bytes": 52232,
-     "lastmod": "2026-10-04T06:18:52+00:00",
+     "lastmod": "2026-10-05T02:07:11+05:30",
      "links": [
       "index.html",
       "about/team.html"
@@ -1452,7 +1452,7 @@ window.WIKI_MAP = {
      ],
      "words": 357,
      "bytes": 39102,
-     "lastmod": "2026-10-04T06:18:52+00:00",
+     "lastmod": "2026-10-05T02:07:11+05:30",
      "links": [
       "index.html",
       "about/history.html"

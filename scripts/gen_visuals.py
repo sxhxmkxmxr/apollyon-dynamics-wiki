@@ -31,6 +31,7 @@ LINE3 = "#A2A9B1"
 RED = "#D73333"
 RED2 = "#B32424"
 RED_W = "#FEE7E6"
+CARD_BG = "#F8F9FA"
 
 MONO = "JetBrains Mono, ui-monospace, monospace"
 SANS = "Inter, Helvetica Neue, sans-serif"
@@ -92,9 +93,20 @@ def wrap(x, y, s, maxw, size, fill=INK3, fam=SANS, lh=None, weight=None, anchor=
     return "".join(txt(x, y + i * lh, ln, size, fill, fam, anchor=anchor, weight=weight) for i, ln in enumerate(lines))
 
 
-def rect(x, y, w, h, stroke=LINE, fill="none", sw=1, dash=None):
+def rect(x, y, w, h, stroke=LINE, fill="none", sw=1, rx=None, dash=None):
     d = f' stroke-dasharray="{dash}"' if dash else ""
-    return f'<rect x="{x:.1f}" y="{y:.1f}" width="{w:.1f}" height="{h:.1f}" fill="{fill}" stroke="{stroke}" stroke-width="{sw}"{d}/>'
+    r = f' rx="{rx}"' if rx else ""
+    return f'<rect x="{x:.1f}" y="{y:.1f}" width="{w:.1f}" height="{h:.1f}" fill="{fill}" stroke="{stroke}" stroke-width="{sw}"{r}{d}/>'
+
+
+def circle(cx, cy, r, stroke=LINE2, fill="none", sw=1, dash=None):
+    da = f' stroke-dasharray="{dash}"' if dash else ""
+    return f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r:.1f}" stroke="{stroke}" fill="{fill}" stroke-width="{sw}"{da}/>'
+
+
+def path(d, stroke=LINE2, fill="none", sw=1, dash=None):
+    da = f' stroke-dasharray="{dash}"' if dash else ""
+    return f'<path d="{d}" stroke="{stroke}" fill="{fill}" stroke-width="{sw}"{da}/>'
 
 
 def line(x1, y1, x2, y2, stroke=LINE2, sw=1, dash=None):
@@ -177,59 +189,542 @@ def panel_box(x, y, w, h, label, sub=None, stroke=LINE3, fill=BG, sw=1,
 
 
 # ══════════════════════════════════════════════════════════════════════
-# 1 · THE WAR CHANGED SHAPE — four inversions + the exchange rate
+# 1 · THE WAR CHANGED SHAPE — six inversions + the exchange arithmetic
 # ══════════════════════════════════════════════════════════════════════
-def war_inversions():
-    W, H = 1000, 560
-    ns = "wi"
-    o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="img" '
-         f'aria-label="Four inversions of modern warfare and the exchange rate between interceptors and strike rounds">',
-         defs_arrow(ns, {"ink": INK4, "red": RED2, "grey": LINE3})]
+def draw_jet(cx, cy, scale=1.0, stroke=INK2, fill="#FFFFFF"):
+    s = scale
+    p = (
+        f"M{cx},{cy-22*s} "
+        f"L{cx+3.5*s},{cy-14*s} L{cx+6*s},{cy-3*s} L{cx+32*s},{cy+6*s} L{cx+32*s},{cy+11*s} "
+        f"L{cx+9*s},{cy+8*s} L{cx+8*s},{cy+15*s} L{cx+15*s},{cy+21*s} L{cx+14*s},{cy+23*s} "
+        f"L{cx+5*s},{cy+21*s} L{cx+2.5*s},{cy+23*s} L{cx-2.5*s},{cy+23*s} L{cx-5*s},{cy+21*s} "
+        f"L{cx-14*s},{cy+23*s} L{cx-15*s},{cy+21*s} L{cx-8*s},{cy+15*s} L{cx-9*s},{cy+8*s} "
+        f"L{cx-32*s},{cy+11*s} L{cx-32*s},{cy+6*s} L{cx-6*s},{cy-3*s} L{cx-3.5*s},{cy-14*s} Z"
+    )
+    canopy = f"M{cx},{cy-14*s} C{cx+2.5*s},{cy-11*s} {cx+2.5*s},{cy-4*s} {cx},{cy-1*s} C{cx-2.5*s},{cy-4*s} {cx-2.5*s},{cy-11*s} {cx},{cy-14*s} Z"
+    return path(p, stroke=stroke, fill=fill, sw=1.2*s) + path(canopy, stroke=INK3, fill="#EAF3FF", sw=0.8*s)
 
-    o.append(txt(40, 30, "THEN", 9.5, INK4, MONO, ls="0.18em"))
-    o.append(txt(552, 30, "NOW", 9.5, RED2, MONO, ls="0.18em"))
-    o.append(line(40, 40, 960, 40, LINE2))
 
-    rows = [
-        ("01", "PLATFORM",
-         "Manned and exquisite. A single sortie costs more than the target it services, and the pilot cannot be replaced.",
-         "Autonomous and attritable. The machine goes first, at a unit cost that permits it to be lost."),
-        ("02", "INVENTORY",
-         "Stockpiles of a few hundred. A real campaign empties the magazine within weeks.",
-         "Production of thousands. Output rate becomes a performance parameter, alongside range and speed."),
-        ("03", "SPECTRUM",
-         "Permissive GNSS. Precision depends on satellite signals the adversary can deny at will.",
-         "Contested and denied. Navigation falls back on inertial, terrain and optical references."),
-        ("04", "EXCHANGE",
-         "The defender fires an ₹18–35 crore interceptor at whatever arrives.",
-         "A strike round under ₹2 crore arrives instead. The exchange now bankrupts the defence."),
+def draw_drone_mini(cx, cy, s=1.0, stroke=RED, fill=RED):
+    w, h = 9 * s, 6.2 * s
+    p = (
+        f"M{cx},{cy-h} "
+        f"L{cx+w},{cy+h*0.65} L{cx+w*0.82},{cy+h} "
+        f"L{cx+w*0.3},{cy+h*0.5} L{cx+w*0.3},{cy+h} "
+        f"L{cx-w*0.3},{cy+h} L{cx-w*0.3},{cy+h*0.5} "
+        f"L{cx-w*0.82},{cy+h} L{cx-w},{cy+h*0.65} Z"
+    )
+    return path(p, stroke=stroke, fill=fill, sw=0.8*s)
+
+
+def draw_drone_formation(cx, cy):
+    out = [
+        draw_drone_mini(cx, cy, s=1.4, stroke=RED2, fill=RED_W),
+        draw_drone_mini(cx - 44, cy - 10, s=0.9, stroke=INK, fill=CARD_BG),
+        draw_drone_mini(cx + 44, cy - 10, s=0.9, stroke=INK, fill=CARD_BG),
+        draw_drone_mini(cx - 76, cy + 6, s=0.75, stroke=INK2, fill=CARD_BG),
+        draw_drone_mini(cx + 76, cy + 6, s=0.75, stroke=INK2, fill=CARD_BG),
+        line(cx - 76, cy + 6, cx - 44, cy - 10, stroke=LINE3, sw=0.8, dash="2,2"),
+        line(cx - 44, cy - 10, cx, cy, stroke=LINE3, sw=0.8, dash="2,2"),
+        line(cx, cy, cx + 44, cy - 10, stroke=LINE3, sw=0.8, dash="2,2"),
+        line(cx + 44, cy - 10, cx + 76, cy + 6, stroke=LINE3, sw=0.8, dash="2,2"),
     ]
-    y = 74
-    for no, label, then, now in rows:
-        o.append(txt(40, y + 4, no, 10, RED2, MONO, weight=700))
-        o.append(txt(72, y + 4, label, 10.5, INK, MONO, weight=700, ls="0.12em"))
-        o.append(wrap(72, y + 30, then, 400, 12.5, INK3, SANS, lh=17))
-        o.append(line(72, y + 60, 468, y + 60, LINE))
-        o.append(arrow(492, y + 22, 532, y + 22, ns, "red", 1.4))
-        o.append(wrap(552, y + 30, now, 398, 13, INK, SANS, lh=18, weight=600))
-        y += 88
+    return "".join(out)
 
-    gy = 432
-    o.append(line(40, gy - 26, 960, gy - 26, LINE2))
-    o.append(txt(40, gy - 8, "THE EXCHANGE RATE", 10.5, RED2, MONO, weight=700, ls="0.12em"))
-    cells = []
-    cs = 10
-    for i in range(10):
-        for j in range(10):
-            fill = RED if (i, j) == (0, 0) else "none"
-            cells.append(rect(40 + i * cs, gy + 6 + j * cs, cs - 1, cs - 1, stroke=LINE2, fill=fill))
-    o.append("".join(cells))
-    o.append(txt(170, gy + 22, "= 100 attritable strike rounds", 12.5, INK, SANS, weight=600))
-    o.append(wrap(170, gy + 44, "bought for the price of one air-defence interceptor. A defence built on expensive "
-                                "interceptors loses the arithmetic before it loses the battle.", 420, 11.5, INK3, SANS, lh=16))
-    o.append(txt(660, gy + 22, "RATIO ≈ 50–200 : 1", 10, INK4, MONO, ls="0.1em"))
-    o.append(wrap(660, gy + 44, "depending on the pairing. The interceptor is not the only party losing this "
-                                "exchange — national magazines are finite too.", 300, 10.5, INK4, MONO, lh=15))
+
+def draw_missile_vertical(x, y, h=28, w=6, stroke=INK2, fill="#FFFFFF"):
+    hw = w / 2
+    fin_w = w * 1.15
+    fin_h = h * 0.22
+    p = (
+        f"M{x},{y-h/2} "
+        f"C{x+hw},{y-h/2+3} {x+hw},{y-h/4} {x+hw},{y+h/2-fin_h} "
+        f"L{x+hw+fin_w},{y+h/2} L{x+hw},{y+h/2-2} L{x+hw},{y+h/2} "
+        f"L{x-hw},{y+h/2} L{x-hw},{y+h/2-2} L{x-hw-fin_w},{y+h/2} "
+        f"L{x-hw},{y+h/2-fin_h} C{x-hw},{y-h/4} {x-hw},{y-h/2+3} {x},{y-h/2} Z"
+    )
+    return path(p, stroke=stroke, fill=fill, sw=1.1)
+
+
+def draw_factory_conveyor(cx, cy):
+    out = []
+    bx = cx - 84
+    f_p = (
+        f"M{bx},{cy+18} V{cy-2} "
+        f"L{bx+14},{cy-16} V{cy-2} "
+        f"L{bx+28},{cy-16} V{cy-2} "
+        f"L{bx+42},{cy-16} V{cy+18} Z"
+    )
+    out.append(path(f_p, stroke=INK2, fill="#FFFFFF", sw=1.2))
+    out.append(rect(bx - 4, cy - 22, 6, 8, stroke=INK2, fill="#FFFFFF", sw=1.1))
+    out.append(path(f"M{bx-1},{cy-24} Q{bx+2},{cy-28} {bx-1},{cy-31}", stroke=LINE3, sw=1, dash="2,2"))
+    out.append(rect(bx + 8, cy + 6, 10, 12, stroke=LINE3, fill=LINE, sw=0.9))
+    out.append(rect(bx + 24, cy + 6, 10, 12, stroke=LINE3, fill=LINE, sw=0.9))
+
+    cb_x1 = bx + 44
+    cb_x2 = cx + 88
+    belt_y = cy + 10
+    out.append(line(cb_x1, belt_y, cb_x2, belt_y, stroke=INK, sw=1.4))
+    out.append(line(cb_x1, belt_y + 5, cb_x2, belt_y + 5, stroke=LINE3, sw=1.0))
+    for rx in range(int(cb_x1) + 8, int(cb_x2), 15):
+        out.append(circle(rx, belt_y + 7, 2.2, stroke=INK3, fill="#FFFFFF", sw=1))
+
+    for mx in range(int(cb_x1) + 8, int(cb_x2) - 4, 13):
+        mp = (
+            f"M{mx+8},{belt_y-1} "
+            f"L{mx-2},{belt_y-3} L{mx-5},{belt_y-5} L{mx-4},{belt_y-1} "
+            f"L{mx-4},{belt_y+1} L{mx-5},{belt_y+5} L{mx-2},{belt_y+3} Z"
+        )
+        out.append(path(mp, stroke=RED2, fill=RED_W, sw=0.9))
+    return "".join(out)
+
+
+def draw_sensing_old(cx, cy):
+    out = []
+    m_p = (
+        f"M{cx-80},{cy+18} "
+        f"Q{cx-50},{cy-10} {cx-20},{cy+2} "
+        f"Q{cx+10},{cy-18} {cx+40},{cy+2} "
+        f"Q{cx+65},{cy-8} {cx+80},{cy+18} Z"
+    )
+    out.append(path(m_p, stroke=LINE3, fill="#F0F4F8", sw=1.1))
+    for tx in (cx - 60, cx - 40, cx + 30, cx + 55):
+        out.append(path(f"M{tx},{cy+10} L{tx-4},{cy+18} H{tx+4} Z", stroke=LINE3, fill="#E2E7ED", sw=0.8))
+
+    tx, ty = cx - 5, cy + 10
+    out.append(line(tx - 14, ty - 4, tx, ty - 4, stroke=INK2, sw=1.5))
+    out.append(path(f"M{tx-4},{ty-2} C{tx-4},{ty-7} {tx+8},{ty-7} {tx+8},{ty-2} Z", stroke=INK2, fill="#FFFFFF", sw=1.1))
+    out.append(rect(tx - 8, ty - 2, 22, 7, stroke=INK2, fill="#FFFFFF", rx=2, sw=1.1))
+    for wx in range(tx - 6, tx + 13, 4):
+        out.append(circle(wx + 1, ty + 2, 1.4, stroke=INK3, fill="#FFFFFF", sw=0.8))
+
+    out.append(path(f"M{cx-30},{cy+4} Q{cx-10},{cy} {cx+15},{cy+4}", stroke="#94A3B8", sw=1.2, dash="3,3"))
+    out.append(path(f"M{cx-15},{cy+12} Q{cx+10},{cy+8} {cx+35},{cy+12}", stroke="#94A3B8", sw=1.2, dash="3,3"))
+    return "".join(out)
+
+
+def draw_sensing_new(cx, cy):
+    out = []
+    sx, sy = cx - 64, cy - 14
+    out.append(rect(sx - 4, sy - 3, 8, 6, stroke=INK, fill="#FFFFFF", sw=1))
+    out.append(rect(sx - 14, sy - 2, 9, 4, stroke=INK3, fill="#EAF3FF", sw=0.8))
+    out.append(rect(sx + 5, sy - 2, 9, 4, stroke=INK3, fill="#EAF3FF", sw=0.8))
+    out.append(line(sx, sy + 4, cx - 15, cy + 8, stroke=RED, sw=0.8, dash="3,2"))
+
+    dx, dy = cx, cy - 16
+    out.append(path(f"M{dx-16},{dy} L{dx},{dy-3} L{dx+16},{dy} L{dx},{dy+2} Z", stroke=INK, fill="#FFFFFF", sw=1))
+    out.append(line(dx, dy + 2, cx + 6, cy + 8, stroke=RED, sw=0.8, dash="3,2"))
+
+    tx, ty = cx - 5, cy + 10
+    out.append(line(tx - 14, ty - 4, tx, ty - 4, stroke=INK2, sw=1.4))
+    out.append(path(f"M{tx-4},{ty-2} C{tx-4},{ty-7} {tx+8},{ty-7} {tx+8},{ty-2} Z", stroke=INK2, fill="#FFFFFF", sw=1.1))
+    out.append(rect(tx - 8, ty - 2, 22, 7, stroke=INK2, fill="#FFFFFF", rx=2, sw=1.1))
+    for wx in range(tx - 6, tx + 13, 4):
+        out.append(circle(wx + 1, ty + 2, 1.4, stroke=INK3, fill="#FFFFFF", sw=0.8))
+
+    bx1, by1, bw, bh = tx - 14, ty - 9, 32, 18
+    c_len = 5
+    out.append(path(f"M{bx1},{by1+c_len} V{by1} H{bx1+c_len}", stroke=RED, sw=1.4))
+    out.append(path(f"M{bx1+bw-c_len},{by1} H{bx1+bw} V{by1+c_len}", stroke=RED, sw=1.4))
+    out.append(path(f"M{bx1},{by1+bh-c_len} V{by1+bh} H{bx1+c_len}", stroke=RED, sw=1.4))
+    out.append(path(f"M{bx1+bw-c_len},{by1+bh} H{bx1+bw} V{by1+bh-c_len}", stroke=RED, sw=1.4))
+    out.append(line(bx1 + bw / 2 - 3, by1 + bh / 2, bx1 + bw / 2 + 3, by1 + bh / 2, stroke=RED, sw=1))
+    out.append(line(bx1 + bw / 2, by1 + bh / 2 - 3, bx1 + bw / 2, by1 + bh / 2 + 3, stroke=RED, sw=1))
+
+    vbx, vby, vbw, vbh = cx + 46, cy - 14, 44, 32
+    out.append(rect(vbx, vby, vbw, vbh, stroke=LINE3, fill="#FFFFFF", sw=1))
+    out.append(line(vbx + vbw / 2 - 4, vby + vbh / 2, vbx + vbw / 2 + 4, vby + vbh / 2, stroke=RED2, sw=1))
+    out.append(line(vbx + vbw / 2, vby + vbh / 2 - 4, vbx + vbw / 2, vby + vbh / 2 + 4, stroke=RED2, sw=1))
+    out.append(circle(vbx + vbw / 2, vby + vbh / 2, 6, stroke=RED2, sw=0.8, dash="2,2"))
+    out.append(txt(vbx + vbw / 2, vby + vbh - 4, "TRACK", 6.5, fill=RED2, fam=MONO, anchor="middle", weight=700))
+    return "".join(out)
+
+
+def draw_spectrum_old(cx, cy):
+    out = []
+    sx, sy = cx - 55, cy - 10
+    out.append(rect(sx - 4, sy - 3, 8, 6, stroke=INK, fill="#FFFFFF", sw=1))
+    out.append(rect(sx - 13, sy - 2, 8, 4, stroke=INK3, fill="#EAF3FF", sw=0.8))
+    out.append(rect(sx + 5, sy - 2, 8, 4, stroke=INK3, fill="#EAF3FF", sw=0.8))
+    out.append(line(sx, sy + 3, sx + 3, sy + 7, stroke=INK3, sw=1))
+
+    dx, dy = cx + 52, cy + 8
+    out.append(path(f"M{dx-12},{dy-14} Q{dx-22},{dy-3} {dx-10},{dy+5}", stroke=INK, fill="none", sw=1.6))
+    out.append(line(dx - 17, dy - 5, dx - 3, dy - 7, stroke=INK3, sw=1.2))
+    out.append(circle(dx - 3, dy - 7, 1.8, stroke=INK3, fill=INK3, sw=1))
+    out.append(line(dx - 15, dy + 2, dx - 10, dy + 12, stroke=INK, sw=1.4))
+    out.append(line(dx - 10, dy + 12, dx - 18, dy + 16, stroke=INK, sw=1.2))
+    out.append(line(dx - 10, dy + 12, dx - 2, dy + 16, stroke=INK, sw=1.2))
+
+    for r in (24, 40, 58, 76):
+        out.append(path(f"M{sx+r*0.6},{sy+r*0.4-6} Q{sx+r*0.78},{sy+r*0.5} {sx+r*0.68},{sy+r*0.6+6}", stroke=LINE3, sw=1.2, dash="3,3"))
+    return "".join(out)
+
+
+def draw_spectrum_new(cx, cy):
+    out = []
+    sx, sy = cx - 64, cy - 4
+    out.append(rect(sx - 4, sy - 3, 8, 6, stroke=INK4, fill="#FFFFFF", sw=1))
+    out.append(rect(sx - 13, sy - 2, 8, 4, stroke=LINE3, fill=CARD_BG, sw=0.8))
+    out.append(rect(sx + 5, sy - 2, 8, 4, stroke=LINE3, fill=CARD_BG, sw=0.8))
+    out.append(line(sx - 10, sy - 10, sx + 10, sy + 10, stroke=RED, sw=2.4))
+    out.append(line(sx + 10, sy - 10, sx - 10, sy + 10, stroke=RED, sw=2.4))
+
+    b1_x = cx - 14
+    out.append(circle(b1_x, cy, 14, stroke=LINE2, fill="#FFFFFF", sw=1.1))
+    out.append(line(b1_x - 10, cy, b1_x + 10, cy, stroke=LINE3, sw=0.8))
+    out.append(line(b1_x, cy - 10, b1_x, cy + 10, stroke=LINE3, sw=0.8))
+    out.append(path(f"M{b1_x},{cy-9} L{b1_x+3},{cy} L{b1_x},{cy+9} L{b1_x-3},{cy} Z", stroke=RED2, fill=RED_W, sw=1))
+    out.append(circle(b1_x, cy, 2, stroke=RED2, fill=RED2, sw=1))
+
+    b2_x = cx + 24
+    out.append(circle(b2_x, cy, 14, stroke=LINE2, fill="#FFFFFF", sw=1.1))
+    out.append(path(f"M{b2_x-10},{cy+8} L{b2_x-4},{cy-4} L{b2_x+2},{cy+3} L{b2_x+6},{cy-7} L{b2_x+10},{cy+8} Z", stroke=INK2, fill="#F0F4F8", sw=1.1))
+    out.append(line(b2_x - 8, cy + 4, b2_x + 8, cy + 4, stroke=LINE3, sw=0.8, dash="1,2"))
+
+    b3_x = cx + 62
+    out.append(circle(b3_x, cy, 14, stroke=LINE2, fill="#FFFFFF", sw=1.1))
+    out.append(rect(b3_x - 8, cy - 5, 16, 11, stroke=INK2, fill="#FFFFFF", rx=1.5, sw=1))
+    out.append(rect(b3_x - 4, cy - 7, 8, 2, stroke=INK2, fill="#FFFFFF", sw=0.8))
+    out.append(circle(b3_x, cy + 0.5, 3.5, stroke=RED2, fill=RED_W, sw=1))
+    return "".join(out)
+
+
+def draw_geometry_old(cx, cy):
+    out = []
+    out.append(path(f"M{cx-80},{cy+18} L{cx-40},{cy-12} L{cx+55},{cy-12} L{cx+80},{cy+18} Z", stroke=LINE2, fill="#F8F9FA", sw=1))
+    out.append(line(cx - 15, cy - 12, cx - 35, cy + 18, stroke=LINE3, sw=1.2, dash="4,3"))
+
+    hx = cx - 52
+    out.append(path(f"M{hx-18},{cy+6} Q{hx},{cy-14} {hx+18},{cy+6} Z", stroke=INK2, fill="#FFFFFF", sw=1.2))
+    out.append(rect(hx - 10, cy - 1, 20, 7, stroke=LINE3, fill=LINE, sw=0.8))
+
+    tx = cx + 58
+    out.append(path(f"M{tx-4},{cy+12} L{tx-2},{cy-6} L{tx+2},{cy-6} L{tx+4},{cy+12} Z", stroke=INK, fill="#FFFFFF", sw=1.1))
+    out.append(rect(tx - 6, cy - 10, 12, 4, stroke=INK, fill="#EAF3FF", sw=0.9))
+    out.append(circle(tx, cy - 12, 2.5, stroke=INK, fill="#FFFFFF", sw=0.9))
+
+    out.append(draw_jet(cx - 20, cy + 4, scale=0.6, stroke=INK3, fill="#FFFFFF"))
+    out.append(draw_jet(cx + 12, cy + 4, scale=0.6, stroke=INK3, fill="#FFFFFF"))
+    return "".join(out)
+
+
+def draw_geometry_new(cx, cy):
+    out = []
+    m_p = (
+        f"M{cx-85},{cy+18} "
+        f"Q{cx-60},{cy-12} {cx-30},{cy-2} "
+        f"Q{cx},{cy-18} {cx+35},{cy-4} "
+        f"Q{cx+65},{cy-14} {cx+85},{cy+18} Z"
+    )
+    out.append(path(m_p, stroke=LINE3, fill="#F0F4F8", sw=1.1))
+    out.append(path(f"M{cx-80},{cy+14} Q{cx-40},{cy+4} {cx},{cy+12} T{cx+75},{cy+6}", stroke=LINE3, sw=1.2, dash="3,2"))
+
+    for tx in (cx - 70, cx - 25, cx + 15, cx + 60):
+        out.append(path(f"M{tx},{cy+2} L{tx-3},{cy+9} H{tx+3} Z", stroke=LINE3, fill="#E2E7ED", sw=0.8))
+
+    for lx, ly, flip in ((cx - 50, cy + 6, False), (cx, cy - 4, True), (cx + 50, cy + 8, False)):
+        out.append(rect(lx - 11, ly + 1, 22, 6, stroke=INK, fill="#FFFFFF", rx=1, sw=1))
+        out.append(circle(lx - 8, ly + 7, 1.8, stroke=INK, fill="#000000", sw=0.8))
+        out.append(circle(lx - 2, ly + 7, 1.8, stroke=INK, fill="#000000", sw=0.8))
+        out.append(circle(lx + 6, ly + 7, 1.8, stroke=INK, fill="#000000", sw=0.8))
+        cab_x = lx + 4 if not flip else lx - 10
+        out.append(rect(cab_x, ly - 4, 6, 6, stroke=INK, fill="#EAF3FF", sw=0.8))
+        if not flip:
+            out.append(line(lx - 8, ly + 1, lx + 4, ly - 9, stroke=RED2, sw=2.2))
+        else:
+            out.append(line(lx + 8, ly + 1, lx - 4, ly - 9, stroke=RED2, sw=2.2))
+    return "".join(out)
+
+
+def draw_exchange_old(cx, cy):
+    out = []
+    ix, iy = cx - 45, cy + 16
+    out.append(line(ix, iy, cx - 4, cy - 2, stroke=INK3, sw=1.2, dash="3,2"))
+    out.append(path(f"M{cx-6},{cy-4} L{cx-18},{cy+6} L{cx-15},{cy+8} L{cx-3},{cy-2} Z", stroke=INK, fill="#FFFFFF", sw=1))
+
+    dx, dy = cx + 45, cy - 14
+    out.append(line(dx, dy, cx + 4, cy - 2, stroke=LINE3, sw=1.2, dash="3,2"))
+    out.append(draw_drone_mini(dx - 8, dy + 6, s=0.9, stroke=RED2, fill=RED_W))
+
+    bx, by = cx, cy - 2
+    out.append(circle(bx, by, 16, stroke=RED, sw=1, dash="3,2"))
+    blast = (
+        f"M{bx},{by-12} L{bx+3},{by-4} L{bx+12},{by-3} L{bx+5},{by+2} "
+        f"L{bx+9},{by+10} L{bx+1},{by+5} L{bx-4},{by+11} L{bx-3},{by+3} "
+        f"L{bx-12},{by} L{bx-4},{by-4} Z"
+    )
+    out.append(path(blast, stroke=RED2, fill=RED_W, sw=1.2))
+    out.append(circle(bx, by, 3, stroke=RED2, fill=RED, sw=1))
+    return "".join(out)
+
+
+def draw_exchange_new(cx, cy):
+    out = []
+    ix, iy = cx + 65, cy + 2
+    m_body = f"M{ix-12},{iy-10} L{ix+8},{iy+8} L{ix+5},{iy+11} L{ix-15},{iy-7} Z"
+    out.append(path(m_body, stroke=INK, fill="#FFFFFF", sw=1.2))
+    out.append(line(ix + 8, iy + 8, ix + 18, iy + 18, stroke=INK4, sw=1, dash="2,2"))
+
+    drone_coords = [
+        (cx - 75, cy - 14), (cx - 50, cy - 16), (cx - 25, cy - 12), (cx + 5, cy - 16), (cx + 35, cy - 14),
+        (cx - 65, cy),      (cx - 38, cy + 2),  (cx - 10, cy - 2),  (cx + 18, cy),      (cx + 45, cy + 2),
+        (cx - 75, cy + 14), (cx - 48, cy + 14), (cx - 20, cy + 12), (cx + 8, cy + 14),  (cx + 32, cy + 15),
+    ]
+    for x, y in drone_coords:
+        out.append(draw_drone_mini(x, y, s=0.75, stroke=RED2, fill=RED))
+        out.append(line(x - 12, y, x - 4, y, stroke=RED, sw=0.7, dash="2,2"))
+    return "".join(out)
+
+
+def icon_coins(cx, cy):
+    out = []
+    for dy, rx, ry in ((-4, 7, 2.5), (0, 7, 2.5), (4, 7, 2.5)):
+        out.append(path(f"M{cx-rx},{cy+dy} A{rx},{ry} 0 1,0 {cx+rx},{cy+dy} A{rx},{ry} 0 1,0 {cx-rx},{cy+dy}", stroke=INK2, fill="#FFFFFF", sw=1))
+        out.append(line(cx - rx, cy + dy, cx - rx, cy + dy + 3, stroke=INK2, sw=1))
+        out.append(line(cx + rx, cy + dy, cx + rx, cy + dy + 3, stroke=INK2, sw=1))
+    return "".join(out)
+
+
+def icon_factory(cx, cy):
+    f_p = f"M{cx-8},{cy+7} V{cy-1} L{cx-2},{cy-7} V{cy-1} L{cx+4},{cy-7} V{cy+7} Z"
+    return path(f_p, stroke=INK2, fill="#FFFFFF", sw=1.1) + rect(cx - 7, cy - 9, 3, 3, stroke=INK2, fill="#FFFFFF", sw=0.9)
+
+
+def icon_missiles(cx, cy):
+    out = []
+    for dx in (-5, 0, 5):
+        out.append(path(f"M{cx+dx},{cy-8} L{cx+dx+2},{cy-2} V{cy+6} H{cx+dx-2} V{cy-2} Z", stroke=INK2, fill="#FFFFFF", sw=1))
+    return "".join(out)
+
+
+def icon_chip(cx, cy):
+    out = [rect(cx - 6, cy - 6, 12, 12, stroke=INK2, fill="#FFFFFF", rx=1.5, sw=1.1)]
+    out.append(rect(cx - 3, cy - 3, 6, 6, stroke=RED2, fill=RED_W, sw=0.9))
+    for p in (-3, 3):
+        out.append(line(cx + p, cy - 6, cx + p, cy - 8.5, stroke=INK2, sw=1))
+        out.append(line(cx + p, cy + 6, cx + p, cy + 8.5, stroke=INK2, sw=1))
+        out.append(line(cx - 6, cy + p, cx - 8.5, cy + p, stroke=INK2, sw=1))
+        out.append(line(cx + 6, cy + p, cx + 8.5, cy + p, stroke=INK2, sw=1))
+    return "".join(out)
+
+
+def icon_code(cx, cy):
+    p1 = f"M{cx-4},{cy-5} L{cx-8},{cy} L{cx-4},{cy+5}"
+    p2 = f"M{cx+4},{cy-5} L{cx+8},{cy} L{cx+4},{cy+5}"
+    sl = line(cx - 2, cy + 6, cx + 2, cy - 6, stroke=RED2, sw=1.2)
+    return path(p1, stroke=INK2, sw=1.2) + path(p2, stroke=INK2, sw=1.2) + sl
+
+
+def icon_clock(cx, cy):
+    c = circle(cx, cy, 7.5, stroke=INK2, fill="#FFFFFF", sw=1.1)
+    h = line(cx, cy, cx, cy - 4.5, stroke=INK2, sw=1.2)
+    m = line(cx, cy, cx + 3.5, cy, stroke=RED2, sw=1.2)
+    return c + h + m
+
+
+def icon_network(cx, cy):
+    out = []
+    nodes = [(cx, cy), (cx - 6, cy - 6), (cx + 6, cy - 6), (cx - 6, cy + 6), (cx + 6, cy + 6)]
+    for nx, ny in nodes[1:]:
+        out.append(line(cx, cy, nx, ny, stroke=LINE3, sw=1))
+        out.append(circle(nx, ny, 2.2, stroke=RED2, fill="#FFFFFF", sw=1))
+    out.append(circle(cx, cy, 3, stroke=RED2, fill=RED, sw=1))
+    return "".join(out)
+
+
+def icon_eye(cx, cy):
+    p = f"M{cx-8},{cy} Q{cx},{cy-6} {cx+8},{cy} Q{cx},{cy+6} {cx-8},{cy} Z"
+    c = circle(cx, cy, 2.8, stroke=RED2, fill=RED2, sw=1)
+    return path(p, stroke=INK2, fill="#FFFFFF", sw=1.1) + c
+
+
+def icon_antenna(cx, cy):
+    out = [
+        line(cx, cy + 7, cx, cy - 4, stroke=INK2, sw=1.2),
+        line(cx - 5, cy + 7, cx + 5, cy + 7, stroke=INK2, sw=1),
+        path(f"M{cx-4},{cy-4} Q{cx-7},{cy} {cx-4},{cy+4}", stroke=RED2, sw=1),
+        path(f"M{cx+4},{cy-4} Q{cx+7},{cy} {cx+4},{cy+4}", stroke=RED2, sw=1),
+        line(cx - 6, cy - 6, cx + 6, cy + 6, stroke=RED, sw=1.5),
+    ]
+    return "".join(out)
+
+
+def icon_gears_dual(cx, cy):
+    out = []
+    g1x, g1y = cx - 3, cy - 2
+    out.append(circle(g1x, g1y, 4.5, stroke=INK2, fill="#FFFFFF", sw=1.1))
+    for a in range(0, 360, 60):
+        rad = math.radians(a)
+        out.append(line(g1x + 4.5 * math.cos(rad), g1y + 4.5 * math.sin(rad),
+                        g1x + 6.5 * math.cos(rad), g1y + 6.5 * math.sin(rad), stroke=INK2, sw=1.3))
+    g2x, g2y = cx + 4, cy + 4
+    out.append(circle(g2x, g2y, 3.2, stroke=RED2, fill="#FFFFFF", sw=1.0))
+    for a in range(30, 390, 60):
+        rad = math.radians(a)
+        out.append(line(g2x + 3.2 * math.cos(rad), g2y + 3.2 * math.sin(rad),
+                        g2x + 5.0 * math.cos(rad), g2y + 5.0 * math.sin(rad), stroke=RED2, sw=1.1))
+    return "".join(out)
+
+
+def icon_trophy(cx, cy):
+    cup = f"M{cx-5},{cy-6} H{cx+5} V{cy} C{cx+5},{cy+4} {cx-5},{cy+4} {cx-5},{cy} Z"
+    stem = line(cx, cy + 4, cx, cy + 6, stroke=INK2, sw=1.2)
+    base = line(cx - 4, cy + 7, cx + 4, cy + 7, stroke=INK2, sw=1.2)
+    handle_l = path(f"M{cx-5},{cy-4} Q{cx-8},{cy-2} {cx-5},{cy}", stroke=INK2, sw=0.9)
+    handle_r = path(f"M{cx+5},{cy-4} Q{cx+8},{cy-2} {cx+5},{cy}", stroke=INK2, sw=0.9)
+    return path(cup, stroke=RED2, fill=RED_W, sw=1.1) + stem + base + handle_l + handle_r
+
+
+def war_inversions():
+    W, H = 1000, 1150
+    o = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="img" '
+        f'aria-label="The new laws of the battlefield: six structural inversions of modern warfare and the exchange arithmetic">'
+    ]
+    o.append(rect(0, 0, W, H, stroke="none", fill=BG))
+
+    # Top Bar
+    o.append(txt(40, 28, "FIG. 01", 11, RED2, MONO, weight=700, ls="0.12em"))
+    o.append(txt(960, 28, "DOCTRINE · MODERN WARFARE · REALITIES", 9.5, INK4, MONO, anchor="end", ls="0.14em"))
+    o.append(line(40, 38, 960, 38, LINE2))
+
+    # Main Title
+    o.append(txt(500, 72, "THE NEW LAWS OF THE BATTLEFIELD", 24, INK, SANS, anchor="middle", weight=800, ls="0.04em"))
+    o.append(txt(500, 94, "Same conflict. Different arithmetic.", 11.5, INK3, MONO, anchor="middle"))
+    o.append(line(40, 108, 960, 108, LINE))
+
+    # Column Headers
+    o.append(txt(305, 128, "OLD LOGIC", 11, INK3, MONO, anchor="middle", weight=700, ls="0.18em"))
+    o.append(txt(740, 128, "NEW LOGIC", 11, RED2, MONO, anchor="middle", weight=700, ls="0.18em"))
+    o.append(line(40, 140, 960, 140, LINE2))
+
+    # 6 Rows
+    rows = [
+        ("01", "PLATFORM", draw_jet, "Exquisite · Manned",
+         draw_drone_formation, "Autonomous · Attritable", INK),
+        ("02", "PRODUCTION", lambda cx, cy: "".join(draw_missile_vertical(cx + dx, cy) for dx in (-36, -12, 12, 36)), "Hundreds",
+         draw_factory_conveyor, "Thousands", INK),
+        ("03", "SENSING", draw_sensing_old, "Can hide",
+         draw_sensing_new, "Always seen", RED2),
+        ("04", "SPECTRUM", draw_spectrum_old, "GPS assumed",
+         draw_spectrum_new, "Denial is normal", RED2),
+        ("05", "GEOMETRY", draw_geometry_old, "Concentrated",
+         draw_geometry_new, "Dispersed & mobile", INK),
+        ("06", "EXCHANGE", draw_exchange_old, "Costly defence",
+         draw_exchange_new, "Massed cheap attack", RED2),
+    ]
+
+    row_h = 92
+    y_start = 140
+    for idx, (num, cat, draw_old, old_lbl, draw_new, new_lbl, new_col) in enumerate(rows):
+        y_top = y_start + idx * row_h
+        y_center = y_top + 38
+        y_bot = y_top + row_h
+
+        if idx % 2 == 1:
+            o.append(rect(40, y_top, 920, row_h, stroke="none", fill="#FCFDFF"))
+
+        o.append(txt(52, y_top + 30, num, 13, RED2, MONO, weight=800))
+        o.append(txt(52, y_top + 46, cat, 9.5, INK, MONO, weight=700, ls="0.1em"))
+
+        o.append(draw_old(305, y_center))
+        o.append(txt(305, y_top + 76, old_lbl, 11, INK3, MONO, anchor="middle"))
+
+        arr_y = y_top + 38
+        o.append(line(482, arr_y, 516, arr_y, stroke=RED2, sw=1.8))
+        o.append(path(f"M{512},{arr_y-4} L{518},{arr_y} L{512},{arr_y+4}", stroke=RED2, fill="none", sw=1.8))
+
+        o.append(draw_new(740, y_center))
+        o.append(txt(740, y_top + 76, new_lbl, 11.5, new_col, MONO, anchor="middle", weight=700))
+
+        o.append(line(40, y_bot, 960, y_bot, LINE if idx < 5 else LINE2))
+
+    # Bottom Section: Three Cards
+    card_y = 712
+    card_h = 380
+
+    # ── Card 1: THE EXCHANGE ──
+    c1_x, c1_w = 40, 286
+    o.append(rect(c1_x, card_y, c1_w, card_h, stroke=LINE2, fill=CARD_BG, rx=4))
+    o.append(txt(c1_x + 16, card_y + 26, "THE EXCHANGE", 11, RED2, MONO, weight=700, ls="0.14em"))
+    o.append(line(c1_x + 16, card_y + 36, c1_x + c1_w - 16, card_y + 36, LINE2))
+
+    ix = c1_x + 36
+    iy = card_y + 115
+    o.append(draw_missile_vertical(ix, iy, h=86, w=13, stroke=INK, fill="#FFFFFF"))
+    o.append(txt(c1_x + 64, iy + 6, ":", 24, INK3, MONO, anchor="middle", weight=700))
+
+    for row_i in range(5):
+        for col_j in range(7):
+            dx = c1_x + 88 + col_j * 26
+            dy = card_y + 70 + row_i * 22
+            o.append(draw_drone_mini(dx, dy, s=0.8, stroke=RED2, fill=RED))
+
+    cb_y = card_y + 185
+    o.append(rect(c1_x + 16, cb_y, c1_w - 32, 54, stroke=LINE2, fill="#FFFFFF", rx=3))
+    o.append(txt(c1_x + 28, cb_y + 30, "1 : 50–200", 24, INK, MONO, weight=800))
+    o.append(txt(c1_x + 28, cb_y + 45, "High-end interceptor : attritable rounds", 9.2, INK3, MONO, weight=600))
+
+    note_y = cb_y + 68
+    o.append(line(c1_x + 16, note_y, c1_x + c1_w - 16, note_y, LINE))
+    o.append(txt(c1_x + 16, note_y + 18, "One ₹18–35 Cr surface-to-air interceptor", 10.5, INK2, SANS))
+    o.append(txt(c1_x + 16, note_y + 34, "expended per incoming target. Attritable", 10.5, INK2, SANS))
+    o.append(txt(c1_x + 16, note_y + 50, "strike rounds cost under ₹1.5 Cr each.", 10.5, INK2, SANS))
+    o.append(txt(c1_x + 16, note_y + 66, "The defence exhausts national magazines", 10.5, RED2, SANS, weight=600))
+    o.append(txt(c1_x + 16, note_y + 82, "long before attacker mass is depleted.", 10.5, RED2, SANS, weight=600))
+
+    # ── Card 2: WHAT NOW DECIDES ──
+    c2_x, c2_w = 342, 316
+    o.append(rect(c2_x, card_y, c2_w, card_h, stroke=LINE2, fill=CARD_BG, rx=4))
+    o.append(txt(c2_x + 16, card_y + 26, "WHAT NOW DECIDES", 11, RED2, MONO, weight=700, ls="0.14em"))
+    o.append(line(c2_x + 16, card_y + 36, c2_x + c2_w - 16, card_y + 36, LINE2))
+
+    metrics = [
+        (icon_coins, "Cost per effect", 0.78, "78%"),
+        (icon_factory, "Monthly output", 0.74, "74%"),
+        (icon_missiles, "Magazine depth", 0.68, "68%"),
+        (icon_chip, "Autonomy", 0.62, "62%"),
+        (icon_code, "Upgrade speed", 0.58, "58%"),
+        (icon_clock, "Decision speed", 0.84, "84%"),
+    ]
+
+    for m_i, (icon_fn, label, pct, pct_str) in enumerate(metrics):
+        my = card_y + 64 + m_i * 51
+        o.append(icon_fn(c2_x + 28, my + 6))
+        o.append(txt(c2_x + 46, my + 3, label, 11, INK, MONO, weight=600))
+        o.append(txt(c2_x + c2_w - 18, my + 3, pct_str, 10, INK4, MONO, anchor="end"))
+        tr_w = c2_w - 64
+        o.append(rect(c2_x + 46, my + 10, tr_w, 7, stroke="none", fill=LINE, rx=3.5))
+        o.append(rect(c2_x + 46, my + 10, tr_w * pct, 7, stroke="none", fill=RED, rx=3.5))
+
+    # ── Card 3: OPERATING CONSEQUENCE ──
+    c3_x, c3_w = 674, 286
+    o.append(rect(c3_x, card_y, c3_w, card_h, stroke=LINE2, fill=CARD_BG, rx=4))
+    o.append(txt(c3_x + 16, card_y + 26, "OPERATING CONSEQUENCE", 11, RED2, MONO, weight=700, ls="0.14em"))
+    o.append(line(c3_x + 16, card_y + 36, c3_x + c3_w - 16, card_y + 36, LINE2))
+
+    consequences = [
+        ("01", icon_network, "Disperse", "Remove fixed single points of failure"),
+        ("02", icon_factory, "Manufacture at rate", "Production capacity outlasts stocks"),
+        ("03", icon_eye, "Assume observation", "Total battlefield transparency"),
+        ("04", icon_antenna, "Fight through jamming", "Optical, inertial and terrain fixes"),
+        ("05", icon_gears_dual, "Automate", "Terminal guidance at the edge"),
+        ("06", icon_trophy, "Win the exchange", "Impose insurmountable attrition cost"),
+    ]
+
+    for c_i, (num, icon_fn, action, sub) in enumerate(consequences):
+        cy = card_y + 64 + c_i * 51
+        o.append(txt(c3_x + 16, cy + 5, num, 11, RED2, MONO, weight=700))
+        o.append(icon_fn(c3_x + 42, cy + 5))
+        o.append(txt(c3_x + 58, cy + 2, action, 11.5, INK, MONO, weight=700))
+        o.append(txt(c3_x + 58, cy + 16, sub, 8.8, INK4, SANS))
+
+    # Footer Rule
+    o.append(line(40, 1108, 960, 1108, LINE2))
+    o.append(txt(40, 1128, "DIFFERENT LAWS. DIFFERENT VICTORIES.", 9.5, INK4, MONO, ls="0.14em"))
+    o.append(txt(960, 1128, "ARITHMETIC SHAPES OUTCOMES.", 9.5, INK4, MONO, anchor="end", ls="0.14em"))
+
     o.append("</svg>")
     return "".join(o)
 
@@ -1297,6 +1792,9 @@ def main():
         inline[name] = svg
     json.dump(inline, open(os.path.join(OUT, "visuals.json"), "w", encoding="utf-8"))
     print("wrote assets/visuals.json")
+    with open(os.path.join(OUT, "modern-warfare-inversions.svg"), "w", encoding="utf-8") as f:
+        f.write(inline["war_inversions"])
+    print("wrote assets/modern-warfare-inversions.svg")
 
 
 if __name__ == "__main__":
