@@ -189,7 +189,7 @@ def panel_box(x, y, w, h, label, sub=None, stroke=LINE3, fill=BG, sw=1,
 
 
 # ══════════════════════════════════════════════════════════════════════
-# 1 · THE WAR CHANGED SHAPE — six inversions + the exchange arithmetic
+# 1 · THE WAR CHANGED SHAPE — battlefield shifts + cost balance
 # ══════════════════════════════════════════════════════════════════════
 def draw_jet(cx, cy, scale=1.0, stroke=INK2, fill="#FFFFFF"):
     s = scale
@@ -580,39 +580,39 @@ def war_inversions():
     W, H = 1000, 1150
     o = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="img" '
-        f'aria-label="The new laws of the battlefield: six structural inversions of modern warfare and the exchange arithmetic">'
+        f'aria-label="How modern warfare is changing: shifts from high-cost platforms to mass production, and the practical cost of intercepting low-cost drones">'
     ]
     o.append(rect(0, 0, W, H, stroke="none", fill=BG))
 
     # Top Bar
     o.append(txt(40, 28, "FIG. 01", 11, RED2, MONO, weight=700, ls="0.12em"))
-    o.append(txt(960, 28, "DOCTRINE · MODERN WARFARE · REALITIES", 9.5, INK4, MONO, anchor="end", ls="0.14em"))
+    o.append(txt(960, 28, "MODERN WARFARE OVERVIEW", 9.5, INK4, MONO, anchor="end", ls="0.14em"))
     o.append(line(40, 38, 960, 38, LINE2))
 
     # Main Title
-    o.append(txt(500, 72, "THE NEW LAWS OF THE BATTLEFIELD", 24, INK, SANS, anchor="middle", weight=800, ls="0.04em"))
-    o.append(txt(500, 94, "Same conflict. Different arithmetic.", 11.5, INK3, MONO, anchor="middle"))
+    o.append(txt(500, 72, "HOW THE BATTLEFIELD IS CHANGING", 24, INK, SANS, anchor="middle", weight=800, ls="0.04em"))
+    o.append(txt(500, 94, "From small numbers of high-cost platforms to uncrewed mass and steady production.", 11.5, INK3, MONO, anchor="middle"))
     o.append(line(40, 108, 960, 108, LINE))
 
     # Column Headers
-    o.append(txt(305, 128, "OLD LOGIC", 11, INK3, MONO, anchor="middle", weight=700, ls="0.18em"))
-    o.append(txt(740, 128, "NEW LOGIC", 11, RED2, MONO, anchor="middle", weight=700, ls="0.18em"))
+    o.append(txt(305, 128, "THEN", 11, INK3, MONO, anchor="middle", weight=700, ls="0.18em"))
+    o.append(txt(740, 128, "NOW", 11, RED2, MONO, anchor="middle", weight=700, ls="0.18em"))
     o.append(line(40, 140, 960, 140, LINE2))
 
     # 6 Rows
     rows = [
-        ("01", "PLATFORM", draw_jet, "Exquisite · Manned",
-         draw_drone_formation, "Autonomous · Attritable", INK),
-        ("02", "PRODUCTION", lambda cx, cy: "".join(draw_missile_vertical(cx + dx, cy) for dx in (-36, -12, 12, 36)), "Hundreds",
-         draw_factory_conveyor, "Thousands", INK),
-        ("03", "SENSING", draw_sensing_old, "Can hide",
-         draw_sensing_new, "Always seen", RED2),
+        ("01", "PLATFORM", draw_jet, "Manned aircraft",
+         draw_drone_formation, "Uncrewed drones", INK),
+        ("02", "PRODUCTION", lambda cx, cy: "".join(draw_missile_vertical(cx + dx, cy) for dx in (-36, -12, 12, 36)), "Hundreds produced",
+         draw_factory_conveyor, "Thousands produced", INK),
+        ("03", "SENSING", draw_sensing_old, "Vehicles can hide",
+         draw_sensing_new, "Always observed", RED2),
         ("04", "SPECTRUM", draw_spectrum_old, "GPS assumed",
-         draw_spectrum_new, "Denial is normal", RED2),
-        ("05", "GEOMETRY", draw_geometry_old, "Concentrated",
+         draw_spectrum_new, "Signals denied", RED2),
+        ("05", "GEOMETRY", draw_geometry_old, "Concentrated bases",
          draw_geometry_new, "Dispersed & mobile", INK),
-        ("06", "EXCHANGE", draw_exchange_old, "Costly defence",
-         draw_exchange_new, "Massed cheap attack", RED2),
+        ("06", "COST", draw_exchange_old, "Costly interceptors",
+         draw_exchange_new, "Low-cost drone waves", RED2),
     ]
 
     row_h = 92
@@ -644,10 +644,10 @@ def war_inversions():
     card_y = 712
     card_h = 380
 
-    # ── Card 1: THE EXCHANGE ──
+    # ── Card 1: THE COST BALANCE ──
     c1_x, c1_w = 40, 286
     o.append(rect(c1_x, card_y, c1_w, card_h, stroke=LINE2, fill=CARD_BG, rx=4))
-    o.append(txt(c1_x + 16, card_y + 26, "THE EXCHANGE", 11, RED2, MONO, weight=700, ls="0.14em"))
+    o.append(txt(c1_x + 16, card_y + 26, "THE COST BALANCE", 11, RED2, MONO, weight=700, ls="0.14em"))
     o.append(line(c1_x + 16, card_y + 36, c1_x + c1_w - 16, card_y + 36, LINE2))
 
     ix = c1_x + 36
@@ -664,28 +664,28 @@ def war_inversions():
     cb_y = card_y + 185
     o.append(rect(c1_x + 16, cb_y, c1_w - 32, 54, stroke=LINE2, fill="#FFFFFF", rx=3))
     o.append(txt(c1_x + 28, cb_y + 30, "1 : 50–200", 24, INK, MONO, weight=800))
-    o.append(txt(c1_x + 28, cb_y + 45, "High-end interceptor : attritable rounds", 9.2, INK3, MONO, weight=600))
+    o.append(txt(c1_x + 28, cb_y + 45, "Cost ratio: 1 interceptor to 50–200 drones", 9.2, INK3, MONO, weight=600))
 
     note_y = cb_y + 68
     o.append(line(c1_x + 16, note_y, c1_x + c1_w - 16, note_y, LINE))
-    o.append(txt(c1_x + 16, note_y + 18, "One ₹18–35 Cr surface-to-air interceptor", 10.5, INK2, SANS))
-    o.append(txt(c1_x + 16, note_y + 34, "expended per incoming target. Attritable", 10.5, INK2, SANS))
-    o.append(txt(c1_x + 16, note_y + 50, "strike rounds cost under ₹1.5 Cr each.", 10.5, INK2, SANS))
-    o.append(txt(c1_x + 16, note_y + 66, "The defence exhausts national magazines", 10.5, RED2, SANS, weight=600))
-    o.append(txt(c1_x + 16, note_y + 82, "long before attacker mass is depleted.", 10.5, RED2, SANS, weight=600))
+    o.append(txt(c1_x + 16, note_y + 18, "A modern air-defence missile costs", 10.5, INK2, SANS))
+    o.append(txt(c1_x + 16, note_y + 34, "₹18–35 crore, while a strike drone costs", 10.5, INK2, SANS))
+    o.append(txt(c1_x + 16, note_y + 50, "under ₹1.5 crore.", 10.5, INK2, SANS))
+    o.append(txt(c1_x + 16, note_y + 66, "Using expensive interceptors against", 10.5, RED2, SANS, weight=600))
+    o.append(txt(c1_x + 16, note_y + 82, "cheap drones quickly strains stockpiles.", 10.5, RED2, SANS, weight=600))
 
-    # ── Card 2: WHAT NOW DECIDES ──
+    # ── Card 2: WHAT DECIDES OUTCOMES ──
     c2_x, c2_w = 342, 316
     o.append(rect(c2_x, card_y, c2_w, card_h, stroke=LINE2, fill=CARD_BG, rx=4))
-    o.append(txt(c2_x + 16, card_y + 26, "WHAT NOW DECIDES", 11, RED2, MONO, weight=700, ls="0.14em"))
+    o.append(txt(c2_x + 16, card_y + 26, "WHAT DECIDES OUTCOMES", 11, RED2, MONO, weight=700, ls="0.14em"))
     o.append(line(c2_x + 16, card_y + 36, c2_x + c2_w - 16, card_y + 36, LINE2))
 
     metrics = [
-        (icon_coins, "Cost per effect", 0.78, "78%"),
-        (icon_factory, "Monthly output", 0.74, "74%"),
-        (icon_missiles, "Magazine depth", 0.68, "68%"),
-        (icon_chip, "Autonomy", 0.62, "62%"),
-        (icon_code, "Upgrade speed", 0.58, "58%"),
+        (icon_coins, "Cost per target", 0.78, "78%"),
+        (icon_factory, "Monthly production", 0.74, "74%"),
+        (icon_missiles, "Stockpile depth", 0.68, "68%"),
+        (icon_chip, "Onboard autonomy", 0.62, "62%"),
+        (icon_code, "Software cadence", 0.58, "58%"),
         (icon_clock, "Decision speed", 0.84, "84%"),
     ]
 
@@ -698,19 +698,19 @@ def war_inversions():
         o.append(rect(c2_x + 46, my + 10, tr_w, 7, stroke="none", fill=LINE, rx=3.5))
         o.append(rect(c2_x + 46, my + 10, tr_w * pct, 7, stroke="none", fill=RED, rx=3.5))
 
-    # ── Card 3: OPERATING CONSEQUENCE ──
+    # ── Card 3: PRACTICAL TAKEAWAYS ──
     c3_x, c3_w = 674, 286
     o.append(rect(c3_x, card_y, c3_w, card_h, stroke=LINE2, fill=CARD_BG, rx=4))
-    o.append(txt(c3_x + 16, card_y + 26, "OPERATING CONSEQUENCE", 11, RED2, MONO, weight=700, ls="0.14em"))
+    o.append(txt(c3_x + 16, card_y + 26, "PRACTICAL TAKEAWAYS", 11, RED2, MONO, weight=700, ls="0.14em"))
     o.append(line(c3_x + 16, card_y + 36, c3_x + c3_w - 16, card_y + 36, LINE2))
 
     consequences = [
-        ("01", icon_network, "Disperse", "Remove fixed single points of failure"),
-        ("02", icon_factory, "Manufacture at rate", "Production capacity outlasts stocks"),
-        ("03", icon_eye, "Assume observation", "Total battlefield transparency"),
-        ("04", icon_antenna, "Fight through jamming", "Optical, inertial and terrain fixes"),
-        ("05", icon_gears_dual, "Automate", "Terminal guidance at the edge"),
-        ("06", icon_trophy, "Win the exchange", "Impose insurmountable attrition cost"),
+        ("01", icon_network, "Disperse", "Spread out assets to reduce target value"),
+        ("02", icon_factory, "Manufacture at rate", "Steady production outlasts fixed stocks"),
+        ("03", icon_eye, "Assume observation", "Expect assets on the ground to be spotted"),
+        ("04", icon_antenna, "Navigate without GPS", "Rely on cameras, terrain, and compass"),
+        ("05", icon_gears_dual, "Automate", "Use onboard vision in the final dive"),
+        ("06", icon_trophy, "Win the cost balance", "Keep attack costs far below defense"),
     ]
 
     for c_i, (num, icon_fn, action, sub) in enumerate(consequences):
@@ -722,8 +722,8 @@ def war_inversions():
 
     # Footer Rule
     o.append(line(40, 1108, 960, 1108, LINE2))
-    o.append(txt(40, 1128, "DIFFERENT LAWS. DIFFERENT VICTORIES.", 9.5, INK4, MONO, ls="0.14em"))
-    o.append(txt(960, 1128, "ARITHMETIC SHAPES OUTCOMES.", 9.5, INK4, MONO, anchor="end", ls="0.14em"))
+    o.append(txt(40, 1128, "Apollyon Dynamics · Modern conflict overview", 9.5, INK4, MONO, ls="0.14em"))
+    o.append(txt(960, 1128, "Production scale, continuous navigation, and cost balance", 9.5, INK4, MONO, anchor="end", ls="0.14em"))
 
     o.append("</svg>")
     return "".join(o)

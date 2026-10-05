@@ -135,9 +135,9 @@ window.WIKI_MAP = {
        "subs": []
       }
      ],
-     "words": 4988,
-     "bytes": 213376,
-     "lastmod": "2026-10-05T02:07:11+05:30",
+     "words": 4987,
+     "bytes": 213462,
+     "lastmod": "2026-10-05T02:14:25+05:30",
      "links": [
       "strategy/market.html",
       "about/team.html"
