@@ -342,13 +342,13 @@ def draw_sensing_new(cx, cy):
 
 def draw_spectrum_old(cx, cy):
     out = []
-    sx, sy = cx - 55, cy - 10
+    sx, sy = cx - 55, cy - 13
     out.append(rect(sx - 4, sy - 3, 8, 6, stroke=INK, fill="#FFFFFF", sw=1))
     out.append(rect(sx - 13, sy - 2, 8, 4, stroke=INK3, fill="#EAF3FF", sw=0.8))
     out.append(rect(sx + 5, sy - 2, 8, 4, stroke=INK3, fill="#EAF3FF", sw=0.8))
     out.append(line(sx, sy + 3, sx + 3, sy + 7, stroke=INK3, sw=1))
 
-    dx, dy = cx + 52, cy + 8
+    dx, dy = cx + 52, cy + 3
     out.append(path(f"M{dx-12},{dy-14} Q{dx-22},{dy-3} {dx-10},{dy+5}", stroke=INK, fill="none", sw=1.6))
     out.append(line(dx - 17, dy - 5, dx - 3, dy - 7, stroke=INK3, sw=1.2))
     out.append(circle(dx - 3, dy - 7, 1.8, stroke=INK3, fill=INK3, sw=1))
@@ -392,20 +392,20 @@ def draw_spectrum_new(cx, cy):
 
 def draw_geometry_old(cx, cy):
     out = []
-    out.append(path(f"M{cx-80},{cy+18} L{cx-40},{cy-12} L{cx+55},{cy-12} L{cx+80},{cy+18} Z", stroke=LINE2, fill="#F8F9FA", sw=1))
-    out.append(line(cx - 15, cy - 12, cx - 35, cy + 18, stroke=LINE3, sw=1.2, dash="4,3"))
+    out.append(path(f"M{cx-80},{cy+16} L{cx-40},{cy-14} L{cx+55},{cy-14} L{cx+80},{cy+16} Z", stroke=LINE2, fill="#F8F9FA", sw=1))
+    out.append(line(cx - 15, cy - 14, cx - 35, cy + 16, stroke=LINE3, sw=1.2, dash="4,3"))
 
     hx = cx - 52
-    out.append(path(f"M{hx-18},{cy+6} Q{hx},{cy-14} {hx+18},{cy+6} Z", stroke=INK2, fill="#FFFFFF", sw=1.2))
-    out.append(rect(hx - 10, cy - 1, 20, 7, stroke=LINE3, fill=LINE, sw=0.8))
+    out.append(path(f"M{hx-18},{cy+4} Q{hx},{cy-16} {hx+18},{cy+4} Z", stroke=INK2, fill="#FFFFFF", sw=1.2))
+    out.append(rect(hx - 10, cy - 3, 20, 7, stroke=LINE3, fill=LINE, sw=0.8))
 
     tx = cx + 58
-    out.append(path(f"M{tx-4},{cy+12} L{tx-2},{cy-6} L{tx+2},{cy-6} L{tx+4},{cy+12} Z", stroke=INK, fill="#FFFFFF", sw=1.1))
-    out.append(rect(tx - 6, cy - 10, 12, 4, stroke=INK, fill="#EAF3FF", sw=0.9))
-    out.append(circle(tx, cy - 12, 2.5, stroke=INK, fill="#FFFFFF", sw=0.9))
+    out.append(path(f"M{tx-4},{cy+10} L{tx-2},{cy-8} L{tx+2},{cy-8} L{tx+4},{cy+10} Z", stroke=INK, fill="#FFFFFF", sw=1.1))
+    out.append(rect(tx - 6, cy - 12, 12, 4, stroke=INK, fill="#EAF3FF", sw=0.9))
+    out.append(circle(tx, cy - 14, 2.5, stroke=INK, fill="#FFFFFF", sw=0.9))
 
-    out.append(draw_jet(cx - 20, cy + 4, scale=0.6, stroke=INK3, fill="#FFFFFF"))
-    out.append(draw_jet(cx + 12, cy + 4, scale=0.6, stroke=INK3, fill="#FFFFFF"))
+    out.append(draw_jet(cx - 20, cy + 2, scale=0.55, stroke=INK3, fill="#FFFFFF"))
+    out.append(draw_jet(cx + 12, cy + 2, scale=0.55, stroke=INK3, fill="#FFFFFF"))
     return "".join(out)
 
 
@@ -461,15 +461,15 @@ def draw_exchange_old(cx, cy):
 
 def draw_exchange_new(cx, cy):
     out = []
-    ix, iy = cx + 65, cy + 2
+    ix, iy = cx + 65, cy - 2
     m_body = f"M{ix-12},{iy-10} L{ix+8},{iy+8} L{ix+5},{iy+11} L{ix-15},{iy-7} Z"
     out.append(path(m_body, stroke=INK, fill="#FFFFFF", sw=1.2))
     out.append(line(ix + 8, iy + 8, ix + 18, iy + 18, stroke=INK4, sw=1, dash="2,2"))
 
     drone_coords = [
-        (cx - 75, cy - 14), (cx - 50, cy - 16), (cx - 25, cy - 12), (cx + 5, cy - 16), (cx + 35, cy - 14),
-        (cx - 65, cy),      (cx - 38, cy + 2),  (cx - 10, cy - 2),  (cx + 18, cy),      (cx + 45, cy + 2),
-        (cx - 75, cy + 14), (cx - 48, cy + 14), (cx - 20, cy + 12), (cx + 8, cy + 14),  (cx + 32, cy + 15),
+        (cx - 75, cy - 17), (cx - 50, cy - 19), (cx - 25, cy - 15), (cx + 5, cy - 19), (cx + 35, cy - 17),
+        (cx - 65, cy - 3),  (cx - 38, cy - 1),  (cx - 10, cy - 5),  (cx + 18, cy - 3),  (cx + 45, cy - 1),
+        (cx - 75, cy + 11), (cx - 48, cy + 11), (cx - 20, cy + 9),  (cx + 8, cy + 11),  (cx + 32, cy + 12),
     ]
     for x, y in drone_coords:
         out.append(draw_drone_mini(x, y, s=0.75, stroke=RED2, fill=RED))
@@ -577,7 +577,7 @@ def icon_trophy(cx, cy):
 
 
 def war_inversions():
-    W, H = 1000, 1150
+    W, H = 1000, 824
     o = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="img" '
         f'aria-label="How modern warfare is changing: shifts from high-cost platforms to mass production, and the practical cost of intercepting low-cost drones">'
@@ -585,26 +585,26 @@ def war_inversions():
     o.append(rect(0, 0, W, H, stroke="none", fill=BG))
 
     # Top Bar
-    o.append(txt(40, 28, "FIG. 01", 11, RED2, MONO, weight=700, ls="0.12em"))
-    o.append(txt(960, 28, "MODERN WARFARE OVERVIEW", 9.5, INK4, MONO, anchor="end", ls="0.14em"))
-    o.append(line(40, 38, 960, 38, LINE2))
+    o.append(txt(40, 20, "FIG. 01", 10.5, RED2, MONO, weight=700, ls="0.12em"))
+    o.append(txt(960, 20, "MODERN WARFARE OVERVIEW", 9, INK4, MONO, anchor="end", ls="0.14em"))
+    o.append(line(40, 28, 960, 28, LINE2))
 
     # Main Title
-    o.append(txt(500, 72, "HOW THE BATTLEFIELD IS CHANGING", 24, INK, SANS, anchor="middle", weight=800, ls="0.04em"))
-    o.append(txt(500, 94, "From small numbers of high-cost platforms to uncrewed mass and steady production.", 11.5, INK3, MONO, anchor="middle"))
-    o.append(line(40, 108, 960, 108, LINE))
+    o.append(txt(500, 52, "HOW THE BATTLEFIELD IS CHANGING", 21, INK, SANS, anchor="middle", weight=800, ls="0.03em"))
+    o.append(txt(500, 69, "From small numbers of high-cost platforms to uncrewed mass and steady production.", 10.5, INK3, MONO, anchor="middle"))
+    o.append(line(40, 78, 960, 78, LINE))
 
     # Column Headers
-    o.append(txt(305, 128, "THEN", 11, INK3, MONO, anchor="middle", weight=700, ls="0.18em"))
-    o.append(txt(740, 128, "NOW", 11, RED2, MONO, anchor="middle", weight=700, ls="0.18em"))
-    o.append(line(40, 140, 960, 140, LINE2))
+    o.append(txt(305, 93, "THEN", 10.5, INK3, MONO, anchor="middle", weight=700, ls="0.18em"))
+    o.append(txt(740, 93, "NOW", 10.5, RED2, MONO, anchor="middle", weight=700, ls="0.18em"))
+    o.append(line(40, 102, 960, 102, LINE2))
 
     # 6 Rows
     rows = [
-        ("01", "PLATFORM", draw_jet, "Manned aircraft",
+        ("01", "PLATFORM", lambda cx, cy: draw_jet(cx, cy, scale=0.9), "Manned aircraft",
          draw_drone_formation, "Uncrewed drones", INK),
-        ("02", "PRODUCTION", lambda cx, cy: "".join(draw_missile_vertical(cx + dx, cy) for dx in (-36, -12, 12, 36)), "Hundreds produced",
-         draw_factory_conveyor, "Thousands produced", INK),
+        ("02", "PRODUCTION", lambda cx, cy: "".join(draw_missile_vertical(cx + dx, cy, h=26, w=5.5) for dx in (-36, -12, 12, 36)), "Hundreds produced",
+         lambda cx, cy: draw_factory_conveyor(cx, cy - 2), "Thousands produced", INK),
         ("03", "SENSING", draw_sensing_old, "Vehicles can hide",
          draw_sensing_new, "Always observed", RED2),
         ("04", "SPECTRUM", draw_spectrum_old, "GPS assumed",
@@ -615,70 +615,70 @@ def war_inversions():
          draw_exchange_new, "Low-cost drone waves", RED2),
     ]
 
-    row_h = 92
-    y_start = 140
+    row_h = 70
+    y_start = 102
     for idx, (num, cat, draw_old, old_lbl, draw_new, new_lbl, new_col) in enumerate(rows):
         y_top = y_start + idx * row_h
-        y_center = y_top + 38
+        y_center = y_top + 28
         y_bot = y_top + row_h
 
         if idx % 2 == 1:
             o.append(rect(40, y_top, 920, row_h, stroke="none", fill="#FCFDFF"))
 
-        o.append(txt(52, y_top + 30, num, 13, RED2, MONO, weight=800))
-        o.append(txt(52, y_top + 46, cat, 9.5, INK, MONO, weight=700, ls="0.1em"))
+        o.append(txt(52, y_top + 25, num, 12, RED2, MONO, weight=800))
+        o.append(txt(52, y_top + 39, cat, 9, INK, MONO, weight=700, ls="0.1em"))
 
         o.append(draw_old(305, y_center))
-        o.append(txt(305, y_top + 76, old_lbl, 11, INK3, MONO, anchor="middle"))
+        o.append(txt(305, y_top + 58, old_lbl, 10.5, INK3, MONO, anchor="middle"))
 
-        arr_y = y_top + 38
-        o.append(line(482, arr_y, 516, arr_y, stroke=RED2, sw=1.8))
-        o.append(path(f"M{512},{arr_y-4} L{518},{arr_y} L{512},{arr_y+4}", stroke=RED2, fill="none", sw=1.8))
+        arr_y = y_top + 28
+        o.append(line(484, arr_y, 516, arr_y, stroke=RED2, sw=1.6))
+        o.append(path(f"M{512},{arr_y-3.5} L{518},{arr_y} L{512},{arr_y+3.5}", stroke=RED2, fill="none", sw=1.6))
 
         o.append(draw_new(740, y_center))
-        o.append(txt(740, y_top + 76, new_lbl, 11.5, new_col, MONO, anchor="middle", weight=700))
+        o.append(txt(740, y_top + 58, new_lbl, 11, new_col, MONO, anchor="middle", weight=700))
 
         o.append(line(40, y_bot, 960, y_bot, LINE if idx < 5 else LINE2))
 
     # Bottom Section: Three Cards
-    card_y = 712
-    card_h = 380
+    card_y = 530
+    card_h = 252
 
     # ── Card 1: THE COST BALANCE ──
     c1_x, c1_w = 40, 286
     o.append(rect(c1_x, card_y, c1_w, card_h, stroke=LINE2, fill=CARD_BG, rx=4))
-    o.append(txt(c1_x + 16, card_y + 26, "THE COST BALANCE", 11, RED2, MONO, weight=700, ls="0.14em"))
-    o.append(line(c1_x + 16, card_y + 36, c1_x + c1_w - 16, card_y + 36, LINE2))
+    o.append(txt(c1_x + 16, card_y + 20, "THE COST BALANCE", 10.5, RED2, MONO, weight=700, ls="0.14em"))
+    o.append(line(c1_x + 16, card_y + 28, c1_x + c1_w - 16, card_y + 28, LINE2))
 
     ix = c1_x + 36
-    iy = card_y + 115
-    o.append(draw_missile_vertical(ix, iy, h=86, w=13, stroke=INK, fill="#FFFFFF"))
-    o.append(txt(c1_x + 64, iy + 6, ":", 24, INK3, MONO, anchor="middle", weight=700))
+    iy = card_y + 76
+    o.append(draw_missile_vertical(ix, iy, h=66, w=10.5, stroke=INK, fill="#FFFFFF"))
+    o.append(txt(c1_x + 62, iy + 5, ":", 20, INK3, MONO, anchor="middle", weight=700))
 
     for row_i in range(5):
         for col_j in range(7):
-            dx = c1_x + 88 + col_j * 26
-            dy = card_y + 70 + row_i * 22
-            o.append(draw_drone_mini(dx, dy, s=0.8, stroke=RED2, fill=RED))
+            dx = c1_x + 84 + col_j * 25
+            dy = card_y + 44 + row_i * 16
+            o.append(draw_drone_mini(dx, dy, s=0.75, stroke=RED2, fill=RED))
 
-    cb_y = card_y + 185
-    o.append(rect(c1_x + 16, cb_y, c1_w - 32, 54, stroke=LINE2, fill="#FFFFFF", rx=3))
-    o.append(txt(c1_x + 28, cb_y + 30, "1 : 50–200", 24, INK, MONO, weight=800))
-    o.append(txt(c1_x + 28, cb_y + 45, "Cost ratio: 1 interceptor to 50–200 drones", 9.2, INK3, MONO, weight=600))
+    cb_y = card_y + 120
+    o.append(rect(c1_x + 16, cb_y, c1_w - 32, 42, stroke=LINE2, fill="#FFFFFF", rx=3))
+    o.append(txt(c1_x + 26, cb_y + 22, "1 : 50–200", 20, INK, MONO, weight=800))
+    o.append(txt(c1_x + 26, cb_y + 35, "Cost ratio: 1 interceptor to 50–200 drones", 8.8, INK3, MONO, weight=600))
 
-    note_y = cb_y + 68
+    note_y = card_y + 172
     o.append(line(c1_x + 16, note_y, c1_x + c1_w - 16, note_y, LINE))
-    o.append(txt(c1_x + 16, note_y + 18, "A modern air-defence missile costs", 10.5, INK2, SANS))
-    o.append(txt(c1_x + 16, note_y + 34, "₹18–35 crore, while a strike drone costs", 10.5, INK2, SANS))
-    o.append(txt(c1_x + 16, note_y + 50, "under ₹1.5 crore.", 10.5, INK2, SANS))
-    o.append(txt(c1_x + 16, note_y + 66, "Using expensive interceptors against", 10.5, RED2, SANS, weight=600))
-    o.append(txt(c1_x + 16, note_y + 82, "cheap drones quickly strains stockpiles.", 10.5, RED2, SANS, weight=600))
+    o.append(txt(c1_x + 16, note_y + 14, "A modern air-defence missile costs", 9.8, INK2, SANS))
+    o.append(txt(c1_x + 16, note_y + 28, "₹18–35 crore, while a strike drone costs", 9.8, INK2, SANS))
+    o.append(txt(c1_x + 16, note_y + 42, "under ₹1.5 crore.", 9.8, INK2, SANS))
+    o.append(txt(c1_x + 16, note_y + 57, "Using expensive interceptors against", 9.8, RED2, SANS, weight=600))
+    o.append(txt(c1_x + 16, note_y + 71, "cheap drones quickly strains stockpiles.", 9.8, RED2, SANS, weight=600))
 
     # ── Card 2: WHAT DECIDES OUTCOMES ──
     c2_x, c2_w = 342, 316
     o.append(rect(c2_x, card_y, c2_w, card_h, stroke=LINE2, fill=CARD_BG, rx=4))
-    o.append(txt(c2_x + 16, card_y + 26, "WHAT DECIDES OUTCOMES", 11, RED2, MONO, weight=700, ls="0.14em"))
-    o.append(line(c2_x + 16, card_y + 36, c2_x + c2_w - 16, card_y + 36, LINE2))
+    o.append(txt(c2_x + 16, card_y + 20, "WHAT DECIDES OUTCOMES", 10.5, RED2, MONO, weight=700, ls="0.14em"))
+    o.append(line(c2_x + 16, card_y + 28, c2_x + c2_w - 16, card_y + 28, LINE2))
 
     metrics = [
         (icon_coins, "Cost per target", 0.78, "78%"),
@@ -690,19 +690,19 @@ def war_inversions():
     ]
 
     for m_i, (icon_fn, label, pct, pct_str) in enumerate(metrics):
-        my = card_y + 64 + m_i * 51
-        o.append(icon_fn(c2_x + 28, my + 6))
-        o.append(txt(c2_x + 46, my + 3, label, 11, INK, MONO, weight=600))
-        o.append(txt(c2_x + c2_w - 18, my + 3, pct_str, 10, INK4, MONO, anchor="end"))
+        my = card_y + 39 + m_i * 35
+        o.append(icon_fn(c2_x + 28, my + 5))
+        o.append(txt(c2_x + 46, my + 2, label, 10.5, INK, MONO, weight=600))
+        o.append(txt(c2_x + c2_w - 18, my + 2, pct_str, 9.5, INK4, MONO, anchor="end"))
         tr_w = c2_w - 64
-        o.append(rect(c2_x + 46, my + 10, tr_w, 7, stroke="none", fill=LINE, rx=3.5))
-        o.append(rect(c2_x + 46, my + 10, tr_w * pct, 7, stroke="none", fill=RED, rx=3.5))
+        o.append(rect(c2_x + 46, my + 9, tr_w, 6, stroke="none", fill=LINE, rx=3))
+        o.append(rect(c2_x + 46, my + 9, tr_w * pct, 6, stroke="none", fill=RED, rx=3))
 
     # ── Card 3: PRACTICAL TAKEAWAYS ──
     c3_x, c3_w = 674, 286
     o.append(rect(c3_x, card_y, c3_w, card_h, stroke=LINE2, fill=CARD_BG, rx=4))
-    o.append(txt(c3_x + 16, card_y + 26, "PRACTICAL TAKEAWAYS", 11, RED2, MONO, weight=700, ls="0.14em"))
-    o.append(line(c3_x + 16, card_y + 36, c3_x + c3_w - 16, card_y + 36, LINE2))
+    o.append(txt(c3_x + 16, card_y + 20, "PRACTICAL TAKEAWAYS", 10.5, RED2, MONO, weight=700, ls="0.14em"))
+    o.append(line(c3_x + 16, card_y + 28, c3_x + c3_w - 16, card_y + 28, LINE2))
 
     consequences = [
         ("01", icon_network, "Disperse", "Spread out assets to reduce target value"),
@@ -714,16 +714,16 @@ def war_inversions():
     ]
 
     for c_i, (num, icon_fn, action, sub) in enumerate(consequences):
-        cy = card_y + 64 + c_i * 51
-        o.append(txt(c3_x + 16, cy + 5, num, 11, RED2, MONO, weight=700))
-        o.append(icon_fn(c3_x + 42, cy + 5))
-        o.append(txt(c3_x + 58, cy + 2, action, 11.5, INK, MONO, weight=700))
-        o.append(txt(c3_x + 58, cy + 16, sub, 8.8, INK4, SANS))
+        cy = card_y + 39 + c_i * 35
+        o.append(txt(c3_x + 16, cy + 4, num, 10, RED2, MONO, weight=700))
+        o.append(icon_fn(c3_x + 42, cy + 4))
+        o.append(txt(c3_x + 58, cy + 2, action, 10.5, INK, MONO, weight=700))
+        o.append(txt(c3_x + 58, cy + 15, sub, 8.5, INK4, SANS))
 
     # Footer Rule
-    o.append(line(40, 1108, 960, 1108, LINE2))
-    o.append(txt(40, 1128, "Apollyon Dynamics · Modern conflict overview", 9.5, INK4, MONO, ls="0.14em"))
-    o.append(txt(960, 1128, "Production scale, continuous navigation, and cost balance", 9.5, INK4, MONO, anchor="end", ls="0.14em"))
+    o.append(line(40, 796, 960, 796, LINE2))
+    o.append(txt(40, 810, "Apollyon Dynamics · Modern conflict overview", 9, INK4, MONO, ls="0.14em"))
+    o.append(txt(960, 810, "Production scale, continuous navigation, and cost balance", 9, INK4, MONO, anchor="end", ls="0.14em"))
 
     o.append("</svg>")
     return "".join(o)

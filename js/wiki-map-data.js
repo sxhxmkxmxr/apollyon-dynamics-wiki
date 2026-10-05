@@ -136,8 +136,8 @@ window.WIKI_MAP = {
       }
      ],
      "words": 4987,
-     "bytes": 213462,
-     "lastmod": "2026-10-05T02:14:25+05:30",
+     "bytes": 213961,
+     "lastmod": "2026-10-05T06:43:07+05:30",
      "links": [
       "strategy/market.html",
       "about/team.html"
