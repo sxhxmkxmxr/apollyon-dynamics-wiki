@@ -137,7 +137,7 @@ window.WIKI_MAP = {
      ],
      "words": 4987,
      "bytes": 213961,
-     "lastmod": "2026-10-05T06:43:07+05:30",
+     "lastmod": "2026-10-05T06:59:01+05:30",
      "links": [
       "strategy/market.html",
       "about/team.html"
@@ -159,12 +159,12 @@ window.WIKI_MAP = {
      "sections": [
       {
        "id": "definition",
-       "label": "What Nightshade is, and the gap it closes",
+       "label": "Overview",
        "subs": []
       },
       {
        "id": "family",
-       "label": "Three configurations, one airframe",
+       "label": "Configurations",
        "subs": []
       },
       {
@@ -174,37 +174,37 @@ window.WIKI_MAP = {
       },
       {
        "id": "missions",
-       "label": "Three configurations, several missions",
+       "label": "Missions",
        "subs": []
       },
       {
        "id": "navigation",
-       "label": "Four layers, each a fallback for the last",
+       "label": "Four-layer navigation stack",
        "subs": []
       },
       {
        "id": "seeker",
-       "label": "The Tonbo TRAP-1 seeker",
+       "label": "TRAP-1 seeker",
        "subs": []
       },
       {
        "id": "launch",
-       "label": "Ground-mobile, with a validated launch record",
+       "label": "Launch and recovery",
        "subs": []
       },
       {
        "id": "target-drone",
-       "label": "The target-drone configurations, and why they matter commercially",
+       "label": "Target-drone configurations",
        "subs": []
       },
       {
        "id": "subsystems",
-       "label": "Subsystems used",
+       "label": "Subsystems",
        "subs": []
       }
      ],
-     "words": 1668,
-     "bytes": 59675,
+     "words": 1655,
+     "bytes": 59404,
      "lastmod": "2026-10-05T02:07:11+05:30",
      "links": [
       "index.html",
@@ -367,8 +367,8 @@ window.WIKI_MAP = {
        "subs": []
       }
      ],
-     "words": 1210,
-     "bytes": 53637,
+     "words": 1232,
+     "bytes": 53811,
      "lastmod": "2026-10-04T19:40:36+00:00",
      "links": [
       "index.html",
@@ -831,8 +831,8 @@ window.WIKI_MAP = {
        "subs": []
       }
      ],
-     "words": 474,
-     "bytes": 39639,
+     "words": 473,
+     "bytes": 39625,
      "lastmod": "2026-10-04T06:18:52+00:00",
      "links": [
       "products/nightshade-adx1.html",
@@ -956,8 +956,8 @@ window.WIKI_MAP = {
        "subs": []
       }
      ],
-     "words": 2038,
-     "bytes": 84941,
+     "words": 2034,
+     "bytes": 84935,
      "lastmod": "2026-10-05T02:07:11+05:30",
      "links": [
       "index.html",
@@ -1089,8 +1089,8 @@ window.WIKI_MAP = {
        "subs": []
       }
      ],
-     "words": 2722,
-     "bytes": 70058,
+     "words": 2723,
+     "bytes": 70060,
      "lastmod": "2026-10-05T02:07:11+05:30",
      "links": [
       "index.html",

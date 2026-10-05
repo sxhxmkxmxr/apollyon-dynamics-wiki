@@ -858,7 +858,7 @@ def strike_family():
         return B - lg(v, 10, 3000000) * (B - T)
 
     fam = [
-        ("NIGHTSHADE MK I", 20, ["GNSS-Only", "Proof of Concept"], "20 km range · No warhead", "700 km/h flight test"),
+        ("NIGHTSHADE MK I", 20, ["Airframe and", "Performance test"], "20 km range · No warhead", "700 km/h flight test"),
         ("NIGHTSHADE MK II", 4500, ["Loitering Munition", "+ Target Drones"], "15 kg payload · 300 km", "700 km/h terminal dive"),
         ("HEMLOCK", 675000, ["Long-Range", "Cruise Missile"], "450–500 kg · 1,000–1,500 km", "860–980 km/h"),
     ]
